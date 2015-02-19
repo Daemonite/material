@@ -1,0 +1,42 @@
+.nav {
+	list-style: none;
+	margin: $line-height 0;
+	padding: 0;
+	position: relative;
+	@include clearfix();
+	a,
+	.a {
+		display: block;
+		padding: ($line-height / 2) $grid-gutter;
+		position: relative;
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	li {
+		display: block;
+		position: relative;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+/*
+.nav-justified {
+	width: 100%;
+	> li {
+		display: table-cell !important;
+		float: none !important;
+		width: 1% !important;
+	}
+}
+*/
+
+.nav-list {
+	> li {
+		float: left;
+	}
+}

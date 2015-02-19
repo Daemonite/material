@@ -1,0 +1,31 @@
+.content {
+	padding-bottom: $line-height;
+	.searching & {
+		display: none;
+	}
+}
+
+.content-heading {
+	background-color: $brand-color;
+	color: $white;
+	overflow: hidden;
+	padding-top: ($line-height * 2);
+	position: relative;
+	z-index: 1;
+	@include transition(background-color 0.3s $timing 0s, color 0.3s $timing 0s);
+	.heading {
+		font-weight: 300;
+	}
+}
+
+.content-nav {
+	background-color: $white;
+	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+.content-sub-heading {
+	color: $black-hint;
+	font-size: $font-size;
+	font-weight: 400;
+	line-height: $line-height;
+}

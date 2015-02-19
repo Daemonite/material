@@ -1,0 +1,184 @@
+.form {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+}
+
+.form-control {
+	background-color: transparent;
+	background-image: none;
+	border: 0;
+	border-bottom: 1px solid $black-hint;
+	border-radius: 0;
+	color: $black-text;
+	display: block;
+	font-size: $font-size;
+	height: $line-height;
+	line-height: 1;
+	padding: 0 0 ($line-height - $font-size - 1);
+	width: 100%;
+	@include placeholder($black-hint);
+	@include transition(border-bottom-color 0.15s $timing 0s);
+	&:focus {
+		border-bottom-color: $link-color;
+		border-bottom-width: 2px;
+		outline: 0;
+		padding-bottom: ($line-height - $font-size - 2);
+	}
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] & {
+		border-bottom-style: dashed;
+		color: $black-hint;
+		cursor: not-allowed;
+		opacity: 1;
+	}
+	&:-webkit-autofill {
+		-webkit-box-shadow: inset 0 0 0 ($line-height / 2) $white;
+	}
+	&.inline {
+		display: inline-block;
+		width: auto;
+	}
+	.form-group-green & {
+		border-bottom-color: $palette-green;
+	}
+	.form-group-red & {
+		border-bottom-color: $palette-red;
+	}
+	.form-group-yellow & {
+		border-bottom-color: $palette-yellow;
+	}
+}
+
+input[type="color"] {
+	min-width: $line-height;
+	width: auto;
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"] {
+	line-height: $line-height;
+	line-height: 1 #{\0};
+}
+
+select.form-control {
+	-webkit-appearance: none;
+	@include responsive('-webkit-min-device-pixel-ratio: 0') {
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAkCAMAAACg5NohAAAAZlBMVEUAAABlZWXLy8vg4OB6enrX19fg4OCdnZ2KiopsbGzn5+dzc3Pt7e3GxsbPz89ubm7u7u5ycnLY2NiJiYmGhoZoaGjq6up/f3+WlpaGhoaZmZllZWVhYWFYWFhaWlpdXV1bW1tWVlaZeqNTAAAAHHRSTlMA+WVC31BEqMzyNekpcGDpKNxJzcjkL9CjwZ/yNlWBeQAAALBJREFUKM/NztkWwiAMRdFQoNparR2cGf//J8UFNdXEd8/rXrkAq9rLoIGt3Vkn9A8xJoiaSqeSJGskuXlJNs2sFRPjWo7lptzVVEoO7VyEWofvoEn8NTUUxuZo2KyCPjo2+wB9m7ZM01zB/9feN2zXEVS0bLEHZQ1b6EE2jhNvDsBbMBWkampepJtizNpi4UPyGrEimBbhLT4L2nLnzR6+ksnIGm7iGjXv8xq14bSWJwymLjvMk/6KAAAAAElFTkSuQmCC);
+		background-position: 100% (($font-size - 12) / 2);
+		background-repeat: no-repeat;
+		background-size: auto 12px;
+		padding-right: 12px;
+		&[multiple],
+		&[size] {
+			background-image: none;
+			padding-right: 0;
+		}
+	}
+}
+
+textarea.form-control {
+	height: auto;
+}
+
+.form-control-inverse {
+	color: $white;
+	@include placeholder($white-bg);
+}
+
+.form-control-lg {
+	font-size: $font-size-h3;
+	height: $line-height-h3;
+	padding-bottom: ($line-height-h3 - $font-size-h3 - 1);
+	&:focus {
+		padding-bottom: ($line-height-h3 - $font-size-h3 - 2);
+	}
+}
+
+.form-control-static {
+	border-bottom: 1px solid $black-hint;
+	display: block;
+	font-size: $font-size;
+	font-weight: 400;
+	line-height: $font-size;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: ($line-height - $font-size - 1);
+}
+
+.form-group {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	@include make-row();
+}
+
+.form-group-btn {
+	margin-bottom: $line-height;
+	@include make-row();
+	.btn {
+		margin-top: $line-height;
+		margin-right: $grid-gutter;
+	}
+}
+
+.form-help {
+	display: block;
+	font-size: $font-size-h6;
+	font-weight: 400;
+	margin-top: ($line-height / 2);
+	margin-bottom: ($line-height / 2);
+	position: relative;
+}
+
+.form-help-icon {
+	position: absolute;
+		top: (($line-height - $font-size-h6) / 2);
+		right: 0;
+}
+
+.form-help-msg {
+	padding-right: (18em / 14);
+}
+
+.form-label {
+	display: block;
+	margin-top: ($line-height / 2);
+	margin-bottom: ($line-height / 2);
+	// 480
+		@include responsive(xs) {
+			[class*="col-xs"] > & {
+				@include form-label();
+			}
+		}
+	// 768
+		@include responsive(sm) {
+			[class*="col-sm"] > & {
+				@include form-label();
+			}
+		}
+	// 992
+		@include responsive(md) {
+			[class*="col-md"] > & {
+				@include form-label();
+			}
+		}
+	// 1440
+		@include responsive(lg) {
+			[class*="col-lg"] > & {
+				@include form-label();
+			}
+		}
+}
+
+.form-margin {
+	margin-top: ($line-height / 2);
+	margin-bottom: ($line-height / 2);
+}
+
+.label {
+	font-weight: 700;
+	margin-top: ($line-height / 2);
+	margin-bottom: ($line-height / 2);
+}

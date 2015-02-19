@@ -1,0 +1,170 @@
+.menu {
+	position: fixed;
+		top: ($line-height * 2);
+		bottom: 0;
+		left: 0;
+	width: 240px;
+	z-index: ($header-base - 1);
+	@include box-shadow(0 0 0 rgba(0, 0, 0, 0));
+	@include transform(translate3d(-100%, 0, 0));
+	-webkit-transition: -webkit-box-shadow 0s linear 0.3s, -webkit-transform 0.3s $timing 0s;
+	        transition: box-shadow 0s linear 0.3s, transform 0.3s $timing 0s;
+	&.menu-right {
+		// position
+			right: 0;
+			left: auto;
+		@include transform(translate3d(100%, 0, 0));
+	}
+	&.open {
+		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+		@include transform(translate3d(0, 0, 0));
+		-webkit-transition: -webkit-box-shadow 0s linear 0s, -webkit-transform 0.3s $timing 0s;
+		        transition: box-shadow 0s linear 0s, transform 0.3s $timing 0s;
+	}
+	// 480
+		@include responsive(xs) {
+			width: 320px;
+		}
+	// 992
+		@include responsive(md) {
+			width: 400px;
+		}
+	// no boxshadow
+		.no-boxshadow & {
+			border-right: 1px solid $black-hint;
+			&.menu-right {
+				border-right: 0;
+				border-left: 1px solid $black-hint;
+			}
+		}
+	// no csstransforms
+		.no-csstransforms & {
+			display: none;
+			&.open {
+				display: block;
+			}
+		}
+}
+
+.menu-content {
+	padding-top: $line-height;
+	padding-bottom: $line-height;
+	width: 240px;
+	hr {
+		border-top-color: $black-bg;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		a {
+			color: $black-text;
+			overflow: hidden;
+			text-overlfow: ellipsis;
+			white-space: nowrap;
+			&:focus,
+			&:hover {
+				background-color: $white-bg;
+			}
+			.icon {
+				margin-right: $grid-gutter;
+			}
+		}
+		li.active > a {
+			background-color: $white-bg-dark;
+			color: $brand-color;
+		}
+	}
+	// 480
+		@include responsive(xs) {
+			width: 320px;
+		}
+	// 992
+		@include responsive(md) {
+			width: 400px;
+		}
+}
+
+.menu-content-inner {
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+}
+
+.menu-scroll {
+	background-color: $white;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.menu-top {
+	background-color: $black-text;
+	color: $white-bg;
+	position: relative;
+	width: 240px;
+	a {
+		color: $white-bg;
+		text-decoration: none;
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+	}
+	// 480
+		@include responsive(xs) {
+			width: 320px;
+		}
+	// 992
+		@include responsive(md) {
+			width: 400px;
+		}
+}
+
+.menu-top-form {
+	margin-top: ($line-height * 0.5);
+	margin-bottom: ($line-height * 0.5);
+}
+
+.menu-top-img {
+	align-items: center;
+	display: -webkit-flex;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
+	img {
+		min-height: 100%;
+		width: 100%;
+		@include opacity(0.5);
+	}
+}
+
+.menu-top-info {
+	padding: ($line-height * 1.5) $grid-gutter;
+	position: relative;
+}
+
+.menu-top-user {
+	align-items: center;
+	display: flex;
+	@include clearfix();
+}
+
+.menu-wrap {
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-right: ($grid-gutter * 2);
+	position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}

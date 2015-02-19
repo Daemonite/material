@@ -1,0 +1,17 @@
+.collapse {
+	display: none;
+	&.in {
+		display: block;
+	}
+}
+
+.collapse-content > :first-child {
+	margin-top: 0;
+}
+
+.collapsing {
+	height: 0;
+	overflow: hidden;
+	position: relative;
+	@include transition(height 0.3s $timing 0s);
+}

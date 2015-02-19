@@ -1,0 +1,204 @@
+.card {
+	background-color: $white;
+	border-radius: 1px;
+	display: block;
+	margin-bottom: $line-height;
+	position: relative;
+	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+	@include transition(box-shadow 0.3s $timing 0s);
+	&:focus,
+	&:hover {
+		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+	}
+}
+
+.card-action {
+	position: relative;
+	@include clearfix();
+	&:before {
+		border-top: 1px solid $black-bg;
+		content: '';
+		display: block;
+		position: absolute;
+			top: 0;
+			left: 0;
+		width: 100%;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		> li {
+			> a {
+				color: $black-sec;
+				&:focus,
+				&:hover {
+					color: $link-color;
+				}
+			}
+			&.active > a,
+			&.open > a {
+				color: $link-color;
+			}
+		}
+	}
+}
+
+.card-header {
+	padding-top: ($line-height / 4);
+	padding-bottom: ($line-height / 4);
+	position: relative;
+	@include clearfix();
+	&:before {
+		border-bottom: 1px solid $black-bg;
+		content: '';
+		display: block;
+		position: absolute;
+			bottom: 0;
+			left: 0;
+		width: 100%;
+	}
+}
+
+.card-heading {
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	.card-header & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.card-img {
+	position: relative;
+	img {
+		display: block;
+		height: auto;
+		width: 100%;
+	}
+}
+
+.card-img-heading {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+	color: $white;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	margin: 0;
+	padding: ($line-height / 2) $grid-gutter;
+	position: absolute;
+		bottom: 0;
+		left: 0;
+	width: 100%;
+}
+
+.card-inner {
+	overflow: hidden;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	position: relative;
+	z-index: 1;
+}
+
+// colours
+	.card-alt {
+		@include box-shadow(0 0 1px $brand-color);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $brand-color);
+		}
+		.card-action:before {
+			border-top-color: $brand-color-light;
+		}
+	}
+
+	.card-alt-bg {
+		background-color: $brand-color;
+	}
+
+	.card-blue {
+		@include box-shadow(0 0 1px $palette-blue);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $palette-blue);
+		}
+		.card-action:before {
+			border-top-color: $palette-blue-light;
+		}
+	}
+
+	.card-blue-bg {
+		background-color: $palette-blue;
+	}
+
+	.card-green {
+		@include box-shadow(0 0 1px $palette-green);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $palette-green);
+		}
+		.card-action:before {
+			border-top-color: $palette-green-light;
+		}
+	}
+
+	.card-green-bg {
+		background-color: $palette-green;
+	}
+
+	.card-purple {
+		@include box-shadow(0 0 1px $palette-purple);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $palette-purple);
+		}
+		.card-action:before {
+			border-top-color: $palette-purple-light;
+		}
+	}
+
+	.card-purple-bg {
+		background-color: $palette-purple;
+	}
+
+	.card-red {
+		@include box-shadow(0 0 1px $palette-red);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $palette-red);
+		}
+		.card-action:before {
+			border-top-color: $palette-red-light;
+		}
+	}
+
+	.card-red-bg {
+		background-color: $palette-red;
+	}
+
+	.card-yellow {
+		@include box-shadow(0 0 1px $palette-yellow);
+		&:focus,
+		&:hover {
+			@include box-shadow(0 0 5px $palette-yellow);
+		}
+		.card-action:before {
+			border-top-color: $palette-yellow-light;
+		}
+	}
+
+	.card-yellow-bg {
+		background-color: $palette-yellow;
+	}
+
+	.card[class*="-bg"] {
+		color: $white;
+		.card-action .nav > li {
+			> a {
+				color: $white;
+			}
+			&.open > a {
+				color: $black-text;
+			}
+		}
+	}

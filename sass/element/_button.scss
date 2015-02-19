@@ -1,0 +1,419 @@
+.btn {
+	background-color: $white;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	color: $black-text;
+	cursor: pointer;
+	display: inline-block;
+	font-size: $font-size;
+	font-weight: 400;
+	line-height: $line-height;
+	margin-bottom: 0;
+	max-width: 100%;
+	padding: (($btn-height - $line-height - 2) / 2) $grid-gutter;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15));
+	@include user-select(none);
+	&:active,
+	&:focus,
+	&:hover {
+		color: $black-text;
+		outline: 0;
+		text-decoration: none;
+		@include box-shadow(0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
+	}
+	&:active {
+		background-color: $white-bg;
+	}
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		@include opacity(0.5);
+	}
+}
+
+.btn-block {
+	display: block;
+	white-space: normal;
+	width: 100%;
+}
+
+// colours
+	.btn-alt {
+		background-color: $brand-color;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $brand-color-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $brand-color;
+		}
+	}
+
+	.btn-blue {
+		background-color: $palette-blue;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $palette-blue-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $palette-blue;
+		}
+	}
+
+	// .btn-brown {
+	// 	background-color: $palette-brown;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-brown-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-brown;
+	// 	}
+	// }
+
+	// .btn-cyan {
+	// 	background-color: $palette-cyan;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-cyan-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-cyan;
+	// 	}
+	// }
+
+	// .btn-gray {
+	// 	background-color: $palette-gray;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-gray-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-gray;
+	// 	}
+	// }
+
+	.btn-green {
+		background-color: $palette-green;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $palette-green-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $palette-green;
+		}
+	}
+
+	// .btn-lime {
+	// 	background-color: $palette-lime;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-lime-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-lime;
+	// 	}
+	// }
+
+	// .btn-orange {
+	// 	background-color: $palette-orange;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-orange-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-orange;
+	// 	}
+	// }
+
+	// .btn-pink {
+	// 	background-color: $palette-pink;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-pink-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-pink;
+	// 	}
+	// }
+
+	.btn-purple {
+		background-color: $palette-purple;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $palette-purple-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $palette-purple;
+		}
+	}
+
+	.btn-red {
+		background-color: $palette-red;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $palette-red-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $palette-red;
+		}
+	}
+
+	// .btn-teal {
+	// 	background-color: $palette-teal;
+	// 	color: $white;
+	// 	&:active,
+	// 	&:focus,
+	// 	&:hover {
+	// 		color: $white;
+	// 	}
+	// 	&:active {
+	// 		background-color: $palette-teal-dark;
+	// 	}
+	// 	&[disabled],
+	// 	fieldset[disabled] & {
+	// 		background-color: $palette-teal;
+	// 	}
+	// }
+
+	.btn-yellow {
+		background-color: $palette-yellow;
+		color: $white;
+		&:active,
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+		&:active {
+			background-color: $palette-yellow-dark;
+		}
+		&[disabled],
+		fieldset[disabled] & {
+			background-color: $palette-yellow;
+		}
+	}
+
+// flat
+	.btn-flat {
+		background-color: transparent;
+		@include box-shadow(none);
+		&[disabled],
+		fieldset[disabled] & {
+			color: $black-text;
+		}
+		&.btn-alt {
+			color: $brand-color;
+			&:active {
+				background-color: $brand-color;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $brand-color;
+			}
+		}
+		&.btn-blue {
+			color: $palette-blue;
+			&:active {
+				background-color: $palette-blue;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $palette-blue;
+			}
+		}
+		// &.btn-brown {
+		// 	color: $palette-brown;
+		// 	&:active {
+		// 		background-color: $palette-brown;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-brown;
+		// 	}
+		// }
+		// &.btn-cyan {
+		// 	color: $palette-cyan;
+		// 	&:active {
+		// 		background-color: $palette-cyan;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-cyan;
+		// 	}
+		// }
+		// &.btn-gray {
+		// 	color: $palette-gray;
+		// 	&:active {
+		// 		background-color: $palette-gray;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-gray;
+		// 	}
+		// }
+		&.btn-green {
+			color: $palette-green;
+			&:active {
+				background-color: $palette-green;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $palette-green;
+			}
+		}
+		// &.btn-lime {
+		// 	color: $palette-lime;
+		// 	&:active {
+		// 		background-color: $palette-lime;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-lime;
+		// 	}
+		// }
+		// &.btn-orange {
+		// 	color: $palette-orange;
+		// 	&:active {
+		// 		background-color: $palette-orange;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-orange;
+		// 	}
+		// }
+		// &.btn-pink {
+		// 	color: $palette-pink;
+		// 	&:active {
+		// 		background-color: $palette-pink;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-pink;
+		// 	}
+		// }
+		&.btn-purple {
+			color: $palette-purple;
+			&:active {
+				background-color: $palette-purple;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $palette-purple;
+			}
+		}
+		&.btn-red {
+			color: $palette-red;
+			&:active {
+				background-color: $palette-red;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $palette-red;
+			}
+		}
+		// &.btn-teal {
+		// 	color: $palette-teal;
+		// 	&:active {
+		// 		background-color: $palette-teal;
+		// 		color: $white;
+		// 	}
+		// 	&[disabled],
+		// 	fieldset[disabled] & {
+		// 		color: $palette-teal;
+		// 	}
+		// }
+		&.btn-yellow {
+			color: $palette-yellow;
+			&:active {
+				background-color: $palette-yellow;
+				color: $white;
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: $palette-yellow;
+			}
+		}
+	}

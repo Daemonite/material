@@ -1,0 +1,139 @@
+.tile {
+	background-color: $white;
+	display: block;
+	position: relative;
+	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+	&.active {
+		margin-top: $line-height;
+		margin-bottom: $line-height;
+	}
+}
+
+.tile-action {
+	float: right;
+	@include clearfix();
+	@include user-select(none);
+	.no-touch &,
+	.touch .tile-collapse & {
+		display: none;
+	}
+	.no-touch .tile:hover &,
+	.tile-collapse.active & {
+		display: block;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		> li {
+			> a {
+				color: $black-sec;
+				z-index: 1;
+				&:focus,
+				&:hover {
+					color: $link-color;
+				}
+			}
+			&.active > a,
+			&.open > a {
+				color: $link-color;
+			}
+		}
+	}
+}
+
+.tile-collapse {
+	@include transition(margin 0.15s linear 0s);
+	&.active, {
+		margin-right: ($grid-gutter * -1);
+		margin-left: ($grid-gutter * -1);
+		.modal & {
+			margin-right: ($grid-gutter * -1);
+			margin-left: ($grid-gutter * -1);
+		}
+		.tile-active-hide {
+			display: none;
+		}
+	}
+	.collapsing {
+		@include transition(height 0.15s linear 0s);
+	}
+	// 1056 - 1439
+		@media only screen and (min-width: ($grid-gutter * 4 + $screen-md)) and (max-width: ($screen-lg - 1)) {
+			&.active {
+				margin-right: ($grid-gutter * -4);
+				margin-left: ($grid-gutter * -4);
+			}
+		}
+	// 1504
+		@media only screen and (min-width: ($grid-gutter * 4 + $screen-lg)) {
+			&.active {
+				margin-right: ($grid-gutter * -4);
+				margin-left: ($grid-gutter * -4);
+			}
+		}
+}
+
+.tile-footer {
+	background-color: $white-bg;
+	position: relative;
+	@include clearfix();
+	&:before {
+		border-top: 1px solid $black-bg;
+		content: '';
+		display: block;
+		position: absolute;
+			top: 0;
+			left: 0;
+		width: 100%;
+	}
+	&:first-child {
+		border-top: 0;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.tile-inner {
+	overflow: hidden;
+	padding: ($line-height / 2) $grid-gutter;
+	position: relative;
+}
+
+.tile-side {
+	padding-top: ($line-height / 2);
+	padding-bottom: ($line-height / 2);
+	&.pull-left {
+		padding-left: $grid-gutter;
+	}
+	&.pull-right {
+		padding-right: $grid-gutter;
+	}
+}
+
+.tile-sub {
+	overflow: hidden;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	position: relative;
+	&:before {
+		border-top: 1px solid $black-bg;
+		content: '';
+		display: block;
+		position: absolute;
+			top: 0;
+			left: 0;
+		width: 100%;
+	}
+}
+
+.tile-toggle {
+	cursor: pointer;
+}
+
+.tile-wrap {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	position: relative;
+}

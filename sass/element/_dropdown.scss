@@ -1,0 +1,58 @@
+.dropdown {
+	position: relative;
+	&.open {
+		z-index: ($content-base + 1);
+	}
+}
+
+.dropdown-menu {
+	background-color: $white;
+	border: 1px solid $black-hint;
+	border-radius: 0 0 2px 2px;
+	display: none;
+	list-style: none;
+	margin: -1px 0 0 !important;
+	min-width: 100%;
+	padding-top: ($line-height / 2) !important;
+	padding-bottom: ($line-height / 2) !important;
+	position: absolute;
+		top: 100%;
+		left: 0;
+	@include box-shadow(0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
+	.dropdown.open & {
+		display: block;
+	}
+	.pull-right & {
+		// position
+			right: 0;
+			left: auto;
+	}
+	> li > a {
+		color: $black-text;
+		text-align: left;
+		white-space: nowrap;
+		&:focus,
+		&:hover {
+			background-color: $white-bg;
+		}
+	}
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	.dropdown.open & {
+		background-color: $white;
+		border: 1px solid $black-hint;
+		border-bottom: 0;
+		border-radius: 2px 2px 0 0;
+		padding: ($line-height / 2 - 1) ($grid-gutter - 1) ($line-height / 2);
+		.content-nav &,
+		.header & {
+			border-top: 0;
+			border-radius: 0;
+			padding-top: ($line-height / 2);
+		}
+	}
+}

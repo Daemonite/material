@@ -1,0 +1,52 @@
+@mixin animation($animation...) {
+	-webkit-animation: $animation;
+	        animation: $animation;
+}
+
+@mixin box-shadow($shadow...) {
+	-webkit-box-shadow: $shadow;
+	        box-shadow: $shadow;
+}
+
+@mixin box-sizing($sizing) {
+	-webkit-box-sizing: $sizing;
+	   -moz-box-sizing: $sizing;
+	        box-sizing: $sizing;
+}
+
+@mixin opacity($alpha) {
+	opacity: $alpha;
+	$alpha-ie: ($alpha * 100);
+	filter: #{alpha(opacity=$alpha-ie)};
+}
+
+@mixin placeholder($color) {
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+	&::-moz-placeholder {
+		color: $color;
+		opacity: 1;
+	}
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+}
+
+@mixin transform($transform...) {
+	-webkit-transform: $transform;
+	    -ms-transform: $transform;
+	        transform: $transform;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	        transition: $transition;
+}
+
+@mixin user-select($select) {
+	-webkit-user-select: $select;
+	   -moz-user-select: $select;
+	    -ms-user-select: $select;
+	        user-select: $select;
+}

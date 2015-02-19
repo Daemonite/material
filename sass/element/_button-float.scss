@@ -1,0 +1,193 @@
+.fbtn {
+	background-color: $black-bg;
+	border-radius: 50%;
+	clear: both;
+	color: $white;
+	cursor: pointer;
+	display: block;
+	font-size: $line-height;
+	padding: ($line-height / 2) 0;
+	position: relative;
+	text-align: center;
+	width: ($line-height * 2);
+	@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
+	&.fbtn-alt {
+		background-color: $brand-color;
+	}
+	&.fbtn-blue {
+		background-color: $palette-blue;
+	}
+	// &.fbtn-brown {
+	// 	background-color: $palette-brown;
+	// }
+	// &.fbtn-cyan {
+	// 	background-color: $palette-cyan;
+	// }
+	// &.fbtn-gray {
+	// 	background-color: $palette-gray;
+	// }
+	&.fbtn-green {
+		background-color: $palette-green;
+	}
+	// &.fbtn-lime {
+	// 	background-color: $palette-lime;
+	// }
+	// &.fbtn-orange {
+	// 	background-color: $palette-orange;
+	// }
+	&.fbtn-purple {
+		background-color: $palette-purple;
+	}
+	// &.fbtn-pink {
+	// 	background-color: $palette-pink;
+	// }
+	&.fbtn-red {
+		background-color: $palette-red;
+	}
+	// &.fbtn-teal {
+	// 	background-color: $palette-teal;
+	// }
+	&.fbtn-yellow {
+		background-color: $palette-yellow;
+	}
+	.fbtn-dropdown & {
+		margin-bottom: ($line-height / 2);
+		@include opacity(0);
+		@include transform(scale(0.5));
+		-webkit-transition: opacity 0.15s $timing 0s, -webkit-transform 0.3s $timing 0s;
+		        transition: opacity 0.15s $timing 0s, transform 0.3s $timing 0s;
+		&:nth-last-child(1) {
+			-webkit-transition-delay: 90ms;
+			        transition-delay: 90ms;
+		}
+		&:nth-last-child(2) {
+			-webkit-transition-delay: 75ms;
+			        transition-delay: 75ms;
+		}
+		&:nth-last-child(3) {
+			-webkit-transition-delay: 60ms;
+			        transition-delay: 60ms;
+		}
+		&:nth-last-child(4) {
+			-webkit-transition-delay: 45ms;
+			        transition-delay: 45ms;
+		}
+		&:nth-last-child(5) {
+			-webkit-transition-delay: 30ms;
+			        transition-delay: 30ms;
+		}
+		&:nth-last-child(6) {
+			-webkit-transition-delay: 15ms;
+			        transition-delay: 15ms;
+		}
+		.fbtn-inner.open & {
+			@include opacity(1);
+			@include transform(scale(1));
+			-webkit-transition-delay: 90ms;
+			        transition-delay: 90ms;
+			&:nth-last-child(1) {
+				-webkit-transition-delay: 0s;
+				        transition-delay: 0s;
+			}
+			&:nth-last-child(2) {
+				-webkit-transition-delay: 15ms;
+				        transition-delay: 15ms;
+			}
+			&:nth-last-child(3) {
+				-webkit-transition-delay: 30ms;
+				        transition-delay: 30ms;
+			}
+			&:nth-last-child(4) {
+				-webkit-transition-delay: 45ms;
+				        transition-delay: 45ms;
+			}
+			&:nth-last-child(5) {
+				-webkit-transition-delay: 60ms;
+				        transition-delay: 60ms;
+			}
+			&:nth-last-child(6) {
+				-webkit-transition-delay: 75ms;
+				        transition-delay: 75ms;
+			}
+		}
+	}
+}
+
+a.fbtn {
+	&:focus,
+	&:hover {
+		color: $white;
+		@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5));
+	}
+}
+
+.fbtn-container {
+	position: fixed;
+		right: $grid-gutter;
+		bottom: $line-height;
+	z-index: ($header-base + 1);
+	@include transition(margin-bottom 0.3s $timing 0s, right 0.3s $timing 0s);
+	.menu-right.open ~ & {
+		// position
+			right: ($grid-gutter + 240);
+		// 480
+			@include responsive(xs) {
+				right: ($grid-gutter + 320);
+			}
+		// 992
+			@include responsive(md) {
+				right: ($grid-gutter + 400);
+			}
+	}
+	// min-height 480
+		@media only screen and (min-height: 480px) {
+			// position
+				bottom: ($line-height * 2);
+		}
+}
+
+.fbtn-dropdown {
+	max-height: 0;
+	overflow: hidden;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	position: absolute;
+		right: ($grid-gutter * -1);
+		bottom: 100%;
+	@include transition(max-height 0s linear 0.5s);
+	.fbtn-inner.open & {
+		max-height: 99999px;
+		overflow: visible;
+		@include transition(max-height 0s linear 0s);
+	}
+}
+
+.fbtn-rotate {
+	@include transform(rotate(0deg));
+	-webkit-transition: -webkit-transform 0.3s $timing 0s;
+	        transition: transform 0.3s $timing 0s;
+	.fbtn-inner.open & {
+		@include transform(rotate(225deg));
+	}
+}
+
+.fbtn-text {
+	background-color: $black-text;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 2px;
+	font-size: $font-size-h6;
+	margin-top: ($line-height / -2);
+	margin-right: $grid-gutter;
+	padding-right: ($grid-gutter / 2);
+	padding-left: ($grid-gutter / 2);
+	position: absolute;
+		top: 50%;
+		right: 100%;
+	white-space: nowrap;
+	.no-touch & {
+		display: none;
+	}
+	.no-touch .fbtn:hover & {
+		display: block;
+	}
+}

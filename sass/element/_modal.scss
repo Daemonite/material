@@ -1,0 +1,119 @@
+.modal {
+	display: none;
+	overflow: hidden;
+	outline: 0;
+	position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	z-index: $top-base;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	.modal-open & {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+.modal-backdrop {
+	background-color: $black;
+	position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	@include opacity(0);
+	@include transition(opacity 0.3s $timing 0s);
+	.modal.fade.in & {
+		@include opacity(0.5);
+	}
+}
+
+.modal-close {
+	color: $black-sec;
+	cursor: pointer;
+	float: right;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	&:focus,
+	&:hover {
+		color: $link-color;
+		text-decoration: none;
+	}
+}
+
+.modal-content {
+	background-clip: padding-box;
+	background-color: $white;
+	border: 1px solid $black-hint;
+	outline: 0;
+	position: relative;
+	@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
+	.modal-uploader & {
+		height: 100%;
+	}
+}
+
+.modal-dialog {
+	margin: ($line-height * 2) $grid-gutter;
+	position: relative;
+	.modal.fade & {
+		@include transform(scale(0, 0));
+		-webkit-transition: -webkit-transform 0.3s $timing 0s;
+		        transition: transform 0.3s $timing 0s;
+	}
+	.modal.fade.in & {
+		@include transform(scale(1, 1));
+	}
+	// 480
+		@include responsive(xs) {
+			&.modal-xs {
+				margin-right: auto;
+				margin-left: auto;
+				width: ($screen-xs - $grid-gutter * 2);
+			}
+		}
+	// 992
+		@include responsive(md) {
+			margin-right: auto;
+			margin-left: auto;
+			width: ($screen-md - $grid-gutter * 4);
+		}
+	// 1440
+		@include responsive(lg) {
+			width: ($screen-lg - $grid-gutter * 4);
+		}
+}
+
+.modal-footer {
+	padding-right: ($grid-gutter * 2);
+	padding-left: ($grid-gutter * 2);
+	.btn + .btn {
+		margin-left: $grid-gutter;
+	}
+}
+
+.modal-heading {
+	padding-top: $line-height;
+	padding-right: ($grid-gutter * 2);
+	padding-left: ($grid-gutter * 2);
+	position: relative;
+}
+
+.modal-inner {
+	padding-right: ($grid-gutter * 2);
+	padding-left: ($grid-gutter * 2);
+}
+
+.modal-open {
+	overflow: hidden;
+}
+
+.modal-title {
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	margin-top: 0;
+	margin-right: ($grid-gutter + 12);
+	margin-bottom: $line-height;
+}
