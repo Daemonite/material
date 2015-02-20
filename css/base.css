@@ -3960,6 +3960,7 @@ a.fbtn:focus, a.fbtn:hover {
   background-color: white;
   border-radius: 1px;
   display: block;
+  display: flex;
   margin-bottom: 24px;
   position: relative;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -4016,6 +4017,7 @@ a.fbtn:focus, a.fbtn:hover {
     width: 100%; }
 
 .card-heading {
+  display: block;
   font-size: 20px;
   line-height: 24px;
   margin-top: 24px;
@@ -4049,6 +4051,29 @@ a.fbtn:focus, a.fbtn:hover {
   padding-left: 16px;
   position: relative;
   z-index: 1; }
+
+.card-main {
+  flex-grow: 1; }
+
+.card-side {
+  background-color: whitesmoke;
+  max-width: 50%;
+  padding-right: 16px;
+  padding-left: 16px; }
+  .card-side[href] {
+    color: #212121; }
+    .card-side[href]:focus, .card-side[href]:hover {
+      background-color: #eeeeee;
+      text-decoration: none; }
+  .card-side.card-side-img {
+    padding-right: 0;
+    padding-left: 0; }
+    .card-side.card-side-img img {
+      display: block;
+      max-width: 100%;
+      min-height: 100%; }
+  .card-side.card-side-right {
+    order: 2; }
 
 .card-alt {
   -webkit-box-shadow: 0 0 1px #4caf50;
@@ -4152,7 +4177,7 @@ a.fbtn:focus, a.fbtn:hover {
 .dropdown-menu {
   background-color: white;
   border: 1px solid #9e9e9e;
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 2px 2px 2px;
   display: none;
   list-style: none;
   margin: -1px 0 0 !important;
@@ -4167,6 +4192,7 @@ a.fbtn:focus, a.fbtn:hover {
   .dropdown.open .dropdown-menu {
     display: block; }
   .pull-right .dropdown-menu {
+    border-radius: 2px 0 2px 2px;
     right: 0;
     left: auto; }
   .dropdown-menu > li > a {

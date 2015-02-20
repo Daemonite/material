@@ -2,6 +2,7 @@
 	background-color: $white;
 	border-radius: 1px;
 	display: block;
+	display: flex;
 	margin-bottom: $line-height;
 	position: relative;
 	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
@@ -60,6 +61,7 @@
 }
 
 .card-heading {
+	display: block;
 	font-size: $font-size-h4;
 	line-height: $line-height-h4;
 	margin-top: $line-height;
@@ -98,6 +100,37 @@
 	padding-left: $grid-gutter;
 	position: relative;
 	z-index: 1;
+}
+
+.card-main {
+	flex-grow: 1;
+}
+
+.card-side {
+	background-color: $white-bg;
+	max-width: 50%;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	&[href] {
+		color: $black-text;
+		&:focus,
+		&:hover {
+			background-color: $white-bg-dark;
+			text-decoration: none;
+		}
+	}
+	&.card-side-img {
+		padding-right: 0;
+		padding-left: 0;
+		img {
+			display: block;
+			max-width: 100%;
+			min-height: 100%;
+		}
+	}
+	&.card-side-right {
+		order: 2;
+	}
 }
 
 // colours
