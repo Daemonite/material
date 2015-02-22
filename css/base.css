@@ -3960,6 +3960,7 @@ a.fbtn:focus, a.fbtn:hover {
   background-color: white;
   border-radius: 1px;
   display: block;
+  display: flex;
   margin-bottom: 24px;
   position: relative;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
@@ -4016,6 +4017,7 @@ a.fbtn:focus, a.fbtn:hover {
     width: 100%; }
 
 .card-heading {
+  display: block;
   font-size: 20px;
   line-height: 24px;
   margin-top: 24px;
@@ -4050,6 +4052,29 @@ a.fbtn:focus, a.fbtn:hover {
   position: relative;
   z-index: 1; }
 
+.card-main {
+  flex-grow: 1; }
+
+.card-side {
+  background-color: whitesmoke;
+  max-width: 50%;
+  padding-right: 16px;
+  padding-left: 16px; }
+  .card-side[href] {
+    color: #212121; }
+    .card-side[href]:focus, .card-side[href]:hover {
+      background-color: #eeeeee;
+      text-decoration: none; }
+  .card-side.card-side-img {
+    padding-right: 0;
+    padding-left: 0; }
+    .card-side.card-side-img img {
+      display: block;
+      max-width: 100%;
+      min-height: 100%; }
+  .card-side.card-side-right {
+    order: 2; }
+
 .card-alt {
   -webkit-box-shadow: 0 0 1px #4caf50;
   box-shadow: 0 0 1px #4caf50; }
@@ -4058,9 +4083,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #4caf50; }
   .card-alt .card-action:before {
     border-top-color: #c8e6c9; }
+  .card-alt .card-side {
+    background-color: #4caf50;
+    color: white; }
+    .card-alt .card-side[href]:focus, .card-alt .card-side[href]:hover {
+      background-color: #388e3c; }
 
 .card-alt-bg {
   background-color: #4caf50; }
+  .card-alt-bg .card-side {
+    background-color: #388e3c; }
+    .card-alt-bg .card-side[href]:focus, .card-alt-bg .card-side[href]:hover {
+      background-color: #1b5e20; }
 
 .card-blue {
   -webkit-box-shadow: 0 0 1px #2196f3;
@@ -4070,9 +4104,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #2196f3; }
   .card-blue .card-action:before {
     border-top-color: #bbdefb; }
+  .card-blue .card-side {
+    background-color: #2196f3;
+    color: white; }
+    .card-blue .card-side[href]:focus, .card-blue .card-side[href]:hover {
+      background-color: #1976d2; }
 
 .card-blue-bg {
   background-color: #2196f3; }
+  .card-blue-bg .card-side {
+    background-color: #1976d2; }
+    .card-blue-bg .card-side[href]:focus, .card-blue-bg .card-side[href]:hover {
+      background-color: #0d47a1; }
 
 .card-green {
   -webkit-box-shadow: 0 0 1px #4caf50;
@@ -4082,9 +4125,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #4caf50; }
   .card-green .card-action:before {
     border-top-color: #c8e6c9; }
+  .card-green .card-side {
+    background-color: #4caf50;
+    color: white; }
+    .card-green .card-side[href]:focus, .card-green .card-side[href]:hover {
+      background-color: #388e3c; }
 
 .card-green-bg {
   background-color: #4caf50; }
+  .card-green-bg .card-side {
+    background-color: #388e3c; }
+    .card-green-bg .card-side[href]:focus, .card-green-bg .card-side[href]:hover {
+      background-color: #1b5e20; }
 
 .card-purple {
   -webkit-box-shadow: 0 0 1px #9c27b0;
@@ -4094,9 +4146,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #9c27b0; }
   .card-purple .card-action:before {
     border-top-color: #e1bee7; }
+  .card-purple .card-side {
+    background-color: #9c27b0;
+    color: white; }
+    .card-purple .card-side[href]:focus, .card-purple .card-side[href]:hover {
+      background-color: #7b1fa2; }
 
 .card-purple-bg {
   background-color: #9c27b0; }
+  .card-purple-bg .card-side {
+    background-color: #7b1fa2; }
+    .card-purple-bg .card-side[href]:focus, .card-purple-bg .card-side[href]:hover {
+      background-color: #4a148c; }
 
 .card-red {
   -webkit-box-shadow: 0 0 1px #f44336;
@@ -4106,9 +4167,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #f44336; }
   .card-red .card-action:before {
     border-top-color: #ffcdd2; }
+  .card-red .card-side {
+    background-color: #f44336;
+    color: white; }
+    .card-red .card-side[href]:focus, .card-red .card-side[href]:hover {
+      background-color: #d32f2f; }
 
 .card-red-bg {
   background-color: #f44336; }
+  .card-red-bg .card-side {
+    background-color: #d32f2f; }
+    .card-red-bg .card-side[href]:focus, .card-red-bg .card-side[href]:hover {
+      background-color: #b71c1c; }
 
 .card-yellow {
   -webkit-box-shadow: 0 0 1px #ffc107;
@@ -4118,9 +4188,18 @@ a.fbtn:focus, a.fbtn:hover {
     box-shadow: 0 0 5px #ffc107; }
   .card-yellow .card-action:before {
     border-top-color: #ffecb3; }
+  .card-yellow .card-side {
+    background-color: #ffc107;
+    color: white; }
+    .card-yellow .card-side[href]:focus, .card-yellow .card-side[href]:hover {
+      background-color: #ffa000; }
 
 .card-yellow-bg {
   background-color: #ffc107; }
+  .card-yellow-bg .card-side {
+    background-color: #ffa000; }
+    .card-yellow-bg .card-side[href]:focus, .card-yellow-bg .card-side[href]:hover {
+      background-color: #ff6f00; }
 
 .card[class*="-bg"] {
   color: white; }
@@ -4152,7 +4231,7 @@ a.fbtn:focus, a.fbtn:hover {
 .dropdown-menu {
   background-color: white;
   border: 1px solid #9e9e9e;
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 2px 2px 2px;
   display: none;
   list-style: none;
   margin: -1px 0 0 !important;
@@ -4167,6 +4246,7 @@ a.fbtn:focus, a.fbtn:hover {
   .dropdown.open .dropdown-menu {
     display: block; }
   .pull-right .dropdown-menu {
+    border-radius: 2px 0 2px 2px;
     right: 0;
     left: auto; }
   .dropdown-menu > li > a {
