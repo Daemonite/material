@@ -1,6 +1,8 @@
 .btn {
 	background-color: $white;
 	background-image: none;
+	background-position: 50% 50%;
+	background-size: 100% 100%;
 	border: 1px solid transparent;
 	border-radius: 2px;
 	color: $black-text;
@@ -18,6 +20,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15));
+	@include transition(all 0.45s $timing 0s, background-color 0.3s linear 0s);
 	@include user-select(none);
 	&:active,
 	&:focus,
@@ -29,11 +32,17 @@
 	}
 	&:active {
 		background-color: $white-bg;
+		@include transition(all 0.45s $timing 0s, background-color 0s linear 0.45s);
 	}
 	&[disabled],
 	fieldset[disabled] & {
 		cursor: not-allowed;
 		@include opacity(0.5);
+	}
+	&.btn-active {
+		background-image: -webkit-radial-gradient(circle, $white-bg 10%, $white 11%);
+		background-image:         radial-gradient(circle, $white-bg 10%, $white 11%);
+		background-size: 900% 900%;
 	}
 }
 
@@ -53,11 +62,15 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $brand-color-dark;
+			background-color: $brand-color-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $brand-color;
+		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $brand-color-light-m 10%, $brand-color 11%);
+			background-image:         radial-gradient(circle, $brand-color-light-m 10%, $brand-color 11%);
 		}
 	}
 
@@ -70,64 +83,17 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $palette-blue-dark;
+			background-color: $palette-blue-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $palette-blue;
 		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $palette-blue-light-m 10%, $palette-blue 11%);
+			background-image:         radial-gradient(circle, $palette-blue-light-m 10%, $palette-blue 11%);
+		}
 	}
-
-	// .btn-brown {
-	// 	background-color: $palette-brown;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-brown-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-brown;
-	// 	}
-	// }
-
-	// .btn-cyan {
-	// 	background-color: $palette-cyan;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-cyan-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-cyan;
-	// 	}
-	// }
-
-	// .btn-gray {
-	// 	background-color: $palette-gray;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-gray-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-gray;
-	// 	}
-	// }
 
 	.btn-green {
 		background-color: $palette-green;
@@ -138,64 +104,17 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $palette-green-dark;
+			background-color: $palette-green-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $palette-green;
 		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $palette-green-light-m 10%, $palette-green 11%);
+			background-image:         radial-gradient(circle, $palette-green-light-m 10%, $palette-green 11%);
+		}
 	}
-
-	// .btn-lime {
-	// 	background-color: $palette-lime;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-lime-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-lime;
-	// 	}
-	// }
-
-	// .btn-orange {
-	// 	background-color: $palette-orange;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-orange-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-orange;
-	// 	}
-	// }
-
-	// .btn-pink {
-	// 	background-color: $palette-pink;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-pink-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-pink;
-	// 	}
-	// }
 
 	.btn-purple {
 		background-color: $palette-purple;
@@ -206,11 +125,15 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $palette-purple-dark;
+			background-color: $palette-purple-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $palette-purple;
+		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $palette-purple-light-m 10%, $palette-purple 11%);
+			background-image:         radial-gradient(circle, $palette-purple-light-m 10%, $palette-purple 11%);
 		}
 	}
 
@@ -223,30 +146,17 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $palette-red-dark;
+			background-color: $palette-red-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $palette-red;
 		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $palette-red-light-m 10%, $palette-red 11%);
+			background-image:         radial-gradient(circle, $palette-red-light-m 10%, $palette-red 11%);
+		}
 	}
-
-	// .btn-teal {
-	// 	background-color: $palette-teal;
-	// 	color: $white;
-	// 	&:active,
-	// 	&:focus,
-	// 	&:hover {
-	// 		color: $white;
-	// 	}
-	// 	&:active {
-	// 		background-color: $palette-teal-dark;
-	// 	}
-	// 	&[disabled],
-	// 	fieldset[disabled] & {
-	// 		background-color: $palette-teal;
-	// 	}
-	// }
 
 	.btn-yellow {
 		background-color: $palette-yellow;
@@ -257,11 +167,15 @@
 			color: $white;
 		}
 		&:active {
-			background-color: $palette-yellow-dark;
+			background-color: $palette-yellow-light-m;
 		}
 		&[disabled],
 		fieldset[disabled] & {
 			background-color: $palette-yellow;
+		}
+		&.btn-active {
+			background-image: -webkit-radial-gradient(circle, $palette-yellow-light-m 10%, $palette-yellow 11%);
+			background-image:         radial-gradient(circle, $palette-yellow-light-m 10%, $palette-yellow 11%);
 		}
 	}
 
@@ -276,144 +190,85 @@
 		&.btn-alt {
 			color: $brand-color;
 			&:active {
-				background-color: $brand-color;
-				color: $white;
+				background-color: $brand-color-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $brand-color;
 			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $brand-color-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $brand-color-light 10%, $white 11%);
+			}
 		}
 		&.btn-blue {
 			color: $palette-blue;
 			&:active {
-				background-color: $palette-blue;
-				color: $white;
+				background-color: $palette-blue-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $palette-blue;
 			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $palette-blue-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $palette-blue-light 10%, $white 11%);
+			}
 		}
-		// &.btn-brown {
-		// 	color: $palette-brown;
-		// 	&:active {
-		// 		background-color: $palette-brown;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-brown;
-		// 	}
-		// }
-		// &.btn-cyan {
-		// 	color: $palette-cyan;
-		// 	&:active {
-		// 		background-color: $palette-cyan;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-cyan;
-		// 	}
-		// }
-		// &.btn-gray {
-		// 	color: $palette-gray;
-		// 	&:active {
-		// 		background-color: $palette-gray;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-gray;
-		// 	}
-		// }
 		&.btn-green {
 			color: $palette-green;
 			&:active {
-				background-color: $palette-green;
-				color: $white;
+				background-color: $palette-green-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $palette-green;
 			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $palette-green-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $palette-green-light 10%, $white 11%);
+			}
 		}
-		// &.btn-lime {
-		// 	color: $palette-lime;
-		// 	&:active {
-		// 		background-color: $palette-lime;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-lime;
-		// 	}
-		// }
-		// &.btn-orange {
-		// 	color: $palette-orange;
-		// 	&:active {
-		// 		background-color: $palette-orange;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-orange;
-		// 	}
-		// }
-		// &.btn-pink {
-		// 	color: $palette-pink;
-		// 	&:active {
-		// 		background-color: $palette-pink;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-pink;
-		// 	}
-		// }
 		&.btn-purple {
 			color: $palette-purple;
 			&:active {
-				background-color: $palette-purple;
-				color: $white;
+				background-color: $palette-purple-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $palette-purple;
 			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $palette-purple-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $palette-purple-light 10%, $white 11%);
+			}
 		}
 		&.btn-red {
 			color: $palette-red;
 			&:active {
-				background-color: $palette-red;
-				color: $white;
+				background-color: $palette-red-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $palette-red;
 			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $palette-red-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $palette-red-light 10%, $white 11%);
+			}
 		}
-		// &.btn-teal {
-		// 	color: $palette-teal;
-		// 	&:active {
-		// 		background-color: $palette-teal;
-		// 		color: $white;
-		// 	}
-		// 	&[disabled],
-		// 	fieldset[disabled] & {
-		// 		color: $palette-teal;
-		// 	}
-		// }
 		&.btn-yellow {
 			color: $palette-yellow;
 			&:active {
-				background-color: $palette-yellow;
-				color: $white;
+				background-color: $palette-yellow-light;
 			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: $palette-yellow;
+			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, $palette-yellow-light 10%, $white 11%);
+				background-image:         radial-gradient(circle, $palette-yellow-light 10%, $white 11%);
 			}
 		}
 	}

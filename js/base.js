@@ -12,6 +12,16 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 
 	// window smart resize
 	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
+// btn active
+	$('.btn').on('mousedown', function() {
+		var $this = $(this);
+		if (!$this.hasClass('btn-active')) {
+			$this.addClass('btn-active');
+			setTimeout(function() {
+				$this.removeClass('btn-active');
+			}, 450);
+		}
+	})
 // close menu and/or tile if esc key is pressed
 	$(document).keyup(function(e) {
 		if (e.which == '27') {
