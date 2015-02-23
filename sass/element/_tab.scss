@@ -1,0 +1,177 @@
+.tab-nav {
+	border-bottom: 1px solid $black-hint;
+	margin-top: ($line-height / 2);
+	margin-bottom: $line-height;
+	text-align: center;
+	.nav {
+		margin-top: 0;
+		margin-bottom: -1px;
+		> li {
+			vertical-align: bottom;
+			> a {
+				color: $black-text;
+				padding-right: ($grid-gutter / 2);
+				padding-left: ($grid-gutter / 2);
+				text-transform: uppercase;
+				&:after {
+					background-color: $link-color;
+					content: '';
+					display: block;
+					height: 3px;
+					position: absolute;
+						right: 0;
+						bottom: 0;
+					width: 0;
+					@include transition(width 0.3s $timing);
+				}
+				&:focus,
+				&:hover {
+					color: $link-color;
+				}
+				&.to-left:after {
+					// position
+						right: auto;
+						left: 0;
+				}
+			}
+			&.active > a {
+				color: $link-color;
+				&:after {
+					// position
+						right: auto;
+						left: 0;
+					width: 100%;
+				}
+				&.from-right:after {
+					// position
+						right: 0;
+						left: auto;
+				}
+			}
+		}
+	}
+}
+
+// tab nav colours
+	.tab-nav-alt {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $brand-color;
+					}
+					&:focus,
+					&:hover {
+						color: $brand-color;
+					}
+				}
+				&.active > a {
+					color: $brand-color;
+				}
+			}
+		}
+	}
+
+	.tab-nav-blue {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $palette-blue;
+					}
+					&:focus,
+					&:hover {
+						color: $palette-blue;
+					}
+				}
+				&.active > a {
+					color: $palette-blue;
+				}
+			}
+		}
+	}
+
+	.tab-nav-green {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $palette-green;
+					}
+					&:focus,
+					&:hover {
+						color: $palette-green;
+					}
+				}
+				&.active > a {
+					color: $palette-green;
+				}
+			}
+		}
+	}
+
+	.tab-nav-purple {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $palette-purple;
+					}
+					&:focus,
+					&:hover {
+						color: $palette-purple;
+					}
+				}
+				&.active > a {
+					color: $palette-purple;
+				}
+			}
+		}
+	}
+
+	.tab-nav-red {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $palette-red;
+					}
+					&:focus,
+					&:hover {
+						color: $palette-red;
+					}
+				}
+				&.active > a {
+					color: $palette-red;
+				}
+			}
+		}
+	}
+
+	.tab-nav-yellow {
+		.nav {
+			> li {
+				> a {
+					&:after {
+						background-color: $palette-yellow;
+					}
+					&:focus,
+					&:hover {
+						color: $palette-yellow;
+					}
+				}
+				&.active > a {
+					color: $palette-yellow;
+				}
+			}
+		}
+	}
+
+.tab-pane {
+	display: none;
+	visibility: hidden;
+	&.active {
+		display: block;
+		visibility: visible;
+	}
+}

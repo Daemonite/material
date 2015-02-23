@@ -24,6 +24,46 @@
 	@include clearfix();
 }
 
+.collapse {
+	display: none;
+	&.in {
+		display: block;
+	}
+}
+
+.collapsed-hide {
+	display: inline;
+	.collapsed & {
+		display: none;
+	}
+}
+
+.collapsed-show {
+	display: none;
+	.collapsed & {
+		display: inline;
+	}
+}
+
+.collapsible-region {
+	overflow: hidden;
+}
+
+.collapsing {
+	height: 0;
+	overflow: hidden;
+	position: relative;
+	@include transition(height 0.3s $timing 0s);
+}
+
+.fade {
+		@include opacity(0);
+		@include transition(opacity 0.3s $timing);
+	&.in {
+		@include opacity(1);
+	}
+}
+
 .img-responsive {
 	@include img-responsive();
 }
@@ -146,18 +186,6 @@
 		color: $palette-blue;
 	}
 
-	// .text-brown {
-	// 	color: $palette-brown;
-	// }
-
-	// .text-cyan {
-	// 	color: $palette-cyan;
-	// }
-
-	// .text-gray {
-	// 	color: $palette-gray;
-	// }
-
 	.text-green {
 		color: $palette-green;
 	}
@@ -165,18 +193,6 @@
 	.text-hint {
 		color: $black-hint;
 	}
-
-	// .text-lime {
-	// 	color: $palette-lime;
-	// }
-
-	// .text-orange {
-	// 	color: $palette-orange;
-	// }
-
-	// .text-pink {
-	// 	color: $palette-pink;
-	// }
 
 	.text-purple {
 		color: $palette-purple;
@@ -189,10 +205,6 @@
 	.text-sec {
 		color: $black-sec;
 	}
-
-	// .text-teal {
-	// 	color: $palette-teal;
-	// }
 
 	.text-yellow {
 		color: $palette-yellow;
