@@ -27,7 +27,7 @@
 			$('.menu.open').removeClass('open');
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
-			if ($thisMenu.has('#menu-search')) {
+			if ($thisMenu.hasClass('menu-search')) {
 				$('#menu-search').focus();
 			};
 		}
