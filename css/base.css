@@ -3942,6 +3942,7 @@ a.fbtn:focus, a.fbtn:hover {
   background-color: #212121;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
+  display: none;
   font-size: 12px;
   margin-top: -12px;
   margin-right: 16px;
@@ -3951,15 +3952,17 @@ a.fbtn:focus, a.fbtn:hover {
   top: 50%;
   right: 100%;
   white-space: nowrap; }
-  .no-touch .fbtn-text {
-    display: none; }
-  .no-touch .fbtn:hover .fbtn-text {
+  .no-touch .fbtn-inner.open .fbtn:hover .fbtn-text, .touch .fbtn-inner.open .fbtn-text {
     display: block; }
 
 .card {
   background-color: white;
   border-radius: 1px;
   display: block;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   margin-bottom: 24px;
   position: relative;
@@ -4053,11 +4056,15 @@ a.fbtn:focus, a.fbtn:hover {
   z-index: 1; }
 
 .card-main {
-  flex-grow: 1; }
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
 
 .card-side {
   background-color: whitesmoke;
-  max-width: 50%;
+  max-width: 33.33333%;
   padding-right: 16px;
   padding-left: 16px; }
   .card-side[href] {
@@ -4066,13 +4073,14 @@ a.fbtn:focus, a.fbtn:hover {
       background-color: #eeeeee;
       text-decoration: none; }
   .card-side.card-side-img {
+    overflow: hidden;
     padding-right: 0;
     padding-left: 0; }
-    .card-side.card-side-img img {
-      display: block;
-      max-width: 100%;
-      min-height: 100%; }
   .card-side.card-side-right {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
     order: 2; }
 
 .card-alt {

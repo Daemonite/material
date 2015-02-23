@@ -175,6 +175,7 @@ a.fbtn {
 	background-color: $black-text;
 	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 2px;
+	display: none;
 	font-size: $font-size-h6;
 	margin-top: ($line-height / -2);
 	margin-right: $grid-gutter;
@@ -184,10 +185,8 @@ a.fbtn {
 		top: 50%;
 		right: 100%;
 	white-space: nowrap;
-	.no-touch & {
-		display: none;
-	}
-	.no-touch .fbtn:hover & {
+	.no-touch .fbtn-inner.open .fbtn:hover &,
+	.touch .fbtn-inner.open & {
 		display: block;
 	}
 }

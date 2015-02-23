@@ -64,7 +64,7 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 			$('.menu.open').removeClass('open');
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
-			if ($thisMenu.has('#menu-search')) {
+			if ($thisMenu.hasClass('menu-search')) {
 				$('#menu-search').focus();
 			};
 		}
