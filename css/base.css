@@ -4007,14 +4007,6 @@ a.fbtn:focus, a.fbtn:hover {
   z-index: 31;
   -webkit-transition: margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   transition: margin-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
-  .menu-right.open ~ .fbtn-container {
-    right: 256px; }
-    @media only screen and (min-width: 480px) {
-      .menu-right.open ~ .fbtn-container {
-        right: 336px; } }
-    @media only screen and (min-width: 992px) {
-      .menu-right.open ~ .fbtn-container {
-        right: 416px; } }
 
 .fbtn-dropdown {
   max-height: 0;
@@ -5087,9 +5079,19 @@ legend[class*="col-"] {
   z-index: 1;
   -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+  .page-blue .content-heading {
+    background-color: #2196f3; }
+  .page-green .content-heading {
+    background-color: #4caf50; }
+  .page-purple .content-heading {
+    background-color: #9c27b0; }
+  .page-red .content-heading {
+    background-color: #f44336; }
+  .page-yellow .content-heading {
+    background-color: #ffc107; }
   .content-heading .heading {
     font-weight: 300; }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 992px) {
       .content-heading .heading {
         font-size: 66px;
         line-height: 72px; } }
@@ -5104,6 +5106,16 @@ legend[class*="col-"] {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px; }
+  .page-blue .content-sub-heading {
+    color: #2196f3; }
+  .page-green .content-sub-heading {
+    color: #4caf50; }
+  .page-purple .content-sub-heading {
+    color: #9c27b0; }
+  .page-red .content-sub-heading {
+    color: #f44336; }
+  .page-yellow .content-sub-heading {
+    color: #ffc107; }
 
 .footer {
   border-top: 1px solid #e0e0e0;
@@ -5145,6 +5157,36 @@ legend[class*="col-"] {
     background-color: #388e3c;
     -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5); }
+  .page-blue .header {
+    background-color: #2196f3; }
+    .page-blue .header.fixed {
+      background-color: #1976d2; }
+  .menu-open.page-blue .header {
+    background-color: #1976d2; }
+  .page-green .header {
+    background-color: #4caf50; }
+    .page-green .header.fixed {
+      background-color: #388e3c; }
+  .menu-open.page-green .header {
+    background-color: #388e3c; }
+  .page-purple .header {
+    background-color: #9c27b0; }
+    .page-purple .header.fixed {
+      background-color: #7b1fa2; }
+  .menu-open.page-purple .header {
+    background-color: #7b1fa2; }
+  .page-red .header {
+    background-color: #f44336; }
+    .page-red .header.fixed {
+      background-color: #d32f2f; }
+  .menu-open.page-red .header {
+    background-color: #d32f2f; }
+  .page-yellow .header {
+    background-color: #ffc107; }
+    .page-yellow .header.fixed {
+      background-color: #ffa000; }
+  .menu-open.page-yellow .header {
+    background-color: #ffa000; }
   .header a {
     color: white; }
   .header .nav {
@@ -5197,7 +5239,7 @@ legend[class*="col-"] {
   top: 48px;
   bottom: 0;
   left: 0;
-  width: 240px;
+  width: 100%;
   z-index: 29;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
@@ -5238,31 +5280,40 @@ legend[class*="col-"] {
 
 .menu-content {
   padding-top: 24px;
-  padding-bottom: 24px;
-  width: 240px; }
+  padding-bottom: 24px; }
   .menu-content hr {
     border-top-color: #e0e0e0; }
   .menu-content .nav {
     margin-top: 0;
     margin-bottom: 0; }
     .menu-content .nav a {
-      color: #212121;
+      color: #616161;
+      font-weight: 700;
       overflow: hidden;
       text-overlfow: ellipsis;
       white-space: nowrap; }
       .menu-content .nav a:focus, .menu-content .nav a:hover {
-        background-color: whitesmoke; }
+        background-color: #fafafa; }
       .menu-content .nav a .icon {
         margin-right: 16px; }
     .menu-content .nav li.active > a {
-      background-color: #eeeeee;
+      background-color: whitesmoke;
       color: #4caf50; }
-  @media only screen and (min-width: 480px) {
-    .menu-content {
-      width: 320px; } }
-  @media only screen and (min-width: 992px) {
-    .menu-content {
-      width: 400px; } }
+      .page-blue .menu-content .nav li.active > a {
+        color: #2196f3; }
+      .page-green .menu-content .nav li.active > a {
+        color: #4caf50; }
+      .page-purple .menu-content .nav li.active > a {
+        color: #9c27b0; }
+      .page-red .menu-content .nav li.active > a {
+        color: #f44336; }
+      .page-yellow .menu-content .nav li.active > a {
+        color: #ffc107; }
+    .menu-content .nav > li.active > a {
+      background-color: #eeeeee; }
+    .menu-content .nav ul a {
+      font-weight: 400;
+      padding-left: 48px; }
 
 .menu-content-inner {
   padding-right: 16px;
@@ -5281,19 +5332,12 @@ legend[class*="col-"] {
 .menu-top {
   background-color: #212121;
   color: whitesmoke;
-  position: relative;
-  width: 240px; }
+  position: relative; }
   .menu-top a {
     color: whitesmoke;
     text-decoration: none; }
     .menu-top a:focus, .menu-top a:hover {
       color: white; }
-  @media only screen and (min-width: 480px) {
-    .menu-top {
-      width: 320px; } }
-  @media only screen and (min-width: 992px) {
-    .menu-top {
-      width: 400px; } }
 
 .menu-top-form {
   margin-top: 12px;
@@ -5323,7 +5367,7 @@ legend[class*="col-"] {
 .menu-top-info {
   padding: 36px 16px;
   position: relative; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 992px) {
     .menu-top-info {
       padding-top: 48px;
       padding-bottom: 48px; } }
@@ -5349,7 +5393,15 @@ legend[class*="col-"] {
   padding-right: 32px;
   position: absolute;
   top: 0;
+  right: -32px;
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+@media only screen and (min-width: 480px) {
+  .menu-right.open ~ .fbtn-container {
+    right: 336px; } }
+@media only screen and (min-width: 992px) {
+  .menu-right.open ~ .fbtn-container {
+    right: 416px; } }

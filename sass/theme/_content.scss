@@ -13,10 +13,25 @@
 	position: relative;
 	z-index: 1;
 	@include transition(background-color 0.3s $timing 0s, color 0.3s $timing 0s);
+	.page-blue & {
+		background-color: $palette-blue;
+	}
+	.page-green & {
+		background-color: $palette-green;
+	}
+	.page-purple & {
+		background-color: $palette-purple;
+	}
+	.page-red & {
+		background-color: $palette-red;
+	}
+	.page-yellow & {
+		background-color: $palette-yellow;
+	}
 	.heading {
 		font-weight: 300;
-		// 768
-			@include responsive(sm) {
+		// 992
+			@include responsive(md) {
 				font-size: ($font-size-h1 * 1.5);
 				line-height: ($line-height * 3);
 			}
@@ -33,4 +48,19 @@
 	font-size: $font-size-h4;
 	font-weight: 400;
 	line-height: $line-height-h4;
+	.page-blue & {
+		color:  $palette-blue;
+	}
+	.page-green & {
+		color:  $palette-green;
+	}
+	.page-purple & {
+		color:  $palette-purple;
+	}
+	.page-red & {
+		color:  $palette-red;
+	}
+	.page-yellow & {
+		color:  $palette-yellow;
+	}
 }

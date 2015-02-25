@@ -3,7 +3,7 @@
 		top: ($line-height * 2);
 		bottom: 0;
 		left: 0;
-	width: 240px;
+	width: 100%;
 	z-index: ($header-base - 1);
 	@include box-shadow(0 0 0 rgba(0, 0, 0, 0));
 	@include transform(translate3d(-100%, 0, 0));
@@ -49,7 +49,6 @@
 .menu-content {
 	padding-top: $line-height;
 	padding-bottom: $line-height;
-	width: 240px;
 	hr {
 		border-top-color: $black-bg;
 	}
@@ -57,31 +56,46 @@
 		margin-top: 0;
 		margin-bottom: 0;
 		a {
-			color: $black-text;
+			color: $black-sec;
+			font-weight: 700;
 			overflow: hidden;
 			text-overlfow: ellipsis;
 			white-space: nowrap;
 			&:focus,
 			&:hover {
-				background-color: $white-bg;
+				background-color: $white-bg-light;
 			}
 			.icon {
 				margin-right: $grid-gutter;
 			}
 		}
 		li.active > a {
-			background-color: $white-bg-dark;
+			background-color: $white-bg;
 			color: $brand-color;
+			.page-blue & {
+				color: $palette-blue;
+			}
+			.page-green & {
+				color: $palette-green;
+			}
+			.page-purple & {
+				color: $palette-purple;
+			}
+			.page-red & {
+				color: $palette-red;
+			}
+			.page-yellow & {
+				color: $palette-yellow;
+			}
+		}
+		> li.active > a {
+			background-color: $white-bg-dark;
+		}
+		ul a {
+			font-weight: 400;
+			padding-left: ($grid-gutter * 3);
 		}
 	}
-	// 480
-		@include responsive(xs) {
-			width: 320px;
-		}
-	// 992
-		@include responsive(md) {
-			width: 400px;
-		}
 }
 
 .menu-content-inner {
@@ -104,7 +118,6 @@
 	background-color: $black-text;
 	color: $white-bg;
 	position: relative;
-	width: 240px;
 	a {
 		color: $white-bg;
 		text-decoration: none;
@@ -113,14 +126,6 @@
 			color: $white;
 		}
 	}
-	// 480
-		@include responsive(xs) {
-			width: 320px;
-		}
-	// 992
-		@include responsive(md) {
-			width: 400px;
-		}
 }
 
 .menu-top-form {
@@ -153,8 +158,8 @@
 .menu-top-info {
 	padding: ($line-height * 1.5) $grid-gutter;
 	position: relative;
-	// 768
-		@include responsive(sm) {
+	// 992
+		@include responsive(md) {
 			padding-top: ($line-height * 2);
 			padding-bottom: ($line-height * 2);
 		}
@@ -177,8 +182,23 @@
 	padding-right: ($grid-gutter * 2);
 	position: absolute;
 		top: 0;
+		right: ($grid-gutter * -2);
 		bottom: 0;
 		left: 0;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
+// fbtn
+	.menu-right.open ~ .fbtn-container{
+		// 480
+			@include responsive(xs) {
+				// position
+					right: ($grid-gutter + 320);
+			}
+		// 992
+			@include responsive(md) {
+				// position
+					right: ($grid-gutter + 400);
+			}
+	}
