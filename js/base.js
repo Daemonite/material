@@ -13,7 +13,7 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 	// window smart resize
 	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
 // btn active
-	$('.btn').on('mousedown', function() {
+	$('.btn').on('mousedown touchstart', function() {
 		var $this = $(this);
 		if (!$this.hasClass('btn-active')) {
 			$this.addClass('btn-active');

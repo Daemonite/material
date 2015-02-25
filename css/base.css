@@ -3674,6 +3674,10 @@ sup {
     text-decoration: none; }
   .avatar.avatar-inline {
     display: inline-block; }
+  .avatar.avatar-lg {
+    height: 96px;
+    line-height: 96px;
+    width: 96px; }
   .avatar.avatar-sm {
     height: 36px;
     line-height: 36px;
@@ -4155,6 +4159,9 @@ a.fbtn:focus, a.fbtn:hover {
   padding-left: 16px;
   position: relative;
   z-index: 1; }
+  .card-header .card-inner {
+    padding-top: 12px;
+    padding-bottom: 12px; }
 
 .card-main {
   -webkit-box-flex: 1;
@@ -4456,9 +4463,12 @@ textarea.form-control {
 .radio {
   display: block;
   line-height: 16px;
-  margin-bottom: 12px;
+  margin-top: 12px;
   padding-bottom: 8px;
   position: relative; }
+  .checkbox:first-child,
+  .radio:first-child {
+    margin-top: 0; }
   .checkbox label,
   .radio label {
     cursor: pointer;
@@ -5078,9 +5088,11 @@ legend[class*="col-"] {
   -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
   .content-heading .heading {
-    font-size: 66px;
-    font-weight: 300;
-    line-height: 72px; }
+    font-weight: 300; }
+    @media only screen and (min-width: 768px) {
+      .content-heading .heading {
+        font-size: 66px;
+        line-height: 72px; } }
 
 .content-nav {
   background-color: white;
@@ -5288,7 +5300,9 @@ legend[class*="col-"] {
   margin-bottom: 12px; }
 
 .menu-top-img {
-  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   height: 100%;
@@ -5297,7 +5311,9 @@ legend[class*="col-"] {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  -webkit-align-items: center;
+  align-items: center; }
   .menu-top-img img {
     min-height: 100%;
     width: 100%;
@@ -5307,10 +5323,19 @@ legend[class*="col-"] {
 .menu-top-info {
   padding: 36px 16px;
   position: relative; }
+  @media only screen and (min-width: 768px) {
+    .menu-top-info {
+      padding-top: 48px;
+      padding-bottom: 48px; } }
 
 .menu-top-user {
-  align-items: center;
-  display: flex; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center; }
   .menu-top-user:after, .menu-top-user:before {
     content: "";
     display: table;

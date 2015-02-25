@@ -1,5 +1,5 @@
 // btn active
-	$('.btn').on('mousedown', function() {
+	$('.btn').on('mousedown touchstart', function() {
 		var $this = $(this);
 		if (!$this.hasClass('btn-active')) {
 			$this.addClass('btn-active');
