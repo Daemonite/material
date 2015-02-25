@@ -130,9 +130,22 @@
 	input[type="checkbox"],
 	input[type="radio"] {
 		line-height: normal;
-		margin: 5px 0 0;
+		margin: 4px 0 0;
 		margin-top: 1px \9;
 		padding: 0;
+	}
+
+	input[type="color"] {
+		min-width: $line-height;
+		width: auto;
+	}
+
+	input[type="date"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="time"] {
+		line-height: $line-height;
+		line-height: 1 #{\0};
 	}
 
 	input[type="file"] {
@@ -149,6 +162,8 @@
 
 	input[type="range"] {
 		display: block;
+		height: $font-size;
+		margin-bottom: ($line-height - $font-size);
 		width: 100%;
 	}
 
@@ -174,11 +189,10 @@
 		color: $black-text;
 		display: block;
 		font-size: $font-size-h3;
-		font-weight: 700;
+		font-weight: 400;
 		line-height: $line-height-h3;
 		margin: 0;
 		padding: 0;
-		width: 100%;
 	}
 
 	optgroup {

@@ -35,6 +35,15 @@ if(k&&j[k]&&(e||j[k].data)||void 0!==d||"string"!=typeof b)return k||(k=i?a[h]=c
 	function footerPush() {
 		$('body').css('margin-bottom', $('.footer').outerHeight());
 	}
+// checkbox
+	$('.checkbox-adv').each(function() {
+		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon icon-done"></span>');
+	});
+
+// radio
+	$('.radio-adv').each(function() {
+		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span>');
+	});
 // header affix
 	var $header = $('.header');
 

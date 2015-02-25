@@ -50,19 +50,6 @@
 	}
 }
 
-input[type="color"] {
-	min-width: $line-height;
-	width: auto;
-}
-
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"] {
-	line-height: $line-height;
-	line-height: 1 #{\0};
-}
-
 select.form-control {
 	-webkit-appearance: none;
 	@include responsive('-webkit-min-device-pixel-ratio: 0') {
@@ -88,15 +75,6 @@ textarea.form-control {
 	@include placeholder($white-bg);
 }
 
-.form-control-lg {
-	font-size: $font-size-h3;
-	height: $line-height-h3;
-	padding-bottom: ($line-height-h3 - $font-size-h3 - 1);
-	&:focus {
-		padding-bottom: ($line-height-h3 - $font-size-h3 - 2);
-	}
-}
-
 .form-control-static {
 	border-bottom: 1px solid $black-hint;
 	display: block;
@@ -108,77 +86,101 @@ textarea.form-control {
 	padding-bottom: ($line-height - $font-size - 1);
 }
 
-.form-group {
-	margin-top: $line-height;
-	margin-bottom: $line-height;
-	@include make-row();
-}
-
-.form-group-btn {
-	margin-bottom: $line-height;
-	@include make-row();
-	.btn {
-		margin-top: $line-height;
-		margin-right: $grid-gutter;
+// checkbox & radio
+	.checkbox,
+	.radio {
+		display: block;
+		line-height: $font-size;
+		margin-bottom: ($line-height / 2);
+		padding-bottom: ($line-height - $font-size);
+		position: relative;
+		label {
+			cursor: pointer;
+			margin: 0;
+			min-height: $font-size;
+			padding-left: $line-height;
+		}
 	}
-}
 
-.form-help {
-	display: block;
-	font-size: $font-size-h6;
-	font-weight: 400;
-	margin-top: ($line-height / 2);
-	margin-bottom: ($line-height / 2);
-	position: relative;
-}
+	.checkbox input[type="checkbox"],
+	.radio input[type="radio"] {
+		margin-top: 0;
+		margin-left: ($line-height * -1);
+		position: absolute;
+	}
 
-.form-help-icon {
-	position: absolute;
-		top: (($line-height - $font-size-h6) / 2);
-		right: 0;
-}
+// group
+	.form-group {
+		margin-top: $line-height;
+		margin-bottom: $line-height;
+	}
 
-.form-help-msg {
-	padding-right: (18em / 14);
-}
-
-.form-label {
-	display: block;
-	margin-top: ($line-height / 2);
-	margin-bottom: ($line-height / 2);
-	// 480
-		@include responsive(xs) {
-			[class*="col-xs"] > & {
-				@include form-label();
-			}
+	.form-group-btn {
+		margin-bottom: $line-height;
+		.btn {
+			margin-top: $line-height;
+			margin-right: $grid-gutter;
 		}
-	// 768
-		@include responsive(sm) {
-			[class*="col-sm"] > & {
-				@include form-label();
+	}
+
+// help
+	.form-help {
+		display: block;
+		font-size: $font-size-h6;
+		font-weight: 400;
+		margin-top: ($line-height / 2);
+		margin-bottom: ($line-height / 2);
+		position: relative;
+	}
+
+	.form-help-icon {
+		position: absolute;
+			top: (($line-height - $font-size-h6) / 2);
+			right: 0;
+	}
+
+	.form-help-msg {
+		padding-right: (18em / 14);
+	}
+
+// label
+	.form-label {
+		display: block;
+		margin-top: ($line-height / 2);
+		margin-bottom: ($line-height / 2);
+		// 480
+			@include responsive(xs) {
+				[class*="col-xs"] > & {
+					@include form-label();
+				}
 			}
-		}
-	// 992
-		@include responsive(md) {
-			[class*="col-md"] > & {
-				@include form-label();
+		// 768
+			@include responsive(sm) {
+				[class*="col-sm"] > & {
+					@include form-label();
+				}
 			}
-		}
-	// 1440
-		@include responsive(lg) {
-			[class*="col-lg"] > & {
-				@include form-label();
+		// 992
+			@include responsive(md) {
+				[class*="col-md"] > & {
+					@include form-label();
+				}
 			}
-		}
+		// 1440
+			@include responsive(lg) {
+				[class*="col-lg"] > & {
+					@include form-label();
+				}
+			}
 }
 
-.form-margin {
-	margin-top: ($line-height / 2);
-	margin-bottom: ($line-height / 2);
-}
+	.label {
+		font-weight: 700;
+		margin-top: ($line-height / 2);
+		margin-bottom: ($line-height / 2);
+	}
 
-.label {
-	font-weight: 700;
-	margin-top: ($line-height / 2);
-	margin-bottom: ($line-height / 2);
-}
+// legend
+	legend[class*="col-"] {
+		padding-left: ($grid-gutter / 2);
+	}
