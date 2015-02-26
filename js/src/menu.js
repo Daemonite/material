@@ -1,10 +1,4 @@
 // menu close
-	$('html').on('click', function(e) {
-		if ($('body').hasClass('menu-open') && !$(e.target).is('.fbtn-container *, .header *, .menu *')) {
-			mReset();
-		};
-	});
-
 	function mReset() {
 		$('body').removeClass('menu-open');
 		$('.header .nav > li.active').removeClass('active');
@@ -14,6 +8,7 @@
 // menu open
 	$('.header .nav > li > a').on('click', function(e) {
 		e.preventDefault();
+		e.stopPropagation();
 		var $this = $(this),
 		    $thisLi = $this.parent('li'),
 		    $thisMenu = $($this.attr('href'));
@@ -28,7 +23,7 @@
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
 			if ($thisMenu.hasClass('menu-search')) {
-				$('#menu-search').focus();
+				$('.menu-search-focus').focus();
 			};
 		}
 	});

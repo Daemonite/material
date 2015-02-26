@@ -3,6 +3,14 @@
 	display: block;
 	position: relative;
 	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+	&[href] {
+		color: $black-text;
+		&:focus,
+		&:hover {
+			color: $link-color;
+			text-decoration: none;
+		}
+	}
 	&.active {
 		margin-top: $line-height;
 		margin-bottom: $line-height;

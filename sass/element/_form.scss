@@ -35,9 +35,15 @@
 	&:-webkit-autofill {
 		-webkit-box-shadow: inset 0 0 0 ($line-height / 2) $white;
 	}
-	&.inline {
+	&.form-control-inline {
 		display: inline-block;
+		line-height: ($font-size - 1);
+		padding-bottom: 0;
 		width: auto;
+		&:focus {
+			line-height: ($font-size - 2);
+			margin-bottom: -1px;
+		}
 	}
 	.form-group-green & {
 		border-bottom-color: $palette-green;
@@ -62,6 +68,9 @@ select.form-control {
 		&[size] {
 			background-image: none;
 			padding-right: 0;
+		}
+		&.form-control-inline {
+			background-position: 100% 50%;
 		}
 	}
 }
@@ -90,12 +99,14 @@ textarea.form-control {
 	.checkbox,
 	.radio {
 		display: block;
-		line-height: $font-size;
-		margin-top: ($line-height / 2);
-		padding-bottom: ($line-height - $font-size);
 		position: relative;
-		&:first-child {
-			margin-top: 0;
+		.form-group & {
+			line-height: $font-size;
+			margin-top: ($line-height / 2);
+			padding-bottom: ($line-height - $font-size);
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 		label {
 			cursor: pointer;
@@ -110,6 +121,12 @@ textarea.form-control {
 		margin-top: 0;
 		margin-left: ($line-height * -1);
 		position: absolute;
+	}
+
+	.checkbox-inline,
+	.radio-inline {
+		display: inline-block;
+		margin-right: $grid-gutter;
 	}
 
 // group
@@ -178,8 +195,6 @@ textarea.form-control {
 }
 
 	.label {
-		font-weight: 700;
-		margin-top: ($line-height / 2);
 		margin-bottom: ($line-height / 2);
 	}
 
