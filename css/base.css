@@ -5263,10 +5263,6 @@ sup {
 .media-inner {
   overflow: hidden; }
 
-.media-inner > :first-child,
-.media-object > :first-child {
-  margin-top: 24px; }
-
 .media-object.pull-left {
   margin-right: 16px; }
 .media-object.pull-right {
@@ -5349,7 +5345,6 @@ sup {
   display: block;
   height: 48px;
   line-height: 48px;
-  overflow: hidden;
   text-align: center;
   width: 48px; }
   .avatar:focus, .avatar:hover {
@@ -5366,11 +5361,15 @@ sup {
     margin-top: -6px;
     margin-bottom: -6px;
     width: 36px; }
+  .avatar.avatar-transparent {
+    background-color: transparent; }
   .avatar.pull-left {
     margin-right: 16px; }
   .avatar.pull-right {
     margin-left: 16px; }
   .avatar img {
+    border-radius: 50%;
+    height: 100%;
     vertical-align: top;
     width: 100%; }
   .avatar .fa {
@@ -6146,8 +6145,14 @@ a.fbtn:focus, a.fbtn:hover {
     .form-control.form-control-inline:focus {
       line-height: 14px;
       margin-bottom: -1px; }
+  .form-group-alt .form-control {
+    border-bottom-color: #4caf50; }
+  .form-group-blue .form-control {
+    border-bottom-color: #2196f3; }
   .form-group-green .form-control {
     border-bottom-color: #4caf50; }
+  .form-group-purple .form-control {
+    border-bottom-color: #9c27b0; }
   .form-group-red .form-control {
     border-bottom-color: #f44336; }
   .form-group-yellow .form-control {
@@ -6209,6 +6214,11 @@ textarea.form-control {
     margin: 0;
     min-height: 16px;
     padding-left: 24px; }
+  .checkbox.disabled label, fieldset[disabled] .checkbox label,
+  .radio.disabled label, fieldset[disabled]
+  .radio label {
+    color: #9e9e9e;
+    cursor: not-allowed; }
 
 .checkbox input[type="checkbox"],
 .radio input[type="radio"] {
@@ -6251,6 +6261,18 @@ textarea.form-control {
   display: block;
   margin-top: 12px;
   margin-bottom: 12px; }
+  .form-group-alt .form-label {
+    color: #4caf50; }
+  .form-group-blue .form-label {
+    color: #2196f3; }
+  .form-group-green .form-label {
+    color: #4caf50; }
+  .form-group-purple .form-label {
+    color: #9c27b0; }
+  .form-group-red .form-label {
+    color: #f44336; }
+  .form-group-yellow .form-label {
+    color: #ffc107; }
   @media only screen and (min-width: 480px) {
     [class*="col-xs"] > .form-label {
       line-height: 16px;
@@ -6299,6 +6321,10 @@ legend[class*="col-"] {
   border: 2px solid #616161;
   -webkit-transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
   transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+.checkbox-adv.disabled .circle, .disabled.radio-adv .circle, fieldset[disabled] .checkbox-adv .circle, fieldset[disabled] .radio-adv .circle {
+  border-color: #9e9e9e !important; }
+.checkbox-adv input.access-hide:focus ~ .circle, .radio-adv input.access-hide:focus ~ .circle {
+  border-color: #212121; }
 .checkbox-adv input.access-hide:checked ~ .circle, .radio-adv input.access-hide:checked ~ .circle {
   border-color: #4caf50; }
 .checkbox-adv .circle-check, .radio-adv .circle-check {
@@ -6320,37 +6346,98 @@ legend[class*="col-"] {
     width: 80px;
     opacity: 0;
     filter: alpha(opacity=0); }
+.checkbox-adv.disabled .circle-check:after, .disabled.radio-adv .circle-check:after, fieldset[disabled] .checkbox-adv .circle-check:after, fieldset[disabled] .radio-adv .circle-check:after {
+  background-color: #9e9e9e; }
 .checkbox-adv input.access-hide:checked ~ .circle-check, .radio-adv input.access-hide:checked ~ .circle-check {
-  -webkit-transform: scale(0.55);
-  -ms-transform: scale(0.55);
-  transform: scale(0.55); }
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5); }
   .checkbox-adv input.access-hide:checked ~ .circle-check:after, .radio-adv input.access-hide:checked ~ .circle-check:after {
     -webkit-animation: circle-check 0.6s;
     animation: circle-check 0.6s; }
 .checkbox-adv .circle-icon, .radio-adv .circle-icon {
   background-color: transparent;
   color: transparent;
-  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
 .checkbox-adv input.access-hide:checked ~ .circle-icon, .radio-adv input.access-hide:checked ~ .circle-icon {
   background-color: #4caf50;
-  color: white; }
+  color: white;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+.checkbox-adv.disabled input.access-hide:checked ~ .circle-icon, .disabled.radio-adv input.access-hide:checked ~ .circle-icon, fieldset[disabled] .checkbox-adv input.access-hide:checked ~ .circle-icon, fieldset[disabled] .radio-adv input.access-hide:checked ~ .circle-icon {
+  background-color: #9e9e9e; }
 
 .radio-adv [class^="circle"] {
   border-radius: 50%; }
 .radio-adv input.access-hide:checked ~ .circle-check {
   background-color: #4caf50; }
+.radio-adv.disabled input.access-hide:checked ~ .circle-check, fieldset[disabled] .radio-adv input.access-hide:checked ~ .circle-check {
+  background-color: #9e9e9e; }
 
-@-webkit-keyframes checkbox-on {
+.floating-label {
+  color: #9e9e9e;
+  cursor: text;
+  font-size: 16px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  -webkit-transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .form-group-label.control-focus .floating-label, .form-group-label.control-highlight .floating-label {
+    font-size: 12px;
+    /* position */
+    top: -6px; }
+  .form-group-label.control-focus .floating-label {
+    color: #2196f3; }
+  .form-group-label.form-group-alt .floating-label {
+    color: #4caf50; }
+  .form-group-label.form-group-blue .floating-label {
+    color: #2196f3; }
+  .form-group-label.form-group-green .floating-label {
+    color: #4caf50; }
+  .form-group-label.form-group-purple .floating-label {
+    color: #9c27b0; }
+  .form-group-label.form-group-red .floating-label {
+    color: #f44336; }
+  .form-group-label.form-group-yellow .floating-label {
+    color: #ffc107; }
+
+.form-group-label {
+  padding-top: 12px;
+  position: relative; }
+  .form-group-label [class*="col-"] {
+    position: static; }
+  .form-group-label .form-control {
+    position: relative;
+    z-index: 1; }
+    .form-group-label .form-control:-ms-input-placeholder {
+      color: transparent; }
+    .form-group-label .form-control::-moz-placeholder {
+      color: transparent;
+      opacity: 1; }
+    .form-group-label .form-control::-webkit-input-placeholder {
+      color: transparent; }
+  .form-group-label + .form-group {
+    padding-top: 12px; }
+
+@-webkit-keyframes circle-check {
   0% {
-    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px; }
+    opacity: 0; }
 
-  50% {
-    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px; }
+  25% {
+    opacity: 0.25; }
 
   100% {
-    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px; } }
-@-webkit-keyframes circle-check {
+    opacity: 0; } }
+@keyframes circle-check {
   0% {
     opacity: 0; }
 
@@ -6652,6 +6739,12 @@ legend[class*="col-"] {
   position: relative;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5); }
+  .tile:after, .tile:before {
+    content: "";
+    display: table;
+    line-height: 0; }
+  .tile:after {
+    clear: both; }
   .tile[href] {
     color: #212121; }
     .tile[href]:focus, .tile[href]:hover {
@@ -6855,10 +6948,6 @@ legend[class*="col-"] {
     background-color: #ffc107; }
   .content-heading .heading {
     font-weight: 300; }
-    @media only screen and (min-width: 992px) {
-      .content-heading .heading {
-        font-size: 66px;
-        line-height: 72px; } }
 
 .content-nav {
   background-color: white;
@@ -7131,10 +7220,6 @@ legend[class*="col-"] {
 .menu-top-info {
   padding: 36px 16px;
   position: relative; }
-  @media only screen and (min-width: 992px) {
-    .menu-top-info {
-      padding-top: 48px;
-      padding-bottom: 48px; } }
 
 .menu-top-user {
   display: -webkit-box;

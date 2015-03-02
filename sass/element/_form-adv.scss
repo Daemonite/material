@@ -1,4 +1,4 @@
-// checkbox
+// checkbox & radio
 	.checkbox-adv {
 		[class^="circle"] {
 			display: block;
@@ -15,6 +15,15 @@
 		.circle {
 			border: 2px solid $black-sec;
 			@include transition(border-color 0.3s $timing 0s);
+		}
+		&.disabled,
+		fieldset[disabled] & {
+			.circle {
+				border-color: $black-hint !important;
+			}
+		}
+		input.access-hide:focus ~ .circle {
+			border-color: $black-text;
 		}
 		input.access-hide:checked ~ .circle {
 			border-color: $brand-color;
@@ -36,8 +45,14 @@
 				@include opacity(0);
 			}
 		}
+		&.disabled,
+		fieldset[disabled] & {
+			.circle-check:after {
+				background-color: $black-hint;
+			}
+		}
 		input.access-hide:checked ~ .circle-check {
-			@include transform(scale(0.55));
+			@include transform(scale(0.5));
 			&:after {
 				@include animation(circle-check 0.6s);
 			}
@@ -45,15 +60,22 @@
 		.circle-icon {
 			background-color: transparent;
 			color: transparent;
-			@include transition(background-color 0.3s $timing 0s);
+			@include transform(scale(0.5));
+			@include transition(background-color 0.3s $timing 0s, transform 0.3s $timing 0s);
 		}
 		input.access-hide:checked ~ .circle-icon {
 			background-color: $brand-color;
 			color: $white;
+			@include transform(scale(1));
+		}
+		&.disabled,
+		fieldset[disabled] & {
+			input.access-hide:checked ~ .circle-icon {
+				background-color: $black-hint;
+			}
 		}
 	}
 
-// radio
 	.radio-adv {
 		@extend .checkbox-adv;
 		[class^="circle"] {
@@ -62,29 +84,92 @@
 		input.access-hide:checked ~ .circle-check {
 			background-color: $brand-color;
 		}
+		&.disabled,
+		fieldset[disabled] & {
+			input.access-hide:checked ~ .circle-check {
+				background-color: $black-hint;
+			}
+		}
 	}
 
-// 
-@-webkit-keyframes checkbox-on {
-	0% {
-		box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
+// floating label
+	.floating-label {
+		color: $black-hint;
+		cursor: text;
+		font-size: $font-size;
+		line-height: 1;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+			top: ($line-height / 2);
+			left: 0;
+		@include transition(color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing);
+		.form-group-label.control-focus &,
+		.form-group-label.control-highlight & {
+			font-size: $font-size-h6;
+			/* position */
+				top: ($font-size-h6 / -2);
+		}
+		.form-group-label.control-focus & {
+			color: $link-color;
+		}
+		.form-group-label.form-group-alt & {
+			color: $brand-color;
+		}
+		.form-group-label.form-group-blue & {
+			color: $palette-blue;
+		}
+		.form-group-label.form-group-green & {
+			color: $palette-green;
+		}
+		.form-group-label.form-group-purple & {
+			color: $palette-purple;
+		}
+		.form-group-label.form-group-red & {
+			color: $palette-red;
+		}
+		.form-group-label.form-group-yellow & {
+			color: $palette-yellow;
+		}
 	}
-	50% {
-		box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
-	}
-	100% {
-		box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-	}
-}
 
-@-webkit-keyframes circle-check {
-	0% {
-		opacity: 0;
+	.form-group-label {
+		padding-top: ($line-height / 2);
+		position: relative;
+		[class*="col-"] {
+			position: static;
+		}
+		.form-control {
+			position: relative;
+			z-index: 1;
+			@include placeholder(transparent);
+		}
+		+ .form-group {
+			padding-top: ($line-height / 2);
+		}
 	}
-	25% {
-		opacity: 0.25;
+
+// ###
+	@-webkit-keyframes circle-check {
+		0% {
+			opacity: 0;
+		}
+		25% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0;
+		}
 	}
-	100% {
-		opacity: 0;
+
+	@keyframes circle-check {
+		0% {
+			opacity: 0;
+		}
+		25% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0;
+		}
 	}
-}

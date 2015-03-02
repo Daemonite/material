@@ -5,7 +5,6 @@
 	display: block;
 	height: ($line-height * 2);
 	line-height: ($line-height * 2);
-	overflow: hidden;
 	text-align: center;
 	width: ($line-height * 2);
 	&:focus,
@@ -27,6 +26,9 @@
 		margin-bottom: ($line-height * -0.25);
 		width: ($line-height * 1.5);
 	}
+	&.avatar-transparent {
+		background-color: transparent;
+	}
 	&.pull-left {
 		margin-right: $grid-gutter;
 	}
@@ -34,6 +36,8 @@
 		margin-left: $grid-gutter;
 	}
 	img {
+		border-radius: 50%;
+		height: 100%;
 		vertical-align: top;
 		width: 100%;
 	}

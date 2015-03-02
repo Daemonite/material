@@ -45,8 +45,17 @@
 			margin-bottom: -1px;
 		}
 	}
+	.form-group-alt & {
+		border-bottom-color: $brand-color;
+	}
+	.form-group-blue & {
+		border-bottom-color: $palette-blue;
+	}
 	.form-group-green & {
 		border-bottom-color: $palette-green;
+	}
+	.form-group-purple & {
+		border-bottom-color: $palette-purple;
 	}
 	.form-group-red & {
 		border-bottom-color: $palette-red;
@@ -114,6 +123,13 @@ textarea.form-control {
 			min-height: $font-size;
 			padding-left: $line-height;
 		}
+		&.disabled,
+		fieldset[disabled] & {
+			label {
+				color: $black-hint;
+				cursor: not-allowed;
+			}
+		}
 	}
 
 	.checkbox input[type="checkbox"],
@@ -168,6 +184,24 @@ textarea.form-control {
 		display: block;
 		margin-top: ($line-height / 2);
 		margin-bottom: ($line-height / 2);
+		.form-group-alt & {
+			color: $brand-color;
+		}
+		.form-group-blue & {
+			color: $palette-blue;
+		}
+		.form-group-green & {
+			color: $palette-green;
+		}
+		.form-group-purple & {
+			color: $palette-purple;
+		}
+		.form-group-red & {
+			color: $palette-red;
+		}
+		.form-group-yellow & {
+			color: $palette-yellow;
+		}
 		// 480
 			@include responsive(xs) {
 				[class*="col-xs"] > & {
