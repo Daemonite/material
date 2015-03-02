@@ -6391,10 +6391,14 @@ legend[class*="col-"] {
   left: 0;
   -webkit-transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .form-group-label [class*="col-"] .floating-label {
+    top: 0;
+    left: 16px; }
   .form-group-label.control-focus .floating-label, .form-group-label.control-highlight .floating-label {
     font-size: 12px;
-    /* position */
     top: -6px; }
+  .form-group-label.control-focus [class*="col-"] .floating-label, .form-group-label.control-highlight [class*="col-"] .floating-label {
+    top: -18px; }
   .form-group-label.control-focus .floating-label {
     color: #2196f3; }
   .form-group-label.form-group-alt .floating-label {
@@ -6413,8 +6417,6 @@ legend[class*="col-"] {
 .form-group-label {
   padding-top: 12px;
   position: relative; }
-  .form-group-label [class*="col-"] {
-    position: static; }
   .form-group-label .form-control {
     position: relative;
     z-index: 1; }

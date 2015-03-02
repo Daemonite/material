@@ -104,11 +104,21 @@
 			top: ($line-height / 2);
 			left: 0;
 		@include transition(color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing);
+		.form-group-label [class*="col-"] & {
+			// position
+				top: 0;
+				left: $grid-gutter;
+		}
 		.form-group-label.control-focus &,
 		.form-group-label.control-highlight & {
 			font-size: $font-size-h6;
-			/* position */
+			// position
 				top: ($font-size-h6 / -2);
+		}
+		.form-group-label.control-focus [class*="col-"] &,
+		.form-group-label.control-highlight [class*="col-"] & {
+			// position
+				top: ($font-size-h6 / -2 + $line-height / -2);
 		}
 		.form-group-label.control-focus & {
 			color: $link-color;
@@ -136,9 +146,6 @@
 	.form-group-label {
 		padding-top: ($line-height / 2);
 		position: relative;
-		[class*="col-"] {
-			position: static;
-		}
 		.form-control {
 			position: relative;
 			z-index: 1;
