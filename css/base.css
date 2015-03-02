@@ -6113,7 +6113,7 @@ a.fbtn:focus, a.fbtn:hover {
   display: block;
   font-size: 16px;
   height: 24px;
-  line-height: 1;
+  line-height: 16px;
   padding: 0 0 7px;
   width: 100%;
   -webkit-transition: border-bottom-color 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0s;
@@ -6305,8 +6305,20 @@ textarea.form-control {
 .label {
   margin-bottom: 12px; }
 
-legend[class*="col-"] {
+legend[class*="col-xx-"] {
   padding-left: 8px; }
+@media only screen and (min-width: 480px) {
+  legend[class*="col-xs-"] {
+    padding-left: 8px; } }
+@media only screen and (min-width: 768px) {
+  legend[class*="col-sm-"] {
+    padding-left: 8px; } }
+@media only screen and (min-width: 992px) {
+  legend[class*="col-md-"] {
+    padding-left: 8px; } }
+@media only screen and (min-width: 1440px) {
+  legend[class*="col-lg-"] {
+    padding-left: 8px; } }
 
 .checkbox-adv [class^="circle"], .radio-adv [class^="circle"] {
   display: block;
@@ -6429,6 +6441,11 @@ legend[class*="col-"] {
       color: transparent; }
   .form-group-label + .form-group {
     padding-top: 12px; }
+
+.textarea-autosize {
+  max-height: 808px;
+  min-height: 24px;
+  overflow-x: hidden; }
 
 @-webkit-keyframes circle-check {
   0% {

@@ -34,3 +34,6 @@
 			$(this).closest('.form-group-label').removeClass('control-focus');
 		});
 	});
+
+// textarea autosize
+	$('.textarea-autosize').textareaAutoSize();

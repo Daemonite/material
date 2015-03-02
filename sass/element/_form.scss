@@ -13,7 +13,7 @@
 	display: block;
 	font-size: $font-size;
 	height: $line-height;
-	line-height: 1;
+	line-height: $font-size;
 	padding: 0 0 ($line-height - $font-size - 1);
 	width: 100%;
 	@include placeholder($black-hint);
@@ -233,6 +233,32 @@ textarea.form-control {
 	}
 
 // legend
-	legend[class*="col-"] {
-		padding-left: ($grid-gutter / 2);
+	legend {
+		&[class*="col-xx-"] {
+			padding-left: ($grid-gutter / 2);
+		}
+		// 480
+			@include responsive(xs) {
+				&[class*="col-xs-"] {
+					padding-left: ($grid-gutter / 2);
+				}
+			}
+		// 768
+			@include responsive(sm) {
+				&[class*="col-sm-"] {
+					padding-left: ($grid-gutter / 2);
+				}
+			}
+		// 992
+			@include responsive(md) {
+				&[class*="col-md-"] {
+					padding-left: ($grid-gutter / 2);
+				}
+			}
+		// 1440
+			@include responsive(lg) {
+				&[class*="col-lg-"] {
+					padding-left: ($grid-gutter / 2);
+				}
+			}
 	}
