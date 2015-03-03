@@ -12,9 +12,9 @@
 	color: $black-text;
 	display: block;
 	font-size: $font-size;
-	height: $line-height;
-	line-height: $font-size;
-	padding: 0 0 ($line-height - $font-size - 1);
+	height: $input-height;
+	line-height: $line-height;
+	padding: (($input-height - $line-height) / 2) 0 (($input-height - $line-height) / 2 - 1);
 	width: 100%;
 	@include placeholder($black-hint);
 	@include transition(border-bottom-color 0.15s $timing 0s);
@@ -22,7 +22,7 @@
 		border-bottom-color: $link-color;
 		border-bottom-width: 2px;
 		outline: 0;
-		padding-bottom: ($line-height - $font-size - 2);
+		padding-bottom: (($input-height - $line-height) / 2 - 2);
 	}
 	&[disabled],
 	&[readonly],
@@ -32,18 +32,10 @@
 		cursor: not-allowed;
 		opacity: 1;
 	}
-	&:-webkit-autofill {
-		-webkit-box-shadow: inset 0 0 0 ($line-height / 2) $white;
-	}
 	&.form-control-inline {
 		display: inline-block;
-		line-height: ($font-size - 1);
-		padding-bottom: 0;
+		vertical-align: middle;
 		width: auto;
-		&:focus {
-			line-height: ($font-size - 2);
-			margin-bottom: -1px;
-		}
 	}
 	.form-group-alt & {
 		border-bottom-color: $brand-color;
@@ -69,7 +61,7 @@ select.form-control {
 	-webkit-appearance: none;
 	@include responsive('-webkit-min-device-pixel-ratio: 0') {
 		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAkCAMAAACg5NohAAAAZlBMVEUAAABlZWXLy8vg4OB6enrX19fg4OCdnZ2KiopsbGzn5+dzc3Pt7e3GxsbPz89ubm7u7u5ycnLY2NiJiYmGhoZoaGjq6up/f3+WlpaGhoaZmZllZWVhYWFYWFhaWlpdXV1bW1tWVlaZeqNTAAAAHHRSTlMA+WVC31BEqMzyNekpcGDpKNxJzcjkL9CjwZ/yNlWBeQAAALBJREFUKM/NztkWwiAMRdFQoNparR2cGf//J8UFNdXEd8/rXrkAq9rLoIGt3Vkn9A8xJoiaSqeSJGskuXlJNs2sFRPjWo7lptzVVEoO7VyEWofvoEn8NTUUxuZo2KyCPjo2+wB9m7ZM01zB/9feN2zXEVS0bLEHZQ1b6EE2jhNvDsBbMBWkampepJtizNpi4UPyGrEimBbhLT4L2nLnzR6+ksnIGm7iGjXv8xq14bSWJwymLjvMk/6KAAAAAElFTkSuQmCC);
-		background-position: 100% (($font-size - 12) / 2);
+		background-position: 100% (($input-height - 12) / 2 - 1);
 		background-repeat: no-repeat;
 		background-size: auto 12px;
 		padding-right: 12px;
@@ -77,9 +69,6 @@ select.form-control {
 		&[size] {
 			background-image: none;
 			padding-right: 0;
-		}
-		&.form-control-inline {
-			background-position: 100% 50%;
 		}
 	}
 }
@@ -98,10 +87,11 @@ textarea.form-control {
 	display: block;
 	font-size: $font-size;
 	font-weight: 400;
-	line-height: $font-size;
+	line-height: $line-height;
 	margin-top: 0;
 	margin-bottom: 0;
-	padding-bottom: ($line-height - $font-size - 1);
+	padding-top: (($input-height - $line-height) / 2);
+	padding-bottom: (($input-height - $line-height) / 2 - 1);
 }
 
 // checkbox & radio
@@ -110,12 +100,8 @@ textarea.form-control {
 		display: block;
 		position: relative;
 		.form-group & {
-			line-height: $font-size;
-			margin-top: ($line-height / 2);
-			padding-bottom: ($line-height - $font-size);
-			&:first-child {
-				margin-top: 0;
-			}
+			margin-top: (($input-height - $line-height) / 2);
+			padding-bottom: (($input-height - $line-height) / 2);
 		}
 		label {
 			cursor: pointer;
@@ -134,7 +120,6 @@ textarea.form-control {
 
 	.checkbox input[type="checkbox"],
 	.radio input[type="radio"] {
-		margin-top: 0;
 		margin-left: ($line-height * -1);
 		position: absolute;
 	}
@@ -183,7 +168,6 @@ textarea.form-control {
 	.form-label {
 		display: block;
 		margin-top: ($line-height / 2);
-		margin-bottom: ($line-height / 2);
 		.form-group-alt & {
 			color: $brand-color;
 		}

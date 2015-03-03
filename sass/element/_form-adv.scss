@@ -4,13 +4,9 @@
 			display: block;
 			height: $font-size;
 			position: absolute;
-				top: (($line-height - $font-size) / 2);
+				top: (($line-height - $font-size) / 2 - 1);
 				left: 0;
 			width: $font-size;
-			.form-group & {
-				// position
-					top: 0;
-			}
 		}
 		.circle {
 			border: 2px solid $black-sec;
@@ -101,24 +97,18 @@
 		margin: 0;
 		padding: 0;
 		position: absolute;
-			top: ($line-height / 2);
+			top: (($input-height - $font-size) / 2);
 			left: 0;
 		@include transition(color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing);
 		.form-group-label [class*="col-"] & {
 			// position
-				top: 0;
 				left: $grid-gutter;
 		}
 		.form-group-label.control-focus &,
 		.form-group-label.control-highlight & {
-			font-size: $font-size-h6;
+			font-size: ($input-height - $line-height);
 			// position
-				top: ($font-size-h6 / -2);
-		}
-		.form-group-label.control-focus [class*="col-"] &,
-		.form-group-label.control-highlight [class*="col-"] & {
-			// position
-				top: ($font-size-h6 / -2 + $line-height / -2);
+				top: (($input-height - $line-height) / -2);
 		}
 		.form-group-label.control-focus & {
 			color: $link-color;
@@ -144,22 +134,42 @@
 	}
 
 	.form-group-label {
-		padding-top: ($line-height / 2);
 		position: relative;
 		.form-control {
 			position: relative;
 			z-index: 1;
 			@include placeholder(transparent);
 		}
-		+ .form-group {
-			padding-top: ($line-height / 2);
+	}
+
+// icon label
+	.form-icon-label {
+		cursor: pointer;
+		display: block;
+		padding: (($input-height - $line-height) / 2) 0;
+		.form-group-icon.control-focus & {
+			color: $link-color;
+		}
+		.form-group-icon.form-group-blue & {
+			color: $palette-blue;
+		}
+		.form-group-icon.form-group-green & {
+			color: $palette-green;
+		}
+		.form-group-icon.form-group-purple & {
+			color: $palette-purple;
+		}
+		.form-group-icon.form-group-red & {
+			color: $palette-red;
+		}
+		.form-group-icon.form-group-yellow & {
+			color: $palette-yellow;
 		}
 	}
 
 // textarea autosize
 	.textarea-autosize {
-		max-height: ($font-size * 49 + $line-height);
-		min-height: $line-height;
+		min-height: $input-height;
 		overflow-x: hidden;
 	}
 
