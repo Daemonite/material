@@ -97,10 +97,22 @@
 	}
 }
 
-.header-logo {
+.header-btn {
 	display: block;
 	float: left;
-	font-size: $font-size-h4;
+	height: ($line-height * 2);
+	padding: (($line-height * 2 - $line-height-h4) / 2) $grid-gutter;
+	text-align: center;
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.header-logo,
+.header-text {
+	display: block;
+	float: left;
 	font-weight: 300;
 	height: ($line-height * 2);
 	line-height: $line-height-h4;
@@ -110,4 +122,8 @@
 	&:hover {
 		text-decoration: none;
 	}
+}
+
+.header-logo {
+	font-size: $font-size-h4;
 }
