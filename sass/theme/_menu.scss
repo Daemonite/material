@@ -96,6 +96,14 @@
 			padding-left: ($grid-gutter * 3);
 		}
 	}
+	// 480
+		@include responsive(xs) {
+			width: 320px;
+		}
+	// 992
+		@include responsive(md) {
+			width: 400px;
+		}
 }
 
 .menu-content-inner {
@@ -126,6 +134,14 @@
 			color: $white;
 		}
 	}
+	// 480
+		@include responsive(xs) {
+			width: 320px;
+		}
+	// 992
+		@include responsive(md) {
+			width: 400px;
+		}
 }
 
 .menu-top-form {
@@ -174,14 +190,19 @@
 .menu-wrap {
 	overflow-x: hidden;
 	overflow-y: auto;
-	padding-right: ($grid-gutter * 2);
 	position: absolute;
 		top: 0;
-		right: ($grid-gutter * -2);
+		right: 0;
 		bottom: 0;
 		left: 0;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+	// 480
+		@include responsive(xs) {
+			padding-right: ($grid-gutter * 2);
+			// position
+				right: ($grid-gutter * -2);
+		}
 }
 
 // fbtn

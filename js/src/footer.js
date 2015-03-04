@@ -1,4 +1,4 @@
 // footer push
-	on_resize(function() {
+	function footerPush() {
 		$('body').css('margin-bottom', $('.footer').outerHeight());
-	})();
+	}

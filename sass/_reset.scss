@@ -152,7 +152,9 @@
 		display: block;
 		height: auto;
 		line-height: 1;
-		min-height: $line-height;
+		min-height: $input-height;
+		padding-top: (($input-height - $line-height) / 2);
+		padding-bottom: (($input-height - $line-height) / 2);
 	}
 
 	input[type="number"]::-webkit-inner-spin-button,
@@ -162,8 +164,7 @@
 
 	input[type="range"] {
 		display: block;
-		height: $font-size;
-		margin-bottom: ($line-height - $font-size);
+		height: $input-height;
 		width: 100%;
 	}
 

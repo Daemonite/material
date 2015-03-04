@@ -125,7 +125,9 @@ input[type="file"] {
   display: block;
   height: auto;
   line-height: 1;
-  min-height: 24px; }
+  min-height: 36px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -133,8 +135,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 input[type="range"] {
   display: block;
-  height: 16px;
-  margin-bottom: 8px;
+  height: 36px;
   width: 100%; }
 
 input[type="search"] {
@@ -6988,6 +6989,36 @@ legend[class*="col-xx-"] {
   .page-yellow .content-sub-heading {
     color: #ffc107; }
 
+.content-fix {
+  position: relative;
+  z-index: 1; }
+  .content-fix.fixed .content-fix-wrap {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 32px;
+    padding-left: 32px;
+    position: absolute;
+    top: 0;
+    right: -16px;
+    bottom: 0;
+    left: -16px;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar; }
+  .content-fix.fixed .content-fix-scroll {
+    position: fixed;
+    top: 48px;
+    bottom: 0; }
+
+.content-fix-scroll {
+  margin-right: -16px;
+  margin-left: -16px;
+  overflow: hidden;
+  padding-right: 16px;
+  padding-left: 16px; }
+
+.row-fix {
+  position: relative; }
+
 .footer {
   border-top: 1px solid #e0e0e0;
   color: #9e9e9e;
@@ -7199,6 +7230,12 @@ legend[class*="col-xx-"] {
     .menu-content .nav ul a {
       font-weight: 400;
       padding-left: 48px; }
+  @media only screen and (min-width: 480px) {
+    .menu-content {
+      width: 320px; } }
+  @media only screen and (min-width: 992px) {
+    .menu-content {
+      width: 400px; } }
 
 .menu-content-inner {
   padding-right: 16px;
@@ -7223,6 +7260,12 @@ legend[class*="col-xx-"] {
     text-decoration: none; }
     .menu-top a:focus, .menu-top a:hover {
       color: white; }
+  @media only screen and (min-width: 480px) {
+    .menu-top {
+      width: 320px; } }
+  @media only screen and (min-width: 992px) {
+    .menu-top {
+      width: 400px; } }
 
 .menu-top-form {
   margin-top: 12px;
@@ -7271,14 +7314,17 @@ legend[class*="col-xx-"] {
 .menu-wrap {
   overflow-x: hidden;
   overflow-y: auto;
-  padding-right: 32px;
   position: absolute;
   top: 0;
-  right: -32px;
+  right: 0;
   bottom: 0;
   left: 0;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar; }
+  @media only screen and (min-width: 480px) {
+    .menu-wrap {
+      padding-right: 32px;
+      right: -32px; } }
 
 @media only screen and (min-width: 480px) {
   .menu-right.open ~ .fbtn-container {

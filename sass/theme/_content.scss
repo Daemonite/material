@@ -59,3 +59,41 @@
 		color:  $palette-yellow;
 	}
 }
+
+// fixed left/right hand side column
+	.content-fix {
+		position: relative;
+		z-index: 1;
+		&.fixed {
+			.content-fix-wrap {
+				overflow-x: hidden;
+				overflow-y: auto;
+				padding-right: ($grid-gutter * 2);
+				padding-left: ($grid-gutter * 2);
+				position: absolute;
+					top: 0;
+					right: ($grid-gutter * -1);
+					bottom: 0;
+					left: ($grid-gutter * -1);
+				-webkit-overflow-scrolling: touch;
+				-ms-overflow-style: -ms-autohiding-scrollbar;
+			}
+			.content-fix-scroll {
+				position: fixed;
+					top: ($line-height * 2);
+					bottom: 0;
+			}
+		}
+	}
+
+	.content-fix-scroll {
+		margin-right: ($grid-gutter * -1);
+		margin-left: ($grid-gutter * -1);
+		overflow: hidden;
+		padding-right: $grid-gutter;
+		padding-left: $grid-gutter;
+	}
+
+	.row-fix {
+		position: relative;
+	}
