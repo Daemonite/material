@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<meta content="initial-scale=1.0, width=device-width" name="viewport">
 	<title>Form Elements - Material</title>
 
 	<!-- css -->
@@ -96,6 +96,12 @@
 						</li>
 						<li>
 							<a href="page-500.html"><span class="icon icon-web"></span>500 Page</a>
+						</li>
+						<li>
+							<a href="page-affix.html"><span class="icon icon-web"></span>Fixed LHC/RHC</a>
+						</li>
+						<li>
+							<a href="page-affix-full.html"><span class="icon icon-web"></span>Full-Width Page</a>
 						</li>
 						<li>
 							<a href="page-login.html"><span class="icon icon-exit-to-app"></span>Login Page</a>
@@ -219,6 +225,14 @@
 								</div>
 							</div>
 						</div>
+						<div class="form-group form-group-label">
+							<div class="row">
+								<div class="col-lg-6 col-sm-8">
+									<label class="floating-label" for="float-textarea-autosize">Auto Expanding Textarea</label>
+									<textarea class="form-control textarea-autosize" id="float-textarea-autosize" rows="1"></textarea>
+								</div>
+							</div>
+						</div>
 					</fieldset>
 					<fieldset>
 						<legend>Floating Labels (Cont'd)</legend>
@@ -309,7 +323,57 @@
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend>Material Checkboxes</legend>
+						<legend>Form Elements with Icons</legend>
+						<div class="form-group form-group-icon">
+							<div class="row">
+								<div class="col-lg-6 col-sm-8">
+									<div class="media">
+										<div class="media-object pull-left">
+											<label class="form-icon-label" for="input-icon-address"><span class="access-hide">Address</span><span class="icon icon-home"></span></label>
+										</div>
+										<div class="media-inner">
+											<input class="form-control" id="input-icon-address" placeholder="Address" type="text">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group form-group-icon">
+							<div class="row">
+								<div class="col-lg-6 col-sm-8">
+									<div class="media">
+										<div class="media-object pull-left">
+											<label class="form-icon-label" for="input-icon-phone"><span class="access-hide">Phone</span><span class="icon icon-phone"></span></label>
+										</div>
+										<div class="media-inner">
+											<select class="form-control" id="input-icon-phone">
+												<option>Phone</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group form-group-icon">
+							<div class="row">
+								<div class="col-lg-6 col-sm-8">
+									<div class="media">
+										<div class="media-object pull-left">
+											<label class="form-icon-label" for="input-icon-comment"><span class="access-hide">Comments</span><span class="icon icon-comment"></span></label>
+										</div>
+										<div class="media-inner">
+											<textarea class="form-control textarea-autosize" id="input-icon-comment" placeholder="Comments" rows="1"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Material Checkboxes &amp; Radio Buttons</legend>
 						<div class="form-group">
 							<div class="checkbox checkbox-adv">
 								<label for="input-checkbox-1">
@@ -344,9 +408,23 @@
 								</label>
 							</div>
 						</div>
-					</fieldset>
-					<fieldset>
-						<legend>Material Radio Buttons</legend>
+						<div class="form-group">
+							<div class="checkbox checkbox-adv checkbox-inline">
+								<label for="input-checkbox-inline-1">
+									<input class="access-hide" id="input-checkbox-inline-1" name="input-checkbox-inline" type="checkbox">Inline Option 1
+								</label>
+							</div>
+							<div class="checkbox checkbox-adv checkbox-inline">
+								<label for="input-checkbox-inline-2">
+									<input class="access-hide" id="input-checkbox-inline-2" name="input-checkbox-inline" type="checkbox">Inline Option 2
+								</label>
+							</div>
+							<div class="checkbox checkbox-adv checkbox-inline">
+								<label for="input-checkbox-inline-3">
+									<input class="access-hide" id="input-checkbox-inline-3" name="input-checkbox-inline" type="checkbox">Inline Option 3
+								</label>
+							</div>
+						</div>
 						<div class="form-group">
 							<div class="radio radio-adv">
 								<label for="input-radio-1">
@@ -379,6 +457,36 @@
 								<label for="input-radio-3-disabled">
 									<input class="access-hide" id="input-radio-3-disabled" name="input-radio-disabled" type="radio" disabled>Disabled Option 3
 								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="radio radio-adv radio-inline">
+								<label for="input-radio-inline-1">
+									<input class="access-hide" id="input-radio-inline-1" name="input-radio-inline" type="radio">Inline Option 1
+								</label>
+							</div>
+							<div class="radio radio-adv radio-inline">
+								<label for="input-radio-inline-2">
+									<input class="access-hide" id="input-radio-inline-2" name="input-radio-inline" type="radio">Inline Option 2
+								</label>
+							</div>
+							<div class="radio radio-adv radio-inline">
+								<label for="input-radio-inline-3">
+									<input class="access-hide" id="input-radio-inline-3" name="input-radio-inline" type="radio">Inline Option 3
+								</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Material Datepicker</legend>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-lg-2 col-md-3 col-sm-4">
+									<label class="form-label" for="input-date">Input Type = Date</label>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-8">
+									<input class="datepicker-adv form-control" id="input-date" type="date">
+								</div>
 							</div>
 						</div>
 					</fieldset>
