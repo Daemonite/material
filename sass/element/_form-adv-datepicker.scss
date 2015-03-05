@@ -1,0 +1,196 @@
+.picker {
+	position: absolute;
+	z-index: $top-base;
+	@include user-select(none);
+}
+
+// datepicker
+	.picker__input {
+		border-bottom-style: solid !important;
+		color: $black-text !important;
+		cursor: text !important;
+		&.picker__input--active {
+			border-bottom-color: $link-color;
+			border-bottom-width: 2px;
+		}
+	}
+
+// datepicker element
+	.picker__box {
+		background-clip: padding-box;
+		background-color: $white;
+		border-radius: 4px;
+		outline: 0;
+		overflow: hidden;
+		vertical-align: middle;
+		@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
+	}
+
+	// calendar
+		.picker__day {
+			border-radius: 50%;
+			height: ($line-height * 1.5);
+			margin: ($line-height / 4);
+			padding: ($line-height / 4) 0;
+			width: ($line-height * 1.5);
+			&:focus,
+			&:hover {
+				color: $link-color;
+				cursor: pointer;
+			}
+			&.picker__day--selected {
+				background-color: $brand-color;
+				color: $white !important;
+			}
+			&.picker__day--today {
+				color: $brand-color;
+			}
+		}
+
+		.picker__day--outfocus {
+			color: $white-bg-dark;
+		}
+
+		.picker__table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			margin: 0 ($grid-gutter / 2);
+			table-layout: fixed;
+		}
+
+		.picker__table td,
+		.picker__table th {
+			border: 0;
+			font-size: floor($font-size * 0.9);
+			line-height: $line-height;
+			margin: 0;
+			min-width: ($line-height * 2);
+			padding: 0;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+		.picker__weekday {
+			color: $black-hint;
+			font-weight: 300;
+		}
+
+	// footer
+		.picker__footer {
+			margin: ($line-height / 2) ($grid-gutter / 2);
+			text-align: right;
+			button {
+				margin-left: ($grid-gutter / 2);
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+		}
+
+	// header
+		.picker__header {
+			margin: ($line-height / 2) ($grid-gutter / 2);
+			text-align: center;
+			position: relative;
+		}
+
+		.picker__month,
+		.picker__year {
+			display: inline;
+		}
+
+		.picker__month {
+			margin-right: ($grid-gutter / 2);
+		}
+
+		.picker__nav--next,
+		.picker__nav--prev {
+			cursor: pointer;
+			line-height: $line-height;
+			padding: 0 $grid-gutter;
+			position: absolute;
+				top: 0;
+			&:focus,
+			&:hover {
+				color: $link-color;
+			}
+		}
+
+		.picker__nav--next {
+			// position
+				right: 0;
+		}
+
+		.picker__nav--prev {
+			// position
+				left: 0;
+		}
+
+	// top date
+		.picker__date-display {
+			background-color: $brand-color;
+			border-radius: 4px 4px 0 0;
+			color: $white;
+			text-align: center;
+		}
+		
+		.picker__day-display {
+			font-size: $font-size-lg;
+			line-height: $line-height-lg;
+			padding: 0 $grid-gutter;
+		}
+
+		.picker__month-display {
+			font-size: $font-size-h3;
+			font-weight: 300;
+			line-height: $line-height-h3;
+			padding: ($line-height / 2) $grid-gutter 0;
+			text-transform: uppercase;
+		}
+
+		.picker__weekday-display {
+			background-color: $brand-color-dark-m;
+			border-radius: 4px 4px 0 0;
+			padding: ($line-height / 4) $grid-gutter;
+		}
+
+		.picker__year-display {
+			color: $white-bg;
+			font-size: $font-size-h3;
+			font-weight: 300;
+			line-height: $line-height-h3;
+			padding: 0 $grid-gutter ($line-height / 2);
+		}
+
+// frame & holder
+	.picker__frame {
+		margin: ($line-height * 2) auto;
+		max-width: ($grid-gutter + $line-height * 14);
+		@include transform(scale(0, 0));
+		-webkit-transition: -webkit-transform 0.3s $timing 0s;
+		        transition: transform 0.3s $timing 0s;
+		.picker--opened & {
+			@include transform(scale(1, 1));
+		}
+	}
+
+	.picker__holder {
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: fixed;
+			top: 100%;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		width: 100%;
+		-webkit-backface-visibility: hidden;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		@include transition(background-color 0.3s $timing 0s, top 0s 0.3s);
+		.picker--opened & {
+			background-color: rgba(0, 0, 0, 0.5);
+			// position
+				top: 0;
+			@include transition(background-color 0.3s $timing 0s, top 0s 0s);
+		}
+	}

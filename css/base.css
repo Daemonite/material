@@ -6465,6 +6465,172 @@ legend[class*="col-xx-"] {
 
   100% {
     opacity: 0; } }
+.picker {
+  position: absolute;
+  z-index: 40;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.picker__input {
+  border-bottom-style: solid !important;
+  color: #212121 !important;
+  cursor: text !important; }
+  .picker__input.picker__input--active {
+    border-bottom-color: #2196f3;
+    border-bottom-width: 2px; }
+
+.picker__box {
+  background-clip: padding-box;
+  background-color: white;
+  border-radius: 4px;
+  outline: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5); }
+
+.picker__day {
+  border-radius: 50%;
+  height: 36px;
+  margin: 6px;
+  padding: 6px 0;
+  width: 36px; }
+  .picker__day:focus, .picker__day:hover {
+    color: #2196f3;
+    cursor: pointer; }
+  .picker__day.picker__day--selected {
+    background-color: #4caf50;
+    color: white !important; }
+  .picker__day.picker__day--today {
+    color: #4caf50; }
+
+.picker__day--outfocus {
+  color: #eeeeee; }
+
+.picker__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 8px;
+  table-layout: fixed; }
+
+.picker__table td,
+.picker__table th {
+  border: 0;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+  min-width: 48px;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle; }
+
+.picker__weekday {
+  color: #9e9e9e;
+  font-weight: 300; }
+
+.picker__footer {
+  margin: 12px 8px;
+  text-align: right; }
+  .picker__footer button {
+    margin-left: 8px; }
+    .picker__footer button:first-child {
+      margin-left: 0; }
+
+.picker__header {
+  margin: 12px 8px;
+  text-align: center;
+  position: relative; }
+
+.picker__month,
+.picker__year {
+  display: inline; }
+
+.picker__month {
+  margin-right: 8px; }
+
+.picker__nav--next,
+.picker__nav--prev {
+  cursor: pointer;
+  line-height: 24px;
+  padding: 0 16px;
+  position: absolute;
+  top: 0; }
+  .picker__nav--next:focus, .picker__nav--next:hover,
+  .picker__nav--prev:focus,
+  .picker__nav--prev:hover {
+    color: #2196f3; }
+
+.picker__nav--next {
+  right: 0; }
+
+.picker__nav--prev {
+  left: 0; }
+
+.picker__date-display {
+  background-color: #4caf50;
+  border-radius: 4px 4px 0 0;
+  color: white;
+  text-align: center; }
+
+.picker__day-display {
+  font-size: 64px;
+  line-height: 72px;
+  padding: 0 16px; }
+
+.picker__month-display {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 48px;
+  padding: 12px 16px 0;
+  text-transform: uppercase; }
+
+.picker__weekday-display {
+  background-color: #388e3c;
+  border-radius: 4px 4px 0 0;
+  padding: 6px 16px; }
+
+.picker__year-display {
+  color: whitesmoke;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 48px;
+  padding: 0 16px 12px; }
+
+.picker__frame {
+  margin: 48px auto;
+  max-width: 352px;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+  .picker--opened .picker__frame {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1); }
+
+.picker__holder {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0.3s;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0.3s; }
+  .picker--opened .picker__holder {
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0s;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0s; }
+
 .modal {
   display: none;
   overflow: hidden;
@@ -6509,7 +6675,8 @@ legend[class*="col-xx-"] {
 .modal-content {
   background-clip: padding-box;
   background-color: white;
-  border: 1px solid #9e9e9e;
+  border: 1px solid transparent;
+  border-radius: 4px;
   outline: 0;
   position: relative;
   -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
