@@ -24,6 +24,7 @@
 		overflow: hidden;
 		vertical-align: middle;
 		@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
+		@include clearfix();
 	}
 
 	// calendar
@@ -56,6 +57,12 @@
 			border-spacing: 0;
 			margin: 0 ($grid-gutter / 2);
 			table-layout: fixed;
+			// 992
+				@include responsive(md) {
+					float: left;
+					margin: 0;
+					width: 50%;
+				}
 		}
 
 		.picker__table td,
@@ -77,7 +84,8 @@
 
 	// footer
 		.picker__footer {
-			margin: ($line-height / 2) ($grid-gutter / 2);
+			clear: both;
+			padding: ($line-height / 2) ($grid-gutter / 2);
 			text-align: right;
 			button {
 				margin-left: ($grid-gutter / 2);
@@ -90,8 +98,15 @@
 	// header
 		.picker__header {
 			margin: ($line-height / 2) ($grid-gutter / 2);
-			text-align: center;
 			position: relative;
+			// 992
+				@include responsive(md) {
+					float: left;
+					margin-top: ($line-height / 4);
+					margin-right: 0;
+					margin-left: 0;
+					width: 50%;
+				}
 		}
 
 		.picker__month,
@@ -131,7 +146,12 @@
 			background-color: $brand-color;
 			border-radius: 4px 4px 0 0;
 			color: $white;
-			text-align: center;
+			// 992
+				@include responsive(md) {
+					border-radius: 4px 0 0 0;
+					float: left;
+					width: 50%;
+				}
 		}
 		
 		.picker__day-display {
@@ -146,6 +166,11 @@
 			line-height: $line-height-h3;
 			padding: ($line-height / 2) $grid-gutter 0;
 			text-transform: uppercase;
+			// 992
+				@include responsive(md) {
+					padding-top: ($line-height * 2);
+					padding-bottom: $line-height;
+				}
 		}
 
 		.picker__weekday-display {
@@ -160,18 +185,30 @@
 			font-weight: 300;
 			line-height: $line-height-h3;
 			padding: 0 $grid-gutter ($line-height / 2);
+			// 992
+				@include responsive(md) {
+					padding-top: $line-height;
+					padding-bottom: ($line-height * 2);
+				}
 		}
 
 // frame & holder
 	.picker__frame {
+		display: inline-block;
 		margin: ($line-height * 2) auto;
 		max-width: ($grid-gutter + $line-height * 14);
+		vertical-align: middle;
+		white-space: normal;
 		@include transform(scale(0, 0));
 		-webkit-transition: -webkit-transform 0.3s $timing 0s;
 		        transition: transform 0.3s $timing 0s;
 		.picker--opened & {
 			@include transform(scale(1, 1));
 		}
+		// 992
+			@include responsive(md) {
+				max-width: (($grid-gutter + $line-height * 14) * 2);
+			}
 	}
 
 	.picker__holder {
@@ -182,11 +219,20 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
+		text-align: center;
+		white-space: nowrap;
 		width: 100%;
 		-webkit-backface-visibility: hidden;
 		-webkit-overflow-scrolling: touch;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
 		@include transition(background-color 0.3s $timing 0s, top 0s 0.3s);
+		&:after {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			width: 1px;
+		}
 		.picker--opened & {
 			background-color: rgba(0, 0, 0, 0.5);
 			// position

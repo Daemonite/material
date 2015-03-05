@@ -6490,6 +6490,12 @@ legend[class*="col-xx-"] {
   vertical-align: middle;
   -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5); }
+  .picker__box:after, .picker__box:before {
+    content: "";
+    display: table;
+    line-height: 0; }
+  .picker__box:after {
+    clear: both; }
 
 .picker__day {
   border-radius: 50%;
@@ -6514,6 +6520,11 @@ legend[class*="col-xx-"] {
   border-spacing: 0;
   margin: 0 8px;
   table-layout: fixed; }
+  @media only screen and (min-width: 992px) {
+    .picker__table {
+      float: left;
+      margin: 0;
+      width: 50%; } }
 
 .picker__table td,
 .picker__table th {
@@ -6531,7 +6542,8 @@ legend[class*="col-xx-"] {
   font-weight: 300; }
 
 .picker__footer {
-  margin: 12px 8px;
+  clear: both;
+  padding: 12px 8px;
   text-align: right; }
   .picker__footer button {
     margin-left: 8px; }
@@ -6540,8 +6552,14 @@ legend[class*="col-xx-"] {
 
 .picker__header {
   margin: 12px 8px;
-  text-align: center;
   position: relative; }
+  @media only screen and (min-width: 992px) {
+    .picker__header {
+      float: left;
+      margin-top: 6px;
+      margin-right: 0;
+      margin-left: 0;
+      width: 50%; } }
 
 .picker__month,
 .picker__year {
@@ -6571,8 +6589,12 @@ legend[class*="col-xx-"] {
 .picker__date-display {
   background-color: #4caf50;
   border-radius: 4px 4px 0 0;
-  color: white;
-  text-align: center; }
+  color: white; }
+  @media only screen and (min-width: 992px) {
+    .picker__date-display {
+      border-radius: 4px 0 0 0;
+      float: left;
+      width: 50%; } }
 
 .picker__day-display {
   font-size: 64px;
@@ -6585,6 +6607,10 @@ legend[class*="col-xx-"] {
   line-height: 48px;
   padding: 12px 16px 0;
   text-transform: uppercase; }
+  @media only screen and (min-width: 992px) {
+    .picker__month-display {
+      padding-top: 48px;
+      padding-bottom: 24px; } }
 
 .picker__weekday-display {
   background-color: #388e3c;
@@ -6597,10 +6623,17 @@ legend[class*="col-xx-"] {
   font-weight: 300;
   line-height: 48px;
   padding: 0 16px 12px; }
+  @media only screen and (min-width: 992px) {
+    .picker__year-display {
+      padding-top: 24px;
+      padding-bottom: 48px; } }
 
 .picker__frame {
+  display: inline-block;
   margin: 48px auto;
   max-width: 352px;
+  vertical-align: middle;
+  white-space: normal;
   -webkit-transform: scale(0, 0);
   -ms-transform: scale(0, 0);
   transform: scale(0, 0);
@@ -6610,6 +6643,9 @@ legend[class*="col-xx-"] {
     -webkit-transform: scale(1, 1);
     -ms-transform: scale(1, 1);
     transform: scale(1, 1); }
+  @media only screen and (min-width: 992px) {
+    .picker__frame {
+      max-width: 704px; } }
 
 .picker__holder {
   overflow-x: hidden;
@@ -6619,12 +6655,20 @@ legend[class*="col-xx-"] {
   right: 0;
   bottom: 0;
   left: 0;
+  text-align: center;
+  white-space: nowrap;
   width: 100%;
   -webkit-backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0.3s;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s, top 0s 0.3s; }
+  .picker__holder:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 1px; }
   .picker--opened .picker__holder {
     background-color: rgba(0, 0, 0, 0.5);
     top: 0;
