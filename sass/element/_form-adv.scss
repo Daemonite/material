@@ -165,6 +165,84 @@
 		}
 	}
 
+// switch
+	.switch {
+		position: relative;
+		&.checkbox,
+		&.radio {
+			label {
+				padding-left: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4 + $grid-gutter / 2);
+			}
+		}
+	}
+
+	.switch-toggle {
+		background-color: $black-hint;
+		border-radius: ($font-size-h6 / 2);
+		cursor: pointer;
+		display: inline-block;
+		height: $font-size-h6;
+		margin-right: ($grid-gutter / 2);
+		position: relative;
+		vertical-align: middle;
+		width: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4);
+		@include transition(background-color 0.3s $timing 0s);
+		&:after {
+			background-color: $white;
+			border-radius: 50%;
+			content: '';
+			display: block;
+			height: $font-size-h4;
+			position: absolute;
+				top:(($font-size-h4 - $font-size-h6) / -2);
+				left: 0;
+			width: $font-size-h4;
+			@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+			@include transition(background-color 0.3s $timing 0s, box-shadow 0.15s $timing 0s, left 0.3s $timing 0s);
+		}
+		input[type="checkbox"]:checked + &,
+		input[type="radio"]:checked + & {
+			background-color: $brand-color-light-m;
+			&:after {
+				background-color: $brand-color;
+				// position
+					left: (($font-size * 5 - $font-size-h4) / 4);
+			}
+		}
+		.checkbox.switch &,
+		.radio.switch & {
+			position: absolute;
+				top: (($line-height - $font-size-h6) / 2);
+				left: 0;
+		}
+		.no-touch & {
+			&:active:after {
+				@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1));
+			}
+		}
+		.no-touch input[type="checkbox"]:checked + &,
+		.no-touch input[type="radio"]:checked + & {
+			&:active:after {
+				@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color), green($brand-color), blue($brand-color), 0.25));
+			}
+		}
+		.touch & {
+			@include transition(background-color 0.3s $timing 0.15s);
+			&:after {
+				@include transition(background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing 0s, left 0.3s $timing 0.15s);
+			}
+			&.switch-toggle-on:after {
+				@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color), green($brand-color), blue($brand-color), 0.25));
+			}
+		}
+		.touch input[type="checkbox"]:checked + &,
+		.touch input[type="radio"]:checked + & {
+			&.switch-toggle-on:after {
+				@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1));
+			}
+		}
+	}
+
 // textarea autosize
 	.textarea-autosize {
 		min-height: $input-height;
