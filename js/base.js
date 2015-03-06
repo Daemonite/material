@@ -148,6 +148,17 @@ $('.datepicker-adv-default').each(function(index) {
 		$(this).closest('.form-group-icon').removeClass('control-focus');
 	});
 
+// switch
+	$('.switch-toggle').on('click', function() {
+		var $this = $(this);
+		if (!$this.hasClass('switch-toggle-on')) {
+			$this.addClass('switch-toggle-on');
+			setTimeout(function() {
+				$this.removeClass('switch-toggle-on');
+			}, 300);
+		};
+	});
+
 // textarea autosize
 	$('.textarea-autosize').textareaAutoSize();
 // header affix
