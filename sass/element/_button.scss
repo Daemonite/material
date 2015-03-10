@@ -20,7 +20,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15));
-	@include transition(all 0.45s $timing 0s, background-color 0.3s linear 0s);
+	@include transition(all 0.45s $timing, background-color 0.3s linear 0s);
 	@include user-select(none);
 	&:active,
 	&:focus,
@@ -32,7 +32,7 @@
 	}
 	&:active {
 		background-color: $white-bg;
-		@include transition(all 0.45s $timing 0s, background-color 0s linear 0.45s);
+		@include transition(all 0.45s $timing, background-color 0s linear 0.45s);
 	}
 	&[disabled],
 	fieldset[disabled] & {

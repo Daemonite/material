@@ -225,7 +225,7 @@
 		-webkit-backface-visibility: hidden;
 		-webkit-overflow-scrolling: touch;
 		-ms-overflow-style: -ms-autohiding-scrollbar;
-		@include transition(background-color 0.3s $timing 0s, top 0s 0.3s);
+		@include transition(background-color 0.3s $timing, top 0s linear 0.3s);
 		&:after {
 			content: '';
 			display: inline-block;
@@ -237,6 +237,6 @@
 			background-color: rgba(0, 0, 0, 0.5);
 			// position
 				top: 0;
-			@include transition(background-color 0.3s $timing 0s, top 0s 0s);
+			@include transition(background-color 0.3s $timing, top 0s linear 0s);
 		}
 	}

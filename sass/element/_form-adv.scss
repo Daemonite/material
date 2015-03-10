@@ -10,7 +10,7 @@
 		}
 		.circle {
 			border: 2px solid $black-sec;
-			@include transition(border-color 0.3s $timing 0s);
+			@include transition(border-color 0.3s $timing);
 		}
 		&.disabled,
 		fieldset[disabled] & {
@@ -27,7 +27,7 @@
 		.circle-check {
 			background-color: transparent;
 			@include transform(scale(0));
-			@include transition(background-color 0.3s $timing 0s, transform 0.3s $timing 0s);
+			@include transition(background-color 0.3s $timing, transform 0.3s $timing);
 			&:after {
 				background-color: $brand-color;
 				border-radius: 50%;
@@ -57,7 +57,7 @@
 			background-color: transparent;
 			color: transparent;
 			@include transform(scale(0.5));
-			@include transition(background-color 0.3s $timing 0s, transform 0.3s $timing 0s);
+			@include transition(background-color 0.3s $timing, transform 0.3s $timing);
 		}
 		input.access-hide:checked ~ .circle-icon {
 			background-color: $brand-color;
@@ -186,7 +186,7 @@
 		position: relative;
 		vertical-align: middle;
 		width: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4);
-		@include transition(background-color 0.3s $timing 0s);
+		@include transition(background-color 0.3s $timing);
 		&:after {
 			background-color: $white;
 			border-radius: 50%;
@@ -198,7 +198,7 @@
 				left: 0;
 			width: $font-size-h4;
 			@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
-			@include transition(background-color 0.3s $timing 0s, box-shadow 0.15s $timing 0s, left 0.3s $timing 0s);
+			@include transition(background-color 0.3s $timing, box-shadow 0.15s $timing, left 0.3s $timing);
 		}
 		input[type="checkbox"]:checked + &,
 		input[type="radio"]:checked + & {
@@ -229,7 +229,7 @@
 		.touch & {
 			@include transition(background-color 0.3s $timing 0.15s);
 			&:after {
-				@include transition(background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing 0s, left 0.3s $timing 0.15s);
+				@include transition(background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing, left 0.3s $timing 0.15s);
 			}
 			&.switch-toggle-on:after {
 				@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color), green($brand-color), blue($brand-color), 0.25));
