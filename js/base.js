@@ -192,16 +192,16 @@ $('.datepicker-adv-default').each(function(index) {
 // menu close
 	function mReset() {
 		$('body').removeClass('menu-open');
-		$('.header .nav > li.active').removeClass('active');
+		$('.menu-toggle').closest('li.active').removeClass('active');
 		$('.menu.open').removeClass('open');
 	}
 
 // menu open
-	$('.header .nav > li > a').on('click', function(e) {
+	$('.menu-toggle').on('click', function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 		var $this = $(this),
-		    $thisLi = $this.parent('li'),
+		    $thisLi = $this.closest('li'),
 		    $thisMenu = $($this.attr('href'));
 		if ($thisLi.hasClass('active')) {
 			$('body').removeClass('menu-open');
@@ -209,7 +209,7 @@ $('.datepicker-adv-default').each(function(index) {
 			$thisMenu.removeClass('open');
 		} else {
 			$('body').addClass('menu-open');
-			$('.header .nav > li.active').removeClass('active');
+			$('.menu-toggle').closest('li.active').removeClass('active');
 			$('.menu.open').removeClass('open');
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
