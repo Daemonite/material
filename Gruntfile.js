@@ -1,4 +1,8 @@
 module.exports = function(grunt) {
+	// load all grunt tasks
+	require('load-grunt-tasks')(grunt);
+
+	// grunt config
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		concat: {
@@ -53,12 +57,15 @@ module.exports = function(grunt) {
 				files: ['sass/**/*.scss'],
 				tasks: ['sass', 'cssmin']
 			}
+		},
+		// dev update
+		devUpdate: {
+			main: {
+				options: {
+					semver: false,
+					updateType: 'prompt'
+				}
+			}
 		}
 	});
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-watch');
 };
