@@ -6156,7 +6156,8 @@ a.fbtn:focus, a.fbtn:hover {
   margin-top: 24px;
   margin-bottom: 24px; }
 
-.form-control {
+.form-control, .picker__select--month,
+.picker__select--year {
   background-color: transparent;
   background-image: none;
   border: 0;
@@ -6171,54 +6172,73 @@ a.fbtn:focus, a.fbtn:hover {
   width: 100%;
   -webkit-transition: border-bottom-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   transition: border-bottom-color 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
-  .form-control:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .picker__select--month:-ms-input-placeholder,
+  .picker__select--year:-ms-input-placeholder {
     color: #9e9e9e; }
-  .form-control::-moz-placeholder {
+  .form-control::-moz-placeholder, .picker__select--month::-moz-placeholder,
+  .picker__select--year::-moz-placeholder {
     color: #9e9e9e;
     opacity: 1; }
-  .form-control::-webkit-input-placeholder {
+  .form-control::-webkit-input-placeholder, .picker__select--month::-webkit-input-placeholder,
+  .picker__select--year::-webkit-input-placeholder {
     color: #9e9e9e; }
-  .form-control:focus {
+  .form-control:focus, .picker__select--month:focus,
+  .picker__select--year:focus {
     border-bottom-color: #2196f3;
     border-bottom-width: 2px;
     outline: 0;
     padding-bottom: 4px; }
-  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  .form-control[disabled], [disabled].picker__select--month,
+  [disabled].picker__select--year, .form-control[readonly], [readonly].picker__select--month,
+  [readonly].picker__select--year, fieldset[disabled] .form-control, fieldset[disabled] .picker__select--month,
+  fieldset[disabled] .picker__select--year {
     border-bottom-style: dashed;
     color: #9e9e9e;
     cursor: not-allowed;
     opacity: 1; }
-  .form-control.form-control-inline {
+  .form-control.form-control-inline, .form-control-inline.picker__select--month,
+  .form-control-inline.picker__select--year {
     display: inline-block;
     vertical-align: middle;
     width: auto; }
-  .form-group-alt .form-control {
+  .form-group-alt .form-control, .form-group-alt .picker__select--month,
+  .form-group-alt .picker__select--year {
     border-bottom-color: #4caf50; }
-  .form-group-blue .form-control {
+  .form-group-blue .form-control, .form-group-blue .picker__select--month,
+  .form-group-blue .picker__select--year {
     border-bottom-color: #2196f3; }
-  .form-group-green .form-control {
+  .form-group-green .form-control, .form-group-green .picker__select--month,
+  .form-group-green .picker__select--year {
     border-bottom-color: #4caf50; }
-  .form-group-purple .form-control {
+  .form-group-purple .form-control, .form-group-purple .picker__select--month,
+  .form-group-purple .picker__select--year {
     border-bottom-color: #9c27b0; }
-  .form-group-red .form-control {
+  .form-group-red .form-control, .form-group-red .picker__select--month,
+  .form-group-red .picker__select--year {
     border-bottom-color: #f44336; }
-  .form-group-yellow .form-control {
+  .form-group-yellow .form-control, .form-group-yellow .picker__select--month,
+  .form-group-yellow .picker__select--year {
     border-bottom-color: #ffc107; }
 
-select.form-control {
+select.form-control, select.picker__select--month,
+select.picker__select--year {
   -webkit-appearance: none; }
   @media only screen and (-webkit-min-device-pixel-ratio: 0) {
-    select.form-control {
+    select.form-control, select.picker__select--month,
+    select.picker__select--year {
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAkCAMAAACg5NohAAAAZlBMVEUAAABlZWXLy8vg4OB6enrX19fg4OCdnZ2KiopsbGzn5+dzc3Pt7e3GxsbPz89ubm7u7u5ycnLY2NiJiYmGhoZoaGjq6up/f3+WlpaGhoaZmZllZWVhYWFYWFhaWlpdXV1bW1tWVlaZeqNTAAAAHHRSTlMA+WVC31BEqMzyNekpcGDpKNxJzcjkL9CjwZ/yNlWBeQAAALBJREFUKM/NztkWwiAMRdFQoNparR2cGf//J8UFNdXEd8/rXrkAq9rLoIGt3Vkn9A8xJoiaSqeSJGskuXlJNs2sFRPjWo7lptzVVEoO7VyEWofvoEn8NTUUxuZo2KyCPjo2+wB9m7ZM01zB/9feN2zXEVS0bLEHZQ1b6EE2jhNvDsBbMBWkampepJtizNpi4UPyGrEimBbhLT4L2nLnzR6+ksnIGm7iGjXv8xq14bSWJwymLjvMk/6KAAAAAElFTkSuQmCC);
       background-position: 100% 11px;
       background-repeat: no-repeat;
       background-size: auto 12px;
       padding-right: 12px; }
-      select.form-control[multiple], select.form-control[size] {
+      select.form-control[multiple], select[multiple].picker__select--month,
+      select[multiple].picker__select--year, select.form-control[size], select[size].picker__select--month,
+      select[size].picker__select--year {
         background-image: none;
         padding-right: 0; } }
 
-textarea.form-control {
+textarea.form-control, textarea.picker__select--month,
+textarea.picker__select--year {
   height: auto; }
 
 .form-control-inverse {
@@ -6467,12 +6487,15 @@ legend[class*="col-xx-"] {
 
 .form-group-label {
   position: relative; }
-  .form-group-label .form-control:-ms-input-placeholder {
+  .form-group-label .form-control:-ms-input-placeholder, .form-group-label .picker__select--month:-ms-input-placeholder,
+  .form-group-label .picker__select--year:-ms-input-placeholder {
     color: transparent; }
-  .form-group-label .form-control::-moz-placeholder {
+  .form-group-label .form-control::-moz-placeholder, .form-group-label .picker__select--month::-moz-placeholder,
+  .form-group-label .picker__select--year::-moz-placeholder {
     color: transparent;
     opacity: 1; }
-  .form-group-label .form-control::-webkit-input-placeholder {
+  .form-group-label .form-control::-webkit-input-placeholder, .form-group-label .picker__select--month::-webkit-input-placeholder,
+  .form-group-label .picker__select--year::-webkit-input-placeholder {
     color: transparent; }
 
 .form-icon-label {
@@ -6671,18 +6694,20 @@ legend[class*="col-xx-"] {
 
 .picker__month,
 .picker__year {
-  display: inline; }
-
-.picker__month {
-  margin-right: 8px; }
+  display: inline;
+  margin-left: 16px; }
+  .picker__month:first-child,
+  .picker__year:first-child {
+    margin-left: 0; }
 
 .picker__nav--next,
 .picker__nav--prev {
   cursor: pointer;
   line-height: 24px;
+  margin-top: -12px;
   padding: 0 16px;
   position: absolute;
-  top: 0; }
+  top: 50%; }
   .picker__nav--next:focus, .picker__nav--next:hover,
   .picker__nav--prev:focus,
   .picker__nav--prev:hover {
@@ -6694,6 +6719,23 @@ legend[class*="col-xx-"] {
 .picker__nav--prev {
   left: 0; }
 
+.picker__select--month,
+.picker__select--year {
+  border-bottom: 0;
+  display: inline-block;
+  height: 24px;
+  margin-left: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: auto; }
+  .picker__select--month:first-child,
+  .picker__select--year:first-child {
+    margin-left: 0; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+  select.picker__select--month,
+  select.picker__select--year {
+    background-position: 100% 50%; } }
 .picker__date-display {
   background-color: #4caf50;
   border-radius: 4px 4px 0 0;
