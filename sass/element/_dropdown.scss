@@ -82,10 +82,30 @@
 	position: relative;
 	z-index: 1;
 	.dropdown.open & {
+		background-color: $white;
 		border-color: $black-hint;
 		border-bottom-color: transparent;
 		border-radius: 2px 2px 0 0;
+		color: $black-text;
 		@include box-shadow(none);
+		&:after,
+		&:before {
+			background-color: $black-hint;
+			content: '';
+			display: block;
+			height: 1px;
+			position: absolute;
+				bottom: -1px;
+			width: 1px;
+		}
+		&:after {
+			// position
+				right: -1px;
+		}
+		&:before {
+			// position
+				left: -1px;
+		}
 	}
 }
 
