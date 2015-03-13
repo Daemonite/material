@@ -6,9 +6,13 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		concat: {
-			dist: {
+			base: {
 				src: ['js/src/*.js'],
 				dest: 'js/base.js',
+			},
+			project: {
+				src: ['js/src-project/*.js'],
+				dest: 'js/project.js'
 			}
 		},
 		connect: {
@@ -22,13 +26,17 @@ module.exports = function(grunt) {
 			}
 		},
     cssmin: {
-      minify: {
+      base: {
         src: ['css/base.css'],
         dest: 'css/base.min.css'
+      },
+      project: {
+      	src: ['css/project.css'],
+      	dest: 'css/project.min.css'
       }
     },
 		sass: {
-			dist: {
+			all: {
 				files: [{
 					cwd: 'sass/',
 					dest: 'css/',
@@ -42,16 +50,25 @@ module.exports = function(grunt) {
 			}
 		},
 		uglify: {
-			targets: {
+			base: {
 				files: {
 					'js/base.min.js': ['js/base.js']
+				}
+			},
+			project: {
+				files: {
+					'js/project.min.js': ['js/project.js']
 				}
 			}
 		},
 		watch: {
-			js: {
+			jsbase: {
 				files: ['js/src/*.js'],
-				tasks: ['concat', 'uglify']
+				tasks: ['concat:base', 'uglify:base']
+			},
+			jsproject: {
+				files: ['js/src-project/*.js'],
+				tasks: ['concat:project', 'uglify:project']
 			},
 			sass: {
 				files: ['sass/**/*.scss'],
