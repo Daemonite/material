@@ -7,7 +7,6 @@
 	});
 
 // floating label
-	var allchecked;
 	if($('.form-group-label').length) {
 		$('.form-group-label .form-control').each(function() {
 			floatingLabel($(this));

@@ -13,7 +13,7 @@
 	});
 
 	function contentFix(content) {
-		if ($(window).scrollTop() > (content.offset().top - $('.header').height())) {
+		if (window.pageYOffset >= (content.offset().top - headerHeight)) {
 			if (!content.hasClass('fixed')) {
 				if ((content.is('[class*="col-xx"]')) || (content.is('[class*="col-xs"]') && $(window).width() >= 480) || (content.is('[class*="col-sm"]') && $(window).width() >= 768) || (content.is('[class*="col-md"]') && $(window).width() >= 992) || (content.is('[class*="col-lg"]') && $(window).width() >= 1440)) {
 					content.addClass('fixed');

@@ -5,7 +5,7 @@
 				contentFixPushCal();
 			};
 		// footer push
-			if ($('.footer').length) {
-				footerPush();
-			};
+			footerPush();
+		// header height
+			headerHeightCal();
 	})();

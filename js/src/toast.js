@@ -1,5 +1,6 @@
 // toast
-	var toastTimeout, toastTimeoutInner;
+	var toastTimeout,
+	    toastTimeoutInner;
 
 	// toast dismiss
 		$(document).on('click', '[data-dismiss="toast"]', function(e) {

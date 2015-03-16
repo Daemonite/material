@@ -1,10 +1,17 @@
-// header affix
-	var $header = $('.header');
+// header
+	var $header = $('.header'),
+	    headerHeight;
 
+// header affix
 	$(window).on('scroll', function() {
-		if ($(window).scrollTop() > $header.height()) {
+		if (window.pageYOffset > headerHeight) {
 			$header.addClass('fixed');
 		} else {
 			$header.removeClass('fixed');
 		}
 	});
+
+// header height
+	function headerHeightCal() {
+		headerHeight = $header.height();
+	}
