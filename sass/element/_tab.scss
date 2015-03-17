@@ -52,121 +52,6 @@
 	}
 }
 
-// tab nav colours
-	.tab-nav-alt {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $brand-color;
-					}
-					&:focus,
-					&:hover {
-						color: $brand-color;
-					}
-				}
-				&.active > a {
-					color: $brand-color;
-				}
-			}
-		}
-	}
-
-	.tab-nav-blue {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $palette-blue;
-					}
-					&:focus,
-					&:hover {
-						color: $palette-blue;
-					}
-				}
-				&.active > a {
-					color: $palette-blue;
-				}
-			}
-		}
-	}
-
-	.tab-nav-green {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $palette-green;
-					}
-					&:focus,
-					&:hover {
-						color: $palette-green;
-					}
-				}
-				&.active > a {
-					color: $palette-green;
-				}
-			}
-		}
-	}
-
-	.tab-nav-purple {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $palette-purple;
-					}
-					&:focus,
-					&:hover {
-						color: $palette-purple;
-					}
-				}
-				&.active > a {
-					color: $palette-purple;
-				}
-			}
-		}
-	}
-
-	.tab-nav-red {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $palette-red;
-					}
-					&:focus,
-					&:hover {
-						color: $palette-red;
-					}
-				}
-				&.active > a {
-					color: $palette-red;
-				}
-			}
-		}
-	}
-
-	.tab-nav-yellow {
-		.nav {
-			> li {
-				> a {
-					&:after {
-						background-color: $palette-yellow;
-					}
-					&:focus,
-					&:hover {
-						color: $palette-yellow;
-					}
-				}
-				&.active > a {
-					color: $palette-yellow;
-				}
-			}
-		}
-	}
-
 .tab-pane {
 	display: none;
 	visibility: hidden;
@@ -175,3 +60,27 @@
 		visibility: visible;
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.tab-nav-#{$color} {
+			.nav {
+				> li {
+					> a {
+						&:after {
+							background-color: nth($palette-color, $i);
+						}
+						&:focus,
+						&:hover {
+							color: nth($palette-color, $i);
+						}
+					}
+					&.active > a {
+						color: nth($palette-color, $i);
+					}
+				}
+			}
+		}
+	}

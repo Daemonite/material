@@ -14,50 +14,18 @@
 		background-color: $brand-color-dark-m;
 		@include box-shadow(0 1px 10px rgba(0, 0, 0, 0.5));
 	}
-	.page-blue & {
-		background-color: $palette-blue;
-		&.fixed {
-			background-color: $palette-blue-dark-m;
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.page-#{$color} & {
+			background-color: nth($palette-color, $i);
+			&.fixed {
+				background-color: nth($palette-color-dark-m, $i);
+			}
 		}
-	}
-	.menu-open.page-blue & {
-		background-color: $palette-blue-dark-m;
-	}
-	.page-green & {
-		background-color: $palette-green;
-		&.fixed {
-			background-color: $palette-green-dark-m;
+		.menu-open.page-#{$color} & {
+			background-color: nth($palette-color-dark-m, $i);
 		}
-	}
-	.menu-open.page-green & {
-		background-color: $palette-green-dark-m;
-	}
-	.page-purple & {
-		background-color: $palette-purple;
-		&.fixed {
-			background-color: $palette-purple-dark-m;
-		}
-	}
-	.menu-open.page-purple & {
-		background-color: $palette-purple-dark-m;
-	}
-	.page-red & {
-		background-color: $palette-red;
-		&.fixed {
-			background-color: $palette-red-dark-m;
-		}
-	}
-	.menu-open.page-red & {
-		background-color: $palette-red-dark-m;
-	}
-	.page-yellow & {
-		background-color: $palette-yellow;
-		&.fixed {
-			background-color: $palette-yellow-dark-m;
-		}
-	}
-	.menu-open.page-yellow & {
-		background-color: $palette-yellow-dark-m;
 	}
 	a {
 		color: $white;

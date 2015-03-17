@@ -37,23 +37,12 @@
 		vertical-align: middle;
 		width: auto;
 	}
-	.form-group-alt & {
-		border-bottom-color: $brand-color;
-	}
-	.form-group-blue & {
-		border-bottom-color: $palette-blue;
-	}
-	.form-group-green & {
-		border-bottom-color: $palette-green;
-	}
-	.form-group-purple & {
-		border-bottom-color: $palette-purple;
-	}
-	.form-group-red & {
-		border-bottom-color: $palette-red;
-	}
-	.form-group-yellow & {
-		border-bottom-color: $palette-yellow;
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.form-group-#{$color} & {
+			border-bottom-color: nth($palette-color, $i);
+		}
 	}
 }
 
@@ -168,23 +157,12 @@ textarea.form-control {
 	.form-label {
 		display: block;
 		margin-top: ($line-height / 2);
-		.form-group-alt & {
-			color: $brand-color;
-		}
-		.form-group-blue & {
-			color: $palette-blue;
-		}
-		.form-group-green & {
-			color: $palette-green;
-		}
-		.form-group-purple & {
-			color: $palette-purple;
-		}
-		.form-group-red & {
-			color: $palette-red;
-		}
-		.form-group-yellow & {
-			color: $palette-yellow;
+		@each $color in $palette-list {
+			$i: index($palette-list, $color);
+			
+			.form-group-#{$color} & {
+				color: nth($palette-color, $i);
+			}
 		}
 		// 480
 			@include responsive(xs) {

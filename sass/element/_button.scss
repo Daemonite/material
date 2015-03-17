@@ -56,130 +56,29 @@
 	padding: 0 ($grid-gutter / 2);
 }
 
-// colours
-	.btn-alt {
-		background-color: $brand-color;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.btn-#{$color} {
+			background-color: nth($palette-color, $i);
 			color: $white;
-		}
-		&:active {
-			background-color: $brand-color-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $brand-color;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $brand-color-light-m 10%, $brand-color 11%);
-			background-image:         radial-gradient(circle, $brand-color-light-m 10%, $brand-color 11%);
-		}
-	}
-
-	.btn-blue {
-		background-color: $palette-blue;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
-			color: $white;
-		}
-		&:active {
-			background-color: $palette-blue-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $palette-blue;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $palette-blue-light-m 10%, $palette-blue 11%);
-			background-image:         radial-gradient(circle, $palette-blue-light-m 10%, $palette-blue 11%);
-		}
-	}
-
-	.btn-green {
-		background-color: $palette-green;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
-			color: $white;
-		}
-		&:active {
-			background-color: $palette-green-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $palette-green;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $palette-green-light-m 10%, $palette-green 11%);
-			background-image:         radial-gradient(circle, $palette-green-light-m 10%, $palette-green 11%);
-		}
-	}
-
-	.btn-purple {
-		background-color: $palette-purple;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
-			color: $white;
-		}
-		&:active {
-			background-color: $palette-purple-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $palette-purple;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $palette-purple-light-m 10%, $palette-purple 11%);
-			background-image:         radial-gradient(circle, $palette-purple-light-m 10%, $palette-purple 11%);
-		}
-	}
-
-	.btn-red {
-		background-color: $palette-red;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
-			color: $white;
-		}
-		&:active {
-			background-color: $palette-red-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $palette-red;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $palette-red-light-m 10%, $palette-red 11%);
-			background-image:         radial-gradient(circle, $palette-red-light-m 10%, $palette-red 11%);
-		}
-	}
-
-	.btn-yellow {
-		background-color: $palette-yellow;
-		color: $white;
-		&:active,
-		&:focus,
-		&:hover {
-			color: $white;
-		}
-		&:active {
-			background-color: $palette-yellow-light-m;
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			background-color: $palette-yellow;
-		}
-		&.btn-active {
-			background-image: -webkit-radial-gradient(circle, $palette-yellow-light-m 10%, $palette-yellow 11%);
-			background-image:         radial-gradient(circle, $palette-yellow-light-m 10%, $palette-yellow 11%);
+			&:active,
+			&:focus,
+			&:hover {
+				color: $white;
+			}
+			&:active {
+				background-color: nth($palette-color-light-m, $i);
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				background-color: nth($palette-color, $i);
+			}
+			&.btn-active {
+				background-image: -webkit-radial-gradient(circle, nth($palette-color-light-m, $i) 10%, nth($palette-color, $i) 11%);
+				background-image:         radial-gradient(circle, nth($palette-color-light-m, $i) 10%, nth($palette-color, $i) 11%);
+			}
 		}
 	}
 
@@ -191,91 +90,27 @@
 		fieldset[disabled] & {
 			color: $black-text;
 		}
-		&.btn-alt {
-			color: $brand-color;
-			&:active {
-				background-color: $brand-color-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $brand-color;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $brand-color-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $brand-color-light 10%, $white 11%);
-			}
-		}
-		&.btn-blue {
-			color: $palette-blue;
-			&:active {
-				background-color: $palette-blue-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $palette-blue;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $palette-blue-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $palette-blue-light 10%, $white 11%);
-			}
-		}
-		&.btn-green {
-			color: $palette-green;
-			&:active {
-				background-color: $palette-green-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $palette-green;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $palette-green-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $palette-green-light 10%, $white 11%);
-			}
-		}
-		&.btn-purple {
-			color: $palette-purple;
-			&:active {
-				background-color: $palette-purple-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $palette-purple;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $palette-purple-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $palette-purple-light 10%, $white 11%);
-			}
-		}
-		&.btn-red {
-			color: $palette-red;
-			&:active {
-				background-color: $palette-red-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $palette-red;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $palette-red-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $palette-red-light 10%, $white 11%);
-			}
-		}
-		&.btn-yellow {
-			color: $palette-yellow;
-			&:active {
-				background-color: $palette-yellow-light;
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: $palette-yellow;
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, $palette-yellow-light 10%, $white 11%);
-				background-image:         radial-gradient(circle, $palette-yellow-light 10%, $white 11%);
-			}
-		}
 	}
+	
+	// flat colour
+		@each $color in $palette-list {
+			$i: index($palette-list, $color);
+
+			.btn-flat.btn-#{$color} {
+				color: nth($palette-color, $i);
+				&:active {
+					background-color: nth($palette-color-light, $i);
+				}
+				&[disabled],
+				fieldset[disabled] & {
+					color: nth($palette-color, $i);
+				}
+				&.btn-active {
+					background-image: -webkit-radial-gradient(circle, nth($palette-color-light, $i) 10%, $white 11%);
+					background-image:         radial-gradient(circle, nth($palette-color-light, $i) 10%, $white 11%);
+				}
+			}
+		}
 
 // size
 	.btn-sm {

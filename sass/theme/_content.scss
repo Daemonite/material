@@ -13,20 +13,12 @@
 	position: relative;
 	z-index: 1;
 	@include transition(background-color 0.3s $timing, color 0.3s $timing);
-	.page-blue & {
-		background-color: $palette-blue;
-	}
-	.page-green & {
-		background-color: $palette-green;
-	}
-	.page-purple & {
-		background-color: $palette-purple;
-	}
-	.page-red & {
-		background-color: $palette-red;
-	}
-	.page-yellow & {
-		background-color: $palette-yellow;
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.page-#{$color} & {
+			background-color: nth($palette-color, $i);
+		}
 	}
 	.heading {
 		font-weight: 300;
@@ -43,20 +35,12 @@
 	font-size: $font-size-h4;
 	font-weight: 400;
 	line-height: $line-height-h4;
-	.page-blue & {
-		color:  $palette-blue;
-	}
-	.page-green & {
-		color:  $palette-green;
-	}
-	.page-purple & {
-		color:  $palette-purple;
-	}
-	.page-red & {
-		color:  $palette-red;
-	}
-	.page-yellow & {
-		color:  $palette-yellow;
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.page-#{$color} & {
+			color: nth($palette-color, $i);
+		}
 	}
 }
 

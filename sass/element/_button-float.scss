@@ -11,24 +11,6 @@
 	text-align: center;
 	width: ($line-height * 2);
 	@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
-	&.fbtn-alt {
-		background-color: $brand-color;
-	}
-	&.fbtn-blue {
-		background-color: $palette-blue;
-	}
-	&.fbtn-green {
-		background-color: $palette-green;
-	}
-	&.fbtn-purple {
-		background-color: $palette-purple;
-	}
-	&.fbtn-red {
-		background-color: $palette-red;
-	}
-	&.fbtn-yellow {
-		background-color: $palette-yellow;
-	}
 	.fbtn-dropdown & {
 		margin-bottom: ($line-height / 2);
 		@include opacity(0);
@@ -152,3 +134,12 @@ a.fbtn {
 		display: block;
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.fbtn-#{$color} {
+			background-color: nth($palette-color, $i);
+		}
+	}

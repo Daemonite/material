@@ -52,33 +52,12 @@
 	}
 }
 
-// colours
-	.avatar-alt {
-		background-color: $brand-color;
-		color: $white;
-	}
-
-	.avatar-blue {
-		background-color: $palette-blue;
-		color: $white;
-	}
-
-	.avatar-green {
-		background-color: $palette-green;
-		color: $white;
-	}
-
-	.avatar-purple {
-		background-color: $palette-purple;
-		color: $white;
-	}
-
-	.avatar-red {
-		background-color: $palette-red;
-		color: $white;
-	}
-
-	.avatar-yellow {
-		background-color: $palette-yellow;
-		color: $white;
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.avatar-#{$color} {
+			background-color: nth($palette-color, $i);
+			color: $white;
+		}
 	}

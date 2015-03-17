@@ -152,206 +152,40 @@
 	margin-top: $line-height;
 }
 
-// colours
-	.card-alt {
-		@include box-shadow(0 0 1px $brand-color);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $brand-color);
-		}
-		.card-action:before {
-			border-top-color: $brand-color-light;
-		}
-		.card-side {
-			background-color: $brand-color;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $brand-color-dark-m;
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.card-#{$color} {
+			@include box-shadow(0 0 1px nth($palette-color, $i));
+			&:focus,
+			&:hover {
+				@include box-shadow(0 0 5px nth($palette-color, $i));
+			}
+			.card-action:before {
+				border-top-color: nth($palette-color-light, $i);
+			}
+			.card-side {
+				background-color: nth($palette-color, $i);
+				color: $white;
+				&[href] {
+					&:focus,
+					&:hover {
+						background-color: nth($palette-color-dark-m, $i);
+					}
 				}
 			}
 		}
-	}
 
-	.card-alt-bg {
-		background-color: $brand-color;
-		.card-side {
-			background-color: $brand-color-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $brand-color-dark;
-				}
-			}
-		}
-	}
-
-	.card-blue {
-		@include box-shadow(0 0 1px $palette-blue);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $palette-blue);
-		}
-		.card-action:before {
-			border-top-color: $palette-blue-light;
-		}
-		.card-side {
-			background-color: $palette-blue;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-blue-dark-m;
-				}
-			}
-		}
-	}
-
-	.card-blue-bg {
-		background-color: $palette-blue;
-		.card-side {
-			background-color: $palette-blue-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-blue-dark;
-				}
-			}
-		}
-	}
-
-	.card-green {
-		@include box-shadow(0 0 1px $palette-green);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $palette-green);
-		}
-		.card-action:before {
-			border-top-color: $palette-green-light;
-		}
-		.card-side {
-			background-color: $palette-green;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-green-dark-m;
-				}
-			}
-		}
-	}
-
-	.card-green-bg {
-		background-color: $palette-green;
-		.card-side {
-			background-color: $palette-green-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-green-dark;
-				}
-			}
-		}
-	}
-
-	.card-purple {
-		@include box-shadow(0 0 1px $palette-purple);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $palette-purple);
-		}
-		.card-action:before {
-			border-top-color: $palette-purple-light;
-		}
-		.card-side {
-			background-color: $palette-purple;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-purple-dark-m;
-				}
-			}
-		}
-	}
-
-	.card-purple-bg {
-		background-color: $palette-purple;
-		.card-side {
-			background-color: $palette-purple-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-purple-dark;
-				}
-			}
-		}
-	}
-
-	.card-red {
-		@include box-shadow(0 0 1px $palette-red);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $palette-red);
-		}
-		.card-action:before {
-			border-top-color: $palette-red-light;
-		}
-		.card-side {
-			background-color: $palette-red;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-red-dark-m;
-				}
-			}
-		}
-	}
-
-	.card-red-bg {
-		background-color: $palette-red;
-		.card-side {
-			background-color: $palette-red-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-red-dark;
-				}
-			}
-		}
-	}
-
-	.card-yellow {
-		@include box-shadow(0 0 1px $palette-yellow);
-		&:focus,
-		&:hover {
-			@include box-shadow(0 0 5px $palette-yellow);
-		}
-		.card-action:before {
-			border-top-color: $palette-yellow-light;
-		}
-		.card-side {
-			background-color: $palette-yellow;
-			color: $white;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-yellow-dark-m;
-				}
-			}
-		}
-	}
-
-	.card-yellow-bg {
-		background-color: $palette-yellow;
-		.card-side {
-			background-color: $palette-yellow-dark-m;
-			&[href] {
-				&:focus,
-				&:hover {
-					background-color: $palette-yellow-dark;
+		.card-#{$color}-bg {
+			background-color: nth($palette-color, $i);
+			.card-side {
+				background-color: nth($palette-color-dark-m, $i);
+				&[href] {
+					&:focus,
+					&:hover {
+						background-color: nth($palette-color-dark, $i);
+					}
 				}
 			}
 		}
