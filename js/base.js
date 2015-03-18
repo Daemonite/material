@@ -38,7 +38,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	};
 
 	$(window).on('scroll', function() {
-		$('.content-fix').each(function(index) {
+		$('.content-fixable').each(function(index) {
 			contentFix($(this));
 		});
 	});
@@ -60,10 +60,18 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 
 // fixed left/right hand side column padding bottom and width
 	function contentFixPushCal() {
+		$('.content-fix').each(function(index) {
+			$(this).removeClass('content-fixable');
+			if ($(this).outerHeight() < $(this).closest('.row-fix').outerHeight()) {
+				$(this).addClass('content-fixable');
+			}
+		});
+
 		$('.content-fix-scroll').each(function(index) {
 			$(this).css('width', $(this).closest('.content-fix').outerWidth());
 			$('.content-fix-inner', $(this)).css('width', $(this).closest('.content-fix').width());
 		});
+
 		if ($('.footer').length) {
 			contentFixPush = contentFixPushIni + $('.footer').outerHeight();
 		} else {
