@@ -55,6 +55,7 @@
 	&.active, {
 		margin-right: ($grid-gutter * -1);
 		margin-left: ($grid-gutter * -1);
+		.container-full &,
 		.modal & {
 			margin-right: ($grid-gutter * -1);
 			margin-left: ($grid-gutter * -1);
@@ -104,14 +105,12 @@
 	}
 }
 
-.tile-inner,
-.tile-inner-simple {
+.tile-inner {
 	padding: ($line-height / 2) $grid-gutter;
 	position: relative;
-}
-
-.tile-inner {
-	overflow: hidden;
+	.tile-side ~ & {
+		overflow: hidden;
+	}
 }
 
 .tile-side {
@@ -126,10 +125,11 @@
 }
 
 .tile-sub {
-	overflow: hidden;
+	display: inline-block;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	position: relative;
+	width: 100%;
 	&:before {
 		border-top: 1px solid $black-bg;
 		content: '';

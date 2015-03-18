@@ -5905,7 +5905,6 @@ a.fbtn:focus, a.fbtn:hover {
   width: 100%; }
 
 .card-inner {
-  overflow: hidden;
   padding-right: 16px;
   padding-left: 16px;
   position: relative;
@@ -7204,7 +7203,7 @@ legend[class*="col-xx-"] {
   .tile-collapse.active {
     margin-right: -16px;
     margin-left: -16px; }
-    .modal .tile-collapse.active {
+    .container-full .tile-collapse.active, .modal .tile-collapse.active {
       margin-right: -16px;
       margin-left: -16px; }
     .tile-collapse.active .tile-active-hide {
@@ -7244,13 +7243,11 @@ legend[class*="col-xx-"] {
     margin-top: 0;
     margin-bottom: 0; }
 
-.tile-inner,
-.tile-inner-simple {
+.tile-inner {
   padding: 12px 16px;
   position: relative; }
-
-.tile-inner {
-  overflow: hidden; }
+  .tile-side ~ .tile-inner {
+    overflow: hidden; }
 
 .tile-side {
   padding-top: 12px;
@@ -7261,10 +7258,11 @@ legend[class*="col-xx-"] {
     padding-right: 16px; }
 
 .tile-sub {
-  overflow: hidden;
+  display: inline-block;
   padding-right: 16px;
   padding-left: 16px;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   .tile-sub:before {
     border-top: 1px solid #e0e0e0;
     content: '';
