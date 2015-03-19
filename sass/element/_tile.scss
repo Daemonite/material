@@ -55,11 +55,6 @@
 	&.active, {
 		margin-right: ($grid-gutter * -1);
 		margin-left: ($grid-gutter * -1);
-		.container [class*="col-"] &,
-		.modal & {
-			margin-right: ($grid-gutter * -1);
-			margin-left: ($grid-gutter * -1);
-		}
 		.tile-active-hide {
 			display: none;
 		}
@@ -67,6 +62,9 @@
 	.collapsing {
 		@include transition(height 0.15s linear);
 	}
+}
+
+.tile-collapse-full {
 	// 1056 - 1439
 		@media only screen and (min-width: ($grid-gutter * 4 + $screen-md)) and (max-width: ($screen-lg - 1)) {
 			&.active {
