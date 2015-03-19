@@ -7,8 +7,10 @@
 	};
 
 	$(window).on('scroll', function() {
-		$('.content-fixable').each(function(index) {
-			contentFix($(this));
+		$('.content-fix').each(function(index) {
+			if ($(this).outerHeight() < $(this).closest('.row-fix').outerHeight()) {
+				contentFix($(this));
+			}
 		});
 	});
 
@@ -29,13 +31,6 @@
 
 // fixed left/right hand side column padding bottom and width
 	function contentFixPushCal() {
-		$('.content-fix').each(function(index) {
-			$(this).removeClass('content-fixable');
-			if ($(this).outerHeight() < $(this).closest('.row-fix').outerHeight()) {
-				$(this).addClass('content-fixable');
-			}
-		});
-
 		$('.content-fix-scroll').each(function(index) {
 			$(this).css('width', $(this).closest('.content-fix').outerWidth());
 			$('.content-fix-inner', $(this)).css('width', $(this).closest('.content-fix').width());
