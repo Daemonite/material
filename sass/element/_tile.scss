@@ -53,8 +53,8 @@
 .tile-collapse {
 	@include transition(margin 0.15s linear);
 	&.active, {
-		margin-right: ($grid-gutter * -1);
-		margin-left: ($grid-gutter * -1);
+		margin-right: ($grid-gutter * -1 + 1);
+		margin-left: ($grid-gutter * -1 + 1);
 		.tile-active-hide {
 			display: none;
 		}
@@ -68,15 +68,15 @@
 	// 1056 - 1439
 		@media only screen and (min-width: ($grid-gutter * 4 + $screen-md)) and (max-width: ($screen-lg - 1)) {
 			&.active {
-				margin-right: ($grid-gutter * -4);
-				margin-left: ($grid-gutter * -4);
+				margin-right: ($grid-gutter * -4 + 1);
+				margin-left: ($grid-gutter * -4 + 1);
 			}
 		}
 	// 1504
 		@media only screen and (min-width: ($grid-gutter * 4 + $screen-lg)) {
 			&.active {
-				margin-right: ($grid-gutter * -4);
-				margin-left: ($grid-gutter * -4);
+				margin-right: ($grid-gutter * -4 + 1);
+				margin-left: ($grid-gutter * -4 + 1);
 			}
 		}
 }
