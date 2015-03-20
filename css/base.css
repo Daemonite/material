@@ -332,20 +332,150 @@ sup {
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/css/fonts/fontawesome-webfont.eot?v=4.3.0");
-  src: url("/css/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("/css/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("/css/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("/css/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg");
-  font-style: normal;
-  font-weight: normal; }
-.fa {
-  display: inline-block;
-  font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
-  line-height: 1;
+  src: url("/css/fonts/fontawesome-webfont.eot?v=4.3.0");
+  src: url("/css/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype"), url("/css/fonts/fontawesome-webfont.woff2?v=4.3.0") format("woff2"), url("/css/fonts/fontawesome-webfont.woff?v=4.3.0") format("woff"), url("/css/fonts/fontawesome-webfont.ttf?v=4.3.0") format("truetype"), url("/css/fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular") format("svg"); }
+.fa {
+  display: inline-block;
+  font: normal normal normal 16px/1 FontAwesome;
+  font-size: inherit;
   text-rendering: auto;
-  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
   -webkit-font-smoothing: antialiased;
-  transform: translate(0, 0); }
+  -moz-osx-font-smoothing: grayscale; }
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8); }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+.fa-border {
+  border: solid 0.08em #e0e0e0;
+  border-radius: .1em;
+  padding: .2em .25em .15em; }
+
+.fa.pull-left {
+  margin-right: .3em; }
+.fa.pull-right {
+  margin-left: .3em; }
+
+.fa-fw {
+  text-align: center;
+  width: 1.28571em; }
+
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270 {
+  filter: none; }
+
+.fa-2x {
+  font-size: 2em; }
+
+.fa-3x {
+  font-size: 3em; }
+
+.fa-4x {
+  font-size: 4em; }
+
+.fa-5x {
+  font-size: 5em; }
+
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+.fa-li {
+  position: absolute;
+  top: 0.14286em;
+  left: -2.14286em;
+  text-align: center;
+  width: 2.14286em; }
+  .fa-li.fa-lg {
+    left: -1.85714em; }
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.14286em;
+  padding-left: 0; }
+  .fa-ul > li {
+    position: relative; }
+
+.fa-inverse {
+  color: white; }
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em; }
+
+.fa-stack-1x,
+.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  width: 100%; }
+
+.fa-stack-1x {
+  line-height: inherit; }
+
+.fa-stack-2x {
+  font-size: 2em; }
 
 .fa-glass:before {
   content: "\f000"; }
@@ -1977,21 +2107,6 @@ sup {
 
 .fa-medium:before {
   content: "\f23a"; }
-
-.fa-fw {
-  text-align: center;
-  width: 1.28571em; }
-
-.fa-li {
-  display: inline-block;
-  padding-left: 1.85714em;
-  position: relative; }
-  .fa-li .fa {
-    position: absolute;
-    top: 0.28571em;
-    left: 0;
-    text-align: center;
-    width: 1.28571em; }
 
 @font-face {
   font-family: 'MaterialDesignIcon';
