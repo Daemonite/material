@@ -23,9 +23,10 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+	z-index: ($top-base - 1);
 	@include opacity(0);
 	@include transition(opacity 0.3s $timing);
-	.modal.fade.in & {
+	&.fade.in {
 		@include opacity(0.5);
 	}
 }
