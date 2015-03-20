@@ -6,7 +6,7 @@
 	}
 
 // menu open
-	$('.menu-toggle').on('click', function(e) {
+	$(document).on('click', '.menu-toggle', function(e) {
 		e.preventDefault();
 		e.stopPropagation();
 		var $this = $(this),

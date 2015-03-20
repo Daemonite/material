@@ -12,13 +12,13 @@
 			floatingLabel($(this));
 		});
 	}
-	$('.form-group-label .form-control').on('change', function() {
+	$(document).on('change', '.form-group-label .form-control', function() {
 		floatingLabel($(this));
 	});
-	$('.form-group-label .form-control').on('focusin', function() {
+	$(document).on('focusin', '.form-group-label .form-control', function() {
 		$(this).closest('.form-group-label').addClass('control-focus');
 	});
-	$('.form-group-label .form-control').on('focusout', function() {
+	$(document).on('focusout', '.form-group-label .form-control', function() {
 		$(this).closest('.form-group-label').removeClass('control-focus');
 	});
 
@@ -32,15 +32,15 @@
 	}
 
 // icon label
-	$('.form-group-icon .form-control').on('focusin', function() {
+	$(document).on('focusin', '.form-group-icon .form-control', function() {
 		$(this).closest('.form-group-icon').addClass('control-focus');
 	});
-	$('.form-group-icon .form-control').on('focusout', function() {
+	$(document).on('focusout', '.form-group-icon .form-control', function() {
 		$(this).closest('.form-group-icon').removeClass('control-focus');
 	});
 
 // switch
-	$('.switch-toggle').on('click', function() {
+	$(document).on('click', '.switch-toggle', function() {
 		var $this = $(this);
 		if (!$this.hasClass('switch-toggle-on')) {
 			$this.addClass('switch-toggle-on');
