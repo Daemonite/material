@@ -1,7 +1,8 @@
 .tab-nav {
 	border-bottom: 1px solid $black-hint;
-	margin-top: ($line-height / 2);
+	margin-top: $line-height;
 	margin-bottom: $line-height;
+	position: relative;
 	text-align: center;
 	.nav {
 		margin-top: 0;
@@ -13,42 +14,26 @@
 				padding-right: ($grid-gutter / 2);
 				padding-left: ($grid-gutter / 2);
 				text-transform: uppercase;
-				&:after {
-					background-color: $link-color;
-					content: '';
-					display: block;
-					height: 3px;
-					position: absolute;
-						right: 0;
-						bottom: 0;
-					width: 0;
-					@include transition(width 0.3s $timing);
-				}
 				&:focus,
 				&:hover {
 					color: $link-color;
 				}
-				&.to-left:after {
-					// position
-						right: auto;
-						left: 0;
-				}
 			}
 			&.active > a {
 				color: $link-color;
-				&:after {
-					// position
-						right: auto;
-						left: 0;
-					width: 100%;
-				}
-				&.from-right:after {
-					// position
-						right: 0;
-						left: auto;
-				}
 			}
 		}
+	}
+}
+
+.tab-nav-indicator {
+	background-color: $link-color;
+	height: 3px;
+	position: absolute;
+		bottom: -1px;
+	@include transition(left 0.3s $timing 0.15s, right 0.3s $timing);
+	&.reverse {
+		@include transition(left 0.3s $timing, right 0.3s $timing 0.15s);
 	}
 }
 
@@ -66,12 +51,12 @@
 		$i: index($palette-list, $color);
 		
 		.tab-nav-#{$color} {
+			.tab-nav-indicator {
+				background-color: nth($palette-color, $i);
+			}
 			.nav {
 				> li {
 					> a {
-						&:after {
-							background-color: nth($palette-color, $i);
-						}
 						&:focus,
 						&:hover {
 							color: nth($palette-color, $i);
