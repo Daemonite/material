@@ -1,16 +1,41 @@
-// tile close
-	function tReset() {
-		$('.tile-collapse.active .tile-active-show').collapse('hide');
-		$('.tile-collapse.active').removeClass('active');
+// tile
+	$(document).on('click', function(e) {
+		var $target = $(e.target);
+
+		if ($target.is('[data-toggle="tile"], [data-toggle="tile"] *') && !$target.is('[data-ignore="tile"], [data-ignore="tile"] *')) {
+			var $trigger = $target.closest('[data-toggle="tile"]');
+			if ($trigger.attr('data-parent').length) {
+				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
+			};
+			getTargetFromTrigger($trigger).collapse('toggle');
+		} else if (!$target.is('.tile-collapse, .tile-collapse *')) {
+			tReset();
+		};
+	});
+
+	function getTargetFromTrigger(trigger) {
+		var href
+		var target = trigger.attr('data-target')
+		    || (href = trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')
+
+		return $(target)
 	}
 
-// tile toggle
-	function tileToggle(thisTile) {
-		if (thisTile.hasClass('active')) {
-			tReset();
-		} else {
-			tReset();
-			$('.tile-active-show', thisTile).collapse('show');
-			thisTile.addClass('active');
-		}
+	function tReset() {
+		$('.tile-collapse.active').each(function(index) {
+			var $collapse = $('.tile-active-show', $(this));
+			if (!$collapse.hasClass('tile-active-show-still')) {
+				$collapse.collapse('hide');
+			};
+		});
 	}
+
+// tile hide
+	$('.tile-active-show').on('hide.bs.collapse', function() {
+		$(this).closest('.tile-collapse').removeClass('active');
+	});
+
+// tile show
+	$('.tile-active-show').on('show.bs.collapse', function() {
+		$(this).closest('.tile-collapse').addClass('active');
+	});

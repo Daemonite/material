@@ -16,12 +16,14 @@
 	 	    navWidth = $nav.width(),
 	 	    newTabOffset = newTab.offset().left,
 	 	    newTabWidth = newTab.outerWidth();
+
 		if (oldTab != null && oldTab.offset().left > newTabOffset) {
 			$navIndicator.addClass('reverse');
 			setTimeout(function() {
 				$navIndicator.removeClass('reverse');
 			}, 450);
 		};
+
 	 	$navIndicator.css({
 	 		left: (newTabOffset - navOffset),
 	 		right: navOffset + navWidth - newTabOffset - newTabWidth

@@ -4,7 +4,9 @@
 			if ($('.content-fix').length) {
 				contentFixPushCal();
 			};
+
 		// footer push
+
 			footerPush();
 		// header height
 			headerHeightCal();

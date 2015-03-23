@@ -7304,17 +7304,16 @@ legend[class*="col-xx-"] {
     .tile-action .nav > li.active > a, .tile-action .nav > li.open > a {
       color: #2196f3; }
 
+.tile-active-show {
+  -webkit-transition: height 0.15s linear;
+  transition: height 0.15s linear; }
+
 .tile-collapse {
   -webkit-transition: margin 0.15s linear;
   transition: margin 0.15s linear; }
   .tile-collapse.active {
     margin-right: -15px;
     margin-left: -15px; }
-    .tile-collapse.active .tile-active-hide {
-      display: none; }
-  .tile-collapse .collapsing {
-    -webkit-transition: height 0.15s linear;
-    transition: height 0.15s linear; }
 
 @media only screen and (min-width: 1056px) and (max-width: 1439px) {
   .tile-collapse-full.active {
@@ -7324,29 +7323,6 @@ legend[class*="col-xx-"] {
   .tile-collapse-full.active {
     margin-right: -63px;
     margin-left: -63px; } }
-
-.tile-footer {
-  background-color: whitesmoke;
-  position: relative; }
-  .tile-footer:after, .tile-footer:before {
-    content: "";
-    display: table;
-    line-height: 0; }
-  .tile-footer:after {
-    clear: both; }
-  .tile-footer:before {
-    border-top: 1px solid #e0e0e0;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; }
-  .tile-footer:first-child {
-    border-top: 0; }
-  .tile-footer .nav {
-    margin-top: 0;
-    margin-bottom: 0; }
 
 .tile-inner {
   padding: 12px 16px;
@@ -7377,8 +7353,37 @@ legend[class*="col-xx-"] {
     left: 0;
     width: 100%; }
 
+.tile-footer {
+  background-color: whitesmoke;
+  position: relative; }
+  .tile-footer:after, .tile-footer:before {
+    content: "";
+    display: table;
+    line-height: 0; }
+  .tile-footer:after {
+    clear: both; }
+  .tile-footer:before {
+    border-top: 1px solid #e0e0e0;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .tile-footer:first-child {
+    border-top: 0; }
+  .tile-footer .nav {
+    margin-top: 0;
+    margin-bottom: 0; }
+
 .tile-toggle {
   cursor: pointer; }
+  .tile-toggle:after, .tile-toggle:before {
+    content: "";
+    display: table;
+    line-height: 0; }
+  .tile-toggle:after {
+    clear: both; }
 
 .tile-wrap {
   margin-top: 24px;

@@ -3,7 +3,7 @@
 		if (e.which == '27') {
 			if ($('body').hasClass('menu-open')) {
 				mReset();
-			} else {
+			} else if (!$('body').hasClass('modal-open')) {
 				tReset();
 			}
 		};
