@@ -27,12 +27,8 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 		}
 	})
 // fixed left/right hand side column affix
-	var contentFixPush,
-	    contentFixPushIni;
-
-	if ($('.content').length) {
-		contentFixPushIni = parseInt($('.content').css('padding-bottom').replace('px', ''));
-	};
+	var footerHeight = 0,
+	    htmlHeight = 0;
 
 	$(window).on('scroll', function() {
 		$('.content-fix').each(function(index) {
@@ -47,7 +43,6 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			if (!content.hasClass('fixed')) {
 				if ((content.is('[class*="col-xx"]')) || (content.is('[class*="col-xs"]') && $(window).width() >= 480) || (content.is('[class*="col-sm"]') && $(window).width() >= 768) || (content.is('[class*="col-md"]') && $(window).width() >= 992) || (content.is('[class*="col-lg"]') && $(window).width() >= 1440)) {
 					content.addClass('fixed');
-					$('.content-fix-inner', content).css('padding-bottom', contentFixPush).scrollTop(0);
 					$('.content-fix-wrap', content).scrollTop(0);
 				};
 			};
@@ -55,19 +50,25 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			content.removeClass('fixed');
 			$('.content-fix-inner', content).css('padding-bottom', '');
 		}
+
+		var scrolled = $(window).height() + window.pageYOffset;
+
+		if (htmlHeight <= scrolled) {
+			$('.content-fix-inner', content).css('padding-bottom', scrolled - htmlHeight);
+		};
 	}
 
 // fixed left/right hand side column padding bottom and width
 	function contentFixPushCal() {
+		htmlHeight = $('body').height();
+
 		$('.content-fix-scroll').each(function(index) {
 			$(this).css('width', $(this).closest('.content-fix').outerWidth());
 			$('.content-fix-inner', $(this)).css('width', $(this).closest('.content-fix').width());
 		});
 
 		if ($('.footer').length) {
-			contentFixPush = contentFixPushIni + $('.footer').outerHeight();
-		} else {
-			contentFixPush = contentFixPushIni;
+			footerHeight = $('.footer').outerHeight();
 		}
 	}
 // pickadate v3.5.5
