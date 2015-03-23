@@ -292,6 +292,8 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
 			};
 			getTargetFromTrigger($trigger).collapse('toggle');
+		} else if ($target.is('[data-dismiss="tile"]')) {
+			$target.closest('.tile-collapse').find('.tile-active-show').collapse('hide');
 		} else if (!$target.is('.tile-collapse, .tile-collapse *')) {
 			tReset();
 		};
