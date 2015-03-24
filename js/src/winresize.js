@@ -6,8 +6,8 @@
 			};
 
 		// footer push
-
 			footerPush();
+
 		// header height
 			headerHeightCal();
 	})();
