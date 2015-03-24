@@ -350,8 +350,8 @@
 				</div>
 				<h2 class="content-sub-heading">Tiles with Collapsible Regions</h2>
 				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-collapse-full">
-						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-1" data-toggle="tile">
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-target="#tile-collapse-1" data-toggle="tile">
 							<div class="pull-left tile-side">
 								<div class="avatar avatar-blue avatar-sm">
 									<span class="icon icon-alarm"></span>
@@ -401,8 +401,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="tile tile-collapse tile-collapse-full">
-						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-2" data-toggle="tile">
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-target="#tile-collapse-2" data-toggle="tile">
 							<div class="pull-left tile-side">
 								<div class="avatar avatar-green avatar-sm">
 									<span class="icon icon-backup"></span>
@@ -452,8 +452,8 @@
 							</div>
 						</div>
 					</div>
-					<div class="tile tile-collapse tile-collapse-full">
-						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-3" data-toggle="tile">
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-target="#tile-collapse-3" data-toggle="tile">
 							<div class="pull-left tile-side">
 								<div class="avatar avatar-red avatar-sm">
 									<span class="icon icon-launch"></span>
@@ -504,6 +504,358 @@
 						</div>
 					</div>
 				</div>
+				<div class="tile-wrap" id="tile-parent-1">
+					<div class="tile">
+						<div class="tile-inner">
+							<code>data-parent=""</code> extends the default collapse behavior to create an accordion.
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent="#tile-parent-1" data-target="#tile-collapse-4" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-blue avatar-sm">
+									<span class="icon icon-alarm"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">lorem ipsum dolor sit amet</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-4">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent="#tile-parent-1" data-target="#tile-collapse-5" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-green avatar-sm">
+									<span class="icon icon-backup"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">consectetur adipiscing elit</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-5">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent="#tile-parent-1" data-target="#tile-collapse-6" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-red avatar-sm">
+									<span class="icon icon-launch"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">sed ornare orci lorem</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-6">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tile-wrap">
+					<div class="tile">
+						<div class="tile-inner">
+							You can set <code>data-parent=""</code> to be any existing DOM elements. For example, <code>.content</code> or even <code>body</code>, so all the other tiles will be collapsed before the target tile expands.
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-7" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-blue avatar-sm">
+									<span class="icon icon-alarm"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">lorem ipsum dolor sit amet</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-7">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-8" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-green avatar-sm">
+									<span class="icon icon-backup"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">consectetur adipiscing elit</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-8">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-9" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-red avatar-sm">
+									<span class="icon icon-launch"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">sed ornare orci lorem</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-9">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tile-wrap">
+					<div class="tile">
+						<div class="tile-inner">
+							<code>.tile-collapse-full</code> expands the tile even wider when space is available.
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-10" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-blue avatar-sm">
+									<span class="icon icon-alarm"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">lorem ipsum dolor sit amet</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-10">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-11" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-green avatar-sm">
+									<span class="icon icon-backup"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">consectetur adipiscing elit</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-11">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-12" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-red avatar-sm">
+									<span class="icon icon-launch"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">sed ornare orci lorem</div>
+							</div>
+						</div>
+						<div class="tile-active-show collapse" id="tile-collapse-12">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tile-wrap">
+					<div class="tile">
+						<div class="tile-inner">
+							<code>.tile-active-show-still</code> prevents tile to collapse from clicking other area on the page or pressing <kbd>esc</kbd> key.
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-13" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-blue avatar-sm">
+									<span class="icon icon-alarm"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">lorem ipsum dolor sit amet</div>
+							</div>
+						</div>
+						<div class="tile-active-show tile-active-show-still collapse" id="tile-collapse-13">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-14" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-green avatar-sm">
+									<span class="icon icon-backup"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">consectetur adipiscing elit</div>
+							</div>
+						</div>
+						<div class="tile-active-show tile-active-show-still collapse" id="tile-collapse-14">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="tile tile-collapse tile-collapse-full">
+						<div class="tile-toggle" data-parent=".content" data-target="#tile-collapse-15" data-toggle="tile">
+							<div class="pull-left tile-side">
+								<div class="avatar avatar-red avatar-sm">
+									<span class="icon icon-launch"></span>
+								</div>
+							</div>
+							<div class="tile-inner">
+								<div class="text-overflow">sed ornare orci lorem</div>
+							</div>
+						</div>
+						<div class="tile-active-show tile-active-show-still collapse" id="tile-collapse-15">
+							<div class="tile-sub">
+								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+							</div>
+							<div class="tile-footer">
+								<ul class="nav nav-list pull-left">
+									<li>
+										<a href="javascript:void(0)"><span class="icon icon-check"></span>&nbsp;OK</a>
+									</li>
+									<li>
+										<a data-dismiss="tile" href="javascript:void(0)"><span class="icon icon-close"></span>&nbsp;Cancel</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -523,6 +875,6 @@
 		</div>
 	</div>
 
-	<script src="/js/base.min.js" type="text/javascript"></script>
+	<script src="/js/base.js" type="text/javascript"></script>
 </body>
 </html>

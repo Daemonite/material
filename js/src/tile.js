@@ -4,7 +4,7 @@
 
 		if ($target.is('[data-toggle="tile"], [data-toggle="tile"] *') && !$target.is('[data-ignore="tile"], [data-ignore="tile"] *')) {
 			var $trigger = $target.closest('[data-toggle="tile"]');
-			if ($trigger.attr('data-parent').length) {
+			if ($trigger.attr('data-parent') != null) {
 				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
 			};
 			getTargetFromTrigger($trigger).collapse('toggle');
