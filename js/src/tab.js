@@ -5,7 +5,7 @@
 	});
 
 // tab switch
-	$('.tab-nav a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
 	 	tabSwitch($(e.target), $(e.relatedTarget));
 	});
 

@@ -33,11 +33,11 @@
 	}
 
 // tile hide
-	$('.tile-active-show').on('hide.bs.collapse', function() {
+	$(document).on('hide.bs.collapse', '.tile-active-show', function() {
 		$(this).closest('.tile-collapse').removeClass('active');
 	});
 
 // tile show
-	$('.tile-active-show').on('show.bs.collapse', function() {
+	$(document).on('show.bs.collapse', '.tile-active-show', function() {
 		$(this).closest('.tile-collapse').addClass('active');
 	});

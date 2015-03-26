@@ -55,7 +55,7 @@
 			};
 		});
 
-		$('[data-toggle="toast"]').on('shown.bs.tooltip', function() {
+		$(document).on('shown.bs.tooltip', '[data-toggle="toast"]', function() {
 			var $this = $(this);
 
 			$('.toast').addClass('toast-show');

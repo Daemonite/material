@@ -1,5 +1,5 @@
 // dropdown menu max-width
-	$('.dropdown').on('show.bs.dropdown', function () {
+	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
 		    $dropdownToggle = $('[class*="dropdown-toggle"]', $(this)),
 		    dropdownPadding = $('a', $dropdownMenu).css('padding-left').replace('px', ''),
