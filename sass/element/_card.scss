@@ -9,11 +9,11 @@
 	display:         flex;
 	margin-bottom: $line-height;
 	position: relative;
-	@include box-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+	@include box-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 	@include transition(box-shadow 0.3s $timing);
 	&:focus,
 	&:hover {
-		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 	}
 }
 
@@ -80,7 +80,14 @@
 }
 
 .card-img {
+	overflow: hidden;
 	position: relative;
+	&:first-child {
+		border-radius: 2px 2px 0 0;
+	}
+	&:last-child {
+		border-radius: 0 0 2px 2px;
+	}
 	img {
 		display: block;
 		height: auto;
@@ -122,6 +129,7 @@
 
 .card-side {
 	background-color: $white-bg;
+	border-radius: 2px 0 0 2px;
 	max-width: 33.33333%;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
@@ -139,6 +147,7 @@
 		padding-left: 0;
 	}
 	&.card-side-right {
+		border-radius: 0 2px 2px 0;
 		-webkit-box-ordinal-group: 2;
 		   -moz-box-ordinal-group: 2;
 		           -ms-flex-order: 2;
@@ -156,7 +165,7 @@
 		$i: index($palette-list, $color);
 
 		.card-#{$color} {
-			@include box-shadow(0 0 1px nth($palette-color, $i));
+			@include box-shadow(0 0 2px nth($palette-color, $i));
 			&:focus,
 			&:hover {
 				@include box-shadow(0 0 5px nth($palette-color, $i));
