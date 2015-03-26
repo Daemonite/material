@@ -62,8 +62,7 @@
 	position: relative;
 	.modal.fade & {
 		@include transform(scale(0, 0));
-		-webkit-transition: -webkit-transform 0.3s $timing 0s;
-		        transition: transform 0.3s $timing 0s;
+		@include transition(all 0.3s $timing);
 	}
 	.modal.fade.in & {
 		@include transform(scale(1, 1));

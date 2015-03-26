@@ -15,8 +15,7 @@
 		margin-bottom: ($line-height / 2);
 		@include opacity(0);
 		@include transform(scale(0.5));
-		-webkit-transition: opacity 0.15s $timing 0s, -webkit-transform 0.15s $timing 0s;
-		        transition: opacity 0.15s $timing 0s, transform 0.15s $timing 0s;
+		@include transition(all 0.3s $timing);
 		&:nth-last-child(1) {
 			-webkit-transition-delay: 300ms;
 			        transition-delay: 300ms;
@@ -108,8 +107,7 @@ a.fbtn {
 
 .fbtn-rotate {
 	@include transform(rotate(0deg));
-	-webkit-transition: -webkit-transform 0.3s $timing 0s;
-	        transition: transform 0.3s $timing 0s;
+	@include transition(all 0.3s $timing);
 	.fbtn-inner.open & {
 		@include transform(rotate(225deg));
 	}
