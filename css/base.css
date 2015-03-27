@@ -5290,6 +5290,71 @@ pre {
   .row-clear > .col-lg-6:nth-child(2n+1) {
     clear: left; } }
 
+@media print {
+  *,
+  *:after,
+  *:before {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a,
+  a:visited {
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: ""; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  blockquote,
+  pre {
+    border: 1px solid #9e9e9e;
+    page-break-inside: avoid; }
+
+  img,
+  tr {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  h2,
+  h3,
+  p {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  .card,
+  .tile {
+    border: 1px solid #9e9e9e; }
+
+  .fbtn-container,
+  .menu,
+  .menu-toggle {
+    display: none !important; }
+
+  .footer {
+    page-break-after: always; }
+
+  .header a {
+    color: #2196f3; }
+
+  .tab-nav .nav > li.active > a {
+    border-bottom: 3px solid #212121;
+    padding-bottom: 9px; } }
 .a {
   background-color: transparent;
   border: 0;
