@@ -7819,47 +7819,45 @@ legend[class*="col-xx-"] {
   position: fixed;
   top: 48px;
   bottom: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   z-index: 29;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  -ms-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
-  -webkit-transition: -webkit-box-shadow 0s linear 0.3s, -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  transition: box-shadow 0s linear 0.3s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
-  .menu.menu-right {
-    right: 0;
-    left: auto;
-    -webkit-transform: translate3d(100%, 0, 0);
-    -ms-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0); }
+  -webkit-transition: box-shadow 0s linear 0.3s, left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0s linear 0.3s, left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .menu.open {
+    left: 0;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-transition: -webkit-box-shadow 0s linear 0s, -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    transition: box-shadow 0s linear 0s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+    -webkit-transition: box-shadow 0s linear, left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0s linear, left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   @media only screen and (min-width: 480px) {
     .menu {
+      left: -320px;
       width: 320px; } }
   @media only screen and (min-width: 992px) {
     .menu {
+      left: -400px;
       width: 400px; } }
+  .menu.menu-right {
+    right: -100%;
+    left: auto;
+    -webkit-transition: box-shadow 0s linear 0.3s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0s linear 0.3s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .menu.menu-right.open {
+      right: 0; }
+    @media only screen and (min-width: 480px) {
+      .menu.menu-right {
+        right: -320px; } }
+    @media only screen and (min-width: 992px) {
+      .menu.menu-right {
+        right: -400px; } }
   .no-boxshadow .menu {
-    border-right: 1px solid #9e9e9e; }
+    border-right: 1px solid #e0e0e0; }
     .no-boxshadow .menu.menu-right {
       border-right: 0;
-      border-left: 1px solid #9e9e9e; }
-  .no-csstransforms .menu {
-    display: none; }
-    .no-csstransforms .menu.open {
-      display: block; }
+      border-left: 1px solid #e0e0e0; }
 
 .menu-content {
   padding-top: 24px;

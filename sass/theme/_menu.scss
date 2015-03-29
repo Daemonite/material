@@ -2,47 +2,56 @@
 	position: fixed;
 		top: ($line-height * 2);
 		bottom: 0;
-		left: 0;
+		left: -100%;
 	width: 100%;
 	z-index: ($header-base - 1);
-	@include backface(hidden);
 	@include box-shadow(0 0 0 rgba(0, 0, 0, 0));
-	@include transform(translate3d(-100%, 0, 0));
-	-webkit-transition: -webkit-box-shadow 0s linear 0.3s, -webkit-transform 0.3s $timing 0s;
-	        transition: box-shadow 0s linear 0.3s, transform 0.3s $timing 0s;
-	&.menu-right {
-		// position
-			right: 0;
-			left: auto;
-		@include transform(translate3d(100%, 0, 0));
-	}
+	@include transition(box-shadow 0s linear 0.3s, left 0.3s $timing);
 	&.open {
+		// position
+			left: 0;
 		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-		@include transform(translate3d(0, 0, 0));
-		-webkit-transition: -webkit-box-shadow 0s linear 0s, -webkit-transform 0.3s $timing 0s;
-		        transition: box-shadow 0s linear 0s, transform 0.3s $timing 0s;
+		@include transition(box-shadow 0s linear, left 0.3s $timing);
 	}
 	// 480
 		@include responsive(xs) {
-			width: 320px;
+			// position
+				left: ($grid-gutter * -20);
+			width: ($grid-gutter * 20);
 		}
 	// 992
 		@include responsive(md) {
-			width: 400px;
+			// position
+				left: ($grid-gutter * -25);
+			width: ($grid-gutter * 25);
+		}
+	// menu right
+		&.menu-right {
+			// position
+				right: -100%;
+				left: auto;
+			@include transition(box-shadow 0s linear 0.3s, right 0.3s $timing);
+			&.open {
+				// position
+					right: 0;
+			}
+			// 480
+				@include responsive(xs) {
+					// position
+						right: ($grid-gutter * -20);
+				}
+			// 992
+				@include responsive(md) {
+					// position
+						right: ($grid-gutter * -25);
+				}
 		}
 	// no boxshadow
 		.no-boxshadow & {
-			border-right: 1px solid $black-hint;
+			border-right: 1px solid $black-bg;
 			&.menu-right {
 				border-right: 0;
-				border-left: 1px solid $black-hint;
-			}
-		}
-	// no csstransforms
-		.no-csstransforms & {
-			display: none;
-			&.open {
-				display: block;
+				border-left: 1px solid $black-bg;
 			}
 		}
 }
@@ -100,11 +109,11 @@
 	}
 	// 480
 		@include responsive(xs) {
-			width: 320px;
+			width: ($grid-gutter * 20);
 		}
 	// 992
 		@include responsive(md) {
-			width: 400px;
+			width: ($grid-gutter * 25);
 		}
 }
 
