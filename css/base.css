@@ -6143,43 +6143,6 @@ a.fbtn:focus, a.fbtn:hover {
   .no-boxshadow .card {
     border: 1px solid #e0e0e0; }
 
-.card-action {
-  position: relative; }
-  .card-action:after, .card-action:before {
-    content: "";
-    display: table;
-    line-height: 0; }
-  .card-action:after {
-    clear: both; }
-  .card-action:before {
-    border-top: 1px solid #e0e0e0;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; }
-    .card-header + .card-action:before {
-      display: none; }
-  .card-action .nav {
-    margin-top: 0;
-    margin-bottom: 0; }
-    .card-action .nav > li > a {
-      color: #616161; }
-      .card-action .nav > li > a:focus, .card-action .nav > li > a:hover {
-        color: #2196f3; }
-    .card-action .nav > li.active > a, .card-action .nav > li.open > a {
-      color: #2196f3; }
-
-.card-inner {
-  padding-right: 16px;
-  padding-left: 16px;
-  position: relative;
-  z-index: 1; }
-  .card-header .card-inner {
-    padding-top: 12px;
-    padding-bottom: 12px; }
-
 .card-main {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -6212,6 +6175,34 @@ a.fbtn:focus, a.fbtn:hover {
 
 .card-wrap {
   margin-top: 24px; }
+
+.card-action {
+  position: relative; }
+  .card-action:after, .card-action:before {
+    content: "";
+    display: table;
+    line-height: 0; }
+  .card-action:after {
+    clear: both; }
+  .card-action:before {
+    border-top: 1px solid #e0e0e0;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .card-header + .card-action:before {
+      display: none; }
+  .card-action .nav {
+    margin-top: 0;
+    margin-bottom: 0; }
+    .card-action .nav > li > a {
+      color: #616161; }
+      .card-action .nav > li > a:focus, .card-action .nav > li > a:hover {
+        color: #2196f3; }
+    .card-action .nav > li.active > a, .card-action .nav > li.open > a {
+      color: #2196f3; }
 
 .card-alt {
   -webkit-box-shadow: 0 0 2px #4caf50;
@@ -6357,6 +6348,25 @@ a.fbtn:focus, a.fbtn:hover {
     color: white; }
   .card[class*="-bg"] .card-action .nav > li.open > a {
     color: #212121; }
+
+.card-inner {
+  padding-right: 16px;
+  padding-left: 16px;
+  position: relative;
+  z-index: 1; }
+  .card-header .card-inner {
+    padding-top: 12px;
+    padding-bottom: 12px; }
+  .card-inner-side ~ .card-inner, .tile-side ~ .card-inner {
+    overflow: hidden; }
+
+.card-inner-side, .tile-side {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+  .card-inner-side.pull-left, .pull-left.tile-side {
+    padding-left: 16px; }
+  .card-inner-side.pull-right, .pull-right.tile-side {
+    padding-right: 16px; }
 
 .card-header {
   padding-top: 6px;
@@ -7512,6 +7522,11 @@ legend[class*="col-xx-"] {
     .no-boxshadow .tile + .tile {
       margin-top: -1px; }
 
+.tile-wrap {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  position: relative; }
+
 .tile-action {
   float: right;
   -webkit-user-select: none;
@@ -7565,14 +7580,6 @@ legend[class*="col-xx-"] {
   .tile-side ~ .tile-inner {
     overflow: hidden; }
 
-.tile-side {
-  padding-top: 12px;
-  padding-bottom: 12px; }
-  .tile-side.pull-left {
-    padding-left: 16px; }
-  .tile-side.pull-right {
-    padding-right: 16px; }
-
 .tile-sub {
   display: inline-block;
   padding-right: 16px;
@@ -7619,11 +7626,6 @@ legend[class*="col-xx-"] {
     line-height: 0; }
   .tile-toggle:after {
     clear: both; }
-
-.tile-wrap {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  position: relative; }
 
 .toast {
   position: fixed;

@@ -21,51 +21,6 @@
 		}
 }
 
-.card-action {
-	position: relative;
-	@include clearfix();
-	&:before {
-		border-top: 1px solid $black-bg;
-		content: '';
-		display: block;
-		position: absolute;
-			top: 0;
-			left: 0;
-		width: 100%;
-		.card-header + & {
-			display: none;
-		}
-	}
-	.nav {
-		margin-top: 0;
-		margin-bottom: 0;
-		> li {
-			> a {
-				color: $black-sec;
-				&:focus,
-				&:hover {
-					color: $link-color;
-				}
-			}
-			&.active > a,
-			&.open > a {
-				color: $link-color;
-			}
-		}
-	}
-}
-
-.card-inner {
-	padding-right: $grid-gutter;
-	padding-left: $grid-gutter;
-	position: relative;
-	z-index: 1;
-	.card-header & {
-		padding-top: ($line-height / 2);
-		padding-bottom: ($line-height / 2);
-	}
-}
-
 .card-main {
 	-webkit-box-flex: 1;
 	   -moz-box-flex: 1;
@@ -106,6 +61,41 @@
 .card-wrap {
 	margin-top: $line-height;
 }
+
+// action
+	.card-action {
+		position: relative;
+		@include clearfix();
+		&:before {
+			border-top: 1px solid $black-bg;
+			content: '';
+			display: block;
+			position: absolute;
+				top: 0;
+				left: 0;
+			width: 100%;
+			.card-header + & {
+				display: none;
+			}
+		}
+		.nav {
+			margin-top: 0;
+			margin-bottom: 0;
+			> li {
+				> a {
+					color: $black-sec;
+					&:focus,
+					&:hover {
+						color: $link-color;
+					}
+				}
+				&.active > a,
+				&.open > a {
+					color: $link-color;
+				}
+			}
+		}
+	}
 
 // colour
 	@each $color in $palette-list {
@@ -159,6 +149,32 @@
 			&.open > a {
 				color: $black-text;
 			}
+		}
+	}
+
+// content
+	.card-inner {
+		padding-right: $grid-gutter;
+		padding-left: $grid-gutter;
+		position: relative;
+		z-index: 1;
+		.card-header & {
+			padding-top: ($line-height / 2);
+			padding-bottom: ($line-height / 2);
+		}
+		.card-inner-side ~ & {
+			overflow: hidden;
+		}
+	}
+
+	.card-inner-side {
+		padding-top: ($line-height / 2);
+		padding-bottom: ($line-height / 2);
+		&.pull-left {
+			padding-left: $grid-gutter;
+		}
+		&.pull-right {
+			padding-right: $grid-gutter;
 		}
 	}
 

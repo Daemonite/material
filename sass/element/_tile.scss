@@ -25,6 +25,12 @@
 		}
 }
 
+.tile-wrap {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	position: relative;
+}
+
 // action
 	.tile-action {
 		float: right;
@@ -98,14 +104,7 @@
 	}
 
 	.tile-side {
-		padding-top: ($line-height / 2);
-		padding-bottom: ($line-height / 2);
-		&.pull-left {
-			padding-left: $grid-gutter;
-		}
-		&.pull-right {
-			padding-right: $grid-gutter;
-		}
+		@extend .card-inner-side;
 	}
 
 	.tile-sub {
@@ -152,10 +151,4 @@
 	.tile-toggle {
 		cursor: pointer;
 		@include clearfix();
-	}
-
-	.tile-wrap {
-		margin-top: $line-height;
-		margin-bottom: $line-height;
-		position: relative;
 	}
