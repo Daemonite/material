@@ -13,9 +13,16 @@
 		}
 	}
 	&.active {
-		margin-top: $line-height;
-		margin-bottom: $line-height;
+		margin-top: $line-height !important;
+		margin-bottom: $line-height !important;
 	}
+	// no boxshadow
+		.no-boxshadow & {
+			border: 1px solid $black-bg;
+			+ .tile {
+				margin-top: -1px;
+			}
+		}
 }
 
 // action
@@ -58,7 +65,7 @@
 
 	.tile-collapse {
 		@include transition(margin 0.15s linear);
-		&.active, {
+		&.active {
 			margin-right: ($grid-gutter * -1 + 1);
 			margin-left: ($grid-gutter * -1 + 1);
 		}
