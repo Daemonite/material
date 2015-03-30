@@ -6,12 +6,12 @@
 	width: 100%;
 	z-index: ($header-base - 1);
 	@include box-shadow(0 0 0 rgba(0, 0, 0, 0));
-	@include transition(box-shadow 0s linear 0.3s, left 0.3s $timing);
+	@include transition(all 0.3s $timing, box-shadow 0s 0.3s);
 	&.open {
 		// position
 			left: 0;
 		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-		@include transition(box-shadow 0s linear, left 0.3s $timing);
+		@include transition(all 0.3s $timing, box-shadow 0s);
 	}
 	// 480
 		@include responsive(xs) {
@@ -30,7 +30,6 @@
 			// position
 				right: -100%;
 				left: auto;
-			@include transition(box-shadow 0s linear 0.3s, right 0.3s $timing);
 			&.open {
 				// position
 					right: 0;

@@ -7824,14 +7824,14 @@ legend[class*="col-xx-"] {
   z-index: 29;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
-  -webkit-transition: box-shadow 0s linear 0.3s, left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 0s linear 0.3s, left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0s 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0s 0.3s; }
   .menu.open {
     left: 0;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    -webkit-transition: box-shadow 0s linear, left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: box-shadow 0s linear, left 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0s; }
   @media only screen and (min-width: 480px) {
     .menu {
       left: -320px;
@@ -7842,9 +7842,7 @@ legend[class*="col-xx-"] {
       width: 400px; } }
   .menu.menu-right {
     right: -100%;
-    left: auto;
-    -webkit-transition: box-shadow 0s linear 0.3s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: box-shadow 0s linear 0.3s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    left: auto; }
     .menu.menu-right.open {
       right: 0; }
     @media only screen and (min-width: 480px) {
