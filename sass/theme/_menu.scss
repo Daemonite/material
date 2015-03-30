@@ -155,6 +155,16 @@
 			@include responsive(md) {
 				width: ($grid-gutter * 25);
 			}
+		// no boxshadow
+			.nav  {
+				.no-boxshadow & {
+					margin-right: 1px;
+				}
+				.no-boxshadow .menu.menu-right & {
+					margin-right: 0;
+					margin-left: 1px;
+				}
+			}
 	}
 
 	.menu-content-inner {
