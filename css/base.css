@@ -7354,11 +7354,17 @@ legend[class*="col-xx-"] {
         color: #212121;
         padding-right: 8px;
         padding-left: 8px;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        -webkit-transition: border-bottom 0s, padding-bottom 0s;
+        transition: border-bottom 0s, padding-bottom 0s; }
         .tab-nav .nav > li > a:focus, .tab-nav .nav > li > a:hover {
           color: #2196f3; }
       .tab-nav .nav > li.active > a {
-        color: #2196f3; }
+        border-bottom: 3px solid #2196f3;
+        color: #2196f3;
+        padding-bottom: 9px;
+        -webkit-transition: border-bottom 0s 0.45s, padding-bottom 0s 0.45s;
+        transition: border-bottom 0s 0.45s, padding-bottom 0s 0.45s; }
 
 .tab-nav-indicator {
   background-color: #2196f3;
@@ -7383,6 +7389,7 @@ legend[class*="col-xx-"] {
 .tab-nav-alt .nav > li > a:focus, .tab-nav-alt .nav > li > a:hover {
   color: #4caf50; }
 .tab-nav-alt .nav > li.active > a {
+  border-bottom-color: #4caf50;
   color: #4caf50; }
 
 .tab-nav-blue .tab-nav-indicator {
@@ -7390,6 +7397,7 @@ legend[class*="col-xx-"] {
 .tab-nav-blue .nav > li > a:focus, .tab-nav-blue .nav > li > a:hover {
   color: #2196f3; }
 .tab-nav-blue .nav > li.active > a {
+  border-bottom-color: #2196f3;
   color: #2196f3; }
 
 .tab-nav-green .tab-nav-indicator {
@@ -7397,6 +7405,7 @@ legend[class*="col-xx-"] {
 .tab-nav-green .nav > li > a:focus, .tab-nav-green .nav > li > a:hover {
   color: #4caf50; }
 .tab-nav-green .nav > li.active > a {
+  border-bottom-color: #4caf50;
   color: #4caf50; }
 
 .tab-nav-purple .tab-nav-indicator {
@@ -7404,6 +7413,7 @@ legend[class*="col-xx-"] {
 .tab-nav-purple .nav > li > a:focus, .tab-nav-purple .nav > li > a:hover {
   color: #9c27b0; }
 .tab-nav-purple .nav > li.active > a {
+  border-bottom-color: #9c27b0;
   color: #9c27b0; }
 
 .tab-nav-red .tab-nav-indicator {
@@ -7411,6 +7421,7 @@ legend[class*="col-xx-"] {
 .tab-nav-red .nav > li > a:focus, .tab-nav-red .nav > li > a:hover {
   color: #f44336; }
 .tab-nav-red .nav > li.active > a {
+  border-bottom-color: #f44336;
   color: #f44336; }
 
 .tab-nav-yellow .tab-nav-indicator {
@@ -7418,6 +7429,7 @@ legend[class*="col-xx-"] {
 .tab-nav-yellow .nav > li > a:focus, .tab-nav-yellow .nav > li > a:hover {
   color: #ffc107; }
 .tab-nav-yellow .nav > li.active > a {
+  border-bottom-color: #ffc107;
   color: #ffc107; }
 
 .table {
@@ -7951,8 +7963,7 @@ legend[class*="col-xx-"] {
     position: absolute;
     top: 0;
     right: 0;
-    width: 1px;
-    z-index: 1; }
+    width: 1px; }
   .no-boxshadow .menu.menu-right .menu-scroll:after {
     right: auto;
     left: 0; }
@@ -8036,7 +8047,7 @@ legend[class*="col-xx-"] {
   background-color: #212121;
   color: whitesmoke;
   position: relative;
-  z-index: 2; }
+  z-index: 1; }
   .menu-top a {
     color: whitesmoke;
     text-decoration: none; }

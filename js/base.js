@@ -406,4 +406,9 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 
 		// header height
 			headerHeightCal();
+
+		// tab switch
+			$('.tab-nav').each(function() {
+				tabSwitch($('.nav > li.active', $(this)), null);
+			});
 	})();

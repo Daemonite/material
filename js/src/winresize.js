@@ -10,4 +10,9 @@
 
 		// header height
 			headerHeightCal();
+
+		// tab switch
+			$('.tab-nav').each(function() {
+				tabSwitch($('.nav > li.active', $(this)), null);
+			});
 	})();
