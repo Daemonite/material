@@ -7870,6 +7870,26 @@ legend[class*="col-xx-"] {
       -webkit-transform: rotate(-225deg);
       -ms-transform: rotate(-225deg);
       transform: rotate(-225deg); }
+      .header .nav > li > a .header-close:after {
+        background-color: #4caf50;
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 36px;
+        margin-top: -18px;
+        margin-left: -18px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 36px;
+        -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0); }
+      .header .nav > li > a .header-close:before {
+        position: relative;
+        z-index: 1; }
     .header .nav > li.active > a .avatar,
     .header .nav > li.active > a .fa,
     .header .nav > li.active > a .icon {
@@ -7884,6 +7904,10 @@ legend[class*="col-xx-"] {
       -webkit-transform: rotate(0);
       -ms-transform: rotate(0);
       transform: rotate(0); }
+      .header .nav > li.active > a .header-close:after {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1); }
 
 .header-btn {
   display: block;

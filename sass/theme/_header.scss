@@ -52,6 +52,25 @@
 					width: 100%;
 					@include opacity(0);
 					@include transform(rotate(-225deg));
+					&:after {
+						background-color: $brand-color;
+						border-radius: 50%;
+						content: '';
+						display: block;
+						height: ($line-height * 1.5);
+						margin-top: ($line-height * -0.75);
+						margin-left: ($line-height * -0.75);
+						position: absolute;
+							top: 50%;
+							left: 50%;
+						width: ($line-height * 1.5);
+						@include transition(all 0.3s $timing);
+						@include transform(scale(0));
+					}
+					&:before {
+						position: relative;
+						z-index: 1;
+					}
 				}
 			}
 			&.active > a {
@@ -64,6 +83,9 @@
 				.header-close {
 					@include opacity(1);
 					@include transform(rotate(0));
+					&:after {
+						@include transform(scale(1));
+					}
 				}
 			}
 		}
