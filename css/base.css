@@ -7933,11 +7933,43 @@ legend[class*="col-xx-"] {
     @media only screen and (min-width: 992px) {
       .menu.menu-right {
         right: -400px; } }
-  .no-boxshadow .menu {
-    border-right: 1px solid #e0e0e0; }
-    .no-boxshadow .menu.menu-right {
-      border-right: 0;
-      border-left: 1px solid #e0e0e0; }
+
+.menu-scroll {
+  background-color: white;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; }
+  .no-boxshadow .menu-scroll:after {
+    background-color: #e0e0e0;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 32px;
+    width: 1px; }
+  .no-boxshadow .menu.menu-right .menu-scroll:after {
+    right: auto;
+    left: 0; }
+
+.menu-wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  @media only screen and (min-width: 480px) {
+    .menu-wrap {
+      padding-right: 32px;
+      right: -32px; } }
 
 .menu-content {
   padding-top: 24px;
@@ -7987,20 +8019,18 @@ legend[class*="col-xx-"] {
   padding-right: 16px;
   padding-left: 16px; }
 
-.menu-scroll {
-  background-color: white;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1; }
+@media only screen and (min-width: 480px) {
+  .menu-right.open ~ .fbtn-container {
+    right: 336px; } }
+@media only screen and (min-width: 992px) {
+  .menu-right.open ~ .fbtn-container {
+    right: 416px; } }
 
 .menu-top {
   background-color: #212121;
   color: whitesmoke;
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .menu-top a {
     color: whitesmoke;
     text-decoration: none; }
@@ -8056,25 +8086,3 @@ legend[class*="col-xx-"] {
     line-height: 0; }
   .menu-top-user:after {
     clear: both; }
-
-.menu-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
-  @media only screen and (min-width: 480px) {
-    .menu-wrap {
-      padding-right: 32px;
-      right: -32px; } }
-
-@media only screen and (min-width: 480px) {
-  .menu-right.open ~ .fbtn-container {
-    right: 336px; } }
-@media only screen and (min-width: 992px) {
-  .menu-right.open ~ .fbtn-container {
-    right: 416px; } }
