@@ -4394,37 +4394,60 @@ sup {
 
 .waves-button,
 .waves-circle {
-  overflow: hidden;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0); }
 
-.waves-effect .waves-ripple {
-  background-color: rgba(0, 0, 0, 0.1);
-  background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.4) 60%, rgba(255, 255, 255, 0) 70%);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.4) 60%, rgba(255, 255, 255, 0) 70%);
-  border-radius: 50%;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  width: 100px;
-  -webkit-transition-property: -webkit-transform, opacity;
-  transition-property: transform, opacity;
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-.waves-effect.waves-light .waves-ripple {
-  background-color: rgba(255, 255, 255, 0.4);
-  background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 70%);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 70%); }
-
-a.waves-effect .waves-ripple {
-  z-index: -1; }
+.waves-effect {
+  overflow: hidden;
+  position: relative; }
+  .waves-effect .waves-ripple {
+    background-color: rgba(0, 0, 0, 0.1);
+    background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
+    border-radius: 50%;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100px;
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .waves-effect.waves-light .waves-ripple {
+    background-color: rgba(255, 255, 255, 0.4);
+    background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%); }
+  .waves-effect.waves-color-alt .waves-ripple {
+    background-color: #c8e6c9;
+    background-image: -webkit-radial-gradient(rgba(76, 175, 80, 0.1) 0, #4caf50 100%);
+    background-image: radial-gradient(rgba(76, 175, 80, 0.1) 0, #4caf50 100%); }
+  .waves-effect.waves-color-blue .waves-ripple {
+    background-color: #bbdefb;
+    background-image: -webkit-radial-gradient(rgba(33, 150, 243, 0.1) 0, #2196f3 100%);
+    background-image: radial-gradient(rgba(33, 150, 243, 0.1) 0, #2196f3 100%); }
+  .waves-effect.waves-color-green .waves-ripple {
+    background-color: #c8e6c9;
+    background-image: -webkit-radial-gradient(rgba(76, 175, 80, 0.1) 0, #4caf50 100%);
+    background-image: radial-gradient(rgba(76, 175, 80, 0.1) 0, #4caf50 100%); }
+  .waves-effect.waves-color-purple .waves-ripple {
+    background-color: #e1bee7;
+    background-image: -webkit-radial-gradient(rgba(156, 39, 176, 0.1) 0, #9c27b0 100%);
+    background-image: radial-gradient(rgba(156, 39, 176, 0.1) 0, #9c27b0 100%); }
+  .waves-effect.waves-color-red .waves-ripple {
+    background-color: #ffcdd2;
+    background-image: -webkit-radial-gradient(rgba(244, 67, 54, 0.1) 0, #f44336 100%);
+    background-image: radial-gradient(rgba(244, 67, 54, 0.1) 0, #f44336 100%); }
+  .waves-effect.waves-color-yellow .waves-ripple {
+    background-color: #ffecb3;
+    background-image: -webkit-radial-gradient(rgba(255, 193, 7, 0.1) 0, #ffc107 100%);
+    background-image: radial-gradient(rgba(255, 193, 7, 0.1) 0, #ffc107 100%); }
 
 .waves-notransition {
   -webkit-transition: none !important;
@@ -6176,7 +6199,7 @@ a.fbtn:focus, a.fbtn:hover {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 0;
     width: 100%; }
     .card-header + .card-action:before, .card-header + .tile-action:before {
