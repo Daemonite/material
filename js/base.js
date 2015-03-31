@@ -96,21 +96,36 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			}
 		});
 	});
-// dropdown menu max-width
+// dropdown menu hide
+	$(document).on('hide.bs.dropdown', '.dropdown', function() {
+		// header affix
+			if ($(this).parents('.header').length) {
+				$('header').removeClass('open');
+			};
+	});
+		
+// dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
 		    $dropdownToggle = $('[class*="dropdown-toggle"]', $(this)),
 		    dropdownPadding = $('a', $dropdownMenu).css('padding-left').replace('px', ''),
 		    dropdownWidth;
 
-		if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.nav.pull-right').length) {
-			dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth() - dropdownPadding;
-		} else {
-			dropdownWidth = $(window).width() - $dropdownToggle.offset().left - dropdownPadding;
-		}
+		// dropdown menu max width
+			if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.nav.pull-right').length) {
+				dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth() - dropdownPadding;
+			} else {
+				dropdownWidth = $(window).width() - $dropdownToggle.offset().left - dropdownPadding;
+			}
 
-		$dropdownMenu.css('max-width', dropdownWidth);
+			$dropdownMenu.css('max-width', dropdownWidth);
+
+		// header affix
+			if ($dropdownMenu.parents('.header').length) {
+				$('header').addClass('open');
+			};
 	});
+
 // close menu and/or tile if esc key is pressed
 	$(document).keyup(function(e) {
 		if (e.which == '27') {
