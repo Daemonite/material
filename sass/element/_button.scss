@@ -13,14 +13,14 @@
 	line-height: $line-height;
 	margin-bottom: 0;
 	max-width: 100%;
-	padding: (($btn-height - $line-height - 2) / 2) $grid-gutter;
+	padding: (($btn-height - $line-height - 2) / 2) ($grid-gutter - 1);
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
 	vertical-align: middle;
 	white-space: nowrap;
 	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px rgba(0, 0, 0, 0.15));
-	@include transition(all 0.45s $timing, background-color 0.3s linear 0s);
+	@include transition(all 0.3s $timing);
 	@include user-select(none);
 	&:active,
 	&:focus,
@@ -28,21 +28,16 @@
 		color: $black-text;
 		outline: 0;
 		text-decoration: none;
-		@include box-shadow(0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
-	}
-	&:active {
-		background-color: $white-bg;
-		@include transition(all 0.45s $timing, background-color 0s linear 0.45s);
+		@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
 	}
 	&[disabled],
 	fieldset[disabled] & {
 		cursor: not-allowed;
 		@include opacity(0.5);
 	}
-	&.btn-active {
-		background-image: -webkit-radial-gradient(circle, $white-bg 10%, $white 11%);
-		background-image:         radial-gradient(circle, $white-bg 10%, $white 11%);
-		background-size: 900% 900%;
+	&.waves-effect {
+		border: 0;
+		padding: (($btn-height - $line-height) / 2) $grid-gutter;
 	}
 }
 
@@ -50,10 +45,6 @@
 	display: block;
 	white-space: normal;
 	width: 100%;
-}
-
-.btn-sm {
-	padding: 0 ($grid-gutter / 2);
 }
 
 // colour
@@ -68,16 +59,9 @@
 			&:hover {
 				color: $white;
 			}
-			&:active {
-				background-color: nth($palette-color-light-m, $i);
-			}
 			&[disabled],
 			fieldset[disabled] & {
 				background-color: nth($palette-color, $i);
-			}
-			&.btn-active {
-				background-image: -webkit-radial-gradient(circle, nth($palette-color-light-m, $i) 10%, nth($palette-color, $i) 11%);
-				background-image:         radial-gradient(circle, nth($palette-color-light-m, $i) 10%, nth($palette-color, $i) 11%);
 			}
 		}
 	}
@@ -86,6 +70,12 @@
 	.btn-flat {
 		background-color: transparent;
 		@include box-shadow(none);
+		&:active,
+		&:focus,
+		&:hover {
+			background-color: $black-bg;
+			@include box-shadow(none);
+		}
 		&[disabled],
 		fieldset[disabled] & {
 			color: $black-text;
@@ -98,16 +88,14 @@
 
 			.btn-flat.btn-#{$color} {
 				color: nth($palette-color, $i);
-				&:active {
+				&:active,
+				&:focus,
+				&:hover {
 					background-color: nth($palette-color-light, $i);
 				}
 				&[disabled],
 				fieldset[disabled] & {
 					color: nth($palette-color, $i);
-				}
-				&.btn-active {
-					background-image: -webkit-radial-gradient(circle, nth($palette-color-light, $i) 10%, $white 11%);
-					background-image:         radial-gradient(circle, nth($palette-color-light, $i) 10%, $white 11%);
 				}
 			}
 		}
@@ -116,8 +104,10 @@
 	.btn-sm {
 		font-size: $font-size-h6;
 		line-height: ($line-height - 2);
-		padding-top: 0;
-		padding-bottom: 0;
+		padding: 0 ($grid-gutter / 2 - 1);
+		&.waves-effect {
+			padding: 1px ($grid-gutter / 2);
+		}
 	}
 
 // text
