@@ -6176,15 +6176,15 @@ a.fbtn:focus, a.fbtn:hover {
 .card-wrap {
   margin-top: 24px; }
 
-.card-action {
+.card-action, .tile-action {
   position: relative; }
-  .card-action:after, .card-action:before {
+  .card-action:after, .tile-action:after, .card-action:before, .tile-action:before {
     content: "";
     display: table;
     line-height: 0; }
-  .card-action:after {
+  .card-action:after, .tile-action:after {
     clear: both; }
-  .card-action:before {
+  .card-action:before, .tile-action:before {
     border-top: 1px solid #e0e0e0;
     content: '';
     display: block;
@@ -6192,18 +6192,18 @@ a.fbtn:focus, a.fbtn:hover {
     top: 0;
     left: 0;
     width: 100%; }
-    .card-header + .card-action:before {
+    .card-header + .card-action:before, .card-header + .tile-action:before {
       display: none; }
-  .card-action .nav {
+  .card-action .nav, .tile-action .nav {
     margin-top: 0;
     margin-bottom: 0; }
-    .card-action .nav > li > a {
+    .card-action .nav > li > a, .tile-action .nav > li > a {
       color: #616161; }
-      .card-action .nav > li > a:focus, .card-action .nav > li > a:hover {
+      .card-action .nav > li > a:focus, .tile-action .nav > li > a:focus, .card-action .nav > li > a:hover, .tile-action .nav > li > a:hover {
         color: #2196f3; }
-    .card-action .nav > li.active > a {
+    .card-action .nav > li.active > a, .tile-action .nav > li.active > a {
       color: #2196f3; }
-    .card-action .nav > li.open > a {
+    .card-action .nav > li.open > a, .tile-action .nav > li.open > a {
       color: #212121; }
 
 .card-alt {
@@ -6212,7 +6212,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-alt:focus, .card-alt:hover {
     -webkit-box-shadow: 0 0 5px #4caf50;
     box-shadow: 0 0 5px #4caf50; }
-  .card-alt .card-action:before {
+  .card-alt .card-action:before, .card-alt .tile-action:before {
     border-top-color: #c8e6c9; }
   .card-alt .card-side {
     background-color: #4caf50;
@@ -6235,7 +6235,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-blue:focus, .card-blue:hover {
     -webkit-box-shadow: 0 0 5px #2196f3;
     box-shadow: 0 0 5px #2196f3; }
-  .card-blue .card-action:before {
+  .card-blue .card-action:before, .card-blue .tile-action:before {
     border-top-color: #bbdefb; }
   .card-blue .card-side {
     background-color: #2196f3;
@@ -6258,7 +6258,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-green:focus, .card-green:hover {
     -webkit-box-shadow: 0 0 5px #4caf50;
     box-shadow: 0 0 5px #4caf50; }
-  .card-green .card-action:before {
+  .card-green .card-action:before, .card-green .tile-action:before {
     border-top-color: #c8e6c9; }
   .card-green .card-side {
     background-color: #4caf50;
@@ -6281,7 +6281,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-purple:focus, .card-purple:hover {
     -webkit-box-shadow: 0 0 5px #9c27b0;
     box-shadow: 0 0 5px #9c27b0; }
-  .card-purple .card-action:before {
+  .card-purple .card-action:before, .card-purple .tile-action:before {
     border-top-color: #e1bee7; }
   .card-purple .card-side {
     background-color: #9c27b0;
@@ -6304,7 +6304,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-red:focus, .card-red:hover {
     -webkit-box-shadow: 0 0 5px #f44336;
     box-shadow: 0 0 5px #f44336; }
-  .card-red .card-action:before {
+  .card-red .card-action:before, .card-red .tile-action:before {
     border-top-color: #ffcdd2; }
   .card-red .card-side {
     background-color: #f44336;
@@ -6327,7 +6327,7 @@ a.fbtn:focus, a.fbtn:hover {
   .card-yellow:focus, .card-yellow:hover {
     -webkit-box-shadow: 0 0 5px #ffc107;
     box-shadow: 0 0 5px #ffc107; }
-  .card-yellow .card-action:before {
+  .card-yellow .card-action:before, .card-yellow .tile-action:before {
     border-top-color: #ffecb3; }
   .card-yellow .card-side {
     background-color: #ffc107;
@@ -6346,12 +6346,17 @@ a.fbtn:focus, a.fbtn:hover {
 
 .card[class*="-bg"] {
   color: white; }
-  .card[class*="-bg"] .card-action .nav > li > a,
+  .card[class*="-bg"] .card-action .nav > li > a, .card[class*="-bg"] .tile-action .nav > li > a,
   .card[class*="-bg"] .card-action .nav > li > .a,
+  .card[class*="-bg"] .tile-action .nav > li > .a,
   .card[class*="-bg"] .card-action .nav > li.active > a,
+  .card[class*="-bg"] .tile-action .nav > li.active > a,
   .card[class*="-bg"] .card-action .nav > li.active > .a,
+  .card[class*="-bg"] .tile-action .nav > li.active > .a,
   .card[class*="-bg"] .card-action .nav > li.open > a,
-  .card[class*="-bg"] .card-action .nav > li.open > .a {
+  .card[class*="-bg"] .tile-action .nav > li.open > a,
+  .card[class*="-bg"] .card-action .nav > li.open > .a,
+  .card[class*="-bg"] .tile-action .nav > li.open > .a {
     color: white; }
 
 .card-inner {
@@ -6436,6 +6441,9 @@ a.fbtn:focus, a.fbtn:hover {
     transition: z-index 0s; }
   .dropdown [data-toggle="dropdown"] {
     cursor: pointer; }
+
+.dropdown-inline {
+  display: inline-block; }
 
 .dropdown-wrap {
   margin-top: 24px;
@@ -6540,25 +6548,15 @@ a.fbtn:focus, a.fbtn:hover {
   z-index: 1; }
   .dropdown.open .dropdown-toggle-btn {
     background-color: white;
-    border-color: #9e9e9e;
-    border-bottom-color: transparent;
-    border-radius: 2px 2px 0 0;
     color: #212121;
     -webkit-box-shadow: none;
     box-shadow: none; }
-    .dropdown.open .dropdown-toggle-btn:after, .dropdown.open .dropdown-toggle-btn:before {
-      background-color: #9e9e9e;
-      content: '';
-      display: block;
-      height: 1px;
-      position: absolute;
-      bottom: -1px;
-      width: 1px; }
-    .dropdown.open .dropdown-toggle-btn:after {
-      right: -1px; }
-    .dropdown.open .dropdown-toggle-btn:before {
-      left: -1px; }
   .dropdown-toggle-btn ~ .dropdown-menu {
+    min-width: 101%;
+    min-width: calc(100% + 2px);
+    padding-top: 48px !important;
+    top: -12px;
+    left: -1px;
     -webkit-transform: scale(1, 0);
     -ms-transform: scale(1, 0);
     transform: scale(1, 0); }
@@ -7571,30 +7569,17 @@ legend[class*="col-xx-"] {
 
 .tile-action {
   float: right;
+  z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .tile-action:after, .tile-action:before {
-    content: "";
-    display: table;
-    line-height: 0; }
-  .tile-action:after {
-    clear: both; }
+  .tile-action:before {
+    display: none; }
   .no-touch .tile-action, .touch .tile-collapse .tile-action {
     display: none; }
   .no-touch .tile:hover .tile-action, .tile-collapse.active .tile-action {
     display: block; }
-  .tile-action .nav {
-    margin-top: 0;
-    margin-bottom: 0; }
-    .tile-action .nav > li > a {
-      color: #616161;
-      z-index: 1; }
-      .tile-action .nav > li > a:focus, .tile-action .nav > li > a:hover {
-        color: #2196f3; }
-    .tile-action .nav > li.active > a, .tile-action .nav > li.open > a {
-      color: #2196f3; }
 
 .tile-active-show {
   -webkit-transition: height 0.15s linear;

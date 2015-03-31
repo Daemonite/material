@@ -33,9 +33,13 @@
 
 // action
 	.tile-action {
+		@extend .card-action;
 		float: right;
-		@include clearfix();
+		z-index: 1;
 		@include user-select(none);
+		&:before {
+			display: none;
+		}
 		.no-touch &,
 		.touch .tile-collapse & {
 			display: none;
@@ -43,24 +47,6 @@
 		.no-touch .tile:hover &,
 		.tile-collapse.active & {
 			display: block;
-		}
-		.nav {
-			margin-top: 0;
-			margin-bottom: 0;
-			> li {
-				> a {
-					color: $black-sec;
-					z-index: 1;
-					&:focus,
-					&:hover {
-						color: $link-color;
-					}
-				}
-				&.active > a,
-				&.open > a {
-					color: $link-color;
-				}
-			}
 		}
 	}
 
