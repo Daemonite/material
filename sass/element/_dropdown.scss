@@ -46,6 +46,7 @@
 			@include transform(scale(1, 1));
 		}
 		&.dropdown-menu-right,
+		.dropdown.pull-right &,
 		.nav.pull-right & {
 			border-radius: 2px 0 2px 2px;
 			// position
@@ -122,5 +123,12 @@
 				top: ($line-height / -2);
 				left: -1px;
 			@include transform(scale(1, 0));
+			&.dropdown-menu-right,
+			.dropdown.pull-right &,
+			.nav.pull-right & {
+				// position
+					right: -1px;
+					left: auto;
+			}
 		}
 	}
