@@ -35,7 +35,6 @@
 	.tile-action {
 		@extend .card-action;
 		float: right;
-		z-index: 1;
 		@include user-select(none);
 		&:before {
 			display: none;
@@ -48,6 +47,10 @@
 		.tile-collapse.active & {
 			display: block;
 		}
+	}
+
+	.tile-action-show {
+		display: block !important;
 	}
 
 // collapse
@@ -91,6 +94,10 @@
 
 	.tile-side {
 		@extend .card-inner-side;
+	}
+
+	.tile-side-container {
+		padding: 0 !important;
 	}
 
 	.tile-sub {
