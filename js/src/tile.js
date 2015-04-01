@@ -7,21 +7,13 @@
 			if ($trigger.attr('data-parent') != null) {
 				$($trigger.attr('data-parent')).find('.tile-active-show').collapse('hide');
 			};
-			getTargetFromTrigger($trigger).collapse('toggle');
+			$(getTargetFromTrigger($trigger)).collapse('toggle');
 		} else if ($target.is('[data-dismiss="tile"]')) {
 			$target.closest('.tile-collapse').find('.tile-active-show').collapse('hide');
 		} else if (!$target.is('.tile-collapse, .tile-collapse *')) {
 			tReset();
 		};
 	});
-
-	function getTargetFromTrigger(trigger) {
-		var href
-		var target = trigger.attr('data-target')
-		    || (href = trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')
-
-		return $(target)
-	}
 
 	function tReset() {
 		$('.tile-collapse.active').each(function(index) {
