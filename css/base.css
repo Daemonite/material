@@ -8092,6 +8092,54 @@ legend[class*="col-xx-"] {
       padding-right: 32px;
       right: -32px; } }
 
+.menu-collapse-toggle {
+  background-color: transparent !important;
+  cursor: pointer;
+  display: block;
+  float: right;
+  padding: 12px 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1; }
+  .menu-collapse-toggle:hover {
+    color: #2196f3 !important; }
+
+.menu-collapse-toggle-close {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .menu-collapse-toggle.collapsed .menu-collapse-toggle-close {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-transform: rotate(-225deg);
+    -ms-transform: rotate(-225deg);
+    transform: rotate(-225deg); }
+
+.menu-collapse-toggle-default {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .menu-collapse-toggle.collapsed .menu-collapse-toggle-default {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0); }
+
 .menu-content {
   padding-top: 24px;
   padding-bottom: 24px; }
@@ -8100,33 +8148,42 @@ legend[class*="col-xx-"] {
   .menu-content .nav {
     margin-top: 0;
     margin-bottom: 0; }
-    .menu-content .nav a {
+    .menu-content .nav a,
+    .menu-content .nav .a {
       color: #616161;
       font-weight: 700;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
-      .menu-content .nav a:focus, .menu-content .nav a:hover {
-        background-color: #fafafa; }
+      .menu-content .nav a:focus, .menu-content .nav a:hover,
+      .menu-content .nav .a:focus,
+      .menu-content .nav .a:hover {
+        background-color: whitesmoke; }
       .menu-content .nav a .fa,
-      .menu-content .nav a .icon {
+      .menu-content .nav a .icon,
+      .menu-content .nav .a .fa,
+      .menu-content .nav .a .icon {
         margin-right: 16px; }
-    .menu-content .nav li.active > a {
-      background-color: whitesmoke;
+    .menu-content .nav li.active > a,
+    .menu-content .nav li.active > .a {
       color: #4caf50; }
-      .page-blue .menu-content .nav li.active > a {
+      .page-blue .menu-content .nav li.active > a, .page-blue
+      .menu-content .nav li.active > .a {
         color: #2196f3; }
-      .page-green .menu-content .nav li.active > a {
+      .page-green .menu-content .nav li.active > a, .page-green
+      .menu-content .nav li.active > .a {
         color: #4caf50; }
-      .page-purple .menu-content .nav li.active > a {
+      .page-purple .menu-content .nav li.active > a, .page-purple
+      .menu-content .nav li.active > .a {
         color: #9c27b0; }
-      .page-red .menu-content .nav li.active > a {
+      .page-red .menu-content .nav li.active > a, .page-red
+      .menu-content .nav li.active > .a {
         color: #f44336; }
-      .page-yellow .menu-content .nav li.active > a {
+      .page-yellow .menu-content .nav li.active > a, .page-yellow
+      .menu-content .nav li.active > .a {
         color: #ffc107; }
-    .menu-content .nav > li.active > a {
-      background-color: #eeeeee; }
-    .menu-content .nav ul a {
+    .menu-content .nav ul a,
+    .menu-content .nav ul .a {
       font-weight: 400;
       padding-left: 48px; }
   @media only screen and (min-width: 480px) {

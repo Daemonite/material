@@ -23,7 +23,7 @@
 			$('.content-fix-inner', content).css('padding-bottom', '');
 		}
 
-		var scrolled = $(window).height() + window.pageYOffset;
+		var scrolled = window.innerHeight + window.pageYOffset;
 
 		if (htmlHeight <= scrolled) {
 			$('.content-fix-inner', content).css('padding-bottom', scrolled - htmlHeight);

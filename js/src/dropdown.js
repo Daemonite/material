@@ -18,7 +18,7 @@
 				if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.nav.pull-right').length) {
 					dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth() - dropdownPadding;
 				} else {
-					dropdownWidth = $(window).width() - $dropdownToggle.offset().left - dropdownPadding;
+					dropdownWidth = window.innerWidth - $dropdownToggle.offset().left - dropdownPadding;
 				}
 
 				$dropdownMenu.css('max-width', dropdownWidth);

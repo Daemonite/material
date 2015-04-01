@@ -84,6 +84,47 @@
 		}
 }
 
+// collapse
+	.menu-collapse-toggle {
+		background-color: transparent !important;
+		cursor: pointer;
+		display: block;
+		float: right;
+		padding: ($line-height / 2) $grid-gutter;
+		position: absolute;
+			top: 0;
+			right: 0;
+		z-index: 1;
+		&:hover {
+			color: $link-color !important;
+		}
+	}
+
+	.menu-collapse-toggle-close {
+		position: absolute;
+			top: (($line-height * 2 - $font-size) / 2);
+			left: 0;
+		text-align: center;
+		width: 100%;
+		@include opacity(1);
+		@include transform(rotate(0));
+		@include transition(all 0.3s $timing);
+		.menu-collapse-toggle.collapsed & {
+			@include opacity(0);
+			@include transform(rotate(-225deg));
+		}
+	}
+
+	.menu-collapse-toggle-default {
+		@include opacity(0);
+		@include transform(rotate(225deg));
+		@include transition(all 0.3s $timing);
+		.menu-collapse-toggle.collapsed & {
+			@include opacity(1);
+			@include transform(rotate(0));
+		}
+	}
+
 // content
 	.menu-content {
 		padding-top: $line-height;
@@ -94,7 +135,8 @@
 		.nav {
 			margin-top: 0;
 			margin-bottom: 0;
-			a {
+			a,
+			.a {
 				color: $black-sec;
 				font-weight: 700;
 				overflow: hidden;
@@ -102,38 +144,40 @@
 				white-space: nowrap;
 				&:focus,
 				&:hover {
-					background-color: $white-bg-light;
+					background-color: $white-bg;
 				}
 				.fa,
 				.icon {
 					margin-right: $grid-gutter;
 				}
 			}
-			li.active > a {
-				background-color: $white-bg;
-				color: $brand-color;
-				.page-blue & {
-					color: $palette-blue;
-				}
-				.page-green & {
-					color: $palette-green;
-				}
-				.page-purple & {
-					color: $palette-purple;
-				}
-				.page-red & {
-					color: $palette-red;
-				}
-				.page-yellow & {
-					color: $palette-yellow;
+			li.active {
+				> a,
+				> .a {
+					color: $brand-color;
+					.page-blue & {
+						color: $palette-blue;
+					}
+					.page-green & {
+						color: $palette-green;
+					}
+					.page-purple & {
+						color: $palette-purple;
+					}
+					.page-red & {
+						color: $palette-red;
+					}
+					.page-yellow & {
+						color: $palette-yellow;
+					}
 				}
 			}
-			> li.active > a {
-				background-color: $white-bg-dark;
-			}
-			ul a {
-				font-weight: 400;
-				padding-left: ($grid-gutter * 3);
+			ul {
+				a,
+				.a {
+					font-weight: 400;
+					padding-left: ($line-height * 2);
+				}
 			}
 		}
 		// 480

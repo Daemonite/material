@@ -52,7 +52,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			$('.content-fix-inner', content).css('padding-bottom', '');
 		}
 
-		var scrolled = $(window).height() + window.pageYOffset;
+		var scrolled = window.innerHeight + window.pageYOffset;
 
 		if (htmlHeight <= scrolled) {
 			$('.content-fix-inner', content).css('padding-bottom', scrolled - htmlHeight);
@@ -113,7 +113,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 				if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.nav.pull-right').length) {
 					dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth() - dropdownPadding;
 				} else {
-					dropdownWidth = $(window).width() - $dropdownToggle.offset().left - dropdownPadding;
+					dropdownWidth = window.innerWidth - $dropdownToggle.offset().left - dropdownPadding;
 				}
 
 				$dropdownMenu.css('max-width', dropdownWidth);
@@ -255,6 +255,35 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 				$('.menu-search-focus').focus();
 			};
 		}
+	});
+
+// menu toggle collapse
+	if ($('.menu-collapse').length) {
+		$('.menu-collapse').each(function(index) {
+			var $this = $(this);
+			if ($this.hasClass('in')) {
+				$this.attr('data-height', $this.height());
+			};
+		});
+	};
+
+	$(document).on('show.bs.collapse', '.menu-collapse', function() {
+		var $this = $(this),
+		    $thisLi = $this.closest('li'),
+		    height,
+		    offset = $thisLi.offset().top - window.pageYOffset;
+
+		if ($this.attr('data-height') == null) {
+			$this.attr('data-height', $this.height());
+		};
+
+		height = parseInt($this.attr('data-height'));
+
+		if (height + offset > window.innerHeight) {
+			$this.closest('.menu-wrap').animate({
+				scrollTop: height
+			}, 300);
+		};
 	});
 // sortable v1.1.1
 // git://github.com/rubaxa/Sortable.git
