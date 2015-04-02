@@ -41,9 +41,10 @@
 // menu toggle collapse
 	if ($('.menu-collapse').length) {
 		$('.menu-collapse').each(function(index) {
-			var $this = $(this);
+			var $this = $(this),
+			    $thisLi = $this.closest('li');
 			if ($this.hasClass('in')) {
-				$this.attr('data-height', $this.height());
+				$thisLi.attr('data-height', $thisLi.height());
 			};
 		});
 	};
@@ -52,17 +53,19 @@
 		var $this = $(this),
 		    $thisLi = $this.closest('li'),
 		    height,
-		    offset = $thisLi.offset().top - window.pageYOffset;
+		    offset = $thisLi.offset().top - window.pageYOffset,
+		    winHeight = window.innerHeight;
 
-		if ($this.attr('data-height') == null) {
-			$this.attr('data-height', $this.height());
+		if ($thisLi.attr('data-height') == null) {
+			$thisLi.attr('data-height', $this.height() + $('> a', $thisLi).outerHeight());
 		};
 
-		height = parseInt($this.attr('data-height'));
+		height = parseInt($thisLi.attr('data-height'));
 
-		if (height + offset > window.innerHeight) {
-			$this.closest('.menu-wrap').animate({
-				scrollTop: height
+		if (height + offset > winHeight) {
+			var $thisMenu = $this.closest('.menu-wrap');
+			$thisMenu.animate({
+				scrollTop: height + offset - winHeight + $thisMenu.scrollTop()
 			}, 300);
 		};
 	});
