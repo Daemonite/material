@@ -11,23 +11,22 @@
 	});
 
 	function contentFix(content) {
+		var scrolled = window.innerHeight + window.pageYOffset;
+
 		if (window.pageYOffset >= (content.offset().top - headerHeight)) {
-			if (!content.hasClass('fixed')) {
-				if ((content.is('[class*="col-xx"]')) || (content.is('[class*="col-xs"]') && $(window).width() >= 480) || (content.is('[class*="col-sm"]') && $(window).width() >= 768) || (content.is('[class*="col-md"]') && $(window).width() >= 992) || (content.is('[class*="col-lg"]') && $(window).width() >= 1440)) {
+			if ((content.is('[class*="col-xx"]')) || (content.is('[class*="col-xs"]') && $(window).width() >= 480) || (content.is('[class*="col-sm"]') && $(window).width() >= 768) || (content.is('[class*="col-md"]') && $(window).width() >= 992) || (content.is('[class*="col-lg"]') && $(window).width() >= 1440)) {
+				if (!content.hasClass('fixed')) {
 					content.addClass('fixed');
 					$('.content-fix-wrap', content).scrollTop(0);
+				};
+				if (htmlHeight <= scrolled) {
+					$('.content-fix-inner', content).css('padding-bottom', scrolled - htmlHeight);
 				};
 			};
 		} else {
 			content.removeClass('fixed');
 			$('.content-fix-inner', content).css('padding-bottom', '');
 		}
-
-		var scrolled = window.innerHeight + window.pageYOffset;
-
-		if (htmlHeight <= scrolled) {
-			$('.content-fix-inner', content).css('padding-bottom', scrolled - htmlHeight);
-		};
 	}
 
 // fixed left/right hand side column padding bottom and width
