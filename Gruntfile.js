@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	// grunt config
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+
 		concat: {
 			base: {
 				src: ['js/src/*.js'],
@@ -15,6 +16,7 @@ module.exports = function(grunt) {
 				dest: 'js/project.js'
 			}
 		},
+
 		connect: {
 			html: {
 				options: {
@@ -25,16 +27,18 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-    cssmin: {
-      base: {
-        src: ['css/base.css'],
-        dest: 'css/base.min.css'
-      },
-      project: {
-      	src: ['css/project.css'],
-      	dest: 'css/project.min.css'
-      }
-    },
+
+		cssmin: {
+			base: {
+				src: ['css/base.css'],
+				dest: 'css/base.min.css'
+			},
+			project: {
+				src: ['css/project.css'],
+				dest: 'css/project.min.css'
+			}
+		},
+
 		sass: {
 			all: {
 				files: [{
@@ -49,6 +53,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
 		uglify: {
 			base: {
 				files: {
@@ -61,6 +66,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
 		watch: {
 			jsbase: {
 				files: ['js/src/*.js'],
@@ -75,6 +81,7 @@ module.exports = function(grunt) {
 				tasks: ['sass', 'cssmin']
 			}
 		},
+		
 		// dev update
 		devUpdate: {
 			main: {
