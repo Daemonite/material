@@ -49,6 +49,7 @@ module.exports = function(grunt) {
 					src: ['*.scss']
 				}],
 				options: {
+					sourcemap: 'none',
 					style: 'nested'
 				}
 			}
