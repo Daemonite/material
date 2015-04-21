@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 				}],
 				options: {
 					sourcemap: 'none',
-					style: 'nested'
+					style: 'expanded'
 				}
 			}
 		},
