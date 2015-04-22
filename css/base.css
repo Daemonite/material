@@ -9652,6 +9652,149 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   float: left;
 }
 
+.progress {
+  background-color: #b2dbfb;
+  height: 4px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  background-color: #2196f3;
+  border-radius: 0 1px 1px 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-alt {
+  background-color: #c8e6c9;
+}
+.progress-alt .progress-bar {
+  background-color: #4caf50;
+}
+
+.progress-blue {
+  background-color: #bbdefb;
+}
+.progress-blue .progress-bar {
+  background-color: #2196f3;
+}
+
+.progress-green {
+  background-color: #c8e6c9;
+}
+.progress-green .progress-bar {
+  background-color: #4caf50;
+}
+
+.progress-purple {
+  background-color: #e1bee7;
+}
+.progress-purple .progress-bar {
+  background-color: #9c27b0;
+}
+
+.progress-red {
+  background-color: #ffcdd2;
+}
+.progress-red .progress-bar {
+  background-color: #f44336;
+}
+
+.progress-yellow {
+  background-color: #ffecb3;
+}
+.progress-yellow .progress-bar {
+  background-color: #ffc107;
+}
+
+.progress-bar-indeterminate {
+  background-color: #2196f3;
+}
+.progress-bar-indeterminate:after, .progress-bar-indeterminate:before {
+  background-color: inherit;
+  border-radius: 1px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  will-change: left, right;
+}
+.progress-bar-indeterminate:after {
+  -webkit-animation: indeterminate-one 3s infinite cubic-bezier(0.6, 0.8, 0.6, 0.4);
+  animation: indeterminate-one 3s infinite cubic-bezier(0.6, 0.8, 0.6, 0.4);
+}
+.progress-bar-indeterminate:before {
+  -webkit-animation: indeterminate-two 3s infinite cubic-bezier(0.2, 0.8, 0.2, 0.8);
+  animation: indeterminate-two 3s infinite cubic-bezier(0.2, 0.8, 0.2, 0.8);
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+@-webkit-keyframes indeterminate-one {
+  0% {
+    right: 100%;
+    left: -35%;
+  }
+  60% {
+    right: -90%;
+    left: 100%;
+  }
+  100% {
+    right: -90%;
+    left: 100%;
+  }
+}
+@keyframes indeterminate-one {
+  0% {
+    right: 100%;
+    left: -35%;
+  }
+  60% {
+    right: -90%;
+    left: 100%;
+  }
+  100% {
+    right: -90%;
+    left: 100%;
+  }
+}
+@-webkit-keyframes indeterminate-two {
+  0% {
+    right: 100%;
+    left: -150%;
+  }
+  60% {
+    right: -25%;
+    left: 125%;
+  }
+  100% {
+    right: -25%;
+    left: 125%;
+  }
+}
+@keyframes indeterminate-two {
+  0% {
+    right: 100%;
+    left: -150%;
+  }
+  60% {
+    right: -25%;
+    left: 125%;
+  }
+  100% {
+    right: -25%;
+    left: 125%;
+  }
+}
 .sortable-ghost {
   opacity: 0.5;
   filter: alpha(opacity=50);
