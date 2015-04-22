@@ -41,12 +41,6 @@
 	}
 }
 
-.btn-block {
-	display: block;
-	white-space: normal;
-	width: 100%;
-}
-
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
@@ -66,40 +60,6 @@
 		}
 	}
 
-// flat
-	.btn-flat {
-		background-color: transparent;
-		@include box-shadow(none);
-		&:active,
-		&:focus,
-		&:hover {
-			background-color: $black-bg;
-			@include box-shadow(none);
-		}
-		&[disabled],
-		fieldset[disabled] & {
-			color: $black-text;
-		}
-	}
-	
-	// flat colour
-		@each $color in $palette-list {
-			$i: index($palette-list, $color);
-
-			.btn-flat.btn-#{$color} {
-				color: nth($palette-color, $i);
-				&:active,
-				&:focus,
-				&:hover {
-					background-color: nth($palette-color-light, $i);
-				}
-				&[disabled],
-				fieldset[disabled] & {
-					color: nth($palette-color, $i);
-				}
-			}
-		}
-
 // size
 	.btn-sm {
 		font-size: $font-size-h6;
@@ -110,12 +70,50 @@
 		}
 	}
 
-// text
-	.btn-text {
-		color: $black-text;
-		display: inline-block;
-		font-size: $font-size;
-		font-weight: 400;
-		line-height: $line-height;
-		padding: (($btn-height - $line-height) / 2) 0;
+.btn-block {
+	display: block;
+	white-space: normal;
+	width: 100%;
+}
+
+.btn-flat {
+	background-color: transparent;
+	@include box-shadow(none);
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: $black-bg;
+		@include box-shadow(none);
 	}
+	&[disabled],
+	fieldset[disabled] & {
+		color: $black-text;
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.btn-flat.btn-#{$color} {
+			color: nth($palette-color, $i);
+			&:active,
+			&:focus,
+			&:hover {
+				background-color: nth($palette-color-light, $i);
+			}
+			&[disabled],
+			fieldset[disabled] & {
+				color: nth($palette-color, $i);
+			}
+		}
+	}
+
+.btn-text {
+	color: $black-text;
+	display: inline-block;
+	font-size: $font-size;
+	font-weight: 400;
+	line-height: $line-height;
+	padding: (($btn-height - $line-height) / 2) 0;
+}

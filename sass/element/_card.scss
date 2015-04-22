@@ -21,84 +21,6 @@
 		}
 }
 
-.card-main {
-	-webkit-box-flex: 1;
-	   -moz-box-flex: 1;
-	    -webkit-flex: 1;
-	        -ms-flex: 1;
-	            flex: 1;
-}
-
-.card-side {
-	background-color: $white-bg;
-	border-radius: 2px 0 0 2px;
-	max-width: 33.33333%;
-	padding-right: $grid-gutter;
-	padding-left: $grid-gutter;
-	&[href] {
-		color: $black-text;
-		&:focus,
-		&:hover {
-			background-color: $white-bg-dark;
-			text-decoration: none;
-		}
-	}
-	&.card-side-img {
-		overflow: hidden;
-		padding-right: 0;
-		padding-left: 0;
-	}
-	&.card-side-right {
-		border-radius: 0 2px 2px 0;
-		-webkit-box-ordinal-group: 2;
-		   -moz-box-ordinal-group: 2;
-		           -ms-flex-order: 2;
-		            -webkit-order: 2;
-		                    order: 2;
-	}
-}
-
-.card-wrap {
-	margin-top: $line-height;
-}
-
-// action
-	.card-action {
-		position: relative;
-		@include clearfix();
-		&:before {
-			border-top: 1px solid $black-bg;
-			content: "";
-			display: block;
-			position: absolute;
-				top: -1px;
-				left: 0;
-			width: 100%;
-			.card-header + & {
-				display: none;
-			}
-		}
-		.nav {
-			margin-top: 0;
-			margin-bottom: 0;
-			> li {
-				> a {
-					color: $black-sec;
-					&:focus,
-					&:hover {
-						color: $link-color;
-					}
-				}
-				&.active > a {
-					color: $link-color;
-				}
-				&.open > a {
-					color: $black-text;
-				}
-			}
-		}
-	}
-
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
@@ -156,87 +78,161 @@
 		}
 	}
 
-// content
-	.card-inner {
-		padding-right: $grid-gutter;
-		padding-left: $grid-gutter;
-		position: relative;
-		z-index: 1;
-		.card-header & {
-			padding-top: ($line-height / 2);
-			padding-bottom: ($line-height / 2);
-		}
-		.card-inner-side ~ & {
-			overflow: hidden;
-		}
-	}
-
-	.card-inner-side {
-		padding-top: ($line-height / 2);
-		padding-bottom: ($line-height / 2);
-		&.pull-left {
-			padding-left: $grid-gutter;
-		}
-		&.pull-right {
-			padding-right: $grid-gutter;
-		}
-	}
-
-// header
-	.card-header {
-		padding-top: ($line-height / 4);
-		padding-bottom: ($line-height / 4);
-		position: relative;
-		@include clearfix();
-		&:before {
-			border-bottom: 1px solid $black-bg;
-			content: "";
-			display: block;
-			position: absolute;
-				bottom: 0;
-				left: 0;
-			width: 100%;
-		}
-	}
-
-	.card-heading {
+.card-action {
+	position: relative;
+	@include clearfix();
+	&:before {
+		border-top: 1px solid $black-bg;
+		content: "";
 		display: block;
-		font-size: $font-size-h4;
-		line-height: $line-height-h4;
-		margin-top: $line-height;
-		margin-bottom: $line-height;
-		.card-header & {
-			margin-top: 0;
-			margin-bottom: 0;
+		position: absolute;
+			top: -1px;
+			left: 0;
+		width: 100%;
+		.card-header + & {
+			display: none;
 		}
 	}
-
-// img
-	.card-img {
-		overflow: hidden;
-		position: relative;
-		&:first-child {
-			border-radius: 2px 2px 0 0;
-		}
-		&:last-child {
-			border-radius: 0 0 2px 2px;
-		}
-		img {
-			display: block;
-			height: auto;
-			width: 100%;
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		> li {
+			> a {
+				color: $black-sec;
+				&:focus,
+				&:hover {
+					color: $link-color;
+				}
+			}
+			&.active > a {
+				color: $link-color;
+			}
+			&.open > a {
+				color: $black-text;
+			}
 		}
 	}
+}
 
-	.card-img-heading {
-		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-		color: $white;
-		font-size: $font-size-h4;
-		line-height: $line-height-h4;
-		margin: 0;
-		padding: ($line-height / 2) $grid-gutter;
+.card-header {
+	padding-top: ($line-height / 4);
+	padding-bottom: ($line-height / 4);
+	position: relative;
+	@include clearfix();
+	&:before {
+		border-bottom: 1px solid $black-bg;
+		content: "";
+		display: block;
 		position: absolute;
 			bottom: 0;
 			left: 0;
 		width: 100%;
 	}
+}
+
+.card-heading {
+	display: block;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	.card-header & {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.card-img {
+	overflow: hidden;
+	position: relative;
+	&:first-child {
+		border-radius: 2px 2px 0 0;
+	}
+	&:last-child {
+		border-radius: 0 0 2px 2px;
+	}
+	img {
+		display: block;
+		height: auto;
+		width: 100%;
+	}
+}
+
+.card-img-heading {
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+	color: $white;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	margin: 0;
+	padding: ($line-height / 2) $grid-gutter;
+	position: absolute;
+		bottom: 0;
+		left: 0;
+	width: 100%;
+}
+
+.card-inner {
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	position: relative;
+	z-index: 1;
+	.card-header & {
+		padding-top: ($line-height / 2);
+		padding-bottom: ($line-height / 2);
+	}
+	.card-inner-side ~ & {
+		overflow: hidden;
+	}
+}
+
+.card-inner-side {
+	padding-top: ($line-height / 2);
+	padding-bottom: ($line-height / 2);
+	&.pull-left {
+		padding-left: $grid-gutter;
+	}
+	&.pull-right {
+		padding-right: $grid-gutter;
+	}
+}
+
+.card-main {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+	    -webkit-flex: 1;
+	        -ms-flex: 1;
+	            flex: 1;
+}
+
+.card-side {
+	background-color: $white-bg;
+	border-radius: 2px 0 0 2px;
+	max-width: 33.33333%;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	&[href] {
+		color: $black-text;
+		&:focus,
+		&:hover {
+			background-color: $white-bg-dark;
+			text-decoration: none;
+		}
+	}
+	&.card-side-img {
+		overflow: hidden;
+		padding-right: 0;
+		padding-left: 0;
+	}
+	&.card-side-right {
+		border-radius: 0 2px 2px 0;
+		-webkit-box-ordinal-group: 2;
+		   -moz-box-ordinal-group: 2;
+		           -ms-flex-order: 2;
+		            -webkit-order: 2;
+		                    order: 2;
+	}
+}
+
+.card-wrap {
+	margin-top: $line-height;
+}

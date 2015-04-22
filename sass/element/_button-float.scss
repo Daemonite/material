@@ -22,6 +22,28 @@ a.fbtn {
 	}
 }
 
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.fbtn-#{$color} {
+			background-color: nth($palette-color, $i);
+		}
+	}
+
+// size
+	.fbtn-lg {
+		padding: ($line-height * 0.75) 0;
+		width: ($line-height * 2.5);
+		.fbtn-sub {
+			// position
+				top: ($line-height * 0.75);
+		}
+		~ .fbtn-dropdown {
+			min-width: ($grid-gutter * 2 + $line-height * 2.5);
+		}
+	}
+
 .fbtn-container {
 	position: fixed;
 		right: $grid-gutter;
@@ -105,103 +127,80 @@ a.fbtn {
 	}
 }
 
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-		
-		.fbtn-#{$color} {
-			background-color: nth($palette-color, $i);
-		}
-	}
+.fbtn-ori,
+.fbtn-sub {
+	@include transition(all 0.3s $timing);
+}
 
-// size
-	.fbtn-lg {
-		padding: ($line-height * 0.75) 0;
-		width: ($line-height * 2.5);
-		.fbtn-sub {
-			// position
-				top: ($line-height * 0.75);
-		}
-		~ .fbtn-dropdown {
-			min-width: ($grid-gutter * 2 + $line-height * 2.5);
-		}
-	}
-
-// text
-	.fbtn-ori,
-	.fbtn-sub {
-		@include transition(all 0.3s $timing);
-	}
-
-	.fbtn-ori {
-		.fbtn-inner.open & {
-			@include opacity(0);
-			@include transform(rotate(225deg));
-		}
-	}
-
-	.fbtn-sub {
-		position: absolute;
-			top: ($line-height / 2);
-			left: 0;
-		text-align: center;
-		width: 100%;
+.fbtn-ori {
+	.fbtn-inner.open & {
 		@include opacity(0);
-		@include transform(rotate(-225deg));
-		.fbtn-inner.open & {
+		@include transform(rotate(225deg));
+	}
+}
+
+.fbtn-rotate {
+	@include transition(all 0.3s $timing);
+	.fbtn-inner.open & {
+		@include transform(rotate(225deg));
+	}
+}
+
+.fbtn-sub {
+	position: absolute;
+		top: ($line-height / 2);
+		left: 0;
+	text-align: center;
+	width: 100%;
+	@include opacity(0);
+	@include transform(rotate(-225deg));
+	.fbtn-inner.open & {
+		@include opacity(1);
+		@include transform(rotate(0));
+	}
+}
+
+.fbtn-text {
+	background-color: $black-text;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 2px;
+	font-size: $font-size-h6;
+	height: 0;
+	margin-top: ($line-height / -2);
+	margin-right: $grid-gutter;
+	overflow: hidden;
+	padding-right: ($grid-gutter / 2);
+	padding-left: ($grid-gutter / 2);
+	position: absolute;
+		top: 50%;
+		right: 100%;
+	white-space: nowrap;
+	width: 0;
+	@include opacity(0);
+	@include transition(opacity 0.3s $timing);
+	// touch & no touch
+		.no-touch .fbtn:hover & {
+			height: auto;
+			width: auto;
 			@include opacity(1);
-			@include transform(rotate(0));
 		}
-	}
-
-	.fbtn-rotate {
-		@include transition(all 0.3s $timing);
-		.fbtn-inner.open & {
-			@include transform(rotate(225deg));
+		.no-touch .fbtn-dropdown .fbtn:hover & {
+			height: 0;
+			width: 0;
+			@include opacity(0);
 		}
-	}
-
-	.fbtn-text {
-		background-color: $black-text;
-		background-color: rgba(0, 0, 0, 0.8);
-		border-radius: 2px;
-		font-size: $font-size-h6;
-		height: 0;
-		margin-top: ($line-height / -2);
-		margin-right: $grid-gutter;
-		overflow: hidden;
-		padding-right: ($grid-gutter / 2);
-		padding-left: ($grid-gutter / 2);
-		position: absolute;
-			top: 50%;
-			right: 100%;
-		white-space: nowrap;
-		width: 0;
-		@include opacity(0);
-		@include transition(opacity 0.3s $timing);
-		// touch & no touch
-			.no-touch .fbtn:hover & {
-				height: auto;
-				width: auto;
-				@include opacity(1);
-			}
-			.no-touch .fbtn-dropdown .fbtn:hover & {
-				height: 0;
-				width: 0;
-				@include opacity(0);
-			}
-			.no-touch .fbtn-inner.open .fbtn-dropdown .fbtn:hover & {
-				height: auto;
-				width: auto;
-				@include opacity(1);
-			}
-			.touch & {
-				display: none;
-				height: auto;
-				width: auto;
-				@include opacity(1);
-			}
-			.touch .fbtn-inner.open & {
-				display: block;
-			}
-	}
+		.no-touch .fbtn-inner.open .fbtn-dropdown .fbtn:hover & {
+			height: auto;
+			width: auto;
+			@include opacity(1);
+		}
+		.touch & {
+			display: none;
+			height: auto;
+			width: auto;
+			@include opacity(1);
+		}
+		.touch .fbtn-inner.open & {
+			display: block;
+		}
+}

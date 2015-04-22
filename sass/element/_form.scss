@@ -1,3 +1,68 @@
+legend {
+	&[class*="col-xx-"] {
+		padding-left: ($grid-gutter / 2);
+	}
+	// 480
+		@include responsive(xs) {
+			&[class*="col-xs-"] {
+				padding-left: ($grid-gutter / 2);
+			}
+		}
+	// 768
+		@include responsive(sm) {
+			&[class*="col-sm-"] {
+				padding-left: ($grid-gutter / 2);
+			}
+		}
+	// 992
+		@include responsive(md) {
+			&[class*="col-md-"] {
+				padding-left: ($grid-gutter / 2);
+			}
+		}
+	// 1440
+		@include responsive(lg) {
+			&[class*="col-lg-"] {
+				padding-left: ($grid-gutter / 2);
+			}
+		}
+}
+
+.checkbox,
+.radio {
+	display: block;
+	position: relative;
+	.form-group & {
+		margin-top: (($input-height - $line-height) / 2);
+		padding-bottom: (($input-height - $line-height) / 2);
+	}
+	label {
+		cursor: pointer;
+		margin: 0;
+		min-height: $font-size;
+		padding-left: $line-height;
+	}
+	&.disabled,
+	fieldset[disabled] & {
+		label {
+			color: $black-hint;
+			cursor: not-allowed;
+		}
+	}
+}
+
+.checkbox input[type="checkbox"],
+.radio input[type="radio"] {
+	margin-left: ($line-height * -1);
+	position: absolute;
+}
+
+.checkbox-inline,
+.radio-inline {
+	display: inline-block;
+	margin-right: $grid-gutter;
+}
+
 .form {
 	margin-top: $line-height;
 	margin-bottom: $line-height;
@@ -37,14 +102,16 @@
 		vertical-align: middle;
 		width: auto;
 	}
+}
+
+// colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 		
-		.form-group-#{$color} & {
+		.form-group-#{$color} .form-control {
 			border-bottom-color: nth($palette-color, $i);
 		}
 	}
-}
 
 select.form-control {
 	-webkit-appearance: none;
@@ -83,144 +150,76 @@ textarea.form-control {
 	padding-bottom: (($input-height - $line-height) / 2 - 1);
 }
 
-// checkbox & radio
-	.checkbox,
-	.radio {
-		display: block;
-		position: relative;
-		.form-group & {
-			margin-top: (($input-height - $line-height) / 2);
-			padding-bottom: (($input-height - $line-height) / 2);
-		}
-		label {
-			cursor: pointer;
-			margin: 0;
-			min-height: $font-size;
-			padding-left: $line-height;
-		}
-		&.disabled,
-		fieldset[disabled] & {
-			label {
-				color: $black-hint;
-				cursor: not-allowed;
-			}
-		}
-	}
-
-	.checkbox input[type="checkbox"],
-	.radio input[type="radio"] {
-		margin-left: ($line-height * -1);
-		position: absolute;
-	}
-
-	.checkbox-inline,
-	.radio-inline {
-		display: inline-block;
-		margin-right: $grid-gutter;
-	}
-
-// group
-	.form-group {
-		margin-top: $line-height;
-		margin-bottom: $line-height;
-	}
-
-	.form-group-btn {
-		margin-bottom: $line-height;
-		.btn {
-			margin-top: $line-height;
-			margin-right: $grid-gutter;
-		}
-	}
-
-// help
-	.form-help {
-		display: block;
-		font-size: $font-size-h6;
-		font-weight: 400;
-		margin-top: ($line-height / 2);
-		margin-bottom: ($line-height / 2);
-		position: relative;
-	}
-
-	.form-help-icon {
-		position: absolute;
-			top: (($line-height - $font-size-h6) / 2);
-			right: 0;
-	}
-
-	.form-help-msg {
-		padding-right: (18em / 14);
-	}
-
-// label
-	.form-label {
-		display: block;
-		margin-top: ($line-height / 2);
-		@each $color in $palette-list {
-			$i: index($palette-list, $color);
-			
-			.form-group-#{$color} & {
-				color: nth($palette-color, $i);
-			}
-		}
-		// 480
-			@include responsive(xs) {
-				[class*="col-xs"] > & {
-					@include form-label();
-				}
-			}
-		// 768
-			@include responsive(sm) {
-				[class*="col-sm"] > & {
-					@include form-label();
-				}
-			}
-		// 992
-			@include responsive(md) {
-				[class*="col-md"] > & {
-					@include form-label();
-				}
-			}
-		// 1440
-			@include responsive(lg) {
-				[class*="col-lg"] > & {
-					@include form-label();
-				}
-			}
+.form-group {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
 }
 
-	.label {
-		margin-bottom: ($line-height / 2);
+.form-group-btn {
+	margin-bottom: $line-height;
+	.btn {
+		margin-top: $line-height;
+		margin-right: $grid-gutter;
+	}
+}
+
+.form-help {
+	display: block;
+	font-size: $font-size-h6;
+	font-weight: 400;
+	margin-top: ($line-height / 2);
+	margin-bottom: ($line-height / 2);
+	position: relative;
+}
+
+.form-help-icon {
+	position: absolute;
+		top: (($line-height - $font-size-h6) / 2);
+		right: 0;
+}
+
+.form-help-msg {
+	padding-right: (18em / 14);
+}
+
+.form-label {
+	display: block;
+	margin-top: ($line-height / 2);
+	// 480
+		@include responsive(xs) {
+			[class*="col-xs"] > & {
+				@include form-label();
+			}
+		}
+	// 768
+		@include responsive(sm) {
+			[class*="col-sm"] > & {
+				@include form-label();
+			}
+		}
+	// 992
+		@include responsive(md) {
+			[class*="col-md"] > & {
+				@include form-label();
+			}
+		}
+	// 1440
+		@include responsive(lg) {
+			[class*="col-lg"] > & {
+				@include form-label();
+			}
+		}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.form-group-#{$color} .form-label {
+			color: nth($palette-color, $i);
+		}
 	}
 
-// legend
-	legend {
-		&[class*="col-xx-"] {
-			padding-left: ($grid-gutter / 2);
-		}
-		// 480
-			@include responsive(xs) {
-				&[class*="col-xs-"] {
-					padding-left: ($grid-gutter / 2);
-				}
-			}
-		// 768
-			@include responsive(sm) {
-				&[class*="col-sm-"] {
-					padding-left: ($grid-gutter / 2);
-				}
-			}
-		// 992
-			@include responsive(md) {
-				&[class*="col-md-"] {
-					padding-left: ($grid-gutter / 2);
-				}
-			}
-		// 1440
-			@include responsive(lg) {
-				&[class*="col-lg-"] {
-					padding-left: ($grid-gutter / 2);
-				}
-			}
-	}
+.label {
+	margin-bottom: ($line-height / 2);
+}

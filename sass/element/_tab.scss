@@ -41,23 +41,11 @@
 	}
 }
 
-.tab-pane {
-	display: none;
-	visibility: hidden;
-	&.active {
-		display: block;
-		visibility: visible;
-	}
-}
-
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 		
 		.tab-nav-#{$color} {
-			.tab-nav-indicator {
-				background-color: nth($palette-color, $i);
-			}
 			.nav {
 				> li {
 					> a {
@@ -72,5 +60,17 @@
 					}
 				}
 			}
+			.tab-nav-indicator {
+				background-color: nth($palette-color, $i);
+			}
 		}
 	}
+
+.tab-pane {
+	display: none;
+	visibility: hidden;
+	&.active {
+		display: block;
+		visibility: visible;
+	}
+}

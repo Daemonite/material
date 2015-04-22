@@ -1,0 +1,59 @@
+.floating-label {
+	color: $black-hint;
+	cursor: text;
+	font-size: $font-size;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+		top: (($input-height - $font-size) / 2);
+		left: 0;
+	@include transition(color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing);
+	.form-group-label [class*="col-"] & {
+		// position
+			left: $grid-gutter;
+	}
+	.form-group-label.control-focus &,
+	.form-group-label.control-highlight & {
+		font-size: ($input-height - $line-height);
+		// position
+			top: (($input-height - $line-height) / -2);
+	}
+	.form-group-label.control-focus & {
+		color: $link-color;
+	}
+}
+
+.form-group-label {
+	position: relative;
+	.form-control {
+		@include placeholder(transparent);
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.form-group-label.form-group-#{$color} .floating-label {
+			color: nth($palette-color, $i);
+		}
+	}
+
+.form-icon-label {
+	cursor: pointer;
+	display: block;
+	padding: (($input-height - $line-height) / 2) 0;
+	.form-group-icon.control-focus & {
+		color: $link-color;
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.form-group-icon.form-group-#{$color} .form-icon-label {
+			color: nth($palette-color, $i);
+		}
+	}

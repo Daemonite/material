@@ -1,3 +1,25 @@
+@mixin make-container() {
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	@include clearfix();
+	// 992
+		@include responsive(md) {
+			width: ($screen-md - $grid-gutter * 2);
+		}
+	// 1440
+		@include responsive(lg) {
+			width: ($screen-lg - $grid-gutter * 2);
+		}
+}
+
+@mixin make-row() {
+	margin-right: ($grid-gutter * -1);
+	margin-left: ($grid-gutter * -1);
+	@include clearfix();
+}
+
 // col
 	@mixin calc-col($index, $class, $type) {
 		@if ($type == colwidth) and ($index > 0) {
@@ -21,6 +43,7 @@
 			}
 		}
 	}
+
 	@mixin float-col($class) {
 		$i: 1;
 		$list: "";
@@ -32,11 +55,13 @@
 			float: left;
 		}
 	}
+
 	@mixin loop-col($columns, $class, $type) {
 		@for $i from 0 through $columns {
 			@include calc-col($i, $class, $type);
 		}
 	}
+
 	@mixin make-col() {
 		$i: 1;
 		$list: "";
@@ -51,32 +76,11 @@
 			padding-right: $grid-gutter;
 		}
 	}
+
 	@mixin make-grid($class) {
 		@include float-col($class);
 		@include loop-col($grid-cols, $class, colwidth);
 		@include loop-col($grid-cols, $class, offset);
 		@include loop-col($grid-cols, $class, pull);
 		@include loop-col($grid-cols, $class, push);
-	}
-
-// container and row
-	@mixin make-container() {
-		margin-right: auto;
-		margin-left: auto;
-		padding-right: $grid-gutter;
-		padding-left: $grid-gutter;
-		@include clearfix();
-		// 992
-			@include responsive(md) {
-				width: ($screen-md - $grid-gutter * 2);
-			}
-		// 1440
-			@include responsive(lg) {
-				width: ($screen-lg - $grid-gutter * 2);
-			}
-	}
-	@mixin make-row() {
-		margin-right: ($grid-gutter * -1);
-		margin-left: ($grid-gutter * -1);
-		@include clearfix();
 	}

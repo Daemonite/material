@@ -1,83 +1,81 @@
-// make col
-	@include make-col();
-	@include make-grid(xx);
+@include make-col();
+@include make-grid(xx);
+// 480
+	@include responsive(xs) {
+		@include make-grid(xs);
+	}
+// 768
+	@include responsive(sm) {
+		@include make-grid(sm);
+	}
+// 992
+	@include responsive(md) {
+		@include make-grid(md);
+	}
+// 1440
+	@include responsive(lg) {
+		@include make-grid(lg);
+	}
+
+.col-between {
+	margin-left: ($grid-gutter * -1);
+	position: absolute;
+		top: 0;
+	text-align: center;
+	width: ($grid-gutter * 2);
+}
+
+.container {
+	@include make-container();
+}
+
+.container-full {
+	width: auto;
+}
+
+.row {
+	@include make-row();
+}
+
+.row-clear {
 	// 480
-		@include responsive(xs) {
-			@include make-grid(xs);
+		@media only screen and (min-width: $screen-xs) and (max-width: ($screen-sm - 1)) {
+			> .col-xs-2:nth-child(6n+1),
+			> .col-xs-3:nth-child(4n+1),
+			> .col-xs-4:nth-child(3n+1),
+			> .col-xs-6:nth-child(2n+1) {
+				clear: left;
+			}
 		}
 	// 768
-		@include responsive(sm) {
-			@include make-grid(sm);
+		@media only screen and (min-width: $screen-sm) and (max-width: ($screen-md - 1)) {
+			> .col-sm-2:nth-child(6n+1),
+			> .col-sm-3:nth-child(4n+1),
+			> .col-sm-4:nth-child(3n+1),
+			> .col-sm-6:nth-child(2n+1) {
+				clear: left;
+			}
 		}
 	// 992
-		@include responsive(md) {
-			@include make-grid(md);
+		@media only screen and (min-width: $screen-md) and (max-width: ($screen-lg - 1)) {
+			> .col-md-2:nth-child(6n+1),
+			> .col-md-3:nth-child(4n+1),
+			> .col-md-4:nth-child(3n+1),
+			> .col-md-6:nth-child(2n+1) {
+				clear: left;
+			}
 		}
 	// 1440
-		@include responsive(lg) {
-			@include make-grid(lg);
+		@media only screen and (min-width: $screen-lg) {
+			> .col-lg-2:nth-child(6n+1),
+			> .col-lg-3:nth-child(4n+1),
+			> .col-lg-4:nth-child(3n+1),
+			> .col-lg-6:nth-child(2n+1) {
+				clear: left;
+			}
 		}
-	.col-between {
-		margin-left: ($grid-gutter * -1);
-		position: absolute;
-			top: 0;
-		text-align: center;
-		width: ($grid-gutter * 2);
-	}
+}
 
-// make container
-	.container {
-		@include make-container();
-	}
-
-	.container-full {
-		width: auto;
-	}
-
-// make row
-	.row {
-		@include make-row();
-	}
-	.row-relative {
-		position: relative;
-	}
-
-// row clear
-	.row-clear {
-		// 480
-			@media only screen and (min-width: $screen-xs) and (max-width: ($screen-sm - 1)) {
-				> .col-xs-2:nth-child(6n+1),
-				> .col-xs-3:nth-child(4n+1),
-				> .col-xs-4:nth-child(3n+1),
-				> .col-xs-6:nth-child(2n+1) {
-					clear: left;
-				}
-			}
-		// 768
-			@media only screen and (min-width: $screen-sm) and (max-width: ($screen-md - 1)) {
-				> .col-sm-2:nth-child(6n+1),
-				> .col-sm-3:nth-child(4n+1),
-				> .col-sm-4:nth-child(3n+1),
-				> .col-sm-6:nth-child(2n+1) {
-					clear: left;
-				}
-			}
-		// 992
-			@media only screen and (min-width: $screen-md) and (max-width: ($screen-lg - 1)) {
-				> .col-md-2:nth-child(6n+1),
-				> .col-md-3:nth-child(4n+1),
-				> .col-md-4:nth-child(3n+1),
-				> .col-md-6:nth-child(2n+1) {
-					clear: left;
-				}
-			}
-		// 1440
-			@media only screen and (min-width: $screen-lg) {
-				> .col-lg-2:nth-child(6n+1),
-				> .col-lg-3:nth-child(4n+1),
-				> .col-lg-4:nth-child(3n+1),
-				> .col-lg-6:nth-child(2n+1) {
-					clear: left;
-				}
-			}
-	}
+.row-relative {
+	position: relative;
+}

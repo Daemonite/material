@@ -4,261 +4,254 @@
 	@include user-select(none);
 }
 
-// datepicker
-	.picker__input {
-		border-bottom-style: solid !important;
-		color: $black-text !important;
-		cursor: text !important;
-		&.picker__input--active {
-			border-bottom-color: $link-color;
-			border-bottom-width: 2px;
+.picker__box {
+	background-clip: padding-box;
+	background-color: $white;
+	border-radius: 4px;
+	outline: 0;
+	overflow: hidden;
+	vertical-align: middle;
+	@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
+	@include clearfix();
+}
+
+.picker__date-display {
+	background-color: $brand-color;
+	border-radius: 4px 4px 0 0;
+	color: $white;
+	// 992
+		@include responsive(md) {
+			border-radius: 4px 0 0 0;
+			float: left;
+			width: 50%;
+		}
+}
+
+.picker__day {
+	border-radius: 50%;
+	height: ($line-height * 1.5);
+	margin: ($line-height / 4);
+	padding: ($line-height / 4) 0;
+	width: ($line-height * 1.5);
+	&:focus,
+	&:hover {
+		color: $link-color;
+		cursor: pointer;
+	}
+	&.picker__day--selected {
+		background-color: $brand-color;
+		color: $white !important;
+	}
+	&.picker__day--today {
+		color: $brand-color;
+	}
+}
+
+.picker__day-display {
+	font-size: $font-size-lg;
+	line-height: $line-height-lg;
+	padding: 0 $grid-gutter;
+}
+
+.picker__day--outfocus {
+	color: $white-bg-dark;
+}
+
+.picker__footer {
+	clear: both;
+	padding: ($line-height / 2) ($grid-gutter / 2);
+	text-align: right;
+	button {
+		margin-left: ($grid-gutter / 2);
+		&:first-child {
+			margin-left: 0;
 		}
 	}
+}
 
-// datepicker element
-	.picker__box {
-		background-clip: padding-box;
-		background-color: $white;
-		border-radius: 4px;
-		outline: 0;
-		overflow: hidden;
-		vertical-align: middle;
-		@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
-		@include clearfix();
+.picker__frame {
+	display: inline-block;
+	margin: ($line-height * 2) auto;
+	max-width: ($grid-gutter + $line-height * 14);
+	vertical-align: middle;
+	white-space: normal;
+	@include transform(scale(0, 0));
+	@include transition(all 0.3s $timing);
+	.picker--opened & {
+		@include transform(scale(1, 1));
 	}
-
-	// calendar
-		.picker__day {
-			border-radius: 50%;
-			height: ($line-height * 1.5);
-			margin: ($line-height / 4);
-			padding: ($line-height / 4) 0;
-			width: ($line-height * 1.5);
-			&:focus,
-			&:hover {
-				color: $link-color;
-				cursor: pointer;
-			}
-			&.picker__day--selected {
-				background-color: $brand-color;
-				color: $white !important;
-			}
-			&.picker__day--today {
-				color: $brand-color;
-			}
+	// 992
+		@include responsive(md) {
+			max-width: (($grid-gutter + $line-height * 14) * 2);
 		}
+}
 
-		.picker__day--outfocus {
-			color: $white-bg-dark;
+.picker__header {
+	margin: ($line-height / 2) ($grid-gutter / 2);
+	position: relative;
+	// 992
+		@include responsive(md) {
+			float: left;
+			margin-top: ($line-height / 4);
+			margin-right: 0;
+			margin-left: 0;
+			width: 50%;
 		}
+}
 
-		.picker__table {
-			border-collapse: collapse;
-			border-spacing: 0;
-			margin: 0 ($grid-gutter / 2);
-			table-layout: fixed;
-			// 992
-				@include responsive(md) {
-					float: left;
-					margin: 0;
-					width: 50%;
-				}
-		}
-
-		.picker__table td,
-		.picker__table th {
-			border: 0;
-			font-size: floor($font-size * 0.9);
-			line-height: $line-height;
-			margin: 0;
-			min-width: ($line-height * 2);
-			padding: 0;
-			text-align: center;
-			vertical-align: middle;
-		}
-
-		.picker__weekday {
-			color: $black-hint;
-			font-weight: 300;
-		}
-
-	// footer
-		.picker__footer {
-			clear: both;
-			padding: ($line-height / 2) ($grid-gutter / 2);
-			text-align: right;
-			button {
-				margin-left: ($grid-gutter / 2);
-				&:first-child {
-					margin-left: 0;
-				}
-			}
-		}
-
-	// header
-		.picker__header {
-			margin: ($line-height / 2) ($grid-gutter / 2);
-			position: relative;
-			// 992
-				@include responsive(md) {
-					float: left;
-					margin-top: ($line-height / 4);
-					margin-right: 0;
-					margin-left: 0;
-					width: 50%;
-				}
-		}
-
-		.picker__month,
-		.picker__year {
-			display: inline;
-			margin-left: $grid-gutter;
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-
-		.picker__nav--next,
-		.picker__nav--prev {
-			cursor: pointer;
-			line-height: $line-height;
-			margin-top: ($line-height / -2);
-			padding: 0 $grid-gutter;
-			position: absolute;
-				top: 50%;
-			&:focus,
-			&:hover {
-				color: $link-color;
-			}
-		}
-
-		.picker__nav--next {
-			// position
-				right: 0;
-		}
-
-		.picker__nav--prev {
-			// position
-				left: 0;
-		}
-
-		.picker__select--month,
-		.picker__select--year {
-			@extend .form-control;
-			border-bottom: 0;
-			display: inline-block;
-			height: $line-height;
-			margin-left: $grid-gutter;
-			padding-top: 0;
-			padding-bottom: 0;
-			width: auto;
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-
-		@media only screen and (-webkit-min-device-pixel-ratio: 0) {
-			select.picker__select--month,
-			select.picker__select--year {
-				background-position: 100% 50%;
-			}
-		}
-
-	// top date
-		.picker__date-display {
-			background-color: $brand-color;
-			border-radius: 4px 4px 0 0;
-			color: $white;
-			// 992
-				@include responsive(md) {
-					border-radius: 4px 0 0 0;
-					float: left;
-					width: 50%;
-				}
-		}
-		
-		.picker__day-display {
-			font-size: $font-size-lg;
-			line-height: $line-height-lg;
-			padding: 0 $grid-gutter;
-		}
-
-		.picker__month-display {
-			font-size: $font-size-h3;
-			font-weight: 300;
-			line-height: $line-height-h3;
-			padding: ($line-height / 2) $grid-gutter 0;
-			text-transform: uppercase;
-			// 992
-				@include responsive(md) {
-					padding-top: ($line-height * 2);
-					padding-bottom: $line-height;
-				}
-		}
-
-		.picker__weekday-display {
-			background-color: $brand-color-dark-m;
-			border-radius: 4px 4px 0 0;
-			padding: ($line-height / 4) $grid-gutter;
-		}
-
-		.picker__year-display {
-			color: $white-bg;
-			font-size: $font-size-h3;
-			font-weight: 300;
-			line-height: $line-height-h3;
-			padding: 0 $grid-gutter ($line-height / 2);
-			// 992
-				@include responsive(md) {
-					padding-top: $line-height;
-					padding-bottom: ($line-height * 2);
-				}
-		}
-
-// frame & holder
-	.picker__frame {
+.picker__holder {
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+		top: 100%;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	text-align: center;
+	white-space: nowrap;
+	width: 100%;
+	-webkit-backface-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	@include transition(background-color 0.3s $timing, top 0s linear 0.3s);
+	&:after {
+		content: "";
 		display: inline-block;
-		margin: ($line-height * 2) auto;
-		max-width: ($grid-gutter + $line-height * 14);
+		height: 100%;
 		vertical-align: middle;
-		white-space: normal;
-		@include transform(scale(0, 0));
-		@include transition(all 0.3s $timing);
-		.picker--opened & {
-			@include transform(scale(1, 1));
-		}
-		// 992
-			@include responsive(md) {
-				max-width: (($grid-gutter + $line-height * 14) * 2);
-			}
+		width: 1px;
 	}
+	.picker--opened & {
+		background-color: rgba(0, 0, 0, 0.5);
+		// position
+			top: 0;
+		@include transition(background-color 0.3s $timing, top 0s linear 0s);
+	}
+}
 
-	.picker__holder {
-		overflow-x: hidden;
-		overflow-y: auto;
-		position: fixed;
-			top: 100%;
-			right: 0;
-			bottom: 0;
-			left: 0;
-		text-align: center;
-		white-space: nowrap;
-		width: 100%;
-		-webkit-backface-visibility: hidden;
-		-webkit-overflow-scrolling: touch;
-		-ms-overflow-style: -ms-autohiding-scrollbar;
-		@include transition(background-color 0.3s $timing, top 0s linear 0.3s);
-		&:after {
-			content: "";
-			display: inline-block;
-			height: 100%;
-			vertical-align: middle;
-			width: 1px;
-		}
-		.picker--opened & {
-			background-color: rgba(0, 0, 0, 0.5);
-			// position
-				top: 0;
-			@include transition(background-color 0.3s $timing, top 0s linear 0s);
-		}
+.picker__input {
+	border-bottom-style: solid !important;
+	color: $black-text !important;
+	cursor: text !important;
+	&.picker__input--active {
+		border-bottom-color: $link-color;
+		border-bottom-width: 2px;
 	}
+}
+
+.picker__month,
+.picker__year {
+	display: inline;
+	margin-left: $grid-gutter;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+.picker__month-display {
+	font-size: $font-size-h3;
+	font-weight: 300;
+	line-height: $line-height-h3;
+	padding: ($line-height / 2) $grid-gutter 0;
+	text-transform: uppercase;
+	// 992
+		@include responsive(md) {
+			padding-top: ($line-height * 2);
+			padding-bottom: $line-height;
+		}
+}
+
+.picker__nav--next,
+.picker__nav--prev {
+	cursor: pointer;
+	line-height: $line-height;
+	margin-top: ($line-height / -2);
+	padding: 0 $grid-gutter;
+	position: absolute;
+		top: 50%;
+	&:focus,
+	&:hover {
+		color: $link-color;
+	}
+}
+
+.picker__nav--next {
+	// position
+		right: 0;
+}
+
+.picker__nav--prev {
+	// position
+		left: 0;
+}
+
+.picker__select--month,
+.picker__select--year {
+	@extend .form-control;
+	border-bottom: 0;
+	display: inline-block;
+	height: $line-height;
+	margin-left: $grid-gutter;
+	padding-top: 0;
+	padding-bottom: 0;
+	width: auto;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+	select.picker__select--month,
+	select.picker__select--year {
+		background-position: 100% 50%;
+	}
+}
+
+.picker__table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 ($grid-gutter / 2);
+	table-layout: fixed;
+	// 992
+		@include responsive(md) {
+			float: left;
+			margin: 0;
+			width: 50%;
+		}
+}
+
+.picker__table td,
+.picker__table th {
+	border: 0;
+	font-size: floor($font-size * 0.9);
+	line-height: $line-height;
+	margin: 0;
+	min-width: ($line-height * 2);
+	padding: 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.picker__weekday {
+	color: $black-hint;
+	font-weight: 300;
+}
+
+.picker__weekday-display {
+	background-color: $brand-color-dark-m;
+	border-radius: 4px 4px 0 0;
+	padding: ($line-height / 4) $grid-gutter;
+}
+
+.picker__year-display {
+	color: $white-bg;
+	font-size: $font-size-h3;
+	font-weight: 300;
+	line-height: $line-height-h3;
+	padding: 0 $grid-gutter ($line-height / 2);
+	// 992
+		@include responsive(md) {
+			padding-top: $line-height;
+			padding-bottom: ($line-height * 2);
+		}
+}
