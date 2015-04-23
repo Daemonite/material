@@ -381,6 +381,49 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	$(document).on('show.bs.collapse', '.tile-active-show', function() {
 		$(this).closest('.tile-collapse').addClass('active');
 	});
+
+// tile wrap animation
+	var tileAnimationDelay = 0,
+	    tileAnimationTransform = 100;
+
+	$('.tile-wrap-animation .tile').each(function(index) {
+		$(this).css({
+			'-webkit-transform': 'translate(0, ' + tileAnimationTransform + '%)',
+			'-ms-transform': 'translate(0, ' + tileAnimationTransform + '%)',
+			'transform': 'translate(0, ' + tileAnimationTransform + '%)',
+			'-webkit-transition-delay': tileAnimationDelay + 's',
+			'transition-delay': tileAnimationDelay + 's'
+		});
+
+		tileAnimationDelay = tileAnimationDelay + 0.1;
+		tileAnimationTransform = tileAnimationTransform + 10;
+	});
+
+	$(window).on('DOMContentLoaded load scroll', function() {
+		tileAnimationInView();
+	});
+
+	function tileAnimationInView() {
+		$('.tile-wrap-animation:not(.isinview)').each(function() {
+			var $this = $(this);
+			if (tileAnimationIsInView($this)) {
+				$this.addClass('isinview');
+			};
+		});
+	}
+
+	function tileAnimationIsInView(el) {
+		el = el[0];
+
+		var rect = el.getBoundingClientRect();
+
+		return (
+			rect.top <= window.innerHeight &&
+			rect.right >= 0 &&
+			rect.bottom >= 0 &&
+			rect.left <= window.innerWidth
+		);
+	}
 // toast
 	var toastTimeout,
 	    toastTimeoutInner;
@@ -468,4 +511,7 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 			$('.tab-nav').each(function() {
 				tabSwitch($('.nav > li.active', $(this)), null);
 			});
+
+		// tile animation in view
+			tileAnimationInView();
 	})();

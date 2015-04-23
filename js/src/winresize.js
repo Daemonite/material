@@ -15,4 +15,7 @@
 			$('.tab-nav').each(function() {
 				tabSwitch($('.nav > li.active', $(this)), null);
 			});
+
+		// tile animation in view
+			tileAnimationInView();
 	})();
