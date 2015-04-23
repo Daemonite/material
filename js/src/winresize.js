@@ -16,6 +16,8 @@
 				tabSwitch($('.nav > li.active', $(this)), null);
 			});
 
-		// tile animation in view
-			tileAnimationInView();
+		// tile in view
+			if ($('.tile-wrap-animation:not(.isinview)').length) {
+				tileInView();
+			};
 	})();

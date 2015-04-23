@@ -383,39 +383,43 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 	});
 
 // tile wrap animation
-	var tileAnimationDelay = 0,
-	    tileAnimationTransform = 100;
+	$('.tile-wrap-animation').each(function(index) {
+		var tileAnimationDelay = 0,
+		    tileAnimationTransform = 100;
 
-	$('.tile-wrap-animation .tile').each(function(index) {
-		$(this).css({
-			'-webkit-transform': 'translate(0, ' + tileAnimationTransform + '%)',
-			'-ms-transform': 'translate(0, ' + tileAnimationTransform + '%)',
-			'transform': 'translate(0, ' + tileAnimationTransform + '%)',
-			'-webkit-transition-delay': tileAnimationDelay + 's',
-			'transition-delay': tileAnimationDelay + 's'
+		$('.tile', $(this)).each(function(index) {
+			$(this).css({
+				'-webkit-transform': 'translate(0, ' + tileAnimationTransform + '%)',
+				'-ms-transform': 'translate(0, ' + tileAnimationTransform + '%)',
+				'transform': 'translate(0, ' + tileAnimationTransform + '%)',
+				'-webkit-transition-delay': tileAnimationDelay + 's',
+				'transition-delay': tileAnimationDelay + 's'
+			});
+
+			tileAnimationDelay = tileAnimationDelay + 0.1;
+			tileAnimationTransform = tileAnimationTransform + 10;
 		});
-
-		tileAnimationDelay = tileAnimationDelay + 0.1;
-		tileAnimationTransform = tileAnimationTransform + 10;
 	});
 
-	$(window).on('DOMContentLoaded load scroll', function() {
-		tileAnimationInView();
+	$(window).on('DOMContentLoaded scroll', function() {
+		if ($('.tile-wrap-animation:not(.isinview)').length) {
+			tileInView();
+		};
 	});
 
-	function tileAnimationInView() {
+	function tileInView() {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
-			if (tileAnimationIsInView($this)) {
+			if (tileInViewCheck($this)) {
 				$this.addClass('isinview');
 			};
 		});
 	}
 
-	function tileAnimationIsInView(el) {
-		el = el[0];
+	function tileInViewCheck(tile) {
+		tile = tile[0];
 
-		var rect = el.getBoundingClientRect();
+		var rect = tile.getBoundingClientRect();
 
 		return (
 			rect.top <= window.innerHeight &&
@@ -512,6 +516,8 @@ return!0}function Q(a,b,d,e){if(m.acceptData(a)){var f,g,h=m.expando,i=a.nodeTyp
 				tabSwitch($('.nav > li.active', $(this)), null);
 			});
 
-		// tile animation in view
-			tileAnimationInView();
+		// tile in view
+			if ($('.tile-wrap-animation:not(.isinview)').length) {
+				tileInView();
+			};
 	})();

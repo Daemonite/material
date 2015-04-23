@@ -19,7 +19,9 @@
 	.tile-wrap-animation & {
 		opacity: 0;
 		@include transform(translate(0, 100%));
-		@include transition(all 0.6s $timing);
+		@include transition(0.6s $timing);
+		-webkit-transition-property: opacity, -webkit-transform;
+		        transition-property: opacity, transform;
 	}
 	.tile-wrap-animation.isinview & {
 		opacity: 1;
