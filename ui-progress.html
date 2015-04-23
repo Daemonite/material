@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, width=device-width" name="viewport">
-	<title>Material</title>
+	<title>Progress Bars - Material</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
@@ -64,7 +64,7 @@
 						<li>
 							<a href="ui-modal.html">Modals &amp; Toasts</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ui-progress.html">Progress Bars</a>
 						</li>
 						<li>
@@ -195,54 +195,63 @@
 	<div class="content">
 		<div class="content-heading">
 			<div class="container">
-				<h1 class="heading">Material</h1>
+				<h1 class="heading">Progress Bars</h1>
 			</div>
 		</div>
 		<div class="content-inner">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 col-md-10">
-						<h2 class="content-sub-heading">Introduction</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in massa vitae nisl hendrerit sollicitudin at vel purus. Quisque leo est, posuere a dignissim id, posuere non quam. Nulla dapibus quis leo eu pulvinar. Phasellus ultrices condimentum dolor, non condimentum nibh. Curabitur tempor sollicitudin eros vitae posuere.</p>
-						<h2 class="content-sub-heading">Components</h2>
-						<ul>
-							<li><a href="ui-card.html">Cards</a></li>
-							<li><a href="ui-collapse.html">Collapsible Regions</a></li>
-							<li><a href="ui-dropdown.html">Dropdowns</a></li>
-							<li><a href="ui-modal.html">Modal &amp; Toasts</a></li>
-							<li><a href="ui-progress.html">Progress Bars</a></li>
-							<li><a href="ui-tab.html">Tabs</a></li>
-							<li><a href="ui-tile.html">Tiles</a></li>
-						</ul>
-						<h2 class="content-sub-heading">Elements</h2>
-						<ul>
-							<li><a href="ui-button.html">Buttons</a></li>
-							<li>
-								<a href="ui-form.html">Form Elements</a>
-								<ul>
-									<li><a href="ui-form-adv.html">Materialised Form Elements</a></li>
-								</ul>
-							</li>
-							<li><a href="ui-icon.html">Icons</a></li>
-						</ul>
-						<h2 class="content-sub-heading">Examples</h2>
-						<ul>
-							<li><a href="page-404.html">404 Page</a></li>
-							<li><a href="page-500.html">500 Page</a></li>
-							<li><a href="page-affix.html">Fixed Left/Right Hand Side Column</a></li>
-							<li><a href="page-affix-full.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a></li>
-							<li><a href="page-login.html">Login Page</a></li>
-							<li>
-								<a href="page-palette.html">Page Palettes</a>
-								<ul>
-									<li><a href="page-palette-blue.html">Blue Palette</a></li>
-									<li><a href="page-palette-green.html">Green Palette</a></li>
-									<li><a href="page-palette-purple.html">Purple Palette</a></li>
-									<li><a href="page-palette-red.html">Red Palette</a></li>
-									<li><a href="page-palette-yellow.html">Yellow Palette</a></li>
-								</ul>
-							</li>
-						</ul>
+					<div class="col-lg-6 col-md-8">
+						<h2 class="content-sub-heading">Determinate Progress Bars</h2>
+						<p>Default progress bar inherits link colour (<code>$link-color</code>):</p>
+						<div class="progress">
+							<div class="progress-bar" style="width: 25%"></div>
+						</div>
+						<p>Progress bar with different colour options:</p>
+						<div class="progress progress-blue">
+							<div class="progress-bar" style="width: 35%"></div>
+						</div>
+						<div class="progress progress-green">
+							<div class="progress-bar" style="width: 45%"></div>
+						</div>
+						<div class="progress progress-purple">
+							<div class="progress-bar" style="width: 55%"></div>
+						</div>
+						<div class="progress progress-red">
+							<div class="progress-bar" style="width: 65%"></div>
+						</div>
+						<div class="progress progress-yellow">
+							<div class="progress-bar" style="width: 75%"></div>
+						</div>
+						<h2 class="content-sub-heading">Indeterminate Progress Bars</h2>
+						<div class="progress">
+							<div class="progress-bar-indeterminate"></div>
+						</div>
+						<h2 class="content-sub-heading">Load Bars</h2>
+						<p>A <code>.load-bar</code> requires four different colours (i.e. four <code>&lt;div class="load-bar-progress"&gt;</code> with different colour classes) to achieve the best visual effect. By default, a <code>.load-bar-progress</code> inherits link colour (<code>$link-color</code>).</p>
+						<p>A complete load bar consists of two separate <code>.load-bar</code>s, and the order of <code>.load-bar-progress</code>s in each of the two <code>.load-bar</code>s will be different.</p>
+						<div class="progress">
+							<div class="load-bar">
+								<div class="load-bar-base">
+									<div class="load-bar-content">
+										<div class="load-bar-progress"></div>
+										<div class="load-bar-progress load-bar-progress-green"></div>
+										<div class="load-bar-progress load-bar-progress-purple"></div>
+										<div class="load-bar-progress load-bar-progress-red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="load-bar">
+								<div class="load-bar-base">
+									<div class="load-bar-content">
+										<div class="load-bar-progress"></div>
+										<div class="load-bar-progress load-bar-progress-red"></div>
+										<div class="load-bar-progress load-bar-progress-purple"></div>
+										<div class="load-bar-progress load-bar-progress-green"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
