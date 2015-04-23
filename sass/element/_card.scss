@@ -15,6 +15,9 @@
 	&:hover {
 		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 	}
+	&[class*="-bg"] {
+		color: $white;
+	}
 	// no boxshadow
 		.no-boxshadow & {
 			border: 1px solid $black-bg;
@@ -31,19 +34,6 @@
 			&:hover {
 				@include box-shadow(0 0 5px nth($palette-color, $i));
 			}
-			.card-action:before {
-				border-top-color: nth($palette-color-light, $i);
-			}
-			.card-side {
-				background-color: nth($palette-color, $i);
-				color: $white;
-				&[href] {
-					&:focus,
-					&:hover {
-						background-color: nth($palette-color-dark-m, $i);
-					}
-				}
-			}
 			// no boxshadow
 				.no-boxshadow & {
 					border-color: nth($palette-color-light, $i);
@@ -52,29 +42,6 @@
 
 		.card-#{$color}-bg {
 			background-color: nth($palette-color, $i);
-			.card-side {
-				background-color: nth($palette-color-dark-m, $i);
-				&[href] {
-					&:focus,
-					&:hover {
-						background-color: nth($palette-color-dark, $i);
-					}
-				}
-			}
-		}
-	}
-
-	.card[class*="-bg"] {
-		color: $white;
-		.card-action .nav {
-			> li,
-			> li.active,
-			> li.open {
-				> a,
-				> .a {
-				color: $white;
-				}
-			}
 		}
 	}
 
@@ -97,22 +64,41 @@
 		margin-top: 0;
 		margin-bottom: 0;
 		> li {
-			> a {
+			> a,
+			> .a {
 				color: $black-sec;
 				&:focus,
 				&:hover {
 					color: $link-color;
 				}
+				.card[class*="-bg"] & {
+					color: $white;
+				}
 			}
-			&.active > a {
-				color: $link-color;
+			&.active > {
+				a,
+				.a {
+					color: $link-color;
+				}
 			}
-			&.open > a {
-				color: $black-text;
+			&.open > {
+				a,
+				.a {
+					color: $black-text;
+				}
 			}
 		}
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.card-#{$color} .card-action:before {
+			border-top-color: nth($palette-color-light, $i);
+		}
+	}
 
 .card-header {
 	padding-top: ($line-height / 4);
@@ -232,6 +218,33 @@
 		                    order: 2;
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.card-side {
+			.card-#{$color} & {
+				background-color: nth($palette-color, $i);
+				color: $white;
+				&[href] {
+					&:focus,
+					&:hover {
+						background-color: nth($palette-color-dark-m, $i);
+					}
+				}
+			}
+			.card-#{$color}-bg & {
+				background-color: nth($palette-color-dark-m, $i);
+				&[href] {
+					&:focus,
+					&:hover {
+						background-color: nth($palette-color-dark, $i);
+					}
+				}
+			}
+		}
+	}
 
 .card-wrap {
 	margin-top: $line-height;
