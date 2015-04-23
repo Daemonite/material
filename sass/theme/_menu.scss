@@ -5,12 +5,14 @@
 		left: -100%;
 	width: 100%;
 	z-index: ($header-base - 1);
-	@include transition(all 0.3s $timing, box-shadow 0s 0.3s);
+	@include transition(all 0.3s $timing);
+	-webkit-transition-property: box-shadow, -webkit-transform;
+	        transition-property: box-shadow, transform;
 	&.open {
 		// position
 			left: 0;
 		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
-		@include transition(all 0.3s $timing, box-shadow 0s);
+		@include transition(all 0.3s $timing);
 	}
 	// 480
 		@include responsive(xs) {
@@ -109,6 +111,8 @@
 		@include opacity(1);
 		@include transform(rotate(0));
 		@include transition(all 0.3s $timing);
+		-webkit-transition-property: opacity, -webkit-transform;
+		        transition-property: opacity, transform;
 		.menu-collapse-toggle.collapsed & {
 			@include opacity(0);
 			@include transform(rotate(-225deg));
@@ -119,6 +123,8 @@
 		@include opacity(0);
 		@include transform(rotate(225deg));
 		@include transition(all 0.3s $timing);
+		-webkit-transition-property: opacity, -webkit-transform;
+		        transition-property: opacity, transform;
 		.menu-collapse-toggle.collapsed & {
 			@include opacity(1);
 			@include transform(rotate(0));

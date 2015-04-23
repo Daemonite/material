@@ -36,6 +36,8 @@
 	@include clearfix();
 	@include transform(translate3d(0, 200%, 0));
 	@include transition(all 0.3s $timing);
+	-webkit-transition-property: -webkit-transform;
+	        transition-property: transform;
 	.toast-show & {
 		@include transform(translate3d(0, 0, 0));
 	}

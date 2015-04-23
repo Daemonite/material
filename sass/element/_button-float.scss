@@ -12,6 +12,8 @@
 	width: ($line-height * 2);
 	@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
 	@include transition(all 0.3s $timing);
+	-webkit-transition-property: box-shadow, opacity, -webkit-transform;
+	        transition-property: box-shadow, opacity, transform;
 }
 
 a.fbtn {
@@ -130,6 +132,8 @@ a.fbtn {
 .fbtn-ori,
 .fbtn-sub {
 	@include transition(all 0.3s $timing);
+	-webkit-transition-property: opacity, -webkit-transform;
+	        transition-property: opacity, transform;
 }
 
 .fbtn-ori {
@@ -141,6 +145,8 @@ a.fbtn {
 
 .fbtn-rotate {
 	@include transition(all 0.3s $timing);
+	-webkit-transition-property: opacity, -webkit-transform;
+	        transition-property: opacity, transform;
 	.fbtn-inner.open & {
 		@include transform(rotate(225deg));
 	}

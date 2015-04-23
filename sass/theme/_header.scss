@@ -51,8 +51,10 @@
 				bottom: ($line-height * 0.25);
 				left: ($line-height * 0.25);
 			z-index: -1;
-			@include transition(all 0.3s $timing);
 			@include transform(scale(0));
+			@include transition(all 0.3s $timing);
+			-webkit-transition-property: background-color, -webkit-transform;
+			        transition-property: background-color, transform;
 			@each $color in $palette-list {
 				$i: index($palette-list, $color);
 				
@@ -84,6 +86,8 @@
 				.fa,
 				.icon {
 					@include transition(all 0.3s $timing);
+					-webkit-transition-property: opacity, -webkit-transform;
+					        transition-property: opacity, transform;
 				}
 				.header-close {
 					position: absolute;
@@ -105,8 +109,10 @@
 							top: 50%;
 							left: 50%;
 						width: ($line-height * 1.5);
-						@include transition(all 0.3s $timing);
 						@include transform(scale(0));
+						@include transition(all 0.3s $timing);
+						-webkit-transition-property: -webkit-transform;
+						        transition-property: transform;
 						@each $color in $palette-list {
 							$i: index($palette-list, $color);
 							

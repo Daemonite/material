@@ -31,9 +31,11 @@
 	@include box-shadow(0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
 	@include opacity(0);
 	@include transform(scale(0.25, 0));
-	@include transition(all 0.3s $timing);
 	-webkit-transform-origin: 0 0;
 	        transform-origin: 0 0;
+	@include transition(all 0.3s $timing);
+	-webkit-transition-property: opacity, -webkit-transform;
+	        transition-property: opacity, transform;
 	.dropdown.open & {
 		@include opacity(1);
 		@include transform(scale(1, 1));
