@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic);
 
 *,
 *:after,
@@ -229,6 +229,41 @@
 	b,
 	strong {
 		font-weight: 700;
+	}
+
+	blockquote,
+	q {
+		font-size: $font-size-h4;
+		font-style: italic;
+		font-weight: 300;
+		line-height: $line-height-h4;
+		margin: ($line-height * 1.5) 0;
+		padding-right: ($grid-gutter * 2);
+		padding-left: ($grid-gutter * 2);
+		position: relative;
+		&:after,
+		&:before {
+			color: $brand-color;
+			display: block;
+			font-size: $font-size-h1;
+			font-weight: 700;
+			line-height: 0;
+			position: absolute;
+				top: 0;
+		}
+		&:after {
+			content: close-quote;
+			// position
+				right: 0;
+		}
+		&:before {
+			border-right: 1px solid $brand-color-light;
+			content: open-quote;
+			// position
+				bottom: 0;
+				left: 0;
+			width: ($grid-gutter / 2);
+		}
 	}
 
 	dd,
