@@ -14,12 +14,12 @@
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
-	@include animation(load-bar-right-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards);
+	@include animation(load-bar-right-in 1s $timing 1 forwards);
 	@include transform(translate3d(-100%, 0, 0));
 	-webkit-transform-origin: top right;
 	        transform-origin: top right;
 	.load-bar:first-child & {
-		@include animation(load-bar-left-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards);
+		@include animation(load-bar-left-in 1s $timing 1 forwards);
 		@include transform(translate3d(100%, 0, 0));
 		-webkit-transform-origin: top left;
 		        transform-origin: top left;
@@ -76,11 +76,15 @@
 	height: 100%;
 	position: relative;
 	width: 400%;
-	@include animation(load-bar-right 4s linear 1s infinite forwards running);
+	@include animation(load-bar-right 4s linear infinite forwards);
+	-webkit-animation-delay: 1s;
+	        animation-delay: 1s;
 	-webkit-transform-origin: top center;
 	        transform-origin: top center;
 	.load-bar:first-child & {
-		@include animation(load-bar-left 4s linear 1s infinite forwards running);
+		@include animation(load-bar-left 4s linear infinite forwards);
+		-webkit-animation-delay: 1s;
+		        animation-delay: 1s;
 	}
 }
 

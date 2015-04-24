@@ -9743,8 +9743,8 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   height: 100%;
   overflow: hidden;
   width: 100%;
-  -webkit-animation: load-bar-right-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards;
-  animation: load-bar-right-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards;
+  -webkit-animation: load-bar-right-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  animation: load-bar-right-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   -webkit-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
@@ -9752,8 +9752,8 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   transform-origin: top right;
 }
 .load-bar:first-child .load-bar-base {
-  -webkit-animation: load-bar-left-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards;
-  animation: load-bar-left-in 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 forwards;
+  -webkit-animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   -webkit-transform: translate3d(100%, 0, 0);
   -ms-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
@@ -9838,14 +9838,18 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   height: 100%;
   position: relative;
   width: 400%;
-  -webkit-animation: load-bar-right 4s linear 1s infinite forwards running;
-  animation: load-bar-right 4s linear 1s infinite forwards running;
+  -webkit-animation: load-bar-right 4s linear infinite forwards;
+  animation: load-bar-right 4s linear infinite forwards;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
   -webkit-transform-origin: top center;
   transform-origin: top center;
 }
 .load-bar:first-child .load-bar-content {
-  -webkit-animation: load-bar-left 4s linear 1s infinite forwards running;
-  animation: load-bar-left 4s linear 1s infinite forwards running;
+  -webkit-animation: load-bar-left 4s linear infinite forwards;
+  animation: load-bar-left 4s linear infinite forwards;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 @-webkit-keyframes load-bar-left {
