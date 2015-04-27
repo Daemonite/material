@@ -11,6 +11,11 @@
 		// header height
 			headerHeightCal();
 
+		// header nav positioning
+			if ($('.header-nav-scroll').length) {
+				headerNavPos();
+			};
+
 		// tab switch
 			$('.tab-nav').each(function() {
 				tabSwitch($('.nav > li.active', $(this)), null);

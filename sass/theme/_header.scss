@@ -176,3 +176,46 @@
 .header-logo {
 	font-size: $font-size-h4;
 }
+
+.header-nav {
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: ($line-height * 2);
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	.nav > li {
+		display: inline-block;
+		float: none;
+	}
+}
+
+.header-nav-scroll {
+	height: ($line-height * 2);
+	overflow: hidden;
+	position: relative;
+	&.pull-down {
+		position: absolute;
+			top: 100%;
+			left: 0;
+		width: 100%;
+		@include transition(opacity 0.15s $timing 0.15s, top 0.3s $timing);
+		.header.fixed &,
+		.header.open &,
+		.menu-open & {
+			// position
+				top: 0;
+			z-index: -1;
+			@include opacity(0);
+			@include transition(opacity 0.15s $timing, top 0.3s $timing);
+		}
+	}
+}
+
+.header-nav-wrap {
+	height: 100%;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
+}

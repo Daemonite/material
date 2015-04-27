@@ -10917,6 +10917,49 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   font-size: 20px;
 }
 
+.header-nav {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 48px;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.header-nav .nav > li {
+  display: inline-block;
+  float: none;
+}
+
+.header-nav-scroll {
+  height: 48px;
+  overflow: hidden;
+  position: relative;
+}
+.header-nav-scroll.pull-down {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header.fixed .header-nav-scroll.pull-down, .header.open .header-nav-scroll.pull-down, .menu-open .header-nav-scroll.pull-down {
+  top: 0;
+  z-index: -1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav-wrap {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .menu {
   position: fixed;
   top: 48px;
