@@ -9,11 +9,11 @@
 	display:         flex;
 	margin-bottom: $line-height;
 	position: relative;
-	@include box-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+	@include box-shadow(0 0 1px 1px rgba(0, 0, 0, 0.25));
 	@include transition(box-shadow 0.3s $timing);
 	&:focus,
 	&:hover {
-		@include box-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+		@include box-shadow( 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 5px 1px rgba(0, 0, 0, 0.25));
 	}
 	&[class*="-bg"] {
 		color: $white;
@@ -29,10 +29,10 @@
 		$i: index($palette-list, $color);
 
 		.card-#{$color} {
-			@include box-shadow(0 0 2px nth($palette-color, $i));
+			@include box-shadow(0 0 1px 1px nth($palette-color-light-m, $i));
 			&:focus,
 			&:hover {
-				@include box-shadow(0 0 5px nth($palette-color, $i));
+				@include box-shadow(0 0 1px 1px nth($palette-color-light-m, $i), 0 0 5px 1px nth($palette-color-light-m, $i));
 			}
 			// no boxshadow
 				.no-boxshadow & {
