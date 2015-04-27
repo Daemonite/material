@@ -10911,19 +10911,6 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   font-size: 20px;
 }
 
-.header-nav {
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 48px;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-.header-nav .nav > li {
-  display: inline-block;
-  float: none;
-}
-
 .header-nav-scroll {
   height: 48px;
   overflow: hidden;
@@ -10947,11 +10934,21 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
 }
 
 .header-nav-wrap {
-  height: 100%;
+  height: 150%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 24px;
   position: absolute;
   top: 0;
   left: 0;
+  white-space: nowrap;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+}
+.header-nav-wrap .nav > li {
+  display: inline-block;
+  float: none;
 }
 
 .menu {

@@ -177,19 +177,6 @@
 	font-size: $font-size-h4;
 }
 
-.header-nav {
-	overflow-x: auto;
-	overflow-y: hidden;
-	padding-bottom: ($line-height * 2);
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-	.nav > li {
-		display: inline-block;
-		float: none;
-	}
-}
-
 .header-nav-scroll {
 	height: ($line-height * 2);
 	overflow: hidden;
@@ -213,9 +200,19 @@
 }
 
 .header-nav-wrap {
-	height: 100%;
+	height: 150%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding-bottom: $line-height;
 	position: absolute;
 		top: 0;
 		left: 0;
+	white-space: nowrap;
 	width: 100%;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	.nav > li {
+		display: inline-block;
+		float: none;
+	}
 }
