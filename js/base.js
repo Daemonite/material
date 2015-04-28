@@ -241,18 +241,21 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		}
 	}
 // menu backdrop
-	if ($('.menu').length && !$('.menu-backdrop').length) {
+	if ($('html').hasClass('touch') && $('.menu').length && !$('.menu-backdrop').length) {
 		$('body').append('<div class="menu-backdrop"></div>');
 	};
 
-	var menuBD = document.getElementsByClassName('menu-backdrop')[0],
-	    menuBDTap = new Hammer(menuBD);
+	var menuBD = document.getElementsByClassName('menu-backdrop')[0];
 
-	menuBDTap.on('tap', function(e) {
-		if ($('body').hasClass('menu-open')) {
-			mReset();
-		};
-	});
+	if (menuBD !== undefined) {
+		var menuBDTap = new Hammer(menuBD);
+
+		menuBDTap.on('tap', function(e) {
+			if ($('body').hasClass('menu-open')) {
+				mReset();
+			};
+		});
+	};
 
 // menu close
 	$(document).on('click', function(e) {
