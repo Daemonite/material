@@ -10989,6 +10989,36 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   }
 }
 
+.menu-backdrop {
+  display: none;
+}
+.touch .menu-backdrop {
+  background-color: #ffffff;
+  display: block;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 28;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0s 0.3s;
+  transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0s 0.3s;
+}
+.touch .menu-open .menu-backdrop {
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.touch .menu-open {
+  overflow: hidden;
+}
+
 .menu-scroll {
   background-color: #ffffff;
   height: 100%;
