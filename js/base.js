@@ -459,8 +459,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		);
 	}
 // toast
-	var toastTimeout,
-	    toastTimeoutInner;
+	var toastTimeout;
 
 	$('[data-toggle="toast"]').tooltip({
 		animation: false,
@@ -477,30 +476,35 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		toastHide(0);
 	});
 
-	function toastHide(timerOne) {
-		clearTimeout(toastTimeoutInner);
+	function toastHide(timer, toast) {
 		clearTimeout(toastTimeout);
-
-		var timerTwo = timerOne + 300;
 
 		toastTimeout = setTimeout(function() {
 			$('.toast').removeClass('toast-show');
-			$('.fbtn-container').css('margin-bottom', '');
-		}, timerOne);
 
-		toastTimeoutInner = setTimeout(function() {
-			$('.toast-toggled').tooltip('hide').removeClass('toast-toggled');
-		}, timerTwo);
+			if ($('.fbtn-container').length) {
+				$('.fbtn-container').css('margin-bottom', '');
+			};
+
+			$('.toast-inner').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+				$('.toast-toggled').tooltip('hide').removeClass('toast-toggled');
+
+				if (toast !== null && toast !== undefined) {
+					toast.tooltip('show').addClass('toast-toggled');
+				} else {
+					$('.toast').remove();
+				}
+			});
+		}, timer);
 	}
 
 // toast hover
 	$(document).on('mouseenter', '.toast', function() {
-		clearTimeout(toastTimeoutInner);
 		clearTimeout(toastTimeout);
 	});
 
 	$(document).on('mouseleave', '.toast', function() {
-		toastHide(5000);
+		toastHide(6000);
 	});
 
 // toast show
@@ -512,8 +516,11 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		};
 
 		if (!$this.hasClass('toast-toggled')) {
-			$('.toast-toggled').tooltip('hide').removeClass('toast-toggled');
-			$this.tooltip('show').addClass('toast-toggled');
+			if ($('.toast').hasClass('toast-show')) {
+				toastHide(0, $this);
+			} else {
+				$this.tooltip('show').addClass('toast-toggled');
+			}
 		};
 	});
 
@@ -526,7 +533,9 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			$('.fbtn-container').css('margin-bottom', $('.toast').outerHeight());
 		};
 
-		toastHide(5000);
+		$('.toast-inner').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+			toastHide(6000);
+		});
 	});
 // waves v0.6.5
 // http://fian.my.id/Waves
