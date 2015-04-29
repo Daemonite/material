@@ -40,14 +40,23 @@ module.exports = function(grunt) {
 		},
 
 		sass: {
-			all: {
+			base: {
 				files: [{
 					cwd: 'sass/',
 					dest: 'css/',
 					expand: true,
 					ext: '.css',
-					src: ['*.scss']
+					src: ['*.scss', '!project.scss']
 				}],
+				options: {
+					sourcemap: 'none',
+					style: 'expanded'
+				}
+			},
+			project: {
+				files: {
+					'css/project.css': 'sass/project.scss',
+				},
 				options: {
 					sourcemap: 'none',
 					style: 'expanded'
@@ -69,17 +78,13 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			jsbase: {
-				files: ['js/src/*.js'],
-				tasks: ['concat:base', 'uglify:base']
+			base: {
+				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
+				tasks: ['concat:base', 'uglify:base', 'sass:base', 'cssmin:base']
 			},
-			jsproject: {
-				files: ['js/src-project/*.js'],
-				tasks: ['concat:project', 'uglify:project']
-			},
-			sass: {
-				files: ['sass/**/*.scss'],
-				tasks: ['sass', 'cssmin']
+			project: {
+				files: ['js/src-project/*.js', 'sass/project.scss'],
+				tasks: ['concat:project', 'uglify:project', 'sass:project', 'cssmin:project']
 			}
 		},
 		
