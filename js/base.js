@@ -114,7 +114,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 // close menu and/or tile if esc key is pressed
 	$(document).keyup(function(e) {
 		if (e.which == '27') {
-			if ($('body').hasClass('menu-open')) {
+			if ($('.menu.open').length) {
 				mReset();
 			} else if (!$('body').hasClass('modal-open')) {
 				tReset();
@@ -241,7 +241,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		}
 	}
 // menu backdrop
-	if ($('html').hasClass('touch') && $('.menu').length && !$('.menu-backdrop').length) {
+	if ((($('html').hasClass('touch') && $('.menu').length) || $('.nav-drawer').length) && !$('.menu-backdrop').length) {
 		$('body').append('<div class="menu-backdrop"></div>');
 	};
 
@@ -251,7 +251,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		var menuBDTap = new Hammer(menuBD);
 
 		menuBDTap.on('tap', function(e) {
-			if ($('body').hasClass('menu-open')) {
+			if ($('.menu.open').length) {
 				mReset();
 			};
 		});
@@ -261,14 +261,28 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	$(document).on('click', function(e) {
 		var $target = $(e.target);
 
-		if ($('body').hasClass('menu-open') && !$target.is('.fbtn-container *, .menu *')) {
+		if ($('.menu.open').length && !$target.is('.fbtn-container *, .menu *')) {
 			mReset();
 		};
 	});
 	
 	function mReset() {
-		$('body').removeClass('menu-open');
+		var $bd = $('body');
+
+		if ($bd.hasClass('menu-open')) {
+			$bd.removeClass('menu-open');
+		};
+
+		if ($bd.hasClass('nav-drawer-open')) {
+			$bd.removeClass('nav-drawer-open');
+		};
+
 		$('.menu-toggle').closest('li.active').removeClass('active');
+
+		if ($('.menu.open .menu-search-focus').length) {
+			$('.menu.open .menu-search-focus').blur();
+		};
+
 		$('.menu.open').removeClass('open');
 	}
 
@@ -279,18 +293,24 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 		var $this = $(this),
 		    $thisLi = $this.closest('li'),
-		    $thisMenu = $($this.attr('href'));
+		    $thisMenu = $(getTargetFromTrigger($this));
 
 		if ($thisLi.hasClass('active')) {
 			mReset();
 		} else {
-			$('body').addClass('menu-open');
-			$('.menu-toggle').closest('li.active').removeClass('active');
-			$('.menu.open').removeClass('open');
+			mReset();
+
+			if ($thisMenu.hasClass('nav-drawer')) {
+				$('body').addClass('nav-drawer-open');
+			} else {
+				$('body').addClass('menu-open');
+			}
+
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
-			if ($thisMenu.hasClass('menu-search')) {
-				$('.menu-search-focus').focus();
+
+			if ($('.menu.open .menu-search-focus').length) {
+				$('.menu.open .menu-search-focus').focus();
 			};
 		}
 	});
@@ -321,6 +341,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 		if (height + offset > winHeight) {
 			var $thisMenu = $this.closest('.menu-wrap');
+
 			$thisMenu.animate({
 				scrollTop: height + offset - winHeight + $thisMenu.scrollTop()
 			}, 300);

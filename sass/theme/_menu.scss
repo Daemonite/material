@@ -33,31 +33,172 @@
 				@include responsive(xs) {
 					// position
 						right: ($grid-gutter * -20);
+					// no-touch
+						.no-touch & {
+							&.open ~ .fbtn-container {
+								// position
+									right: ($grid-gutter * 21);
+							}
+						}
 				}
 		}
 }
 
 .menu-backdrop {
 	display: none;
-	// touch
-		.touch & {
-			background-color: $white;
-			display: block;
-			height: 0;
-			position: fixed;
-				top: 0;
-				left: 0;
-			width: 0;
-			z-index: ($header-base - 2);
-			@include opacity(0);
-			@include transition(height 0s 0.3s, opacity 0.3s $timing, width 0s 0.3s);
+	.nav-drawer ~ &,
+	.touch & {
+		background-color: $black;
+		display: block;
+		height: 0;
+		position: fixed;
+			top: 0;
+			left: 0;
+		width: 0;
+		z-index: ($header-base - 2);
+		@include opacity(0);
+		@include transition(height 0s 0.3s, opacity 0.3s $timing, width 0s 0.3s);
+	}
+	.nav-drawer.open ~ &,
+	.touch .menu.open ~ & {
+		height: 100%;
+		width: 100%;
+		@include opacity(0.5);
+		@include transition(opacity 0.3s $timing);
+	}
+	.nav-drawer.open ~ & {
+		z-index: $header-base;
+	}
+	// 1440
+		@include responsive(lg) {
+			.nav-drawer.open ~ & {
+				height: 0;
+				width: 0;
+				@include opacity(0);
+				@include transition(none);
+			}
 		}
-		.touch .menu-open & {
-			height: 100%;
-			width: 100%;
-			@include opacity(0.5);
-			@include transition(opacity 0.3s $timing);
+}
+
+.menu-collapse-toggle {
+	background-color: transparent !important;
+	cursor: pointer;
+	display: block;
+	float: right;
+	padding: ($line-height / 2) $grid-gutter;
+	position: absolute;
+		top: 0;
+		right: 0;
+	z-index: 1;
+	&:hover {
+		color: $link-color !important;
+	}
+}
+
+.menu-collapse-toggle-close {
+	position: absolute;
+		top: (($line-height * 2 - $font-size) / 2);
+		left: 0;
+	text-align: center;
+	width: 100%;
+	@include opacity(1);
+	@include transform(rotate(0));
+	@include transition(all 0.3s $timing);
+	-webkit-transition-property: opacity, -webkit-transform;
+	        transition-property: opacity, transform;
+	.menu-collapse-toggle.collapsed & {
+		@include opacity(0);
+		@include transform(rotate(-225deg));
+	}
+}
+
+.menu-collapse-toggle-default {
+	@include opacity(0);
+	@include transform(rotate(225deg));
+	@include transition(all 0.3s $timing);
+	-webkit-transition-property: opacity, -webkit-transform;
+	        transition-property: opacity, transform;
+	.menu-collapse-toggle.collapsed & {
+		@include opacity(1);
+		@include transform(rotate(0));
+	}
+}
+
+.menu-content {
+	padding-top: ($line-height / 2);
+	padding-bottom: ($line-height / 2);
+	hr {
+		border-top-color: $black-bg;
+		margin-top: ($line-height / 2 - 1);
+		margin-bottom: ($line-height / 2);
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		a,
+		.a {
+			color: $black-sec;
+			font-weight: 700;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			&:focus,
+			&:hover {
+				background-color: $white-bg;
+			}
+			.fa,
+			.icon {
+				margin-right: $grid-gutter;
+			}
 		}
+		li.active {
+			> a,
+			> .a {
+				color: $brand-color;
+				.page-blue & {
+					color: $palette-blue;
+				}
+				.page-green & {
+					color: $palette-green;
+				}
+				.page-purple & {
+					color: $palette-purple;
+				}
+				.page-red & {
+					color: $palette-red;
+				}
+				.page-yellow & {
+					color: $palette-yellow;
+				}
+			}
+		}
+		ul {
+			a,
+			.a {
+				font-weight: 400;
+				padding-left: ($line-height * 2);
+			}
+		}
+	}
+	// 480
+		@include responsive(xs) {
+			width: ($grid-gutter * 20);
+		}
+	// no boxshadow
+		.nav  {
+			.no-boxshadow & {
+				margin-right: 1px;
+			}
+			.no-boxshadow .menu.menu-right & {
+				margin-right: 0;
+				margin-left: 1px;
+			}
+		}
+}
+
+.menu-content-inner {
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
 }
 
 .menu-open {
@@ -98,6 +239,68 @@
 		}
 }
 
+.menu-top {
+	background-color: $black-text;
+	color: $white-bg;
+	position: relative;
+	z-index: 1;
+	a {
+		color: $white-bg;
+		text-decoration: none;
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+	}
+	// 480
+		@include responsive(xs) {
+			width: ($grid-gutter * 20);
+		}
+}
+
+.menu-top-form {
+	margin-top: ($line-height / 4);
+	margin-bottom: ($line-height / 4);
+}
+
+.menu-top-img {
+	display: -webkit-box;
+	display:    -moz-box;
+	display:     -ms-flexbox;
+	display: -webkit-flex;
+	display:         flex;
+	height: 100%;
+	justify-content: center;
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
+	-webkit-align-items: center;
+	        align-items: center;
+	img {
+		min-height: 100%;
+		width: 100%;
+		@include opacity(0.5);
+	}
+}
+
+.menu-top-info {
+	padding: ($line-height * 1.5) $grid-gutter;
+	position: relative;
+}
+
+.menu-top-user {
+	display: -webkit-box;
+	display:    -moz-box;
+	display:     -ms-flexbox;
+	display: -webkit-flex;
+	display:         flex;
+	-webkit-align-items: center;
+	        align-items: center;
+	@include clearfix();
+}
+
 .menu-wrap {
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -116,196 +319,76 @@
 		}
 }
 
-// collapse
-	.menu-collapse-toggle {
-		background-color: transparent !important;
-		cursor: pointer;
-		display: block;
-		float: right;
-		padding: ($line-height / 2) $grid-gutter;
-		position: absolute;
-			top: 0;
-			right: 0;
-		z-index: 1;
-		&:hover {
-			color: $link-color !important;
-		}
-	}
-
-	.menu-collapse-toggle-close {
-		position: absolute;
-			top: (($line-height * 2 - $font-size) / 2);
-			left: 0;
-		text-align: center;
-		width: 100%;
-		@include opacity(1);
-		@include transform(rotate(0));
-		@include transition(all 0.3s $timing);
-		-webkit-transition-property: opacity, -webkit-transform;
-		        transition-property: opacity, transform;
-		.menu-collapse-toggle.collapsed & {
-			@include opacity(0);
-			@include transform(rotate(-225deg));
-		}
-	}
-
-	.menu-collapse-toggle-default {
-		@include opacity(0);
-		@include transform(rotate(225deg));
-		@include transition(all 0.3s $timing);
-		-webkit-transition-property: opacity, -webkit-transform;
-		        transition-property: opacity, transform;
-		.menu-collapse-toggle.collapsed & {
-			@include opacity(1);
-			@include transform(rotate(0));
-		}
-	}
-
-// content
+.nav-drawer {
+	// position
+		top: 0;
+	z-index: ($header-base + 1);
 	.menu-content {
-		padding-top: $line-height;
-		padding-bottom: $line-height;
-		hr {
-			border-top-color: $black-bg;
-			margin-top: ($line-height - 1);
+		padding-top: 0;
+	}
+	// 1440
+		@include responsive(lg) {
+			// position
+				left: 0;
+			width: ($grid-gutter * 15);
+			@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+			.menu-content,
+			.menu-top {
+				width: ($grid-gutter * 15);
+			}
+			// menu left
+				&.menu-left {
+					~ .content {
+						margin-left: ($grid-gutter * 15);
+						.content-heading,
+						.content-inner {
+							padding-left: $grid-gutter;
+						}
+					}
+					~ .footer,
+					~ .header {
+						padding-left: $grid-gutter;
+						// position
+							left: ($grid-gutter * 15);
+					}
+				}
+			// menu right
+				&.menu-right {
+					// position
+						right: 0;
+					~ .content {
+						margin-right: ($grid-gutter * 15);
+						.content-heading,
+						.content-inner {
+							padding-right: $grid-gutter;
+						}
+					}
+					~ .footer,
+					~ .header {
+						padding-right: $grid-gutter;
+						// position
+							right: ($grid-gutter * 15);
+					}
+				}
 		}
-		.nav {
-			margin-top: 0;
-			margin-bottom: 0;
-			a,
-			.a {
-				color: $black-sec;
-				font-weight: 700;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				&:focus,
-				&:hover {
-					background-color: $white-bg;
-				}
-				.fa,
-				.icon {
-					margin-right: $grid-gutter;
-				}
-			}
-			li.active {
-				> a,
-				> .a {
-					color: $brand-color;
-					.page-blue & {
-						color: $palette-blue;
-					}
-					.page-green & {
-						color: $palette-green;
-					}
-					.page-purple & {
-						color: $palette-purple;
-					}
-					.page-red & {
-						color: $palette-red;
-					}
-					.page-yellow & {
-						color: $palette-yellow;
-					}
-				}
-			}
-			ul {
-				a,
-				.a {
-					font-weight: 400;
-					padding-left: ($line-height * 2);
-				}
-			}
+}
+
+.nav-drawer-logo {
+	@extend .header-logo;
+	border-bottom: 1px solid $black-bg;
+	color: $black-text;
+	float: none;
+	margin-bottom: ($line-height / 2);
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.nav-drawer-open {
+	overflow: hidden;
+	// 1440
+		@include responsive(lg) {
+			overflow: auto;
 		}
-		// 480
-			@include responsive(xs) {
-				width: ($grid-gutter * 20);
-			}
-		// no boxshadow
-			.nav  {
-				.no-boxshadow & {
-					margin-right: 1px;
-				}
-				.no-boxshadow .menu.menu-right & {
-					margin-right: 0;
-					margin-left: 1px;
-				}
-			}
-	}
-
-	.menu-content-inner {
-		padding-right: $grid-gutter;
-		padding-left: $grid-gutter;
-	}
-
-// fbtn
-	.no-touch .menu-right.open ~ .fbtn-container{
-		// 480
-			@include responsive(xs) {
-				// position
-					right: ($grid-gutter * 21);
-			}
-	}
-
-// top
-	.menu-top {
-		background-color: $black-text;
-		color: $white-bg;
-		position: relative;
-		z-index: 1;
-		a {
-			color: $white-bg;
-			text-decoration: none;
-			&:focus,
-			&:hover {
-				color: $white;
-			}
-		}
-		// 480
-			@include responsive(xs) {
-				width: ($grid-gutter * 20);
-			}
-	}
-
-	.menu-top-form {
-		margin-top: ($line-height / 4);
-		margin-bottom: ($line-height / 4);
-	}
-
-	.menu-top-img {
-		display: -webkit-box;
-		display:    -moz-box;
-		display:     -ms-flexbox;
-		display: -webkit-flex;
-		display:         flex;
-		height: 100%;
-		justify-content: center;
-		overflow: hidden;
-		position: absolute;
-			top: 0;
-			left: 0;
-		width: 100%;
-		-webkit-align-items: center;
-		        align-items: center;
-		img {
-			min-height: 100%;
-			width: 100%;
-			@include opacity(0.5);
-		}
-	}
-
-	.menu-top-info {
-		padding: ($line-height * 1.5) $grid-gutter;
-		position: relative;
-	}
-
-	.menu-top-user {
-		display: -webkit-box;
-		display:    -moz-box;
-		display:     -ms-flexbox;
-		display: -webkit-flex;
-		display:         flex;
-		-webkit-align-items: center;
-		        align-items: center;
-		@include clearfix();
-	}
+}
