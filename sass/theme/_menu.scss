@@ -57,7 +57,7 @@
 		width: 0;
 		z-index: ($header-base - 2);
 		@include opacity(0);
-		@include transition(height 0s 0.3s, opacity 0.3s $timing, width 0s 0.3s);
+		@include transition(height 0s 0.3s, opacity 0.3s $timing, width 0s 0.3s, z-index 0s 0.3s);
 	}
 	.nav-drawer.open ~ &,
 	.touch .menu.open ~ & {
@@ -177,6 +177,15 @@
 			.a {
 				font-weight: 400;
 				padding-left: ($line-height * 2);
+			}
+			ul {
+				a,
+				.a {
+					font-size: 90%;
+					font-weight: 300;
+					padding-top: ($line-height / 4);
+					padding-bottom: ($line-height / 4);
+				}
 			}
 		}
 	}
