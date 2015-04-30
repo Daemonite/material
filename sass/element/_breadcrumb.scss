@@ -1,0 +1,29 @@
+.breadcrumb {
+	@extend .nav;
+	@extend .nav-list;
+	> li {
+		white-space: nowrap;
+		> a,
+		> .a {
+			display: inline-block;
+			float: none;
+		}
+		+ li:before {
+			@extend .icon;
+			color: $black-hint;
+			content: "\e8a8";
+			display: inline-block;
+			line-height: $line-height;
+			padding-top: ($line-height / 2);
+			padding-bottom: ($line-height / 2);
+		}
+	}
+	> .active {
+		color: $black-text;
+		> a,
+		> .a {
+			color: $black-text;
+			cursor: default;
+		}
+	}
+}
