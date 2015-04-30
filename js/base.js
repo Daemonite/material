@@ -320,41 +320,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			};
 		}
 	});
-
-// menu toggle collapse
-	if ($('.menu-collapse').length) {
-		$('.menu-collapse').each(function(index) {
-			var $this = $(this),
-			    $thisLi = $this.closest('li');
-			if ($this.hasClass('in')) {
-				$thisLi.attr('data-height', $thisLi.height());
-			};
-		});
-	};
-
-	$(document).on('click', '.menu-collapse-toggle', function() {
-		var $menu = $(getTargetFromTrigger($(this))),
-		    $menuLi = $menu.closest('li');
-
-		$menu.on('show.bs.collapse', function() {
-			if ($menuLi.attr('data-height') == null) {
-				$menuLi.attr('data-height', $menu.height() + $('> a', $menuLi).outerHeight());
-			};
-		});
-
-		if (!$(this).hasClass('collapsed')) {
-			var menuOffset = $menuLi.offset().top - window.pageYOffset,
-			    winHeight = window.innerHeight;
-
-			if (parseInt($menuLi.attr('data-height')) + menuOffset > winHeight) {
-				var $menuWrap = $menu.closest('.menu-wrap');
-
-				$menuWrap.animate({
-					scrollTop: menuOffset
-				}, 300);
-			};
-		};
-	});
 // modal iframe
 	$(document).on('click', '.modal-close-iframe', function(e) {
 		e.preventDefault();
