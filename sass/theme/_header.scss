@@ -32,6 +32,39 @@
 	a {
 		color: $white;
 	}
+	.breadcrumb {
+		color: $white;
+		margin-top: 0;
+		margin-bottom: 0;
+		max-height: ($line-height * 2);
+		overflow: hidden;
+		padding-right: $grid-gutter;
+		padding-left: $grid-gutter;
+		a,
+		.a {
+			text-decoration: none;
+		}
+		> .active {
+			color: $white;
+			font-weight: 300;
+			> a,
+			> .a {
+				color: $white;
+			}
+		}
+		// 0 - 767
+			@include responsive("(max-width: #{$screen-sm - 1})") {
+				> li {
+					display: none;
+				}
+				> .active {
+					display: block;
+					&:before {
+						display: none;
+					}
+				}
+			}
+	}
 	.dropdown-menu {
 		border-radius: 2px;
 		a {
@@ -160,7 +193,6 @@
 }
 
 .header-fix-hide {
-	display: block !important;
 	.header.fixed & {
 		display: none !important;
 	}
@@ -190,6 +222,11 @@
 
 .header-logo {
 	font-size: $font-size-h4;
+	img {
+		display: block;
+		max-height: $line-height-h4;
+		width: auto;
+	}
 }
 
 .header-nav-scroll {

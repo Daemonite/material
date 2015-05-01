@@ -1,21 +1,18 @@
 .breadcrumb {
-	@extend .nav;
-	@extend .nav-list;
+	list-style: none;
+	margin: $line-height 0;
+	padding: ($line-height / 2) 0;
+	@include clearfix();
 	> li {
-		white-space: nowrap;
-		> a,
-		> .a {
-			display: inline-block;
-			float: none;
-		}
+		display: block;
+		float: left;
 		+ li:before {
 			@extend .icon;
 			color: $black-hint;
 			content: "\e8a8";
 			display: inline-block;
 			line-height: $line-height;
-			padding-top: ($line-height / 2);
-			padding-bottom: ($line-height / 2);
+			margin-left: 0.4em;
 		}
 	}
 	> .active {
@@ -23,7 +20,8 @@
 		> a,
 		> .a {
 			color: $black-text;
-			cursor: default;
+			cursor: text;
+			text-decoration: none;
 		}
 	}
 }
