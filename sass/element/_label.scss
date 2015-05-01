@@ -1,0 +1,22 @@
+.label {
+	background-color: $black-sec;
+	border-radius: 2px;
+	color: $white;
+	display: inline;
+	font-size: 75%;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1;
+	padding: 0.2em 0.6em;
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.label-#{$color} {
+			background-color: nth($palette-color, $i);
+		}
+	}
