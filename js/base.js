@@ -398,12 +398,18 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 // tile hide
 	$(document).on('hide.bs.collapse', '.tile-active-show', function() {
-		$(this).closest('.tile-collapse').removeClass('active');
+		$(this).closest('.tile-collapse').css({
+			'-webkit-transition-delay': '',
+			'transition-delay': ''
+		}).removeClass('active');
 	});
 
 // tile show
 	$(document).on('show.bs.collapse', '.tile-active-show', function() {
-		$(this).closest('.tile-collapse').addClass('active');
+		$(this).closest('.tile-collapse').css({
+			'-webkit-transition-delay': '',
+			'transition-delay': ''
+		}).addClass('active');
 	});
 
 // tile wrap animation
@@ -411,7 +417,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		var tileAnimationDelay = 0,
 		    tileAnimationTransform = 100;
 
-		$('.tile', $(this)).each(function(index) {
+		$('> .tile', $(this)).each(function(index) {
 			$(this).css({
 				'-webkit-transform': 'translate(0, ' + tileAnimationTransform + '%)',
 				'-ms-transform': 'translate(0, ' + tileAnimationTransform + '%)',

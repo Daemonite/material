@@ -67,6 +67,11 @@
 		margin-right: ($grid-gutter * -1 + 1);
 		margin-left: ($grid-gutter * -1 + 1);
 	}
+	.tile-wrap-animation & {
+		@include transition(all 0.6s $timing, margin 0.15s linear);
+		-webkit-transition-property: margin, opacity, -webkit-transform;
+		        transition-property: margin, opacity, transform;
+	}
 }
 
 .tile-collapse-full {
