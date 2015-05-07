@@ -25,6 +25,10 @@
 }
 
 // colour
+	.card-offwhite {
+		background-color: $white-bg;
+	}
+
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
@@ -41,6 +45,7 @@
 		}
 
 		.card-#{$color}-bg {
+			@extend .card-#{$color};
 			background-color: nth($palette-color, $i);
 		}
 	}
@@ -96,7 +101,11 @@
 		$i: index($palette-list, $color);
 
 		.card-#{$color} .card-action:before {
-			border-top-color: nth($palette-color-light, $i);
+			border-top-color: nth($palette-color-light-m, $i);
+		}
+
+		.card-#{$color}-bg .card-action:before {
+			border-top-color: nth($palette-color-dark-m, $i);
 		}
 	}
 
@@ -190,6 +199,15 @@
 	            flex: 1;
 }
 
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.card-#{$color}-bg .card-main a {
+			color: nth($palette-color-light, $i);
+		}
+	}
+
 .card-side {
 	background-color: $white-bg;
 	border-radius: 2px 0 0 2px;
@@ -220,6 +238,10 @@
 }
 
 // colour
+	.card-offwhite .card-side {
+		background-color: $white-bg-dark;
+	}
+
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
