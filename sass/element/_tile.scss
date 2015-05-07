@@ -36,6 +36,23 @@
 		}
 }
 
+// colour
+	.tile-offwhite {
+		background-color: $white-bg;
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} {
+			background-color: nth($palette-color, $i);
+			color: $white;
+			a {
+				color: nth($palette-color-light, $i);
+			}
+		}
+	}
+
 .tile-action {
 	@extend .card-action;
 	float: right;
@@ -113,6 +130,25 @@
 	}
 }
 
+// colour
+	.tile-offwhite .tile-footer {
+		background-color: $white-bg-dark;
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} .tile-footer {
+			background-color: nth($palette-color-dark-m, $i);
+			&:before {
+				border-top-color: nth($palette-color-dark-m, $i);
+			}
+			a {
+				color: $white;
+			}
+		}
+	}
+
 .tile-inner {
 	padding: ($line-height / 2) $grid-gutter;
 	position: relative;
@@ -146,6 +182,15 @@
 		width: 100%;
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} .tile-sub:before {
+			border-top-color: nth($palette-color-dark-m, $i);
+		}
+	}
 
 .tile-toggle {
 	cursor: pointer;
