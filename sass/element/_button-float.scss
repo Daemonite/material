@@ -2,7 +2,7 @@
 	background-color: $black-bg;
 	border-radius: 50%;
 	clear: both;
-	color: $white;
+	color: $black-text;
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
@@ -19,7 +19,7 @@
 a.fbtn {
 	&:focus,
 	&:hover {
-		color: $white;
+		color: $black-text;
 		@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5));
 	}
 }
@@ -30,6 +30,7 @@ a.fbtn {
 		
 		.fbtn-#{$color} {
 			background-color: nth($palette-color, $i);
+			color: $white !important;
 		}
 	}
 
@@ -170,6 +171,7 @@ a.fbtn {
 	background-color: $black-text;
 	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 2px;
+	color: $white;
 	font-size: $font-size-h6;
 	height: 0;
 	margin-top: ($line-height / -2);
