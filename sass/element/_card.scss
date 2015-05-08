@@ -9,12 +9,8 @@
 	display:         flex;
 	margin-bottom: $line-height;
 	position: relative;
-	@include box-shadow(0 0 1px 1px rgba(0, 0, 0, 0.25));
+	@include box-shadow(0 1px 6px rgba(0, 0, 0, 0.3));
 	@include transition(box-shadow 0.3s $timing);
-	&:focus,
-	&:hover {
-		@include box-shadow( 0 1px 1px rgba(0, 0, 0, 0.25), 0 0 5px 1px rgba(0, 0, 0, 0.25));
-	}
 	&[class*="-bg"] {
 		color: $white;
 	}
@@ -33,11 +29,7 @@
 		$i: index($palette-list, $color);
 
 		.card-#{$color} {
-			@include box-shadow(0 0 1px 1px nth($palette-color-light-m, $i));
-			&:focus,
-			&:hover {
-				@include box-shadow(0 0 1px 1px nth($palette-color-light-m, $i), 0 0 5px 1px nth($palette-color-light-m, $i));
-			}
+			@include box-shadow(0 0 2px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.3));
 			// no boxshadow
 				.no-boxshadow & {
 					border-color: nth($palette-color-light, $i);
@@ -51,19 +43,11 @@
 	}
 
 .card-action {
+	border-top: 1px solid $black-bg;
 	position: relative;
 	@include clearfix();
-	&:before {
-		border-top: 1px solid $black-bg;
-		content: "";
-		display: block;
-		position: absolute;
-			top: -1px;
-			left: 0;
-		width: 100%;
-		.card-header + & {
-			display: none;
-		}
+	&:first-child {
+		border-top: 0;
 	}
 	.nav {
 		margin-top: 0;
@@ -100,11 +84,11 @@
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
-		.card-#{$color} .card-action:before {
-			border-top-color: nth($palette-color-light-m, $i);
+		.card-#{$color} .card-action {
+			border-top-color: nth($palette-color-light, $i);
 		}
 
-		.card-#{$color}-bg .card-action:before {
+		.card-#{$color}-bg .card-action {
 			border-top-color: nth($palette-color-dark-m, $i);
 		}
 	}

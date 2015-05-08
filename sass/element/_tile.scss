@@ -2,7 +2,7 @@
 	background-color: $white;
 	display: block;
 	position: relative;
-	@include box-shadow(0 0 1px 1px rgba(0, 0, 0, 0.15));
+	@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
 	@include clearfix();
 	&[href] {
 		color: $black-text;
@@ -110,17 +110,9 @@
 
 .tile-footer {
 	background-color: $white-bg;
+	border-top: 1px solid $black-bg;
 	position: relative;
 	@include clearfix();
-	&:before {
-		border-top: 1px solid $black-bg;
-		content: "";
-		display: block;
-		position: absolute;
-			top: 0;
-			left: 0;
-		width: 100%;
-	}
 	&:first-child {
 		border-top: 0;
 	}
@@ -140,9 +132,7 @@
 
 		.tile-#{$color} .tile-footer {
 			background-color: nth($palette-color-dark-m, $i);
-			&:before {
-				border-top-color: nth($palette-color-dark-m, $i);
-			}
+			border-top-color: nth($palette-color-dark-m, $i);
 			.nav > li {
 				> a,
 				> .a {
