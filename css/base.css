@@ -179,7 +179,7 @@ legend {
   display: block;
   font-size: 28px;
   font-weight: 400;
-  line-height: 48px;
+  line-height: 32px;
   margin: 0;
   padding: 0;
 }
@@ -232,7 +232,7 @@ q {
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
-  line-height: 24px;
+  line-height: 28px;
   margin: 36px 0;
   padding-right: 32px;
   padding-left: 32px;
@@ -309,19 +309,19 @@ h1,
 h2,
 .h2 {
   font-size: 36px;
-  line-height: 48px;
+  line-height: 40px;
 }
 
 h3,
 .h3 {
   font-size: 28px;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 h4,
 .h4 {
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
 }
 
 h5,
@@ -333,7 +333,7 @@ h5,
 h6,
 .h6 {
   font-size: 12px;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 h1 small,
@@ -5909,7 +5909,7 @@ pre {
   color: #212121;
   display: block;
   font-size: 12px;
-  line-height: 24px;
+  line-height: 20px;
   margin: 24px 0;
   padding: 12px 8px;
   word-break: break-all;
@@ -8378,7 +8378,7 @@ a.fbtn:focus, a.fbtn:hover {
 .card-heading {
   display: block;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   margin-top: 24px;
   margin-bottom: 24px;
 }
@@ -8407,7 +8407,7 @@ a.fbtn:focus, a.fbtn:hover {
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
   color: #ffffff;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   margin: 0;
   padding: 12px 16px;
   position: absolute;
@@ -9219,8 +9219,8 @@ textarea.picker__select--year {
 
 .picker__day {
   border-radius: 50%;
+  display: inline-block;
   height: 36px;
-  margin: 6px;
   padding: 6px 0;
   width: 36px;
 }
@@ -9237,9 +9237,14 @@ textarea.picker__select--year {
 }
 
 .picker__day-display {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 72px;
   padding: 0 16px;
+}
+@media only screen and (min-width: 992px) {
+  .picker__day-display div {
+    font-size: 2em;
+  }
 }
 
 .picker__day--outfocus {
@@ -9249,7 +9254,6 @@ textarea.picker__select--year {
 .picker__footer {
   clear: both;
   padding: 12px 8px;
-  text-align: right;
 }
 .picker__footer button {
   margin-left: 8px;
@@ -9257,11 +9261,16 @@ textarea.picker__select--year {
 .picker__footer button:first-child {
   margin-left: 0;
 }
+@media only screen and (min-width: 480px) {
+  .picker__footer {
+    text-align: right;
+  }
+}
 
 .picker__frame {
   display: inline-block;
   margin: 48px auto;
-  max-width: 352px;
+  max-width: 268px;
   vertical-align: middle;
   white-space: normal;
   -webkit-transform: scale(0, 0);
@@ -9277,14 +9286,19 @@ textarea.picker__select--year {
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
 }
+@media only screen and (min-width: 480px) {
+  .picker__frame {
+    max-width: 310px;
+  }
+}
 @media only screen and (min-width: 992px) {
   .picker__frame {
-    max-width: 704px;
+    max-width: 536px;
   }
 }
 
 .picker__header {
-  margin: 12px 8px;
+  margin: 12px 8px 6px;
   position: relative;
 }
 @media only screen and (min-width: 992px) {
@@ -9351,14 +9365,14 @@ textarea.picker__select--year {
 .picker__month-display {
   font-size: 28px;
   font-weight: 300;
-  line-height: 48px;
+  line-height: 32px;
   padding: 12px 16px 0;
   text-transform: uppercase;
 }
 @media only screen and (min-width: 992px) {
   .picker__month-display {
-    padding-top: 48px;
-    padding-bottom: 24px;
+    padding-top: 24px;
+    padding-bottom: 28px;
   }
 }
 
@@ -9426,10 +9440,32 @@ textarea.picker__select--year {
   font-size: 14px;
   line-height: 24px;
   margin: 0;
-  min-width: 48px;
   padding: 0;
   text-align: center;
   vertical-align: middle;
+  width: 36px;
+}
+@media only screen and (min-width: 480px) {
+  .picker__table td,
+  .picker__table th {
+    width: 42px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .picker__table td,
+  .picker__table th {
+    width: 36px;
+  }
+  .picker__table td:first-child,
+  .picker__table th:first-child {
+    padding-left: 8px;
+    width: 44px;
+  }
+  .picker__table td:last-child,
+  .picker__table th:last-child {
+    padding-right: 8px;
+    width: 44px;
+  }
 }
 
 .picker__weekday {
@@ -9444,16 +9480,16 @@ textarea.picker__select--year {
 }
 
 .picker__year-display {
-  color: #f5f5f5;
+  color: #c8e6c9;
   font-size: 28px;
   font-weight: 300;
-  line-height: 48px;
+  line-height: 32px;
   padding: 0 16px 12px;
 }
 @media only screen and (min-width: 992px) {
   .picker__year-display {
-    padding-top: 24px;
-    padding-bottom: 48px;
+    padding-top: 28px;
+    padding-bottom: 24px;
   }
 }
 
@@ -9712,7 +9748,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   display: block;
   float: right;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   margin-right: -8px;
   padding-right: 8px;
   padding-left: 8px;
@@ -9808,7 +9844,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
 
 .modal-title {
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   margin-top: 0;
   margin-right: 28px;
   margin-bottom: 24px;
@@ -10891,7 +10927,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   color: #4caf50;
   font-size: 20px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 28px;
 }
 .page-alt .content-sub-heading {
   color: #4caf50;
@@ -11203,7 +11239,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   display: block;
   float: left;
   height: 48px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   text-align: center;
 }
 .header-btn:focus, .header-btn:hover {
@@ -11227,9 +11263,9 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
   float: left;
   font-weight: 300;
   height: 48px;
-  line-height: 24px;
+  line-height: 28px;
   margin: 0;
-  padding: 12px 16px;
+  padding: 10px 16px;
 }
 .header-logo:focus, .nav-drawer-logo:focus, .header-logo:hover, .nav-drawer-logo:hover,
 .header-text:focus,
@@ -11242,7 +11278,7 @@ input[type="checkbox"]:checked + .switch-toggle:after, input[type="radio"]:check
 }
 .header-logo img, .nav-drawer-logo img {
   display: block;
-  max-height: 24px;
+  max-height: 28px;
   width: auto;
 }
 
