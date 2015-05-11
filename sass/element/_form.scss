@@ -102,6 +102,16 @@ legend {
 		vertical-align: middle;
 		width: auto;
 	}
+	&.form-control-default,
+	.form-control-default & {
+		border: 1px solid $black-hint;
+		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
+		@include transition(none);
+		&:focus {
+			border: 1px solid $brand-color;
+			padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
+		}
+	}
 }
 
 // colour
@@ -112,6 +122,16 @@ legend {
 			border-bottom-color: nth($palette-color, $i);
 		}
 	}
+
+input[type="color"].form-control-default,
+.form-control-default input[type="color"] {
+	min-width: ($grid-gutter + $line-height + 2);
+}
+
+label + .form-control.form-control-default,
+.form-control-default label + .form-control {
+	margin-top: ($line-height / 4);
+}
 
 select.form-control {
 	-webkit-appearance: none;
@@ -129,28 +149,8 @@ select.form-control {
 	}
 }
 
-textarea.form-control {
-	height: auto;
-}
-
-.form-control-default {
-	border: 1px solid $black-hint;
-	padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
-	@include transition(none);
-	&:focus {
-		border: 1px solid $brand-color;
-		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
-	}
-	label + & {
-		margin-top: ($line-height / 4);
-	}
-}
-
-input[type="color"].form-control-default {
-	min-width: ($grid-gutter + $line-height + 2);
-}
-
-select.form-control-default {
+select.form-control-default,
+.form-control-default select {
 	@include responsive("(-webkit-min-device-pixel-ratio: 0)") {
 		background-position: 99% (($input-height - 12) / 2 - 1);
 		background-position: calc(100% - #{$grid-gutter / 2}) (($input-height - 12) / 2 - 1);
@@ -160,6 +160,10 @@ select.form-control-default {
 			padding-right: ($grid-gutter / 2);
 		}
 	}
+}
+
+textarea.form-control {
+	height: auto;
 }
 
 .form-control-inverse {

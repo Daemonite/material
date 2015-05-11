@@ -8838,6 +8838,20 @@ fieldset[disabled] .picker__select--year {
   vertical-align: middle;
   width: auto;
 }
+.form-control.form-control-default, .form-control-default.picker__select--month,
+.form-control-default.picker__select--year, .form-control-default .form-control, .form-control-default .picker__select--month,
+.form-control-default .picker__select--year {
+  border: 1px solid #9e9e9e;
+  padding: 5px 8px;
+  -webkit-transition: none;
+  transition: none;
+}
+.form-control.form-control-default:focus, .form-control-default.picker__select--month:focus,
+.form-control-default.picker__select--year:focus, .form-control-default .form-control:focus, .form-control-default .picker__select--month:focus,
+.form-control-default .picker__select--year:focus {
+  border: 1px solid #4caf50;
+  padding: 5px 8px;
+}
 
 .form-group-alt .form-control, .form-group-alt .picker__select--month,
 .form-group-alt .picker__select--year {
@@ -8869,6 +8883,19 @@ fieldset[disabled] .picker__select--year {
   border-bottom-color: #ffc107;
 }
 
+input[type="color"].form-control-default,
+.form-control-default input[type="color"] {
+  min-width: 42px;
+}
+
+label + .form-control.form-control-default, label + .form-control-default.picker__select--month,
+label + .form-control-default.picker__select--year,
+.form-control-default label + .form-control,
+.form-control-default label + .picker__select--month,
+.form-control-default label + .picker__select--year {
+  margin-top: 6px;
+}
+
 select.form-control, select.picker__select--month,
 select.picker__select--year {
   -webkit-appearance: none;
@@ -8890,38 +8917,23 @@ select.picker__select--year {
   }
 }
 
-textarea.form-control, textarea.picker__select--month,
-textarea.picker__select--year {
-  height: auto;
-}
-
-.form-control-default {
-  border: 1px solid #9e9e9e;
-  padding: 5px 8px;
-  -webkit-transition: none;
-  transition: none;
-}
-.form-control-default:focus {
-  border: 1px solid #4caf50;
-  padding: 5px 8px;
-}
-label + .form-control-default {
-  margin-top: 6px;
-}
-
-input[type="color"].form-control-default {
-  min-width: 42px;
-}
-
 @media only screen and (-webkit-min-device-pixel-ratio: 0) {
-  select.form-control-default {
+  select.form-control-default,
+  .form-control-default select {
     background-position: 99% 11px;
     background-position: calc(100% - 8px) 11px;
     padding-right: 24px;
   }
-  select.form-control-default[multiple], select.form-control-default[size] {
+  select.form-control-default[multiple], select.form-control-default[size],
+  .form-control-default select[multiple],
+  .form-control-default select[size] {
     padding-right: 8px;
   }
+}
+
+textarea.form-control, textarea.picker__select--month,
+textarea.picker__select--year {
+  height: auto;
 }
 
 .form-control-inverse {
