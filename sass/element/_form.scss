@@ -133,6 +133,35 @@ textarea.form-control {
 	height: auto;
 }
 
+.form-control-default {
+	border: 1px solid $black-hint;
+	padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
+	@include transition(none);
+	&:focus {
+		border: 1px solid $brand-color;
+		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
+	}
+	label + & {
+		margin-top: ($line-height / 4);
+	}
+}
+
+input[type="color"].form-control-default {
+	min-width: ($grid-gutter + $line-height + 2);
+}
+
+select.form-control-default {
+	@include responsive("(-webkit-min-device-pixel-ratio: 0)") {
+		background-position: 99% (($input-height - 12) / 2 - 1);
+		background-position: calc(100% - #{$grid-gutter / 2}) (($input-height - 12) / 2 - 1);
+		padding-right: ($grid-gutter * 1.5);
+		&[multiple],
+		&[size] {
+			padding-right: ($grid-gutter / 2);
+		}
+	}
+}
+
 .form-control-inverse {
 	color: $white;
 	@include placeholder($white-bg);
@@ -148,6 +177,9 @@ textarea.form-control {
 	margin-bottom: 0;
 	padding-top: (($input-height - $line-height) / 2);
 	padding-bottom: (($input-height - $line-height) / 2 - 1);
+	&.form-control-default {
+		padding-top: (($input-height - $line-height) / 2 - 1);
+	}
 }
 
 .form-group {
@@ -184,7 +216,6 @@ textarea.form-control {
 
 .form-label {
 	display: block;
-	margin-top: ($line-height / 2);
 	// 480
 		@include responsive(xs) {
 			[class*="col-xs"] > & {
