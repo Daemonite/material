@@ -180,8 +180,9 @@ legend {
   font-size: 28px;
   font-weight: 400;
   line-height: 32px;
-  margin: 0;
+  margin: 0 0 24px;
   padding: 0;
+  width: 100%;
 }
 
 optgroup {
@@ -8956,6 +8957,9 @@ input[type="color"].form-control-default {
   margin-top: 24px;
   margin-bottom: 24px;
 }
+legend + .form-group {
+  margin-top: 0;
+}
 
 .form-group-btn {
   margin-bottom: 24px;
@@ -9493,15 +9497,23 @@ input[type="color"].form-control-default {
   left: 16px;
 }
 .form-group-label.control-focus .floating-label, .form-group-label.control-highlight .floating-label {
+  color: #616161;
   font-size: 12px;
-  top: -6px;
+  top: -12px;
 }
 .form-group-label.control-focus .floating-label {
   color: #2196f3;
 }
 
 .form-group-label {
+  margin-top: 36px;
+  margin-bottom: 36px;
   position: relative;
+}
+.form-group-label .form-control, .form-group-label .picker__select--month,
+.form-group-label .picker__select--year {
+  position: relative;
+  z-index: 1;
 }
 .form-group-label .form-control:-ms-input-placeholder, .form-group-label .picker__select--month:-ms-input-placeholder,
 .form-group-label .picker__select--year:-ms-input-placeholder {

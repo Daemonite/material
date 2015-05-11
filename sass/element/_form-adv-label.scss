@@ -15,9 +15,10 @@
 	}
 	.form-group-label.control-focus &,
 	.form-group-label.control-highlight & {
+		color: $black-sec;
 		font-size: ($input-height - $line-height);
 		// position
-			top: (($input-height - $line-height) / -2);
+			top: (($input-height - $line-height) * -1);
 	}
 	.form-group-label.control-focus & {
 		color: $link-color;
@@ -25,8 +26,12 @@
 }
 
 .form-group-label {
+	margin-top: ($line-height * 1.5);
+	margin-bottom: ($line-height * 1.5);
 	position: relative;
 	.form-control {
+		position: relative;
+		z-index: 1;
 		@include placeholder(transparent);
 	}
 }
