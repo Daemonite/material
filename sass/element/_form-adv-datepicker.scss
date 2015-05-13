@@ -125,9 +125,9 @@
 	text-align: center;
 	white-space: nowrap;
 	width: 100%;
-	-webkit-backface-visibility: hidden;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+	@include backface(hidden);
 	@include transition(background-color 0.3s $timing, top 0s linear 0.3s);
 	&:after {
 		content: "";

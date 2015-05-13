@@ -5,6 +5,7 @@
 		left: -100%;
 	width: 100%;
 	z-index: ($header-base - 1);
+	@include backface(hidden);
 	@include transition(all 0.3s $timing);
 	-webkit-transition-property: box-shadow, -webkit-transform;
 	        transition-property: box-shadow, transform;
@@ -56,6 +57,7 @@
 			left: 0;
 		width: 0;
 		z-index: ($header-base - 2);
+		@include backface(hidden);
 		@include opacity(0);
 		@include transition(height 0s 0.3s, opacity 0.3s $timing, width 0s 0.3s, z-index 0s 0.3s);
 	}

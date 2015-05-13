@@ -10,6 +10,7 @@
 	z-index: $top-base;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+	@include backface(hidden);
 	.modal-open & {
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -24,6 +25,7 @@
 		bottom: 0;
 		left: 0;
 	z-index: ($top-base - 1);
+	@include backface(hidden);
 	@include opacity(0);
 	@include transition(opacity 0.3s $timing);
 	&.fade.in {
