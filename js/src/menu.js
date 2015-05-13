@@ -67,8 +67,8 @@
 			$thisLi.addClass('active');
 			$thisMenu.addClass('open');
 
-			if ($('.menu.open .menu-search-focus').length) {
-				$('.menu.open .menu-search-focus').focus();
+			if ($('.menu-search-focus', $thisMenu).length) {
+				$('.menu-search-focus', $thisMenu).focus();
 			};
 		}
 	});

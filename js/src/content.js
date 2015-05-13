@@ -17,10 +17,6 @@
 	function contentFix(content) {
 		var scrolled = window.innerHeight + window.pageYOffset;
 
-		if ($('.footer').length) {
-
-		};
-
 		if (window.pageYOffset >= (content.offset().top - headerHeight)) {
 			if ((content.is('[class*="col-xx"]')) || (content.is('[class*="col-xs"]') && $(window).width() >= 480) || (content.is('[class*="col-sm"]') && $(window).width() >= 768) || (content.is('[class*="col-md"]') && $(window).width() >= 992) || (content.is('[class*="col-lg"]') && $(window).width() >= 1440)) {
 				if (!content.hasClass('fixed')) {

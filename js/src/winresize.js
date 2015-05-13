@@ -3,9 +3,7 @@
 
 	on_resize(function() {
 		// fixed left/right hand side column padding bottom and width
-			if ($('.content-fix').length) {
-				contentFixPushCal();
-			};
+			contentFixPushCal();
 
 		// footer push
 			footerPush();
