@@ -60,15 +60,13 @@
 	});
 
 	$(window).on('DOMContentLoaded scroll', function() {
-		if ($('.tile-wrap-animation:not(.isinview)').length) {
-			tileInView();
-		};
+		tileInView();
 	});
 
 	function tileInView() {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
-			if (tileInViewCheck($this)) {
+			if (tileInViewCheck($this) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length) {
 				$this.addClass('isinview');
 			};
 		});

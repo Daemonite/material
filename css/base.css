@@ -7129,6 +7129,49 @@ pre code {
   width: auto;
 }
 
+.avoid-fout {
+  position: relative;
+}
+
+body.avoid-fout {
+  position: static;
+}
+
+.avoid-fout-indicator {
+  font-family: sans-serif !important;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 0;
+}
+.avoid-fout > .avoid-fout-indicator {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 24px 16px;
+  width: 100%;
+  z-index: 41;
+  -webkit-box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.avoid-fout-done > .avoid-fout-indicator {
+  height: 0;
+  padding: 0;
+  width: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0s 0.3s, width 0s 0.3s;
+  transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0s 0.3s, width 0s 0.3s;
+}
+
+.avoid-fout-indicator-fixed {
+  position: fixed;
+}
+
 .clearfix:after, .clearfix:before {
   content: "";
   display: table;

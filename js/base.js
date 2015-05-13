@@ -434,15 +434,13 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	});
 
 	$(window).on('DOMContentLoaded scroll', function() {
-		if ($('.tile-wrap-animation:not(.isinview)').length) {
-			tileInView();
-		};
+		tileInView();
 	});
 
 	function tileInView() {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
-			if (tileInViewCheck($this)) {
+			if (tileInViewCheck($this) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length) {
 				$this.addClass('isinview');
 			};
 		});
@@ -550,6 +548,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	WebFontConfig = {
 		classes: false,
 		fontactive: function() {
+			$('.avoid-fout').each(function(index) {
+				$(this).addClass('avoid-fout-done');
+			});
+
 			// fixed left/right hand side column padding bottom and width
 				contentFixPushCal();
 
@@ -558,6 +560,9 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 			// header height
 				headerHeightCal();
+
+			// tile wrap animation
+				tileInView();
 		},
 		google: {
 			families: ['Roboto:300,300italic,400,400italic,700,700italic']
