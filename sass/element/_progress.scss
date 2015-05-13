@@ -195,17 +195,17 @@
 		will-change: left, right;
 	}
 	&:after {
-		@include animation(indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite);
+		@include animation(pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite);
 	}
 	&:before {
-		@include animation(indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite);
+		@include animation(pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite);
 		-webkit-animation-delay: 1.5s;
 		        animation-delay: 1.5s;
 	}
 }
 
 // animation
-	@-webkit-keyframes indeterminate-one {
+	@-webkit-keyframes pbar-indeterminate-one {
 		0% {
 			// position
 				right: 100%;
@@ -223,7 +223,7 @@
 		}
 	}
 
-	@keyframes indeterminate-one {
+	@keyframes pbar-indeterminate-one {
 		0% {
 			// position
 				right: 100%;
@@ -241,7 +241,7 @@
 		}
 	}
 
-	@-webkit-keyframes indeterminate-two {
+	@-webkit-keyframes pbar-indeterminate-two {
 		0% {
 			// position
 				right: 100%;
@@ -259,7 +259,7 @@
 		}
 	}
 
-	@keyframes indeterminate-two {
+	@keyframes pbar-indeterminate-two {
 		0% {
 			// position
 				right: 100%;
@@ -274,5 +274,200 @@
 			// position
 				right: -35%;
 				left: 135%;
+		}
+	}
+
+
+.progress-circular {
+	height: ($line-height * 2);
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	overflow: hidden;
+	position: relative;
+	width: ($line-height * 2);
+}
+
+.progress-circular-center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.progress-circular-inline {
+	display: inline-block;
+	margin-right: $grid-gutter;
+	margin-left: $grid-gutter;
+}
+
+.progress-circular-inner {
+	height: ($line-height * 2);
+	position: relative;
+	width: ($line-height * 2);
+	@include animation(cbar-inner-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite);
+}
+
+.progress-circular-left,
+.progress-circular-right {
+	height: ($line-height * 2);
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+	width: $line-height;
+}
+
+.progress-circular-left {
+	// position
+		left: 0;
+}
+
+.progress-circular-right {
+	// position
+		right: 0;
+}
+
+.progress-circular-spinner {
+	border: ($base / 2) solid $link-color;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	height: ($line-height * 2);
+	position: absolute;
+		top: 0;
+	width: ($line-height * 2);
+	.progress-circular-left & {
+		border-right-color: transparent;
+		// position
+			left: 0;
+		@include animation(cbar-spinner-left 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite);
+	}
+	.progress-circular-right & {
+		border-left-color: transparent;
+		// position
+			right: 0;
+		@include animation(cbar-spinner-right 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite);
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.progress-circular-spinner-#{$color} {
+			border-top-color: nth($palette-color, $i);
+			.progress-circular-left & {
+				border-left-color: nth($palette-color, $i);
+			}
+			.progress-circular-right & {
+				border-right-color: nth($palette-color, $i);
+			}
+		}
+	}
+
+.progress-circular-wrapper {
+	@include animation(cbar-wrapper-rotate 2.91667s linear infinite);
+}
+
+// animation
+	@-webkit-keyframes cbar-inner-rotate {
+		12.5% {
+			@include transform(rotate(135deg));
+		}
+		25% {
+			@include transform(rotate(270deg));
+		}
+		37.5% {
+			@include transform(rotate(405deg));
+		}
+		50% {
+			@include transform(rotate(540deg));
+		}
+		62.5% {
+			@include transform(rotate(675deg));
+		}
+		75% {
+			@include transform(rotate(810deg));
+		}
+		87.5% {
+			@include transform(rotate(945deg));
+		}
+		100% {
+			@include transform(rotate(1080deg));
+		}
+	}
+
+	@keyframes cbar-inner-rotate {
+		12.5% {
+			@include transform(rotate(135deg));
+		}
+		25% {
+			@include transform(rotate(270deg));
+		}
+		37.5% {
+			@include transform(rotate(405deg));
+		}
+		50% {
+			@include transform(rotate(540deg));
+		}
+		62.5% {
+			@include transform(rotate(675deg));
+		}
+		75% {
+			@include transform(rotate(810deg));
+		}
+		87.5% {
+			@include transform(rotate(945deg));
+		}
+		100% {
+			@include transform(rotate(1080deg));
+		}
+	}
+
+	@-webkit-keyframes cbar-spinner-left {
+		0%,
+		100% {
+			@include transform(rotate(130deg));
+		}
+		50% {
+			@include transform(rotate(-5deg));
+		}
+	}
+
+	@keyframes cbar-spinner-left {
+		0%,
+		100% {
+			@include transform(rotate(130deg));
+		}
+		50% {
+			@include transform(rotate(-5deg));
+		}
+	}
+
+	@-webkit-keyframes cbar-spinner-right {
+		0%,
+		100% {
+			@include transform(rotate(-130deg));
+		}
+		50% {
+			@include transform(rotate(5deg));
+		}
+	}
+
+	@keyframes cbar-spinner-right {
+		0%,
+		100% {
+			@include transform(rotate(-130deg));
+		}
+		50% {
+			@include transform(rotate(5deg));
+		}
+	}
+
+	@-webkit-keyframes cbar-wrapper-rotate {
+		100% {
+			@include transform(rotate(360deg));
+		}
+	}
+
+	@keyframes cbar-wrapper-rotate {
+		100% {
+			@include transform(rotate(360deg));
 		}
 	}
