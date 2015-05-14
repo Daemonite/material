@@ -66,7 +66,7 @@
 	function tileInView() {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
-			if (tileInViewCheck($this) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length) {
+			if (tileInViewCheck($this) && (!$this.hasClass('avoid-fout') || ($this.hasClass('avoid-fout') && $this.hasClass('avoid-fout-done'))) && (!$this.hasClass('el-loading') || ($this.hasClass('el-loading') && $this.hasClass('el-loading-done'))) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length && !$this.parents('.el-loading:not(.el-loading-done)').length) {
 				$this.addClass('isinview');
 			};
 		});
