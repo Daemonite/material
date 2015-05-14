@@ -520,6 +520,7 @@
 								</div>
 							</div>
 						</div>
+						<p><code>.avoid-fout</code> on HTML pages uses a similar technique to avoid flash of unstyled text (FOUT). <code>.avoid-fout-done</code> is added when <code>Roboto</code> font either is successfully loaded or fails to load. <code>.avoid-fout</code> also can be used on any HTML elements.</p>
 					</div>
 				</div>
 			</div>
@@ -551,18 +552,21 @@
 		});
 	</script>
 	<script type="text/javascript">
-		$('#el-loading-tile-wrap .tile-active-show').on('show.bs.collapse', function(e) {
-			var timer,
-			    $this = $(this);
+		var timer;
 
+		$('#el-loading-tile-wrap .tile-active-show').on('hide.bs.collapse', function(e) {
 			clearTimeout(timer);
-			$('.el-loading', $this).removeClass('el-loading-done');
-			$('.tile-sub', $this).remove();
+		});
 
-			timer = setTimeout(function() {
-				$('.el-loading', $this).addClass('el-loading-done');
-				$this.prepend('<div class="tile-sub"><p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p></div>');
-			}, 6000);
+		$('#el-loading-tile-wrap .tile-active-show').on('show.bs.collapse', function(e) {
+			var $this = $(this);
+
+			if (!$('.el-loading', $this).hasClass('el-loading-done')) {
+				timer = setTimeout(function() {
+					$('.el-loading', $this).addClass('el-loading-done');
+					$this.prepend('<div class="tile-sub"><p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p></div>');
+				}, 6000);
+			};
 		});
 	</script>
 </body>
