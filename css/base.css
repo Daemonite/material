@@ -7129,17 +7129,20 @@ pre code {
   width: auto;
 }
 
-.avoid-fout {
+.avoid-fout,
+.el-loading {
   position: relative;
 }
 
-body.avoid-fout {
+body.avoid-fout,
+body.el-loading {
   position: static;
 }
 
 .avoid-fout-indicator {
   font-family: sans-serif !important;
   height: 0;
+  min-height: 4px;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -7168,7 +7171,8 @@ body.avoid-fout {
   transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0s 0.3s, width 0s 0.3s;
 }
 
-.avoid-fout-indicator-fixed {
+.avoid-fout-indicator-fixed,
+.el-loading-indicator-fixed {
   position: fixed;
 }
 
@@ -7212,6 +7216,42 @@ body.avoid-fout {
   position: relative;
   -webkit-transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.el-loading-indicator {
+  font-family: sans-serif !important;
+  height: 0;
+  min-height: 4px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 0;
+}
+.el-loading > .el-loading-indicator {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 24px 16px;
+  width: 100%;
+  z-index: 41;
+  -webkit-box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.el-loading-done > .el-loading-indicator {
+  height: 0;
+  padding: 0;
+  width: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0s 0.3s, width 0s 0.3s;
+  transition: height 0s 0.3s, opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0s 0.3s, width 0s 0.3s;
+}
+
+.el-loading-indicator-linear {
+  padding: 0 !important;
 }
 
 .fade {

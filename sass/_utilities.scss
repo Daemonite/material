@@ -34,17 +34,20 @@
 	}
 }
 
-.avoid-fout {
+.avoid-fout,
+.el-loading {
 	position: relative;
 }
 
-body.avoid-fout {
+body.avoid-fout,
+body.el-loading {
 	position: static;
 }
 
 .avoid-fout-indicator {
 	font-family: sans-serif !important;
 	height: 0;
+	min-height: ($base / 2);
 	overflow: hidden;
 	position: absolute;
 		top: 0;
@@ -69,7 +72,8 @@ body.avoid-fout {
 	}
 }
 
-.avoid-fout-indicator-fixed {
+.avoid-fout-indicator-fixed,
+.el-loading-indicator-fixed {
 	position: fixed;
 }
 
@@ -107,6 +111,38 @@ body.avoid-fout {
 	overflow: hidden;
 	position: relative;
 	@include transition(height 0.3s $timing);
+}
+
+.el-loading-indicator {
+	font-family: sans-serif !important;
+	height: 0;
+	min-height: ($base / 2);
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	text-align: center;
+	width: 0;
+	.el-loading > & {
+		background-color: $white;
+		height: 100%;
+		padding: $line-height $grid-gutter;
+		width: 100%;
+		z-index: ($top-base + 1);
+		@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
+		@include opacity(1);
+	}
+	.el-loading-done > & {
+		height: 0;
+		padding: 0;
+		width: 0;
+		@include opacity(0);
+		@include transition(height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s);
+	}
+}
+
+.el-loading-indicator-linear {
+	padding: 0 !important;
 }
 
 .fade {
