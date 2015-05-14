@@ -291,6 +291,26 @@
 	margin-left: auto;
 }
 
+.progress-circular-gap {
+	border-top: ($base / 2) solid $link-color;
+	position: absolute;
+		top: 0;
+		right: ($line-height - 1);
+		bottom: 0;
+		left: ($line-height - 1);
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.progress-circular-gap {
+			.progress-circular-#{$color} & {
+				border-top-color: nth($palette-color, $i);
+			}
+		}
+	}
+
 .progress-circular-inline {
 	display: inline-block;
 	margin-right: $grid-gutter;
@@ -349,12 +369,14 @@
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
-		.progress-circular-spinner-#{$color} {
-			border-top-color: nth($palette-color, $i);
-			.progress-circular-left & {
+		.progress-circular-spinner {
+			.progress-circular-#{$color} & {
+				border-top-color: nth($palette-color, $i);
+			}
+			.progress-circular-#{$color} .progress-circular-left & {
 				border-left-color: nth($palette-color, $i);
 			}
-			.progress-circular-right & {
+			.progress-circular-#{$color} .progress-circular-right & {
 				border-right-color: nth($palette-color, $i);
 			}
 		}
