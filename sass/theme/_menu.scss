@@ -131,7 +131,7 @@
 	padding-bottom: ($line-height / 2);
 	hr {
 		border-top-color: $black-bg;
-		margin-top: ($line-height / 2 - 1);
+		margin-top: ($line-height / 2);
 		margin-bottom: ($line-height / 2);
 	}
 	.nav {
@@ -252,7 +252,7 @@
 }
 
 .menu-top {
-	background-color: $black-text;
+	background-color: $brand-color-dark-m;
 	color: $white-bg;
 	position: relative;
 	z-index: 1;
@@ -267,6 +267,14 @@
 	// 480
 		@include responsive(xs) {
 			width: ($grid-gutter * 20);
+		}
+	// colour
+		@each $color in $palette-list {
+			$i: index($palette-list, $color);
+			
+			.page-#{$color} & {
+				background-color: nth($palette-color-dark-m, $i);
+			}
 		}
 }
 
