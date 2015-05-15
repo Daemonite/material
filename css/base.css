@@ -8840,7 +8840,7 @@ legend[class*="col-xx-"] {
 }
 .form-control:focus, .picker__select--month:focus,
 .picker__select--year:focus {
-  border-bottom-color: #2196f3;
+  border-color: #2196f3;
   border-bottom-width: 2px;
   outline: 0;
   padding-bottom: 4px;
@@ -8849,7 +8849,7 @@ legend[class*="col-xx-"] {
 [disabled].picker__select--year, .form-control[readonly], [readonly].picker__select--month,
 [readonly].picker__select--year, fieldset[disabled] .form-control, fieldset[disabled] .picker__select--month,
 fieldset[disabled] .picker__select--year {
-  border-bottom-style: dashed;
+  border-style: dashed;
   color: #9e9e9e;
   cursor: not-allowed;
   opacity: 1;
@@ -8871,38 +8871,56 @@ fieldset[disabled] .picker__select--year {
 .form-control.form-control-default:focus, .form-control-default.picker__select--month:focus,
 .form-control-default.picker__select--year:focus, .form-control-default .form-control:focus, .form-control-default .picker__select--month:focus,
 .form-control-default .picker__select--year:focus {
-  border: 1px solid #4caf50;
+  border: 1px solid #2196f3;
   padding: 5px 8px;
 }
 
 .form-group-alt .form-control, .form-group-alt .picker__select--month,
-.form-group-alt .picker__select--year {
-  border-bottom-color: #4caf50;
+.form-group-alt .picker__select--year,
+.form-group-alt .form-control:focus,
+.form-group-alt .picker__select--month:focus,
+.form-group-alt .picker__select--year:focus {
+  border-color: #4caf50;
 }
 
 .form-group-blue .form-control, .form-group-blue .picker__select--month,
-.form-group-blue .picker__select--year {
-  border-bottom-color: #2196f3;
+.form-group-blue .picker__select--year,
+.form-group-blue .form-control:focus,
+.form-group-blue .picker__select--month:focus,
+.form-group-blue .picker__select--year:focus {
+  border-color: #2196f3;
 }
 
 .form-group-green .form-control, .form-group-green .picker__select--month,
-.form-group-green .picker__select--year {
-  border-bottom-color: #8bc34a;
+.form-group-green .picker__select--year,
+.form-group-green .form-control:focus,
+.form-group-green .picker__select--month:focus,
+.form-group-green .picker__select--year:focus {
+  border-color: #8bc34a;
 }
 
 .form-group-purple .form-control, .form-group-purple .picker__select--month,
-.form-group-purple .picker__select--year {
-  border-bottom-color: #9c27b0;
+.form-group-purple .picker__select--year,
+.form-group-purple .form-control:focus,
+.form-group-purple .picker__select--month:focus,
+.form-group-purple .picker__select--year:focus {
+  border-color: #9c27b0;
 }
 
 .form-group-red .form-control, .form-group-red .picker__select--month,
-.form-group-red .picker__select--year {
-  border-bottom-color: #f44336;
+.form-group-red .picker__select--year,
+.form-group-red .form-control:focus,
+.form-group-red .picker__select--month:focus,
+.form-group-red .picker__select--year:focus {
+  border-color: #f44336;
 }
 
 .form-group-yellow .form-control, .form-group-yellow .picker__select--month,
-.form-group-yellow .picker__select--year {
-  border-bottom-color: #ffc107;
+.form-group-yellow .picker__select--year,
+.form-group-yellow .form-control:focus,
+.form-group-yellow .picker__select--month:focus,
+.form-group-yellow .picker__select--year:focus {
+  border-color: #ffc107;
 }
 
 input[type="color"].form-control-default,
@@ -9381,8 +9399,11 @@ legend + .form-group {
   cursor: text !important;
 }
 .picker__input.picker__input--active {
-  border-bottom-color: #2196f3;
+  border-color: #2196f3;
   border-bottom-width: 2px;
+}
+.picker__input.picker__input--active.form-control-default {
+  border-bottom-width: 1px;
 }
 
 .picker__month,

@@ -84,7 +84,7 @@ legend {
 	@include placeholder($black-hint);
 	@include transition(border-bottom-color 0.15s $timing);
 	&:focus {
-		border-bottom-color: $link-color;
+		border-color: $link-color;
 		border-bottom-width: 2px;
 		outline: 0;
 		padding-bottom: (($input-height - $line-height) / 2 - 2);
@@ -92,7 +92,7 @@ legend {
 	&[disabled],
 	&[readonly],
 	fieldset[disabled] & {
-		border-bottom-style: dashed;
+		border-style: dashed;
 		color: $black-hint;
 		cursor: not-allowed;
 		opacity: 1;
@@ -108,7 +108,7 @@ legend {
 		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		@include transition(none);
 		&:focus {
-			border: 1px solid $brand-color;
+			border: 1px solid $link-color;
 			padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		}
 	}
@@ -118,8 +118,11 @@ legend {
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 		
-		.form-group-#{$color} .form-control {
-			border-bottom-color: nth($palette-color, $i);
+		.form-group-#{$color} {
+			.form-control,
+			.form-control:focus {
+				border-color: nth($palette-color, $i);
+			}
 		}
 	}
 
