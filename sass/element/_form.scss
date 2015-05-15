@@ -133,6 +133,11 @@ label + .form-control.form-control-default,
 	margin-top: ($line-height / 4);
 }
 
+label.access-hide + .form-control.form-control-default,
+.form-control-default label.access-hide + .form-control {
+	margin-top: 0;
+}
+
 select.form-control {
 	-webkit-appearance: none;
 	@include responsive("(-webkit-min-device-pixel-ratio: 0)") {
