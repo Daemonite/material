@@ -15,7 +15,7 @@
 	});
 
 // header height
-	function headerHeightCal() {
+	headerHeightCal = function () {
 		if ($('.header').length) {
 			headerHeight = $header.height();
 		};
@@ -34,7 +34,7 @@
 		});
 	};
 
-	function headerNavPos() {
+	headerNavPos  = function () {
 		var $headerNav = $('.header-nav-scroll');
 
 		$headerNav.removeClass('pull-down');

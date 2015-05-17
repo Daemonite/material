@@ -14,7 +14,7 @@
 		});
 	});
 
-	function contentFix(content) {
+	contentFix = function (content) {
 		var scrolled = window.innerHeight + window.pageYOffset;
 
 		if (window.pageYOffset >= (content.offset().top - headerHeight)) {
@@ -34,7 +34,7 @@
 	}
 
 // fixed left/right hand side column padding bottom and width
-	function contentFixPushCal() {
+	contentFixPushCal = function () {
 		$('.content-fix-scroll').each(function(index) {
 			$(this).css('width', $(this).closest('.content-fix').outerWidth());
 			$('.content-fix-inner', $(this)).css('width', $(this).closest('.content-fix').width());

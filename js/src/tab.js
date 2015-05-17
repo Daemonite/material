@@ -1,15 +1,7 @@
-// tab indicator
-	$('.tab-nav').each(function() {
-		$(this).append('<div class="tab-nav-indicator"></div>');
-		tabSwitch($('.nav > li.active', $(this)), null);
-	});
 
-// tab switch
-	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
-	 	tabSwitch($(e.target), $(e.relatedTarget));
-	});
 
-	function tabSwitch(newTab, oldTab) {
+	tabSwitch = function(newTab, oldTab) {
+
 		var $nav = newTab.closest('.tab-nav'),
 		    $navIndicator = $('.tab-nav-indicator', $nav),
 		    navOffset = $nav.offset().left,
@@ -29,3 +21,16 @@
 	 		right: navOffset + navWidth - newTabOffset - newTabWidth
 	 	});
 	}
+
+
+	
+	// tab indicator
+	$('.tab-nav').each(function() {
+		$(this).append('<div class="tab-nav-indicator"></div>');
+		tabSwitch($('.nav > li.active', $(this)), null);
+	});
+
+// tab switch
+	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
+	 	tabSwitch($(e.target), $(e.relatedTarget));
+	});

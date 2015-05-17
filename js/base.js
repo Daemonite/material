@@ -30,7 +30,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		});
 	});
 
-	function contentFix(content) {
+	contentFix = function (content) {
 		var scrolled = window.innerHeight + window.pageYOffset;
 
 		if (window.pageYOffset >= (content.offset().top - headerHeight)) {
@@ -50,7 +50,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	}
 
 // fixed left/right hand side column padding bottom and width
-	function contentFixPushCal() {
+	contentFixPushCal = function () {
 		$('.content-fix-scroll').each(function(index) {
 			$(this).css('width', $(this).closest('.content-fix').outerWidth());
 			$('.content-fix-inner', $(this)).css('width', $(this).closest('.content-fix').width());
@@ -124,7 +124,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		};
 	});
 // footer push
-	function footerPush() {
+	footerPush = function () {
 		if ($('.footer').length) {
 			$('body').css('margin-bottom', $('.footer').outerHeight());
 		};
@@ -194,7 +194,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 	$('.textarea-autosize').textareaAutoSize();
 // get target from trigger
-	function getTargetFromTrigger(trigger) {
+	getTargetFromTrigger = function(trigger) {
 		var href;
 		var target = trigger.attr('data-target')
 		    || (href = trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
@@ -218,7 +218,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	});
 
 // header height
-	function headerHeightCal() {
+	headerHeightCal = function () {
 		if ($('.header').length) {
 			headerHeight = $header.height();
 		};
@@ -237,7 +237,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		});
 	};
 
-	function headerNavPos() {
+	headerNavPos  = function () {
 		var $headerNav = $('.header-nav-scroll');
 
 		$headerNav.removeClass('pull-down');
@@ -274,7 +274,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		};
 	});
 	
-	function mReset() {
+	mReset = function () {
 		var $bd = $('body');
 
 		if ($bd.hasClass('menu-open')) {
@@ -341,18 +341,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		ghostClass: 'sortable-ghost',
 		handle: '.sortable-handle'
 	});
-// tab indicator
-	$('.tab-nav').each(function() {
-		$(this).append('<div class="tab-nav-indicator"></div>');
-		tabSwitch($('.nav > li.active', $(this)), null);
-	});
 
-// tab switch
-	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
-	 	tabSwitch($(e.target), $(e.relatedTarget));
-	});
 
-	function tabSwitch(newTab, oldTab) {
+	tabSwitch = function(newTab, oldTab) {
+		
 		var $nav = newTab.closest('.tab-nav'),
 		    $navIndicator = $('.tab-nav-indicator', $nav),
 		    navOffset = $nav.offset().left,
@@ -372,6 +364,21 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	 		right: navOffset + navWidth - newTabOffset - newTabWidth
 	 	});
 	}
+
+
+	// function tabsSwitch(newTab, oldTab){
+	// 	return tabSwitch(newTab, oldTab);
+	// }
+	// tab indicator
+	$('.tab-nav').each(function() {
+		$(this).append('<div class="tab-nav-indicator"></div>');
+		tabSwitch($('.nav > li.active', $(this)), null);
+	});
+
+// tab switch
+	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
+	 	tabSwitch($(e.target), $(e.relatedTarget));
+	});
 // tile
 	$(document).on('click', function(e) {
 		var $target = $(e.target);
@@ -389,7 +396,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		};
 	});
 
-	function tReset() {
+	tReset = function () {
 		$('.tile-collapse.active').each(function(index) {
 			var $collapse = $('.tile-active-show', $(this));
 			if (!$collapse.hasClass('tile-active-show-still')) {
@@ -437,7 +444,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		tileInView();
 	});
 
-	function tileInView() {
+	tileInView = function () {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
 			if (tileInViewCheck($this) && (!$this.hasClass('avoid-fout') || ($this.hasClass('avoid-fout') && $this.hasClass('avoid-fout-done'))) && (!$this.hasClass('el-loading') || ($this.hasClass('el-loading') && $this.hasClass('el-loading-done'))) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length && !$this.parents('.el-loading:not(.el-loading-done)').length) {
@@ -446,7 +453,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		});
 	}
 
-	function tileInViewCheck(tile) {
+	tileInViewCheck = function (tile) {
 		tile = tile[0];
 
 		var rect = tile.getBoundingClientRect();
@@ -476,7 +483,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		toastHide(0);
 	});
 
-	function toastHide(timer, toast) {
+	toastHide = function (timer, toast) {
 		clearTimeout(toastTimeout);
 
 		toastTimeout = setTimeout(function() {
@@ -595,7 +602,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		s.parentNode.insertBefore(wf, s);
 	})();
 // window smart resize
-	function on_resize(c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
+	on_resize = function (c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
 
 	on_resize(function() {
 		// fixed left/right hand side column padding bottom and width

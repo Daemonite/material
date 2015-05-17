@@ -24,7 +24,7 @@
 		};
 	});
 	
-	function mReset() {
+	mReset = function () {
 		var $bd = $('body');
 
 		if ($bd.hasClass('menu-open')) {
