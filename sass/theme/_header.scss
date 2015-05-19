@@ -15,20 +15,21 @@
 		background-color: $brand-color-dark-m;
 		@include box-shadow(0 1px 10px rgba(0, 0, 0, 0.5));
 	}
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-		
-		.page-#{$color} & {
-			background-color: nth($palette-color, $i);
-			&.fixed,
-			&.open {
+	// colour
+		@each $color in $palette-list {
+			$i: index($palette-list, $color);
+			
+			.page-#{$color} & {
+				background-color: nth($palette-color, $i);
+				&.fixed,
+				&.open {
+					background-color: nth($palette-color-dark-m, $i);
+				}
+			}
+			.menu-open.page-#{$color} & {
 				background-color: nth($palette-color-dark-m, $i);
 			}
 		}
-		.menu-open.page-#{$color} & {
-			background-color: nth($palette-color-dark-m, $i);
-		}
-	}
 	a {
 		color: $white;
 	}
@@ -89,13 +90,14 @@
 			@include transition(all 0.3s $timing);
 			-webkit-transition-property: background-color, -webkit-transform;
 			        transition-property: background-color, transform;
-			@each $color in $palette-list {
-				$i: index($palette-list, $color);
-				
-				.page-#{$color} & {
-					background-color: nth($palette-color, $i);
+			// colour
+				@each $color in $palette-list {
+					$i: index($palette-list, $color);
+					
+					.page-#{$color} & {
+						background-color: nth($palette-color, $i);
+					}
 				}
-			}
 			// no csstransforms
 				.no-csstransforms & {
 					display: none;
