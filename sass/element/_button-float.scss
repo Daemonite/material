@@ -6,6 +6,7 @@
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
+	margin: ($line-height / 2) auto;
 	padding: ($line-height / 2) 0;
 	position: relative;
 	text-align: center;
@@ -50,7 +51,7 @@ a.fbtn {
 .fbtn-container {
 	position: fixed;
 		right: $grid-gutter;
-		bottom: $line-height;
+		bottom: ($line-height / 2);
 	z-index: ($content-base + 1);
 	@include backface(hidden);
 	@include transition(margin-bottom 0.3s $timing, right 0.3s $timing);
@@ -71,7 +72,6 @@ a.fbtn {
 		@include transition(max-height 0s);
 	}
 	.fbtn {
-		margin: ($line-height / 2) auto;
 		@include opacity(0);
 		@include transform(scale(0.5));
 		&:nth-last-child(1) {
