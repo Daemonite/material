@@ -1,5 +1,5 @@
 // get target from trigger
-	function getTargetFromTrigger(trigger) {
+	getTargetFromTrigger = function(trigger) {
 		var href;
 		var target = trigger.attr('data-target')
 		    || (href = trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');

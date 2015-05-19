@@ -16,7 +16,7 @@
 		toastHide(0);
 	});
 
-	function toastHide(timer, toast) {
+	toastHide = function (timer, toast) {
 		clearTimeout(toastTimeout);
 
 		toastTimeout = setTimeout(function() {

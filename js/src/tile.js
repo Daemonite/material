@@ -15,7 +15,7 @@
 		};
 	});
 
-	function tReset() {
+	tReset = function () {
 		$('.tile-collapse.active').each(function(index) {
 			var $collapse = $('.tile-active-show', $(this));
 			if (!$collapse.hasClass('tile-active-show-still')) {
@@ -63,7 +63,7 @@
 		tileInView();
 	});
 
-	function tileInView() {
+	tileInView = function () {
 		$('.tile-wrap-animation:not(.isinview)').each(function() {
 			var $this = $(this);
 			if (tileInViewCheck($this) && (!$this.hasClass('avoid-fout') || ($this.hasClass('avoid-fout') && $this.hasClass('avoid-fout-done'))) && (!$this.hasClass('el-loading') || ($this.hasClass('el-loading') && $this.hasClass('el-loading-done'))) && !$this.parents('.avoid-fout:not(.avoid-fout-done)').length && !$this.parents('.el-loading:not(.el-loading-done)').length) {
@@ -72,7 +72,7 @@
 		});
 	}
 
-	function tileInViewCheck(tile) {
+	tileInViewCheck = function (tile) {
 		tile = tile[0];
 
 		var rect = tile.getBoundingClientRect();
