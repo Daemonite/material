@@ -283,7 +283,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			$bd.removeClass('nav-drawer-open');
 		};
 
-		$('.menu-toggle').closest('li.active').removeClass('active');
+		$('.menu-toggle').closest('.active').removeClass('active');
 
 		if ($('.menu.open .menu-search-focus').length) {
 			$('.menu.open .menu-search-focus').blur();
@@ -298,7 +298,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		e.stopPropagation();
 
 		var $this = $(this),
-		    $thisLi = $this.closest('li'),
+		    $thisLi = $this.parent(),
 		    $thisMenu = $(getTargetFromTrigger($this));
 
 		if ($thisLi.hasClass('active')) {
