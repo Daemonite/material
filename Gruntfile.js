@@ -6,10 +6,38 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		bower_concat: {
+			all: {
+				dest: 'js/vendor.js',
+				mainFiles: {
+					'Sortable': ['Sortable.js', 'jquery.binding.js']
+				},
+				dependencies: {
+					'Sortable': 'jquery'
+				},
+				exclude: [
+					'respond',
+					'html5shiv'
+				]
+			}
+		},
+
+		bowercopy: {
+			headers: {
+				options: {
+					destPrefix: 'js'
+				},
+				files: {
+					'respond.js': 'respond/dest/respond.min.js',
+					'html5shiv.js': 'html5shiv/dist/html5shiv.min.js'
+				}
+			}
+		},
+
 		concat: {
 			base: {
 				src: ['js/src/*.js'],
-				dest: 'js/base.js',
+				dest: 'js/base.js'
 			},
 			project: {
 				src: ['js/src-project/*.js'],
@@ -55,7 +83,7 @@ module.exports = function(grunt) {
 			},
 			project: {
 				files: {
-					'css/project.css': 'sass/project.scss',
+					'css/project.css': 'sass/project.scss'
 				},
 				options: {
 					sourcemap: 'none',
@@ -67,7 +95,8 @@ module.exports = function(grunt) {
 		uglify: {
 			base: {
 				files: {
-					'js/base.min.js': ['js/base.js']
+					'js/base.min.js': ['js/base.js'],
+					'js/vendor.min.js': ['js/vendor.js']
 				}
 			},
 			project: {
@@ -80,7 +109,7 @@ module.exports = function(grunt) {
 		watch: {
 			base: {
 				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['concat:base', 'uglify:base', 'sass:base', 'cssmin:base']
+				tasks: ['bower_concat:all', 'concat:base', 'uglify:base', 'sass:base', 'cssmin:base']
 			},
 			project: {
 				files: ['js/src-project/*.js', 'sass/project.scss'],
@@ -98,4 +127,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
+
+	grunt.registerTask('default', ['bower_concat', 'bowercopy', 'concat', 'uglify', 'sass', 'cssmin']);
 };
