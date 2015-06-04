@@ -34,9 +34,9 @@
 	}
 	input[type="checkbox"]:checked + &,
 	input[type="radio"]:checked + & {
-		background-color: $brand-color-light-m;
+		background-color: lighten($link-color, 15%);
 		&:after {
-			background-color: $brand-color;
+			background-color: $link-color;
 			// position
 				left: (($font-size * 5 - $font-size-h4) / 4);
 		}
@@ -55,7 +55,7 @@
 	.no-touch input[type="checkbox"]:checked + &,
 	.no-touch input[type="radio"]:checked + & {
 		&:active:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color), green($brand-color), blue($brand-color), 0.25));
+			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25));
 		}
 	}
 	.touch & {
@@ -64,7 +64,7 @@
 			@include transition(background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing, left 0.3s $timing 0.15s);
 		}
 		&.switch-toggle-on:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color), green($brand-color), blue($brand-color), 0.25));
+			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25));
 		}
 	}
 	.touch input[type="checkbox"]:checked + &,
@@ -74,3 +74,29 @@
 		}
 	}
 }
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.switch-toggle-#{$color} {
+			input[type="checkbox"]:checked + &,
+			input[type="radio"]:checked + & {
+				background-color: nth($palette-color-light-m, $i);
+				&:after {
+					background-color: nth($palette-color, $i);
+				}
+			}
+			.no-touch input[type="checkbox"]:checked + &,
+			.no-touch input[type="radio"]:checked + & {
+				&:active:after {
+					@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25));
+				}
+			}
+			.touch & {
+				&.switch-toggle-on:after {
+					@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25));
+				}
+			}
+		}
+	}
