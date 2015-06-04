@@ -85,39 +85,6 @@
 	width: 100%;
 }
 
-.btn-flat {
-	background-color: transparent;
-	@include box-shadow(none);
-	&:active,
-	&:focus,
-	&:hover {
-		background-color: $black-bg;
-		@include box-shadow(none);
-	}
-	&[disabled],
-	fieldset[disabled] & {
-		color: $black-text;
-	}
-}
-
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.btn-flat.btn-#{$color} {
-			color: nth($palette-color, $i);
-			&:active,
-			&:focus,
-			&:hover {
-				background-color: nth($palette-color-light, $i);
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				color: nth($palette-color, $i);
-			}
-		}
-	}
-
 .btn-text {
 	color: $black-text;
 	display: inline-block;
