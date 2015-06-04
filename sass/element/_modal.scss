@@ -61,9 +61,7 @@
 }
 
 .modal-dialog {
-	margin-right: auto;
-	margin-left: auto;
-	padding: ($line-height * 2) $grid-gutter;
+	margin: ($line-height * 2) $grid-gutter;
 	position: relative;
 	&.modal-full {
 		height: 100%;
@@ -87,11 +85,15 @@
 	// 480
 		@include responsive(xs) {
 			&.modal-xs {
-				width: $screen-xs;
+				margin-right: auto;
+				margin-left: auto;
+				width: ($screen-xs - $grid-gutter * 2);
 			}
 		}
 	// 992
 		@include responsive(md) {
+			margin-right: auto;
+			margin-left: auto;
 			width: ($screen-md - $grid-gutter * 2);
 		}
 	// 1440
