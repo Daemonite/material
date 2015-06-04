@@ -568,15 +568,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				$(this).addClass('avoid-fout-done');
 			});
 
-			// fixed left/right hand side column padding bottom and width
-				contentFixPushCal();
-
-			// footer push
-				footerPush();
-
-			// header height
-				headerHeightCal();
-
 			// tile wrap animation
 				tileInView();
 		},
