@@ -11,24 +11,23 @@
 	position: relative;
 	text-align: center;
 	width: ($line-height * 2);
-	@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5));
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: box-shadow, opacity, -webkit-transform;
-	        transition-property: box-shadow, opacity, transform;
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+	transition: all 0.3s $timing;
+  transition-property: box-shadow, opacity, transform;
 }
 
 a.fbtn {
 	&:focus,
 	&:hover {
 		color: $black-text;
-		@include box-shadow(0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5));
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 3px 15px rgba(0, 0, 0, 0.5);
 	}
 }
 
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.fbtn-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white !important;
@@ -53,8 +52,8 @@ a.fbtn {
 		right: $grid-gutter;
 		bottom: ($line-height / 2);
 	z-index: ($content-base + 1);
-	@include backface(hidden);
-	@include transition(margin-bottom 0.3s $timing, right 0.3s $timing);
+	backface-visibility: hidden;
+	transition: margin-bottom 0.3s $timing, right 0.3s $timing;
 }
 
 .fbtn-dropdown {
@@ -65,66 +64,53 @@ a.fbtn {
 	position: absolute;
 		right: ($grid-gutter * -1);
 		bottom: 100%;
-	@include transition(max-height 0s 0.5s);
+	transition: max-height 0s 0.5s;
 	.fbtn-inner.open & {
 		max-height: 99999px;
 		overflow: visible;
-		@include transition(max-height 0s);
+		transition: max-height 0s;
 	}
 	.fbtn {
-		@include opacity(0);
-		@include transform(scale(0.5));
+		opacity: 0;
+		transform: scale(0.5);
 		&:nth-last-child(1) {
-			-webkit-transition-delay: 300ms;
 			        transition-delay: 300ms;
 		}
 		&:nth-last-child(2) {
-			-webkit-transition-delay: 250ms;
 			        transition-delay: 250ms;
 		}
 		&:nth-last-child(3) {
-			-webkit-transition-delay: 200ms;
 			        transition-delay: 200ms;
 		}
 		&:nth-last-child(4) {
-			-webkit-transition-delay: 150ms;
 			        transition-delay: 150ms;
 		}
 		&:nth-last-child(5) {
-			-webkit-transition-delay: 100ms;
 			        transition-delay: 100ms;
 		}
 		&:nth-last-child(6) {
-			-webkit-transition-delay: 50ms;
 			        transition-delay: 50ms;
 		}
 		.fbtn-inner.open & {
-			@include opacity(1);
-			@include transform(scale(1));
-			-webkit-transition-delay: 300ms;
+			opacity: 1;
+			transform: scale(1);
 			        transition-delay: 300ms;
 			&:nth-last-child(1) {
-				-webkit-transition-delay: 0s;
 				        transition-delay: 0s;
 			}
 			&:nth-last-child(2) {
-				-webkit-transition-delay: 50ms;
 				        transition-delay: 50ms;
 			}
 			&:nth-last-child(3) {
-				-webkit-transition-delay: 100ms;
 				        transition-delay: 100ms;
 			}
 			&:nth-last-child(4) {
-				-webkit-transition-delay: 150ms;
 				        transition-delay: 150ms;
 			}
 			&:nth-last-child(5) {
-				-webkit-transition-delay: 200ms;
 				        transition-delay: 200ms;
 			}
 			&:nth-last-child(6) {
-				-webkit-transition-delay: 250ms;
 				        transition-delay: 250ms;
 			}
 		}
@@ -133,24 +119,22 @@ a.fbtn {
 
 .fbtn-ori,
 .fbtn-sub {
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: opacity, -webkit-transform;
+	transition: all 0.3s $timing;
 	        transition-property: opacity, transform;
 }
 
 .fbtn-ori {
 	.fbtn-inner.open & {
-		@include opacity(0);
-		@include transform(rotate(225deg));
+		opacity: 0;
+		transform: rotate(225deg);
 	}
 }
 
 .fbtn-rotate {
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: opacity, -webkit-transform;
+	transition: all 0.3s $timing;
 	        transition-property: opacity, transform;
 	.fbtn-inner.open & {
-		@include transform(rotate(225deg));
+		transform: rotate(225deg);
 	}
 }
 
@@ -160,11 +144,11 @@ a.fbtn {
 		left: 0;
 	text-align: center;
 	width: 100%;
-	@include opacity(0);
-	@include transform(rotate(-225deg));
+	opacity: 0;
+	transform: rotate(-225deg);
 	.fbtn-inner.open & {
-		@include opacity(1);
-		@include transform(rotate(0));
+		opacity: 1;
+		transform: rotate(0);
 	}
 }
 
@@ -185,29 +169,29 @@ a.fbtn {
 		right: 100%;
 	white-space: nowrap;
 	width: 0;
-	@include opacity(0);
-	@include transition(opacity 0.3s $timing);
+	opacity: 0;
+	transition: opacity 0.3s $timing;
 	// touch & no touch
 		.no-touch .fbtn:hover & {
 			height: auto;
 			width: auto;
-			@include opacity(1);
+			opacity: 1;
 		}
 		.no-touch .fbtn-dropdown .fbtn:hover & {
 			height: 0;
 			width: 0;
-			@include opacity(0);
+			opacity: 0;
 		}
 		.no-touch .fbtn-inner.open .fbtn-dropdown .fbtn:hover & {
 			height: auto;
 			width: auto;
-			@include opacity(1);
+			opacity: 1;
 		}
 		.touch & {
 			display: none;
 			height: auto;
 			width: auto;
-			@include opacity(1);
+			opacity: 1;
 		}
 		.touch .fbtn-inner.open & {
 			display: block;

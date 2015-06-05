@@ -7,12 +7,12 @@
 		left: 0;
 	width: 0;
 	z-index: ($header-base + 1);
-	@include backface(hidden);
-	@include transition(background-color 0.3s $timing, width 0s 0.3s);
+	backface-visibility: hidden;
+	transition: background-color 0.3s $timing, width 0s 0.3s;
 	&.open {
 		background-color: rgba(0, 0, 0, 0.5);
 		width: 100%;
-		@include transition(background-color 0.15s $timing, width 0s);
+		transition: background-color 0.15s $timing, width 0s;
 	}
 	&.menu-right {
 		// position
@@ -54,26 +54,24 @@
 		left: 0;
 	text-align: center;
 	width: 100%;
-	@include opacity(1);
-	@include transform(rotate(0));
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: opacity, -webkit-transform;
+	opacity: 1;
+	transform: rotate(0);
+	transition: all 0.3s $timing;
 	        transition-property: opacity, transform;
 	.menu-collapse-toggle.collapsed & {
-		@include opacity(0);
-		@include transform(rotate(-225deg));
+		opacity: 0;
+		transform: rotate(-225deg);
 	}
 }
 
 .menu-collapse-toggle-default {
-	@include opacity(0);
-	@include transform(rotate(225deg));
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: opacity, -webkit-transform;
+	opacity: 0;
+	transform: rotate(225deg);
+	transition: all 0.3s $timing;
 	        transition-property: opacity, transform;
 	.menu-collapse-toggle.collapsed & {
-		@include opacity(1);
-		@include transform(rotate(0));
+		opacity: 1;
+		transform: rotate(0);
 	}
 }
 
@@ -143,7 +141,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} .menu-content .nav li.active {
 			> a,
 			> .a {
@@ -186,19 +184,17 @@
 		left: ($grid-gutter * -20);
 	width: ($grid-gutter * 20);
 	z-index: 1;
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: box-shadow, left;
+	transition: all 0.3s $timing;
 	        transition-property: box-shadow, left;
 	.menu.open & {
 		// left
 			left: 0;
-		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	}
 	.menu-right & {
 		// position
 			right: ($grid-gutter * -20);
 			left: auto;
-		-webkit-transition-property: box-shadow, right;
 		        transition-property: box-shadow, right;
 	}
 	.menu-right.open & {
@@ -250,7 +246,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} .menu-top {
 			background-color: nth($palette-color-dark-m, $i);
 		}
@@ -262,10 +258,6 @@
 }
 
 .menu-top-img {
-	display: -webkit-box;
-	display:    -moz-box;
-	display:     -ms-flexbox;
-	display: -webkit-flex;
 	display:         flex;
 	height: 100%;
 	justify-content: center;
@@ -274,12 +266,11 @@
 		top: 0;
 		left: 0;
 	width: 100%;
-	-webkit-align-items: center;
 	        align-items: center;
 	img {
 		min-height: 100%;
 		width: 100%;
-		@include opacity(0.5);
+		opacity: 0.5;
 	}
 }
 
@@ -295,12 +286,7 @@
 }
 
 .menu-top-user {
-	display: -webkit-box;
-	display:    -moz-box;
-	display:     -ms-flexbox;
-	display: -webkit-flex;
 	display:         flex;
-	-webkit-align-items: center;
 	        align-items: center;
 	@include clearfix();
 }
@@ -331,7 +317,7 @@
 		// left
 			left: 0;
 		width: ($grid-gutter * 15);
-		@include box-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	}
 	&.menu-left {
 		~ .content {

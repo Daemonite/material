@@ -1,7 +1,7 @@
 .picker {
 	position: absolute;
 	z-index: $top-base;
-	@include user-select(none);
+	user-select: none;
 }
 
 .picker__box {
@@ -11,7 +11,7 @@
 	outline: 0;
 	overflow: hidden;
 	vertical-align: middle;
-	@include box-shadow(0 1px 30px rgba(0, 0, 0, 0.5));
+	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
 	@include clearfix();
 }
 
@@ -84,12 +84,11 @@
 	max-width: ($grid-gutter + $line-height * 1.5 * 7);
 	vertical-align: middle;
 	white-space: normal;
-	@include transform(scale(0, 0));
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: -webkit-transform;
+	transform: scale(0, 0);
+	transition: all 0.3s $timing;
 	        transition-property: transform;
 	.picker--opened & {
-		@include transform(scale(1, 1));
+		transform: scale(1, 1);
 	}
 	// 480
 		@include responsive(xs) {
@@ -127,8 +126,8 @@
 	width: 100%;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
-	@include backface(hidden);
-	@include transition(background-color 0.3s $timing, top 0s linear 0.3s);
+	backface-visibility: hidden;
+	transition: background-color 0.3s $timing, top 0s linear 0.3s;
 	&:after {
 		content: "";
 		display: inline-block;
@@ -140,7 +139,7 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		// position
 			top: 0;
-		@include transition(background-color 0.3s $timing, top 0s linear 0s);
+		transition: background-color 0.3s $timing, top 0s linear 0s;
 	}
 }
 

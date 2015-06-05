@@ -11,7 +11,7 @@
 	}
 	.circle {
 		border: 2px solid $black-sec;
-		@include transition(border-color 0.3s $timing);
+		transition: border-color 0.3s $timing;
 	}
 	&.disabled,
 	fieldset[disabled] & {
@@ -27,9 +27,8 @@
 	}
 	.circle-check {
 		background-color: transparent;
-		@include transform(scale(0));
-		@include transition(all 0.3s $timing);
-		-webkit-transition-property: background-color, -webkit-transform;
+		transform: scale(0);
+		transition: all 0.3s $timing;
 		        transition-property: background-color, transform;
 		&:after {
 			background-color: $brand-color;
@@ -41,7 +40,7 @@
 				top: ($font-size * -2);
 				left: ($font-size * -2);
 			width: ($font-size * 5);
-			@include opacity(0);
+			opacity: 0;
 		}
 	}
 	&.disabled,
@@ -51,17 +50,16 @@
 		}
 	}
 	input.access-hide:checked ~ .circle-check {
-		@include transform(scale(0.5));
+		transform: scale(0.5);
 		&:after {
-			@include animation(circle-check 0.6s);
+			animation: circle-check 0.6s;
 		}
 	}
 	.circle-icon {
 		background-color: transparent;
 		color: transparent;
-		@include transform(scale(0.5));
-		@include transition(all 0.3s $timing);
-		-webkit-transition-property: background-color, color, -webkit-transform;
+		transform: scale(0.5);
+		transition: all 0.3s $timing;
 		        transition-property: background-color, color, transform;
 		&:before {
 			// position
@@ -71,7 +69,7 @@
 	input.access-hide:checked ~ .circle-icon {
 		background-color: $brand-color;
 		color: $white;
-		@include transform(scale(1));
+		transform: scale(1);
 	}
 	&.disabled,
 	fieldset[disabled] & {
@@ -98,18 +96,6 @@
 }
 
 // animation
-	@-webkit-keyframes circle-check {
-		0% {
-			opacity: 0;
-		}
-		25% {
-			opacity: 0.25;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
-
 	@keyframes circle-check {
 		0% {
 			opacity: 0;

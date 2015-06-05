@@ -64,8 +64,8 @@ body.el-loading {
 	height: 100%;
 	padding: $line-height $grid-gutter;
 	width: 100%;
-	@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
-	@include opacity(1);
+	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+	opacity: 1;
 }
 
 .avoid-fout-done > .avoid-fout-indicator,
@@ -73,8 +73,8 @@ body.el-loading {
 	height: 0;
 	padding: 0;
 	width: 0;
-	@include opacity(0);
-	@include transition(height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s);
+	opacity: 0;
+	transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
 }
 
 .avoid-fout-indicator-fixed,
@@ -121,14 +121,14 @@ body.el-loading {
 	height: 0;
 	overflow: hidden;
 	position: relative;
-	@include transition(height 0.3s $timing);
+	transition: height 0.3s $timing;
 }
 
 .fade {
-		@include opacity(0);
-		@include transition(opacity 0.3s $timing);
+		opacity: 0;
+		transition: opacity 0.3s $timing;
 	&.in {
-		@include opacity(1);
+		opacity: 1;
 	}
 }
 
@@ -258,10 +258,7 @@ body.el-loading {
 
 .text-break {
 	word-break: break-all;
-	-webkit-hyphens: auto;
-	   -moz-hyphens: auto;
-	    -ms-hyphens: auto;
-	        hyphens: auto;
+  hyphens: auto;
 }
 
 .text-lead {
@@ -318,7 +315,7 @@ body.el-loading {
 
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.text-#{$color} {
 			color: nth($palette-color, $i);
 		}

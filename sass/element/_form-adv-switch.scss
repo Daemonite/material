@@ -18,7 +18,7 @@
 	position: relative;
 	vertical-align: middle;
 	width: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4);
-	@include transition(background-color 0.3s $timing);
+	transition: background-color 0.3s $timing;
 	&:after {
 		background-color: $white;
 		border-radius: 50%;
@@ -29,8 +29,8 @@
 			top:(($font-size-h4 - $font-size-h6) / -2);
 			left: 0;
 		width: $font-size-h4;
-		@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25));
-		@include transition(background-color 0.3s $timing, box-shadow 0.15s $timing, left 0.3s $timing);
+		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+		transition: background-color 0.3s $timing, box-shadow 0.15s $timing, left 0.3s $timing;
 	}
 	input[type="checkbox"]:checked + &,
 	input[type="radio"]:checked + & {
@@ -49,28 +49,28 @@
 	}
 	.no-touch & {
 		&:active:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1));
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1);
 		}
 	}
 	.no-touch input[type="checkbox"]:checked + &,
 	.no-touch input[type="radio"]:checked + & {
 		&:active:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25));
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25);
 		}
 	}
 	.touch & {
-		@include transition(background-color 0.3s $timing 0.15s);
+		transition: background-color 0.3s $timing 0.15s;
 		&:after {
-			@include transition(background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing, left 0.3s $timing 0.15s);
+			transition: background-color 0.3s $timing 0.15s, box-shadow 0.15s $timing, left 0.3s $timing 0.15s;
 		}
 		&.switch-toggle-on:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25));
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25);
 		}
 	}
 	.touch input[type="checkbox"]:checked + &,
 	.touch input[type="radio"]:checked + & {
 		&.switch-toggle-on:after {
-			@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1));
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1);
 		}
 	}
 }
@@ -78,7 +78,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.switch-toggle-#{$color} {
 			input[type="checkbox"]:checked + &,
 			input[type="radio"]:checked + & {
@@ -90,12 +90,12 @@
 			.no-touch input[type="checkbox"]:checked + &,
 			.no-touch input[type="radio"]:checked + & {
 				&:active:after {
-					@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25));
+					box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25);
 				}
 			}
 			.touch & {
 				&.switch-toggle-on:after {
-					@include box-shadow(0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25));
+					box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25);
 				}
 			}
 		}

@@ -15,7 +15,7 @@
 		position: fixed;
 			top: ($line-height * 2);
 			bottom: 0;
-		@include backface(hidden);
+		backface-visibility: hidden;
 	}
 }
 
@@ -42,10 +42,10 @@
 	padding-top: ($line-height * 2);
 	position: relative;
 	z-index: 1;
-	@include transition(background-color 0.3s $timing, color 0.3s $timing);
+	transition: background-color 0.3s $timing, color 0.3s $timing;
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} & {
 			background-color: nth($palette-color, $i);
 		}
@@ -62,7 +62,7 @@
 	line-height: $line-height-h4;
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} & {
 			color: nth($palette-color, $i);
 		}

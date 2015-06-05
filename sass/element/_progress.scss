@@ -14,13 +14,13 @@
 	position: absolute;
 		top: 0;
 		left: 0;
-	@include transition(width 0.3s $timing);
+	transition: width 0.3s $timing;
 }
 
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.progress-#{$color} {
 			background-color: nth($palette-color-light, $i);
 			.progress-bar {
@@ -44,34 +44,15 @@
 		will-change: left, right;
 	}
 	&:after {
-		@include animation(pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite);
+		animation: pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite;
 	}
 	&:before {
-		@include animation(pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite);
-		-webkit-animation-delay: 1.5s;
+		animation: pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite;
 		        animation-delay: 1.5s;
 	}
 }
 
 // animation
-	@-webkit-keyframes pbar-indeterminate-one {
-		0% {
-			// position
-				right: 100%;
-				left: -35%;
-		}
-		60% {
-			// position
-				right: -90%;
-				left: 100%;
-		}
-		100% {
-			// position
-				right: -90%;
-				left: 100%;
-		}
-	}
-
 	@keyframes pbar-indeterminate-one {
 		0% {
 			// position
@@ -87,24 +68,6 @@
 			// position
 				right: -90%;
 				left: 100%;
-		}
-	}
-
-	@-webkit-keyframes pbar-indeterminate-two {
-		0% {
-			// position
-				right: 100%;
-				left: -150%;
-		}
-		60% {
-			// position
-				right: -35%;
-				left: 135%;
-		}
-		100% {
-			// position
-				right: -35%;
-				left: 135%;
 		}
 	}
 
