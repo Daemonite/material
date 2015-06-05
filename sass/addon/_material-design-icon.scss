@@ -1,9 +1,54 @@
-// Material Design Iconic Font 1.0.1 by Sergey Kupletsky (@zavoloklom) - http://zavoloklom.github.io/material-design-iconic-font/
-// License - https://github.com/zavoloklom/material-design-iconic-font/blob/gh-pages/License.md (Attribution-ShareAlike 4.0 International license)
-@import "material-design-icon/variables";
+$mdicon-css-prefix: icon !default;
+$mdicon-font-path: "#{$css-path}/fonts" !default;
+$mdicon-version: "1.1.1" !default;
 
-@import "material-design-icon/path";
+// http://google.github.io/material-design-icons/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$mdicon-font-path}/MaterialIcons-Regular.eot?v=#{$mdicon-version}"); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url("#{$mdicon-font-path}/MaterialIcons-Regular.woff2?v=#{$mdicon-version}") format('woff2'),
+       url("#{$mdicon-font-path}/MaterialIcons-Regular.woff?v=#{$mdicon-version}") format('woff'),
+       url("#{$mdicon-font-path}/MaterialIcons-Regular.ttf?v=#{$mdicon-version}") format('truetype');
+}
 
-@import "material-design-icon/core";
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
 
-@import "material-design-icon/icons";
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+// Rules for sizing the icon.
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// Rules for using icons as black on a light background.
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
