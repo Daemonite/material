@@ -492,7 +492,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				tileInView();
 		},
 		google: {
-			families: ['Roboto:300,300italic,400,400italic,700,700italic']
+			families: ['Roboto:300,400,500']
 		}
 	};
 
@@ -504,6 +504,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(wf, s);
 	})();
+
 // window smart resize
 	on_resize = function (c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
 

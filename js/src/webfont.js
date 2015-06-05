@@ -27,7 +27,7 @@
 				tileInView();
 		},
 		google: {
-			families: ['Roboto:300,300italic,400,400italic,700,700italic']
+			families: ['Roboto:300,400,500']
 		}
 	};
 
