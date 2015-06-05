@@ -1,4 +1,6 @@
 .btn {
+	@extend %text-button;
+
 	background-color: $white;
 	background-image: none;
 	background-position: 50% 50%;
@@ -8,15 +10,11 @@
 	color: $black-text;
 	cursor: pointer;
 	display: inline-block;
-	font-size: $font-size;
-	font-weight: 400;
-	line-height: $line-height;
 	margin-bottom: 0;
 	max-width: 100%;
 	padding: (($btn-height - $line-height - 2) / 2) ($grid-gutter - 1);
 	position: relative;
 	text-align: center;
-	text-transform: uppercase;
 	vertical-align: middle;
 	white-space: nowrap;
 	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15));
@@ -44,7 +42,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.btn-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white;
