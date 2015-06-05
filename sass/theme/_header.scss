@@ -10,61 +10,12 @@
 	@include clearfix();
 	@include transition(background-color 0.3s $timing, box-shadow 0.15s linear);
 	&.fixed,
-	&.open,
-	.menu-open & {
+	&.open {
 		background-color: $brand-color-dark-m;
 		@include box-shadow(0 1px 10px rgba(0, 0, 0, 0.5));
 	}
-	// colour
-		@each $color in $palette-list {
-			$i: index($palette-list, $color);
-			
-			.page-#{$color} & {
-				background-color: nth($palette-color, $i);
-				&.fixed,
-				&.open {
-					background-color: nth($palette-color-dark-m, $i);
-				}
-			}
-			.menu-open.page-#{$color} & {
-				background-color: nth($palette-color-dark-m, $i);
-			}
-		}
 	a {
 		color: $white;
-	}
-	.breadcrumb {
-		color: $white;
-		margin-top: 0;
-		margin-bottom: 0;
-		max-height: ($line-height * 2);
-		overflow: hidden;
-		padding-right: $grid-gutter;
-		padding-left: $grid-gutter;
-		a,
-		.a {
-			text-decoration: none;
-		}
-		> .active {
-			color: $white;
-			font-weight: 300;
-			> a,
-			> .a {
-				color: $white;
-			}
-		}
-		// 0 - 767
-			@include responsive("(max-width: #{$screen-sm - 1})") {
-				> li {
-					display: none;
-				}
-				> .active {
-					display: block;
-					&:before {
-						display: none;
-					}
-				}
-			}
 	}
 	.dropdown-menu {
 		border-radius: 2px;
@@ -75,29 +26,21 @@
 	.dropdown-toggle {
 		z-index: 1;
 		&:after {
-			background-color: $brand-color;
+			background-color: rgba(0, 0, 0, 0.3);
 			border-radius: 50%;
 			content: "";
 			display: block;
 			height: ($line-height * 1.5);
+			margin-left: ($line-height * -0.75);
 			position: absolute;
 				top: ($line-height * 0.25);
-				right: ($line-height * 0.25);
-				bottom: ($line-height * 0.25);
-				left: ($line-height * 0.25);
+				left: 50%;
+			width: ($line-height * 1.5);
 			z-index: -1;
 			@include transform(scale(0));
 			@include transition(all 0.3s $timing);
 			-webkit-transition-property: background-color, -webkit-transform;
 			        transition-property: background-color, transform;
-			// colour
-				@each $color in $palette-list {
-					$i: index($palette-list, $color);
-					
-					.page-#{$color} & {
-						background-color: nth($palette-color, $i);
-					}
-				}
 			// no csstransforms
 				.no-csstransforms & {
 					display: none;
@@ -116,71 +59,21 @@
 	}
 	.nav {
 		margin: 0;
-		> li {
-			> a {
-				.avatar,
-				.fa,
-				.icon {
-					@include transition(all 0.3s $timing);
-					-webkit-transition-property: opacity, -webkit-transform;
-					        transition-property: opacity, transform;
-				}
-				.header-close {
-					position: absolute;
-						top: ($line-height / 2 + ($line-height - $font-size) / 2);
-						left: 0;
-					text-align: center;
-					width: 100%;
-					@include opacity(0);
-					@include transform(rotate(-225deg));
-					&:after {
-						background-color: $brand-color;
-						border-radius: 50%;
-						content: "";
-						display: block;
-						height: ($line-height * 1.5);
-						margin-top: ($line-height * -0.75);
-						margin-left: ($line-height * -0.75);
-						position: absolute;
-							top: 50%;
-							left: 50%;
-						width: ($line-height * 1.5);
-						@include transform(scale(0));
-						@include transition(all 0.3s $timing);
-						-webkit-transition-property: -webkit-transform;
-						        transition-property: transform;
-						@each $color in $palette-list {
-							$i: index($palette-list, $color);
-							
-							.page-#{$color} & {
-								background-color: nth($palette-color, $i);
-							}
-						}
-					}
-					&:before {
-						position: relative;
-						z-index: 1;
-					}
-				}
-			}
-			&.active > a {
-				.avatar,
-				.fa,
-				.icon {
-					@include opacity(0);
-					@include transform(rotate(225deg));
-				}
-				.header-close {
-					@include opacity(1);
-					@include transform(rotate(0));
-					&:after {
-						@include transform(scale(1));
-					}
-				}
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+		
+		.page-#{$color} .header {
+			background-color: nth($palette-color, $i);
+			&.fixed,
+			&.open {
+				background-color: nth($palette-color-dark-m, $i);
 			}
 		}
 	}
-}
 
 .header-btn {
 	display: block;
@@ -228,45 +121,5 @@
 		display: block;
 		max-height: $line-height-h4;
 		width: auto;
-	}
-}
-
-.header-nav-scroll {
-	height: ($line-height * 2);
-	overflow: hidden;
-	position: relative;
-	&.pull-down {
-		position: absolute;
-			top: 100%;
-			left: 0;
-		width: 100%;
-		@include transition(opacity 0.15s $timing 0.15s, top 0.3s $timing);
-		.header.fixed &,
-		.header.open &,
-		.menu-open & {
-			// position
-				top: 0;
-			z-index: -1;
-			@include opacity(0);
-			@include transition(opacity 0.15s $timing, top 0.3s $timing);
-		}
-	}
-}
-
-.header-nav-wrap {
-	height: 150%;
-	overflow-x: auto;
-	overflow-y: hidden;
-	padding-bottom: $line-height;
-	position: absolute;
-		top: 0;
-		left: 0;
-	white-space: nowrap;
-	width: 100%;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: none;
-	.nav > li {
-		display: inline-block;
-		float: none;
 	}
 }

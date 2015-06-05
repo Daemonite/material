@@ -1,11 +1,3 @@
-// dropdown menu hide
-	$(document).on('hide.bs.dropdown', '.dropdown', function() {
-		// header affix
-			if ($(this).parents('.header').length) {
-				$('header').removeClass('open');
-			};
-	});
-		
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
@@ -22,10 +14,5 @@
 				}
 
 				$dropdownMenu.css('max-width', dropdownWidth);
-
-			// header affix
-				if ($dropdownMenu.parents('.header').length) {
-					$('header').addClass('open');
-				};
 		};
 	});

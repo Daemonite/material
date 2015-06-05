@@ -20,28 +20,3 @@
 			headerHeight = $header.height();
 		};
 	}
-
-// header nav positioning
-	if ($('.header-nav-scroll').length) {
-		$('.header-nav-scroll .nav > li').each(function(index) {
-			var $this = $(this);
-
-			if (index < 3) {
-				headerNavMinWidth += $this.width();
-			} else {
-				return false;
-			}
-		});
-	};
-
-	headerNavPos  = function () {
-		var $headerNav = $('.header-nav-scroll');
-
-		$headerNav.removeClass('pull-down');
-
-		if ($headerNav.width() < headerNavMinWidth) {
-			$headerNav.addClass('pull-down');
-		} else {
-			$headerNav.removeClass('pull-down');
-		}
-	}
