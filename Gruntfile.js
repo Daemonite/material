@@ -66,8 +66,11 @@ module.exports = function(grunt) {
 
 		postcss: {
       options: {
-        map: true,
-        browsers: ['last 2 versions, > 5%']
+        map: false,
+				processors: [
+					require('autoprefixer-core')({browsers: 'last 4 version'}),
+					require('csswring')
+				]
       },
 			base: {
         src: 'css/base.css'
@@ -76,7 +79,14 @@ module.exports = function(grunt) {
 				src: 'css/project.css'
 			}
     },
-
+		cssbeautifier : {
+			base: {
+				src: 'css/base.css'
+			},
+			project: {
+				src: 'css/project.css'
+			}
+		},
 		uglify: {
 			base: {
 				files: {
