@@ -15,6 +15,11 @@
 			// header height
 				headerHeightCal();
 
+			// tab indicator
+				$('.tab-nav').each(function() {
+					tabSwitch($('.nav > li.active', $(this)), null);
+				});
+
 			// tile wrap animation
 				tileInView();
 		},

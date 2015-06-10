@@ -1,29 +1,34 @@
 .tab-nav {
-	border-bottom: 1px solid $black-hint;
+	box-shadow: 0 1px 0 $black-bg;
 	margin-top: $line-height;
 	margin-bottom: $line-height;
 	position: relative;
 	.nav {
-		margin-top: 0;
-		margin-bottom: -1px;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
 		> li {
 			vertical-align: bottom;
-			> a {
+			> a,
+			> .a {
+				border-bottom: 2px solid transparent;
 				color: $black-text;
 				padding-right: ($grid-gutter / 2);
+				padding-bottom: ($line-height / 2 - 2);
 				padding-left: ($grid-gutter / 2);
 				text-transform: uppercase;
-				transition: border-bottom 0s, padding-bottom 0s;
+				transition: border-bottom-color 0s;
 				&:focus,
 				&:hover {
+					border-bottom-color: lighten($link-color, 30%);
 					color: $link-color;
+					transition: border-bottom-color 0.3s $timing;
 				}
 			}
-			&.active > a {
-				border-bottom: 3px solid $link-color;
+			&.active > a,
+			&.active > .a {
+				border-bottom-color: $link-color;
 				color: $link-color;
-				padding-bottom: ($line-height / 2 - 3);
-				transition: border-bottom 0s 0.45s, padding-bottom 0s 0.45s;
+				transition: border-bottom-color 0s 0.45s;
 			}
 		}
 	}
@@ -31,9 +36,9 @@
 
 .tab-nav-indicator {
 	background-color: $link-color;
-	height: 3px;
+	height: 2px;
 	position: absolute;
-		bottom: -1px;
+		bottom: 0;
 	transition: left 0.3s $timing 0.15s, right 0.3s $timing;
 	&.reverse {
 		transition: left 0.3s $timing, right 0.3s $timing 0.15s;
@@ -41,19 +46,46 @@
 }
 
 // colour
+	.tab-nav-offwhite {
+		.nav {
+			> li {
+				> a,
+				> .a {
+					color: $white;
+					&:focus,
+					&:hover {
+						border-bottom-color: rgba(255, 255, 255, 0.5);
+						color: $white;
+					}
+				}
+				&.active > a,
+				&.active > .a {
+					border-bottom-color: $white;
+					color: $white;
+				}
+			}
+		}
+		.tab-nav-indicator {
+			background-color: $white;
+		}
+	}
+
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
 		.tab-nav-#{$color} {
 			.nav {
 				> li {
-					> a {
+					> a,
+					> .a {
 						&:focus,
 						&:hover {
+							border-bottom-color: nth($palette-color-light, $i);
 							color: nth($palette-color, $i);
 						}
 					}
-					&.active > a {
+					&.active > a,
+					&.active > .a {
 						border-bottom-color: nth($palette-color, $i);
 						color: nth($palette-color, $i);
 					}
