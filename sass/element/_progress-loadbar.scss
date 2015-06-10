@@ -9,18 +9,18 @@
 }
 
 .load-bar-base {
+	animation: load-bar-right-in 1s $timing 1 forwards;
 	background-color: $link-color;
 	float: left;
 	height: 100%;
 	overflow: hidden;
-	width: 100%;
-	animation: load-bar-right-in 1s $timing 1 forwards;
 	transform: translate3d(-100%, 0, 0);
-	        transform-origin: top right;
+	transform-origin: top right;
+	width: 100%;
 	.load-bar:first-child & {
 		animation: load-bar-left-in 1s $timing 1 forwards;
 		transform: translate3d(100%, 0, 0);
-		        transform-origin: top left;
+		transform-origin: top left;
 	}
 }
 
@@ -48,16 +48,16 @@
 	}
 
 .load-bar-content {
+	animation: load-bar-right 4s linear infinite forwards;
+	animation-delay: 1s;
 	float: left;
 	height: 100%;
 	position: relative;
+	transform-origin: top center;
 	width: 400%;
-	animation: load-bar-right 4s linear infinite forwards;
-	        animation-delay: 1s;
-	        transform-origin: top center;
 	.load-bar:first-child & {
 		animation: load-bar-left 4s linear infinite forwards;
-		        animation-delay: 1s;
+		animation-delay: 1s;
 	}
 }
 

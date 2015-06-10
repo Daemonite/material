@@ -61,19 +61,19 @@ body.el-loading {
 .avoid-fout > .avoid-fout-indicator,
 .el-loading > .el-loading-indicator {
 	background-color: $white;
+	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
 	height: 100%;
+	opacity: 1;
 	padding: $line-height $grid-gutter;
 	width: 100%;
-	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
-	opacity: 1;
 }
 
 .avoid-fout-done > .avoid-fout-indicator,
 .el-loading-done > .el-loading-indicator {
 	height: 0;
+	opacity: 0;
 	padding: 0;
 	width: 0;
-	opacity: 0;
 	transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
 }
 
@@ -125,8 +125,8 @@ body.el-loading {
 }
 
 .fade {
-		opacity: 0;
-		transition: opacity 0.3s $timing;
+	opacity: 0;
+	transition: opacity 0.3s $timing;
 	&.in {
 		opacity: 1;
 	}
@@ -257,8 +257,8 @@ body.el-loading {
 }
 
 .text-break {
+	hyphens: auto;
 	word-break: break-all;
-  hyphens: auto;
 }
 
 .text-lead {

@@ -16,21 +16,21 @@
 	height: $font-size-h6;
 	margin-right: ($grid-gutter / 2);
 	position: relative;
+	transition: background-color 0.3s $timing;
 	vertical-align: middle;
 	width: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4);
-	transition: background-color 0.3s $timing;
 	&:after {
 		background-color: $white;
 		border-radius: 50%;
+		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
 		content: "";
 		display: block;
 		height: $font-size-h4;
 		position: absolute;
 			top:(($font-size-h4 - $font-size-h6) / -2);
 			left: 0;
-		width: $font-size-h4;
-		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
 		transition: background-color 0.3s $timing, box-shadow 0.15s $timing, left 0.3s $timing;
+		width: $font-size-h4;
 	}
 	input[type="checkbox"]:checked + &,
 	input[type="radio"]:checked + & {

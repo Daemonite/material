@@ -82,11 +82,11 @@
 	display: inline-block;
 	margin: ($line-height * 2) auto;
 	max-width: ($grid-gutter + $line-height * 1.5 * 7);
-	vertical-align: middle;
-	white-space: normal;
 	transform: scale(0, 0);
 	transition: all 0.3s $timing;
-	        transition-property: transform;
+	transition-property: transform;
+	vertical-align: middle;
+	white-space: normal;
 	.picker--opened & {
 		transform: scale(1, 1);
 	}
@@ -114,6 +114,7 @@
 }
 
 .picker__holder {
+	backface-visibility: hidden;
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: fixed;
@@ -122,12 +123,11 @@
 		bottom: 0;
 		left: 0;
 	text-align: center;
+	transition: background-color 0.3s $timing, top 0s linear 0.3s;
 	white-space: nowrap;
 	width: 100%;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
-	backface-visibility: hidden;
-	transition: background-color 0.3s $timing, top 0s linear 0.3s;
 	&:after {
 		content: "";
 		display: inline-block;

@@ -27,16 +27,16 @@
 }
 
 .toast-inner {
+	backface-visibility: hidden;
 	background-color: $black-text;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 	color: $white;
 	font-size: floor($font-size * 0.9);
 	padding: ($line-height / 2) $grid-gutter;
-	backface-visibility: hidden;
-	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-	@include clearfix();
 	transform: translate3d(0, 200%, 0);
 	transition: all 0.3s $timing;
-	        transition-property: transform;
+	transition-property: transform;
+	@include clearfix();
 	.toast-show & {
 		transform: translate3d(0, 0, 0);
 	}

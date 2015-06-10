@@ -12,10 +12,10 @@
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	.content-fix.fixed & {
+		backface-visibility: hidden;
 		position: fixed;
 			top: ($line-height * 2);
 			bottom: 0;
-		backface-visibility: hidden;
 	}
 }
 
@@ -41,8 +41,8 @@
 	overflow: hidden;
 	padding-top: ($line-height * 2);
 	position: relative;
-	z-index: 1;
 	transition: background-color 0.3s $timing, color 0.3s $timing;
+	z-index: 1;
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 

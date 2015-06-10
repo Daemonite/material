@@ -1,14 +1,14 @@
 .header {
+	backface-visibility: hidden;
 	background-color: $brand-color;
 	color: $white;
 	position: fixed;
 		top: 0;
 		right: 0;
 		left: 0;
-	z-index: $header-base;
-	backface-visibility: hidden;
-	@include clearfix();
 	transition: background-color 0.3s $timing, box-shadow 0.15s linear;
+	z-index: $header-base;
+	@include clearfix();
 	&.fixed,
 	&.open {
 		background-color: $brand-color-dark-m;
@@ -35,11 +35,11 @@
 			position: absolute;
 				top: ($line-height * 0.25);
 				left: 50%;
-			width: ($line-height * 1.5);
-			z-index: -1;
 			transform: scale(0);
 			transition: all 0.3s $timing;
-			        transition-property: background-color, transform;
+			transition-property: background-color, transform;
+			width: ($line-height * 1.5);
+			z-index: -1;
 			// no csstransforms
 				.no-csstransforms & {
 					display: none;

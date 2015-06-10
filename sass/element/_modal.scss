@@ -1,4 +1,5 @@
 .modal {
+	backface-visibility: hidden;
 	display: none;
 	overflow: hidden;
 	outline: 0;
@@ -10,7 +11,6 @@
 	z-index: $top-base;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
-	backface-visibility: hidden;
 	.modal-open & {
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -18,16 +18,16 @@
 }
 
 .modal-backdrop {
+	backface-visibility: hidden;
 	background-color: $black;
+	opacity: 0;
 	position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
-	z-index: ($top-base - 1);
-	backface-visibility: hidden;
-	opacity: 0;
 	transition: opacity 0.3s $timing;
+	z-index: ($top-base - 1);
 	&.fade.in {
 		opacity: 0.5;
 	}
@@ -55,9 +55,9 @@
 	background-color: $white;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
 	outline: 0;
 	position: relative;
-	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
 }
 
 .modal-dialog {
@@ -76,7 +76,7 @@
 	.modal.fade & {
 		transform: scale(0, 0);
 		transition: all 0.3s $timing;
-		        transition-property: transform;
+		transition-property: transform;
 	}
 	.modal.fade.in & {
 		transform: scale(1, 1);

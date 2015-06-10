@@ -5,6 +5,7 @@
 	background-size: 100% 100%;
 	border: 1px solid transparent;
 	border-radius: 2px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 	color: $black-text;
 	cursor: pointer;
 	display: inline-block;
@@ -17,18 +18,17 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	vertical-align: middle;
-	white-space: nowrap;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 	transition: background-color 0.3s $timing, box-shadow 0.3s $timing;
 	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
 	&:active,
 	&:focus,
 	&:hover {
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
 		color: $black-text;
 		outline: 0;
 		text-decoration: none;
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
 	}
 	&[disabled],
 	fieldset[disabled] & {

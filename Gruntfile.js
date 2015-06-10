@@ -28,6 +28,15 @@ module.exports = function(grunt) {
 			}
 		},
 
+		cssbeautifier: {
+			base: {
+				src: 'css/base.css'
+			},
+			project: {
+				src: 'css/project.css'
+			}
+		},
+
 		cssmin: {
 			base: {
 				src: ['css/base.css'],
@@ -36,6 +45,22 @@ module.exports = function(grunt) {
 			project: {
 				src: ['css/project.css'],
 				dest: 'css/project.min.css'
+			}
+		},
+
+		postcss: {
+			options: {
+				map: false,
+				processors: [
+					require('autoprefixer-core')({browsers: 'last 4 version'}),
+					require('csswring')
+				]
+			},
+			base: {
+				src: 'css/base.css'
+			},
+			project: {
+				src: 'css/project.css'
 			}
 		},
 
@@ -64,29 +89,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		postcss: {
-      options: {
-        map: false,
-				processors: [
-					require('autoprefixer-core')({browsers: 'last 4 version'}),
-					require('csswring')
-				]
-      },
-			base: {
-        src: 'css/base.css'
-      },
-			project: {
-				src: 'css/project.css'
-			}
-    },
-		cssbeautifier : {
-			base: {
-				src: 'css/base.css'
-			},
-			project: {
-				src: 'css/project.css'
-			}
-		},
 		uglify: {
 			base: {
 				files: {

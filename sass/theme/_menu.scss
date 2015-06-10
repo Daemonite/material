@@ -1,18 +1,18 @@
 .menu {
+	backface-visibility: hidden;
 	background-color: transparent;
 	height: 100%;
 	overflow: hidden;
 	position: fixed;
 		top: 0;
 		left: 0;
+	transition: background-color 0.3s $timing, width 0s 0.3s;
 	width: 0;
 	z-index: ($header-base + 1);
-	backface-visibility: hidden;
-	transition: background-color 0.3s $timing, width 0s 0.3s;
 	&.open {
 		background-color: rgba(0, 0, 0, 0.5);
-		width: 100%;
 		transition: background-color 0.15s $timing, width 0s;
+		width: 100%;
 	}
 	&.menu-right {
 		// position
@@ -49,15 +49,15 @@
 }
 
 .menu-collapse-toggle-close {
+	opacity: 1;
 	position: absolute;
 		top: (($line-height * 2 - $font-size) / 2);
 		left: 0;
 	text-align: center;
-	width: 100%;
-	opacity: 1;
 	transform: rotate(0);
 	transition: all 0.3s $timing;
-	        transition-property: opacity, transform;
+	transition-property: opacity, transform;
+	width: 100%;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 0;
 		transform: rotate(-225deg);
@@ -68,7 +68,7 @@
 	opacity: 0;
 	transform: rotate(225deg);
 	transition: all 0.3s $timing;
-	        transition-property: opacity, transform;
+	transition-property: opacity, transform;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 1;
 		transform: rotate(0);
@@ -182,20 +182,20 @@
 	position: absolute;
 		top: 0;
 		left: ($grid-gutter * -20);
+	transition: all 0.3s $timing;
+	transition-property: box-shadow, left;
 	width: ($grid-gutter * 20);
 	z-index: 1;
-	transition: all 0.3s $timing;
-	        transition-property: box-shadow, left;
 	.menu.open & {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		// left
 			left: 0;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	}
 	.menu-right & {
 		// position
 			right: ($grid-gutter * -20);
 			left: auto;
-		        transition-property: box-shadow, right;
+		transition-property: box-shadow, right;
 	}
 	.menu-right.open & {
 		// position
@@ -258,7 +258,8 @@
 }
 
 .menu-top-img {
-	display:         flex;
+	align-items: center;
+	display: flex;
 	height: 100%;
 	justify-content: center;
 	overflow: hidden;
@@ -266,7 +267,6 @@
 		top: 0;
 		left: 0;
 	width: 100%;
-	        align-items: center;
 	img {
 		min-height: 100%;
 		width: 100%;
@@ -286,8 +286,8 @@
 }
 
 .menu-top-user {
-	display:         flex;
-	        align-items: center;
+	align-items: center;
+	display: flex;
 	@include clearfix();
 }
 
@@ -314,10 +314,10 @@
 	overflow: visible;
 	width: ($grid-gutter * 15);
 	.menu-scroll {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		// left
 			left: 0;
 		width: ($grid-gutter * 15);
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	}
 	&.menu-left {
 		~ .content {
