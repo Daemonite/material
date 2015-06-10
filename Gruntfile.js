@@ -28,15 +28,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		cssbeautifier: {
-			base: {
-				src: 'css/base.css'
-			},
-			project: {
-				src: 'css/project.css'
-			}
-		},
-
 		cssmin: {
 			base: {
 				src: ['css/base.css'],
