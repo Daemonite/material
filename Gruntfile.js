@@ -8,19 +8,19 @@ module.exports = function(grunt) {
 
 		concat: {
 			base: {
-				src: ['js/src/*.js'],
-				dest: 'js/base.js',
+				src: ['assets/javascripts/src/vendors/*.js', 'assets/javascripts/src/*.js'],
+				dest: 'dist/js/base.js',
 			},
 			project: {
-				src: ['js/src-project/*.js'],
-				dest: 'js/project.js'
+				src: ['assets/javascripts/src/vendors/*.js', 'assets/javascripts/src-project/*.js'],
+				dest: 'dist/js/project.js'
 			}
 		},
 
 		connect: {
 			html: {
 				options: {
-					base: '',
+					base: 'demo',
 					keepalive: 'true',
 					hostname: '0.0.0.0',
 					port: '9999'
@@ -30,12 +30,12 @@ module.exports = function(grunt) {
 
 		cssmin: {
 			base: {
-				src: ['css/base.css'],
-				dest: 'css/base.min.css'
+				src: ['dist/css/base.css'],
+				dest: 'dist/css/base.min.css'
 			},
 			project: {
-				src: ['css/project.css'],
-				dest: 'css/project.min.css'
+				src: ['dist/css/project.css'],
+				dest: 'dist/css/project.min.css'
 			}
 		},
 
@@ -48,18 +48,18 @@ module.exports = function(grunt) {
 				]
 			},
 			base: {
-				src: 'css/base.css'
+				src: 'dist/css/base.css'
 			},
 			project: {
-				src: 'css/project.css'
+				src: 'dist/css/project.css'
 			}
 		},
 
 		sass: {
 			base: {
 				files: [{
-					cwd: 'sass/',
-					dest: 'css/',
+					cwd: 'assets/stylesheets/',
+					dest: 'dist/css/',
 					expand: true,
 					ext: '.css',
 					src: ['*.scss', '!project.scss']
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 			},
 			project: {
 				files: {
-					'css/project.css': 'sass/project.scss',
+					'dist/css/project.css': 'assets/stylesheets/project.scss',
 				},
 				options: {
 					sourcemap: 'none',
@@ -83,24 +83,43 @@ module.exports = function(grunt) {
 		uglify: {
 			base: {
 				files: {
-					'js/base.min.js': ['js/base.js']
+					'dist/js/base.min.js': ['dist/js/base.js']
 				}
 			},
 			project: {
 				files: {
-					'js/project.min.js': ['js/project.js']
+					'dist/js/project.min.js': ['dist/js/project.js']
 				}
 			}
 		},
 
 		watch: {
 			base: {
-				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
+				files: ['assets/javascripts/src/*.js', 'assets/stylesheets/**/*.scss', '!sass/project.scss'],
+				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base', 'copy:base']
 			},
 			project: {
-				files: ['js/src-project/*.js', 'sass/project.scss'],
-				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
+				files: ['assets/javascripts/src-project/*.js', 'assets/stylesheets/project.scss'],
+				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project', 'copy:project']
+			}
+		},
+
+		copy: {
+			base: {
+				files: [
+					{expand: true, src: ['dist/css/base*'], dest: 'demo/css/', flatten: true },
+					{expand: true, src: ['dist/js/base*'], dest: 'demo/js/', flatten: true },
+					{expand: true, src: ['assets/fonts/*'], dest: 'demo/css/fonts/', flatten: true },
+					{expand: true, src: ['assets/fonts/*'], dest: 'dist/css/fonts/', flatten: true }
+				]
+			},
+			project: {
+				files: [
+					{expand: true, src: ['dist/css/project*'], dest: 'demo/css/', flatten: true },
+					{expand: true, src: ['dist/js/project*'], dest: 'demo/js/', flatten: true },
+					{expand: true, src: ['assets/fonts/*'], dest: 'demo/css/fonts/', flatten: true },
+					{expand: true, src: ['assets/fonts/*'], dest: 'dist/css/fonts/', flatten: true }
+				]
 			}
 		},
 
