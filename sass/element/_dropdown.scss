@@ -1,9 +1,9 @@
 .dropdown {
 	position: relative;
-	@include transition(z-index 0s 0.3s);
+	transition: z-index 0s 0.3s;
 	&.open {
+		transition: z-index 0s;
 		z-index: ($content-base + 1);
-		@include transition(z-index 0s);
 	}
 	[data-toggle="dropdown"] {
 		cursor: pointer;
@@ -18,9 +18,11 @@
 	background-color: $white;
 	border: 1px solid $black-hint;
 	border-radius: 0 2px 2px 2px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
 	list-style: none;
 	margin: -1px 0 0 !important;
 	min-width: 100%;
+	opacity: 0;
 	padding-top: ($line-height / 2) !important;
 	padding-right: 0;
 	padding-bottom: ($line-height / 2) !important;
@@ -28,17 +30,13 @@
 	position: absolute;
 		top: 100%;
 		left: 0;
-	@include box-shadow(0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
-	@include opacity(0);
-	@include transform(scale(0.25, 0));
-	-webkit-transform-origin: 0 0;
-	        transform-origin: 0 0;
-	@include transition(all 0.3s $timing);
-	-webkit-transition-property: opacity, -webkit-transform;
-	        transition-property: opacity, transform;
+	transform: scale(0.25, 0);
+	transform-origin: 0 0;
+	transition: all 0.3s $timing;
+	transition-property: opacity, transform;
 	.dropdown.open & {
-		@include opacity(1);
-		@include transform(scale(1, 1));
+		opacity: 1;
+		transform: scale(1, 1);
 	}
 	&.dropdown-menu-right,
 	.dropdown.pull-right &,
@@ -47,8 +45,7 @@
 		// position
 			right: 0;
 			left: auto;
-		-webkit-transform-origin: 100% 0;
-		        transform-origin: 100% 0;
+		transform-origin: 100% 0;
 	}
 	a,
 	.a {
@@ -84,7 +81,7 @@
 }
 
 .dropdown-toggle {
-	@include transition(background-color 0.3s $timing);
+	transition: background-color 0.3s $timing;
 	.dropdown.open & {
 		background-color: $black-bg;
 		border-radius: 2px 2px 0 0;
@@ -107,8 +104,8 @@
 	z-index: 1;
 	.dropdown.open & {
 		background-color: $white;
+		box-shadow: none;
 		color: $black-text;
-		@include box-shadow(none);
 	}
 	~ .dropdown-menu {
 		min-width: 101%;
@@ -117,7 +114,7 @@
 		// position
 			top: ($line-height / -2);
 			left: -1px;
-		@include transform(scale(1, 0));
+		transform: scale(1, 0);
 		&.dropdown-menu-right,
 		.dropdown.pull-right &,
 		.nav.pull-right & {

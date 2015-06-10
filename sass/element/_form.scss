@@ -80,9 +80,9 @@ legend {
 	height: $input-height;
 	line-height: $line-height;
 	padding: (($input-height - $line-height) / 2) 0 (($input-height - $line-height) / 2 - 1);
+	transition: border-bottom-color 0.15s $timing;
 	width: 100%;
 	@include placeholder($black-hint);
-	@include transition(border-bottom-color 0.15s $timing);
 	&:focus {
 		border-color: $link-color;
 		border-bottom-width: 2px;
@@ -106,7 +106,7 @@ legend {
 	.form-control-default & {
 		border: 1px solid $black-hint;
 		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
-		@include transition(none);
+		transition: none;
 		&:focus {
 			border: 1px solid $link-color;
 			padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
@@ -122,7 +122,7 @@ legend {
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.form-group-#{$color} {
 			.form-control,
 			.form-control:focus {
@@ -265,7 +265,7 @@ textarea.form-control {
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.form-group-#{$color} .form-label {
 			color: nth($palette-color, $i);
 		}

@@ -1,16 +1,12 @@
 .card {
 	background-color: $white;
 	border-radius: 2px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 	display: block;
-	display: -webkit-box;
-	display:    -moz-box;
-	display:     -ms-flexbox;
-	display: -webkit-flex;
-	display:         flex;
+	display: flex;
 	margin-bottom: $line-height;
+	transition: box-shadow 0.3s $timing;
 	position: relative;
-	@include box-shadow(0 1px 6px rgba(0, 0, 0, 0.3));
-	@include transition(box-shadow 0.3s $timing);
 	&[class*="-bg"] {
 		color: $white;
 	}
@@ -29,7 +25,7 @@
 		$i: index($palette-list, $color);
 
 		.card-#{$color} {
-			@include box-shadow(0 0 2px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.3));
+			box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.3);
 			// no boxshadow
 				.no-boxshadow & {
 					border-color: nth($palette-color-light, $i);
@@ -176,11 +172,7 @@
 }
 
 .card-main {
-	-webkit-box-flex: 1;
-	   -moz-box-flex: 1;
-	    -webkit-flex: 1;
-	        -ms-flex: 1;
-	            flex: 1;
+	flex: 1;
 }
 
 // colour
@@ -213,11 +205,7 @@
 	}
 	&.card-side-right {
 		border-radius: 0 2px 2px 0;
-		-webkit-box-ordinal-group: 2;
-		   -moz-box-ordinal-group: 2;
-		           -ms-flex-order: 2;
-		            -webkit-order: 2;
-		                    order: 2;
+		order: 2;
 	}
 }
 

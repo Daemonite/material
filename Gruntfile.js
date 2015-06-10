@@ -39,6 +39,22 @@ module.exports = function(grunt) {
 			}
 		},
 
+		postcss: {
+			options: {
+				map: false,
+				processors: [
+					require('autoprefixer-core')({browsers: 'last 4 version'}),
+					require('csswring')
+				]
+			},
+			base: {
+				src: 'css/base.css'
+			},
+			project: {
+				src: 'css/project.css'
+			}
+		},
+
 		sass: {
 			base: {
 				files: [{
@@ -80,14 +96,14 @@ module.exports = function(grunt) {
 		watch: {
 			base: {
 				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['concat:base', 'uglify:base', 'sass:base', 'cssmin:base']
+				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
 			},
 			project: {
 				files: ['js/src-project/*.js', 'sass/project.scss'],
-				tasks: ['concat:project', 'uglify:project', 'sass:project', 'cssmin:project']
+				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
 			}
 		},
-		
+
 		// dev update
 		devUpdate: {
 			main: {

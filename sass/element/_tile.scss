@@ -1,8 +1,8 @@
 .tile {
 	background-color: $white;
+	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
 	display: block;
 	position: relative;
-	@include box-shadow(0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15));
 	@include clearfix();
 	&[href] {
 		color: $black-text;
@@ -18,14 +18,13 @@
 	}
 	.tile-wrap-animation & {
 		opacity: 0;
-		@include transform(translate(0, 100%));
-		@include transition(all 0.6s $timing);
-		-webkit-transition-property: opacity, -webkit-transform;
-		        transition-property: opacity, transform;
+		transform: translate(0, 100%);
+		transition: all 0.6s $timing;
+		transition-property: opacity, transform;
 	}
 	.tile-wrap-animation.isinview & {
 		opacity: 1;
-		@include transform(translate(0, 0) !important);
+		transform: translate(0, 0) !important;
 	}
 	// no boxshadow
 		.no-boxshadow & {
@@ -57,7 +56,7 @@
 	@extend .card-action;
 	border-top: 0;
 	float: right;
-	@include user-select(none);
+	user-select: none;
 	.no-touch &,
 	.touch .tile-collapse & {
 		display: none;
@@ -73,19 +72,18 @@
 }
 
 .tile-active-show {
-	@include transition(height 0.15s linear);
+	transition: height 0.15s linear;
 }
 
 .tile-collapse {
-	@include transition(margin 0.15s linear);
+	transition: margin 0.15s linear;
 	&.active {
 		margin-right: ($grid-gutter * -1 + 1);
 		margin-left: ($grid-gutter * -1 + 1);
 	}
 	.tile-wrap-animation & {
-		@include transition(all 0.6s $timing, margin 0.15s linear);
-		-webkit-transition-property: margin, opacity, -webkit-transform;
-		        transition-property: margin, opacity, transform;
+		transition: all 0.6s $timing, margin 0.15s linear;
+		transition-property: margin, opacity, transform;
 	}
 }
 

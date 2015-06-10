@@ -5,6 +5,7 @@
 	background-size: 100% 100%;
 	border: 1px solid transparent;
 	border-radius: 2px;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 	color: $black-text;
 	cursor: pointer;
 	display: inline-block;
@@ -17,23 +18,22 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
+	transition: background-color 0.3s $timing, box-shadow 0.3s $timing;
+	user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
-	@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15));
-	@include transition(background-color 0.3s $timing, box-shadow 0.3s $timing);
-	@include user-select(none);
 	&:active,
 	&:focus,
 	&:hover {
+		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
 		color: $black-text;
 		outline: 0;
 		text-decoration: none;
-		@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15));
 	}
 	&[disabled],
 	fieldset[disabled] & {
 		cursor: not-allowed;
-		@include opacity(0.5);
+		opacity: 0.5;
 	}
 	&.waves-effect {
 		border: 0;
@@ -44,7 +44,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.btn-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white;

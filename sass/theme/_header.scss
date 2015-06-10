@@ -1,18 +1,18 @@
 .header {
+	backface-visibility: hidden;
 	background-color: $brand-color;
 	color: $white;
 	position: fixed;
 		top: 0;
 		right: 0;
 		left: 0;
+	transition: background-color 0.3s $timing, box-shadow 0.15s linear;
 	z-index: $header-base;
-	@include backface(hidden);
 	@include clearfix();
-	@include transition(background-color 0.3s $timing, box-shadow 0.15s linear);
 	&.fixed,
 	&.open {
 		background-color: $brand-color-dark-m;
-		@include box-shadow(0 1px 10px rgba(0, 0, 0, 0.5));
+		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 	}
 	a {
 		color: $white;
@@ -35,12 +35,11 @@
 			position: absolute;
 				top: ($line-height * 0.25);
 				left: 50%;
+			transform: scale(0);
+			transition: all 0.3s $timing;
+			transition-property: background-color, transform;
 			width: ($line-height * 1.5);
 			z-index: -1;
-			@include transform(scale(0));
-			@include transition(all 0.3s $timing);
-			-webkit-transition-property: background-color, -webkit-transform;
-			        transition-property: background-color, transform;
 			// no csstransforms
 				.no-csstransforms & {
 					display: none;
@@ -50,7 +49,7 @@
 	.dropdown.open .dropdown-toggle {
 		background-color: transparent;
 		&:after {
-			@include transform(scale(1));
+			transform: scale(1);
 			// no csstransforms
 				.no-csstransforms & {
 					display: block;
@@ -65,7 +64,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} .header {
 			background-color: nth($palette-color, $i);
 			&.fixed,

@@ -9,127 +9,78 @@
 }
 
 .load-bar-base {
+	animation: load-bar-right-in 1s $timing 1 forwards;
 	background-color: $link-color;
 	float: left;
 	height: 100%;
 	overflow: hidden;
+	transform: translate3d(-100%, 0, 0);
+	transform-origin: top right;
 	width: 100%;
-	@include animation(load-bar-right-in 1s $timing 1 forwards);
-	@include transform(translate3d(-100%, 0, 0));
-	-webkit-transform-origin: top right;
-	        transform-origin: top right;
 	.load-bar:first-child & {
-		@include animation(load-bar-left-in 1s $timing 1 forwards);
-		@include transform(translate3d(100%, 0, 0));
-		-webkit-transform-origin: top left;
-		        transform-origin: top left;
+		animation: load-bar-left-in 1s $timing 1 forwards;
+		transform: translate3d(100%, 0, 0);
+		transform-origin: top left;
 	}
 }
 
 // animation
-	@-webkit-keyframes load-bar-left-in {
-		0% {
-			@include transform(translate(100%, 0));
-			@include transform(translate3d(100%, 0, 0));
-		}
-		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
-		}
-	}
-
 	@keyframes load-bar-left-in {
 		0% {
-			@include transform(translate(100%, 0));
-			@include transform(translate3d(100%, 0, 0));
+			transform: translate(100%, 0);
+			transform: translate3d(100%, 0, 0);
 		}
 		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
-		}
-	}
-
-	@-webkit-keyframes load-bar-right-in {
-		0% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
-		}
-		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
+			transform: translate(0, 0);
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
 	@keyframes load-bar-right-in {
 		0% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
+			transform: translate(-100%, 0);
+			transform: translate3d(-100%, 0, 0);
 		}
 		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
+			transform: translate(0, 0);
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
 .load-bar-content {
+	animation: load-bar-right 4s linear infinite forwards;
+	animation-delay: 1s;
 	float: left;
 	height: 100%;
 	position: relative;
+	transform-origin: top center;
 	width: 400%;
-	@include animation(load-bar-right 4s linear infinite forwards);
-	-webkit-animation-delay: 1s;
-	        animation-delay: 1s;
-	-webkit-transform-origin: top center;
-	        transform-origin: top center;
 	.load-bar:first-child & {
-		@include animation(load-bar-left 4s linear infinite forwards);
-		-webkit-animation-delay: 1s;
-		        animation-delay: 1s;
+		animation: load-bar-left 4s linear infinite forwards;
+		animation-delay: 1s;
 	}
 }
 
 // animation
-	@-webkit-keyframes load-bar-left {
-		0% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
-		}
-		100% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
-		}
-	}
-
 	@keyframes load-bar-left {
 		0% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
+			transform: translate(0, 0);
+			transform: translate3d(0, 0, 0);
 		}
 		100% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
-		}
-	}
-
-	@-webkit-keyframes load-bar-right {
-		0% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
-		}
-		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
+			transform: translate(-100%, 0);
+			transform: translate3d(-100%, 0, 0);
 		}
 	}
 
 	@keyframes load-bar-right {
 		0% {
-			@include transform(translate(-100%, 0));
-			@include transform(translate3d(-100%, 0, 0));
+			transform: translate(-100%, 0);
+			transform: translate3d(-100%, 0, 0);
 		}
 		100% {
-			@include transform(translate(0, 0));
-			@include transform(translate3d(0, 0, 0));
+			transform: translate(0, 0);
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
@@ -143,7 +94,7 @@
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.load-bar-progress-#{$color} {
 			background-color: nth($palette-color, $i);
 		}

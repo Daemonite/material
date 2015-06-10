@@ -12,10 +12,10 @@
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	.content-fix.fixed & {
+		backface-visibility: hidden;
 		position: fixed;
 			top: ($line-height * 2);
 			bottom: 0;
-		@include backface(hidden);
 	}
 }
 
@@ -41,11 +41,11 @@
 	overflow: hidden;
 	padding-top: ($line-height * 2);
 	position: relative;
+	transition: background-color 0.3s $timing, color 0.3s $timing;
 	z-index: 1;
-	@include transition(background-color 0.3s $timing, color 0.3s $timing);
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} & {
 			background-color: nth($palette-color, $i);
 		}
@@ -62,7 +62,7 @@
 	line-height: $line-height-h4;
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.page-#{$color} & {
 			color: nth($palette-color, $i);
 		}

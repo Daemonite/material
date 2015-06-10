@@ -13,7 +13,7 @@
 				padding-right: ($grid-gutter / 2);
 				padding-left: ($grid-gutter / 2);
 				text-transform: uppercase;
-				@include transition(border-bottom 0s, padding-bottom 0s);
+				transition: border-bottom 0s, padding-bottom 0s;
 				&:focus,
 				&:hover {
 					color: $link-color;
@@ -23,7 +23,7 @@
 				border-bottom: 3px solid $link-color;
 				color: $link-color;
 				padding-bottom: ($line-height / 2 - 3);
-				@include transition(border-bottom 0s 0.45s, padding-bottom 0s 0.45s);
+				transition: border-bottom 0s 0.45s, padding-bottom 0s 0.45s;
 			}
 		}
 	}
@@ -34,16 +34,16 @@
 	height: 3px;
 	position: absolute;
 		bottom: -1px;
-	@include transition(left 0.3s $timing 0.15s, right 0.3s $timing);
+	transition: left 0.3s $timing 0.15s, right 0.3s $timing;
 	&.reverse {
-		@include transition(left 0.3s $timing, right 0.3s $timing 0.15s);
+		transition: left 0.3s $timing, right 0.3s $timing 0.15s;
 	}
 }
 
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
-		
+
 		.tab-nav-#{$color} {
 			.nav {
 				> li {
