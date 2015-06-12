@@ -69,6 +69,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			}
 		});
 	});
+
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
@@ -106,7 +107,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	}
 // checkbox & radio
 	$('.checkbox-adv').each(function() {
-		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon icon-done"></span>');
+		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
 	});
 
 	$('.radio-adv').each(function() {
@@ -168,6 +169,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	!function(t,e){function i(e){this.element=e,this.$element=t(e),this.init()}var n="textareaAutoSize",h="plugin_"+n,s=function(t){return t.replace(/\s/g,"").length>0};i.prototype={init:function(){var i=(this.$element.outerHeight(),parseInt(this.$element.css("paddingBottom"))+parseInt(this.$element.css("paddingTop")));s(this.element.value)&&this.$element.height(this.element.scrollHeight-i),this.$element.on("input keyup",function(){var n=t(e),h=n.scrollTop();t(this).height(0).height(this.scrollHeight-i),n.scrollTop(h)})}},t.fn[n]=function(e){return this.each(function(){t.data(this,h)||t.data(this,h,new i(this,e))}),this}}(jQuery,window,document);
 
 	$('.textarea-autosize').textareaAutoSize();
+
 // get target from trigger
 	getTargetFromTrigger = function(trigger) {
 		var href;
