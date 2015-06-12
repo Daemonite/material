@@ -1,39 +1,40 @@
 // webfont.js
 	WebFontConfig = {
 		classes: false,
-		fontactive: function() {
-			$('.avoid-fout').each(function(index) {
-				$(this).addClass('avoid-fout-done');
-			});
-
-			// fixed left/right hand side column padding bottom and width
-				contentFixPushCal();
-
-			// footer push
-				footerPush();
-
-			// header height
-				headerHeightCal();
-
-			// tab indicator
-				$('.tab-nav').each(function() {
-					tabSwitch($('.nav > li.active', $(this)), null);
-				});
-
-			// tile wrap animation
-				tileInView();
-		},
-		fontinactive: function() {
-			$('.avoid-fout').each(function(index) {
-				$(this).addClass('avoid-fout-done');
-			});
-
-			// tile wrap animation
-				tileInView();
-		},
 		google: {
 			families: ['Roboto:300,300italic,400,400italic,700,700italic']
-		}
+		},
+		// callbacks
+			active: function() {
+				$('.avoid-fout').each(function(index) {
+					$(this).addClass('avoid-fout-done');
+				});
+
+				// fixed left/right hand side column padding bottom and width
+					contentFixPushCal();
+
+				// footer push
+					footerPush();
+
+				// header height
+					headerHeightCal();
+
+				// tab indicator
+					$('.tab-nav').each(function() {
+						tabSwitch($('.nav > li.active', $(this)), null);
+					});
+
+				// tile wrap animation
+					tileInView();
+			},
+			inactive: function() {
+				$('.avoid-fout').each(function(index) {
+					$(this).addClass('avoid-fout-done');
+				});
+
+				// tile wrap animation
+					tileInView();
+			}
 	};
 
 	(function() {
