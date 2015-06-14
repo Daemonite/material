@@ -8,23 +8,53 @@
 	background-clip: padding-box;
 	background-color: $white;
 	border-radius: 4px;
+	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
 	outline: 0;
 	overflow: hidden;
+	position: relative;
 	vertical-align: middle;
-	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+	z-index: 1;
 	@include clearfix();
+	// 992
+		@include responsive(md) {
+			&:before {
+				background-color: $brand-color;
+				border-radius: 4px 0 0 4px;
+				content: "";
+				display: block;
+				height: 100%;
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: (($grid-gutter + $line-height * 2 * 7) / 2);
+				z-index: -1;
+			}
+		}
 }
 
 .picker__date-display {
 	background-color: $brand-color;
 	border-radius: 4px 4px 0 0;
 	color: $white;
+	padding: ($line-height / 2) $grid-gutter;
+	text-align: left;
 	// 992
 		@include responsive(md) {
 			border-radius: 4px 0 0 0;
 			float: left;
-			width: 50%;
+			width: (($grid-gutter + $line-height * 2 * 7) / 2);
 		}
+}
+
+.picker__date-display-bottom {
+	font-size: $font-size-h2;
+	line-height: $line-height-h2;
+}
+
+.picker__date-display-top {
+	color: $brand-color-light;
+	font-weight: 300;
+	margin-bottom: ($line-height / 4);
 }
 
 .picker__day {
@@ -48,15 +78,7 @@
 }
 
 .picker__day-display {
-	font-size: $font-size-lg;
-	line-height: $line-height-lg;
-	padding: 0 $grid-gutter;
-	// 992
-		@include responsive(md) {
-			div {
-				font-size: 2em;
-			}
-		}
+	margin-right: ($grid-gutter / 2);
 }
 
 .picker__day--outfocus {
@@ -96,7 +118,7 @@
 		}
 	// 992
 		@include responsive(md) {
-			max-width: (($grid-gutter + $line-height * 1.5 * 7) * 2);
+			max-width: (($grid-gutter + $line-height * 2 * 7) * 1.5);
 		}
 }
 
@@ -109,7 +131,7 @@
 			margin-top: ($line-height / 4);
 			margin-right: 0;
 			margin-left: 0;
-			width: 50%;
+			width: ($grid-gutter + $line-height * 14);
 		}
 }
 
@@ -164,19 +186,6 @@
 	&:first-child {
 		margin-left: 0;
 	}
-}
-
-.picker__month-display {
-	font-size: $font-size-h3;
-	font-weight: 300;
-	line-height: $line-height-h3;
-	padding: ($line-height / 2) $grid-gutter 0;
-	text-transform: uppercase;
-	// 992
-		@include responsive(md) {
-			padding-top: $line-height;
-			padding-bottom: (($line-height * 1.5 * 6 + $line-height - $line-height-lg) / 2 - $line-height - $line-height-h3);
-		}
 }
 
 .picker__nav--next,
@@ -234,7 +243,6 @@
 		@include responsive(md) {
 			float: left;
 			margin: 0;
-			width: 50%;
 		}
 }
 
@@ -254,14 +262,14 @@
 		}
 	// 992
 		@include responsive(md) {
-			width: ($line-height * 1.5);
+			width: ($line-height * 2);
 			&:first-child {
 				padding-left: ($grid-gutter / 2);
-				width: ($grid-gutter / 2 + $line-height * 1.5);
+				width: ($grid-gutter / 2 + $line-height * 2);
 			}
 			&:last-child {
 				padding-right: ($grid-gutter / 2);
-				width: ($grid-gutter / 2 + $line-height * 1.5);
+				width: ($grid-gutter / 2 + $line-height * 2);
 			}
 		}
 }
@@ -272,20 +280,12 @@
 }
 
 .picker__weekday-display {
-	background-color: $brand-color-dark-m;
-	border-radius: 4px 4px 0 0;
-	padding: ($line-height / 4) $grid-gutter;
-}
-
-.picker__year-display {
-	color: $brand-color-light;
-	font-size: $font-size-h3;
-	font-weight: 300;
-	line-height: $line-height-h3;
-	padding: 0 $grid-gutter ($line-height / 2);
+	margin-right: ($grid-gutter / 2);
+	&:after {
+		content: ",";
+	}
 	// 992
 		@include responsive(md) {
-			padding-top: (($line-height * 1.5 * 6 + $line-height - $line-height-lg) / 2 - $line-height - $line-height-h3);
-			padding-bottom: $line-height;
+			display: block;
 		}
 }
