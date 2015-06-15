@@ -72,8 +72,8 @@
 				buttonClear: 'btn btn-flat btn-alt picker__button--clear',
 				buttonClose: 'btn btn-flat btn-alt picker__button--close',
 				buttonToday: 'btn btn-flat btn-alt picker__button--today',
-				navPrev: 'icon icon-keyboard-arrow-left picker__nav--prev',
-				navNext: 'icon icon-keyboard-arrow-right picker__nav--next',
+				navPrev: 'icon picker__nav--prev',
+				navNext: 'icon picker__nav--next',
 			},
 			weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 			weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
@@ -121,6 +121,7 @@
 			'</div>'
 		);
 	}
+
 // dropdown menu show
 	$(document).on('show.bs.dropdown', '.dropdown', function() {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
@@ -158,7 +159,7 @@
 	}
 // checkbox & radio
 	$('.checkbox-adv').each(function() {
-		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon icon-done"></span>');
+		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
 	});
 
 	$('.radio-adv').each(function() {
@@ -220,6 +221,7 @@
 	!function(t,e){function i(e){this.element=e,this.$element=t(e),this.init()}var n="textareaAutoSize",h="plugin_"+n,s=function(t){return t.replace(/\s/g,"").length>0};i.prototype={init:function(){var i=(this.$element.outerHeight(),parseInt(this.$element.css("paddingBottom"))+parseInt(this.$element.css("paddingTop")));s(this.element.value)&&this.$element.height(this.element.scrollHeight-i),this.$element.on("input keyup",function(){var n=t(e),h=n.scrollTop();t(this).height(0).height(this.scrollHeight-i),n.scrollTop(h)})}},t.fn[n]=function(e){return this.each(function(){t.data(this,h)||t.data(this,h,new i(this,e))}),this}}(jQuery,window,document);
 
 	$('.textarea-autosize').textareaAutoSize();
+
 // get target from trigger
 	getTargetFromTrigger = function(trigger) {
 		var href;

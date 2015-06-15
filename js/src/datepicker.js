@@ -20,8 +20,8 @@
 				buttonClear: 'btn btn-flat btn-alt picker__button--clear',
 				buttonClose: 'btn btn-flat btn-alt picker__button--close',
 				buttonToday: 'btn btn-flat btn-alt picker__button--today',
-				navPrev: 'icon icon-keyboard-arrow-left picker__nav--prev',
-				navNext: 'icon icon-keyboard-arrow-right picker__nav--next',
+				navPrev: 'icon picker__nav--prev',
+				navNext: 'icon picker__nav--next',
 			},
 			weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 			weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']

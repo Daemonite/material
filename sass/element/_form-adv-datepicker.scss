@@ -193,23 +193,46 @@
 	cursor: pointer;
 	line-height: $line-height;
 	margin-top: ($line-height / -2);
-	padding: 0 $grid-gutter;
 	position: absolute;
 		top: 50%;
+	text-align: center;
+	width: ($line-height * 1.5);
 	&:focus,
 	&:hover {
 		color: $link-color;
 	}
+	// 480
+		@include responsive(xs) {
+			width: ($line-height * 1.75);
+		}
+	// 992
+		@include responsive(md) {
+			width: ($line-height * 2);
+		}
 }
 
 .picker__nav--next {
 	// position
 		right: 0;
+	&:before {
+		content: "keyboard_arrow_right";
+	}
+	// 992
+		@include responsive(md) {
+			right: ($grid-gutter / 2);
+		}
 }
 
 .picker__nav--prev {
 	// position
 		left: 0;
+	&:before {
+		content: "keyboard_arrow_left";
+	}
+	// 992
+		@include responsive(md) {
+			left: ($grid-gutter / 2);
+		}
 }
 
 .picker__select--month,

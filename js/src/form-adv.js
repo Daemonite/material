@@ -1,6 +1,6 @@
 // checkbox & radio
 	$('.checkbox-adv').each(function() {
-		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon icon-done"></span>');
+		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
 	});
 
 	$('.radio-adv').each(function() {
