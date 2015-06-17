@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
     concat: {
       base: {
-        src: ['js/src/*.js'],
+        src: ['src/js/src/*.js'],
         dest: 'dist/js/base.js',
       }
     },
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     sass: {
       base: {
         files: [{
-          cwd: 'sass/',
+          cwd: 'src/sass/',
           dest: 'dist/css/',
           expand: true,
           ext: '.css',
@@ -70,7 +70,7 @@ module.exports = function(grunt) {
 
     watch: {
       base: {
-        files: ['js/src/*.js', 'sass/**/*.scss'],
+        files: ['src/js/src/*.js', 'src/sass/**/*.scss'],
         tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
       }
     },
