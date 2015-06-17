@@ -1,88 +1,88 @@
 module.exports = function(grunt) {
-	// load all grunt tasks
-	require('load-grunt-tasks')(grunt);
+  // load all grunt tasks
+  require('load-grunt-tasks')(grunt);
 
-	// grunt config
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+  // grunt config
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-		concat: {
-			base: {
-				src: ['js/src/*.js'],
-				dest: 'js/base.js',
-			}
-		},
+    concat: {
+      base: {
+        src: ['js/src/*.js'],
+        dest: 'dist/js/base.js',
+      }
+    },
 
-		connect: {
-			html: {
-				options: {
-					base: '',
-					keepalive: 'true',
-					hostname: '0.0.0.0',
-					port: '9999'
-				}
-			}
-		},
+    connect: {
+      html: {
+        options: {
+          base: '',
+          keepalive: 'true',
+          hostname: '0.0.0.0',
+          port: '9999'
+        }
+      }
+    },
 
-		cssmin: {
-			base: {
-				src: ['css/base.css'],
-				dest: 'css/base.min.css'
-			}
-		},
+    cssmin: {
+      base: {
+        src: ['dist/css/base.css'],
+        dest: 'dist/css/base.min.css'
+      }
+    },
 
-		postcss: {
-			options: {
-				map: false,
-				processors: [
-					require('autoprefixer-core')({browsers: 'last 4 version'}),
-					require('csswring')
-				]
-			},
-			base: {
-				src: 'css/base.css'
-			}
-		},
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+          require('autoprefixer-core')({browsers: 'last 4 version'}),
+          require('csswring')
+        ]
+      },
+      base: {
+        src: 'dist/css/base.css'
+      }
+    },
 
-		sass: {
-			base: {
-				files: [{
-					cwd: 'sass/',
-					dest: 'css/',
-					expand: true,
-					ext: '.css',
-					src: ['*.scss', '!project.scss']
-				}],
-				options: {
-					sourcemap: 'none',
-					style: 'expanded'
-				}
-			}
-		},
+    sass: {
+      base: {
+        files: [{
+          cwd: 'sass/',
+          dest: 'dist/css/',
+          expand: true,
+          ext: '.css',
+          src: ['*.scss']
+        }],
+        options: {
+          sourcemap: 'none',
+          style: 'expanded'
+        }
+      }
+    },
 
-		uglify: {
-			base: {
-				files: {
-					'js/base.min.js': ['js/base.js']
-				}
-			}
-		},
+    uglify: {
+      base: {
+        files: {
+          'dist/js/base.min.js': ['dist/js/base.js']
+        }
+      }
+    },
 
-		watch: {
-			base: {
-				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
-			}
-		},
+    watch: {
+      base: {
+        files: ['js/src/*.js', 'sass/**/*.scss'],
+        tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
+      }
+    },
 
-		// dev update
-		devUpdate: {
-			main: {
-				options: {
-					semver: false,
-					updateType: 'prompt'
-				}
-			}
-		}
-	});
+    // dev update
+    devUpdate: {
+      main: {
+        options: {
+          semver: false,
+          updateType: 'prompt'
+        }
+      }
+    }
+  });
 };
