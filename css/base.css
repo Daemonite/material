@@ -2817,9 +2817,9 @@ th {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: opacity, -webkit-transform;
@@ -5060,9 +5060,9 @@ a.fbtn:focus, a.fbtn:hover {
 }
 .fbtn-dropdown .fbtn {
   opacity: 0;
-  -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
+  -webkit-transform: scale(0.5, 0.5);
+      -ms-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
 }
 .fbtn-dropdown .fbtn:nth-last-child(1) {
   -webkit-transition-delay: 300ms;
@@ -5090,9 +5090,9 @@ a.fbtn:focus, a.fbtn:hover {
 }
 .fbtn-inner.open .fbtn-dropdown .fbtn {
   opacity: 1;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
   -webkit-transition-delay: 300ms;
           transition-delay: 300ms;
 }
@@ -6208,9 +6208,9 @@ legend + .form-group {
 }
 .checkbox-adv .circle-check, .radio-adv .circle-check {
   background-color: transparent;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: background-color, -webkit-transform;
@@ -6232,9 +6232,9 @@ legend + .form-group {
   background-color: #9e9e9e;
 }
 .checkbox-adv input.access-hide:checked ~ .circle-check, .radio-adv input.access-hide:checked ~ .circle-check {
-  -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
+  -webkit-transform: scale(0.5, 0.5);
+      -ms-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
 }
 .checkbox-adv input.access-hide:checked ~ .circle-check:after, .radio-adv input.access-hide:checked ~ .circle-check:after {
   -webkit-animation: circle-check 0.6s;
@@ -6243,9 +6243,9 @@ legend + .form-group {
 .checkbox-adv .circle-icon, .radio-adv .circle-icon {
   background-color: transparent;
   color: transparent;
-  -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
-          transform: scale(0.5);
+  -webkit-transform: scale(0.5, 0.5);
+      -ms-transform: scale(0.5, 0.5);
+          transform: scale(0.5, 0.5);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: background-color, color, -webkit-transform;
@@ -6257,9 +6257,9 @@ legend + .form-group {
 .checkbox-adv input.access-hide:checked ~ .circle-icon, .radio-adv input.access-hide:checked ~ .circle-icon {
   background-color: #4caf50;
   color: #ffffff;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 .checkbox-adv.disabled input.access-hide:checked ~ .circle-icon, .disabled.radio-adv input.access-hide:checked ~ .circle-icon, fieldset[disabled] .checkbox-adv input.access-hide:checked ~ .circle-icon, fieldset[disabled] .radio-adv input.access-hide:checked ~ .circle-icon {
   background-color: #9e9e9e;
@@ -7624,8 +7624,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   float: left;
   height: 100%;
   overflow: hidden;
-  -webkit-transform: translate3d(-100%, 0, 0);
-          transform: translate3d(-100%, 0, 0);
+  -webkit-transform: translate(-100%, 0);
+      -ms-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
   -webkit-transform-origin: top right;
       -ms-transform-origin: top right;
           transform-origin: top right;
@@ -7635,8 +7636,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 .load-bar:first-child .load-bar-base {
   -webkit-animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
           animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
-  -webkit-transform: translate3d(100%, 0, 0);
-          transform: translate3d(100%, 0, 0);
+  -webkit-transform: translate(100%, 0);
+      -ms-transform: translate(100%, 0);
+          transform: translate(100%, 0);
   -webkit-transform-origin: top left;
       -ms-transform-origin: top left;
           transform-origin: top left;
@@ -7646,14 +7648,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   0% {
     -webkit-transform: translate(100%, 0);
             transform: translate(100%, 0);
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 
@@ -7661,42 +7659,30 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   0% {
     -webkit-transform: translate(100%, 0);
             transform: translate(100%, 0);
-    -webkit-transform: translate3d(100%, 0, 0);
-            transform: translate3d(100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 @-webkit-keyframes load-bar-right-in {
   0% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 @keyframes load-bar-right-in {
   0% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 .load-bar-content {
@@ -7724,14 +7710,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   0% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
   100% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
 }
 
@@ -7739,42 +7721,30 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   0% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
   100% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
 }
 @-webkit-keyframes load-bar-right {
   0% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 @keyframes load-bar-right {
   0% {
     -webkit-transform: translate(-100%, 0);
             transform: translate(-100%, 0);
-    -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
   }
   100% {
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
   }
 }
 .load-bar-progress {
@@ -8364,8 +8334,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   color: #ffffff;
   font-size: 14px;
   padding: 12px 16px;
-  -webkit-transform: translate3d(0, 200%, 0);
-          transform: translate3d(0, 200%, 0);
+  -webkit-transform: translate(0, 200%);
+      -ms-transform: translate(0, 200%);
+          transform: translate(0, 200%);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: -webkit-transform;
@@ -8380,8 +8351,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   clear: both;
 }
 .toast-show .toast-inner {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
 }
 @media only screen and (min-width: 768px) {
   .toast-inner {
@@ -8569,9 +8541,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   position: absolute;
   top: 6px;
   left: 50%;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+          transform: scale(0, 0);
   -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition-property: background-color, -webkit-transform;
@@ -8586,9 +8558,9 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   background-color: transparent;
 }
 .header .dropdown.open .dropdown-toggle:after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 .no-csstransforms .header .dropdown.open .dropdown-toggle:after {
   display: block;

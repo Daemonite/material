@@ -27,7 +27,7 @@
 	}
 	.circle-check {
 		background-color: transparent;
-		transform: scale(0);
+		transform: scale(0, 0);
 		transition: all 0.3s $timing;
 		transition-property: background-color, transform;
 		&:after {
@@ -50,7 +50,7 @@
 		}
 	}
 	input.access-hide:checked ~ .circle-check {
-		transform: scale(0.5);
+		transform: scale(0.5, 0.5);
 		&:after {
 			animation: circle-check 0.6s;
 		}
@@ -58,7 +58,7 @@
 	.circle-icon {
 		background-color: transparent;
 		color: transparent;
-		transform: scale(0.5);
+		transform: scale(0.5, 0.5);
 		transition: all 0.3s $timing;
 		transition-property: background-color, color, transform;
 		&:before {
@@ -69,7 +69,7 @@
 	input.access-hide:checked ~ .circle-icon {
 		background-color: $brand-color;
 		color: $white;
-		transform: scale(1);
+		transform: scale(1, 1);
 	}
 	&.disabled,
 	fieldset[disabled] & {
