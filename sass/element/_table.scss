@@ -1,11 +1,38 @@
 .table {
 	background-color: $white;
+	border: 1px solid $black-bg;
 	margin-top: $line-height;
 	margin-bottom: $line-height;
 	width: 100%;
+	.card-table > & {
+		border: 0;
+		margin-right: ($grid-gutter * -1);
+		margin-left: ($grid-gutter * -1);
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	> tbody {
+		> tr:hover {
+			background-color: $white-bg-dark;
+		}
+		.card-table > &,
+		.card-table > .table-responsive > & {
+			&:first-child > tr:first-child {
+				td,
+				th {
+					border-top: 0;
+				}
+			}
+		}
+	}
 	td,
 	th {
-		border: 1px solid $black-bg;
+		border-top: 1px solid $black-bg;
+		font-size: floor($font-size * 0.9);
 		line-height: $line-height;
 		padding: (($cell-height - $line-height) / 2) $grid-gutter (($cell-height - $line-height) / 2 - 1);
 		vertical-align: top;
@@ -17,32 +44,43 @@
 	> thead {
 		td,
 		th {
-			background-color: $white-bg;
-			color: $black-sec;
+			color: $black-hint;
 			vertical-align: bottom;
 		}
-	}
-}
-
-.table-stripe > tbody > tr:nth-child(odd) {
-	background-color: $white-bg-light;
-}
-
-.table-hover > tbody > tr:hover {
-	background-color: $white-bg-dark;
-}
-
-// responsive
-	.table-responsive {
-		margin-top: $line-height;
-		margin-bottom: $line-height;
-		min-height: 0.01%;
-		overflow-x: auto;
-		overflow-y: hidden;
-		-webkit-overflow-scrolling: touch;
-		-ms-overflow-style: -ms-autohiding-scrollbar;
-		.table {
-			margin-top: 0;
-			margin-bottom: 0;
+		.card-table > &,
+		.card-table > .table-responsive > & {
+			&:first-child > tr:first-child {
+				td,
+				th {
+					border-top: 0;
+				}
+			}
 		}
 	}
+}
+
+.table-responsive {
+	margin-top: $line-height;
+	margin-bottom: $line-height;
+	min-height: 0.01%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	.card-table > & {
+		margin-right: ($grid-gutter * -1);
+		margin-left: ($grid-gutter * -1);
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		> .table {
+			border: 0;
+		}
+	}
+	> .table {
+		margin: 0;
+	}
+}
