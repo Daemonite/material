@@ -99,9 +99,25 @@ module.exports = function(grunt) {
 				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
 				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
 			},
+			basecss: {
+				files: ['sass/**/*.scss', '!sass/project.scss'],
+				tasks: ['sass:base', 'postcss:base', 'cssmin:base']
+			},
+			basejs: {
+				files: ['js/src/*.js'],
+				tasks: ['concat:base', 'uglify:base']
+			},
 			project: {
 				files: ['js/src-project/*.js', 'sass/project.scss'],
 				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
+			},
+			projectcss: {
+				files: ['sass/project.scss'],
+				tasks: ['sass:project', 'postcss:project', 'cssmin:project']
+			},
+			projectjs: {
+				files: ['js/src-project/*.js'],
+				tasks: ['concat:project', 'uglify:project']
 			}
 		},
 
