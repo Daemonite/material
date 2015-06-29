@@ -2,7 +2,7 @@
 	WebFontConfig = {
 		classes: false,
 		google: {
-			families: ['Roboto:300,300italic,400,400italic,700,700italic']
+			families: ['Roboto:300,300italic,400,400italic,500,500italic']
 		},
 		// callbacks
 			active: function() {
