@@ -16,7 +16,7 @@
 	.form-group-label.control-focus &,
 	.form-group-label.control-highlight & {
 		color: $black-sec;
-		font-size: ($input-height - $line-height);
+		font-size: $font-size-h6;
 		// position
 			top: (($input-height - $line-height) * -1);
 	}
@@ -26,13 +26,16 @@
 }
 
 .form-group-label {
-	margin-top: ($line-height * 1.5);
-	margin-bottom: ($line-height * 1.5);
+	margin-top: ($margin-md * 1.5);
+	margin-bottom: ($margin-md * 1.5);
 	position: relative;
 	.form-control {
 		position: relative;
 		z-index: 1;
 		@include placeholder(transparent);
+	}
+	legend + & {
+		margin-top: ($margin-md / 2);
 	}
 }
 
@@ -48,7 +51,10 @@
 .form-icon-label {
 	cursor: pointer;
 	display: block;
-	padding: (($input-height - $line-height) / 2) 0;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	padding: (($input-height - $line-height-h4) / 2) 0;
+	transition: color 0.15s $timing;
 	.form-group-icon.control-focus & {
 		color: $link-color;
 	}

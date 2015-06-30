@@ -18,10 +18,10 @@
 	}
 	// 768
 		@include responsive(sm) {
-			margin-right: ($grid-gutter * 2 + $line-height * 2);
+			margin-right: ($avatar-height + $grid-gutter * 2);
 			// position
 				right: auto;
-				bottom: $line-height;
+				bottom: $margin-md;
 				left: $grid-gutter !important;
 		}
 }
@@ -31,8 +31,7 @@
 	background-color: $black-text;
 	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 	color: $white;
-	font-size: floor($font-size * 0.9);
-	padding: ($line-height / 2) $grid-gutter;
+	padding: $margin-sm $grid-gutter;
 	transform: translate(0, 200%);
 	transition: all 0.3s $timing;
 	transition-property: transform;
@@ -61,7 +60,7 @@
 [data-dismiss="toast"] {
 	cursor: pointer;
 	float: right;
-	font-weight: $font-weight-bold;
+	font-weight: $font-weight-medium;
 	margin-left: $grid-gutter;
 	text-transform: uppercase;
 }

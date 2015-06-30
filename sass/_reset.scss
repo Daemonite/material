@@ -32,10 +32,11 @@
 		color: $black-text;
 		font-family: $font-fam;
 		font-size: $font-size;
-		font-weight: $font-weight;
+		font-weight: $font-weight-normal;
 		line-height: $line-height;
 		margin: 0;
 		padding: 0;
+		text-rendering: optimizeLegibility;
 		-webkit-font-smoothing: subpixel-antialiased;
 	}
 
@@ -108,7 +109,7 @@
 		min-width: 0;
 		padding: 0;
 		& ~ fieldset {
-			margin-top: $line-height;
+			margin-top: $margin-md;
 		}
 	}
 
@@ -120,7 +121,6 @@
 	input[type="radio"] {
 		line-height: normal;
 		margin: 4px 0 0;
-		margin-top: 1px \9;
 		padding: 0;
 	}
 
@@ -169,7 +169,7 @@
 
 	label {
 		display: inline-block;
-		font-weight: $font-weight;
+		font-weight: $font-weight-normal;
 		margin: 0;
 		max-width: 100%;
 	}
@@ -179,15 +179,15 @@
 		color: $black-text;
 		display: block;
 		font-size: $font-size-h3;
-		font-weight: $font-weight;
+		font-weight: $font-weight-normal;
 		line-height: $line-height-h3;
-		margin: 0 0 $line-height;
+		margin: 0 0 $margin-sm;
 		padding: 0;
 		width: 100%;
 	}
 
 	optgroup {
-		font-weight: $font-weight-bold;
+		font-weight: $font-weight-medium;
 	}
 
 	select[multiple],
@@ -221,14 +221,14 @@
 	address {
 		font-size: $font-size;
 		font-style: normal;
-		font-weight: $font-weight;
+		font-weight: $font-weight-normal;
 		line-height: $line-height;
-		margin: $line-height 0;
+		margin: $margin-sm 0;
 	}
 
 	b,
 	strong {
-		font-weight: $font-weight-bold;
+		font-weight: $font-weight-medium;
 	}
 
 	blockquote,
@@ -237,32 +237,18 @@
 		font-style: italic;
 		font-weight: $font-weight-light;
 		line-height: $line-height-h4;
-		margin: ($line-height * 1.5) 0;
+		margin: $margin-md 0;
 		padding-right: ($grid-gutter * 2);
 		padding-left: ($grid-gutter * 2);
 		position: relative;
-		&:after,
-		&:before {
-			color: $brand-color;
-			display: block;
-			font-size: $font-size-h1;
-			font-weight: $font-weight-bold;
-			line-height: 0;
-			position: absolute;
-				top: 0;
-		}
-		&:after {
-			content: close-quote;
-			// position
-				right: 0;
-		}
 		&:before {
 			border-right: 1px solid $brand-color-light;
-			content: open-quote;
-			// position
+			content: "";
+			display: block;
+			position: absolute;
+				top: 0;
 				bottom: 0;
 				left: 0;
-			width: ($grid-gutter / 2);
 		}
 	}
 
@@ -277,11 +263,11 @@
 	}
 
 	dl {
-		margin: $line-height 0;
+		margin: $margin-sm 0;
 	}
 
 	dt {
-		font-weight: $font-weight-bold;
+		font-weight: $font-weight-medium;
 	}
 
 	h1,
@@ -298,9 +284,9 @@
 	.h6 {
 		color: inherit;
 		font-family: $font-fam;
-		font-weight: $font-weight-bold;
-		margin-top: ($line-height * 2);
-		margin-bottom: $line-height;
+		font-weight: $font-weight-normal;
+		margin-top: $margin-lg;
+		margin-bottom: $margin-sm;
 	}
 
 	h1,
@@ -349,7 +335,6 @@
 	.h4 {
 		small {
 			font-size: $font-size;
-			font-weight: $font-weight;
 		}
 	}
 
@@ -360,8 +345,8 @@
 		box-sizing: content-box;
 		display: block;
 		height: 0;
-		margin-top: $line-height;
-		margin-bottom: $line-height;
+		margin-top: $margin-md;
+		margin-bottom: $margin-md;
 	}
 
 	img {
@@ -371,7 +356,7 @@
 
 	ol,
 	ul {
-		margin: $line-height 0;
+		margin: $margin-sm 0;
 		padding: 0 0 0 ($grid-gutter * 2);
 		ol,
 		ul {
@@ -381,7 +366,7 @@
 	}
 
 	p {
-		margin: $line-height 0;
+		margin: $margin-sm 0;
 	}
 
 	small {

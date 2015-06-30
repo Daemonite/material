@@ -1,8 +1,8 @@
 .table {
 	background-color: $white;
 	border: 1px solid $black-bg;
-	margin-top: $line-height;
-	margin-bottom: $line-height;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
 	width: 100%;
 	.card-table > & {
 		border: 0;
@@ -32,9 +32,9 @@
 	td,
 	th {
 		border-top: 1px solid $black-bg;
-		font-size: floor($font-size * 0.9);
+		font-size: $font-size;
 		line-height: $line-height;
-		padding: (($cell-height - $line-height) / 2) $grid-gutter (($cell-height - $line-height) / 2 - 1);
+		padding: (($cell-height - $line-height) / 2 - 1) $grid-gutter (($cell-height - $line-height) / 2);
 		vertical-align: top;
 		&.nowrap {
 			white-space: nowrap;
@@ -45,6 +45,7 @@
 		td,
 		th {
 			color: $black-hint;
+			font-size: $font-size-h6;
 			vertical-align: bottom;
 		}
 		.card-table > &,
@@ -60,8 +61,8 @@
 }
 
 .table-responsive {
-	margin-top: $line-height;
-	margin-bottom: $line-height;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
 	min-height: 0.01%;
 	overflow-x: auto;
 	overflow-y: hidden;
