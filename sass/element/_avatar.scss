@@ -18,8 +18,16 @@
 	&.pull-right {
 		margin-left: $grid-gutter;
 	}
-	.nav a &,
-	.nav .a & {
+	.card-header-side > & {
+		&:first-child {
+			margin-top: (($avatar-height - $line-height) / -2);
+		}
+		&:last-child {
+			margin-bottom: (($avatar-height - $line-height) / -2);
+		}
+	}
+	.nav a > &,
+	.nav .a > & {
 		margin-top: (($avatar-height - $line-height) / -2);
 		margin-bottom: (($avatar-height - $line-height) / -2);
 	}
@@ -47,6 +55,10 @@
 		.avatar-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white;
+			&:focus,
+			&:hover {
+				color: $white;
+			}
 		}
 	}
 
@@ -58,9 +70,22 @@
 	}
 
 	.avatar-sm {
-		height: ($avatar-height / 2);
-		line-height: ($avatar-height / 2);
-		width: ($avatar-height / 2);
+		height: ($avatar-height * 0.8);
+		line-height: ($avatar-height * 0.8);
+		width: ($avatar-height * 0.8);
+		.card-header-side > & {
+			&:first-child {
+				margin-top: (($avatar-height * 0.8 - $line-height) / -2);
+			}
+			&:last-child {
+				margin-bottom: (($avatar-height * 0.8 - $line-height) / -2);
+			}
+		}
+		.nav a > &,
+		.nav .a > & {
+			margin-top: (($avatar-height * 0.8 - $line-height) / -2);
+			margin-bottom: (($avatar-height * 0.8 - $line-height) / -2);
+		}
 	}
 
 .avatar-inline {

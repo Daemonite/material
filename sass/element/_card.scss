@@ -90,10 +90,21 @@
 
 .card-header {
 	border-bottom: 1px solid $black-bg;
-	padding-top: $margin-base;
-	padding-bottom: $margin-base;
+	min-height: $header-height;
 	position: relative;
 	@include clearfix();
+}
+
+.card-header-side {
+	vertical-align: middle;
+	padding-top: (($header-height - $line-height) / 2);
+	padding-bottom: (($header-height - $line-height) / 2);
+	&.pull-left {
+		padding-left: $grid-gutter;
+	}
+	&.pull-right {
+		padding-right: $grid-gutter;
+	}
 }
 
 .card-heading {
@@ -145,24 +156,14 @@
 	position: relative;
 	z-index: 1;
 	.card-header & {
+		flex: 1;
 		font-size: $font-size-h5;
 		line-height: $line-height-h5;
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-top: $margin-base;
-		padding-bottom: $margin-base;
+		margin-top: (($header-height - $line-height-h5) / 2);
+		margin-bottom: (($header-height - $line-height-h5) / 2);
 	}
-	.card-inner-side ~ & {
+	.card-header-side + & {
 		overflow: hidden;
-	}
-}
-
-.card-inner-side {
-	&.pull-left {
-		padding-left: $grid-gutter;
-	}
-	&.pull-right {
-		padding-right: $grid-gutter;
 	}
 }
 
