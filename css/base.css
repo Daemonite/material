@@ -5302,6 +5302,14 @@ a.fbtn:focus, a.fbtn:hover {
           transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
+.card:after, .card:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.card:after {
+  clear: both;
+}
 .card[class*="-bg"] {
   color: #ffffff;
 }
@@ -5476,6 +5484,11 @@ a.fbtn:focus, a.fbtn:hover {
 
 .card-header {
   border-bottom: 1px solid #e0e0e0;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 56px;
   position: relative;
 }
@@ -5494,10 +5507,24 @@ a.fbtn:focus, a.fbtn:hover {
   padding-bottom: 18px;
 }
 .card-header-side.pull-left, .pull-left.tile-side {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
   padding-left: 16px;
 }
-.card-header-side.pull-right, .pull-right.tile-side {
+.no-flexbox .card-header-side.pull-left, .no-flexbox .pull-left.tile-side {
   padding-right: 16px;
+}
+.card-header-side.pull-right, .pull-right.tile-side {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+  padding-right: 16px;
+}
+.no-flexbox .card-header-side.pull-right, .no-flexbox .pull-right.tile-side {
+  padding-left: 16px;
 }
 
 .card-heading {
@@ -5543,12 +5570,8 @@ a.fbtn:focus, a.fbtn:hover {
 }
 
 .card-inner {
-  margin-top: 24px;
-  margin-bottom: 24px;
-  padding-right: 16px;
-  padding-left: 16px;
+  margin: 24px 16px;
   position: relative;
-  z-index: 1;
 }
 .card-header .card-inner {
   -webkit-box-flex: 1;
@@ -5560,7 +5583,7 @@ a.fbtn:focus, a.fbtn:hover {
   margin-top: 16px;
   margin-bottom: 16px;
 }
-.card-header-side + .card-inner, .tile-side + .card-inner {
+.no-flexbox .card-header-side + .card-inner, .no-flexbox .tile-side + .card-inner {
   overflow: hidden;
 }
 
@@ -5569,6 +5592,9 @@ a.fbtn:focus, a.fbtn:hover {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+.no-flexbox .card-side ~ .card-main {
+  overflow: hidden;
 }
 
 .card-alt-bg .card-main a {
@@ -5614,12 +5640,12 @@ a.fbtn:focus, a.fbtn:hover {
   padding-right: 0;
   padding-left: 0;
 }
-.card-side.card-side-right {
+.card-side.pull-right {
   border-radius: 0 2px 2px 0;
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-      -ms-flex-order: 2;
-          order: 2;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .card-offwhite .card-side {
@@ -8104,9 +8130,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   background-color: #ffffff;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
   display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   min-height: 48px;
   position: relative;
-  width: 100%;
 }
 .tile:after, .tile:before {
   content: "";
@@ -8205,6 +8234,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 .tile-action {
   border-top: 0;
   float: right;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -8227,6 +8260,11 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 
 .tile-collapse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-transition: margin 0.15s linear;
           transition: margin 0.15s linear;
 }
@@ -8334,9 +8372,15 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 
 .tile-inner {
-  overflow: hidden;
-  padding: 14px 16px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 14px 16px;
   position: relative;
+}
+.no-flexbox .tile-action ~ .tile-inner, .no-flexbox .tile-side ~ .tile-inner {
+  overflow: hidden;
 }
 
 .tile-side {
@@ -8349,7 +8393,6 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   padding-right: 16px;
   padding-left: 16px;
   position: relative;
-  width: 100%;
 }
 .tile-sub:after, .tile-sub:before {
   content: "";
@@ -8392,6 +8435,15 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 
 [data-toggle="tile"] {
   cursor: pointer;
+  display: block;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 [data-toggle="tile"]:after, [data-toggle="tile"]:before {
   content: "";

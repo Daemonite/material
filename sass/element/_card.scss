@@ -8,6 +8,7 @@
 	margin-bottom: $margin-md;
 	transition: box-shadow 0.3s $timing;
 	position: relative;
+	@include clearfix();
 	&[class*="-bg"] {
 		color: $white;
 	}
@@ -90,6 +91,8 @@
 
 .card-header {
 	border-bottom: 1px solid $black-bg;
+	display: block;
+	display: flex;
 	min-height: $header-height;
 	position: relative;
 	@include clearfix();
@@ -100,10 +103,20 @@
 	padding-top: (($header-height - $line-height) / 2);
 	padding-bottom: (($header-height - $line-height) / 2);
 	&.pull-left {
+		order: -1;
 		padding-left: $grid-gutter;
+		// no flexbox
+			.no-flexbox & {
+				padding-right: $grid-gutter;
+			}
 	}
 	&.pull-right {
+		order: 1;
 		padding-right: $grid-gutter;
+		// no flexbox
+			.no-flexbox & {
+				padding-left: $grid-gutter;
+			}
 	}
 }
 
@@ -149,12 +162,8 @@
 }
 
 .card-inner {
-	margin-top: $margin-md;
-	margin-bottom: $margin-md;
-	padding-right: $grid-gutter;
-	padding-left: $grid-gutter;
+	margin: $margin-md $grid-gutter;
 	position: relative;
-	z-index: 1;
 	.card-header & {
 		flex: 1;
 		font-size: $font-size-h5;
@@ -162,13 +171,18 @@
 		margin-top: (($header-height - $line-height-h5) / 2);
 		margin-bottom: (($header-height - $line-height-h5) / 2);
 	}
-	.card-header-side + & {
-		overflow: hidden;
-	}
+	// no flexbox
+		.no-flexbox .card-header-side + & {
+			overflow: hidden;
+		}
 }
 
 .card-main {
 	flex: 1;
+	// no flexbox
+		.no-flexbox .card-side ~ & {
+			overflow: hidden;
+		}
 }
 
 // colour
@@ -199,9 +213,9 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
-	&.card-side-right {
+	&.pull-right {
 		border-radius: 0 2px 2px 0;
-		order: 2;
+		order: 1;
 	}
 }
 

@@ -2,9 +2,9 @@
 	background-color: $white;
 	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
 	display: block;
+	display: flex;
 	min-height: $tile-height;
 	position: relative;
-	width: 100%;
 	@include clearfix();
 	&[href] {
 		color: $black-text;
@@ -58,6 +58,7 @@
 	@extend .card-action;
 	border-top: 0;
 	float: right;
+	order: 1;
 	user-select: none;
 	.no-touch &,
 	.touch .tile-collapse & {
@@ -78,6 +79,7 @@
 }
 
 .tile-collapse {
+	flex-direction: column;
 	transition: margin 0.15s linear;
 	&.active {
 		margin-right: ($grid-gutter * -1 + 1);
@@ -141,9 +143,14 @@
 	}
 
 .tile-inner {
-	overflow: hidden;
-	padding: (($tile-height - $line-height) / 2) $grid-gutter;
+	flex: 1;
+	margin: (($tile-height - $line-height) / 2) $grid-gutter;
 	position: relative;
+	// no flexbox
+		.no-flexbox .tile-action ~ &,
+		.no-flexbox .tile-side ~ & {
+			overflow: hidden;
+		}
 }
 
 .tile-side {
@@ -157,7 +164,6 @@
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	position: relative;
-	width: 100%;
 	@include clearfix();
 }
 
@@ -178,6 +184,9 @@
 
 [data-toggle="tile"] {
 	cursor: pointer;
+	display: block;
+	display: flex;
+	flex: 1;
 	@include clearfix();
 	[data-ignore="tile"] {
 		cursor: default;
