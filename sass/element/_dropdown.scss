@@ -23,11 +23,11 @@
 	margin: -1px 0 0 !important;
 	min-width: 100%;
 	opacity: 0;
-	padding-top: ($line-height / 2) !important;
+	padding-top: $margin-base !important;
 	padding-right: 0;
-	padding-bottom: ($line-height / 2) !important;
+	padding-bottom: $margin-base !important;
 	padding-left: 0;
-	position: absolute;
+	position: absolute !important;
 		top: 100%;
 		left: 0;
 	transform: scale(0.25, 0);
@@ -49,27 +49,16 @@
 	}
 	a,
 	.a {
-		color: $black-text;
-		display: block;
-		padding: ($line-height / 2) $grid-gutter;
-		overflow: hidden;
-		position: relative;
-		text-align: left;
-		text-overflow: ellipsis;
-		white-space: nowrap;
+		color: $black-text !important;
+		@include text-overflow();
 		&:focus,
 		&:hover {
 			background-color: $white-bg;
-			text-decoration: none;
 		}
 	}
 	.active > a,
 	.active > .a {
 		background-color: $white-bg;
-	}
-	li {
-		display: block;
-		position: relative;
 	}
 	// no csstransform
 		.no-csstransforms & {
@@ -110,9 +99,9 @@
 	~ .dropdown-menu {
 		min-width: 101%;
 		min-width: calc(100% + 2px);
-		padding-top: ($btn-height + $line-height / 2) !important;
+		padding-top: ($btn-height + $margin-base + ($nav-height - $btn-height)) !important;
 		// position
-			top: ($line-height / -2);
+			top: ($margin-base * -1 + ($nav-height - $btn-height) / -2);
 			left: -1px;
 		transform: scale(1, 0);
 		&.dropdown-menu-right,

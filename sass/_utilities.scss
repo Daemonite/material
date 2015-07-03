@@ -1,17 +1,3 @@
-.a {
-	background-color: transparent;
-	border: 0;
-	display: inline;
-	color: $link-color;
-	-webkit-appearance: none;
-	&:focus,
-	&:hover {
-		color: $link-color-hover;
-		outline: 0;
-		text-decoration: underline;
-	}
-}
-
 .access-hide {
 	border: 0;
 	clip: rect(0, 0, 0, 0);
@@ -73,8 +59,8 @@ body.el-loading {
 	height: 0;
 	opacity: 0;
 	padding: 0;
-	width: 0;
 	transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
+	width: 0;
 }
 
 .avoid-fout-indicator-fixed,
@@ -169,11 +155,19 @@ body.el-loading {
 }
 
 .margin-bottom {
-	margin-bottom: $line-height !important;
+	margin-bottom: $margin-md !important;
 }
 
-.margin-bottom-half {
-	margin-bottom: ($line-height / 2) !important;
+.margin-bottom-lg {
+	margin-bottom: $margin-lg !important;
+}
+
+.margin-bottom-no {
+	margin-bottom: 0 !important;
+}
+
+.margin-bottom-sm {
+	margin-bottom: $margin-sm !important;
 }
 
 .margin-bottom-no {
@@ -184,12 +178,16 @@ body.el-loading {
 	margin-left: $grid-gutter !important;
 }
 
-.margin-left-half {
-	margin-left: ($grid-gutter / 2) !important;
+.margin-left-lg {
+	margin-left: ($grid-gutter * 2) !important;
 }
 
 .margin-left-no {
 	margin-left: 0 !important;
+}
+
+.margin-left-sm {
+	margin-left: ($grid-gutter / 2) !important;
 }
 
 .margin-no {
@@ -200,20 +198,32 @@ body.el-loading {
 	margin-right: $grid-gutter !important;
 }
 
-.margin-right-half {
-	margin-right: ($grid-gutter / 2) !important;
+.margin-right-lg {
+	margin-right: ($grid-gutter * 2) !important;
 }
 
 .margin-right-no {
 	margin-right: 0 !important;
 }
 
-.margin-top {
-	margin-top: $line-height !important;
+.margin-right-sm {
+	margin-right: ($grid-gutter / 2) !important;
 }
 
-.margin-top-half {
-	margin-top: ($line-height / 2) !important;
+.margin-top {
+	margin-top: $margin-base !important;
+}
+
+.margin-top-large {
+	margin-top: $margin-lg !important;
+}
+
+.margin-top-no {
+	margin-top: 0 !important;
+}
+
+.margin-top-sm {
+	margin-top: $margin-sm !important;
 }
 
 .margin-top-no {
@@ -248,8 +258,76 @@ body.el-loading {
 
 .p {
 	display: block;
-	margin-top: $line-height;
-	margin-bottom: $line-height;
+	margin-top: $margin-base;
+	margin-bottom: $margin-base;
+}
+
+.padding-bottom {
+	padding-bottom: $margin-md !important;
+}
+
+.padding-bottom-lg {
+	padding-bottom: $margin-lg !important;
+}
+
+.padding-bottom-no {
+	padding-bottom: 0 !important;
+}
+
+.padding-bottom-sm {
+	padding-bottom: $margin-sm !important;
+}
+
+.padding-left {
+	padding-left: $grid-gutter !important;
+}
+
+.padding-left-lg {
+	padding-left: ($grid-gutter * 2) !important;
+}
+
+.padding-left-no {
+	padding-left: 0 !important;
+}
+
+.padding-left-sm {
+	padding-left: ($grid-gutter / 2) !important;
+}
+
+.padding-no {
+	padding: 0 !important;
+}
+
+.padding-right {
+	padding-right: $grid-gutter !important;
+}
+
+.padding-right-lg {
+	padding-right: ($grid-gutter * 2) !important;
+}
+
+.padding-right-no {
+	padding-right: 0 !important;
+}
+
+.padding-right-sm {
+	padding-right: ($grid-gutter / 2) !important;
+}
+
+.padding-top {
+	padding-top: $margin-md !important;
+}
+
+.padding-top-large {
+	padding-top: $margin-lg !important;
+}
+
+.padding-top-no {
+	padding-top: 0 !important;
+}
+
+.padding-top-sm {
+	padding-top: $margin-sm !important;
 }
 
 .padding-add {
@@ -327,12 +405,6 @@ body.el-loading {
 .text-break {
 	hyphens: auto;
 	word-break: break-all;
-}
-
-.text-lead {
-	font-size: $font-size-h4;
-	font-weight: $font-weight-light;
-	line-height: $line-height-h4;
 }
 
 .text-overflow {

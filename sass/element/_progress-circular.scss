@@ -1,10 +1,10 @@
 .progress-circular {
-	height: ($line-height * 2);
-	margin-top: $line-height;
-	margin-bottom: $line-height;
+	height: $pcircular-height;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
 	overflow: hidden;
 	position: relative;
-	width: ($line-height * 2);
+	width: $pcircular-height;
 }
 
 .progress-circular-center {
@@ -13,12 +13,12 @@
 }
 
 .progress-circular-gap {
-	border-top: ($base / 2) solid $link-color;
+	border-top: 2px solid $link-color;
 	position: absolute;
 		top: 0;
-		right: ($line-height - 1);
+		right: ($pcircular-height / 2 - 1);
 		bottom: 0;
-		left: ($line-height - 1);
+		left: ($pcircular-height / 2 - 1);
 }
 
 // colour
@@ -40,19 +40,19 @@
 
 .progress-circular-inner {
 	animation: pcircular-inner-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
-	height: ($line-height * 2);
+	height: $pcircular-height;
 	position: relative;
-	width: ($line-height * 2);
+	width: $pcircular-height;
 	will-change: transform;
 }
 
 .progress-circular-left,
 .progress-circular-right {
-	height: ($line-height * 2);
+	height: $pcircular-height;
 	overflow: hidden;
 	position: absolute;
 		top: 0;
-	width: $line-height;
+	width: ($pcircular-height / 2);
 }
 
 .progress-circular-left {
@@ -69,10 +69,10 @@
 	border: ($base / 2) solid $link-color;
 	border-bottom-color: transparent;
 	border-radius: 50%;
-	height: ($line-height * 2);
+	height: $pcircular-height;
 	position: absolute;
 		top: 0;
-	width: ($line-height * 2);
+	width: $pcircular-height;
 	will-change: transform;
 	.progress-circular-left & {
 		animation: pcircular-spinner-left 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;

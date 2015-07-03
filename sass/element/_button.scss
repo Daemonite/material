@@ -3,18 +3,18 @@
 	background-image: none;
 	background-position: 50% 50%;
 	background-size: 100% 100%;
-	border: 1px solid transparent;
+	border: 0;
 	border-radius: 2px;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 	color: $black-text;
 	cursor: pointer;
 	display: inline-block;
 	font-size: $font-size;
-	font-weight: $font-weight;
+	font-weight: $font-weight-normal;
 	line-height: $line-height;
 	margin-bottom: 0;
 	max-width: 100%;
-	padding: (($btn-height - $line-height - 2) / 2) ($grid-gutter - 1);
+	padding: (($btn-height - $line-height) / 2) $grid-gutter;
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
@@ -34,10 +34,6 @@
 	fieldset[disabled] & {
 		cursor: not-allowed;
 		opacity: 0.5;
-	}
-	&.waves-effect {
-		border: 0;
-		padding: (($btn-height - $line-height) / 2) $grid-gutter;
 	}
 }
 
@@ -83,13 +79,4 @@
 	display: block;
 	white-space: normal;
 	width: 100%;
-}
-
-.btn-text {
-	color: $black-text;
-	display: inline-block;
-	font-size: $font-size;
-	font-weight: $font-weight;
-	line-height: $line-height;
-	padding: (($btn-height - $line-height) / 2) 0;
 }

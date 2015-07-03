@@ -2,6 +2,9 @@
 	backface-visibility: hidden;
 	background-color: $brand-color;
 	color: $white;
+	min-height: $header-height;
+	padding-top: (($header-height - $nav-height) / 2);
+	padding-bottom: (($header-height - $nav-height) / 2);
 	position: fixed;
 		top: 0;
 		right: 0;
@@ -30,15 +33,15 @@
 			border-radius: 50%;
 			content: "";
 			display: block;
-			height: ($line-height * 1.5);
-			margin-left: ($line-height * -0.75);
+			height: ($nav-height - $base);
+			margin-left: (($nav-height - $base) / -2);
 			position: absolute;
-				top: ($line-height * 0.25);
+				top: ($base / 2);
 				left: 50%;
 			transform: scale(0, 0);
 			transition: all 0.3s $timing;
 			transition-property: background-color, transform;
-			width: ($line-height * 1.5);
+			width: ($nav-height - $base);
 			z-index: -1;
 			// no csstransforms
 				.no-csstransforms & {
@@ -78,28 +81,30 @@
 		}
 	}
 
-.header-btn {
-	display: block;
-	float: left;
-	height: ($line-height * 2);
-	padding: (($line-height * 2 - $line-height-h4) / 2) $grid-gutter;
-	text-align: center;
-	&:focus,
-	&:hover {
-		text-decoration: none;
-	}
-}
-
 .header-fix-hide {
 	.header.fixed & {
 		display: none !important;
 	}
 }
 
-.header-fix-show {
+.header-fix-show-block {
 	display: none !important;
 	.header.fixed & {
 		display: block !important;
+	}
+}
+
+.header-fix-show-inline {
+	display: none !important;
+	.header.fixed & {
+		display: inline !important;
+	}
+}
+
+.header-fix-show-inline-block {
+	display: none !important;
+	.header.fixed & {
+		display: inline-block !important;
 	}
 }
 
@@ -108,10 +113,10 @@
 	display: block;
 	float: left;
 	font-weight: $font-weight-light;
-	height: ($line-height * 2);
+	height: $nav-height;
 	line-height: $line-height-h4;
 	margin: 0;
-	padding: (($line-height * 2 - $line-height-h4) / 2) $grid-gutter;
+	padding: (($nav-height - $line-height-h4) / 2) $grid-gutter;
 	&:focus,
 	&:hover {
 		text-decoration: none;

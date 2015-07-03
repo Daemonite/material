@@ -7,13 +7,14 @@
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
-	margin: ($line-height / 2) auto;
-	padding: ($line-height / 2) 0;
+	height: $fbtn-height;
+	margin: $margin-sm auto;
+	padding: (($fbtn-height - $line-height) / 2) 0;
 	position: relative;
 	text-align: center;
 	transition: all 0.3s $timing;
 	transition-property: box-shadow, opacity, transform;
-	width: ($line-height * 2);
+	width: $fbtn-height;
 }
 
 a.fbtn {
@@ -36,14 +37,16 @@ a.fbtn {
 
 // size
 	.fbtn-lg {
-		padding: ($line-height * 0.75) 0;
-		width: ($line-height * 2.5);
+		height: ($fbtn-height + $base * 2);
+		padding-top: (($fbtn-height + $base * 2 - $line-height) / 2);
+		padding-bottom: (($fbtn-height + $base * 2 - $line-height) / 2);
+		width: ($fbtn-height + $base * 2);
 		.fbtn-sub {
 			// position
-				top: ($line-height * 0.75);
+				top: (($fbtn-height + $base * 2 - $line-height) / 2);
 		}
 		~ .fbtn-dropdown {
-			min-width: ($grid-gutter * 2 + $line-height * 2.5);
+			min-width: ($fbtn-height + $base * 2 + $grid-gutter * 2);
 		}
 	}
 
@@ -51,7 +54,7 @@ a.fbtn {
 	backface-visibility: hidden;
 	position: fixed;
 		right: $grid-gutter;
-		bottom: ($line-height / 2);
+		bottom: $margin-sm;
 	transition: margin-bottom 0.3s $timing, right 0.3s $timing;
 	z-index: ($content-base + 1);
 }
@@ -144,7 +147,7 @@ a.fbtn {
 .fbtn-sub {
 	opacity: 0;
 	position: absolute;
-		top: ($line-height / 2);
+		top: (($fbtn-height - $line-height) / 2);
 		left: 0;
 	text-align: center;
 	transform: rotate(-225deg);
@@ -162,6 +165,7 @@ a.fbtn {
 	color: $white;
 	font-size: $font-size-h6;
 	height: 0;
+	line-height: $line-height;
 	margin-top: ($line-height / -2);
 	margin-right: $grid-gutter;
 	opacity: 0;

@@ -38,7 +38,7 @@
 	cursor: pointer;
 	display: block;
 	float: right;
-	padding: ($line-height / 2) $grid-gutter;
+	padding: (($nav-height - $line-height) / 2) $grid-gutter;
 	position: absolute;
 		top: 0;
 		right: 0;
@@ -77,12 +77,12 @@
 }
 
 .menu-content {
-	padding-top: ($line-height / 2);
-	padding-bottom: ($line-height / 2);
+	padding-top: $margin-base;
+	padding-bottom: $margin-base;
 	hr {
 		border-top-color: $black-bg;
-		margin-top: ($line-height / 2);
-		margin-bottom: ($line-height / 2);
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
 	}
 	.nav {
 		margin-top: 0;
@@ -90,7 +90,7 @@
 		a,
 		.a {
 			color: $black-sec;
-			font-weight: $font-weight-bold;
+			font-weight: $font-weight-medium;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -112,16 +112,16 @@
 		ul {
 			a,
 			.a {
-				font-weight: $font-weight;
+				font-weight: $font-weight-normal;
 				padding-left: ($grid-gutter * 2);
 			}
 			ul {
 				a,
 				.a {
-					font-size: 90%;
+					font-size: $font-size-h6;
 					font-weight: $font-weight-light;
-					padding-top: ($line-height / 4);
-					padding-bottom: ($line-height / 4);
+					padding-top: (($nav-height - $line-height) / 4);
+					padding-bottom: (($nav-height - $line-height) / 4);
 					padding-left: ($grid-gutter * 3);
 				}
 			}
@@ -161,15 +161,17 @@
 	border-bottom: 1px solid $black-bg;
 	color: $black-text;
 	float: none;
-	margin-bottom: ($line-height / 2);
+	height: $header-height;
+	margin-bottom: $margin-base;
+	padding-top: (($header-height - $line-height-h4) / 2);
+	padding-bottom: (($header-height - $line-height-h4) / 2 - 1);
 	&:focus,
 	&:hover {
 		color: $black-text;
-		text-decoration: none;
 	}
 	.menu-content > & {
 		&:first-child {
-			margin-top: ($line-height / -2);
+			margin-top: ($margin-base * -1);
 		}
 	}
 }
@@ -253,11 +255,6 @@
 		}
 	}
 
-.menu-top-form {
-	margin-top: ($line-height / 4);
-	margin-bottom: ($line-height / 4);
-}
-
 .menu-top-img {
 	align-items: center;
 	display: flex;
@@ -276,20 +273,32 @@
 }
 
 .menu-top-info {
-	padding: ($line-height * 1.5) $grid-gutter;
+	padding: $margin-sm $grid-gutter;
 	position: relative;
+	// 768
+		@include responsive(sm) {
+			padding-top: $margin-md;
+			padding-bottom: $margin-md;
+		}
 }
 
 .menu-top-info-sub {
 	font-weight: $font-weight-light;
-	padding: ($line-height / 2) $grid-gutter;
+	padding: $margin-sm $grid-gutter;
 	position: relative;
+	// 768
+		@include responsive(sm) {
+			padding-top: $margin-md;
+		}
 }
 
 .menu-top-user {
 	align-items: center;
 	display: flex;
-	@include clearfix();
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
 }
 
 .menu-wrap {

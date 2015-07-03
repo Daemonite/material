@@ -4,15 +4,23 @@
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 	display: block;
 	display: flex;
-	margin-bottom: $line-height;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
 	transition: box-shadow 0.3s $timing;
 	position: relative;
 	&[class*="-bg"] {
 		color: $white;
 	}
+	.card-wrap & {
+		margin-top: 0;
+	}
 	// no boxshadow
 		.no-boxshadow & {
 			border: 1px solid $black-bg;
+		}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
 		}
 }
 
@@ -60,16 +68,11 @@
 					color: $white;
 				}
 			}
-			&.active > {
-				a,
-				.a {
-					color: $link-color;
-				}
-			}
+			&.active >,
 			&.open > {
 				a,
 				.a {
-					color: $black-text;
+					color: $link-color;
 				}
 			}
 		}
@@ -90,18 +93,36 @@
 	}
 
 .card-header {
-	padding-top: ($line-height / 4);
-	padding-bottom: ($line-height / 4);
+	border-bottom: 1px solid $black-bg;
+	display: block;
+	display: flex;
+	min-height: $header-height;
 	position: relative;
-	@include clearfix();
-	&:before {
-		border-bottom: 1px solid $black-bg;
-		content: "";
-		display: block;
-		position: absolute;
-			bottom: 0;
-			left: 0;
-		width: 100%;
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
+}
+
+.card-header-side {
+	vertical-align: middle;
+	padding-top: (($header-height - $line-height) / 2);
+	padding-bottom: (($header-height - $line-height) / 2);
+	&.pull-left {
+		order: -1;
+		padding-left: $grid-gutter;
+		// no flexbox
+			.no-flexbox & {
+				padding-right: $grid-gutter;
+			}
+	}
+	&.pull-right {
+		order: 1;
+		padding-right: $grid-gutter;
+		// no flexbox
+			.no-flexbox & {
+				padding-left: $grid-gutter;
+			}
 	}
 }
 
@@ -109,8 +130,8 @@
 	display: block;
 	font-size: $font-size-h4;
 	line-height: $line-height-h4;
-	margin-top: $line-height;
-	margin-bottom: $line-height;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
 	.card-header & {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -139,7 +160,7 @@
 	font-size: $font-size-h4;
 	line-height: $line-height-h4;
 	margin: 0;
-	padding: ($line-height / 2) $grid-gutter;
+	padding: $margin-sm $grid-gutter;
 	position: absolute;
 		bottom: 0;
 		left: 0;
@@ -147,32 +168,27 @@
 }
 
 .card-inner {
-	padding-right: $grid-gutter;
-	padding-left: $grid-gutter;
+	margin: $margin-md $grid-gutter;
 	position: relative;
-	z-index: 1;
 	.card-header & {
-		padding-top: ($line-height / 2);
-		padding-bottom: ($line-height / 2);
+		flex: 1;
+		font-size: $font-size-h5;
+		line-height: $line-height-h5;
+		margin-top: (($header-height - $line-height-h5) / 2);
+		margin-bottom: (($header-height - $line-height-h5) / 2);
 	}
-	.card-inner-side ~ & {
-		overflow: hidden;
-	}
-}
-
-.card-inner-side {
-	padding-top: ($line-height / 2);
-	padding-bottom: ($line-height / 2);
-	&.pull-left {
-		padding-left: $grid-gutter;
-	}
-	&.pull-right {
-		padding-right: $grid-gutter;
-	}
+	// no flexbox
+		.no-flexbox .card-header-side + & {
+			overflow: hidden;
+		}
 }
 
 .card-main {
 	flex: 1;
+	// no flexbox
+		.no-flexbox .card-side ~ & {
+			overflow: hidden;
+		}
 }
 
 // colour
@@ -203,9 +219,9 @@
 		padding-right: 0;
 		padding-left: 0;
 	}
-	&.card-side-right {
+	&.pull-right {
 		border-radius: 0 2px 2px 0;
-		order: 2;
+		order: 1;
 	}
 }
 
@@ -241,5 +257,7 @@
 	}
 
 .card-wrap {
-	margin-top: $line-height;
+	margin-top: $margin-md;
+	margin-bottom: ($margin-md * -1);
+	@include clearfix();
 }

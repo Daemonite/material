@@ -2,8 +2,9 @@
 	background-color: $white;
 	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
 	display: block;
+	display: flex;
+	min-height: $tile-height;
 	position: relative;
-	@include clearfix();
 	&[href] {
 		color: $black-text;
 		&:focus,
@@ -13,8 +14,8 @@
 		}
 	}
 	&.active {
-		margin-top: $line-height !important;
-		margin-bottom: $line-height !important;
+		margin-top: $margin-md !important;
+		margin-bottom: $margin-md !important;
 	}
 	.tile-wrap-animation & {
 		opacity: 0;
@@ -32,6 +33,10 @@
 			+ .tile {
 				margin-top: -1px;
 			}
+		}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
 		}
 }
 
@@ -56,6 +61,7 @@
 	@extend .card-action;
 	border-top: 0;
 	float: right;
+	order: 1;
 	user-select: none;
 	.no-touch &,
 	.touch .tile-collapse & {
@@ -76,6 +82,7 @@
 }
 
 .tile-collapse {
+	flex-direction: column;
 	transition: margin 0.15s linear;
 	&.active {
 		margin-right: ($grid-gutter * -1 + 1);
@@ -139,55 +146,56 @@
 	}
 
 .tile-inner {
-	padding: ($line-height / 2) $grid-gutter;
+	flex: 1;
+	margin: (($tile-height - $line-height) / 2) $grid-gutter;
 	position: relative;
-	.tile-action ~ &,
-	.tile-side ~ & {
-		overflow: hidden;
-	}
+	// no flexbox
+		.no-flexbox .tile-action ~ &,
+		.no-flexbox .tile-side ~ & {
+			overflow: hidden;
+		}
 }
 
 .tile-side {
-	@extend .card-inner-side;
-}
-
-.tile-side-container {
-	padding: 0 !important;
+	@extend .card-header-side;
+	padding-top: (($tile-height - $line-height) / 2);
+	padding-bottom: (($tile-height - $line-height) / 2);
 }
 
 .tile-sub {
-	display: inline-block;
+	border-top: 1px solid $black-bg;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	position: relative;
-	width: 100%;
-	&:before {
-		border-top: 1px solid $black-bg;
-		content: "";
-		display: block;
-		position: absolute;
-			top: 0;
-			left: 0;
-		width: 100%;
-	}
+	@include clearfix();
 }
 
 // colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
-		.tile-#{$color} .tile-sub:before {
+		.tile-#{$color} .tile-sub {
 			border-top-color: nth($palette-color-dark-m, $i);
 		}
 	}
 
-.tile-toggle {
-	cursor: pointer;
-	@include clearfix();
+.tile-wrap {
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
+	position: relative;
 }
 
-.tile-wrap {
-	margin-top: $line-height;
-	margin-bottom: $line-height;
-	position: relative;
+[data-toggle="tile"] {
+	cursor: pointer;
+	display: block;
+	display: flex;
+	flex: 1;
+	[data-ignore="tile"] {
+		cursor: default;
+		cursor: initial;
+	}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
 }

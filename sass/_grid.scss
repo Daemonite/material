@@ -17,16 +17,16 @@
 		@include make-grid(lg);
 	}
 
-.col-between {
-	margin-left: ($grid-gutter * -1);
-	position: absolute;
-		top: 0;
-	text-align: center;
-	width: ($grid-gutter * 2);
-}
-
 .container {
 	@include make-container();
+	// 992
+		@include responsive(md) {
+			max-width: ($screen-md - $grid-gutter * 2);
+		}
+	// 1440
+		@include responsive(lg) {
+			max-width: ($screen-lg - $grid-gutter * 2);
+		}
 }
 
 .container-full {

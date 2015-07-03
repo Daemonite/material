@@ -1,7 +1,6 @@
 .content {
-	padding-bottom: $line-height;
-	.searching & {
-		display: none;
+	.header ~ & {
+		padding-top: $header-height;
 	}
 }
 
@@ -39,35 +38,45 @@
 	background-color: $brand-color;
 	color: $white;
 	overflow: hidden;
-	padding-top: ($line-height * 2);
+	padding-top: $margin-sm;
+	padding-bottom: $margin-sm;
 	position: relative;
 	transition: background-color 0.3s $timing, color 0.3s $timing;
 	z-index: 1;
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.page-#{$color} & {
-			background-color: nth($palette-color, $i);
-		}
-	}
 	.heading {
 		font-weight: $font-weight-light;
 	}
 }
 
-.content-sub-heading {
-	color: $brand-color;
-	font-size: $font-size-h4;
-	font-weight: $font-weight;
-	line-height: $line-height-h4;
+// colour
 	@each $color in $palette-list {
 		$i: index($palette-list, $color);
 
-		.page-#{$color} & {
+		.page-#{$color} .content-heading {
+			background-color: nth($palette-color, $i);
+		}
+	}
+
+.content-inner {
+	margin-top: $margin-lg;
+	margin-bottom: $margin-lg;
+}
+
+.content-sub-heading {
+	color: $brand-color;
+	font-size: $font-size-h4;
+	font-weight: $font-weight-medium;
+	line-height: $line-height-h4;
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.page-#{$color} .content-sub-heading {
 			color: nth($palette-color, $i);
 		}
 	}
-}
 
 .row-fix {
 	position: relative;

@@ -3,12 +3,13 @@
 	border-radius: 50%;
 	color: $black-text;
 	display: block;
-	height: ($line-height * 2);
-	line-height: ($line-height * 2);
+	height: $avatar-height;
+	line-height: $avatar-height;
 	text-align: center;
-	width: ($line-height * 2);
+	width: $avatar-height;
 	&:focus,
 	&:hover {
+		color: $black-text;
 		text-decoration: none;
 	}
 	&.pull-left {
@@ -16,6 +17,19 @@
 	}
 	&.pull-right {
 		margin-left: $grid-gutter;
+	}
+	.card-header-side > & {
+		&:first-child {
+			margin-top: (($avatar-height - $line-height) / -2);
+		}
+		&:last-child {
+			margin-bottom: (($avatar-height - $line-height) / -2);
+		}
+	}
+	.nav a > &,
+	.nav .a > & {
+		margin-top: (($avatar-height - $line-height) / -2);
+		margin-bottom: (($avatar-height - $line-height) / -2);
 	}
 	img {
 		border-radius: 50%;
@@ -41,25 +55,41 @@
 		.avatar-#{$color} {
 			background-color: nth($palette-color, $i);
 			color: $white;
+			&:focus,
+			&:hover {
+				color: $white;
+			}
+		}
+	}
+
+// size
+	.avatar-lg {
+		height: ($avatar-height * 2);
+		line-height: ($avatar-height * 2);
+		width: ($avatar-height * 2);
+	}
+
+	.avatar-sm {
+		height: ($avatar-height * 0.8);
+		line-height: ($avatar-height * 0.8);
+		width: ($avatar-height * 0.8);
+		.card-header-side > & {
+			&:first-child {
+				margin-top: (($avatar-height * 0.8 - $line-height) / -2);
+			}
+			&:last-child {
+				margin-bottom: (($avatar-height * 0.8 - $line-height) / -2);
+			}
+		}
+		.nav a > &,
+		.nav .a > & {
+			margin-top: (($avatar-height * 0.8 - $line-height) / -2);
+			margin-bottom: (($avatar-height * 0.8 - $line-height) / -2);
 		}
 	}
 
 .avatar-inline {
 	display: inline-block;
-}
-
-.avatar-lg {
-	height: ($line-height * 4);
-	line-height: ($line-height * 4);
-	width: ($line-height * 4);
-}
-
-.avatar-sm {
-	height: ($line-height * 1.5);
-	line-height: ($line-height * 1.5);
-	margin-top: ($line-height * -0.25);
-	margin-bottom: ($line-height * -0.25);
-	width: ($line-height * 1.5);
 }
 
 .avatar-transparent {
