@@ -8,7 +8,6 @@
 	margin-bottom: $margin-md;
 	transition: box-shadow 0.3s $timing;
 	position: relative;
-	@include clearfix();
 	&[class*="-bg"] {
 		color: $white;
 	}
@@ -18,6 +17,10 @@
 	// no boxshadow
 		.no-boxshadow & {
 			border: 1px solid $black-bg;
+		}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
 		}
 }
 
@@ -95,7 +98,10 @@
 	display: flex;
 	min-height: $header-height;
 	position: relative;
-	@include clearfix();
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
 }
 
 .card-header-side {

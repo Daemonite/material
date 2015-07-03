@@ -5,7 +5,6 @@
 	display: flex;
 	min-height: $tile-height;
 	position: relative;
-	@include clearfix();
 	&[href] {
 		color: $black-text;
 		&:focus,
@@ -34,6 +33,10 @@
 			+ .tile {
 				margin-top: -1px;
 			}
+		}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
 		}
 }
 
@@ -187,9 +190,12 @@
 	display: block;
 	display: flex;
 	flex: 1;
-	@include clearfix();
 	[data-ignore="tile"] {
 		cursor: default;
 		cursor: initial;
 	}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
 }

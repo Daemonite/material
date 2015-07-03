@@ -295,7 +295,10 @@
 .menu-top-user {
 	align-items: center;
 	display: flex;
-	@include clearfix();
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
 }
 
 .menu-wrap {

@@ -5302,14 +5302,6 @@ a.fbtn:focus, a.fbtn:hover {
           transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
-.card:after, .card:before {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-.card:after {
-  clear: both;
-}
 .card[class*="-bg"] {
   color: #ffffff;
 }
@@ -5318,6 +5310,14 @@ a.fbtn:focus, a.fbtn:hover {
 }
 .no-boxshadow .card {
   border: 1px solid #e0e0e0;
+}
+.no-flexbox .card:after, .no-flexbox .card:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.no-flexbox .card:after {
+  clear: both;
 }
 
 .card-offwhite {
@@ -5492,12 +5492,12 @@ a.fbtn:focus, a.fbtn:hover {
   min-height: 56px;
   position: relative;
 }
-.card-header:after, .card-header:before {
+.no-flexbox .card-header:after, .no-flexbox .card-header:before {
   content: "";
   display: table;
   line-height: 0;
 }
-.card-header:after {
+.no-flexbox .card-header:after {
   clear: both;
 }
 
@@ -8137,14 +8137,6 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   min-height: 48px;
   position: relative;
 }
-.tile:after, .tile:before {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-.tile:after {
-  clear: both;
-}
 .tile[href] {
   color: #212121;
 }
@@ -8177,6 +8169,14 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 .no-boxshadow .tile + .tile {
   margin-top: -1px;
+}
+.no-flexbox .tile:after, .no-flexbox .tile:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.no-flexbox .tile:after {
+  clear: both;
 }
 
 .tile-offwhite {
@@ -8445,17 +8445,17 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
       -ms-flex: 1;
           flex: 1;
 }
-[data-toggle="tile"]:after, [data-toggle="tile"]:before {
+[data-toggle="tile"] [data-ignore="tile"] {
+  cursor: default;
+  cursor: initial;
+}
+.no-flexbox [data-toggle="tile"]:after, .no-flexbox [data-toggle="tile"]:before {
   content: "";
   display: table;
   line-height: 0;
 }
-[data-toggle="tile"]:after {
+.no-flexbox [data-toggle="tile"]:after {
   clear: both;
-}
-[data-toggle="tile"] [data-ignore="tile"] {
-  cursor: default;
-  cursor: initial;
 }
 
 .toast {
@@ -9184,12 +9184,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   display: -ms-flexbox;
   display: flex;
 }
-.menu-top-user:after, .menu-top-user:before {
+.no-flexbox .menu-top-user:after, .no-flexbox .menu-top-user:before {
   content: "";
   display: table;
   line-height: 0;
 }
-.menu-top-user:after {
+.no-flexbox .menu-top-user:after {
   clear: both;
 }
 
