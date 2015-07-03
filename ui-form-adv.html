@@ -472,7 +472,19 @@
 									<label class="form-label" for="datepicker-adv-1">Material Datepicker</label>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-8">
-									<input class="datepicker-adv datepicker-adv-default form-control" id="datepicker-adv-1" type="text">
+									<input class="datepicker-adv datepicker-adv-doc-1 form-control" id="datepicker-adv-1" type="text">
+									<div class="card">
+										<div class="card-main">
+											<div class="card-header">
+												<div class="card-inner">
+													<span class="icon">info_outline</span>&nbsp;<span>Usage</span>
+												</div>
+											</div>
+											<div class="card-inner">
+												<p>Use <code>.datepicker-adv</code> to apply material datepicker styles and activate the datepicker via simple javascript, for example: <code>$('.datepicker-adv').datepicker();</code></p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -482,7 +494,23 @@
 									<label class="form-label" for="datepicker-adv-2">Material Datepicker with Pre-Set Date</label>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-8">
-									<input class="datepicker-adv datepicker-adv-default form-control" id="datepicker-adv-2" type="text" value="1/1/2000">
+									<input class="datepicker-adv datepicker-adv-doc-2 form-control" id="datepicker-adv-2" type="text" value="01-Jan-2010">
+									<div class="card">
+										<div class="card-main">
+											<div class="card-header">
+												<div class="card-inner">
+													<span class="icon">info_outline</span>&nbsp;<span>Options</span>
+												</div>
+											</div>
+											<div class="card-inner">
+												<p>Alternatively, options can be passed to override some default material datepicker behaviours:</p>
+												<ul>
+													<li><code>format</code> to change date format</li>
+													<li><code>selectMonths</code> and <code>selectYears</code> to hide/show dropdown menus for picking month and year. The number of years to be shown in the dropdown can also be specified using an even integer.</li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -563,6 +591,17 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/base.min.js"></script>
+	<script src="js/base.js"></script>
+
+	<!-- documentation extra javascript -->
+	<script type="text/javascript">
+		$('.datepicker-adv-doc-1').datepicker();
+
+		$('.datepicker-adv-doc-2').datepicker({
+			format: "dd-mmm-yyyy",
+			selectMonths: true,
+			selectYears: 30
+		});
+	</script>
 </body>
 </html>
