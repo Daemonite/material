@@ -96,15 +96,15 @@
 				    datepickerDisplayY = datepickerApi.get('highlight', 'yyyy');
 
 				datepickerApi.on({
-					close: function() {
+					close: function () {
 						$(document.activeElement).blur();
 					},
-					open: function() {
+					open: function () {
 						if (!$('.picker__date-display', datepickerApiRoot).length) {
 							$('.picker__box', datepickerApiRoot).prepend($this.datepickerDisplay(datepickerDisplayD, datepickerDisplayM, datepickerDisplayW, datepickerDisplayY));
 						};
 					},
-					render: function() {
+					render: function () {
 						if (datepickerApi.get('select') === null) {
 							$('.picker__box', datepickerApiRoot).prepend($this.datepickerDisplay(datepickerDisplayD, datepickerDisplayM, datepickerDisplayW, datepickerDisplayY));
 						} else {
@@ -126,22 +126,20 @@
 		};
 	}(jQuery);
 
-// dropdown menu show
-	$(document).on('show.bs.dropdown', '.dropdown', function() {
+// dropdown menu max width
+	$(document).on('show.bs.dropdown', '.dropdown', function () {
 		var $dropdownMenu = $('.dropdown-menu', $(this)),
 		    $dropdownToggle = $('[class*="dropdown-toggle"]', $(this)),
-		    dropdownPadding = $('a', $dropdownMenu).css('padding-left').replace('px', ''),
 		    dropdownWidth;
 
 		if ($dropdownMenu.length && $dropdownToggle.length) {
-			// dropdown menu max width
-				if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.nav.pull-right').length) {
-					dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth() - dropdownPadding;
-				} else {
-					dropdownWidth = window.innerWidth - $dropdownToggle.offset().left - dropdownPadding;
-				}
+			if ($dropdownMenu.hasClass('dropdown-menu-right') || $dropdownMenu.parents('.dropdown.pull-right').length || $dropdownMenu.parents('.nav.pull-right').length) {
+				dropdownWidth = $dropdownToggle.offset().left + $dropdownToggle.outerWidth();
+			} else {
+				dropdownWidth = window.innerWidth - $dropdownToggle.offset().left;
+			}
 
-				$dropdownMenu.css('max-width', dropdownWidth);
+			$dropdownMenu.css('max-width', dropdownWidth);
 		};
 	});
 
