@@ -43,15 +43,15 @@
 				    datepickerDisplayY = datepickerApi.get('highlight', 'yyyy');
 
 				datepickerApi.on({
-					close: function() {
+					close: function () {
 						$(document.activeElement).blur();
 					},
-					open: function() {
+					open: function () {
 						if (!$('.picker__date-display', datepickerApiRoot).length) {
 							$('.picker__box', datepickerApiRoot).prepend($this.datepickerDisplay(datepickerDisplayD, datepickerDisplayM, datepickerDisplayW, datepickerDisplayY));
 						};
 					},
-					render: function() {
+					render: function () {
 						if (datepickerApi.get('select') === null) {
 							$('.picker__box', datepickerApiRoot).prepend($this.datepickerDisplay(datepickerDisplayD, datepickerDisplayM, datepickerDisplayW, datepickerDisplayY));
 						} else {
