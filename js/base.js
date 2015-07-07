@@ -136,12 +136,6 @@
 			}
 		};
 	});
-// footer push
-	footerPush = function () {
-		if ($('.footer').length) {
-			$('body').css('padding-bottom', $('.footer').outerHeight());
-		};
-	}
 // checkbox & radio
 	$('.checkbox-adv').each(function() {
 		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
@@ -509,9 +503,6 @@
 				// fixed left/right hand side column padding bottom and width
 					contentFixPushCal();
 
-				// footer push
-					footerPush();
-
 				// header height
 					headerHeightCal();
 
@@ -547,9 +538,6 @@
 	on_resize(function() {
 		// fixed left/right hand side column padding bottom and width
 			contentFixPushCal();
-
-		// footer push
-			footerPush();
 
 		// header height
 			headerHeightCal();
