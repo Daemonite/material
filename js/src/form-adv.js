@@ -27,15 +27,6 @@
 		}
 	}
 
-// icon label
-	$(document).on('focusin', '.form-group-icon .form-control', function() {
-		$(this).closest('.form-group-icon').addClass('control-focus');
-	});
-
-	$(document).on('focusout', '.form-group-icon .form-control', function() {
-		$(this).closest('.form-group-icon').removeClass('control-focus');
-	});
-
 // switch
 	$(document).on('click', '.switch-toggle', function() {
 		var $this = $(this);

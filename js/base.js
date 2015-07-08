@@ -136,15 +136,6 @@
 			}
 		};
 	});
-// checkbox & radio
-	// $('.checkbox-adv').each(function() {
-	// 	$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
-	// });
-
-	// $('.radio-adv').each(function() {
-	// 	$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span>');
-	// });
-
 // floating label
 	if($('.form-group-label').length) {
 		$('.form-group-label .form-control').each(function() {
@@ -173,15 +164,6 @@
 			parent.removeClass('control-highlight');
 		}
 	}
-
-// icon label
-	$(document).on('focusin', '.form-group-icon .form-control', function() {
-		$(this).closest('.form-group-icon').addClass('control-focus');
-	});
-
-	$(document).on('focusout', '.form-group-icon .form-control', function() {
-		$(this).closest('.form-group-icon').removeClass('control-focus');
-	});
 
 // switch
 	$(document).on('click', '.switch-toggle', function() {

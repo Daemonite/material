@@ -55,16 +55,4 @@
 	line-height: $line-height-h4;
 	padding: (($input-height - $line-height-h4) / 2) 0;
 	transition: color 0.15s $timing;
-	.form-group-icon.control-focus & {
-		color: $link-color;
-	}
 }
-
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.form-group-icon.form-group-#{$color} .form-icon-label {
-			color: nth($palette-color, $i);
-		}
-	}
