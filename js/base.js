@@ -137,13 +137,13 @@
 		};
 	});
 // checkbox & radio
-	$('.checkbox-adv').each(function() {
-		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
-	});
+	// $('.checkbox-adv').each(function() {
+	// 	$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>');
+	// });
 
-	$('.radio-adv').each(function() {
-		$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span>');
-	});
+	// $('.radio-adv').each(function() {
+	// 	$('label', $(this)).append('<span class="circle"></span><span class="circle-check"></span>');
+	// });
 
 // floating label
 	if($('.form-group-label').length) {
