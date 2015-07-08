@@ -137,33 +137,46 @@
 		};
 	});
 // floating label
-	if($('.form-group-label').length) {
-		$('.form-group-label .form-control').each(function() {
-			floatingLabel($(this));
-		});
-	};
+	(function ($) {
+		'use strict';
+
+		$.fn.floatingLabel = function (option) {
+			var parent = this.closest('.form-group-label');
+
+			if (parent.length) {
+				switch (option) {
+					case 'focusin':
+						parent.addClass('control-focus');
+						break;
+					case 'focusout':
+						parent.removeClass('control-focus');
+						break;
+					default: 
+						if (this.val()) {
+							parent.addClass('control-highlight');
+						} else {
+							parent.removeClass('control-highlight');
+						};
+				};
+			};
+		};
+	}(jQuery));
+
+	$('.form-group-label .form-control').each(function() {
+		$(this).floatingLabel('change');
+	});
 
 	$(document).on('change', '.form-group-label .form-control', function() {
-		floatingLabel($(this));
+		$(this).floatingLabel('change');
 	});
 
 	$(document).on('focusin', '.form-group-label .form-control', function() {
-		$(this).closest('.form-group-label').addClass('control-focus');
+		$(this).floatingLabel('focusin');
 	});
 
 	$(document).on('focusout', '.form-group-label .form-control', function() {
-		$(this).closest('.form-group-label').removeClass('control-focus');
+		$(this).floatingLabel('focusout');
 	});
-
-	function floatingLabel(input) {
-		var parent = input.closest('.form-group-label');
-
-		if(input.val()) {
-			parent.addClass('control-highlight');
-		} else {
-			parent.removeClass('control-highlight');
-		}
-	}
 
 // textarea autosize v0.4.0
 // Javier Julio: https://github.com/javierjulio/textarea-autosize
