@@ -10,9 +10,6 @@
 					$(this).addClass('avoid-fout-done');
 				});
 
-				// header height
-					headerHeightCal();
-
 				// tab indicator
 					$('.tab-nav').each(function() {
 						tabSwitch($('.nav > li.active', $(this)), null);

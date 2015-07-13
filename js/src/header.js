@@ -1,22 +1,14 @@
-// header
-	var $header = $('.header'),
-	    headerHeight,
-	    headerNavMinWidth = 0;
+// header waterfall
+	$(function () {
+		$(window).on('scroll', function() {
+			$('.header-waterfall').each(function () {
+				var $this = $(this);
 
-// header affix
-	$(window).on('scroll', function() {
-		if ($('.header').length) {
-			if (window.pageYOffset > headerHeight) {
-				$header.addClass('fixed');
-			} else {
-				$header.removeClass('fixed');
-			}
-		};
+				if (window.pageYOffset > 0) {
+					$this.addClass('header-waterfall-fixed');
+				} else {
+					$this.removeClass('header-waterfall-fixed');
+				}
+			});
+		});
 	});
-
-// header height
-	headerHeightCal = function () {
-		if ($('.header').length) {
-			headerHeight = $header.height();
-		};
-	}

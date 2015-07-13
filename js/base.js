@@ -146,28 +146,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 		return target;
 	}
-// header
-	var $header = $('.header'),
-	    headerHeight,
-	    headerNavMinWidth = 0;
-
-// header affix
+// header waterfall
 	$(window).on('scroll', function() {
-		if ($('.header').length) {
-			if (window.pageYOffset > headerHeight) {
-				$header.addClass('fixed');
+		$('.header-waterfall').each(function () {
+			var $this = $(this);
+
+			if (window.pageYOffset > 0) {
+				$this.addClass('header-waterfall-fixed');
 			} else {
-				$header.removeClass('fixed');
+				$this.removeClass('header-waterfall-fixed');
 			}
-		};
+		});
 	});
 
-// header height
-	headerHeightCal = function () {
-		if ($('.header').length) {
-			headerHeight = $header.height();
-		};
-	}
 // menu close
 	$(document).on('click touchend', function(e) {
 		var $target = $(e.target);
@@ -437,9 +428,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 					$(this).addClass('avoid-fout-done');
 				});
 
-				// header height
-					headerHeightCal();
-
 				// tab indicator
 					$('.tab-nav').each(function() {
 						tabSwitch($('.nav > li.active', $(this)), null);
@@ -470,14 +458,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 	on_resize = function (c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
 
 	on_resize(function() {
-		// header height
-			headerHeightCal();
-
-		// header nav positioning
-			if ($('.header-nav-scroll').length) {
-				headerNavPos();
-			};
-
 		// tab switch
 			$('.tab-nav').each(function() {
 				tabSwitch($('.nav > li.active', $(this)), null);

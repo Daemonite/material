@@ -5,10 +5,6 @@
 	min-height: $header-height;
 	padding-top: (($header-height - $nav-height) / 2);
 	padding-bottom: (($header-height - $nav-height) / 2);
-	position: fixed;
-		top: 0;
-		right: 0;
-		left: 0;
 	transition: background-color 0.3s $timing, box-shadow 0.15s linear;
 	z-index: $header-base;
 	@include clearfix();
@@ -81,33 +77,6 @@
 		}
 	}
 
-.header-fix-hide {
-	.header.fixed & {
-		display: none !important;
-	}
-}
-
-.header-fix-show-block {
-	display: none !important;
-	.header.fixed & {
-		display: block !important;
-	}
-}
-
-.header-fix-show-inline {
-	display: none !important;
-	.header.fixed & {
-		display: inline !important;
-	}
-}
-
-.header-fix-show-inline-block {
-	display: none !important;
-	.header.fixed & {
-		display: inline-block !important;
-	}
-}
-
 .header-logo,
 .header-text {
 	display: block;
@@ -130,4 +99,22 @@
 		max-height: $line-height-h4;
 		width: auto;
 	}
+}
+
+.header-seamed,
+.header-standard,
+.header-waterfall {
+	position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+}
+
+.header-standard,
+.header-waterfall-fixed {
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header-waterfall-fixed {
+	transition: background-color 0.3s $timing, box-shadow 0.6s linear;
 }
