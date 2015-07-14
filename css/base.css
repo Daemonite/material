@@ -8592,10 +8592,6 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .header:after {
   clear: both;
 }
-.header.fixed, .header.open {
-  background-color: #388e3c;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-}
 .header a {
   color: #ffffff;
 }
@@ -8653,43 +8649,45 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .page-alt .header {
   background-color: #4caf50;
 }
-.page-alt .header.fixed, .page-alt .header.open {
-  background-color: #388e3c;
-}
 
 .page-blue .header {
   background-color: #2196f3;
-}
-.page-blue .header.fixed, .page-blue .header.open {
-  background-color: #1976d2;
 }
 
 .page-green .header {
   background-color: #8bc34a;
 }
-.page-green .header.fixed, .page-green .header.open {
-  background-color: #689f38;
-}
 
 .page-purple .header {
   background-color: #9c27b0;
-}
-.page-purple .header.fixed, .page-purple .header.open {
-  background-color: #7b1fa2;
 }
 
 .page-red .header {
   background-color: #f44336;
 }
-.page-red .header.fixed, .page-red .header.open {
-  background-color: #d32f2f;
-}
 
 .page-yellow .header {
   background-color: #ffc107;
 }
-.page-yellow .header.fixed, .page-yellow .header.open {
-  background-color: #ffa000;
+
+.header-affix {
+  max-height: 48px;
+  overflow: hidden;
+  position: static !important;
+  width: 0;
+}
+.header-affix.affix {
+  overflow: visible;
+  width: auto;
+}
+
+.header-affix-hide {
+  position: static !important;
+}
+.header-affix-hide.affix {
+  max-height: 48px;
+  overflow: hidden;
+  width: 0;
 }
 
 .header-logo, .menu-logo,
@@ -8699,8 +8697,8 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   font-weight: 300;
   height: 48px;
   line-height: 28px;
-  margin: 0;
-  padding: 10px 16px;
+  margin: 0 16px;
+  padding: 10px 0;
 }
 .header-logo:focus, .menu-logo:focus, .header-logo:hover, .menu-logo:hover,
 .header-text:focus,
@@ -8727,11 +8725,11 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 }
 
 .header-standard,
-.header-waterfall-fixed {
+.header-waterfall.affix {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
-.header-waterfall-fixed {
+.header-waterfall.affix {
   -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
           transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
 }
@@ -8925,9 +8923,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   color: #212121;
   float: none;
   height: 56px;
+  margin-right: 0;
   margin-bottom: 8px;
-  padding-top: 14px;
-  padding-bottom: 13px;
+  margin-left: 0;
+  padding: 14px 16px 13px;
 }
 .menu-logo:focus, .menu-logo:hover {
   color: #212121;
