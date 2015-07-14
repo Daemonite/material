@@ -27,6 +27,8 @@
 	}(jQuery));
 
 	$(function () {
+		'use strict';
+
 		$('.form-group-label .form-control').each(function() {
 			$(this).floatingLabel('change');
 		});
