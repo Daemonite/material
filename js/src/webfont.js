@@ -10,11 +10,6 @@
 					$(this).addClass('avoid-fout-done');
 				});
 
-				// tab indicator
-					$('.tab-nav').each(function() {
-						tabSwitch($('.nav > li.active', $(this)), null);
-					});
-
 				// tile wrap animation
 					tileInView();
 			},

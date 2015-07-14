@@ -33,13 +33,16 @@
 }
 
 .tab-nav-indicator {
-	background-color: $link-color;
+	background-color: transparent;
 	height: 2px;
 	position: absolute;
 		bottom: 0;
-	transition: left 0.3s $timing 0.15s, right 0.3s $timing;
-	&.reverse {
-		transition: left 0.3s $timing, right 0.3s $timing 0.15s;
+	&.animate {
+		background-color: $link-color;
+		transition: left 0.225s $timing 0.225s, right 0.45s $timing;
+		&.reverse {
+			transition: left 0.45s $timing, right 0.225s $timing 0.225s;
+		}
 	}
 }
 
@@ -63,7 +66,7 @@
 				}
 			}
 		}
-		.tab-nav-indicator {
+		.tab-nav-indicator.animate {
 			background-color: $white;
 		}
 	}
@@ -89,7 +92,7 @@
 					}
 				}
 			}
-			.tab-nav-indicator {
+			.tab-nav-indicator.animate {
 				background-color: nth($palette-color, $i);
 			}
 		}

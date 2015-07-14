@@ -7872,16 +7872,19 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 }
 
 .tab-nav-indicator {
-  background-color: #2196f3;
+  background-color: transparent;
   height: 2px;
   position: absolute;
   bottom: 0;
-  -webkit-transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.tab-nav-indicator.reverse {
-  -webkit-transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), right 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
-          transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), right 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+.tab-nav-indicator.animate {
+  background-color: #2196f3;
+  -webkit-transition: left 0.225s cubic-bezier(0.4, 0, 0.2, 1) 0.225s, right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: left 0.225s cubic-bezier(0.4, 0, 0.2, 1) 0.225s, right 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab-nav-indicator.animate.reverse {
+  -webkit-transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1), right 0.225s cubic-bezier(0.4, 0, 0.2, 1) 0.225s;
+          transition: left 0.45s cubic-bezier(0.4, 0, 0.2, 1), right 0.225s cubic-bezier(0.4, 0, 0.2, 1) 0.225s;
 }
 
 .tab-nav-offwhite .nav > li > a,
@@ -7898,7 +7901,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #ffffff;
   color: #ffffff;
 }
-.tab-nav-offwhite .tab-nav-indicator {
+.tab-nav-offwhite .tab-nav-indicator.animate {
   background-color: #ffffff;
 }
 
@@ -7912,7 +7915,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #4caf50;
   color: #4caf50;
 }
-.tab-nav-alt .tab-nav-indicator {
+.tab-nav-alt .tab-nav-indicator.animate {
   background-color: #4caf50;
 }
 
@@ -7926,7 +7929,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #2196f3;
   color: #2196f3;
 }
-.tab-nav-blue .tab-nav-indicator {
+.tab-nav-blue .tab-nav-indicator.animate {
   background-color: #2196f3;
 }
 
@@ -7940,7 +7943,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #8bc34a;
   color: #8bc34a;
 }
-.tab-nav-green .tab-nav-indicator {
+.tab-nav-green .tab-nav-indicator.animate {
   background-color: #8bc34a;
 }
 
@@ -7954,7 +7957,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #9c27b0;
   color: #9c27b0;
 }
-.tab-nav-purple .tab-nav-indicator {
+.tab-nav-purple .tab-nav-indicator.animate {
   background-color: #9c27b0;
 }
 
@@ -7968,7 +7971,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #f44336;
   color: #f44336;
 }
-.tab-nav-red .tab-nav-indicator {
+.tab-nav-red .tab-nav-indicator.animate {
   background-color: #f44336;
 }
 
@@ -7982,7 +7985,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   border-bottom-color: #ffc107;
   color: #ffc107;
 }
-.tab-nav-yellow .tab-nav-indicator {
+.tab-nav-yellow .tab-nav-indicator.animate {
   background-color: #ffc107;
 }
 

@@ -212,35 +212,55 @@
 		$(iframe).modal('hide');
 	};
 // tab switch
-	tabSwitch = function(newTab, oldTab) {
-		var $nav = newTab.closest('.tab-nav'),
-		    $navIndicator = $('.tab-nav-indicator', $nav),
-		    navOffset = $nav.offset().left,
-		    navWidth = $nav.width(),
-		    newTabOffset = newTab.offset().left,
-		    newTabWidth = newTab.outerWidth();
+	(function ($) {
+		'use strict';
 
-		if (oldTab != null && oldTab.offset().left > newTabOffset) {
-			$navIndicator.addClass('reverse');
-			setTimeout(function() {
-				$navIndicator.removeClass('reverse');
-			}, 450);
-		};
+		$.fn.tabSwitch = function (oldTab) {
+			var $this = $(this),
+			    $thisNav = $this.closest('.tab-nav'),
+			    $thisNavIndicator = $('.tab-nav-indicator', $thisNav),
+			    thisLeft = $this.offset().left,
+			    thisNavLeft = $thisNav.offset().left,
+			    thisNavWidth = $thisNav.outerWidth();
 
-		$navIndicator.css({
-			left: (newTabOffset - navOffset),
-			right: navOffset + navWidth - newTabOffset - newTabWidth
+			if (oldTab !== undefined && oldTab[0] !== undefined) {
+				var oldTabLeft = oldTab.offset().left;
+
+				$thisNavIndicator.css({
+					left: (oldTabLeft - thisNavLeft),
+					right: (thisNavLeft + thisNavWidth - oldTabLeft - oldTab.outerWidth())
+				});
+
+				if (oldTab.offset().left > thisLeft) {
+					$thisNavIndicator.addClass('reverse');
+
+					$thisNavIndicator.one('webkitTransitionEnd oTransitionEnd msTransitionEnd transitionend', function () {
+						$thisNavIndicator.removeClass('reverse');
+					});
+				};
+			};
+
+			$thisNavIndicator.addClass('animate').css({
+				left: (thisLeft - thisNavLeft),
+				right: (thisNavLeft + thisNavWidth - thisLeft - $this.outerWidth())
+			}).one('webkitTransitionEnd oTransitionEnd msTransitionEnd transitionend', function () {
+				$thisNavIndicator.removeClass('animate');
+			});
+
+			return this;
+		}
+	})(jQuery);
+
+	$(function () {
+		'use strict';
+
+		$('.tab-nav').each(function () {
+			$(this).append('<div class="tab-nav-indicator"></div>');
 		});
-	}
 
-	$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function(e) {
-	 	tabSwitch($(e.target), $(e.relatedTarget));
-	});
-
-// tab switch indicator
-	$('.tab-nav').each(function() {
-		$(this).append('<div class="tab-nav-indicator"></div>');
-		tabSwitch($('.nav > li.active', $(this)), null);
+		$(document).on('show.bs.tab', '.tab-nav a[data-toggle="tab"]', function (e) {
+			$(e.target).tabSwitch($(e.relatedTarget));
+		});
 	});
 // tile
 	$(document).on('click', function(e) {
@@ -429,11 +449,6 @@
 					$(this).addClass('avoid-fout-done');
 				});
 
-				// tab indicator
-					$('.tab-nav').each(function() {
-						tabSwitch($('.nav > li.active', $(this)), null);
-					});
-
 				// tile wrap animation
 					tileInView();
 			},
@@ -459,11 +474,6 @@
 	on_resize = function (c,t){onresize=function(){clearTimeout(t);t=setTimeout(c,100)};return c};
 
 	on_resize(function() {
-		// tab switch
-			$('.tab-nav').each(function() {
-				tabSwitch($('.nav > li.active', $(this)), null);
-			});
-
 		// tile in view
 			if ($('.tile-wrap-animation:not(.isinview)').length) {
 				tileInView();
