@@ -1,36 +1,14 @@
 .menu {
 	backface-visibility: hidden;
-	background-color: transparent;
-	height: 100%;
+	display: none;
 	overflow: hidden;
+	outline: 0;
 	position: fixed;
 		top: 0;
+		right: 0;
+		bottom: 0;
 		left: 0;
-	transition: background-color 0.3s $timing, width 0s 0.3s;
-	width: 0;
 	z-index: ($header-base + 1);
-	&.open {
-		background-color: rgba(0, 0, 0, 0.5);
-		transition: background-color 0.15s $timing, width 0s;
-		width: 100%;
-	}
-	&.menu-right {
-		// position
-			right: 0;
-			left: auto;
-	}
-	// 992
-		@include responsive(md) {
-			&.open {
-				background-color: transparent;
-				overflow: visible;
-				width: ($grid-gutter * 20);
-			}
-			&.menu-right.open ~ .fbtn-container {
-				// position
-					right: ($grid-gutter * 21);
-			}
-		}
 }
 
 .menu-collapse-toggle {
@@ -156,6 +134,22 @@
 	padding-left: $grid-gutter;
 }
 
+.menu-backdrop {
+	backface-visibility: hidden;
+	background-color: $black;
+	opacity: 0;
+	position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	transition: opacity 0.3s $timing;
+	z-index: $header-base;
+	&.in {
+		opacity: 0.5;
+	}
+}
+
 .menu-logo {
 	@extend .header-logo;
 	border-bottom: 1px solid $black-bg;
@@ -182,15 +176,19 @@
 	height: 100%;
 	max-width: 85%;
 	max-width: calc(100% - #{$grid-gutter * 4});
-	overflow: hidden;
-	position: absolute;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
 		top: 0;
 		left: ($grid-gutter * -20);
-	transition: all 0.3s $timing;
+	transition-duration: 0.3s;
 	transition-property: box-shadow, left;
+	transition-timing-function: $timing;
 	width: ($grid-gutter * 20);
 	z-index: 1;
-	.menu.open & {
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	.menu.in & {
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		// left
 			left: 0;
@@ -201,7 +199,7 @@
 			left: auto;
 		transition-property: box-shadow, right;
 	}
-	.menu-right.open & {
+	.menu-right.in & {
 		// position
 			right: 0;
 			left: auto;
@@ -299,24 +297,6 @@
 	// no flexbox
 		.no-flexbox & {
 			@include clearfix();
-		}
-}
-
-.menu-wrap {
-	overflow-x: hidden;
-	overflow-y: auto;
-	position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: none;
-	// 480
-		@include responsive(xs) {
-			padding-right: ($grid-gutter * 2);
-			// position
-				right: ($grid-gutter * -2);
 		}
 }
 

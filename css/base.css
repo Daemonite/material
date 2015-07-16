@@ -7031,6 +7031,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .modal-backdrop.fade.in {
   opacity: 0.5;
 }
+.menu ~ .modal-backdrop {
+  z-index: 30;
+}
+.menu ~ .modal-backdrop.in {
+  opacity: 0.5;
+}
 
 .modal-close {
   color: #616161;
@@ -8740,36 +8746,15 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .menu {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background-color: transparent;
-  height: 100%;
+  display: none;
   overflow: hidden;
+  outline: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0s 0.3s;
-          transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0s 0.3s;
-  width: 0;
-  z-index: 31;
-}
-.menu.open {
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), width 0s;
-          transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), width 0s;
-  width: 100%;
-}
-.menu.menu-right {
   right: 0;
-  left: auto;
-}
-@media only screen and (min-width: 992px) {
-  .menu.open {
-    background-color: transparent;
-    overflow: visible;
-    width: 320px;
-  }
-  .menu.menu-right.open ~ .fbtn-container {
-    right: 336px;
-  }
+  bottom: 0;
+  left: 0;
+  z-index: 31;
 }
 
 .menu-collapse-toggle {
@@ -8921,6 +8906,24 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   padding-left: 16px;
 }
 
+.menu-backdrop {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #000000;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+}
+.menu-backdrop.in {
+  opacity: 0.5;
+}
+
 .menu-logo {
   border-bottom: 1px solid #e0e0e0;
   color: #212121;
@@ -8944,18 +8947,23 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   max-width: 85%;
   max-width: -webkit-calc(100% - 64px);
   max-width: calc(100% - 64px);
-  overflow: hidden;
-  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
   top: 0;
   left: -320px;
-  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
   -webkit-transition-property: box-shadow, left;
           transition-property: box-shadow, left;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 320px;
   z-index: 1;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
 }
-.menu.open .menu-scroll {
+.menu.in .menu-scroll {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   left: 0;
 }
@@ -8965,7 +8973,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   -webkit-transition-property: box-shadow, right;
           transition-property: box-shadow, right;
 }
-.menu-right.open .menu-scroll {
+.menu-right.in .menu-scroll {
   right: 0;
   left: auto;
 }
@@ -9092,24 +9100,6 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 }
 .no-flexbox .menu-top-user:after {
   clear: both;
-}
-
-.menu-wrap {
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-}
-@media only screen and (min-width: 480px) {
-  .menu-wrap {
-    padding-right: 32px;
-    right: -32px;
-  }
 }
 
 @media only screen and (min-width: 992px) {
