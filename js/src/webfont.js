@@ -9,17 +9,11 @@
 				$('.avoid-fout').each(function(index) {
 					$(this).addClass('avoid-fout-done');
 				});
-
-				// tile wrap animation
-					tileInView();
 			},
 			inactive: function() {
 				$('.avoid-fout').each(function(index) {
 					$(this).addClass('avoid-fout-done');
 				});
-
-				// tile wrap animation
-					tileInView();
 			}
 	};
 

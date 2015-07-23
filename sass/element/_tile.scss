@@ -17,16 +17,6 @@
 		margin-top: $margin-md !important;
 		margin-bottom: $margin-md !important;
 	}
-	.tile-wrap-animation & {
-		opacity: 0;
-		transform: translate(0, 100%);
-		transition: all 0.6s $timing;
-		transition-property: opacity, transform;
-	}
-	.tile-wrap-animation.isinview & {
-		opacity: 1;
-		transform: translate(0, 0) !important;
-	}
 	// no boxshadow
 		.no-boxshadow & {
 			border: 1px solid $black-bg;
@@ -87,10 +77,6 @@
 	&.active {
 		margin-right: ($grid-gutter * -1 + 1);
 		margin-left: ($grid-gutter * -1 + 1);
-	}
-	.tile-wrap-animation & {
-		transition: all 0.6s $timing, margin 0.15s linear;
-		transition-property: margin, opacity, transform;
 	}
 }
 
