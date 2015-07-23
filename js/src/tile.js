@@ -34,6 +34,42 @@
 			};
 		};
 
+		Tile.prototype.hide = function () {
+			if (this.transitioning || !this.$element.hasClass('in')) {
+				return;
+			};
+
+			var startEvent = $.Event('hide.bs.tile');
+
+			this.$element.trigger(startEvent);
+
+			if (startEvent.isDefaultPrevented()) {
+				return;
+			};
+
+			var dimension = this.dimension();
+
+			this.$element[dimension](this.$element[dimension]())[0].offsetHeight;
+
+			this.$element.addClass('collapsing').removeClass('collapse in');
+
+			this.$element.closest('.tile-collapse').removeClass('active');
+
+			this.transitioning = 1
+
+			var complete = function () {
+				this.transitioning = 0;
+				this.$element.removeClass('collapsing').addClass('collapse').trigger('hidden.bs.tile');
+				this.escape();
+			};
+
+			if (!$.support.transition) {
+				return complete.call(this);
+			};
+
+			this.$element[dimension](0).one('bsTransitionEnd', $.proxy(complete, this)).emulateTransitionEnd(Tile.TRANSITION_DURATION);
+		};
+
 		Tile.prototype.show = function () {
 			if (this.transitioning || this.$element.hasClass('in')) {
 				return;
@@ -84,50 +120,14 @@
 			var scrollSize = $.camelCase(['scroll', dimension].join('-'));
 
 			this.$element.one('bsTransitionEnd', $.proxy(complete, this)).emulateTransitionEnd(Tile.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize]);
-		}
-
-		Tile.prototype.hide = function () {
-			if (this.transitioning || !this.$element.hasClass('in')) {
-				return;
-			};
-
-			var startEvent = $.Event('hide.bs.tile');
-
-			this.$element.trigger(startEvent);
-
-			if (startEvent.isDefaultPrevented()) {
-				return;
-			};
-
-			var dimension = this.dimension();
-
-			this.$element[dimension](this.$element[dimension]())[0].offsetHeight;
-
-			this.$element.addClass('collapsing').removeClass('collapse in');
-
-			this.$element.closest('.tile-collapse').removeClass('active');
-
-			this.transitioning = 1
-
-			var complete = function () {
-				this.transitioning = 0;
-				this.$element.removeClass('collapsing').addClass('collapse').trigger('hidden.bs.tile');
-				this.escape();
-			};
-
-			if (!$.support.transition) {
-				return complete.call(this);
-			};
-
-			this.$element[dimension](0).one('bsTransitionEnd', $.proxy(complete, this)).emulateTransitionEnd(Tile.TRANSITION_DURATION);
-		}
+		};
 
 		function getTargetFromTrigger($trigger) {
 			var href;
 			var target = $trigger.attr('data-target') || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
 
 			return $(target);
-		}
+		};
 
 		function Plugin(option) {
 			return this.each(function () {
@@ -147,7 +147,7 @@
 					data[option]();
 				};
 			})
-		}
+		};
 
 		var old = $.fn.tile;
 
