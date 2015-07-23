@@ -76,25 +76,25 @@
 		function Plugin (option) {
 			return this.each(function () {
 				var $this    = $(document.body);
-				var data     = $this.data('md.toast');
+				var data     = $this.data('bs.toast');
 				var options  = $.extend({}, Toast.DEFAULTS, option);
 
 				if (!data) {
-					$this.data('md.toast', (data = new Toast(options)));
+					$this.data('bs.toast', (data = new Toast(options)));
 					data.show();
 				} else if ($('.toast-inner.in').length) {
 					data.hide();
 					if ($.support.transition) {
 						$(document).one('bsTransitionEnd', '.toast-inner', function () {
-							$this.data('md.toast', (data = new Toast(options)));
+							$this.data('bs.toast', (data = new Toast(options)));
 							data.show();
 						});
 					} else {
-						$this.data('md.toast', (data = new Toast(options)));
+						$this.data('bs.toast', (data = new Toast(options)));
 						data.show();
 					};
 				} else {
-					$this.data('md.toast', (data = new Toast(options)));
+					$this.data('bs.toast', (data = new Toast(options)));
 					data.show();
 				};
 			});
