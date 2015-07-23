@@ -16,6 +16,10 @@
 			};
 		};
 
+		if (!$.fn.collapse) {
+			throw new Error('Menu requires Bootstrap collapse.js');
+		};
+
 		Tile.DEFAULTS = {
 			keyboard: true,
 			toggle: true
