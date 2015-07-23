@@ -344,7 +344,7 @@
 
 			Plugin.call($target, option, this);
 		});
-	})(jQuery);
+	}(jQuery));
 
 // modal iframe
 	$(document).on('click', '.modal-close-iframe', function(e) {

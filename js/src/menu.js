@@ -197,4 +197,4 @@
 
 			Plugin.call($target, option, this);
 		});
-	})(jQuery);
+	}(jQuery));
