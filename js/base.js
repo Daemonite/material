@@ -423,6 +423,7 @@
 			$(e.target).tabSwitch($(e.relatedTarget));
 		});
 	});
+
 // tile
 	(function ($) {
 		'use strict';

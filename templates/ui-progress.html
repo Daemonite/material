@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, width=device-width" name="viewport">
+	<title>Progress Bars - Material</title>
+
+	<!-- css -->
+	<link href="../css/base.min.css" rel="stylesheet">
+
+	<!-- css for this project -->
+	<style type="text/css">
+		body {
+			padding-top: 56px;
+			padding-bottom: 69px;
+		}
+	</style>
+
+	<!-- favicon -->
+	<!-- ... -->
+
+	<!-- ie -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+<body class="avoid-fout">
+	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
+		<div class="progress-circular progress-circular-alt progress-circular-center">
+			<div class="progress-circular-wrapper">
+				<div class="progress-circular-inner">
+					<div class="progress-circular-left">
+						<div class="progress-circular-spinner"></div>
+					</div>
+					<div class="progress-circular-gap"></div>
+					<div class="progress-circular-right">
+						<div class="progress-circular-spinner"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header class="header header-waterfall">
+		<ul class="nav nav-list pull-left">
+			<li>
+				<a data-toggle="menu" href="#menu">
+					<span class="icon icon-lg">menu</span>
+				</a>
+			</li>
+		</ul>
+		<a class="header-logo margin-left-no" href="index.html">Material</a>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Progress Bars
+			</span>
+		</div>
+		<ul class="nav nav-list pull-right">
+			<li>
+				<a data-toggle="menu" href="#profile">
+					<span class="access-hide">John Smith</span>
+					<span class="avatar"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
+				</a>
+			</li>
+		</ul>
+	</header>
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
+		<div class="menu-scroll">
+			<div class="menu-wrap">
+				<div class="menu-content">
+					<a class="menu-logo" href="index.html">Material</a>
+					<ul class="nav">
+						<li>
+							<a href="ui-card.html">Cards</a>
+						</li>
+						<li>
+							<a href="ui-collapse.html">Collapsible Regions</a>
+						</li>
+						<li>
+							<a href="ui-dropdown.html">Dropdowns</a>
+						</li>
+						<li>
+							<a href="ui-modal.html">Modals &amp; Toasts</a>
+						</li>
+						<li>
+							<a href="ui-nav.html">Navs</a>
+						</li>
+						<li class="active">
+							<a href="ui-progress.html">Progress Bars</a>
+						</li>
+						<li>
+							<a href="ui-tab.html">Tabs</a>
+						</li>
+						<li>
+							<a href="ui-tile.html">Tiles</a>
+						</li>
+					</ul>
+					<hr>
+					<ul class="nav">
+						<li>
+							<a href="ui-button.html">Buttons</a>
+						</li>
+						<li>
+							<a href="ui-form.html">Form Elements</a>
+							<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+							<ul class="menu-collapse collapse" id="form-elements">
+								<li>
+									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="ui-icon.html">Icons</a>
+						</li>
+						<li>
+							<a href="ui-table.html">Tables</a>
+						</li>
+					</ul>
+					<hr>
+					<ul class="nav">
+						<li>
+							<a href="page-palette.html">Page Palettes</a>
+							<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+							<ul class="menu-collapse collapse" id="page-palettes">
+								<li>
+									<a href="page-palette-blue.html">Blue Palette</a>
+								</li>
+								<li>
+									<a href="page-palette-green.html">Green Palette</a>
+								</li>
+								<li>
+									<a href="page-palette-purple.html">Purple Palette</a>
+								</li>
+								<li>
+									<a href="page-palette-red.html">Red Palette</a>
+								</li>
+								<li>
+									<a href="page-palette-yellow.html">Yellow Palette</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
+		<div class="menu-scroll">
+			<div class="menu-wrap">
+				<div class="menu-top">
+					<div class="menu-top-img">
+						<img alt="John Smith" src="../images/samples/landscape.jpg">
+					</div>
+					<div class="menu-top-info">
+						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>John Smith</a>
+					</div>
+					<div class="menu-top-info-sub">
+						<small>Some additional information about John Smith</small>
+					</div>
+				</div>
+				<div class="menu-content">
+					<ul class="nav">
+						<li>
+							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+						</li>
+						<li>
+							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="content">
+		<div class="content-heading">
+			<div class="container">
+				<h1 class="heading">Progress Bars</h1>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-8">
+					<section class="content-inner">
+						<h2 class="content-sub-heading">Circular Progress Bars</h2>
+						<p>Default circular progress bar inherits link colour (<code>$link-color</code>):</p>
+						<div class="progress-circular progress-circular-inline">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p>Circular progress bar with different colour options:</p>
+						<div class="progress-circular progress-circular-inline progress-circular-alt">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-circular progress-circular-inline progress-circular-blue">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-circular progress-circular-inline progress-circular-green">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-circular progress-circular-inline progress-circular-purple">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-circular progress-circular-inline progress-circular-red">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-circular progress-circular-inline progress-circular-yellow">
+							<div class="progress-circular-wrapper">
+								<div class="progress-circular-inner">
+									<div class="progress-circular-left">
+										<div class="progress-circular-spinner"></div>
+									</div>
+									<div class="progress-circular-gap"></div>
+									<div class="progress-circular-right">
+										<div class="progress-circular-spinner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Determinate Progress Bars</h2>
+						<p>Default progress bar inherits link colour (<code>$link-color</code>):</p>
+						<div class="progress">
+							<div class="progress-bar" style="width: 20%"></div>
+						</div>
+						<p>Progress bar with different colour options:</p>
+						<div class="progress progress-alt">
+							<div class="progress-bar" style="width: 30%"></div>
+						</div>
+						<div class="progress progress-blue">
+							<div class="progress-bar" style="width: 40%"></div>
+						</div>
+						<div class="progress progress-green">
+							<div class="progress-bar" style="width: 50%"></div>
+						</div>
+						<div class="progress progress-purple">
+							<div class="progress-bar" style="width: 60%"></div>
+						</div>
+						<div class="progress progress-red">
+							<div class="progress-bar" style="width: 70%"></div>
+						</div>
+						<div class="progress progress-yellow">
+							<div class="progress-bar" style="width: 80%"></div>
+						</div>
+						<h2 class="content-sub-heading">Indeterminate Progress Bars</h2>
+						<div class="progress">
+							<div class="progress-bar-indeterminate"></div>
+						</div>
+						<h2 class="content-sub-heading">Load Bars</h2>
+						<p>A <code>.load-bar</code> requires four different colours (i.e. four <code>&lt;div class="load-bar-progress"&gt;</code> with different colour classes) to achieve the best visual effect. By default, a <code>.load-bar-progress</code> inherits link colour (<code>$link-color</code>).</p>
+						<p>A complete load bar consists of two separate <code>.load-bar</code>s, and the order of <code>.load-bar-progress</code>s in each of the two <code>.load-bar</code>s will be different.</p>
+						<div class="progress">
+							<div class="load-bar">
+								<div class="load-bar-base">
+									<div class="load-bar-content">
+										<div class="load-bar-progress"></div>
+										<div class="load-bar-progress load-bar-progress-alt"></div>
+										<div class="load-bar-progress load-bar-progress-purple"></div>
+										<div class="load-bar-progress load-bar-progress-red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="load-bar">
+								<div class="load-bar-base">
+									<div class="load-bar-content">
+										<div class="load-bar-progress"></div>
+										<div class="load-bar-progress load-bar-progress-red"></div>
+										<div class="load-bar-progress load-bar-progress-purple"></div>
+										<div class="load-bar-progress load-bar-progress-alt"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Loading Additional Content Examples</h2>
+						<p>Combine <code>.el-loading</code> with progress bars or text on any elements or <code>body</code> to indicate additional content is being loaded. Add <code>.el-loading-done</code> using custom javascript when content has been loaded to remove loading indicators.</p>
+						<div class="el-loading" id="el-loading-1">
+							<div class="el-loading-indicator">
+								<div class="progress-circular progress-circular-inline progress-circular-">
+									<div class="progress-circular-wrapper">
+										<div class="progress-circular-inner">
+											<div class="progress-circular-left">
+												<div class="progress-circular-spinner"></div>
+											</div>
+											<div class="progress-circular-gap"></div>
+											<div class="progress-circular-right">
+												<div class="progress-circular-spinner"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile-wrap">
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="text-right"><a class="btn finish-loading" data-target="#el-loading-1">Finish Loading</a></p>
+						<div class="el-loading" id="el-loading-2">
+							<div class="el-loading-indicator">
+								<div class="progress progress-position-absolute-top">
+									<div class="progress-bar-indeterminate"></div>
+								</div>
+							</div>
+							<div class="tile-wrap">
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="text-right"><a class="btn finish-loading" data-target="#el-loading-2">Finish Loading</a></p>
+						<div class="el-loading" id="el-loading-3">
+							<div class="el-loading-indicator">
+								<div class="progress progress-position-absolute-bottom">
+									<div class="load-bar">
+										<div class="load-bar-base">
+											<div class="load-bar-content">
+												<div class="load-bar-progress"></div>
+												<div class="load-bar-progress load-bar-progress-alt"></div>
+												<div class="load-bar-progress load-bar-progress-purple"></div>
+												<div class="load-bar-progress load-bar-progress-red"></div>
+											</div>
+										</div>
+									</div>
+									<div class="load-bar">
+										<div class="load-bar-base">
+											<div class="load-bar-content">
+												<div class="load-bar-progress"></div>
+												<div class="load-bar-progress load-bar-progress-red"></div>
+												<div class="load-bar-progress load-bar-progress-purple"></div>
+												<div class="load-bar-progress load-bar-progress-alt"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile-wrap">
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+								<div class="tile">
+									<div class="tile-inner">
+										<span>placeholder tile</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="text-right"><a class="btn finish-loading" data-target="#el-loading-3">Finish Loading</a></p>
+						<div class="tile-wrap" id="el-loading-tile-wrap">
+							<div class="tile tile-collapse">
+								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-1" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">click to expand this tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="el-loading-tile-collapse-1">
+									<div class="el-loading">
+										<div class="el-loading-indicator el-loading-indicator-linear">
+											<div class="progress progress-position-absolute-top">
+												<div class="progress-bar-indeterminate"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-2" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">click to expand this tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="el-loading-tile-collapse-2">
+									<div class="el-loading">
+										<div class="el-loading-indicator el-loading-indicator-linear">
+											<div class="progress progress-position-absolute-top">
+												<div class="progress-bar-indeterminate"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-3" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">click to expand this tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="el-loading-tile-collapse-3">
+									<div class="el-loading">
+										<div class="el-loading-indicator el-loading-indicator-linear">
+											<div class="progress progress-position-absolute-top">
+												<div class="progress-bar-indeterminate"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p><code>.avoid-fout</code> on HTML pages uses a similar technique to avoid flash of unstyled text (FOUT). <code>.avoid-fout-done</code> is added when <code>Roboto</code> font either is successfully loaded or fails to load. <code>.avoid-fout</code> also can be used on any HTML elements.</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<p>Material</p>
+		</div>
+	</footer>
+	<div class="fbtn-container">
+		<div class="fbtn-inner">
+			<a class="fbtn fbtn-red fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropdown">
+				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
+				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>
+				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="../js/base.min.js"></script>
+
+	<!-- documentation extra javascript -->
+	<script type="text/javascript">
+		$('.finish-loading').on('click', function(e) {
+			e.stopPropagation();
+			$($(this).attr('data-target')).addClass('el-loading-done');
+		});
+	</script>
+	<script type="text/javascript">
+		var timer;
+
+		$('#el-loading-tile-wrap .tile-active-show').on('hide.bs.collapse', function(e) {
+			clearTimeout(timer);
+		});
+
+		$('#el-loading-tile-wrap .tile-active-show').on('show.bs.collapse', function(e) {
+			var $this = $(this);
+
+			if (!$('.el-loading', $this).hasClass('el-loading-done')) {
+				timer = setTimeout(function() {
+					$('.el-loading', $this).addClass('el-loading-done');
+					$this.prepend('<div class="tile-sub"><p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p></div>');
+				}, 6000);
+			};
+		});
+	</script>
+</body>
+</html>

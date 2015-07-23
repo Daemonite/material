@@ -8,17 +8,13 @@ module.exports = function(grunt) {
 
 		concat: {
 			base: {
-				src: ['js/src/*.js'],
 				dest: 'js/base.js',
-			},
-			project: {
-				src: ['js/src-project/*.js'],
-				dest: 'js/project.js'
+				src: ['assets/js/*.js']
 			}
 		},
 
 		connect: {
-			html: {
+			base: {
 				options: {
 					base: '',
 					keepalive: 'true',
@@ -30,12 +26,13 @@ module.exports = function(grunt) {
 
 		cssmin: {
 			base: {
-				src: ['css/base.css'],
-				dest: 'css/base.min.css'
-			},
-			project: {
-				src: ['css/project.css'],
-				dest: 'css/project.min.css'
+				files: [{
+					cwd: 'css/',
+					dest: 'css/',
+					expand: true,
+					ext: '.min.css',
+					src: ['*.css', '!*.min.css']
+				}]
 			}
 		},
 
@@ -49,31 +46,25 @@ module.exports = function(grunt) {
 				]
 			},
 			base: {
-				src: 'css/base.css'
-			},
-			project: {
-				src: 'css/project.css'
+				files: [{
+					cwd: 'css/',
+					dest: 'css/',
+					expand: true,
+					ext: '.css',
+					src: ['*.css', '!*.min.css']
+				}]
 			}
 		},
 
 		sass: {
 			base: {
 				files: [{
-					cwd: 'sass/',
+					cwd: 'assets/sass/',
 					dest: 'css/',
 					expand: true,
 					ext: '.css',
-					src: ['*.scss', '!project.scss']
+					src: ['*.scss']
 				}],
-				options: {
-					sourcemap: 'none',
-					style: 'expanded'
-				}
-			},
-			project: {
-				files: {
-					'css/project.css': 'sass/project.scss',
-				},
 				options: {
 					sourcemap: 'none',
 					style: 'expanded'
@@ -83,41 +74,28 @@ module.exports = function(grunt) {
 
 		uglify: {
 			base: {
-				files: {
-					'js/base.min.js': ['js/base.js']
-				}
-			},
-			project: {
-				files: {
-					'js/project.min.js': ['js/project.js']
-				}
+				files: [{
+					cwd: 'js/',
+					dest: 'js/',
+					expand: true,
+					ext: '.min.js',
+					src: ['*.js', '!*.min.js']
+				}]
 			}
 		},
 
 		watch: {
 			base: {
-				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
+				files: ['assets/js/**/*.js', 'assets/sass/**/*.scss'],
 				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
 			},
-			basecss: {
-				files: ['sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['sass:base', 'postcss:base', 'cssmin:base']
-			},
 			basejs: {
-				files: ['js/src/*.js'],
+				files: ['assets/js/**/*.js'],
 				tasks: ['concat:base', 'uglify:base']
 			},
-			project: {
-				files: ['js/src-project/*.js', 'sass/project.scss'],
-				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
-			},
-			projectcss: {
-				files: ['sass/project.scss'],
-				tasks: ['sass:project', 'postcss:project', 'cssmin:project']
-			},
-			projectjs: {
-				files: ['js/src-project/*.js'],
-				tasks: ['concat:project', 'uglify:project']
+			basesass: {
+				files: ['assets/sass/**/*.scss'],
+				tasks: ['sass:base', 'postcss:base', 'cssmin:base']
 			}
 		},
 
