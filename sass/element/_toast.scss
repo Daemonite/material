@@ -13,9 +13,6 @@
 			text-decoration: none;
 		}
 	}
-	.tooltip {
-		position: static !important;
-	}
 	// 768
 		@include responsive(sm) {
 			margin-right: ($fbtn-height + $grid-gutter * 2);
@@ -36,7 +33,7 @@
 	transition: all 0.3s $timing;
 	transition-property: transform;
 	@include clearfix();
-	.toast-show & {
+	&.in {
 		transform: translate(0, 0);
 	}
 	// 768
@@ -47,9 +44,9 @@
 	// no transform3d
 		.no-csstransforms3d & {
 			opacity: 0;
-		}
-		.no-csstransforms3d .toast-show & {
-			opacity: 1;
+			&.in {
+				opacity: 1;
+			}
 		}
 }
 

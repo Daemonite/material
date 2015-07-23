@@ -70,7 +70,7 @@
 				$this.addClass('isinview');
 			};
 		});
-	}
+	};
 
 	tileInViewCheck = function (tile) {
 		tile = tile[0];
@@ -83,4 +83,4 @@
 			rect.bottom >= 0 &&
 			rect.left <= window.innerWidth
 		);
-	}
+	};

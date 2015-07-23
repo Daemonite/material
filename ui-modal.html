@@ -188,8 +188,8 @@
 				<p><a class="btn waves-button waves-effect" data-toggle="modal" href="#modal-big">Full-width Modal</a></p>
 				<p><a class="btn waves-button waves-effect" data-toggle="modal" href="#modal-iframe">Modal with iFrame</a></p>
 				<h2 class="content-sub-heading">Toasts</h2>
-				<p><a class="btn waves-button waves-effect" data-toggle="toast" title="Simple toast with some text">Toggle Toast</a></p>
-				<p class="margin-half-bottom"><a class="btn waves-button waves-effect" data-toggle="toast" title="<a data-dismiss='toast'>Dismiss</a><div class='toast-text'>Simple toast with some text and a simple <a href='javascript:void(0)'>link</a>.</div>">Toast with Action Button</a></p>
+				<p><a class="btn waves-button waves-effect" id="toast-1">Toggle Toast</a></p>
+				<p class="margin-half-bottom"><a class="btn waves-button waves-effect" id="toast-2" title="<div class='toast-text'>Simple toast with some text and a simple <a href='javascript:void(0)'>link</a>.</div><a data-dismiss='toast'>Dismiss</a>">Toast with Action Button</a></p>
 			</section>
 		</div>
 	</div>
@@ -268,5 +268,19 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<script>
+		$('#toast-1').on('click', function () {
+			$('body').toast({
+				content: 'Simple toast with some text'
+			});
+		});
+
+		$('#toast-2').on('click', function () {
+			$('body').toast({
+				content: '<a data-dismiss="toast">Dismiss</a><div class="toast-text">Simple toast with some text and a simple <a href="javascript:void(0)">link</a>.</div>'
+			});
+		});
+	</script>
 </body>
 </html>
