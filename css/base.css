@@ -8586,6 +8586,11 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 .header:after {
   clear: both;
 }
+.header.affix {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  -webkit-transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
+          transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
+}
 .header a {
   color: #ffffff;
 }
@@ -8646,28 +8651,53 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   padding-bottom: 16px;
 }
 
+.header-transparent {
+  background-color: transparent !important;
+}
+.header-transparent.affix {
+  background-color: #4caf50 !important;
+}
+
 .page-alt .header {
   background-color: #4caf50;
+}
+.page-alt .header-transparent.affix {
+  background-color: #4caf50 !important;
 }
 
 .page-blue .header {
   background-color: #2196f3;
 }
+.page-blue .header-transparent.affix {
+  background-color: #2196f3 !important;
+}
 
 .page-green .header {
   background-color: #8bc34a;
+}
+.page-green .header-transparent.affix {
+  background-color: #8bc34a !important;
 }
 
 .page-purple .header {
   background-color: #9c27b0;
 }
+.page-purple .header-transparent.affix {
+  background-color: #9c27b0 !important;
+}
 
 .page-red .header {
   background-color: #f44336;
 }
+.page-red .header-transparent.affix {
+  background-color: #f44336 !important;
+}
 
 .page-yellow .header {
   background-color: #ffc107;
+}
+.page-yellow .header-transparent.affix {
+  background-color: #ffc107 !important;
 }
 
 .header-affix {
@@ -8724,14 +8754,8 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   left: 0;
 }
 
-.header-standard,
-.header-waterfall.affix {
+.header-standard {
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-}
-
-.header-waterfall.affix {
-  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
-          transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s linear;
 }
 
 .menu {
