@@ -1,0 +1,45 @@
+.waves-button,
+.waves-circle {
+	transform: translateZ(0);
+}
+
+.waves-effect {
+	overflow: hidden;
+	position: relative;
+	-webkit-tap-highlight-color: transparent;
+	.waves-ripple {
+		background-color: rgba(0, 0, 0, 0.1);
+		$gradient: rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 60%;
+		background-image: radial-gradient($gradient);
+		border-radius: 50%;
+		height: 100px;
+		margin-top: -50px;
+		margin-left: -50px;
+		opacity: 0;
+		pointer-events: none;
+		position: absolute;
+		transform: scale(0) translate(0, 0);
+		transition: all 0.9s $timing;
+		transition-property: opacity, transform;
+		width: 100px;
+
+	}
+	&.waves-light .waves-ripple {
+		background-color: rgba(255, 255, 255, 0.4);
+		$gradient: rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%;
+		background-image: radial-gradient($gradient);
+	}
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		&.waves-color-#{$color} .waves-ripple {
+			background-color: nth($palette-color-light, $i);
+			$gradient: rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.1) 0, rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 1) 100%;
+			background-image: radial-gradient($gradient);
+		}
+	}
+}
+
+.waves-notransition {
+	transition: none !important;
+}

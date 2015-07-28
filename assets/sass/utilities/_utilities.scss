@@ -1,0 +1,386 @@
+.access-hide {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	&.focusable {
+		&:active,
+		&:focus {
+			clip: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			position: static;
+			width: auto;
+		}
+	}
+}
+
+.avoid-fout,
+.el-loading {
+	position: relative;
+}
+
+body.avoid-fout,
+body.el-loading {
+	position: static;
+}
+
+.avoid-fout-indicator,
+.el-loading-indicator {
+	font-family: sans-serif !important;
+	height: 0;
+	min-height: ($base / 2);
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	text-align: center;
+	width: 0;
+	z-index: 2;
+}
+
+.avoid-fout > .avoid-fout-indicator,
+.el-loading > .el-loading-indicator {
+	background-color: $white;
+	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+	height: 100%;
+	opacity: 1;
+	padding: $line-height $grid-gutter;
+	width: 100%;
+}
+
+.avoid-fout-done > .avoid-fout-indicator,
+.el-loading-done > .el-loading-indicator {
+	height: 0;
+	opacity: 0;
+	padding: 0;
+	transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
+	width: 0;
+}
+
+.avoid-fout-indicator-fixed,
+.el-loading-indicator-fixed {
+	position: fixed;
+	z-index: ($top-base + 1);
+}
+
+.avoid-fout-indicator-linear,
+.el-loading-indicator-linear {
+	padding: 0 !important;
+}
+
+.clearfix {
+	@include clearfix();
+}
+
+.collapse {
+	display: none;
+	&.in {
+		display: block;
+	}
+}
+
+.collapsed-hide {
+	display: inline;
+	.collapsed & {
+		display: none;
+	}
+}
+
+.collapsed-show {
+	display: none;
+	.collapsed & {
+		display: inline;
+	}
+}
+
+.collapsible-region {
+	overflow: hidden;
+}
+
+.collapsing {
+	height: 0;
+	overflow: hidden;
+	position: relative;
+	transition: height 0.3s $timing;
+}
+
+.fade {
+	opacity: 0;
+	transition: opacity 0.3s $timing;
+	&.in {
+		opacity: 1;
+	}
+}
+
+.iframe-seamless {
+	border: 0;
+	display: block;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.img-responsive {
+	@include img-responsive();
+}
+
+.list-clear {
+	list-style: none;
+	padding-left: 0;
+}
+
+.list-inline {
+	@extend .list-clear;
+	margin-left: ($grid-gutter / -2);
+	> li {
+		display: inline-block;
+		padding-right: ($grid-gutter / 2);
+		padding-left: ($grid-gutter / 2);
+	}
+}
+
+.margin-bottom {
+	margin-bottom: $margin-md !important;
+}
+
+.margin-bottom-lg {
+	margin-bottom: $margin-lg !important;
+}
+
+.margin-bottom-no {
+	margin-bottom: 0 !important;
+}
+
+.margin-bottom-sm {
+	margin-bottom: $margin-sm !important;
+}
+
+.margin-left {
+	margin-left: $grid-gutter !important;
+}
+
+.margin-left-lg {
+	margin-left: ($grid-gutter * 2) !important;
+}
+
+.margin-left-no {
+	margin-left: 0 !important;
+}
+
+.margin-left-sm {
+	margin-left: ($grid-gutter / 2) !important;
+}
+
+.margin-no {
+	margin: 0 !important;
+}
+
+.margin-right {
+	margin-right: $grid-gutter !important;
+}
+
+.margin-right-lg {
+	margin-right: ($grid-gutter * 2) !important;
+}
+
+.margin-right-no {
+	margin-right: 0 !important;
+}
+
+.margin-right-sm {
+	margin-right: ($grid-gutter / 2) !important;
+}
+
+.margin-top {
+	margin-top: $margin-md !important;
+}
+
+.margin-top-lg {
+	margin-top: $margin-lg !important;
+}
+
+.margin-top-no {
+	margin-top: 0 !important;
+}
+
+.margin-top-sm {
+	margin-top: $margin-sm !important;
+}
+
+.media,
+.media-inner {
+	overflow: hidden;
+}
+
+.media-object {
+	&.pull-left {
+		margin-right: $grid-gutter;
+	}
+	&.pull-right {
+		margin-left: $grid-gutter;
+	}
+}
+
+.modal-scrollbar-measure {
+	height: 50px;
+	overflow: scroll;
+	position: absolute;
+		top: -99999px;
+	width: 50px;
+}
+
+.no-overflow {
+	overflow: hidden;
+}
+
+.p {
+	display: block;
+	margin-top: $margin-base;
+	margin-bottom: $margin-base;
+}
+
+.padding-bottom {
+	padding-bottom: $margin-md !important;
+}
+
+.padding-bottom-lg {
+	padding-bottom: $margin-lg !important;
+}
+
+.padding-bottom-no {
+	padding-bottom: 0 !important;
+}
+
+.padding-bottom-sm {
+	padding-bottom: $margin-sm !important;
+}
+
+.padding-left {
+	padding-left: $grid-gutter !important;
+}
+
+.padding-left-lg {
+	padding-left: ($grid-gutter * 2) !important;
+}
+
+.padding-left-no {
+	padding-left: 0 !important;
+}
+
+.padding-left-sm {
+	padding-left: ($grid-gutter / 2) !important;
+}
+
+.padding-no {
+	padding: 0 !important;
+}
+
+.padding-right {
+	padding-right: $grid-gutter !important;
+}
+
+.padding-right-lg {
+	padding-right: ($grid-gutter * 2) !important;
+}
+
+.padding-right-no {
+	padding-right: 0 !important;
+}
+
+.padding-right-sm {
+	padding-right: ($grid-gutter / 2) !important;
+}
+
+.padding-top {
+	padding-top: $margin-md !important;
+}
+
+.padding-top-lg {
+	padding-top: $margin-lg !important;
+}
+
+.padding-top-no {
+	padding-top: 0 !important;
+}
+
+.padding-top-sm {
+	padding-top: $margin-sm !important;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-none {
+	float: none !important;
+}
+
+.pull-right {
+	float: right;
+}
+
+.text-break {
+	hyphens: auto;
+	word-break: break-all;
+}
+
+.text-overflow {
+	@include text-overflow();
+}
+
+.text-nowrap {
+	white-space: nowrap;
+}
+
+// alignment
+	.text-center {
+		text-align: center;
+	}
+
+	.text-left {
+		text-align: left;
+	}
+
+	.text-right {
+		text-align: right;
+	}
+
+// colour
+	.text-bg {
+		color: $black-bg;
+	}
+
+	.text-black {
+		color: $black;
+	}
+
+	.text-default {
+		color: $black-text;
+	}
+
+	.text-hint {
+		color: $black-hint;
+	}
+
+	.text-sec {
+		color: $black-sec;
+	}
+
+	.text-white {
+		color: $white;
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.text-#{$color} {
+			color: nth($palette-color, $i);
+		}
+	}

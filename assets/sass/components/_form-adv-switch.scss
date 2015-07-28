@@ -1,0 +1,80 @@
+.switch {
+	position: relative;
+	&.checkbox,
+	&.radio {
+		label {
+			padding-left: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4 + $grid-gutter / 2);
+		}
+	}
+}
+
+.switch-toggle {
+	background-color: $black-hint;
+	border-radius: ($font-size-h6 / 2);
+	cursor: pointer;
+	display: inline-block;
+	height: $font-size-h6;
+	margin-right: ($grid-gutter / 2);
+	position: relative;
+	transition: background-color 0.3s $timing;
+	vertical-align: middle;
+	width: ($font-size-h4 + ($font-size * 5 - $font-size-h4) / 4);
+	&:after {
+		background-color: $white;
+		border-radius: 50%;
+		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+		content: "";
+		display: block;
+		height: $font-size-h4;
+		position: absolute;
+			top:(($font-size-h4 - $font-size-h6) / -2);
+			left: 0;
+		transition: background-color 0.3s $timing, box-shadow 0.09s $timing, left 0.3s $timing;
+		width: $font-size-h4;
+	}
+	&:active:after {
+		box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(0, 0, 0, 0.1);
+	}
+	input[type="checkbox"]:checked + &,
+	input[type="radio"]:checked + & {
+		background-color: lighten($link-color, 15%);
+		&:after {
+			background-color: $link-color;
+			// position
+				left: (($font-size * 5 - $font-size-h4) / 4);
+		}
+	}
+	input[type="checkbox"]:checked + &,
+	input[type="radio"]:checked + & {
+		&:active:after {
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25);
+		}
+	}
+	.checkbox.switch &,
+	.radio.switch & {
+		position: absolute;
+			top: (($line-height - $font-size-h6) / 2);
+			left: 0;
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.switch-toggle-#{$color} {
+			input[type="checkbox"]:checked + &,
+			input[type="radio"]:checked + & {
+				background-color: nth($palette-color-light-m, $i);
+				&:after {
+					background-color: nth($palette-color, $i);
+				}
+			}
+			input[type="checkbox"]:checked + &,
+			input[type="radio"]:checked + & {
+				&:active:after {
+					box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25);
+				}
+			}
+		}
+	}

@@ -1,0 +1,58 @@
+.floating-label {
+	color: $black-hint;
+	cursor: text;
+	font-size: $font-size;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+		top: (($input-height - $font-size) / 2);
+		left: 0;
+	transition: color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing;
+	.form-group-label [class*="col-"] & {
+		// position
+			left: $grid-gutter;
+	}
+	.form-group-label.control-focus &,
+	.form-group-label.control-highlight & {
+		color: $black-sec;
+		font-size: $font-size-h6;
+		// position
+			top: (($input-height - $line-height) * -1);
+	}
+	.form-group-label.control-focus & {
+		color: $link-color;
+	}
+}
+
+.form-group-label {
+	margin-top: ($margin-md * 1.5);
+	margin-bottom: ($margin-md * 1.5);
+	position: relative;
+	.form-control {
+		position: relative;
+		z-index: 1;
+		@include placeholder(transparent);
+	}
+	legend + & {
+		margin-top: ($margin-md / 2);
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.form-group-label.form-group-#{$color} .floating-label {
+			color: nth($palette-color, $i);
+		}
+	}
+
+.form-icon-label {
+	cursor: pointer;
+	display: block;
+	font-size: $font-size-h4;
+	line-height: $line-height-h4;
+	padding: (($input-height - $line-height-h4) / 2) 0;
+	transition: color 0.15s $timing;
+}

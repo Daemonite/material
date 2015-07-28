@@ -7,18 +7,24 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		concat: {
+			all: {
+				files: {
+					'js/base.js': ['assets/js/*.js'],
+					'js/project.js': ['assets/js-project/*.js']
+				}
+			},
 			base: {
-				src: ['js/src/*.js'],
 				dest: 'js/base.js',
+				src: ['assets/js/*.js']
 			},
 			project: {
-				src: ['js/src-project/*.js'],
-				dest: 'js/project.js'
+				dest: 'js/project.js',
+				src: ['assets/js-project/*.js']
 			}
 		},
 
 		connect: {
-			html: {
+			base: {
 				options: {
 					base: '',
 					keepalive: 'true',
@@ -29,6 +35,15 @@ module.exports = function(grunt) {
 		},
 
 		cssmin: {
+			all: {
+				files: [{
+					cwd: 'css/',
+					dest: 'css/',
+					expand: true,
+					ext: '.min.css',
+					src: ['*.css', '!*.min.css']
+				}]
+			},
 			base: {
 				src: ['css/base.css'],
 				dest: 'css/base.min.css'
@@ -40,6 +55,18 @@ module.exports = function(grunt) {
 		},
 
 		postcss: {
+			all: {
+				files: [{
+					cwd: 'css/',
+					dest: 'css/',
+					expand: true,
+					ext: '.css',
+					src: ['*.css', '!*.min.css']
+				}]
+			},
+			base: {
+				src: 'css/base.css'
+			},
 			options: {
 				map: false,
 				processors: [
@@ -48,22 +75,29 @@ module.exports = function(grunt) {
 					})
 				]
 			},
-			base: {
-				src: 'css/base.css'
-			},
 			project: {
 				src: 'css/project.css'
 			}
 		},
 
 		sass: {
+			all: {
+				files: [{
+					'css/base.css': 'assets/sass/base.scss',
+					'css/project.css': 'assets/sass-project/project.scss'
+				}],
+				options: {
+					sourcemap: 'none',
+					style: 'expanded'
+				}
+			},
 			base: {
 				files: [{
-					cwd: 'sass/',
+					cwd: 'assets/sass/',
 					dest: 'css/',
 					expand: true,
 					ext: '.css',
-					src: ['*.scss', '!project.scss']
+					src: ['*.scss']
 				}],
 				options: {
 					sourcemap: 'none',
@@ -71,9 +105,13 @@ module.exports = function(grunt) {
 				}
 			},
 			project: {
-				files: {
-					'css/project.css': 'sass/project.scss',
-				},
+				files: [{
+					cwd: 'assets/sass-project/',
+					dest: 'css/',
+					expand: true,
+					ext: '.css',
+					src: ['*.scss']
+				}],
 				options: {
 					sourcemap: 'none',
 					style: 'expanded'
@@ -82,6 +120,15 @@ module.exports = function(grunt) {
 		},
 
 		uglify: {
+			all: {
+				files: [{
+					cwd: 'js/',
+					dest: 'js/',
+					expand: true,
+					ext: '.min.js',
+					src: ['*.js', '!*.min.js']
+				}]
+			},
 			base: {
 				files: {
 					'js/base.min.js': ['js/base.js']
@@ -92,32 +139,21 @@ module.exports = function(grunt) {
 					'js/project.min.js': ['js/project.js']
 				}
 			}
+
 		},
 
 		watch: {
+			all: {
+				files: ['assets/js/**/*.js', 'assets/js-project/**/*.js', 'assets/sass/**/*.scss', 'assets/sass-project/**/*.scss'],
+				tasks: ['concat:all', 'uglify:all', 'sass:all', 'postcss:all', 'cssmin:all']
+			},
 			base: {
-				files: ['js/src/*.js', 'sass/**/*.scss', '!sass/project.scss'],
+				files: ['assets/js/**/*.js', 'assets/sass/**/*.scss'],
 				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
 			},
-			basecss: {
-				files: ['sass/**/*.scss', '!sass/project.scss'],
-				tasks: ['sass:base', 'postcss:base', 'cssmin:base']
-			},
-			basejs: {
-				files: ['js/src/*.js'],
-				tasks: ['concat:base', 'uglify:base']
-			},
 			project: {
-				files: ['js/src-project/*.js', 'sass/project.scss'],
+				files: ['assets/js-project/**/*.js', 'assets/sass-project/**/*.scss'],
 				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
-			},
-			projectcss: {
-				files: ['sass/project.scss'],
-				tasks: ['sass:project', 'postcss:project', 'cssmin:project']
-			},
-			projectjs: {
-				files: ['js/src-project/*.js'],
-				tasks: ['concat:project', 'uglify:project']
 			}
 		},
 

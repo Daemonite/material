@@ -1,0 +1,187 @@
+.tile {
+	background-color: $white;
+	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+	display: block;
+	display: flex;
+	min-height: $tile-height;
+	position: relative;
+	&[href] {
+		color: $black-text;
+		&:focus,
+		&:hover {
+			color: $link-color;
+			text-decoration: none;
+		}
+	}
+	&.active {
+		margin-top: $margin-md !important;
+		margin-bottom: $margin-md !important;
+	}
+	// no boxshadow
+		.no-boxshadow & {
+			border: 1px solid $black-bg;
+			+ .tile {
+				margin-top: -1px;
+			}
+		}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
+}
+
+// colour
+	.tile-offwhite {
+		background-color: $white-bg;
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} {
+			background-color: nth($palette-color, $i);
+			color: $white;
+			a {
+				color: nth($palette-color-light, $i);
+			}
+		}
+	}
+
+.tile-action {
+	@extend .card-action;
+	border-top: 0;
+	float: right;
+	order: 1;
+	user-select: none;
+	.no-touch &,
+	.touch .tile-collapse & {
+		display: none;
+	}
+	.no-touch .tile:hover &,
+	.tile-collapse.active & {
+		display: block;
+	}
+}
+
+.tile-action-show {
+	display: block !important;
+}
+
+.tile-active-show {
+	transition: height 0.15s linear;
+}
+
+.tile-collapse {
+	flex-direction: column;
+	transition: margin 0.15s linear;
+	&.active {
+		margin-right: ($grid-gutter * -1 + 1);
+		margin-left: ($grid-gutter * -1 + 1);
+	}
+}
+
+.tile-collapse-full {
+	// 1056 - 1439
+		@media only screen and (min-width: ($grid-gutter * 4 + $screen-md)) and (max-width: ($screen-lg - 1)) {
+			&.active {
+				margin-right: ($grid-gutter * -4 + 1);
+				margin-left: ($grid-gutter * -4 + 1);
+			}
+		}
+	// 1504
+		@media only screen and (min-width: ($grid-gutter * 4 + $screen-lg)) {
+			&.active {
+				margin-right: ($grid-gutter * -4 + 1);
+				margin-left: ($grid-gutter * -4 + 1);
+			}
+		}
+}
+
+.tile-footer {
+	background-color: $white-bg;
+	border-top: 1px solid $black-bg;
+	position: relative;
+	@include clearfix();
+	&:first-child {
+		border-top: 0;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+// colour
+	.tile-offwhite .tile-footer {
+		background-color: $white-bg-dark;
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} .tile-footer {
+			background-color: nth($palette-color-dark-m, $i);
+			border-top-color: nth($palette-color-dark-m, $i);
+			.nav > li {
+				> a,
+				> .a {
+					color: $white;
+				}
+			}
+		}
+	}
+
+.tile-inner {
+	flex: 1;
+	margin: (($tile-height - $line-height) / 2) $grid-gutter;
+	position: relative;
+	// no flexbox
+		.no-flexbox .tile-action ~ &,
+		.no-flexbox .tile-side ~ & {
+			overflow: hidden;
+		}
+}
+
+.tile-side {
+	@extend .card-header-side;
+	padding-top: (($tile-height - $line-height) / 2);
+	padding-bottom: (($tile-height - $line-height) / 2);
+}
+
+.tile-sub {
+	border-top: 1px solid $black-bg;
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+	position: relative;
+	@include clearfix();
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tile-#{$color} .tile-sub {
+			border-top-color: nth($palette-color-dark-m, $i);
+		}
+	}
+
+.tile-wrap {
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
+	position: relative;
+}
+
+[data-toggle="tile"] {
+	cursor: pointer;
+	display: block;
+	display: flex;
+	flex: 1;
+	[data-ignore="tile"] {
+		cursor: default;
+		cursor: initial;
+	}
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
+}

@@ -1,0 +1,304 @@
+.picker {
+	position: absolute;
+	z-index: $top-base;
+	user-select: none;
+}
+
+.picker__box {
+	background-clip: padding-box;
+	background-color: $white;
+	border-radius: 4px;
+	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+	outline: 0;
+	overflow: hidden;
+	position: relative;
+	vertical-align: middle;
+	z-index: 1;
+	@include clearfix();
+	// 992
+		@include responsive(md) {
+			&:before {
+				background-color: $brand-color;
+				border-radius: 4px 0 0 4px;
+				content: "";
+				display: block;
+				height: 100%;
+				position: absolute;
+					top: 0;
+					left: 0;
+				width: (($grid-gutter + $line-height * 2 * 7) / 2);
+				z-index: -1;
+			}
+		}
+}
+
+.picker__date-display {
+	background-color: $brand-color;
+	border-radius: 4px 4px 0 0;
+	color: $white;
+	padding: ($line-height / 2) $grid-gutter;
+	text-align: left;
+	// 992
+		@include responsive(md) {
+			border-radius: 4px 0 0 0;
+			float: left;
+			width: (($grid-gutter + $line-height * 2 * 7) / 2);
+		}
+}
+
+.picker__date-display-bottom {
+	font-size: $font-size-h2;
+	line-height: $line-height-h2;
+}
+
+.picker__date-display-top {
+	color: $brand-color-light;
+	font-weight: $font-weight-light;
+	margin-bottom: ($line-height / 4);
+}
+
+.picker__day {
+	border-radius: 50%;
+	display: inline-block;
+	height: ($line-height * 1.5);
+	padding: ($line-height / 4) 0;
+	width: ($line-height * 1.5);
+	&:focus,
+	&:hover {
+		color: $link-color;
+		cursor: pointer;
+	}
+	&.picker__day--selected {
+		background-color: $brand-color;
+		color: $white !important;
+	}
+	&.picker__day--today {
+		color: $brand-color;
+	}
+}
+
+.picker__day-display {
+	margin-right: ($grid-gutter / 2);
+}
+
+.picker__day--outfocus {
+	color: $white-bg-dark;
+}
+
+.picker__footer {
+	clear: both;
+	padding: ($line-height / 2) ($grid-gutter / 2);
+	button {
+		margin-left: ($grid-gutter / 2);
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	// 480
+		@include responsive(xs) {
+			text-align: right;
+		}
+}
+
+.picker__frame {
+	display: inline-block;
+	margin: ($line-height * 2) auto;
+	max-width: ($grid-gutter + $line-height * 1.5 * 7);
+	transform: scale(0, 0);
+	transition: all 0.3s $timing;
+	transition-property: transform;
+	vertical-align: middle;
+	white-space: normal;
+	.picker--opened & {
+		transform: scale(1, 1);
+	}
+	// 480
+		@include responsive(xs) {
+			max-width: ($grid-gutter + $line-height * 1.75 * 7);
+		}
+	// 992
+		@include responsive(md) {
+			max-width: (($grid-gutter + $line-height * 2 * 7) * 1.5);
+		}
+}
+
+.picker__header {
+	margin: ($line-height / 2) ($grid-gutter / 2) ($line-height / 4);
+	position: relative;
+	// 992
+		@include responsive(md) {
+			float: left;
+			margin-top: ($line-height / 4);
+			margin-right: 0;
+			margin-left: 0;
+			width: ($grid-gutter + $line-height * 14);
+		}
+}
+
+.picker__holder {
+	backface-visibility: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+		top: 100%;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	text-align: center;
+	transition: background-color 0.3s $timing, top 0s linear 0.3s;
+	white-space: nowrap;
+	width: 100%;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	&:after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		width: 1px;
+	}
+	.picker--opened & {
+		background-color: rgba(0, 0, 0, 0.5);
+		// position
+			top: 0;
+		transition: background-color 0.3s $timing, top 0s linear 0s;
+	}
+}
+
+.picker__input {
+	background-color: transparent !important;
+	border-bottom-style: solid !important;
+	color: $black-text !important;
+	cursor: text !important;
+	&.picker__input--active {
+		border-color: $link-color;
+		border-bottom-width: 2px;
+		&.form-control-default {
+			border-bottom-width: 1px;
+		}
+	}
+}
+
+.picker__month,
+.picker__year {
+	display: inline;
+	margin-left: $grid-gutter;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+.picker__nav--next,
+.picker__nav--prev {
+	cursor: pointer;
+	line-height: $line-height;
+	margin-top: ($line-height / -2);
+	position: absolute;
+		top: 50%;
+	text-align: center;
+	width: ($line-height * 1.5);
+	&:focus,
+	&:hover {
+		color: $link-color;
+	}
+	// 480
+		@include responsive(xs) {
+			width: ($line-height * 1.75);
+		}
+	// 992
+		@include responsive(md) {
+			width: ($line-height * 2);
+		}
+}
+
+.picker__nav--next {
+	// position
+		right: 0;
+	&:before {
+		content: "keyboard_arrow_right";
+	}
+	// 992
+		@include responsive(md) {
+			right: ($grid-gutter / 2);
+		}
+}
+
+.picker__nav--prev {
+	// position
+		left: 0;
+	&:before {
+		content: "keyboard_arrow_left";
+	}
+	// 992
+		@include responsive(md) {
+			left: ($grid-gutter / 2);
+		}
+}
+
+.picker__select--month,
+.picker__select--year {
+	@extend .form-control;
+	border-bottom-color: transparent !important;
+	display: inline-block;
+	margin-left: $grid-gutter;
+	width: auto;
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+.picker__table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 ($grid-gutter / 2);
+	table-layout: fixed;
+	// 992
+		@include responsive(md) {
+			float: left;
+			margin: 0;
+		}
+}
+
+.picker__table td,
+.picker__table th {
+	border: 0;
+	font-size: floor($font-size * 0.9);
+	line-height: $line-height;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	vertical-align: middle;
+	width: ($line-height * 1.5);
+	// 480
+		@include responsive(xs) {
+			width: ($line-height * 1.75);
+		}
+	// 992
+		@include responsive(md) {
+			width: ($line-height * 2);
+			&:first-child {
+				padding-left: ($grid-gutter / 2);
+				width: ($grid-gutter / 2 + $line-height * 2);
+			}
+			&:last-child {
+				padding-right: ($grid-gutter / 2);
+				width: ($grid-gutter / 2 + $line-height * 2);
+			}
+		}
+}
+
+.picker__weekday {
+	color: $black-hint;
+	font-weight: $font-weight-light;
+}
+
+.picker__weekday-display {
+	margin-right: ($grid-gutter / 2);
+	&:after {
+		content: ",";
+	}
+	// 992
+		@include responsive(md) {
+			display: block;
+		}
+}

@@ -1,0 +1,108 @@
+.tab-nav {
+	box-shadow: 0 1px 0 $black-bg;
+	margin-top: $margin-md;
+	margin-bottom: $margin-md;
+	position: relative;
+	.nav {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		> li {
+			vertical-align: bottom;
+			> a,
+			> .a {
+				border-bottom: 2px solid transparent;
+				color: $black-text;
+				padding-bottom: (($nav-height - $line-height) / 2 - 2);
+				text-transform: uppercase;
+				transition: border-bottom-color 0s;
+				&:focus,
+				&:hover {
+					border-bottom-color: lighten($link-color, 30%);
+					color: $link-color;
+					transition: border-bottom-color 0.3s $timing;
+				}
+			}
+			&.active > a,
+			&.active > .a {
+				border-bottom-color: $link-color;
+				color: $link-color;
+				transition: border-bottom-color 0s 0.45s;
+			}
+		}
+	}
+}
+
+.tab-nav-indicator {
+	background-color: transparent;
+	height: 2px;
+	position: absolute;
+		bottom: 0;
+	&.animate {
+		background-color: $link-color;
+		transition: left 0.225s $timing 0.225s, right 0.45s $timing;
+		&.reverse {
+			transition: left 0.45s $timing, right 0.225s $timing 0.225s;
+		}
+	}
+}
+
+// colour
+	.tab-nav-offwhite {
+		.nav {
+			> li {
+				> a,
+				> .a {
+					color: $white;
+					&:focus,
+					&:hover {
+						border-bottom-color: rgba(255, 255, 255, 0.5);
+						color: $white;
+					}
+				}
+				&.active > a,
+				&.active > .a {
+					border-bottom-color: $white;
+					color: $white;
+				}
+			}
+		}
+		.tab-nav-indicator.animate {
+			background-color: $white;
+		}
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.tab-nav-#{$color} {
+			.nav {
+				> li {
+					> a,
+					> .a {
+						&:focus,
+						&:hover {
+							border-bottom-color: nth($palette-color-light, $i);
+							color: nth($palette-color, $i);
+						}
+					}
+					&.active > a,
+					&.active > .a {
+						border-bottom-color: nth($palette-color, $i);
+						color: nth($palette-color, $i);
+					}
+				}
+			}
+			.tab-nav-indicator.animate {
+				background-color: nth($palette-color, $i);
+			}
+		}
+	}
+
+.tab-pane {
+	display: none;
+	visibility: hidden;
+	&.active {
+		display: block;
+		visibility: visible;
+	}
+}

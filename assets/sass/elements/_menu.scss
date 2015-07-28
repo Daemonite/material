@@ -1,0 +1,360 @@
+.menu {
+	backface-visibility: hidden;
+	display: none;
+	overflow: hidden;
+	outline: 0;
+	position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	z-index: ($header-base + 1);
+}
+
+.menu-collapse-toggle {
+	background-color: transparent !important;
+	cursor: pointer;
+	display: block;
+	float: right;
+	padding: (($nav-height - $line-height) / 2) $grid-gutter;
+	position: absolute;
+		top: 0;
+		right: 0;
+	z-index: 1;
+	&:hover {
+		color: $link-color !important;
+	}
+}
+
+.menu-collapse-toggle-close {
+	margin-top: ($font-size / -2);
+	opacity: 1;
+	position: absolute;
+		top: 50%;
+		left: 0;
+	text-align: center;
+	transform: rotate(0);
+	transition: all 0.3s $timing;
+	transition-property: opacity, transform;
+	width: 100%;
+	.menu-collapse-toggle.collapsed & {
+		opacity: 0;
+		transform: rotate(-225deg);
+	}
+}
+
+.menu-collapse-toggle-default {
+	opacity: 0;
+	transform: rotate(225deg);
+	transition: all 0.3s $timing;
+	transition-property: opacity, transform;
+	.menu-collapse-toggle.collapsed & {
+		opacity: 1;
+		transform: rotate(0);
+	}
+}
+
+.menu-content {
+	padding-top: $margin-base;
+	padding-bottom: $margin-base;
+	hr {
+		border-top-color: $black-bg;
+		margin-top: $margin-base;
+		margin-bottom: $margin-base;
+	}
+	.nav {
+		margin-top: 0;
+		margin-bottom: 0;
+		a,
+		.a {
+			color: $black-sec;
+			font-weight: $font-weight-medium;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			&:focus,
+			&:hover {
+				background-color: $white-bg;
+			}
+			.fa,
+			.icon {
+				margin-right: $grid-gutter;
+			}
+		}
+		li.active {
+			> a,
+			> .a {
+				color: $brand-color;
+			}
+		}
+		ul {
+			a,
+			.a {
+				font-weight: $font-weight-normal;
+				padding-left: ($grid-gutter * 2);
+			}
+			ul {
+				a,
+				.a {
+					font-size: $font-size-h6;
+					font-weight: $font-weight-light;
+					padding-top: (($nav-height - $line-height) / 4);
+					padding-bottom: (($nav-height - $line-height) / 4);
+					padding-left: ($grid-gutter * 3);
+				}
+			}
+		}
+	}
+	// no boxshadow
+		.nav  {
+			.no-boxshadow & {
+				margin-right: 1px;
+			}
+			.no-boxshadow .menu.menu-right & {
+				margin-right: 0;
+				margin-left: 1px;
+			}
+		}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.page-#{$color} .menu-content .nav li.active {
+			> a,
+			> .a {
+				color: nth($palette-color, $i);
+			}
+		}
+	}
+
+.menu-content-inner {
+	padding-right: $grid-gutter;
+	padding-left: $grid-gutter;
+}
+
+.menu-backdrop {
+	backface-visibility: hidden;
+	background-color: $black;
+	opacity: 0;
+	position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	transition: opacity 0.3s $timing;
+	z-index: $header-base;
+	&.in {
+		opacity: 0.5;
+	}
+}
+
+.menu-logo {
+	@extend .header-logo;
+	border-bottom: 1px solid $black-bg;
+	color: $black-text;
+	float: none;
+	height: $header-height;
+	margin-right: 0;
+	margin-bottom: $margin-base;
+	margin-left: 0;
+	padding: (($header-height - $line-height-h4) / 2) $grid-gutter (($header-height - $line-height-h4) / 2 - 1);
+	&:focus,
+	&:hover {
+		color: $black-text;
+	}
+	.menu-content > & {
+		&:first-child {
+			margin-top: ($margin-base * -1);
+		}
+	}
+}
+
+.menu-scroll {
+	background-color: $white;
+	height: 100%;
+	max-width: 85%;
+	max-width: calc(100% - #{$grid-gutter * 4});
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+		top: 0;
+		left: ($grid-gutter * -20);
+	transition-duration: 0.3s;
+	transition-property: box-shadow, left;
+	transition-timing-function: $timing;
+	width: ($grid-gutter * 20);
+	z-index: 1;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+	.menu.in & {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		// left
+			left: 0;
+	}
+	.menu-right & {
+		// position
+			right: ($grid-gutter * -20);
+			left: auto;
+		transition-property: box-shadow, right;
+	}
+	.menu-right.in & {
+		// position
+			right: 0;
+			left: auto;
+	}
+	// 992
+		@include responsive(md) {
+			max-width: none;
+		}
+	// no boxshadow
+		.no-boxshadow & {
+			&:after {
+				background-color: $black-bg;
+				content: "";
+				display: block;
+				height: 100%;
+				position: absolute;
+					top: 0;
+					right: 0;
+				width: 1px;
+			}
+		}
+		.no-boxshadow .menu.menu-right & {
+			&:after {
+				// position
+					right: auto;
+					left: 0;
+			}
+		}
+}
+
+.menu-top {
+	background-color: $brand-color-dark-m;
+	color: $white-bg;
+	position: relative;
+	z-index: 1;
+	a {
+		color: $white-bg;
+		text-decoration: none;
+		&:focus,
+		&:hover {
+			color: $white;
+		}
+	}
+}
+
+// colour
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.page-#{$color} .menu-top {
+			background-color: nth($palette-color-dark-m, $i);
+		}
+	}
+
+.menu-top-img {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
+	img {
+		min-height: 100%;
+		width: 100%;
+		opacity: 0.5;
+	}
+}
+
+.menu-top-info {
+	padding: $margin-sm $grid-gutter;
+	position: relative;
+	// 768
+		@include responsive(sm) {
+			padding-top: $margin-md;
+			padding-bottom: $margin-md;
+		}
+}
+
+.menu-top-info-sub {
+	font-weight: $font-weight-light;
+	padding: $margin-sm $grid-gutter;
+	position: relative;
+	// 768
+		@include responsive(sm) {
+			padding-top: $margin-md;
+		}
+}
+
+.menu-top-user {
+	align-items: center;
+	display: flex;
+	// no flexbox
+		.no-flexbox & {
+			@include clearfix();
+		}
+}
+
+@mixin nav-drawer() {
+	background-color: transparent;
+	display: block;
+	overflow: visible;
+	width: ($grid-gutter * 15);
+	z-index: $header-base;
+	.menu-scroll {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		// left
+			left: 0;
+		width: ($grid-gutter * 15);
+	}
+	&.menu-left {
+		~ .content {
+			margin-left: ($grid-gutter * 15);
+			.content-heading,
+			.content-inner {
+				padding-left: $grid-gutter;
+			}
+		}
+		~ .footer,
+		~ .header {
+			padding-left: $grid-gutter;
+			// position
+				left: ($grid-gutter * 15);
+		}
+	}
+	&.menu-right {
+		~ .content {
+			margin-right: ($grid-gutter * 15);
+			.content-heading,
+			.content-inner {
+				padding-right: $grid-gutter;
+			}
+		}
+		~ .footer,
+		~ .header {
+			padding-right: $grid-gutter;
+			// position
+				right: ($grid-gutter * 15);
+		}
+	}
+}
+
+.nav-drawer {
+	// 992
+		@include responsive(md) {
+			&.nav-drawer-md {
+				@include nav-drawer()
+			}
+		}
+	// 1440
+		@include responsive(lg) {
+			&.nav-drawer-lg {
+				@include nav-drawer();
+			}
+		}
+}

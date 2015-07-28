@@ -1,0 +1,124 @@
+.checkbox-adv {
+	font-size: $font-size;
+	line-height: $line-height;
+	[class^="circle"] {
+		display: block;
+		height: $font-size;
+		position: absolute;
+			top: (($line-height - $font-size) / 2 - 1);
+			left: 0;
+		width: $font-size;
+	}
+	.circle {
+		border: 2px solid $black-sec;
+		transition: border-color 0.3s $timing;
+	}
+	&.disabled,
+	fieldset[disabled] & {
+		.circle {
+			border-color: $black-hint !important;
+		}
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:focus ~ .circle {
+			border-color: $black-text;
+		}
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:checked ~ .circle {
+			border-color: $brand-color;
+		}
+	}
+	.circle-check {
+		background-color: transparent;
+		transform: scale(0, 0);
+		transition: all 0.3s $timing;
+		transition-property: background-color, transform;
+		&:after {
+			background-color: $brand-color;
+			border-radius: 50%;
+			content: "";
+			display: block;
+			height: ($font-size * 5);
+			opacity: 0;
+			position: absolute;
+				top: ($font-size * -2);
+				left: ($font-size * -2);
+			width: ($font-size * 5);
+		}
+	}
+	&.disabled,
+	fieldset[disabled] & {
+		.circle-check:after {
+			background-color: $black-hint;
+		}
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:checked ~ .circle-check {
+			transform: scale(0.5, 0.5);
+			&:after {
+				animation: circle-check 0.6s;
+			}
+		}
+	}
+	.circle-icon {
+		background-color: transparent;
+		color: transparent;
+		transform: scale(0.5, 0.5);
+		transition: all 0.3s $timing;
+		transition-property: background-color, color, transform;
+		&:before {
+			// position
+				top: auto;
+		}
+	}
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:checked ~ .circle-icon {
+			background-color: $brand-color;
+			color: $white;
+			transform: scale(1, 1);
+		}
+	}
+	&.disabled,
+	fieldset[disabled] & {
+		input[type="checkbox"],
+		input[type="radio"] {
+			&:checked ~ .circle-icon {
+				background-color: $black-hint;
+			}
+		}
+	}
+}
+
+.radio-adv {
+	@extend .checkbox-adv;
+	[class^="circle"] {
+		border-radius: 50%;
+	}
+	input[type="radio"]:checked ~ .circle-check {
+		background-color: $brand-color;
+	}
+	&.disabled,
+	fieldset[disabled] & {
+		input[type="radio"]:checked ~ .circle-check {
+			background-color: $black-hint;
+		}
+	}
+}
+
+// animation
+	@keyframes circle-check {
+		0% {
+			opacity: 0;
+		}
+		25% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0;
+		}
+	}

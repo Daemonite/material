@@ -1,0 +1,150 @@
+.header {
+	backface-visibility: hidden;
+	background-color: $brand-color;
+	color: $white;
+	min-height: $header-height;
+	padding-top: (($header-height - $nav-height) / 2);
+	padding-bottom: (($header-height - $nav-height) / 2);
+	transition: background-color 0.3s $timing, box-shadow 0.15s linear;
+	z-index: $header-base;
+	@include clearfix();
+	&.affix {
+		box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+		transition: background-color 0.6s $timing, box-shadow 0.6s linear;
+	}
+	a {
+		color: $white;
+	}
+	.dropdown-menu {
+		border-radius: 2px;
+		a {
+			color: $black-text;
+		}
+	}
+	.dropdown-toggle {
+		z-index: 1;
+		&:after {
+			background-color: rgba(0, 0, 0, 0.3);
+			border-radius: 50%;
+			content: "";
+			display: block;
+			height: ($nav-height - $base);
+			margin-left: (($nav-height - $base) / -2);
+			position: absolute;
+				top: ($base / 2);
+				left: 50%;
+			transform: scale(0, 0);
+			transition: all 0.3s $timing;
+			transition-property: background-color, transform;
+			width: ($nav-height - $base);
+			z-index: -1;
+			// no csstransforms
+				.no-csstransforms & {
+					display: none;
+				}
+		}
+	}
+	.dropdown.open .dropdown-toggle {
+		background-color: transparent;
+		&:after {
+			transform: scale(1, 1);
+			// no csstransforms
+				.no-csstransforms & {
+					display: block;
+				}
+		}
+	}
+	.nav {
+		margin: 0;
+	}
+	.tab-nav {
+		box-shadow: none;
+		margin-top: (($header-height - $nav-height) / -2);
+		margin-bottom: (($header-height - $nav-height) / -2);
+		.nav > li {
+			> a,
+			> .a {
+				padding-top: (($header-height - $line-height) / 2);
+				padding-bottom: (($header-height - $line-height) / 2 - 2);
+			}
+		}
+	}
+}
+
+// colour
+	.header-transparent {
+		background-color: transparent !important;
+		&.affix {
+			background-color: $brand-color !important;
+		}
+	}
+
+	@each $color in $palette-list {
+		$i: index($palette-list, $color);
+
+		.page-#{$color} {
+			.header {
+				background-color: nth($palette-color, $i);
+			}
+			.header-transparent.affix {
+				background-color: nth($palette-color, $i) !important;
+			}
+		}
+	}
+
+.header-affix {
+	max-height: $nav-height;
+	overflow: hidden;
+	position: static !important;
+	width: 0;
+	&.affix {
+		overflow: visible;
+		width: auto;
+	}
+}
+
+.header-affix-hide {
+	position: static !important;
+	&.affix {
+		max-height: $nav-height;
+		overflow: hidden;
+		width: 0;
+	}
+}
+
+.header-logo,
+.header-text {
+	display: block;
+	float: left;
+	font-weight: $font-weight-light;
+	height: $nav-height;
+	line-height: $line-height-h4;
+	margin: 0 $grid-gutter;
+	padding: (($nav-height - $line-height-h4) / 2) 0;
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.header-logo {
+	font-size: $font-size-h4;
+	img {
+		display: block;
+		max-height: $line-height-h4;
+		width: auto;
+	}
+}
+
+.header-seamed,
+.header-standard,
+.header-waterfall {
+	position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+}
+
+.header-standard {
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
