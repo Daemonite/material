@@ -9,6 +9,9 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
+	<!-- css for this project -->
+	<link href="css/project.min.css" rel="stylesheet">
+
 	<!-- favicon -->
 	<!-- ... -->
 
@@ -34,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header">
+	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
 				<a data-toggle="menu" href="#menu">
@@ -42,131 +45,129 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo" href="index.html">Material</a>
+		<a class="header-logo margin-left-no" href="index.html">Material</a>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Tabs
+			</span>
+		</div>
 		<nav class="tab-nav tab-nav-offwhite pull-right">
 			<ul class="nav nav-list">
 				<li class="active">
-					<a class="waves-effect waves-light" data-toggle="tab" href="#first-tab-header">First Tab</a>
+					<a class="waves-attach waves-light" data-toggle="tab" href="#first-tab-header">First Tab</a>
 				</li>
 				<li>
-					<a class="waves-effect waves-light" data-toggle="tab" href="#second-tab-header">Second Tab</a>
+					<a class="waves-attach waves-light" data-toggle="tab" href="#second-tab-header">Second Tab</a>
 				</li>
 				<li>
-					<a class="waves-effect waves-light" data-toggle="tab" href="#third-tab-header">Third Tab</a>
+					<a class="waves-attach waves-light" data-toggle="tab" href="#third-tab-header">Third Tab</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
-	<nav class="menu" id="menu">
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-content">
-					<a class="menu-logo" href="index.html">Material</a>
-					<ul class="nav">
-						<li>
-							<a href="ui-card.html">Cards</a>
-						</li>
-						<li>
-							<a href="ui-collapse.html">Collapsible Regions</a>
-						</li>
-						<li>
-							<a href="ui-dropdown.html">Dropdowns</a>
-						</li>
-						<li>
-							<a href="ui-modal.html">Modals &amp; Toasts</a>
-						</li>
-						<li>
-							<a href="ui-nav.html">Navs</a>
-						</li>
-						<li>
-							<a href="ui-progress.html">Progress Bars</a>
-						</li>
-						<li class="active">
-							<a href="ui-tab.html">Tabs</a>
-						</li>
-						<li>
-							<a href="ui-tile.html">Tiles</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="ui-button.html">Buttons</a>
-						</li>
-						<li>
-							<a href="ui-form.html">Form Elements</a>
-							<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse" id="form-elements">
-								<li>
-									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="ui-icon.html">Icons</a>
-						</li>
-						<li>
-							<a href="ui-table.html">Tables</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="page-affix.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a>
-						</li>
-						<li>
-							<a href="page-palette.html">Page Palettes</a>
-							<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse" id="page-palettes">
-								<li>
-									<a href="page-palette-blue.html">Blue Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-green.html">Green Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-purple.html">Purple Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-red.html">Red Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-yellow.html">Yellow Palette</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<div class="menu-content">
+				<a class="menu-logo" href="index.html">Material</a>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-card.html">Cards</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-nav.html">Navs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
+					</li>
+					<li class="active">
+						<a class="waves-attach" href="ui-tab.html">Tabs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tile.html">Tiles</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-button.html">Buttons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-form.html">Form Elements</a>
+						<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse" id="form-elements">
+							<li>
+								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-icon.html">Icons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-table.html">Tables</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
+						<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse" id="page-palettes">
+							<li>
+								<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
-	<nav class="menu menu-right" id="profile">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-top">
-					<div class="menu-top-img">
-						<img alt="John Smith" src="images/samples/landscape.jpg">
-					</div>
-					<div class="menu-top-info">
-						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-					</div>
-					<div class="menu-top-info-sub">
-						<small>Some additional information about John Smith</small>
-					</div>
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="John Smith" src="images/samples/landscape.jpg">
 				</div>
-				<div class="menu-content">
-					<ul class="nav">
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-						</li>
-						<li>
-							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-						</li>
-					</ul>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
 				</div>
+				<div class="menu-top-info-sub">
+					<small>Some additional information about John Smith</small>
+				</div>
+			</div>
+			<div class="menu-content">
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -176,21 +177,21 @@
 				<h1 class="heading">Tabs</h1>
 			</div>
 		</div>
-		<div class="content-inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-md-8">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-8">
+					<section class="content-inner">
 						<h2 class="content-sub-heading">Basic Tab</h2>
 						<nav class="tab-nav">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-effect" data-toggle="tab" href="#first-tab">First Tab</a>
+									<a class="waves-attach" data-toggle="tab" href="#first-tab">First Tab</a>
 								</li>
 								<li>
-									<a class="waves-effect" data-toggle="tab" href="#second-tab">Second Tab</a>
+									<a class="waves-attach" data-toggle="tab" href="#second-tab">Second Tab</a>
 								</li>
 								<li>
-									<a class="waves-effect" data-toggle="tab" href="#third-tab">Third Tab</a>
+									<a class="waves-attach" data-toggle="tab" href="#third-tab">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
@@ -206,86 +207,86 @@
 							</div>
 						</div>
 						<h2 class="content-sub-heading">Coloured Tab Navs</h2>
-						<p><span class="icon margin-right-half">info</span>Default tab nav inherits link colour (<code>$link-color</code>).</p>
+						<p><span class="icon margin-right-sm">info</span>Default tab nav inherits link colour (<code>$link-color</code>).</p>
 						<nav class="tab-nav tab-nav-alt">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-alt waves-effect" data-toggle="tab" href="#first-tab-alt">Brand Colour</a>
+									<a class="waves-attach waves-color-alt" data-toggle="tab" href="#first-tab-alt">Brand Colour</a>
 								</li>
 								<li>
-									<a class="waves-color-alt waves-effect" data-toggle="tab" href="#second-tab-alt">Another Tab</a>
+									<a class="waves-attach waves-color-alt" data-toggle="tab" href="#second-tab-alt">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-alt waves-effect" data-toggle="tab" href="#third-tab-alt">Third Tab</a>
+									<a class="waves-attach waves-color-alt" data-toggle="tab" href="#third-tab-alt">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
 						<nav class="tab-nav tab-nav-blue">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-blue waves-effect" data-toggle="tab" href="#first-tab-blue">Blue Tab</a>
+									<a class="waves-attach waves-color-blue" data-toggle="tab" href="#first-tab-blue">Blue Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-blue waves-effect" data-toggle="tab" href="#second-tab-blue">Another Tab</a>
+									<a class="waves-attach waves-color-blue" data-toggle="tab" href="#second-tab-blue">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-blue waves-effect" data-toggle="tab" href="#third-tab-blue">Third Tab</a>
+									<a class="waves-attach waves-color-blue" data-toggle="tab" href="#third-tab-blue">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
 						<nav class="tab-nav tab-nav-green">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-green waves-effect" data-toggle="tab" href="#first-tab-green">Green Tab</a>
+									<a class="waves-attach waves-color-green" data-toggle="tab" href="#first-tab-green">Green Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-green waves-effect" data-toggle="tab" href="#second-tab-green">Another Tab</a>
+									<a class="waves-attach waves-color-green" data-toggle="tab" href="#second-tab-green">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-green waves-effect" data-toggle="tab" href="#third-tab-green">Third Tab</a>
+									<a class="waves-attach waves-color-green" data-toggle="tab" href="#third-tab-green">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
 						<nav class="tab-nav tab-nav-purple">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-purple waves-effect" data-toggle="tab" href="#first-tab-purple">Purple Tab</a>
+									<a class="waves-attach waves-color-purple" data-toggle="tab" href="#first-tab-purple">Purple Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-purple waves-effect" data-toggle="tab" href="#second-tab-purple">Another Tab</a>
+									<a class="waves-attach waves-color-purple" data-toggle="tab" href="#second-tab-purple">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-purple waves-effect" data-toggle="tab" href="#third-tab-purple">Third Tab</a>
+									<a class="waves-attach waves-color-purple" data-toggle="tab" href="#third-tab-purple">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
 						<nav class="tab-nav tab-nav-red">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-red waves-effect" data-toggle="tab" href="#first-tab-red">Red Tab</a>
+									<a class="waves-attach waves-color-red" data-toggle="tab" href="#first-tab-red">Red Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-red waves-effect" data-toggle="tab" href="#second-tab-red">Another Tab</a>
+									<a class="waves-attach waves-color-red" data-toggle="tab" href="#second-tab-red">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-red waves-effect" data-toggle="tab" href="#third-tab-red">Third Tab</a>
+									<a class="waves-attach waves-color-red" data-toggle="tab" href="#third-tab-red">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
 						<nav class="tab-nav tab-nav-yellow">
 							<ul class="nav nav-justified">
 								<li class="active">
-									<a class="waves-color-yellow waves-effect" data-toggle="tab" href="#first-tab-yellow">Yellow Tab</a>
+									<a class="waves-attach waves-color-yellow" data-toggle="tab" href="#first-tab-yellow">Yellow Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-yellow waves-effect" data-toggle="tab" href="#second-tab-yellow">Another Tab</a>
+									<a class="waves-attach waves-color-yellow" data-toggle="tab" href="#second-tab-yellow">Another Tab</a>
 								</li>
 								<li>
-									<a class="waves-color-yellow waves-effect" data-toggle="tab" href="#third-tab-yellow">Third Tab</a>
+									<a class="waves-attach waves-color-yellow" data-toggle="tab" href="#third-tab-yellow">Third Tab</a>
 								</li>
 							</ul>
 						</nav>
-					</div>
+					</section>
 				</div>
 			</div>
 		</div>
@@ -306,7 +307,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<!-- js for this project -->
+	<script src="js/project.min.js"></script>
 </body>
 </html>

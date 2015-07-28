@@ -9,6 +9,9 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
+	<!-- css for this project -->
+	<link href="css/project.min.css" rel="stylesheet">
+
 	<!-- favicon -->
 	<!-- ... -->
 
@@ -34,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header">
+	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
 				<a data-toggle="menu" href="#menu">
@@ -42,91 +45,93 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo" href="index.html">Material</a>
+		<a class="header-logo margin-left-no" href="index.html">Material</a>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Cards
+			</span>
+		</div>
 		<ul class="nav nav-list pull-right">
 			<li>
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
 			</li>
 		</ul>
 	</header>
-	<nav class="menu" id="menu">
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-wrap">
 				<div class="menu-content">
 					<a class="menu-logo" href="index.html">Material</a>
 					<ul class="nav">
 						<li class="active">
-							<a href="ui-card.html">Cards</a>
+							<a class="waves-attach" href="ui-card.html">Cards</a>
 						</li>
 						<li>
-							<a href="ui-collapse.html">Collapsible Regions</a>
+							<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
 						</li>
 						<li>
-							<a href="ui-dropdown.html">Dropdowns</a>
+							<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
 						</li>
 						<li>
-							<a href="ui-modal.html">Modals &amp; Toasts</a>
+							<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
 						</li>
 						<li>
-							<a href="ui-nav.html">Navs</a>
+							<a class="waves-attach" href="ui-nav.html">Navs</a>
 						</li>
 						<li>
-							<a href="ui-progress.html">Progress Bars</a>
+							<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
 						</li>
 						<li>
-							<a href="ui-tab.html">Tabs</a>
+							<a class="waves-attach" href="ui-tab.html">Tabs</a>
 						</li>
 						<li>
-							<a href="ui-tile.html">Tiles</a>
+							<a class="waves-attach" href="ui-tile.html">Tiles</a>
 						</li>
 					</ul>
 					<hr>
 					<ul class="nav">
 						<li>
-							<a href="ui-button.html">Buttons</a>
+							<a class="waves-attach" href="ui-button.html">Buttons</a>
 						</li>
 						<li>
-							<a href="ui-form.html">Form Elements</a>
+							<a class="waves-attach" href="ui-form.html">Form Elements</a>
 							<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
 							<ul class="menu-collapse collapse" id="form-elements">
 								<li>
-									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+									<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<a href="ui-icon.html">Icons</a>
+							<a class="waves-attach" href="ui-icon.html">Icons</a>
 						</li>
 						<li>
-							<a href="ui-table.html">Tables</a>
+							<a class="waves-attach" href="ui-table.html">Tables</a>
 						</li>
 					</ul>
 					<hr>
 					<ul class="nav">
 						<li>
-							<a href="page-affix.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a>
-						</li>
-						<li>
-							<a href="page-palette.html">Page Palettes</a>
+							<a class="waves-attach" href="page-palette.html">Page Palettes</a>
 							<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
 							<ul class="menu-collapse collapse" id="page-palettes">
 								<li>
-									<a href="page-palette-blue.html">Blue Palette</a>
+									<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
 								</li>
 								<li>
-									<a href="page-palette-green.html">Green Palette</a>
+									<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
 								</li>
 								<li>
-									<a href="page-palette-purple.html">Purple Palette</a>
+									<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
 								</li>
 								<li>
-									<a href="page-palette-red.html">Red Palette</a>
+									<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
 								</li>
 								<li>
-									<a href="page-palette-yellow.html">Yellow Palette</a>
+									<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
 								</li>
 							</ul>
 						</li>
@@ -135,7 +140,7 @@
 			</div>
 		</div>
 	</nav>
-	<nav class="menu menu-right" id="profile">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-wrap">
 				<div class="menu-top">
@@ -152,13 +157,13 @@
 				<div class="menu-content">
 					<ul class="nav">
 						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+							<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
 						</li>
 						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+							<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
 						</li>
 						<li>
-							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+							<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -171,8 +176,8 @@
 				<h1 class="heading">Cards</h1>
 			</div>
 		</div>
-		<div class="content-inner">
-			<div class="container">
+		<div class="container">
+			<section class="content-inner">
 				<h2 class="content-sub-heading">Basic Cards</h2>
 				<div class="card-wrap">
 					<div class="row">
@@ -189,22 +194,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -226,22 +231,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -263,22 +268,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -300,22 +305,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -337,22 +342,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -374,22 +379,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -411,22 +416,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -448,22 +453,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-alt" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-alt waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -485,22 +490,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-blue" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-blue waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -522,22 +527,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-green" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-green waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -559,22 +564,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-purple" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-purple waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -596,22 +601,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-red" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-red waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -633,22 +638,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach waves-light" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle dropdown-toggle-yellow" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle dropdown-toggle-yellow waves-attach waves-light" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -670,22 +675,22 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon">add</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 											</li>
 											<li>
-												<a href="javascript:void(0)"><span class="icon">delete</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 											</li>
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">settings</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">loop</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">replay</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">shuffle</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -708,7 +713,7 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 									</div>
@@ -731,10 +736,10 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 											<li>
-												<a data-dismiss="tile" href="javascript:void(0)"><span class="icon">close</span>&nbsp;Cancel</a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon">close</span>&nbsp;Cancel</a>
 											</li>
 										</ul>
 									</div>
@@ -745,8 +750,8 @@
 							<div class="card">
 								<div class="card-main">
 									<div class="card-header">
-										<div class="card-inner-side pull-left">
-											<div class="avatar avatar-sm">
+										<div class="card-header-side pull-left">
+											<div class="avatar">
 												<img alt="John Smith Avatar" src="images/users/avatar-001.jpg">
 											</div>
 										</div>
@@ -766,21 +771,21 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 										<ul class="nav nav-list pull-right">
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_1</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_1</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_2</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_2</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_3</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_3</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -796,7 +801,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<aside class="card-side">
+								<aside class="card-side pull-left">
 									<span class="card-heading icon">info_outline</span>
 								</aside>
 								<div class="card-main">
@@ -810,21 +815,21 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 										<ul class="nav nav-list pull-right">
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_1</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_1</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_2</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_2</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_3</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_3</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -835,7 +840,7 @@
 						</div>
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<aside class="card-side card-side-right">
+								<aside class="card-side pull-right">
 									<span class="card-heading icon">info_outline</span>
 								</aside>
 								<div class="card-main">
@@ -849,21 +854,21 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 										<ul class="nav nav-list pull-right">
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_1</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_1</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_2</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_2</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_3</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_3</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -878,7 +883,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<a class="card-side" href="javascript:void(0)"><span class="card-heading">Action</span></a>
+								<a class="card-side pull-left waves-attach" href="javascript:void(0)"><span class="card-heading">Action</span></a>
 								<div class="card-main">
 									<div class="card-inner">
 										<p class="card-heading">Primary Area!</p>
@@ -890,21 +895,21 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 										<ul class="nav nav-list pull-right">
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_1</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_1</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_2</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_2</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_3</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_3</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -915,7 +920,7 @@
 						</div>
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<a class="card-side card-side-right" href="javascript:void(0)"><span class="card-heading">Action</span></a>
+								<a class="card-side pull-right waves-attach" href="javascript:void(0)"><span class="card-heading">Action</span></a>
 								<div class="card-main">
 									<div class="card-inner">
 										<p class="card-heading">Primary Area!</p>
@@ -927,21 +932,21 @@
 									<div class="card-action">
 										<ul class="nav nav-list pull-left">
 											<li>
-												<a href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
+												<a class="waves-attach" href="javascript:void(0)"><span class="icon text-blue">check</span>&nbsp;<span class="text-blue">OK</span></a>
 											</li>
 										</ul>
 										<ul class="nav nav-list pull-right">
 											<li class="dropdown">
-												<a class="dropdown-toggle" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
+												<a class="dropdown-toggle waves-attach" data-toggle="dropdown"><span class="icon">keyboard_arrow_down</span></a>
 												<ul class="dropdown-menu">
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_1</span>&nbsp;Lorem Ipsum</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_1</span>&nbsp;Lorem Ipsum</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_2</span>&nbsp;Consectetur Adipiscing</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_2</span>&nbsp;Consectetur Adipiscing</a>
 													</li>
 													<li>
-														<a href="javascript:void(0)"><span class="icon margin-right-half">filter_3</span>&nbsp;Sed Ornare</a>
+														<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">filter_3</span>&nbsp;Sed Ornare</a>
 													</li>
 												</ul>
 											</li>
@@ -956,7 +961,7 @@
 					<div class="row">
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<aside class="card-side card-side-img">
+								<aside class="card-side card-side-img pull-left">
 									<img alt="alt text" src="images/samples/portrait.jpg">
 								</aside>
 								<div class="card-main">
@@ -972,7 +977,7 @@
 						</div>
 						<div class="col-lg-4 col-sm-6">
 							<div class="card">
-								<aside class="card-side card-side-img card-side-right">
+								<aside class="card-side card-side-img pull-right">
 									<img alt="alt text" src="images/samples/portrait.jpg">
 								</aside>
 								<div class="card-main">
@@ -988,7 +993,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	</div>
 	<footer class="footer">
@@ -1007,7 +1012,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<!-- js for this project -->
+	<script src="js/project.min.js"></script>
 </body>
 </html>

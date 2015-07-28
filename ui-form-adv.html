@@ -9,6 +9,9 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
+	<!-- css for this project -->
+	<link href="css/project.min.css" rel="stylesheet">
+
 	<!-- favicon -->
 	<!-- ... -->
 
@@ -34,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header">
+	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
 				<a data-toggle="menu" href="#menu">
@@ -42,125 +45,126 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo" href="index.html">Material</a>
+		<div class="header-affix-hide pull-left" data-offset-top="108" data-spy="affix">
+			<a class="header-logo margin-left-no" href="index.html">Material</a>
+		</div>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-logo margin-left-no">Form</span>
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Materialised
+			</span>
+		</div>
 		<ul class="nav nav-list pull-right">
 			<li>
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
 			</li>
 		</ul>
 	</header>
-	<nav class="menu" id="menu">
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-content">
-					<a class="menu-logo" href="index.html">Material</a>
-					<ul class="nav">
-						<li>
-							<a href="ui-card.html">Cards</a>
-						</li>
-						<li>
-							<a href="ui-collapse.html">Collapsible Regions</a>
-						</li>
-						<li>
-							<a href="ui-dropdown.html">Dropdowns</a>
-						</li>
-						<li>
-							<a href="ui-modal.html">Modals &amp; Toasts</a>
-						</li>
-						<li>
-							<a href="ui-nav.html">Navs</a>
-						</li>
-						<li>
-							<a href="ui-progress.html">Progress Bars</a>
-						</li>
-						<li>
-							<a href="ui-tab.html">Tabs</a>
-						</li>
-						<li>
-							<a href="ui-tile.html">Tiles</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="ui-button.html">Buttons</a>
-						</li>
-						<li>
-							<a href="ui-form.html">Form Elements</a>
-							<span class="menu-collapse-toggle" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse in" id="form-elements">
-								<li class="active">
-									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
-								</li>
-							</ul>
-						<li>
-							<a href="ui-icon.html">Icons</a>
-						</li>
-						<li>
-							<a href="ui-table.html">Tables</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="page-affix.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a>
-						</li>
-						<li>
-							<a href="page-palette.html">Page Palettes</a>
-							<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse" id="page-palettes">
-								<li>
-									<a href="page-palette-blue.html">Blue Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-green.html">Green Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-purple.html">Purple Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-red.html">Red Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-yellow.html">Yellow Palette</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<div class="menu-content">
+				<a class="menu-logo" href="index.html">Material</a>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-card.html">Cards</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-nav.html">Navs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tab.html">Tabs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tile.html">Tiles</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-button.html">Buttons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-form.html">Form Elements</a>
+						<span class="menu-collapse-toggle" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse in" id="form-elements">
+							<li class="active">
+								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+							</li>
+						</ul>
+					<li>
+						<a class="waves-attach" href="ui-icon.html">Icons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-table.html">Tables</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
+						<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse" id="page-palettes">
+							<li>
+								<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
-	<nav class="menu menu-right" id="profile">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-top">
-					<div class="menu-top-img">
-						<img alt="John Smith" src="images/samples/landscape.jpg">
-					</div>
-					<div class="menu-top-info">
-						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-					</div>
-					<div class="menu-top-info-sub">
-						<small>Some additional information about John Smith</small>
-					</div>
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="John Smith" src="images/samples/landscape.jpg">
 				</div>
-				<div class="menu-content">
-					<ul class="nav">
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-						</li>
-						<li>
-							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-						</li>
-					</ul>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
 				</div>
+				<div class="menu-top-info-sub">
+					<small>Some additional information about John Smith</small>
+				</div>
+			</div>
+			<div class="menu-content">
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -170,8 +174,8 @@
 				<h1 class="heading">Materialised Form Elements</h1>
 			</div>
 		</div>
-		<div class="content-inner">
-			<div class="container">
+		<div class="container">
+			<section class="content-inner">
 				<form class="form">
 					<fieldset>
 						<legend>Floating Labels</legend>
@@ -311,12 +315,12 @@
 					</fieldset>
 					<fieldset>
 						<legend>Form Controls with Icons</legend>
-						<div class="form-group form-group-icon">
+						<div class="form-group">
 							<div class="row">
 								<div class="col-lg-6 col-sm-8">
 									<div class="media">
 										<div class="media-object pull-left">
-											<label class="form-label" for="input-address"><span class="icon">home</span></label>
+											<label class="form-icon-label" for="input-address"><span class="icon">home</span></label>
 										</div>
 										<div class="media-inner">
 											<input class="form-control" id="input-address" placeholder="Address" type="text">
@@ -325,12 +329,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group form-group-icon">
+						<div class="form-group">
 							<div class="row">
 								<div class="col-lg-6 col-sm-8">
 									<div class="media">
 										<div class="media-object pull-left">
-											<label class="form-label" for="input-phone"><span class="icon">phone</span></label>
+											<label class="form-icon-label" for="input-phone"><span class="icon">phone</span></label>
 										</div>
 										<div class="media-inner">
 											<select class="form-control" id="input-phone">
@@ -344,12 +348,12 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group form-group-icon">
+						<div class="form-group">
 							<div class="row">
 								<div class="col-lg-6 col-sm-8">
 									<div class="media">
 										<div class="media-object pull-left">
-											<label class="form-label" for="input-comment"><span class="icon">comment</span></label>
+											<label class="form-icon-label" for="input-comment"><span class="icon">comment</span></label>
 										</div>
 										<div class="media-inner">
 											<textarea class="form-control textarea-autosize" id="input-comment" placeholder="Comments" rows="1"></textarea>
@@ -365,16 +369,19 @@
 							<div class="checkbox checkbox-adv">
 								<label for="input-checkbox-1">
 									<input class="access-hide" id="input-checkbox-1" name="input-checkbox" type="checkbox">Option 1
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv">
 								<label for="input-checkbox-2">
 									<input class="access-hide" id="input-checkbox-2" name="input-checkbox" type="checkbox">Option 2
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv">
 								<label for="input-checkbox-3">
 									<input class="access-hide" id="input-checkbox-3" name="input-checkbox" type="checkbox">Option 3
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 						</div>
@@ -382,16 +389,19 @@
 							<div class="checkbox checkbox-adv disabled">
 								<label for="input-checkbox-1-disabled">
 									<input class="access-hide" id="input-checkbox-1-disabled" name="input-checkbox-disabled" type="checkbox" disabled>Disabled Option 1
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv disabled">
 								<label for="input-checkbox-2-disabled">
 									<input class="access-hide" id="input-checkbox-2-disabled" name="input-checkbox-disabled" type="checkbox" checked disabled>Disabled Option 2
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv disabled">
 								<label for="input-checkbox-3-disabled">
 									<input class="access-hide" id="input-checkbox-3-disabled" name="input-checkbox-disabled" type="checkbox" disabled>Disabled Option 3
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 						</div>
@@ -399,16 +409,19 @@
 							<div class="checkbox checkbox-adv checkbox-inline">
 								<label for="input-checkbox-inline-1">
 									<input class="access-hide" id="input-checkbox-inline-1" name="input-checkbox-inline" type="checkbox">Inline Option 1
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv checkbox-inline">
 								<label for="input-checkbox-inline-2">
 									<input class="access-hide" id="input-checkbox-inline-2" name="input-checkbox-inline" type="checkbox">Inline Option 2
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 							<div class="checkbox checkbox-adv checkbox-inline">
 								<label for="input-checkbox-inline-3">
 									<input class="access-hide" id="input-checkbox-inline-3" name="input-checkbox-inline" type="checkbox">Inline Option 3
+									<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
 								</label>
 							</div>
 						</div>
@@ -416,16 +429,19 @@
 							<div class="radio radio-adv">
 								<label for="input-radio-1">
 									<input class="access-hide" id="input-radio-1" name="input-radio" type="radio">Option 1
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv">
 								<label for="input-radio-2">
 									<input class="access-hide" id="input-radio-2" name="input-radio" type="radio">Option 2
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv">
 								<label for="input-radio-3">
 									<input class="access-hide" id="input-radio-3" name="input-radio" type="radio">Option 3
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 						</div>
@@ -433,16 +449,19 @@
 							<div class="radio radio-adv disabled">
 								<label for="input-radio-1-disabled">
 									<input class="access-hide" id="input-radio-1-disabled" name="input-radio-disabled" type="radio" disabled>Disabled Option 1
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv disabled">
 								<label for="input-radio-2-disabled">
 									<input class="access-hide" id="input-radio-2-disabled" name="input-radio-disabled" type="radio" checked disabled>Disabled Option 2
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv disabled">
 								<label for="input-radio-3-disabled">
 									<input class="access-hide" id="input-radio-3-disabled" name="input-radio-disabled" type="radio" disabled>Disabled Option 3
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 						</div>
@@ -450,16 +469,19 @@
 							<div class="radio radio-adv radio-inline">
 								<label for="input-radio-inline-1">
 									<input class="access-hide" id="input-radio-inline-1" name="input-radio-inline" type="radio">Inline Option 1
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv radio-inline">
 								<label for="input-radio-inline-2">
 									<input class="access-hide" id="input-radio-inline-2" name="input-radio-inline" type="radio">Inline Option 2
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 							<div class="radio radio-adv radio-inline">
 								<label for="input-radio-inline-3">
 									<input class="access-hide" id="input-radio-inline-3" name="input-radio-inline" type="radio">Inline Option 3
+									<span class="circle"></span><span class="circle-check"></span>
 								</label>
 							</div>
 						</div>
@@ -472,7 +494,19 @@
 									<label class="form-label" for="datepicker-adv-1">Material Datepicker</label>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-8">
-									<input class="datepicker-adv datepicker-adv-default form-control" id="datepicker-adv-1" type="text">
+									<input class="datepicker-adv datepicker-adv-doc-1 form-control" id="datepicker-adv-1" type="text">
+									<div class="card">
+										<div class="card-main">
+											<div class="card-header">
+												<div class="card-inner">
+													<span class="icon">info_outline</span>&nbsp;<span>Usage</span>
+												</div>
+											</div>
+											<div class="card-inner">
+												<p>Use <code>.datepicker-adv</code> to apply material datepicker styles and activate the datepicker via simple javascript, for example: <code>$('.datepicker-adv').datepicker();</code></p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -482,7 +516,23 @@
 									<label class="form-label" for="datepicker-adv-2">Material Datepicker with Pre-Set Date</label>
 								</div>
 								<div class="col-lg-4 col-md-6 col-sm-8">
-									<input class="datepicker-adv datepicker-adv-default form-control" id="datepicker-adv-2" type="text" value="1/1/2000">
+									<input class="datepicker-adv datepicker-adv-doc-2 form-control" id="datepicker-adv-2" type="text" value="01-Jan-2010">
+									<div class="card">
+										<div class="card-main">
+											<div class="card-header">
+												<div class="card-inner">
+													<span class="icon">info_outline</span>&nbsp;<span>Options</span>
+												</div>
+											</div>
+											<div class="card-inner">
+												<p>Alternatively, options can be passed to override some default material datepicker behaviours:</p>
+												<ul>
+													<li><code>format</code> to change date format</li>
+													<li><code>selectMonths</code> and <code>selectYears</code> to hide/show dropdown menus for picking month and year. The number of years to be shown in the dropdown can also be specified using an even integer.</li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -540,10 +590,10 @@
 						</div>
 					</fieldset>
 					<div class="form-group-btn">
-						<button class="btn btn-blue waves-button waves-light waves-effect" type="submit">Submit Button</button><button class="btn waves-button waves-effect" type="button">Cancel Button</button>
+						<button class="btn btn-blue waves-attach waves-button waves-light" type="submit">Submit Button</button><button class="btn waves-attach waves-button" type="button">Cancel Button</button>
 					</div>
 				</form>
-			</div>
+			</section>
 		</div>
 	</div>
 	<footer class="footer">
@@ -562,7 +612,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<!-- js for this project -->
+	<script src="js/project.min.js"></script>
 </body>
 </html>

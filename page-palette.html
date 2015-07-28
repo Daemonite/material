@@ -9,6 +9,9 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
+	<!-- css for this project -->
+	<link href="css/project.min.css" rel="stylesheet">
+
 	<!-- favicon -->
 	<!-- ... -->
 
@@ -34,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header">
+	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
 				<a data-toggle="menu" href="#menu">
@@ -42,126 +45,124 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo" href="index.html">Material</a>
+		<a class="header-logo margin-left-no" href="index.html">Material</a>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Palettes
+			</span>
+		</div>
 		<ul class="nav nav-list pull-right">
 			<li>
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
 			</li>
 		</ul>
 	</header>
-	<nav class="menu" id="menu">
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-content">
-					<a class="menu-logo" href="index.html">Material</a>
-					<ul class="nav">
-						<li>
-							<a href="ui-card.html">Cards</a>
-						</li>
-						<li>
-							<a href="ui-collapse.html">Collapsible Regions</a>
-						</li>
-						<li>
-							<a href="ui-dropdown.html">Dropdowns</a>
-						</li>
-						<li>
-							<a href="ui-modal.html">Modals &amp; Toasts</a>
-						</li>
-						<li>
-							<a href="ui-nav.html">Navs</a>
-						</li>
-						<li>
-							<a href="ui-progress.html">Progress Bars</a>
-						</li>
-						<li>
-							<a href="ui-tab.html">Tabs</a>
-						</li>
-						<li>
-							<a href="ui-tile.html">Tiles</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="ui-button.html">Buttons</a>
-						</li>
-						<li>
-							<a href="ui-form.html">Form Elements</a>
-							<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse" id="form-elements">
-								<li>
-									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="ui-icon.html">Icons</a>
-						</li>
-						<li>
-							<a href="ui-table.html">Tables</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="page-affix.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a>
-						</li>
-						<li class="active">
-							<a href="page-palette.html">Page Palettes</a>
-							<span class="menu-collapse-toggle" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse in" id="page-palettes">
-								<li>
-									<a href="page-palette-blue.html">Blue Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-green.html">Green Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-purple.html">Purple Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-red.html">Red Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-yellow.html">Yellow Palette</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<div class="menu-content">
+				<a class="menu-logo" href="index.html">Material</a>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-card.html">Cards</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-nav.html">Navs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tab.html">Tabs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tile.html">Tiles</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-button.html">Buttons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-form.html">Form Elements</a>
+						<span class="menu-collapse-toggle collapsed" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse" id="form-elements">
+							<li>
+								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-icon.html">Icons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-table.html">Tables</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li class="active">
+						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
+						<span class="menu-collapse-toggle" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse in" id="page-palettes">
+							<li>
+								<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
-	<nav class="menu menu-right" id="profile">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-top">
-					<div class="menu-top-img">
-						<img alt="John Smith" src="images/samples/landscape.jpg">
-					</div>
-					<div class="menu-top-info">
-						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-					</div>
-					<div class="menu-top-info-sub">
-						<small>Some additional information about John Smith</small>
-					</div>
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="John Smith" src="images/samples/landscape.jpg">
 				</div>
-				<div class="menu-content">
-					<ul class="nav">
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-						</li>
-						<li>
-							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-						</li>
-					</ul>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
 				</div>
+				<div class="menu-top-info-sub">
+					<small>Some additional information about John Smith</small>
+				</div>
+			</div>
+			<div class="menu-content">
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -171,41 +172,41 @@
 				<h1 class="heading">Page Palettes</h1>
 			</div>
 		</div>
-		<div class="content-inner">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-md-10">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10">
+					<section class="content-inner">
 						<h2 class="content-sub-heading">Default Page Colour</h2>
 						<p>Default page colour is <code>$brand-color</code>.</p>
 						<h3 class="content-sub-heading">Other Page Colours</h3>
-						<div class="tile-wrap tile-wrap-animation">
-							<a class="tile" href="page-palette-blue.html">
+						<div class="tile-wrap">
+							<a class="tile waves-attach" href="page-palette-blue.html">
 								<div class="tile-inner">
 									<span>Blue</span>
 								</div>
 							</a>
-							<a class="tile" href="page-palette-green.html">
+							<a class="tile waves-attach" href="page-palette-green.html">
 								<div class="tile-inner">
 									<span>Green</span>
 								</div>
 							</a>
-							<a class="tile" href="page-palette-purple.html">
+							<a class="tile waves-attach" href="page-palette-purple.html">
 								<div class="tile-inner">
 									<span>Purple</span>
 								</div>
 							</a>
-							<a class="tile" href="page-palette-red.html">
+							<a class="tile waves-attach" href="page-palette-red.html">
 								<div class="tile-inner">
 									<span>Red</span>
 								</div>
 							</a>
-							<a class="tile" href="page-palette-yellow.html">
+							<a class="tile waves-attach" href="page-palette-yellow.html">
 								<div class="tile-inner">
 									<span>Yellow</span>
 								</div>
 							</a>
 						</div>
-					</div>
+					</section>
 				</div>
 			</div>
 		</div>
@@ -226,7 +227,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<!-- js for this project -->
+	<script src="js/project.min.js"></script>
 </body>
 </html>

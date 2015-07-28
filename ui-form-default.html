@@ -9,6 +9,9 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
+	<!-- css for this project -->
+	<link href="css/project.min.css" rel="stylesheet">
+
 	<!-- favicon -->
 	<!-- ... -->
 
@@ -34,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<header class="header">
+	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
 				<a data-toggle="menu" href="#menu">
@@ -42,126 +45,127 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo" href="index.html">Material</a>
+		<div class="header-affix-hide pull-left" data-offset-top="108" data-spy="affix">
+			<a class="header-logo margin-left-no" href="index.html">Material</a>
+		</div>
+		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
+			<span class="header-logo margin-left-no">Form</span>
+			<span class="header-text margin-left-no">
+				<i class="icon margin-right">chevron_right</i>Default
+			</span>
+		</div>
 		<ul class="nav nav-list pull-right">
 			<li>
 				<a data-toggle="menu" href="#profile">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
 			</li>
 		</ul>
 	</header>
-	<nav class="menu" id="menu">
+	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-content">
-					<a class="menu-logo" href="index.html">Material</a>
-					<ul class="nav">
-						<li>
-							<a href="ui-card.html">Cards</a>
-						</li>
-						<li>
-							<a href="ui-collapse.html">Collapsible Regions</a>
-						</li>
-						<li>
-							<a href="ui-dropdown.html">Dropdowns</a>
-						</li>
-						<li>
-							<a href="ui-modal.html">Modals &amp; Toasts</a>
-						</li>
-						<li>
-							<a href="ui-nav.html">Navs</a>
-						</li>
-						<li>
-							<a href="ui-progress.html">Progress Bars</a>
-						</li>
-						<li>
-							<a href="ui-tab.html">Tabs</a>
-						</li>
-						<li>
-							<a href="ui-tile.html">Tiles</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="ui-button.html">Buttons</a>
-						</li>
-						<li>
-							<a href="ui-form.html">Form Elements</a>
-							<span class="menu-collapse-toggle" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse in" id="form-elements">
-								<li>
-									<a href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="ui-icon.html">Icons</a>
-						</li>
-						<li>
-							<a href="ui-table.html">Tables</a>
-						</li>
-					</ul>
-					<hr>
-					<ul class="nav">
-						<li>
-							<a href="page-affix.html">Full-Width Page <small>(with fixed LHC/RHC)</small></a>
-						</li>
-						<li>
-							<a href="page-palette.html">Page Palettes</a>
-							<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-							<ul class="menu-collapse collapse" id="page-palettes">
-								<li>
-									<a href="page-palette-blue.html">Blue Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-green.html">Green Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-purple.html">Purple Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-red.html">Red Palette</a>
-								</li>
-								<li>
-									<a href="page-palette-yellow.html">Yellow Palette</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+			<div class="menu-content">
+				<a class="menu-logo" href="index.html">Material</a>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-card.html">Cards</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-nav.html">Navs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tab.html">Tabs</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-tile.html">Tiles</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="ui-button.html">Buttons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-form.html">Form Elements</a>
+						<span class="menu-collapse-toggle" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse in" id="form-elements">
+							<li>
+								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-icon.html">Icons</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="ui-table.html">Tables</a>
+					</li>
+				</ul>
+				<hr>
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
+						<span class="menu-collapse-toggle collapsed" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
+						<ul class="menu-collapse collapse" id="page-palettes">
+							<li>
+								<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
-	<nav class="menu menu-right" id="profile">
+	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
 		<div class="menu-scroll">
-			<div class="menu-wrap">
-				<div class="menu-top">
-					<div class="menu-top-img">
-						<img alt="John Smith" src="images/samples/landscape.jpg">
-					</div>
-					<div class="menu-top-info">
-						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-					</div>
-					<div class="menu-top-info-sub">
-						<small>Some additional information about John Smith</small>
-					</div>
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="John Smith" src="images/samples/landscape.jpg">
 				</div>
-				<div class="menu-content">
-					<ul class="nav">
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-						</li>
-						<li>
-							<a href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-						</li>
-						<li>
-							<a href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-						</li>
-					</ul>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
 				</div>
+				<div class="menu-top-info-sub">
+					<small>Some additional information about John Smith</small>
+				</div>
+			</div>
+			<div class="menu-content">
+				<ul class="nav">
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</nav>
@@ -171,8 +175,8 @@
 				<h1 class="heading">Form Elements</h1>
 			</div>
 		</div>
-		<div class="content-inner">
-			<div class="container">
+		<div class="container">
+			<section class="content-inner">
 				<form class="form">
 					<div class="form-group">
 						<div class="row">
@@ -186,7 +190,7 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-date">Input Type = Date <small>(<code>disabled</code>)</small></label>
+								<label for="input-date">Input Type = Date (<code>disabled</code>)</label>
 								<input class="form-control form-control-default" id="input-date" type="date" disabled>
 							</div>
 						</div>
@@ -194,7 +198,7 @@
 					<div class="form-group form-group-alt">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-datetime">Input Type = Datetime <small>(<code>.form-group-alt</code>)</small></label>
+								<label for="input-datetime">Input Type = Datetime (<code>.form-group-alt</code>)</label>
 								<input class="form-control form-control-default" id="input-datetime" type="datetime">
 							</div>
 						</div>
@@ -202,7 +206,7 @@
 					<div class="form-group form-group-blue">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-datetime-local">Input Type = Datetime-local <small>(<code>.form-group-blue</code>)</small></label>
+								<label for="input-datetime-local">Input Type = Datetime-local (<code>.form-group-blue</code>)</label>
 								<input class="form-control form-control-default" id="input-datetime-local" type="datetime-local">
 							</div>
 						</div>
@@ -210,7 +214,7 @@
 					<div class="form-group form-group-green">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-email">Input Type = Email <small>(<code>.form-group-green</code>)</small></label>
+								<label for="input-email">Input Type = Email (<code>.form-group-green</code>)</label>
 								<input class="form-control form-control-default" id="input-email" type="email">
 							</div>
 						</div>
@@ -218,7 +222,7 @@
 					<div class="form-group form-group-purple">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-month">Input Type = Month <small>(<code>.form-group-purple</code>)</small></label>
+								<label for="input-month">Input Type = Month (<code>.form-group-purple</code>)</label>
 								<input class="form-control form-control-default" id="input-month" type="month">
 							</div>
 						</div>
@@ -226,7 +230,7 @@
 					<div class="form-group form-group-red">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-number">Input Type = Number <small>(<code>.form-group-red</code>)</small></label>
+								<label for="input-number">Input Type = Number (<code>.form-group-red</code>)</label>
 								<input class="form-control form-control-default" id="input-number" type="number">
 							</div>
 						</div>
@@ -234,7 +238,7 @@
 					<div class="form-group form-group-yellow">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<label for="input-password">Input Type = Password <small>(<code>.form-group-yellow</code>)</small></label>
+								<label for="input-password">Input Type = Password (<code>.form-group-yellow</code>)</label>
 								<input class="form-control form-control-default" id="input-password" type="password">
 							</div>
 						</div>
@@ -336,12 +340,12 @@
 					<div class="form-group-btn">
 						<div class="row">
 							<div class="col-lg-6 col-md-8 col-sm-10">
-								<button class="btn btn-blue waves-button waves-light waves-effect" type="submit">Submit Button</button><button class="btn waves-button waves-effect" type="button">Cancel Button</button>
+								<button class="btn btn-blue waves-attach waves-button waves-light" type="submit">Submit Button</button><button class="btn waves-attach waves-button" type="button">Cancel Button</button>
 							</div>
 						</div>
 					</div>
 				</form>
-			</div>
+			</section>
 		</div>
 	</div>
 	<footer class="footer">
@@ -360,7 +364,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
+
+	<!-- js for this project -->
+	<script src="js/project.min.js"></script>
 </body>
 </html>
