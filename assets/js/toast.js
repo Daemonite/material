@@ -21,7 +21,6 @@
 		};
 
 		Toast.prototype.hide = function () {
-			console.log(this.options.content);
 			var that = this;
 
 			this.$element.removeClass('in');
