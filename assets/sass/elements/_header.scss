@@ -55,7 +55,15 @@
 	}
 	.tab-nav {
 		box-shadow: none;
-		margin: 0;
+		margin-top: (($header-height - $nav-height) / -2);
+		margin-bottom: (($header-height - $nav-height) / -2);
+		.nav > li {
+			> a,
+			> .a {
+				padding-top: (($header-height - $line-height) / 2);
+				padding-bottom: (($header-height - $line-height) / 2 - 2);
+			}
+		}
 	}
 }
 
