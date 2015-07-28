@@ -501,33 +501,11 @@
 		</div>
 	</div>
 
+	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="../js/base.min.js"></script>
 
-	<!-- documentation extra javascript -->
-	<script type="text/javascript">
-		$('.finish-loading').on('click', function(e) {
-			e.stopPropagation();
-			$($(this).attr('data-target')).addClass('el-loading-done');
-		});
-	</script>
-	<script type="text/javascript">
-		var timer;
-
-		$('#el-loading-tile-wrap .tile-active-show').on('hide.bs.collapse', function(e) {
-			clearTimeout(timer);
-		});
-
-		$('#el-loading-tile-wrap .tile-active-show').on('show.bs.collapse', function(e) {
-			var $this = $(this);
-
-			if (!$('.el-loading', $this).hasClass('el-loading-done')) {
-				timer = setTimeout(function() {
-					$('.el-loading', $this).addClass('el-loading-done');
-					$this.prepend('<div class="tile-sub"><p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p></div>');
-				}, 6000);
-			};
-		});
-	</script>
+	<!-- js for this project -->
+	<script src="../js/project.min.js"></script>
 </body>
 </html>
