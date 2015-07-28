@@ -7269,6 +7269,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   background-color: #2196f3;
 }
 .progress-bar-indeterminate:after, .progress-bar-indeterminate:before {
+  -webkit-animation-duration: 2.1s;
+          animation-duration: 2.1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
   background-color: inherit;
   border-radius: 1px;
   content: '';
@@ -7277,74 +7283,78 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   top: 0;
   bottom: 0;
   left: 0;
-  will-change: left, right;
+  -webkit-transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left, width;
 }
 .progress-bar-indeterminate:after {
-  -webkit-animation: pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite;
-          animation: pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite;
+  -webkit-animation-name: pbar-indeterminate-one;
+          animation-name: pbar-indeterminate-one;
+  left: 0;
 }
 .progress-bar-indeterminate:before {
-  -webkit-animation: pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite;
-          animation: pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation-name: pbar-indeterminate-two;
+          animation-name: pbar-indeterminate-two;
+  right: 0;
 }
 
 @-webkit-keyframes pbar-indeterminate-one {
   0% {
-    right: 100%;
-    left: -35%;
+    left: 0%;
+    width: 0%;
   }
-  60% {
-    right: -90%;
-    left: 100%;
+  50% {
+    left: 25%;
+    width: 75%;
   }
-  100% {
-    right: -90%;
+  75% {
     left: 100%;
+    width: 0%;
   }
 }
 
 @keyframes pbar-indeterminate-one {
   0% {
-    right: 100%;
-    left: -35%;
+    left: 0%;
+    width: 0%;
   }
-  60% {
-    right: -90%;
-    left: 100%;
+  50% {
+    left: 25%;
+    width: 75%;
   }
-  100% {
-    right: -90%;
+  75% {
     left: 100%;
+    width: 0%;
   }
 }
 @-webkit-keyframes pbar-indeterminate-two {
-  0% {
-    right: 100%;
-    left: -150%;
+  0%,
+		50% {
+    left: 0%;
+    width: 0%;
   }
-  60% {
-    right: -35%;
-    left: 135%;
+  75% {
+    left: 0%;
+    width: 25%;
   }
   100% {
-    right: -35%;
-    left: 135%;
+    left: 100%;
+    width: 0%;
   }
 }
 @keyframes pbar-indeterminate-two {
-  0% {
-    right: 100%;
-    left: -150%;
+  0%,
+		50% {
+    left: 0%;
+    width: 0%;
   }
-  60% {
-    right: -35%;
-    left: 135%;
+  75% {
+    left: 0%;
+    width: 25%;
   }
   100% {
-    right: -35%;
-    left: 135%;
+    left: 100%;
+    width: 0%;
   }
 }
 .progress-position-absolute-bottom,
@@ -7680,8 +7690,8 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 }
 
 .load-bar-base {
-  -webkit-animation: load-bar-right-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
-          animation: load-bar-right-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  -webkit-animation: load-bar-right-in 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+          animation: load-bar-right-in 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   background-color: #2196f3;
   float: left;
   height: 100%;
@@ -7696,8 +7706,8 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   will-change: transform;
 }
 .load-bar:first-child .load-bar-base {
-  -webkit-animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
-          animation: load-bar-left-in 1s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+  -webkit-animation: load-bar-left-in 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
+          animation: load-bar-left-in 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
   -webkit-transform: translate(100%, 0);
       -ms-transform: translate(100%, 0);
           transform: translate(100%, 0);
@@ -7748,10 +7758,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   }
 }
 .load-bar-content {
-  -webkit-animation: load-bar-right 4s linear infinite forwards;
-          animation: load-bar-right 4s linear infinite forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: load-bar-right 3.6s linear infinite forwards;
+          animation: load-bar-right 3.6s linear infinite forwards;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
   float: left;
   height: 100%;
   position: relative;
@@ -7762,10 +7772,10 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   will-change: transform;
 }
 .load-bar:first-child .load-bar-content {
-  -webkit-animation: load-bar-left 4s linear infinite forwards;
-          animation: load-bar-left 4s linear infinite forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: load-bar-left 3.6s linear infinite forwards;
+          animation: load-bar-left 3.6s linear infinite forwards;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
 @-webkit-keyframes load-bar-left {

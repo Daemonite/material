@@ -33,6 +33,9 @@
 	background-color: $link-color;
 	&:after,
 	&:before {
+		animation-duration: 2.1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
 		background-color: inherit;
 		border-radius: 1px;
 		content: '';
@@ -41,14 +44,18 @@
 			top: 0;
 			bottom: 0;
 			left: 0;
-		will-change: left, right;
+		transition: width 0.3s $timing;
+		will-change: left, width;
 	}
 	&:after {
-		animation: pbar-indeterminate-one 3s cubic-bezier(0.6, 0.8, 0.6, 0.4) infinite;
+		animation-name: pbar-indeterminate-one;
+		// position
+			left: 0;
 	}
 	&:before {
-		animation: pbar-indeterminate-two 3s cubic-bezier(0.2, 0.8, 0.2, 0.8) infinite;
-		animation-delay: 1.5s;
+		animation-name: pbar-indeterminate-two;
+		// position
+			right: 0;
 	}
 }
 
@@ -56,36 +63,37 @@
 	@keyframes pbar-indeterminate-one {
 		0% {
 			// position
-				right: 100%;
-				left: -35%;
+				left: 0%;
+			width: 0%;
 		}
-		60% {
+		50% {
 			// position
-				right: -90%;
-				left: 100%;
+				left: 25%;
+			width: 75%;
 		}
-		100% {
+		75% {
 			// position
-				right: -90%;
 				left: 100%;
+			width: 0%;
 		}
 	}
 
 	@keyframes pbar-indeterminate-two {
-		0% {
+		0%,
+		50% {
 			// position
-				right: 100%;
-				left: -150%;
+				left: 0%;
+			width: 0%;
 		}
-		60% {
+		75% {
 			// position
-				right: -35%;
-				left: 135%;
+				left: 0%;
+			width: 25%;
 		}
 		100% {
 			// position
-				right: -35%;
-				left: 135%;
+				left: 100%;
+			width: 0%;
 		}
 	}
 
