@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+@import "../sass/mixin/css3";
+@import "../sass/mixin/grid";
+@import "../sass/mixin/responsive";
+@import "../sass/mixin/utilities";
+
+@import "../sass/var/variable";
+
+// project
+	body {
+		padding-bottom: ($line-height + $margin-sm * 4 + 1);
+	}
+
+	.content-heading {
+		background-image: url(#{$css-path}/images/bg/alt.jpg);
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: ($header-height + $margin-sm);
+	}
+
+	// colour
+		@each $color in $palette-list {
+			$i: index($palette-list, $color);
+
+			.page-#{$color} .content-heading {
+				background-image: url(#{$css-path}/images/bg/#{$color}.jpg);
+			}
+		}
