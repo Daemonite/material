@@ -5,7 +5,12 @@
 	&:focus,
 	&:hover {
 		background-color: $black-bg;
+		background-color: rgba(red($black-hint), green($black-hint), blue($black-hint), 0.18);
 		box-shadow: none;
+	}
+	&:active {
+		background-color: $black-hint;
+		background-color: rgba(red($black-hint), green($black-hint), blue($black-hint), 0.36);
 	}
 	&[disabled],
 	fieldset[disabled] & {
@@ -19,11 +24,6 @@
 
 		.btn-flat.btn-#{$color} {
 			color: nth($palette-color, $i);
-			&:active,
-			&:focus,
-			&:hover {
-				background-color: nth($palette-color-light, $i);
-			}
 			&[disabled],
 			fieldset[disabled] & {
 				color: nth($palette-color, $i);

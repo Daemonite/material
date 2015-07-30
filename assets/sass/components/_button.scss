@@ -5,7 +5,7 @@
 	background-size: 100% 100%;
 	border: 0;
 	border-radius: 2px;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 1px 5px 1px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 	color: $black-text;
 	cursor: pointer;
 	display: inline-block;
@@ -14,7 +14,7 @@
 	line-height: $line-height;
 	margin-bottom: 0;
 	max-width: 100%;
-	padding: (($btn-height - $line-height) / 2) $grid-gutter;
+	padding: (($btn-height - $line-height) / 2) ($grid-gutter / 2);
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
@@ -25,10 +25,16 @@
 	&:active,
 	&:focus,
 	&:hover {
-		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15), 0 5px 10px 1px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
 		color: $black-text;
 		outline: 0;
 		text-decoration: none;
+	}
+	&:active,
+	&:focus {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 3px 9px rgba(0, 0, 0, 0.3);
+	}
+	&:active {
+		background-color: $black-bg;
 	}
 	&[disabled],
 	fieldset[disabled] & {
@@ -48,6 +54,9 @@
 			&:focus,
 			&:hover {
 				color: $white;
+			}
+			&:active {
+				background-color: nth($palette-color-dark, $i);
 			}
 			&[disabled],
 			fieldset[disabled] & {
