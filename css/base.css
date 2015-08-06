@@ -8480,10 +8480,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
 }
 @media only screen and (min-width: 768px) {
   .toast {
-    margin-right: 72px;
-    right: auto;
+    padding-right: 16px;
+    padding-left: 16px;
     bottom: 24px;
-    left: 16px !important;
+  }
+  .fbtn-container ~ .toast {
+    right: 72px;
   }
 }
 
@@ -8493,6 +8495,11 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   background-color: #212121;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
   color: #ffffff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
   padding: 12px 16px;
   -webkit-transform: translate(0, 200%);
       -ms-transform: translate(0, 200%);
@@ -8537,7 +8544,12 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:active:after, input[type=
   float: right;
   font-weight: 500;
   margin-left: 16px;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .content-heading {

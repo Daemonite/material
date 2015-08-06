@@ -15,11 +15,14 @@
 	}
 	// 768
 		@include responsive(sm) {
-			margin-right: ($fbtn-height + $grid-gutter * 2);
+			padding-right: $grid-gutter;
+			padding-left: $grid-gutter;
 			// position
-				right: auto;
 				bottom: $margin-md;
-				left: $grid-gutter !important;
+			.fbtn-container ~ & {
+				// position
+					right: ($base * 2 + $fbtn-height + $grid-gutter);
+			}
 		}
 }
 
@@ -28,6 +31,8 @@
 	background-color: $black-text;
 	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 	color: $white;
+	display: flex;
+	max-width: 100%;
 	padding: $margin-sm $grid-gutter;
 	transform: translate(0, 200%);
 	transition: all 0.3s $timing;
@@ -59,5 +64,7 @@
 	float: right;
 	font-weight: $font-weight-medium;
 	margin-left: $grid-gutter;
+	order: 1;
 	text-transform: uppercase;
+	white-space: nowrap;
 }
