@@ -89,6 +89,8 @@
 	}
 
 .dropdown-toggle-btn {
+	margin-right: 1px;
+	margin-left: 1px;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	position: relative;
@@ -99,18 +101,17 @@
 		color: $black-text;
 	}
 	~ .dropdown-menu {
-		min-width: 101%;
-		min-width: calc(100% + 2px);
+		min-width: 100%;
 		padding-top: ($btn-height + $margin-base + ($nav-height - $btn-height)) !important;
 		// position
 			top: ($margin-base * -1 + ($nav-height - $btn-height) / -2);
-			left: -1px;
+			left: 0;
 		transform: scale(1, 0);
 		&.dropdown-menu-right,
 		.dropdown.pull-right &,
 		.nav.pull-right & {
 			// position
-				right: -1px;
+				right: 0;
 				left: auto;
 		}
 	}
