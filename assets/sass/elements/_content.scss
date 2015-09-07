@@ -2,8 +2,8 @@
 }
 
 .content-heading {
-	background-color: $brand-color;
-	color: $white;
+	background-color: $offwhite;
+	color: $offwhite-text;
 	overflow: hidden;
 	padding-top: $margin-sm;
 	padding-bottom: $margin-sm;
@@ -16,11 +16,12 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.page-#{$color} .content-heading {
-			background-color: nth($palette-color, $i);
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
 		}
 	}
 
@@ -30,17 +31,16 @@
 }
 
 .content-sub-heading {
-	color: $brand-color;
 	font-size: $font-size-h4;
 	font-weight: $font-weight-medium;
 	line-height: $line-height-h4;
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.page-#{$color} .content-sub-heading {
-			color: nth($palette-color, $i);
+			color: nth($palette-list-color, $i);
 		}
 	}

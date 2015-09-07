@@ -35,9 +35,9 @@
 				container: 'body',
 				format: that.options.format,
 				klass: {
-					buttonClear: 'btn btn-flat btn-alt picker__button--clear',
-					buttonClose: 'btn btn-flat btn-alt picker__button--close',
-					buttonToday: 'btn btn-flat btn-alt picker__button--today',
+					buttonClear: 'btn btn-flat btn-brand picker__button--clear',
+					buttonClose: 'btn btn-flat btn-brand picker__button--close',
+					buttonToday: 'btn btn-flat btn-brand picker__button--today',
 					navPrev: 'icon picker__nav--prev',
 					navNext: 'icon picker__nav--next',
 				},

@@ -1,7 +1,7 @@
 .header {
 	backface-visibility: hidden;
-	background-color: $brand-color;
-	color: $white;
+	background-color: $white;
+	color: $black-text-solid;
 	min-height: $header-height;
 	padding-top: (($header-height - $nav-height) / 2);
 	padding-bottom: (($header-height - $nav-height) / 2);
@@ -13,7 +13,7 @@
 		transition: background-color 0.6s $timing, box-shadow 0.6s linear;
 	}
 	a {
-		color: $white;
+		color: inherit;
 	}
 	.dropdown-menu {
 		border-radius: 2px;
@@ -72,23 +72,12 @@
 }
 
 // colour
-	.header-transparent {
-		background-color: transparent !important;
-		&.affix {
-			background-color: $brand-color !important;
-		}
-	}
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.page-#{$color} {
-			.header {
-				background-color: nth($palette-color, $i);
-			}
-			.header-transparent.affix {
-				background-color: nth($palette-color, $i) !important;
-			}
+		.header-#{$color} {
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
 		}
 	}
 
@@ -148,3 +137,22 @@
 .header-standard {
 	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
+
+.header-transparent {
+	background-color: transparent;
+	&.affix {
+		background-color: $white;
+	}
+}
+
+// colour
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
+
+		.page-#{$color} .header-transparent {
+			color: nth($palette-list-text, $i);
+			&.affix {
+				background-color: nth($palette-list-color, $i);
+			}
+		}
+	}

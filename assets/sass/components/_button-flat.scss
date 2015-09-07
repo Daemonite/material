@@ -4,29 +4,28 @@
 	&:active,
 	&:focus,
 	&:hover {
-		background-color: $black-bg;
-		background-color: rgba(red($black-hint), green($black-hint), blue($black-hint), 0.18);
+		background-color: $btn-bg-color;
 		box-shadow: none;
 	}
 	&:active {
-		background-color: $black-hint;
-		background-color: rgba(red($black-hint), green($black-hint), blue($black-hint), 0.36);
+		background-color: $btn-bg-color-hover;
 	}
+	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
-		color: $black-text;
+		background-color: transparent !important;
 	}
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.btn-flat.btn-#{$color} {
-			color: nth($palette-color, $i);
+			color: nth($palette-list-color, $i);
 			&[disabled],
 			fieldset[disabled] & {
-				color: nth($palette-color, $i);
+				color: nth($palette-list-light, $i);
 			}
 		}
 	}

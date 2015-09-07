@@ -114,19 +114,19 @@ legend {
 		&[disabled],
 		&[readonly],
 		fieldset[disabled] & {
-			background-color: $white-bg-dark;
+			background-color: $offwhite-dark;
 		}
 	}
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.form-group-#{$color} {
 			.form-control,
 			.form-control:focus {
-				border-color: nth($palette-color, $i);
+				border-color: nth($palette-list-color, $i);
 			}
 		}
 	}
@@ -180,8 +180,8 @@ textarea.form-control {
 }
 
 .form-control-inverse {
-	color: $white;
-	@include placeholder($white-bg);
+	color: $white-text;
+	@include placeholder($offwhite);
 }
 
 .form-control-static {
@@ -264,11 +264,11 @@ textarea.form-control {
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.form-group-#{$color} .form-label {
-			color: nth($palette-color, $i);
+			color: nth($palette-list-color, $i);
 		}
 	}
 

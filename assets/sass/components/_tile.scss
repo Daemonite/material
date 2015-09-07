@@ -1,6 +1,6 @@
 .tile {
 	background-color: $white;
-	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
 	display: block;
 	display: flex;
 	min-height: $tile-height;
@@ -19,7 +19,7 @@
 	}
 	// no boxshadow
 		.no-boxshadow & {
-			border: 1px solid $black-bg;
+			border: 1px solid $black-divider;
 			+ .tile {
 				margin-top: -1px;
 			}
@@ -31,18 +31,16 @@
 }
 
 // colour
-	.tile-offwhite {
-		background-color: $white-bg;
-	}
-
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.tile-#{$color} {
-			background-color: nth($palette-color, $i);
-			color: $white;
-			a {
-				color: nth($palette-color-light, $i);
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
+			a,
+			a:focus,
+			a:hover {
+				color: inherit;
 			}
 		}
 	}
@@ -100,38 +98,29 @@
 }
 
 .tile-footer {
-	background-color: $white-bg;
-	border-top: 1px solid $black-bg;
+	background-color: $offwhite;
+	border-top: 1px solid $black-divider;
 	position: relative;
 	@include clearfix();
 	&:first-child {
 		border-top: 0;
 	}
-	.nav {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
 }
 
 // colour
-	.tile-offwhite .tile-footer {
-		background-color: $white-bg-dark;
-	}
-
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.tile-#{$color} .tile-footer {
-			background-color: nth($palette-color-dark-m, $i);
-			border-top-color: nth($palette-color-dark-m, $i);
-			.nav > li {
-				> a,
-				> .a {
-					color: $white;
-				}
-			}
+			background-color: nth($palette-list-dark, $i);
+			border-top-color: nth($palette-list-dark, $i);
+			color: nth($palette-list-text-dark, $i);
 		}
 	}
+
+.tile-footer-btn {
+	@extend .card-action-btn;
+}
 
 .tile-inner {
 	flex: 1;
@@ -152,7 +141,7 @@
 }
 
 .tile-sub {
-	border-top: 1px solid $black-bg;
+	border-top: 1px solid $black-divider;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	position: relative;
@@ -160,11 +149,11 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.tile-#{$color} .tile-sub {
-			border-top-color: nth($palette-color-dark-m, $i);
+			border-top-color: nth($palette-list-dark, $i);
 		}
 	}
 
@@ -174,7 +163,7 @@
 	position: relative;
 }
 
-[data-toggle="tile"] {
+div[data-toggle="tile"] {
 	cursor: pointer;
 	display: block;
 	display: flex;

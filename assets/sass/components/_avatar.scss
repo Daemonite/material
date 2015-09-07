@@ -1,5 +1,5 @@
 .avatar {
-	background-color: $black-bg;
+	background-color: $black-divider;
 	border-radius: 50%;
 	color: $black-text;
 	display: block;
@@ -49,15 +49,15 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.avatar-#{$color} {
-			background-color: nth($palette-color, $i);
-			color: $white;
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
 			&:focus,
 			&:hover {
-				color: $white;
+				color: nth($palette-list-text, $i);
 			}
 		}
 	}
@@ -90,8 +90,4 @@
 
 .avatar-inline {
 	display: inline-block;
-}
-
-.avatar-transparent {
-	background-color: transparent;
 }

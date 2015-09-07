@@ -24,7 +24,7 @@
 			keyboard: true,
 			toggle: true
 		};
-		Tile.TRANSITION_DURATION = 300;
+		Tile.TRANSITION_DURATION = 150;
 
 		Tile.prototype = $.extend({}, $.fn.collapse.Constructor.prototype);
 

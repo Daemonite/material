@@ -21,9 +21,9 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 </head>
-<body class="avoid-fout">
+<body class="avoid-fout page-brand">
 	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
-		<div class="progress-circular progress-circular-alt progress-circular-center">
+		<div class="progress-circular progress-circular-center">
 			<div class="progress-circular-wrapper">
 				<div class="progress-circular-inner">
 					<div class="progress-circular-left">
@@ -118,19 +118,19 @@
 						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
 						<ul class="menu-collapse collapse" id="page-palettes">
 							<li>
-								<a class="waves-attach" href="page-palette-blue.html">Blue Palette</a>
+								<a class="waves-attach" href="page-palette-brand.html">Brand Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-brand-accent.html">Accent Palette</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-palette-amber.html">Amber Palette</a>
 							</li>
 							<li>
 								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-purple.html">Purple Palette</a>
-							</li>
-							<li>
 								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
-							</li>
-							<li>
-								<a class="waves-attach" href="page-palette-yellow.html">Yellow Palette</a>
 							</li>
 						</ul>
 					</li>
@@ -177,7 +177,7 @@
 				<div class="col-lg-6 col-md-8">
 					<section class="content-inner">
 						<h2 class="content-sub-heading">Circular Progress Bars</h2>
-						<p>Default circular progress bar inherits link colour (<code>$link-color</code>):</p>
+						<p>Default circular progress bar inherits accent colour (<code>$brand-color-accent</code>).</p>
 						<div class="progress-circular progress-circular-inline">
 							<div class="progress-circular-wrapper">
 								<div class="progress-circular-inner">
@@ -191,8 +191,7 @@
 								</div>
 							</div>
 						</div>
-						<p>Circular progress bar with different colour options:</p>
-						<div class="progress-circular progress-circular-inline progress-circular-alt">
+						<div class="progress-circular progress-circular-inline progress-circular-brand">
 							<div class="progress-circular-wrapper">
 								<div class="progress-circular-inner">
 									<div class="progress-circular-left">
@@ -205,7 +204,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-blue">
+						<div class="progress-circular progress-circular-inline progress-circular-amber">
 							<div class="progress-circular-wrapper">
 								<div class="progress-circular-inner">
 									<div class="progress-circular-left">
@@ -231,19 +230,6 @@
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-purple">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
-									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
-									</div>
-								</div>
-							</div>
-						</div>
 						<div class="progress-circular progress-circular-inline progress-circular-red">
 							<div class="progress-circular-wrapper">
 								<div class="progress-circular-inner">
@@ -257,58 +243,38 @@
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-yellow">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
-									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
-									</div>
-								</div>
-							</div>
-						</div>
 						<h2 class="content-sub-heading">Determinate Progress Bars</h2>
-						<p>Default progress bar inherits link colour (<code>$link-color</code>):</p>
+						<p>Default progress bar inherits accent colour (<code>$brand-color-accent</code>).</p>
 						<div class="progress">
 							<div class="progress-bar" style="width: 20%"></div>
 						</div>
-						<p>Progress bar with different colour options:</p>
-						<div class="progress progress-alt">
+						<div class="progress progress-brand">
 							<div class="progress-bar" style="width: 30%"></div>
 						</div>
-						<div class="progress progress-blue">
+						<div class="progress progress-amber">
 							<div class="progress-bar" style="width: 40%"></div>
 						</div>
 						<div class="progress progress-green">
 							<div class="progress-bar" style="width: 50%"></div>
 						</div>
-						<div class="progress progress-purple">
-							<div class="progress-bar" style="width: 60%"></div>
-						</div>
 						<div class="progress progress-red">
 							<div class="progress-bar" style="width: 70%"></div>
-						</div>
-						<div class="progress progress-yellow">
-							<div class="progress-bar" style="width: 80%"></div>
 						</div>
 						<h2 class="content-sub-heading">Indeterminate Progress Bars</h2>
 						<div class="progress">
 							<div class="progress-bar-indeterminate"></div>
 						</div>
 						<h2 class="content-sub-heading">Load Bars</h2>
-						<p>A <code>.load-bar</code> requires four different colours (i.e. four <code>&lt;div class="load-bar-progress"&gt;</code> with different colour classes) to achieve the best visual effect. By default, a <code>.load-bar-progress</code> inherits link colour (<code>$link-color</code>).</p>
+						<p>A <code>.load-bar</code> requires four different colours (i.e. four <code>&lt;div class="load-bar-progress"&gt;</code> with different colour classes) to achieve the best visual effect. By default, a <code>.load-bar-progress</code> inherits accent colour (<code>$brand-color-accent</code>).</p>
 						<p>A complete load bar consists of two separate <code>.load-bar</code>s, and the order of <code>.load-bar-progress</code>s in each of the two <code>.load-bar</code>s will be different.</p>
 						<div class="progress">
 							<div class="load-bar">
 								<div class="load-bar-base">
 									<div class="load-bar-content">
 										<div class="load-bar-progress"></div>
-										<div class="load-bar-progress load-bar-progress-alt"></div>
-										<div class="load-bar-progress load-bar-progress-purple"></div>
-										<div class="load-bar-progress load-bar-progress-red"></div>
+										<div class="load-bar-progress load-bar-progress-brand"></div>
+										<div class="load-bar-progress load-bar-progress-amber"></div>
+										<div class="load-bar-progress load-bar-progress-green"></div>
 									</div>
 								</div>
 							</div>
@@ -316,9 +282,9 @@
 								<div class="load-bar-base">
 									<div class="load-bar-content">
 										<div class="load-bar-progress"></div>
-										<div class="load-bar-progress load-bar-progress-red"></div>
-										<div class="load-bar-progress load-bar-progress-purple"></div>
-										<div class="load-bar-progress load-bar-progress-alt"></div>
+										<div class="load-bar-progress load-bar-progress-green"></div>
+										<div class="load-bar-progress load-bar-progress-amber"></div>
+										<div class="load-bar-progress load-bar-progress-brand"></div>
 									</div>
 								</div>
 							</div>
@@ -327,7 +293,7 @@
 						<p>Combine <code>.el-loading</code> with progress bars or text on any elements or <code>body</code> to indicate additional content is being loaded. Add <code>.el-loading-done</code> using custom javascript when content has been loaded to remove loading indicators.</p>
 						<div class="el-loading" id="el-loading-1">
 							<div class="el-loading-indicator">
-								<div class="progress-circular progress-circular-inline progress-circular-">
+								<div class="progress-circular progress-circular-inline">
 									<div class="progress-circular-wrapper">
 										<div class="progress-circular-inner">
 											<div class="progress-circular-left">
@@ -392,9 +358,9 @@
 										<div class="load-bar-base">
 											<div class="load-bar-content">
 												<div class="load-bar-progress"></div>
-												<div class="load-bar-progress load-bar-progress-alt"></div>
-												<div class="load-bar-progress load-bar-progress-purple"></div>
-												<div class="load-bar-progress load-bar-progress-red"></div>
+												<div class="load-bar-progress load-bar-progress-brand"></div>
+												<div class="load-bar-progress load-bar-progress-amber"></div>
+												<div class="load-bar-progress load-bar-progress-green"></div>
 											</div>
 										</div>
 									</div>
@@ -402,9 +368,9 @@
 										<div class="load-bar-base">
 											<div class="load-bar-content">
 												<div class="load-bar-progress"></div>
-												<div class="load-bar-progress load-bar-progress-red"></div>
-												<div class="load-bar-progress load-bar-progress-purple"></div>
-												<div class="load-bar-progress load-bar-progress-alt"></div>
+												<div class="load-bar-progress load-bar-progress-green"></div>
+												<div class="load-bar-progress load-bar-progress-amber"></div>
+												<div class="load-bar-progress load-bar-progress-brand"></div>
 											</div>
 										</div>
 									</div>
@@ -492,7 +458,7 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-red fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropdown">
 				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
 				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>

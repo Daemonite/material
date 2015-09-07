@@ -1,5 +1,5 @@
 .progress {
-	background-color: lighten($link-color, 30%);
+	background-color: $brand-color-accent-light;
 	height: ($base / 2);
 	margin-top: $margin-md;
 	margin-bottom: $margin-md;
@@ -8,7 +8,7 @@
 }
 
 .progress-bar {
-	background-color: $link-color;
+	background-color: $brand-color-accent;
 	border-radius: 0 1px 1px 0;
 	height: 100%;
 	position: absolute;
@@ -18,19 +18,21 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
-		.progress-#{$color} {
-			background-color: nth($palette-color-light, $i);
-			.progress-bar {
-				background-color: nth($palette-color, $i);
+		@if $color != "brand-accent" {
+			.progress-#{$color} {
+				background-color: nth($palette-list-light, $i);
+				.progress-bar {
+					background-color: nth($palette-list-color, $i);
+				}
 			}
 		}
 	}
 
 .progress-bar-indeterminate {
-	background-color: $link-color;
+	background-color: $brand-color-accent;
 	&:after,
 	&:before {
 		animation-duration: 2.1s;

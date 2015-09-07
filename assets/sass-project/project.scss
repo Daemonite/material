@@ -5,7 +5,7 @@
 @import "../sass/mixin/responsive";
 @import "../sass/mixin/utilities";
 
-@import "../sass/var/variable";
+@import "../sass/var/variables";
 
 // project
 	body {
@@ -20,11 +20,6 @@
 		padding-top: ($header-height + $margin-sm);
 	}
 
-	// colour
-		@each $color in $palette-list {
-			$i: index($palette-list, $color);
-
-			.page-#{$color} .content-heading {
-				background-image: url(#{$css-path}/images/bg/#{$color}.jpg);
-			}
-		}
+	.page-brand .content-heading {
+		background-image: url(#{$css-path}/images/bg/brand.jpg);
+	}

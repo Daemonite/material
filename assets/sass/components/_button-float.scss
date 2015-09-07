@@ -1,9 +1,9 @@
 .fbtn {
-	background-color: $white;
+	background-color: $offwhite;
 	border-radius: 50%;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.3);
 	clear: both;
-	color: $black-text;
+	color: $offwhite-text;
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
@@ -18,31 +18,29 @@
 	&:active,
 	&:focus,
 	&:hover {
-		color: $black-text;
+		color: $offwhite-text;
 	}
 	&:active,
 	&:focus {
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.3), 0 6px 9px rgba(0, 0, 0, 0.15);
 	}
 	&:active {
-		background-color: $black-bg;
+		background-color: $offwhite-dark;
 	}
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.fbtn-#{$color} {
-			background-color: nth($palette-color, $i);
-			color: $white;
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
 			&:active,
 			&:focus,
 			&:hover {
-				color: $white;
-			}
-			&:active {
-				background-color: nth($palette-color-dark, $i);
+				background-color: nth($palette-list-color, $i);
+				color: nth($palette-list-text, $i);
 			}
 		}
 	}
@@ -132,6 +130,10 @@
 	}
 }
 
+.fbtn-inner {
+	position: relative;
+}
+
 .fbtn-ori,
 .fbtn-sub {
 	transition: all 0.3s $timing;
@@ -157,13 +159,14 @@
 }
 
 .fbtn-sub {
+	margin-left: ($line-height / -2);
 	opacity: 0;
 	position: absolute;
 		top: (($fbtn-height - $line-height) / 2);
-		left: 0;
+		left: 50%;
 	text-align: center;
 	transform: rotate(-225deg);
-	width: 100%;
+	width: $line-height;
 	.fbtn-inner.open & {
 		opacity: 1;
 		transform: rotate(0);
@@ -171,10 +174,9 @@
 }
 
 .fbtn-text {
-	background-color: $black-text;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: $black-sec;
 	border-radius: 2px;
-	color: $white;
+	color: $white-text-solid;
 	font-size: $font-size-h6;
 	height: 0;
 	line-height: $line-height;

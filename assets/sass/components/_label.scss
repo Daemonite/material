@@ -1,7 +1,7 @@
 .label {
 	background-color: $black-sec;
 	border-radius: 2px;
-	color: $white;
+	color: $white-text;
 	display: inline;
 	font-size: 75%;
 	font-style: normal;
@@ -13,10 +13,10 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 		
 		.label-#{$color} {
-			background-color: nth($palette-color, $i);
+			background-color: nth($palette-list-color, $i);
 		}
 	}

@@ -16,7 +16,7 @@
 	&.disabled,
 	fieldset[disabled] & {
 		.circle {
-			border-color: $black-hint !important;
+			border-color: $black-hint-solid !important;
 		}
 	}
 	input[type="checkbox"],
@@ -28,7 +28,7 @@
 	input[type="checkbox"],
 	input[type="radio"] {
 		&:checked ~ .circle {
-			border-color: $brand-color;
+			border-color: $brand-color-accent;
 		}
 	}
 	.circle-check {
@@ -37,7 +37,7 @@
 		transition: all 0.3s $timing;
 		transition-property: background-color, transform;
 		&:after {
-			background-color: $brand-color;
+			background-color: $brand-color-accent;
 			border-radius: 50%;
 			content: "";
 			display: block;
@@ -52,7 +52,7 @@
 	&.disabled,
 	fieldset[disabled] & {
 		.circle-check:after {
-			background-color: $black-hint;
+			background-color: $black-hint-solid;
 		}
 	}
 	input[type="checkbox"],
@@ -78,8 +78,8 @@
 	input[type="checkbox"],
 	input[type="radio"] {
 		&:checked ~ .circle-icon {
-			background-color: $brand-color;
-			color: $white;
+			background-color: $brand-color-accent;
+			color: $white-text;
 			transform: scale(1, 1);
 		}
 	}
@@ -88,7 +88,7 @@
 		input[type="checkbox"],
 		input[type="radio"] {
 			&:checked ~ .circle-icon {
-				background-color: $black-hint;
+				background-color: $black-hint-solid;
 			}
 		}
 	}
@@ -100,12 +100,12 @@
 		border-radius: 50%;
 	}
 	input[type="radio"]:checked ~ .circle-check {
-		background-color: $brand-color;
+		background-color: $brand-color-accent;
 	}
 	&.disabled,
 	fieldset[disabled] & {
 		input[type="radio"]:checked ~ .circle-check {
-			background-color: $black-hint;
+			background-color: $black-hint-solid;
 		}
 	}
 }

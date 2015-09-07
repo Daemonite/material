@@ -13,7 +13,7 @@
 }
 
 .progress-circular-gap {
-	border-top: 2px solid $link-color;
+	border-top: 2px solid $brand-color-accent;
 	position: absolute;
 		top: 0;
 		right: ($pcircular-height / 2 - 1);
@@ -22,12 +22,14 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
-		.progress-circular-gap {
-			.progress-circular-#{$color} & {
-				border-top-color: nth($palette-color, $i);
+		@if $color != "brand-accent" {
+			.progress-circular-gap {
+				.progress-circular-#{$color} & {
+					border-top-color: nth($palette-list-color, $i);
+				}
 			}
 		}
 	}
@@ -66,7 +68,7 @@
 }
 
 .progress-circular-spinner {
-	border: ($base / 2) solid $link-color;
+	border: ($base / 2) solid $brand-color-accent;
 	border-bottom-color: transparent;
 	border-radius: 50%;
 	height: $pcircular-height;
@@ -89,18 +91,18 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.progress-circular-spinner {
 			.progress-circular-#{$color} & {
-				border-top-color: nth($palette-color, $i);
+				border-top-color: nth($palette-list-color, $i);
 			}
 			.progress-circular-#{$color} .progress-circular-left & {
-				border-left-color: nth($palette-color, $i);
+				border-left-color: nth($palette-list-color, $i);
 			}
 			.progress-circular-#{$color} .progress-circular-right & {
-				border-right-color: nth($palette-color, $i);
+				border-right-color: nth($palette-list-color, $i);
 			}
 		}
 	}
