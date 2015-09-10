@@ -16,9 +16,9 @@
 
 .dropdown-menu {
 	background-color: $white;
-	border: 1px solid $black-hint;
+	border: 1px solid $black-divider;
 	border-radius: 0 2px 2px 2px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
 	list-style: none;
 	margin: -1px 0 0 !important;
 	min-width: 100%;
@@ -49,16 +49,16 @@
 	}
 	a,
 	.a {
-		color: $black-text !important;
+		color: $black-text-solid !important;
 		@include text-overflow();
 		&:focus,
 		&:hover {
-			background-color: $white-bg;
+			background-color: $black-divider;
 		}
 	}
 	.active > a,
 	.active > .a {
-		background-color: $white-bg;
+		background-color: $black-divider;
 	}
 	// no csstransforms
 		.no-csstransforms & {
@@ -72,21 +72,10 @@
 .dropdown-toggle {
 	transition: background-color 0.3s $timing;
 	.dropdown.open & {
-		background-color: $black-bg;
+		background-color: $black-divider;
 		border-radius: 2px 2px 0 0;
 	}
 }
-
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.dropdown-toggle-#{$color} {
-			.dropdown.open & {
-				background-color: nth($palette-color-dark, $i);
-			}
-		}
-	}
 
 .dropdown-toggle-btn {
 	margin-right: 1px;

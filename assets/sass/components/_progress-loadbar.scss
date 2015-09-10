@@ -10,7 +10,7 @@
 
 .load-bar-base {
 	animation: load-bar-right-in 0.9s $timing 1 forwards;
-	background-color: $link-color;
+	background-color: $brand-color-accent;
 	float: left;
 	height: 100%;
 	overflow: hidden;
@@ -86,10 +86,12 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
-		.load-bar-progress-#{$color} {
-			background-color: nth($palette-color, $i);
+		@if $color != "brand-accent" {
+			.load-bar-progress-#{$color} {
+				background-color: nth($palette-list-color, $i);
+			}
 		}
 	}

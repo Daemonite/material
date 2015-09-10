@@ -37,9 +37,9 @@
 	}
 	input[type="checkbox"]:checked + &,
 	input[type="radio"]:checked + & {
-		background-color: lighten($link-color, 15%);
+		background-color: $brand-color-accent-light;
 		&:after {
-			background-color: $link-color;
+			background-color: $brand-color-accent;
 			// position
 				left: (($font-size * 5 - $font-size-h4) / 4);
 		}
@@ -47,7 +47,7 @@
 	input[type="checkbox"]:checked + &,
 	input[type="radio"]:checked + & {
 		&:active:after {
-			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($link-color), green($link-color), blue($link-color), 0.25);
+			box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red($brand-color-accent), green($brand-color-accent), blue($brand-color-accent), 0.25);
 		}
 	}
 	.checkbox.switch &,
@@ -59,21 +59,21 @@
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.switch-toggle-#{$color} {
 			input[type="checkbox"]:checked + &,
 			input[type="radio"]:checked + & {
-				background-color: nth($palette-color-light-m, $i);
+				background-color: nth($palette-list-light, $i);
 				&:after {
-					background-color: nth($palette-color, $i);
+					background-color: nth($palette-list-color, $i);
 				}
 			}
 			input[type="checkbox"]:checked + &,
 			input[type="radio"]:checked + & {
 				&:active:after {
-					box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.25);
+					box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25), 0 0 0 (($font-size * 5 - $font-size-h4) / 4) rgba(red(nth($palette-list-color, $i)), green(nth($palette-list-color, $i)), blue(nth($palette-list-color, $i)), 0.25);
 				}
 			}
 		}

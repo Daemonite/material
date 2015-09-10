@@ -47,7 +47,7 @@ body.el-loading {
 .avoid-fout > .avoid-fout-indicator,
 .el-loading > .el-loading-indicator {
 	background-color: $white;
-	box-shadow: 0 -1px 0 $black-bg, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 -1px 0 $black-divider, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
 	height: 100%;
 	opacity: 1;
 	padding: $line-height $grid-gutter;
@@ -354,7 +354,7 @@ body.el-loading {
 
 // colour
 	.text-bg {
-		color: $black-bg;
+		color: $black-divider;
 	}
 
 	.text-black {
@@ -374,13 +374,13 @@ body.el-loading {
 	}
 
 	.text-white {
-		color: $white;
+		color: $white-text;
 	}
 
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.text-#{$color} {
-			color: nth($palette-color, $i);
+			color: nth($palette-list-color, $i);
 		}
 	}

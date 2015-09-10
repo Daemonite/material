@@ -1,12 +1,12 @@
 .btn {
-	background-color: $white;
+	background-color: $offwhite;
 	background-image: none;
 	background-position: 50% 50%;
 	background-size: 100% 100%;
 	border: 0;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
-	color: $black-text;
+	color: $offwhite-text;
 	cursor: pointer;
 	display: inline-block;
 	font-size: $font-size;
@@ -18,14 +18,14 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	transition: background-color 0.3s $timing, box-shadow 0.3s $timing;
+	transition: background-color 0.3s $timing, box-shadow 0.3s $timing, color 0.3s $timing;
 	user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
 	&:active,
 	&:focus,
 	&:hover {
-		color: $black-text;
+		color: $offwhite-text;
 		outline: 0;
 		text-decoration: none;
 	}
@@ -34,53 +34,34 @@
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 3px 9px rgba(0, 0, 0, 0.3);
 	}
 	&:active {
-		background-color: $black-bg;
+		background-color: $offwhite-dark;
 	}
+	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
+		background-color: $btn-bg-color !important;
+		box-shadow: none !important;
+		color: $black-hint !important;
 		cursor: not-allowed;
-		opacity: 0.5;
+		.waves-ripple {
+			display: none;
+		}
 	}
 }
 
 // colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.btn-#{$color} {
-			background-color: nth($palette-color, $i);
-			color: $white;
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
 			&:active,
 			&:focus,
 			&:hover {
-				color: $white;
+				background-color: nth($palette-list-color, $i);
+				color: nth($palette-list-text, $i);
 			}
-			&:active {
-				background-color: nth($palette-color-dark, $i);
-			}
-			&[disabled],
-			fieldset[disabled] & {
-				background-color: nth($palette-color, $i);
-			}
-		}
-	}
-
-// size
-	.btn-lg {
-		font-size: $font-size-h4;
-		line-height: $line-height-h4;
-		padding: (($base * 3 * 2.5 - $line-height-h4 - 2) / 2) ($grid-gutter * 1.5 - 1);
-		&.waves-effect {
-			padding: (($base * 3 * 2.5 - $line-height-h4) / 2) ($grid-gutter * 1.5);
-		}
-	}
-
-	.btn-sm {
-		font-size: $font-size-h6;
-		line-height: ($line-height - 2);
-		padding: 0 ($grid-gutter / 2 - 1);
-		&.waves-effect {
-			padding: 1px ($grid-gutter / 2);
 		}
 	}
 

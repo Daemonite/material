@@ -1,23 +1,16 @@
 .card {
 	background-color: $white;
 	border-radius: 2px;
-	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
 	display: block;
 	display: flex;
 	margin-top: $margin-md;
 	margin-bottom: $margin-md;
 	transition: box-shadow 0.3s $timing;
 	position: relative;
-	&[class*="-bg"] {
-		color: $white;
-	}
 	.card-wrap & {
 		margin-top: 0;
 	}
-	// no boxshadow
-		.no-boxshadow & {
-			border: 1px solid $black-bg;
-		}
 	// no flexbox
 		.no-flexbox & {
 			@include clearfix();
@@ -25,83 +18,46 @@
 }
 
 // colour
-	.card-offwhite {
-		background-color: $white-bg;
-	}
-
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
 
 		.card-#{$color} {
-			box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(red(nth($palette-color, $i)), green(nth($palette-color, $i)), blue(nth($palette-color, $i)), 0.3);
-			// no boxshadow
-				.no-boxshadow & {
-					border-color: nth($palette-color-light, $i);
-				}
-		}
-
-		.card-#{$color}-bg {
-			@extend .card-#{$color};
-			background-color: nth($palette-color, $i);
+			background-color: nth($palette-list-color, $i);
+			color: nth($palette-list-text, $i);
+			a,
+			a:focus,
+			a:hover {
+				color: inherit;
+			}
 		}
 	}
 
 .card-action {
-	border-top: 1px solid $black-bg;
+	border-top: 1px solid $black-divider;
+	min-height: $nav-height;
 	position: relative;
 	@include clearfix();
 	&:first-child {
 		border-top: 0;
 	}
-	.nav {
-		margin-top: 0;
-		margin-bottom: 0;
-		> li {
-			> a,
-			> .a {
-				color: $black-sec;
-				&:focus,
-				&:hover {
-					color: $link-color;
-				}
-				.card[class*="-bg"] & {
-					color: $white;
-				}
-			}
-			&.active >,
-			&.open > {
-				a,
-				.a {
-					color: $link-color;
-				}
-			}
-		}
-	}
 }
-
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.card-#{$color} .card-action {
-			border-top-color: nth($palette-color-light, $i);
-		}
-
-		.card-#{$color}-bg .card-action {
-			border-top-color: nth($palette-color-dark-m, $i);
-		}
-	}
 
 .card-action-btn {
 	margin: (($nav-height - $btn-height) / 2) ($grid-gutter / 2);
+	white-space: nowrap;
+	.btn + .btn {
+		margin-left: ($grid-gutter / 2);
+	}
 }
 
 .card-header {
-	border-bottom: 1px solid $black-bg;
-	display: block;
+	border-bottom: 1px solid $black-divider;
 	display: flex;
 	min-height: $header-height;
 	position: relative;
+	&:last-child {
+		border-bottom: 0;
+	}
 	// no flexbox
 		.no-flexbox & {
 			@include clearfix();
@@ -160,7 +116,7 @@
 
 .card-img-heading {
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
-	color: $white;
+	color: $white-text-solid;
 	font-size: $font-size-h4;
 	line-height: $line-height-h4;
 	margin: 0;
@@ -197,26 +153,16 @@
 		}
 }
 
-// colour
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.card-#{$color}-bg .card-main a {
-			color: nth($palette-color-light, $i);
-		}
-	}
-
 .card-side {
-	background-color: $white-bg;
+	background-color: $black-divider;
 	border-radius: 2px 0 0 2px;
 	max-width: 33.33333%;
 	padding-right: $grid-gutter;
 	padding-left: $grid-gutter;
 	&[href] {
-		color: $black-text;
+		color: inherit;
 		&:focus,
 		&:hover {
-			background-color: $white-bg-dark;
 			text-decoration: none;
 		}
 	}
@@ -230,37 +176,6 @@
 		order: 1;
 	}
 }
-
-// colour
-	.card-offwhite .card-side {
-		background-color: $white-bg-dark;
-	}
-
-	@each $color in $palette-list {
-		$i: index($palette-list, $color);
-
-		.card-side {
-			.card-#{$color} & {
-				background-color: nth($palette-color, $i);
-				color: $white;
-				&[href] {
-					&:focus,
-					&:hover {
-						background-color: nth($palette-color-dark-m, $i);
-					}
-				}
-			}
-			.card-#{$color}-bg & {
-				background-color: nth($palette-color-dark-m, $i);
-				&[href] {
-					&:focus,
-					&:hover {
-						background-color: nth($palette-color-dark, $i);
-					}
-				}
-			}
-		}
-	}
 
 .card-wrap {
 	margin-top: $margin-md;
