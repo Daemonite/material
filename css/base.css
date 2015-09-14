@@ -6132,7 +6132,7 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
     position: absolute;
     top: 0;
     left: 0;
-    width: 148px;
+    width: 176px;
     z-index: -1;
   }
 }
@@ -6141,14 +6141,14 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
   background-color: #3f51b5;
   border-radius: 4px 4px 0 0;
   color: white;
-  padding: 10px 16px;
+  padding: 12px 16px;
   text-align: left;
 }
 @media only screen and (min-width: 992px) {
   .picker__date-display {
-    border-radius: 4px 0 0 0;
+    border-radius: 4px 0 0 4px;
     float: left;
-    width: 148px;
+    width: 176px;
   }
 }
 
@@ -6159,27 +6159,26 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 
 .picker__date-display-top {
   color: #7986cb;
-  font-weight: 300;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .picker__day {
   border-radius: 50%;
   display: inline-block;
-  height: 30px;
-  padding: 5px 0;
-  width: 30px;
+  height: 36px;
+  padding: 8px 0;
+  width: 36px;
 }
 .picker__day:focus, .picker__day:hover {
-  color: #ff4081;
+  color: #3f51b5;
   cursor: pointer;
+}
+.picker__day.picker__day--highlighted {
+  color: #3f51b5;
 }
 .picker__day.picker__day--selected {
   background-color: #3f51b5;
   color: white !important;
-}
-.picker__day.picker__day--today {
-  color: #3f51b5;
 }
 
 .picker__day-display {
@@ -6187,12 +6186,13 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 }
 
 .picker__day--outfocus {
-  color: #e0e0e0;
+  display: none;
 }
 
 .picker__footer {
   clear: both;
-  padding: 10px 8px;
+  padding: 8px 16px;
+  text-align: right;
 }
 .picker__footer button {
   margin-left: 8px;
@@ -6200,16 +6200,17 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 .picker__footer button:first-child {
   margin-left: 0;
 }
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 992px) {
   .picker__footer {
-    text-align: right;
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }
 
 .picker__frame {
   display: inline-block;
-  margin: 40px auto;
-  max-width: 226px;
+  margin: 48px auto;
+  max-width: 268px;
   -webkit-transform: scale(0, 0);
       -ms-transform: scale(0, 0);
           transform: scale(0, 0);
@@ -6225,28 +6226,21 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
       -ms-transform: scale(1, 1);
           transform: scale(1, 1);
 }
-@media only screen and (min-width: 480px) {
-  .picker__frame {
-    max-width: 261px;
-  }
-}
 @media only screen and (min-width: 992px) {
   .picker__frame {
-    max-width: 444px;
+    max-width: 528px;
   }
 }
 
 .picker__header {
-  margin: 10px 8px 5px;
+  margin-top: 12px;
+  margin-bottom: 8px;
   position: relative;
 }
 @media only screen and (min-width: 992px) {
   .picker__header {
     float: left;
-    margin-top: 5px;
-    margin-right: 0;
-    margin-left: 0;
-    width: 296px;
+    width: 352px;
   }
 }
 
@@ -6283,9 +6277,8 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 }
 
 .picker__input {
-  background-color: transparent !important;
   border-bottom-style: solid !important;
-  color: rgba(0, 0, 0, 0.87) !important;
+  color: #212121 !important;
   cursor: text !important;
 }
 .picker__input.picker__input--active {
@@ -6309,61 +6302,52 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 .picker__nav--next,
 .picker__nav--prev {
   cursor: pointer;
+  height: 36px;
   line-height: 20px;
-  margin-top: -10px;
+  margin-top: -18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   position: absolute;
   top: 50%;
   text-align: center;
-  width: 30px;
+  width: 36px;
 }
 .picker__nav--next:focus, .picker__nav--next:hover,
 .picker__nav--prev:focus,
 .picker__nav--prev:hover {
-  color: #ff4081;
-}
-@media only screen and (min-width: 480px) {
-  .picker__nav--next,
-  .picker__nav--prev {
-    width: 35px;
-  }
+  color: #3f51b5;
 }
 @media only screen and (min-width: 992px) {
   .picker__nav--next,
   .picker__nav--prev {
-    width: 40px;
+    width: 48px;
   }
 }
 
 .picker__nav--next {
-  right: 0;
+  right: 8px;
 }
 .picker__nav--next:before {
   content: "keyboard_arrow_right";
 }
-@media only screen and (min-width: 992px) {
-  .picker__nav--next {
-    right: 8px;
-  }
-}
 
 .picker__nav--prev {
-  left: 0;
+  left: 8px;
 }
 .picker__nav--prev:before {
   content: "keyboard_arrow_left";
 }
-@media only screen and (min-width: 992px) {
-  .picker__nav--prev {
-    left: 8px;
-  }
-}
 
 .picker__select--month,
 .picker__select--year {
-  border-bottom-color: transparent !important;
+  background-image: none !important;
+  border-bottom: 0;
   display: inline-block;
+  height: 20px;
   margin-left: 16px;
+  padding: 0;
   width: auto;
+  -webkit-appearance: menulist-button !important;
 }
 .picker__select--month:first-child,
 .picker__select--year:first-child {
@@ -6392,34 +6376,29 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
   padding: 0;
   text-align: center;
   vertical-align: middle;
-  width: 30px;
-}
-@media only screen and (min-width: 480px) {
-  .picker__table td,
-  .picker__table th {
-    width: 35px;
-  }
+  width: 36px;
 }
 @media only screen and (min-width: 992px) {
   .picker__table td,
   .picker__table th {
-    width: 40px;
+    width: 48px;
   }
   .picker__table td:first-child,
   .picker__table th:first-child {
     padding-left: 8px;
-    width: 48px;
+    width: 56px;
   }
   .picker__table td:last-child,
   .picker__table th:last-child {
     padding-right: 8px;
-    width: 48px;
+    width: 56px;
   }
 }
 
 .picker__weekday {
   color: rgba(0, 0, 0, 0.38);
-  font-weight: 300;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 .picker__weekday-display {
