@@ -81,10 +81,11 @@
 				if (!data) {
 					$this.data('bs.toast', (data = new Toast(options)));
 					data.show();
-				} else if ($('.toast-inner.in').length) {
+				} else if ($('.toast-inner').length && !$('.toast-inner.old').length) {
+					$('.toast-inner.in').addClass('old')
 					data.hide();
 					if ($.support.transition) {
-						$(document).one('bsTransitionEnd', '.toast-inner', function () {
+						$(document).one('bsTransitionEnd', '.toast-inner.old', function () {
 							$this.data('bs.toast', (data = new Toast(options)));
 							data.show();
 						});
@@ -92,7 +93,7 @@
 						$this.data('bs.toast', (data = new Toast(options)));
 						data.show();
 					};
-				} else {
+				} else if (!$('.toast-inner').length) {
 					$this.data('bs.toast', (data = new Toast(options)));
 					data.show();
 				};
