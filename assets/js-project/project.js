@@ -9,15 +9,23 @@
 		});
 
 	// ui-modal.html
+		var toastText = 1;
+
 		$('#toast-1').on('click', function () {
 			$('body').toast({
-				content: 'Simple toast with some text'
+				content: 'Simple toast ' + toastText + ' with some text',
+				show: function () {
+					toastText++;
+				}
 			});
 		});
 
 		$('#toast-2').on('click', function () {
 			$('body').toast({
-				content: '<a data-dismiss="toast">Dismiss</a><div class="toast-text">Simple toast with some text and a simple <a href="javascript:void(0)">link</a>.</div>'
+				content: '<a data-dismiss="toast">Dismiss</a><div class="toast-text">Simple toast ' + toastText + ' with some text and a simple <a href="javascript:void(0)">link</a>.</div>',
+				show: function () {
+					toastText++;
+				}
 			});
 		});
 
