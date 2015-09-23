@@ -19,56 +19,6 @@ module.exports = function(grunt) {
 					proxy: '0.0.0.0:9999',
 					watchTask: true
 				}
-			},
-			base: {
-				bsFiles: {
-					src: [
-						'css/base.min.css',
-						'js/base.min.js',
-						'templates/*.html'
-					]
-				},
-				options: {
-					proxy: '0.0.0.0:9999',
-					watchTask: true
-				}
-			},
-			basecss: {
-				bsFiles: {
-					src: [
-						'css/base.min.css',
-						'templates/*.html'
-					]
-				},
-				options: {
-					proxy: '0.0.0.0:9999',
-					watchTask: true
-				}
-			},
-			basejs: {
-				bsFiles: {
-					src: [
-						'js/base.min.js',
-						'templates/*.html'
-					]
-				},
-				options: {
-					proxy: '0.0.0.0:9999',
-					watchTask: true
-				}
-			},
-			project: {
-				bsFiles: {
-					src: [
-						'css/project.min.css',
-						'js/project.min.js',
-						'templates/*.html'
-					]
-				},
-				options: {
-					proxy: '0.0.0.0:9999',
-					watchTask: true
-				}
 			}
 		},
 
@@ -90,10 +40,17 @@ module.exports = function(grunt) {
 		},
 
 		connect: {
-			base: {
+			live: {
 				options: {
 					base: '',
-					// keepalive: 'true',
+					keepalive: 'true',
+					hostname: '0.0.0.0',
+					port: '9999'
+				}
+			},
+			once: {
+				options: {
+					base: '',
 					hostname: '0.0.0.0',
 					port: '9999'
 				}
@@ -217,14 +174,6 @@ module.exports = function(grunt) {
 				files: ['assets/js/**/*.js', 'assets/sass/**/*.scss'],
 				tasks: ['concat:base', 'uglify:base', 'sass:base', 'postcss:base', 'cssmin:base']
 			},
-			basecss: {
-				files: ['assets/sass/**/*.scss'],
-				tasks: ['sass:base', 'postcss:base', 'cssmin:base']
-			},
-			basejs: {
-				files: ['assets/js/**/*.js'],
-				tasks: ['concat:base', 'uglify:base']
-			},
 			project: {
 				files: ['assets/js-project/**/*.js', 'assets/sass-project/**/*.scss'],
 				tasks: ['concat:project', 'uglify:project', 'sass:project', 'postcss:project', 'cssmin:project']
@@ -242,9 +191,5 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask( 'dev', ['connect', 'browserSync:all', 'watch:all'] );
-	grunt.registerTask( 'devbase', ['connect', 'browserSync:base', 'watch:base'] );
-	grunt.registerTask( 'devbasecss', ['connect', 'browserSync:basecss', 'watch:basecss'] );
-	grunt.registerTask( 'devbasejs', ['connect', 'browserSync:basejs', 'watch:basejs'] );
-	grunt.registerTask( 'devproject', ['connect', 'browserSync:project', 'watch:project'] );
+	grunt.registerTask( 'dev', ['connect:once', 'browserSync:all', 'watch:all'] );
 };
