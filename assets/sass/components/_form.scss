@@ -102,8 +102,7 @@ legend {
 		vertical-align: middle;
 		width: auto;
 	}
-	&.form-control-default,
-	.form-control-default & {
+	&.form-control-default {
 		border: 1px solid $black-hint;
 		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		transition: none;
@@ -131,19 +130,8 @@ legend {
 		}
 	}
 
-input[type="color"].form-control-default,
-.form-control-default input[type="color"] {
+input[type="color"].form-control-default {
 	min-width: ($grid-gutter + $line-height + 2);
-}
-
-label + .form-control.form-control-default,
-.form-control-default label + .form-control {
-	margin-top: ($line-height / 4);
-}
-
-label.access-hide + .form-control.form-control-default,
-.form-control-default label.access-hide + .form-control {
-	margin-top: 0;
 }
 
 select.form-control {
@@ -162,8 +150,7 @@ select.form-control {
 	}
 }
 
-select.form-control-default,
-.form-control-default select {
+select.form-control-default {
 	@include responsive("(-webkit-min-device-pixel-ratio: 0)") {
 		background-position: 99% (($input-height - 12) / 2 - 1);
 		background-position: calc(100% - #{$grid-gutter / 2}) (($input-height - 12) / 2 - 1);

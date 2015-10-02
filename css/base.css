@@ -3378,25 +3378,20 @@ fieldset[disabled] .picker__select--year {
   width: auto;
 }
 .form-control.form-control-default, .form-control-default.picker__select--month,
-.form-control-default.picker__select--year, .form-control-default .form-control, .form-control-default .picker__select--month,
-.form-control-default .picker__select--year {
+.form-control-default.picker__select--year {
   border: 1px solid rgba(0, 0, 0, 0.38);
   padding: 7px 8px;
   transition: none;
 }
 .form-control.form-control-default:focus, .form-control-default.picker__select--month:focus,
-.form-control-default.picker__select--year:focus, .form-control-default .form-control:focus, .form-control-default .picker__select--month:focus,
-.form-control-default .picker__select--year:focus {
+.form-control-default.picker__select--year:focus {
   border: 1px solid #ff4081;
   padding: 7px 8px;
 }
 .form-control.form-control-default[disabled], .form-control-default[disabled].picker__select--month,
 .form-control-default[disabled].picker__select--year, .form-control.form-control-default[readonly], .form-control-default[readonly].picker__select--month,
 .form-control-default[readonly].picker__select--year, fieldset[disabled] .form-control.form-control-default, fieldset[disabled] .form-control-default.picker__select--month,
-fieldset[disabled] .form-control-default.picker__select--year, .form-control-default .form-control[disabled], .form-control-default [disabled].picker__select--month,
-.form-control-default [disabled].picker__select--year, .form-control-default .form-control[readonly], .form-control-default [readonly].picker__select--month,
-.form-control-default [readonly].picker__select--year, fieldset[disabled] .form-control-default .form-control, fieldset[disabled] .form-control-default .picker__select--month,
-fieldset[disabled] .form-control-default .picker__select--year {
+fieldset[disabled] .form-control-default.picker__select--year {
   background-color: #e0e0e0;
 }
 
@@ -3440,25 +3435,8 @@ fieldset[disabled] .form-control-default .picker__select--year {
   border-color: #f44336;
 }
 
-input[type="color"].form-control-default,
-.form-control-default input[type="color"] {
+input[type="color"].form-control-default {
   min-width: 38px;
-}
-
-label + .form-control.form-control-default, label + .form-control-default.picker__select--month,
-label + .form-control-default.picker__select--year,
-.form-control-default label + .form-control,
-.form-control-default label + .picker__select--month,
-.form-control-default label + .picker__select--year {
-  margin-top: 5px;
-}
-
-label.access-hide + .form-control.form-control-default, label.access-hide + .form-control-default.picker__select--month,
-label.access-hide + .form-control-default.picker__select--year,
-.form-control-default label.access-hide + .form-control,
-.form-control-default label.access-hide + .picker__select--month,
-.form-control-default label.access-hide + .picker__select--year {
-  margin-top: 0;
 }
 
 select.form-control, select.picker__select--month,
@@ -3483,15 +3461,12 @@ select.picker__select--year {
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 0) {
-  select.form-control-default,
-  .form-control-default select {
+  select.form-control-default {
     background-position: 99% 11px;
     background-position: calc(100% - 8px) 11px;
     padding-right: 24px;
   }
-  select.form-control-default[multiple], select.form-control-default[size],
-  .form-control-default select[multiple],
-  .form-control-default select[size] {
+  select.form-control-default[multiple], select.form-control-default[size] {
     padding-right: 8px;
   }
 }
@@ -3931,6 +3906,7 @@ fieldset[disabled] .radio-adv input[type="radio"]:checked ~ .circle-icon {
 }
 
 .picker__input {
+  background-color: transparent !important;
   border-bottom-style: solid !important;
   color: #212121 !important;
   cursor: text !important;
