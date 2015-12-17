@@ -3,130 +3,134 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, width=device-width" name="viewport">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 	<title>Material</title>
 
 	<!-- css -->
 	<link href="../css/base.min.css" rel="stylesheet">
 
-	<!-- css for this project -->
+	<!-- css for doc -->
 	<link href="../css/project.min.css" rel="stylesheet">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
+	
 	<!-- favicon -->
 	<!-- ... -->
-
-	<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 </head>
-<body class="avoid-fout page-brand">
-	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
-		<div class="progress-circular progress-circular-center">
-			<div class="progress-circular-wrapper">
-				<div class="progress-circular-inner">
-					<div class="progress-circular-left">
-						<div class="progress-circular-spinner"></div>
-					</div>
-					<div class="progress-circular-gap"></div>
-					<div class="progress-circular-right">
-						<div class="progress-circular-spinner"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body class="page-brand">
 	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
-				<a data-toggle="menu" href="#menu">
+				<a data-toggle="menu" href="#doc_menu">
 					<span class="icon icon-lg">menu</span>
 				</a>
 			</li>
 		</ul>
 		<a class="header-logo margin-left-no" href="index.html">Material</a>
 		<ul class="nav nav-list pull-right">
-			<li>
-				<a data-toggle="menu" href="#profile">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
 				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="page-login.html"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</header>
-	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
+	<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="ui-card.html">Cards</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-nav.html">Navs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tab.html">Tabs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tile.html">Tiles</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="ui-button.html">Buttons</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-form.html">Form Elements</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="form-elements">
+						<a class="collaosed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
+						<ul class="collapse menu-collapse" id="doc_menu_components">
 							<li>
-								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+								<a class="waves-attach" href="ui-button.html">Buttons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-card.html">Cards</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-data-table.html">Data Tables</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dialog.html">Dialogs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Menus</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-picker.html">Pickers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-progress.html">Progress</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-snackbar.html">Snackbars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tab.html">Tabs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-toolbar.html">Toolbars</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-icon.html">Icons</a>
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
+						<ul class="collapse menu-collapse" id="doc_menu_extras">
+							<li>
+								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-icon.html">Icons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav.html">Navs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tile.html">Tiles</a>
+							</li>
+						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-table.html">Tables</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="page-palettes">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
+						<ul class="collapse menu-collapse" id="doc_menu_javascript">
 							<li>
-								<a class="waves-attach" href="page-palette-brand.html">Brand Palette</a>
+								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-brand-accent.html">Accent Palette</a>
+								<a class="waves-attach" href="ui-collapse.html">Collapse</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-amber.html">Amber Palette</a>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Dropdown</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+								<a class="waves-attach" href="ui-modal.html">Modals</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+								<a class="waves-attach" href="ui-tab.html">Togglable Tabs</a>
 							</li>
 						</ul>
 					</li>
@@ -134,35 +138,7 @@
 			</div>
 		</div>
 	</nav>
-	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
-		<div class="menu-scroll">
-			<div class="menu-top">
-				<div class="menu-top-img">
-					<img alt="John Smith" src="../images/samples/landscape.jpg">
-				</div>
-				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>John Smith</a>
-				</div>
-				<div class="menu-top-info-sub">
-					<small>Some additional information about John Smith</small>
-				</div>
-			</div>
-			<div class="menu-content">
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
+	<main class="content">
 		<div class="content-heading">
 			<div class="container">
 				<div class="row">
@@ -175,48 +151,101 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-					<section class="content-inner">
-						<p>Material is an HTML5 UI design based on Google Material.</p>
-						<blockquote>
-							<p>A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.</p>
-							<p><a class="text-break" href="http://www.google.com/design/spec/material-design/introduction.html">http://www.google.com/design/spec/material-design/introduction.html</a></p>
-						</blockquote>
-						<p>Have a play with a <a href="http://daemonite.github.io/material/">working prototype of Material</a>, let us know what you think at the <a href="http://labs.daemon.com.au">Daemon Labs</a> forum.</p>
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>Daemonite's Material UI is a fully responsive, cross-platform, front-end interface based on Google Material Design. This lightweight framework is built in HTML5 using Bootstrap, JS and CSS.</p>
+									<blockquote>A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design. <sup><a href="http://www.google.com/design/spec/material-design/introduction.html" target="_blank"><span class="icon">open_in_new</span></a></sup></blockquote>
+									<p>Have a play with this working prototype of Material, let us know what you think at the <a href="http://labs.daemon.com.au" target="_blank">Daemon Labs</a> forum.</p>
+								</div>
+							</div>
+						</div>
 						<h2 class="content-sub-heading">Components</h2>
+						<p>Below are components that have been defined by Google Material Design guidelines. For more information, please visit <a href="https://www.google.com/design/spec/components/buttons.html" target="_blank">here</a>.</p>
 						<div class="tile-wrap">
+							<a class="tile waves-attach" href="ui-button.html">
+								<div class="tile-inner">
+									<span>Buttons</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-button-fab.html">
+								<div class="tile-inner">
+									<span>Buttons <small>(Floating Action Button)</small></span>
+								</div>
+							</a>
 							<a class="tile waves-attach" href="ui-card.html">
 								<div class="tile-inner">
 									<span>Cards</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-collapse.html">
+							<a class="tile waves-attach" href="ui-data-table.html">
 								<div class="tile-inner">
-									<span>Collapsible Regions</span>
+									<span>Data Tables</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-dropdown.html">
+							<a class="tile waves-attach" href="ui-dialog.html">
 								<div class="tile-inner">
-									<span>Dropdowns</span>
+									<span>Dialogs</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-modal.html">
+							<a class="tile waves-attach" href="ui-dropdown-menu.html">
 								<div class="tile-inner">
-									<span>Modal &amp; Toasts</span>
+									<span>Menus</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-nav.html">
+							<a class="tile waves-attach" href="ui-nav-drawer.html">
 								<div class="tile-inner">
-									<span>Navs</span>
+									<span>Navigation Drawers</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-picker.html">
+								<div class="tile-inner">
+									<span>Pickers</span>
 								</div>
 							</a>
 							<a class="tile waves-attach" href="ui-progress.html">
 								<div class="tile-inner">
-									<span>Progress Bars</span>
+									<span>Progress</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-selection-control.html">
+								<div class="tile-inner">
+									<span>Selection Controls</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-snackbar.html">
+								<div class="tile-inner">
+									<span>Snackbars</span>
 								</div>
 							</a>
 							<a class="tile waves-attach" href="ui-tab.html">
 								<div class="tile-inner">
 									<span>Tabs</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-text-field.html">
+								<div class="tile-inner">
+									<span>Text Fields</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-toolbar.html">
+								<div class="tile-inner">
+									<span>Toolbars</span>
+								</div>
+							</a>
+						</div>
+						<h2 class="content-sub-heading">Extras</h2>
+						<p>These components have not been specifically defined by Google Material Design guidelines, but are used in some Google apps and/or sites.</p>
+						<div class="tile-wrap">
+							<a class="tile waves-attach" href="ui-avatar.html">
+								<div class="tile-inner">
+									<span>Avatars</span>
+								</div>
+							</a>
+							<a class="tile waves-attach" href="ui-icon.html">
+								<div class="tile-inner">
+									<span>Icons</span>
 								</div>
 							</a>
 							<a class="tile waves-attach" href="ui-tile.html">
@@ -225,44 +254,32 @@
 								</div>
 							</a>
 						</div>
-						<h2 class="content-sub-heading">Elements</h2>
+						<h2 class="content-sub-heading">Javascript</h2>
+						<p>Material includes several Bootstrap's Javascript plugins, <code>affix</code>, <code>collapse</code>, <code>dropdown</code>, <code>modal</code> &amp; <code>tab</code>, to be specific. For more information, please visit <a href="http://getbootstrap.com/javascript/" target="_blank">here</a>.</p>
 						<div class="tile-wrap">
-							<a class="tile waves-attach" href="ui-button.html">
+							<a class="tile waves-attach" href="ui-affix.html">
 								<div class="tile-inner">
-									<span>Button</span>
+									<span>Affix</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-form.html">
+							<a class="tile waves-attach" href="ui-collapse.html">
 								<div class="tile-inner">
-									<span>Form Elements <small>(basic)</small></span>
+									<span>Collapse</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-form-adv.html">
+							<a class="tile waves-attach" href="ui-dropdown-menu.html">
 								<div class="tile-inner">
-									<span>Form Elements <small>(materialised)</small></span>
+									<span>Dropdown</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-icon.html">
+							<a class="tile waves-attach" href="ui-modal.html">
 								<div class="tile-inner">
-									<span>Icons</span>
+									<span>Modals</span>
 								</div>
 							</a>
-							<a class="tile waves-attach" href="ui-table.html">
+							<a class="tile waves-attach" href="ui-tab.html">
 								<div class="tile-inner">
-									<span>Tables</span>
-								</div>
-							</a>
-						</div>
-						<h2 class="content-sub-heading">Sample Pages</h2>
-						<div class="tile-wrap">
-							<a class="tile waves-attach" href="page-login.html">
-								<div class="tile-inner">
-									<span>Login Page</span>
-								</div>
-							</a>
-							<a class="tile waves-attach" href="page-palette.html">
-								<div class="tile-inner">
-									<span>Page Palettes</span>
+									<span>Togglable Tabs</span>
 								</div>
 							</a>
 						</div>
@@ -270,7 +287,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</main>
 	<footer class="footer">
 		<div class="container">
 			<p>Material</p>
@@ -278,11 +295,11 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
-				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>
-				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
@@ -291,7 +308,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="../js/base.min.js"></script>
 
-	<!-- js for this project -->
+	<!-- js for doc -->
 	<script src="../js/project.min.js"></script>
 </body>
 </html>

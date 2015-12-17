@@ -16,9 +16,27 @@
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		background-size: cover;
+		margin-bottom: (($line-height + $margin-md * 2 + 1) * -1);
 		padding-top: ($header-height + $margin-sm);
+		padding-bottom: ($header-height + $margin-md + $margin-sm + 1);
+		z-index: 0;
 	}
 
 	.page-brand .content-heading {
 		background-image: url(#{$css-path}/images/bg/brand.jpg);
+	}
+
+	.ui-card-pre {
+		align-items: center;
+		display: flex;
+		@include responsive(sm) {
+			min-height: 189px;
+			&.ui-card-pre-media {
+				min-height: 408px;
+			}
+		}
+	}
+
+	.ui-tab-tab {
+		margin-top: (($line-height + $margin-md * 2 + 1) - $nav-height);
 	}

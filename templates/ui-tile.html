@@ -3,135 +3,135 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, width=device-width" name="viewport">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 	<title>Tiles - Material</title>
 
 	<!-- css -->
 	<link href="../css/base.min.css" rel="stylesheet">
 
-	<!-- css for this project -->
+	<!-- css for doc -->
 	<link href="../css/project.min.css" rel="stylesheet">
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-
+	
 	<!-- favicon -->
 	<!-- ... -->
-
-	<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 </head>
-<body class="avoid-fout page-brand">
-	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
-		<div class="progress-circular progress-circular-center">
-			<div class="progress-circular-wrapper">
-				<div class="progress-circular-inner">
-					<div class="progress-circular-left">
-						<div class="progress-circular-spinner"></div>
-					</div>
-					<div class="progress-circular-gap"></div>
-					<div class="progress-circular-right">
-						<div class="progress-circular-spinner"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body class="page-brand">
 	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
-				<a data-toggle="menu" href="#menu">
+				<a data-toggle="menu" href="#doc_menu">
 					<span class="icon icon-lg">menu</span>
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo margin-left-no" href="index.html">Material</a>
-		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
-			<span class="header-text margin-left-no">
-				<i class="icon margin-right">chevron_right</i>Tiles
-			</span>
-		</div>
+		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Tiles</span>
 		<ul class="nav nav-list pull-right">
-			<li>
-				<a data-toggle="menu" href="#profile">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>
 				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="page-login.html"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</header>
-	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
+	<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="ui-card.html">Cards</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-nav.html">Navs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tab.html">Tabs</a>
-					</li>
-					<li class="active">
-						<a class="waves-attach" href="ui-tile.html">Tiles</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="ui-button.html">Buttons</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-form.html">Form Elements</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="form-elements">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
+						<ul class="collapse menu-collapse" id="doc_menu_components">
 							<li>
-								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+								<a class="waves-attach" href="ui-button.html">Buttons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-card.html">Cards</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-data-table.html">Data Tables</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dialog.html">Dialogs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Menus</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-picker.html">Pickers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-progress.html">Progress</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-snackbar.html">Snackbars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tab.html">Tabs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-toolbar.html">Toolbars</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-icon.html">Icons</a>
+						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
+						<ul class="collapse in menu-collapse" id="doc_menu_extras">
+							<li>
+								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-icon.html">Icons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav.html">Navs</a>
+							</li>
+							<li class="active">
+								<a class="waves-attach" href="ui-tile.html">Tiles</a>
+							</li>
+						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-table.html">Tables</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="page-palettes">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
+						<ul class="collapse menu-collapse" id="doc_menu_javascript">
 							<li>
-								<a class="waves-attach" href="page-palette-brand.html">Brand Palette</a>
+								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-brand-accent.html">Accent Palette</a>
+								<a class="waves-attach" href="ui-collapse.html">Collapse</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-amber.html">Amber Palette</a>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Dropdown</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+								<a class="waves-attach" href="ui-modal.html">Modals</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+								<a class="waves-attach" href="ui-tab.html">Togglable Tabs</a>
 							</li>
 						</ul>
 					</li>
@@ -139,715 +139,444 @@
 			</div>
 		</div>
 	</nav>
-	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
-		<div class="menu-scroll">
-			<div class="menu-top">
-				<div class="menu-top-img">
-					<img alt="John Smith" src="../images/samples/landscape.jpg">
-				</div>
-				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="../images/users/avatar-001.jpg"></span>John Smith</a>
-				</div>
-				<div class="menu-top-info-sub">
-					<small>Some additional information about John Smith</small>
-				</div>
-			</div>
-			<div class="menu-content">
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
+	<main class="content">
 		<div class="content-heading">
 			<div class="container">
-				<h1 class="heading">Tiles</h1>
+				<div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+						<h1 class="heading">Tiles</h1>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="container">
-			<section class="content-inner">
-				<h2 class="content-sub-heading">Basic Tiles</h2>
-				<div class="tile-wrap">
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm">
-								<span class="icon">alarm</span>
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>Tiles present collections of related content in a consistent format, using hierarchy to enhance readability by prioritizing a consistent type or set of content.</p>
+								</div>
 							</div>
 						</div>
-						<div class="tile-inner">
-							<span>lorem ipsum dolor sit amet</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-brand">
-								<span class="icon">backup</span>
+						<h2 class="content-sub-heading">Basic Tiles</h2>
+						<div class="tile-wrap">
+							<div class="tile">
+								<div class="pull-left tile-side">
+									<div class="avatar avatar-sm">
+										<span class="icon">alarm</span>
+									</div>
+								</div>
+								<div class="tile-inner">
+									<span>lorem ipsum dolor sit amet</span>
+								</div>
 							</div>
-						</div>
-						<div class="tile-inner">
-							<span>consectetur adipiscing elit</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-brand-accent">
-								<span class="icon">launch</span>
-							</div>
-						</div>
-						<div class="tile-inner">
-							<span>sed ornare orci lorem</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-right tile-side">
-							<div class="avatar avatar-sm avatar-amber">
-								<span class="icon">alarm</span>
-							</div>
-						</div>
-						<div class="tile-inner">
-							<span>lorem ipsum dolor sit amet</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-right tile-side">
-							<div class="avatar avatar-sm avatar-green">
-								<span class="icon">backup</span>
-							</div>
-						</div>
-						<div class="tile-inner">
-							<span>consectetur adipiscing elit</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-right tile-side">
-							<div class="avatar avatar-sm avatar-red">
-								<span class="icon">launch</span>
-							</div>
-						</div>
-						<div class="tile-inner">
-							<span>sed ornare orci lorem</span>
-						</div>
-					</div>
-				</div>
-				<h2 class="content-sub-heading">Tiles with Actions</h2>
-				<div class="tile-wrap">
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm">
-								<span class="icon">alarm</span>
-							</div>
-						</div>
-						<div class="tile-action tile-action-show">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
+							<div class="tile">
+								<div class="pull-left tile-side">
+									<div class="avatar avatar-sm avatar-brand">
+										<span class="icon">backup</span>
+									</div>
+								</div>
+								<div class="tile-action tile-action-show">
+									<ul class="margin-no nav nav-list pull-right">
 										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
+											<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 										</li>
 									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">lorem ipsum dolor sit amet</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-brand">
-								<span class="icon">backup</span>
+								</div>
+								<div class="tile-inner">
+									<span class="text-overflow">consectetur adipiscing elit, consectetur adipiscing elit, consectetur adipiscing elit</span>
+								</div>
 							</div>
-						</div>
-						<div class="tile-action tile-action-show">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
+							<div class="tile">
+								<div class="pull-left tile-side">
+									<div class="avatar avatar-sm avatar-brand-accent">
+										<span class="icon">launch</span>
+									</div>
+								</div>
+								<div class="tile-action">
+									<ul class="margin-no nav nav-list pull-right">
 										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
+											<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 										</li>
 										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
+											<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">flag</span></a>
 										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">consectetur adipiscing elit, consectetur adipiscing elit, consectetur adipiscing elit</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-brand-accent">
-								<span class="icon">launch</span>
-							</div>
-						</div>
-						<div class="tile-action tile-action-show">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
+										<li class="dropdown">
+											<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
+											<ul class="dropdown-menu">
+												<li>
+													<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
+												</li>
+												<li>
+													<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
+												</li>
+												<li>
+													<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
+												</li>
+											</ul>
 										</li>
 									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">sed ornare orci lorem</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-amber">
-								<span class="icon">alarm</span>
+								</div>
+								<div class="tile-inner">
+									<span class="text-overflow">sed ornare orci lorem</span>
+								</div>
 							</div>
 						</div>
-						<div class="tile-action">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">lorem ipsum dolor sit amet</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-green">
-								<span class="icon">backup</span>
+<pre>
+&lt;div class="tile-wrap"&gt;
+    &lt;div class="tile"&gt;
+        &lt;div class="pull-left tile-side"&gt; ... &lt;/div&gt;
+        &lt;div class="tile-action"&gt; ... &lt;/div&gt;
+        &lt;div class="tile-inner"&gt; ... &lt;/div&gt;
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</pre>
+						<h2 class="content-sub-heading">Collapsible Tiles</h2>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse">
+								<div data-target="#doc_tile_example_1" data-toggle="tile">
+									<div class="pull-left tile-side" data-ignore="tile">
+										<div class="avatar avatar-sm">
+											<span class="icon">alarm</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">lorem ipsum dolor sit amet</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_1">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_1"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div data-target="#doc_tile_example_2" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand">
+											<span class="icon">backup</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">consectetur adipiscing elit</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_2">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_2"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div data-target="#doc_tile_example_3" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand-accent">
+											<span class="icon">launch</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">sed ornare orci lorem</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_3">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_3"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="tile-action">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">consectetur adipiscing elit, consectetur adipiscing elit, consectetur adipiscing elit</span>
-						</div>
-					</div>
-					<div class="tile">
-						<div class="pull-left tile-side">
-							<div class="avatar avatar-sm avatar-red">
-								<span class="icon">launch</span>
+<pre>
+&lt;div class="tile-wrap"&gt;
+    &lt;div class="tile tile-collapse"&gt;
+        &lt;div data-target="..." data-toggle="tile"&gt;
+            &lt;div class="tile-inner"&gt; ... &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="collapse tile-active-show" id="..."&gt;
+            &lt;div class="tile-sub"&gt; ... &lt;/div&gt;
+            &lt;div class="tile-footer"&gt; ... &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+						<div class="tile-wrap" id="doc_tile_example_parent">
+							<div class="tile">
+								<div class="tile-inner">
+									<code>data-parent=""</code> extends the default collapse behaviour to create an accordion.
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_4" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-amber">
+											<span class="icon">alarm</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">lorem ipsum dolor sit amet</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_4">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_4"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_5" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand">
+											<span class="icon">backup</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">consectetur adipiscing elit</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_5">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_5"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse">
+								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_6" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand-accent">
+											<span class="icon">launch</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">sed ornare orci lorem</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_6">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_6"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="tile-action">
-							<ul class="margin-no nav nav-list pull-right">
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
-								</li>
-								<li>
-									<a class="text-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
-								</li>
-								<li class="dropdown">
-									<a class="dropdown-toggle text-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-									<ul class="dropdown-menu">
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">replay</span>Consectetur Adipiscing</a>
-										</li>
-										<li>
-											<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">shuffle</span>Sed Ornare</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
+						<div class="tile-wrap">
+							<div class="tile">
+								<div class="tile-inner">
+									<code>.tile-collapse-full</code> expands the tile even wider when space is available.
+								</div>
+							</div>
+							<div class="tile tile-collapse tile-collapse-full">
+								<div data-parent=".content" data-target="#doc_tile_example_7" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-amber">
+											<span class="icon">alarm</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">lorem ipsum dolor sit amet</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_7">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_7"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse tile-collapse-full">
+								<div data-parent=".content" data-target="#doc_tile_example_8" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand">
+											<span class="icon">backup</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">consectetur adipiscing elit</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_8">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_8"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tile tile-collapse tile-collapse-full">
+								<div data-parent=".content" data-target="#doc_tile_example_9" data-toggle="tile">
+									<div class="pull-left tile-side">
+										<div class="avatar avatar-sm avatar-brand-accent">
+											<span class="icon">launch</span>
+										</div>
+									</div>
+									<div class="tile-inner">
+										<div class="text-overflow">sed ornare orci lorem</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_9">
+									<div class="tile-sub">
+										<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_9"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="tile-inner">
-							<span class="text-overflow">sed ornare orci lorem</span>
+						<h2 class="content-sub-heading">Coloured Tiles</h2>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse tile-brand">
+								<div data-target="#doc_tile_example_brand" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">Brand tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_brand">
+									<div class="tile-sub">
+										<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_brand"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse tile-brand-accent">
+								<div data-target="#doc_tile_example_brand_accent" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">Brand accent tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_brand_accent">
+									<div class="tile-sub">
+										<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_brand_accent"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse tile-green">
+								<div data-target="#doc_tile_example_green" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">Green tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_green">
+									<div class="tile-sub">
+										<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_green"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse tile-orange">
+								<div data-target="#doc_tile_example_orange" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">Orange tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_orange">
+									<div class="tile-sub">
+										<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_orange"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tile-wrap">
+							<div class="tile tile-collapse tile-red">
+								<div data-target="#doc_tile_example_red" data-toggle="tile">
+									<div class="tile-inner">
+										<div class="text-overflow">Red tile</div>
+									</div>
+								</div>
+								<div class="tile-active-show collapse" id="doc_tile_example_red">
+									<div class="tile-sub">
+										<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
+									</div>
+									<div class="tile-footer">
+										<div class="tile-footer-btn pull-left">
+											<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
+											<a class="btn btn-flat waves-attach" data-toggle="tile" href="#doc_tile_example_red"><span class="icon">close</span>&nbsp;Cancel</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
-				<h2 class="content-sub-heading">Tiles with Collapsible Regions</h2>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse">
-						<div data-target="#tile-collapse-1" data-toggle="tile">
-							<div class="pull-left tile-side" data-ignore="tile">
-								<div class="avatar avatar-sm">
-									<span class="icon">alarm</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">lorem ipsum dolor sit amet</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-1">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-1"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-target="#tile-collapse-2" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-brand">
-									<span class="icon">backup</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">consectetur adipiscing elit</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-2">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-2"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-target="#tile-collapse-3" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-brand-accent">
-									<span class="icon">launch</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">sed ornare orci lorem</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-3">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-3"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap" id="tile-parent-1">
-					<div class="tile">
-						<div class="tile-inner">
-							<kbd>data-parent=""</kbd> extends the default collapse behaviour to create an accordion.
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent="#tile-parent-1" data-target="#tile-collapse-4" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-amber">
-									<span class="icon">alarm</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">lorem ipsum dolor sit amet</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-4">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-4"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent="#tile-parent-1" data-target="#tile-collapse-5" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-green">
-									<span class="icon">backup</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">consectetur adipiscing elit</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-5">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-5"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent="#tile-parent-1" data-target="#tile-collapse-6" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-red">
-									<span class="icon">launch</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">sed ornare orci lorem</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-6">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-6"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile">
-						<div class="tile-inner">
-							You can set <code>data-parent=""</code> to be any existing DOM elements. For example, <code>.content</code> or even <code>body</code>, so all the other tiles will be collapsed before the target tile expands.
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent=".content" data-target="#tile-collapse-7" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm">
-									<span class="icon">alarm</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">lorem ipsum dolor sit amet</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-7">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-7"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent=".content" data-target="#tile-collapse-8" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-brand">
-									<span class="icon">backup</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">consectetur adipiscing elit</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-8">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-8"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse">
-						<div data-parent=".content" data-target="#tile-collapse-9" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-brand-accent">
-									<span class="icon">launch</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">sed ornare orci lorem</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-9">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-9"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile">
-						<div class="tile-inner">
-							<code>.tile-collapse-full</code> expands the tile even wider when space is available.
-						</div>
-					</div>
-					<div class="tile tile-collapse tile-collapse-full">
-						<div data-parent=".content" data-target="#tile-collapse-10" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-amber">
-									<span class="icon">alarm</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">lorem ipsum dolor sit amet</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-10">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-10"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse tile-collapse-full">
-						<div data-parent=".content" data-target="#tile-collapse-11" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-green">
-									<span class="icon">backup</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">consectetur adipiscing elit</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-11">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-11"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tile tile-collapse tile-collapse-full">
-						<div data-parent=".content" data-target="#tile-collapse-12" data-toggle="tile">
-							<div class="pull-left tile-side">
-								<div class="avatar avatar-sm avatar-red">
-									<span class="icon">launch</span>
-								</div>
-							</div>
-							<div class="tile-inner">
-								<div class="text-overflow">sed ornare orci lorem</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-12">
-							<div class="tile-sub">
-								<p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-12"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-brand">
-						<div data-target="#tile-collapse-13" data-toggle="tile">
-							<div class="tile-inner">
-								<div class="text-overflow">Brand tile</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-13">
-							<div class="tile-sub">
-								<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-13"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-brand-accent">
-						<div data-target="#tile-collapse-14" data-toggle="tile">
-							<div class="tile-inner">
-								<div class="text-overflow">Accent tile</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-14">
-							<div class="tile-sub">
-								<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-14"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-amber">
-						<div data-target="#tile-collapse-15" data-toggle="tile">
-							<div class="tile-inner">
-								<div class="text-overflow">Amber tile</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-15">
-							<div class="tile-sub">
-								<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-15"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-green">
-						<div data-target="#tile-collapse-16" data-toggle="tile">
-							<div class="tile-inner">
-								<div class="text-overflow">Green tile</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-16">
-							<div class="tile-sub">
-								<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-16"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tile-wrap">
-					<div class="tile tile-collapse tile-red">
-						<div data-target="#tile-collapse-17" data-toggle="tile">
-							<div class="tile-inner">
-								<div class="text-overflow">Red tile</div>
-							</div>
-						</div>
-						<div class="tile-active-show collapse" id="tile-collapse-17">
-							<div class="tile-sub">
-								<p>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam. This is a <a href="javascript:void(0)">link</a> among some other text.</p>
-							</div>
-							<div class="tile-footer">
-								<div class="tile-footer-btn pull-left">
-									<a class="btn btn-flat waves-attach" href="javascript:void(0)"><span class="icon">check</span>&nbsp;OK</a>
-									<a class="btn btn-flat waves-attach" data-toggle="tile" href="#tile-collapse-17"><span class="icon">close</span>&nbsp;Cancel</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			</div>
 		</div>
-	</div>
+	</main>
 	<footer class="footer">
 		<div class="container">
 			<p>Material</p>
@@ -855,11 +584,11 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
-				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>
-				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
@@ -868,7 +597,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="../js/base.min.js"></script>
 
-	<!-- js for this project -->
+	<!-- js for doc -->
 	<script src="../js/project.min.js"></script>
 </body>
 </html>

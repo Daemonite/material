@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-	<title>Buttons - Material</title>
+	<title>Text Fields - Material</title>
 
 	<!-- css -->
 	<link href="../css/base.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 			</li>
 		</ul>
 		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Buttons</span>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Text Fields</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
@@ -54,7 +54,7 @@
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
 						<ul class="collapse in menu-collapse" id="doc_menu_components">
-							<li class="active">
+							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
 							<li>
@@ -90,7 +90,7 @@
 							<li>
 								<a class="waves-attach" href="ui-tab.html">Tabs</a>
 							</li>
-							<li>
+							<li class="active">
 								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
 							</li>
 							<li>
@@ -144,7 +144,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-						<h1 class="heading">Buttons</h1>
+						<h1 class="heading">Text Fields</h1>
 					</div>
 				</div>
 			</div>
@@ -156,104 +156,144 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>A button clearly communicates what action will occur when the user touches it. It consists of text, an image, or both, designed in accordance with your app’s colour theme.</p>
+									<p>Text fields allow the user to input and select text. The examples form below demonstrate customized form elements for a more consistent rendering across browsers and devices.</p>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">Flat Buttons</h2>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat waves-attach waves-button">Ripple</a></p>
+						<form>
+							<fieldset>
+								<legend class="access-hide">Text Fields</legend>
+								<h2 class="content-sub-heading">Input</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example">Input</label>
+												<input class="form-control" id="doc_floating_label_example" type="text">
+											</div>
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_value">Input with Value</label>
+												<input class="form-control" id="doc_floating_label_example_value" type="text" value="something has already been written down">
+											</div>
 <pre>
-&lt;a class="btn btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
+&lt;div class="form-group form-group-label"&gt;
+    &lt;label class="floating-label" for="..."&gt; ... &lt;/label&gt;
+    &lt;input class="form-control" id="..." type="text"&gt;
+&lt;/div&gt;
 </pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-brand btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand btn-flat waves-attach waves-button">Ripple</a></p>
-									<p class="margin-top-no"><a class="btn btn-brand-accent btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand-accent btn-flat waves-attach waves-button">Ripple</a></p>
+								<h2 class="content-sub-heading">Select</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_select">Select</label>
+												<select class="form-control" id="doc_floating_label_example_select">
+													<option value="">&nbsp;</option>
+													<option value="1">1</option>
+													<option value="2">2</option>
+													<option value="3">3</option>
+												</select>
+											</div>
 <pre>
-&lt;a class="btn btn-brand btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
+&lt;div class="form-group form-group-label"&gt;
+    &lt;label class="floating-label" for="..."&gt; ... &lt;/label&gt;
+    &lt;select class="form-control" id="..."&gt;
+        &lt;option value="..."&gt; ... &lt;/option&gt;
+        ...
+    &lt;/select&gt;
+&lt;/div&gt;
 </pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-flat btn-green waves-attach waves-button">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-orange btn-flat waves-attach waves-button">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-red waves-attach waves-button">.btn-red</a></p>
-								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Raised Buttons</h2>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn waves-attach waves-button">Ripple</a></p>
+								<h2 class="content-sub-heading">Textarea</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_textarea-autosize">Auto Expanding Textarea</label>
+												<textarea class="form-control textarea-autosize" id="doc_floating_label_example_textarea-autosize" rows="1"></textarea>
+											</div>
 <pre>
-&lt;a class="btn"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn waves-attach waves-button"&gt; ... &lt;/a&gt;
+&lt;div class="form-group form-group-label"&gt;
+    &lt;label class="floating-label" for="..."&gt; ... &lt;/label&gt;
+    &lt;textarea class="form-control textarea-autosize" id="..." rows="1"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
 </pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_textarea-normal">Normal Textarea</label>
+												<textarea class="form-control" id="doc_floating_label_example_textarea-normal" rows="3"></textarea>
+											</div>
+<pre>
+&lt;div class="form-group form-group-label"&gt;
+    &lt;label class="floating-label" for="..."&gt; ... &lt;/label&gt;
+    &lt;textarea class="form-control" id="..." rows="..."&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</pre>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-brand">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand waves-attach waves-button waves-light">Ripple</a></p>
-									<p class="margin-top-no"><a class="btn btn-brand-accent">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-button waves-light">Ripple</a></p>
-<pre>
-&lt;a class="btn btn-brand"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand waves-attach waves-button waves-light"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent waves-attach waves-button waves-light"&gt; ... &lt;/a&gt;
-</pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_disabled">Disabled Input</label>
+												<input class="form-control" id="doc_floating_label_example_disabled" type="text" disabled>
+												<div class="margin-top-xs">
+													<code>disabled</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_floating_label_example_value_disabled">Disabled Input with Value</label>
+												<input class="form-control" id="doc_floating_label_example_value_disabled" type="text" value="something has already been written down" disabled>
+												<div class="margin-top-xs">
+													<code>disabled</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label form-group-brand">
+												<label class="floating-label" for="doc_floating_label_example_brand">Brand Input</label>
+												<input class="form-control" id="doc_floating_label_example_brand" type="text">
+												<div class="margin-top-xs">
+													<code>.form-group-brand</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label form-group-brand-accent">
+												<label class="floating-label" for="doc_floating_label_example_brand_accent">Brand Accent Input</label>
+												<input class="form-control" id="doc_floating_label_example_brand_accent" type="text">
+												<div class="margin-top-xs">
+													<code>.form-group-brand-accent</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label form-group-green">
+												<label class="floating-label" for="doc_floating_label_example_green">Green Input</label>
+												<input class="form-control" id="doc_floating_label_example_green" type="text">
+												<div class="margin-top-xs">
+													<code>.form-group-green</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label form-group-orange">
+												<label class="floating-label" for="doc_floating_label_example_orange">Orange Input</label>
+												<input class="form-control" id="doc_floating_label_example_organge" type="text">
+												<div class="margin-top-xs">
+													<code>.form-group-orange</code>
+												</div>
+											</div>
+											<div class="form-group form-group-label form-group-red">
+												<label class="floating-label" for="doc_floating_label_example_red">Red Input</label>
+												<input class="form-control" id="doc_floating_label_example_red" type="text">
+												<div class="margin-top-xs">
+													<code>.form-group-red</code>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-green waves-attach waves-button waves-light">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-orange waves-attach waves-button waves-light">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-red waves-attach waves-button waves-light">.btn-red</a></p>
-								</div>
-							</div>
-						</div>
+							</fieldset>
+							<button class="access-hide" type="submit">Submit Button</button>
+						</form>
 					</section>
 				</div>
 			</div>

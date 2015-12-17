@@ -1,32 +1,11 @@
 // project
-	// ui-form-adv.html
-		$('.datepicker-adv-doc-1').datepicker();
+	// ui-picker.html
+		$('#doc_datepicker_example_1').datepicker();
 
-		$('.datepicker-adv-doc-2').datepicker({
+		$('#doc_datepicker_example_2').datepicker({
 			format: "dd-mmm-yyyy",
 			selectMonths: true,
 			selectYears: 30
-		});
-
-	// ui-modal.html
-		var toastText = 1;
-
-		$('#toast-1').on('click', function () {
-			$('body').toast({
-				content: 'Simple toast ' + toastText + ' with some text',
-				show: function () {
-					toastText++;
-				}
-			});
-		});
-
-		$('#toast-2').on('click', function () {
-			$('body').toast({
-				content: '<a data-dismiss="toast">Dismiss</a><div class="toast-text">Simple toast ' + toastText + ' with some text and a simple <a href="javascript:void(0)">link</a>.</div>',
-				show: function () {
-					toastText++;
-				}
-			});
 		});
 
 	// ui-progress.html
@@ -35,7 +14,7 @@
 			$($(this).attr('data-target')).addClass('el-loading-done');
 		});
 
-		$('#el-loading-tile-wrap .tile-active-show').each(function (index) {
+		$('#doc_el_loading_example_wrap .tile-active-show').each(function (index) {
 			var $this = $(this),
 			    timer;
 
@@ -50,5 +29,26 @@
 						$this.prepend('<div class="tile-sub"><p>Additional information<br><small>Aliquam in pharetra leo. In congue, massa sed elementum dictum, justo quam efficitur risus, in posuere mi orci ultrices diam.</small></p></div>');
 					}, 6000);
 				};
+			});
+		});
+
+	// ui-snackbar.html
+		var snackbarText = 1;
+
+		$('#doc_snackbar_toggle_1').on('click', function () {
+			$('body').snackbar({
+				content: 'Simple snackbar ' + snackbarText + ' with some text',
+				show: function () {
+					snackbarText++;
+				}
+			});
+		});
+
+		$('#doc_snackbar_toggle_2').on('click', function () {
+			$('body').snackbar({
+				content: '<a data-dismiss="snackbar">Dismiss</a><div class="snackbar-text">Simple snackbar ' + snackbarText + ' with some text and a simple <a href="javascript:void(0)">link</a>.</div>',
+				show: function () {
+					snackbarText++;
+				}
 			});
 		});
