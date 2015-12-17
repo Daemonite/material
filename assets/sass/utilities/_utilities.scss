@@ -20,60 +20,6 @@
 	}
 }
 
-.avoid-fout,
-.el-loading {
-	position: relative;
-}
-
-body.avoid-fout,
-body.el-loading {
-	position: static;
-}
-
-.avoid-fout-indicator,
-.el-loading-indicator {
-	font-family: sans-serif !important;
-	height: 0;
-	min-height: ($base / 2);
-	overflow: hidden;
-	position: absolute;
-		top: 0;
-		left: 0;
-	text-align: center;
-	width: 0;
-	z-index: 2;
-}
-
-.avoid-fout > .avoid-fout-indicator,
-.el-loading > .el-loading-indicator {
-	background-color: $white;
-	box-shadow: 0 -1px 0 $black-divider, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
-	height: 100%;
-	opacity: 1;
-	padding: $line-height $grid-gutter;
-	width: 100%;
-}
-
-.avoid-fout-done > .avoid-fout-indicator,
-.el-loading-done > .el-loading-indicator {
-	height: 0;
-	opacity: 0;
-	padding: 0;
-	transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
-	width: 0;
-}
-
-.avoid-fout-indicator-fixed,
-.el-loading-indicator-fixed {
-	position: fixed;
-	z-index: ($top-base + 1);
-}
-
-.avoid-fout-indicator-linear,
-.el-loading-indicator-linear {
-	padding: 0 !important;
-}
-
 .clearfix {
 	@include clearfix();
 }
@@ -108,6 +54,51 @@ body.el-loading {
 	overflow: hidden;
 	position: relative;
 	transition: height 0.3s $timing;
+}
+
+.el-loading {
+	position: relative;
+}
+
+body.el-loading {
+	position: static;
+}
+
+.el-loading-indicator {
+	font-family: sans-serif !important;
+	height: 0;
+	min-height: ($base / 2);
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		left: 0;
+	text-align: center;
+	width: 0;
+	z-index: 2;
+	.el-loading > & {
+		background-color: $white;
+		box-shadow: 0 -1px 0 $black-divider, 0 0 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.15);
+		height: 100%;
+		opacity: 1;
+		padding: $line-height $grid-gutter;
+		width: 100%;
+	}
+	.el-loading-done > & {
+		height: 0;
+		opacity: 0;
+		padding: 0;
+		transition: height 0s 0.3s, opacity 0.3s $timing, padding 0s 0.3s, width 0s 0.3s;
+		width: 0;
+	}
+}
+
+.el-loading-indicator-fixed {
+	position: fixed;
+	z-index: ($top-base + 1);
+}
+
+.el-loading-indicator-linear {
+	padding: 0 !important;
 }
 
 .fade {
