@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-	<title>Icons - Material</title>
+	<title>Pickers - Material</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
 	<!-- css for doc -->
 	<link href="css/project.min.css" rel="stylesheet">
-	
+
 	<!-- favicon -->
 	<!-- ... -->
 </head>
@@ -25,7 +25,7 @@
 			</li>
 		</ul>
 		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Icons</span>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Pickers</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
@@ -52,8 +52,8 @@
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
-						<ul class="collapse menu-collapse" id="doc_menu_components">
+						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
+						<ul class="collapse in menu-collapse" id="doc_menu_components">
 							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
@@ -75,7 +75,7 @@
 							<li>
 								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
 							</li>
-							<li>
+							<li class="active">
 								<a class="waves-attach" href="ui-picker.html">Pickers</a>
 							</li>
 							<li>
@@ -99,12 +99,12 @@
 						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
-						<ul class="collapse in menu-collapse" id="doc_menu_extras">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
+						<ul class="collapse menu-collapse" id="doc_menu_extras">
 							<li>
 								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
 							</li>
-							<li class="active">
+							<li>
 								<a class="waves-attach" href="ui-icon.html">Icons</a>
 							</li>
 							<li>
@@ -144,7 +144,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-						<h1 class="heading">Material Design Icons</h1>
+						<h1 class="heading">Pickers</h1>
 					</div>
 				</div>
 			</div>
@@ -156,116 +156,60 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>Material comes with Material Design Icons.</p>
-									<blockquote>Material design system icons are simple, modern, friendly, and sometimes quirky. Each icon is created using our design guidelines to depict in simple and minimal forms the universal concepts used commonly throughout a UI. Ensuring readability and clarity at both large and small sizes, these icons have been optimized for beautiful display on all common platforms and display resolutions.</blockquote>
+									<p>Pickers provide a simple way to select a single value from a pre-determined set.</p>
+									<p><span class="icon icon-lg text-brand-accent">info_outline</span> Only date pickers have been implemented at this moment.</p>
 								</div>
-								<div class="card-action">
-									<div class="card-action-btn pull-left">
-										<a class="btn btn-flat waves-attach waves-button" href="http://www.google.com/design/icons/" target="_blank">View all Material Design Icons<span class="icon margin-left-sm">open_in_new</span></a>
+							</div>
+						</div>
+						<form>
+							<h2 class="content-sub-heading">Date Pickers</h2>
+							<fieldset>
+								<legend class="access-hide">Date Pickers</legend>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_datepicker_example_1">Date picker</label>
+												<input class="datepicker-adv form-control" id="doc_datepicker_example_1" type="text">
+												<p><span class="label label-brand-accent">Usage</span></p>
+												<p>Use <code>.datepicker-adv</code> to apply material date picker styles, then activate the datepicker via simple javascript, for example: <code>$('#selector').datepicker();</code></p>
+											</div>
+<pre>
+&lt;input class="datepicker-adv form-control" id="selector" type="text"&gt;
+
+$('#selector').datepicker();
+</pre>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Basic Icons</h2>
-						<div class="tile-wrap">
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon">face</span>
-								</div>
-								<div class="tile-inner">
-									<span>regular icon</span>
-<pre class="margin-bottom-no margin-top-sm">
-&lt;span class="icon"&gt;face&lt;/span&gt;
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group form-group-label">
+												<label class="floating-label" for="doc_datepicker_example_2">Date picker</label>
+												<input class="datepicker-adv form-control" id="doc_datepicker_example_2" type="text" value="01-Jan-2010">
+												<p><span class="label label-brand-accent">Options</span></p>
+												<p>Alternatively, options can be passed to override some default date picker settings:</p>
+												<ul>
+													<li><code>format</code> to change date format</li>
+													<li><code>selectMonths</code> and <code>selectYears</code> to hide/show dropdown menus for picking month and year. The number of years to be shown in the dropdown can also be specified using an even integer.</li>
+												</ul>
+											</div>
+<pre>
+&lt;input class="datepicker-adv form-control" id="selector" type="text" value="01-Jan-2010"&gt;
+
+$('#selector').datepicker({
+    format: "dd-mmm-yyyy",
+    selectMonths: true,
+    selectYears: 30
+});
 </pre>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Colours</h2>
-						<div class="tile-wrap">
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon text-brand">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.text-brand</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon text-brand-accent">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.text-brand-accent</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon text-green">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.text-green</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon text-orange">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.text-orange</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon text-red">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.text-red</code>
-								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Sizes</h2>
-						<div class="tile-wrap">
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon icon-lg">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.icon-lg</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon icon-2x">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.icon-2x</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon icon-3x">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.icon-3x</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon icon-4x">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.icon-4x</code>
-								</div>
-							</div>
-							<div class="tile">
-								<div class="pull-left tile-side">
-									<span class="icon icon-5x">face</span>
-								</div>
-								<div class="tile-inner">
-									<code>.icon-5x</code>
-								</div>
-							</div>
-						</div>
+							</fieldset>
+							<button class="access-hide" type="submit">Submit Button</button>
+						</form>
 					</section>
 				</div>
 			</div>

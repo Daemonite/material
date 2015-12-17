@@ -3,111 +3,135 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, width=device-width" name="viewport">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
 	<title>Navs - Material</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
-	<!-- css for this project -->
+	<!-- css for doc -->
 	<link href="css/project.min.css" rel="stylesheet">
-
+	
 	<!-- favicon -->
 	<!-- ... -->
-
-	<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 </head>
-<body class="avoid-fout page-brand">
-	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
-		<div class="progress-circular progress-circular-center">
-			<div class="progress-circular-wrapper">
-				<div class="progress-circular-inner">
-					<div class="progress-circular-left">
-						<div class="progress-circular-spinner"></div>
-					</div>
-					<div class="progress-circular-gap"></div>
-					<div class="progress-circular-right">
-						<div class="progress-circular-spinner"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<nav class="menu menu-left nav-drawer nav-drawer-lg" id="menu">
+<body class="page-brand">
+	<header class="header header-transparent header-waterfall">
+		<ul class="nav nav-list pull-left">
+			<li>
+				<a data-toggle="menu" href="#doc_menu">
+					<span class="icon icon-lg">menu</span>
+				</a>
+			</li>
+		</ul>
+		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Navs</span>
+		<ul class="nav nav-list pull-right">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
+					<span class="access-hide">John Smith</span>
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="page-login.html"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</header>
+	<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="ui-card.html">Cards</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
-					</li>
-					<li class="active">
-						<a class="waves-attach" href="ui-nav.html">Navs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tab.html">Tabs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tile.html">Tiles</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="ui-button.html">Buttons</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-form.html">Form Elements</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="form-elements">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
+						<ul class="collapse menu-collapse" id="doc_menu_components">
 							<li>
-								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+								<a class="waves-attach" href="ui-button.html">Buttons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-card.html">Cards</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-data-table.html">Data Tables</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dialog.html">Dialogs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Menus</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-picker.html">Pickers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-progress.html">Progress</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-snackbar.html">Snackbars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tab.html">Tabs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-toolbar.html">Toolbars</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-icon.html">Icons</a>
+						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
+						<ul class="collapse in menu-collapse" id="doc_menu_extras">
+							<li>
+								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-icon.html">Icons</a>
+							</li>
+							<li class="active">
+								<a class="waves-attach" href="ui-nav.html">Navs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tile.html">Tiles</a>
+							</li>
+						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-table.html">Tables</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="page-palettes">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
+						<ul class="collapse menu-collapse" id="doc_menu_javascript">
 							<li>
-								<a class="waves-attach" href="page-palette-brand.html">Brand Palette</a>
+								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-brand-accent.html">Accent Palette</a>
+								<a class="waves-attach" href="ui-collapse.html">Collapse</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-amber.html">Amber Palette</a>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Dropdown</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+								<a class="waves-attach" href="ui-modal.html">Modals</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+								<a class="waves-attach" href="ui-tab.html">Togglable Tabs</a>
 							</li>
 						</ul>
 					</li>
@@ -115,183 +139,171 @@
 			</div>
 		</div>
 	</nav>
-	<header class="header header-transparent header-waterfall">
-		<ul class="nav nav-list pull-left hidden-lg">
-			<li>
-				<a data-toggle="menu" href="#menu">
-					<span class="icon icon-lg">menu</span>
-				</a>
-			</li>
-		</ul>
-		<a class="header-logo hidden-lg margin-left-no" href="index.html">Material</a>
-		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
-			<span class="header-text margin-left-no">
-				<i class="hidden-lg icon margin-right">chevron_right</i>Navs
-			</span>
-		</div>
-		<ul class="nav nav-list pull-right">
-			<li>
-				<a data-toggle="menu" href="#profile">
-					<span class="access-hide">John Smith</span>
-					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
-				</a>
-			</li>
-		</ul>
-	</header>
-	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
-		<div class="menu-scroll">
-			<div class="menu-top">
-				<div class="menu-top-img">
-					<img alt="John Smith" src="images/samples/landscape.jpg">
-				</div>
-				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-				</div>
-				<div class="menu-top-info-sub">
-					<small>Some additional information about John Smith</small>
-				</div>
-			</div>
-			<div class="menu-content">
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
+	<main class="content">
 		<div class="content-heading">
 			<div class="container">
-				<h1 class="heading">Navs</h1>
+				<div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+						<h1 class="heading">Navs</h1>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-8">
-					<section class="content-inner">
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>Navs guide users between different parts of your app.</p>
+									<p>Navs available in Material have shared markup, starting with the base <code>.nav</code> class, as well as shared states. Swap modifier classes to switch between each style.</p>
+								</div>
+							</div>
+						</div>
 						<h2 class="content-sub-heading">Breadcrumb</h2>
-						<ul class="breadcrumb">
-							<li>
-								<a href="javascript:void(0)">Material</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">Components</a>
-							</li>
-							<li>
-								<a href="javascript:void(0)">Navs</a>
-							</li>
-							<li class="active">
-								<a href="javascript:void(0)">Breadcrumb</a>
-							</li>
-						</ul>
-						<h2 class="content-sub-heading">Default Nav</h2>
-						<div class="card-wrap">
-							<div class="card">
-								<div class="card-main">
-									<div class="card-inner">
-										<ul class="nav">
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Home</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Element</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Theme</a>
-											</li>
-										</ul>
-									</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<ul class="breadcrumb">
+										<li>
+											<a href="javascript:void(0)">Material</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">Extras</a>
+										</li>
+										<li>
+											<a href="javascript:void(0)">Navs</a>
+										</li>
+										<li class="active">
+											<a href="javascript:void(0)">Breadcrumb</a>
+										</li>
+									</ul>
+<pre>
+&lt;ul class="breadcrumb"&gt;
+    &lt;li&gt;
+        &lt;a&gt; ... &lt;/a&gt;
+    &lt;/li&gt;
+    ...
+    &lt;li class="active"&gt;
+        &lt;a&gt; ... &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">Horizontal Nav</h2>
-						<div class="card-wrap">
-							<div class="card">
-								<div class="card-main">
-									<div class="card-inner">
-										<ul class="nav nav-list">
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Home</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Element</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Theme</a>
-											</li>
-										</ul>
-									</div>
+						<h2 class="content-sub-heading">Navs</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<ul class="nav">
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">First Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Another Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Something Else</a>
+										</li>
+									</ul>
+<pre>
+&lt;ul class="nav"&gt;
+    &lt;li&gt;
+        &lt;a&gt; ... &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">Justified Nav</h2>
-						<div class="card-wrap">
-							<div class="card">
-								<div class="card-main">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
 									<div class="card-inner">
-										<ul class="nav nav-justified">
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Home</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Element</a>
-											</li>
-											<li>
-												<a class="waves-attach" href="javascript:void(0)">Theme</a>
-											</li>
-										</ul>
+										<h3 class="h5 margin-bottom-no margin-top-no">Horizontal</h3>
 									</div>
+								</div>
+								<div class="card-inner">
+									<ul class="nav nav-list">
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">First Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Another Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Something Else</a>
+										</li>
+									</ul>
+									<p><code>.nav-list</code></p>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">More Examples</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Justified</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<ul class="nav nav-justified">
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">First Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Another Item</a>
+										</li>
+										<li>
+											<a class="waves-attach" href="javascript:void(0)">Something Else</a>
+										</li>
+									</ul>
+									<p><code>.nav-justified</code></p>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Usage</h2>
 						<p>The base <code>.nav</code> can be used in conjunction with other material elements, for example <code>.tile</code>, to create more stylish navs.</p>
 						<ul class="nav">
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Home</a>
+								<a class="tile waves-attach" href="javascript:void(0)">First Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Element</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Another Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Theme</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Something Else</a>
 							</li>
 						</ul>
 						<ul class="nav nav-list">
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Home</a>
+								<a class="tile waves-attach" href="javascript:void(0)">First Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Element</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Another Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Theme</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Something Else</a>
 							</li>
 						</ul>
 						<ul class="nav nav-justified">
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Home</a>
+								<a class="tile waves-attach" href="javascript:void(0)">First Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Element</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Another Item</a>
 							</li>
 							<li>
-								<a class="tile waves-attach" href="javascript:void(0)">Theme</a>
+								<a class="tile waves-attach" href="javascript:void(0)">Something Else</a>
 							</li>
 						</ul>
-						<p>For examples of tabbed navs, please go to <a href="ui-tab.html">Tabs</a> page.</p>
 					</section>
 				</div>
 			</div>
 		</div>
-	</div>
+	</main>
 	<footer class="footer">
 		<div class="container">
 			<p>Material</p>
@@ -299,11 +311,11 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-red fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
-				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>
-				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
@@ -312,7 +324,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
 
-	<!-- js for this project -->
+	<!-- js for doc -->
 	<script src="js/project.min.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
-	<title>Buttons - Material</title>
+	<title>Selection Controls - Material</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 			</li>
 		</ul>
 		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Buttons</span>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Selection Controls</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
@@ -54,7 +54,7 @@
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
 						<ul class="collapse in menu-collapse" id="doc_menu_components">
-							<li class="active">
+							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
 							<li>
@@ -81,7 +81,7 @@
 							<li>
 								<a class="waves-attach" href="ui-progress.html">Progress</a>
 							</li>
-							<li>
+							<li class="active">
 								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
 							</li>
 							<li>
@@ -144,7 +144,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-						<h1 class="heading">Buttons</h1>
+						<h1 class="heading">Selection Controls</h1>
 					</div>
 				</div>
 			</div>
@@ -156,104 +156,144 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-									<p>A button clearly communicates what action will occur when the user touches it. It consists of text, an image, or both, designed in accordance with your app’s colour theme.</p>
+									<p>Selection controls allow the user to select options. There are three kinds: checkboxes, radio buttons, and switches. Selection controls use the theme’s accent colour.</p>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">Flat Buttons</h2>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat waves-attach waves-button">Ripple</a></p>
+						<form>
+							<fieldset>
+								<legend class="access-hide">Selection Controls</legend>
+								<h2 class="content-sub-heading">Checkboxes</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group">
+												<div class="checkbox checkbox-adv">
+													<label for="doc_checkbox_example_1">
+														<input class="access-hide" id="doc_checkbox_example_1" name="doc_checkbox_example" type="checkbox">Option 1
+														<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
+													</label>
+												</div>
+												<div class="checkbox checkbox-adv">
+													<label for="doc_checkbox_example_2">
+														<input checked class="access-hide" id="doc_checkbox_example_2" name="doc_checkbox_example" type="checkbox">Option 2
+														<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
+													</label>
+												</div>
+											</div>
 <pre>
-&lt;a class="btn btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
+&lt;div class="checkbox checkbox-adv"&gt;
+    &lt;label for="..."&gt;
+        &lt;input class="access-hide" id="..." name="..." type="checkbox"&gt;...
+        &lt;span class="circle"&gt;&lt;/span&gt;&lt;span class="circle-check"&gt;&lt;/span&gt;&lt;span class="circle-icon icon"&gt;done&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
 </pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-brand btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand btn-flat waves-attach waves-button">Ripple</a></p>
-									<p class="margin-top-no"><a class="btn btn-brand-accent btn-flat">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand-accent btn-flat waves-attach waves-button">Ripple</a></p>
-<pre>
-&lt;a class="btn btn-brand btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent btn-flat"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent btn-flat waves-attach waves-button"&gt; ... &lt;/a&gt;
-</pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group">
+												<div class="checkbox checkbox-adv checkbox-inline disabled">
+													<label for="doc_checkbox_example_1_disabled">
+														<input class="access-hide" disabled id="doc_checkbox_example_1_disabled" name="doc_checkbox_example_disabled" type="checkbox">Disabled Option 1
+														<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
+													</label>
+												</div>
+												<div class="checkbox checkbox-adv checkbox-inline disabled">
+													<label for="doc_checkbox_example_2_disabled">
+														<input class="access-hide" disabled id="doc_checkbox_example_2_disabled" name="doc_checkbox_example_disabled" type="checkbox" checked="">Disabled Option 2
+														<span class="circle"></span><span class="circle-check"></span><span class="circle-icon icon">done</span>
+													</label>
+												</div>
+											</div>
+											<p><code>disabled</code>, <code>.disabled</code> &amp; <code>.checkbox-inline</code></p>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-flat btn-green waves-attach waves-button">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-orange btn-flat waves-attach waves-button">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-flat btn-red waves-attach waves-button">.btn-red</a></p>
-								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Raised Buttons</h2>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn waves-attach waves-button">Ripple</a></p>
+								<h2 class="content-sub-heading">Radio Buttons</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group">
+												<div class="radio radio-adv">
+													<label for="input_radio_example_1">
+														<input class="access-hide" id="input_radio_example_1" name="input_radio_example" type="radio">Option 1
+														<span class="circle"></span><span class="circle-check"></span>
+													</label>
+												</div>
+												<div class="radio radio-adv">
+													<label for="input_radio_example_2">
+														<input checked class="access-hide" id="input_radio_example_2" name="input_radio_example" type="radio">Option 2
+														<span class="circle"></span><span class="circle-check"></span>
+													</label>
+												</div>
+											</div>
 <pre>
-&lt;a class="btn"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn waves-attach waves-button"&gt; ... &lt;/a&gt;
+&lt;div class="radio radio-adv"&gt;
+    &lt;label for="..."&gt;
+        &lt;input class="access-hide" id="..." name="..." type="radio"&gt;...
+        &lt;span class="circle"&gt;&lt;/span&gt;&lt;span class="circle-check"&gt;&lt;/span&gt;
+    &lt;/label&gt;
+&lt;/div&gt;
 </pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Brand Colours</h3>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-brand">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand waves-attach waves-button waves-light">Ripple</a></p>
-									<p class="margin-top-no"><a class="btn btn-brand-accent">Button</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-brand-accent waves-attach waves-button waves-light">Ripple</a></p>
-<pre>
-&lt;a class="btn btn-brand"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand waves-attach waves-button waves-light"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent"&gt; ... &lt;/a&gt;
-
-&lt;a class="btn btn-brand-accent waves-attach waves-button waves-light"&gt; ... &lt;/a&gt;
-</pre>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-main">
-								<div class="card-header">
-									<div class="card-inner">
-										<h3 class="h5 margin-bottom-no margin-top-no">Colour Palettes</h3>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group">
+												<div class="radio radio-adv radio-inline disabled">
+													<label for="input_radio_example_1_disabled">
+														<input class="access-hide" disabled id="input_radio_example_1_disabled" name="input_radio_example_disabled" type="radio">Disabled Option 1
+														<span class="circle"></span><span class="circle-check"></span>
+													</label>
+												</div>
+												<div class="radio radio-adv radio-inline disabled">
+													<label for="input_radio_example_2_disabled">
+														<input checked class="access-hide" disabled id="input_radio_example_2_disabled" name="input_radio_example_disabled" type="radio">Disabled Option 2
+														<span class="circle"></span><span class="circle-check"></span>
+													</label>
+												</div>
+											</div>
+											<p><code>disabled</code>, <code>.disabled</code> &amp; <code>.radio-inline</code></p>
+										</div>
 									</div>
 								</div>
-								<div class="card-inner">
-									<p class="margin-top-no"><a class="btn btn-green waves-attach waves-button waves-light">.btn-green</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-orange waves-attach waves-button waves-light">.btn-orange</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-red waves-attach waves-button waves-light">.btn-red</a></p>
+								<h2 class="content-sub-heading">Switches</h2>
+								<div class="card">
+									<div class="card-main">
+										<div class="card-inner">
+											<div class="form-group">
+												<div class="checkbox switch">
+													<label for="doc_switch_example_1">
+														<input class="access-hide" id="doc_switch_example_1" name="doc_switch_example" type="checkbox"><span class="switch-toggle"></span>On/Off Switch
+													</label>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="checkbox switch">
+													<label for="doc_switch_example_2">
+														<input checked class="access-hide" id="doc_switch_example_2" name="doc_switch_example" type="checkbox"><span class="switch-toggle"></span>On/Off Switch
+													</label>
+												</div>
+											</div>
+<pre>
+&lt;div class="checkbox switch"&gt;
+    &lt;label for="..."&gt;
+        &lt;input class="access-hide" id="..." name="..." type="checkbox"&gt;&lt;span class="switch-toggle"&gt;&lt;/span&gt;...
+    &lt;/label&gt;
+&lt;/div&gt;
+</pre>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
+							</fieldset>
+							<button class="access-hide" type="submit">Submit Button</button>
+						</form>
 					</section>
 				</div>
 			</div>

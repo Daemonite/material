@@ -3,134 +3,135 @@
 <head>
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, width=device-width" name="viewport">
-	<title>Progress Bars - Material</title>
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<title>Progress - Material</title>
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 
-	<!-- css for this project -->
+	<!-- css for doc -->
 	<link href="css/project.min.css" rel="stylesheet">
 
 	<!-- favicon -->
 	<!-- ... -->
-
-	<!-- ie -->
-		<!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
 </head>
-<body class="avoid-fout page-brand">
-	<div class="avoid-fout-indicator avoid-fout-indicator-fixed">
-		<div class="progress-circular progress-circular-center">
-			<div class="progress-circular-wrapper">
-				<div class="progress-circular-inner">
-					<div class="progress-circular-left">
-						<div class="progress-circular-spinner"></div>
-					</div>
-					<div class="progress-circular-gap"></div>
-					<div class="progress-circular-right">
-						<div class="progress-circular-spinner"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<body class="page-brand">
 	<header class="header header-transparent header-waterfall">
 		<ul class="nav nav-list pull-left">
 			<li>
-				<a data-toggle="menu" href="#menu">
+				<a data-toggle="menu" href="#doc_menu">
 					<span class="icon icon-lg">menu</span>
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo margin-left-no" href="index.html">Material</a>
-		<div class="header-affix pull-left" data-offset-top="108" data-spy="affix">
-			<span class="header-text margin-left-no">
-				<i class="icon margin-right">chevron_right</i>Progress Bars
-			</span>
-		</div>
+		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Progress</span>
 		<ul class="nav nav-list pull-right">
-			<li>
-				<a data-toggle="menu" href="#profile">
+			<li class="dropdown margin-right">
+				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 					<span class="access-hide">John Smith</span>
-					<span class="avatar"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">add_to_photos</span>Upload Photo</a>
+					</li>
+					<li>
+						<a class="padding-right-lg waves-attach" href="page-login.html"><span class="icon icon-lg margin-right">exit_to_app</span>Logout</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</header>
-	<nav aria-hidden="true" class="menu" id="menu" tabindex="-1">
+	<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="ui-card.html">Cards</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-collapse.html">Collapsible Regions</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-dropdown.html">Dropdowns</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-modal.html">Modals &amp; Toasts</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-nav.html">Navs</a>
-					</li>
-					<li class="active">
-						<a class="waves-attach" href="ui-progress.html">Progress Bars</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tab.html">Tabs</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-tile.html">Tiles</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="ui-button.html">Buttons</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="ui-form.html">Form Elements</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#form-elements" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="form-elements">
+						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
+						<ul class="collapse in menu-collapse" id="doc_menu_components">
 							<li>
-								<a class="waves-attach" href="ui-form-adv.html">Form Elements <small>(materialised)</small></a>
+								<a class="waves-attach" href="ui-button.html">Buttons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-card.html">Cards</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-data-table.html">Data Tables</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dialog.html">Dialogs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Menus</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav-drawer.html">Navigation Drawers</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-picker.html">Pickers</a>
+							</li>
+							<li class="active">
+								<a class="waves-attach" href="ui-progress.html">Progress</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-selection-control.html">Selection Controls</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-snackbar.html">Snackbars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tab.html">Tabs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-text-field.html">Text Fields</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-toolbar.html">Toolbars</a>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-icon.html">Icons</a>
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
+						<ul class="collapse menu-collapse" id="doc_menu_extras">
+							<li>
+								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-icon.html">Icons</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-nav.html">Navs</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="ui-tile.html">Tiles</a>
+							</li>
+						</ul>
 					</li>
 					<li>
-						<a class="waves-attach" href="ui-table.html">Tables</a>
-					</li>
-				</ul>
-				<hr>
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="page-palette.html">Page Palettes</a>
-						<span class="menu-collapse-toggle collapsed waves-attach" data-target="#page-palettes" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="menu-collapse collapse" id="page-palettes">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
+						<ul class="collapse menu-collapse" id="doc_menu_javascript">
 							<li>
-								<a class="waves-attach" href="page-palette-brand.html">Brand Palette</a>
+								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-brand-accent.html">Accent Palette</a>
+								<a class="waves-attach" href="ui-collapse.html">Collapse</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-amber.html">Amber Palette</a>
+								<a class="waves-attach" href="ui-dropdown-menu.html">Dropdown</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-green.html">Green Palette</a>
+								<a class="waves-attach" href="ui-modal.html">Modals</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="page-palette-red.html">Red Palette</a>
+								<a class="waves-attach" href="ui-tab.html">Togglable Tabs</a>
 							</li>
 						</ul>
 					</li>
@@ -138,160 +139,271 @@
 			</div>
 		</div>
 	</nav>
-	<nav aria-hidden="true" class="menu menu-right" id="profile" tabindex="-1">
-		<div class="menu-scroll">
-			<div class="menu-top">
-				<div class="menu-top-img">
-					<img alt="John Smith" src="images/samples/landscape.jpg">
-				</div>
-				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
-				</div>
-				<div class="menu-top-info-sub">
-					<small>Some additional information about John Smith</small>
-				</div>
-			</div>
-			<div class="menu-content">
-				<ul class="nav">
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">account_box</span>Profile Settings</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="javascript:void(0)"><span class="icon icon-lg">add_to_photos</span>Upload Photo</a>
-					</li>
-					<li>
-						<a class="waves-attach" href="page-login.html"><span class="icon icon-lg">exit_to_app</span>Logout</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
+	<main class="content">
 		<div class="content-heading">
 			<div class="container">
-				<h1 class="heading">Progress Bars</h1>
+				<div class="row">
+					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+						<h1 class="heading">Progress</h1>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-8">
-					<section class="content-inner">
-						<h2 class="content-sub-heading">Circular Progress Bars</h2>
-						<p>Default circular progress bar inherits accent colour (<code>$brand-color-accent</code>).</p>
-						<div class="progress-circular progress-circular-inline">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
+				<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+					<section class="content-inner margin-top-no">
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<p>Minimise visual changes that occur while your app loads content by representing each operation with a single activity indicator.</p>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Circular</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="text-center">
+										<div class="progress-circular progress-circular-inline">
+											<div class="progress-circular-wrapper">
+												<div class="progress-circular-inner">
+													<div class="progress-circular-left">
+														<div class="progress-circular-spinner"></div>
+													</div>
+													<div class="progress-circular-gap"></div>
+													<div class="progress-circular-right">
+														<div class="progress-circular-spinner"></div>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
+<pre>
+&lt;div class="progress-circular"&gt;
+    &lt;div class="progress-circular-wrapper"&gt;
+        &lt;div class="progress-circular-inner"&gt;
+            &lt;div class="progress-circular-left"&gt;
+                &lt;div class="progress-circular-spinner"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="progress-circular-gap"&gt;&lt;/div&gt;
+            &lt;div class="progress-circular-right"&gt;
+                &lt;div class="progress-circular-spinner"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Coloured Circular</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<div class="row">
+										<div class="col-xs-3 col-xx-6">
+											<div class="text-center">
+												<div class="progress-circular progress-circular-inline progress-circular-brand">
+													<div class="progress-circular-wrapper">
+														<div class="progress-circular-inner">
+															<div class="progress-circular-left">
+																<div class="progress-circular-spinner"></div>
+															</div>
+															<div class="progress-circular-gap"></div>
+															<div class="progress-circular-right">
+																<div class="progress-circular-spinner"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<p><code>.progress-circular-brand</code></p>
+											</div>
+										</div>
+										<div class="col-xs-3 col-xx-6">
+											<div class="text-center">
+												<div class="progress-circular progress-circular-inline progress-circular-green">
+													<div class="progress-circular-wrapper">
+														<div class="progress-circular-inner">
+															<div class="progress-circular-left">
+																<div class="progress-circular-spinner"></div>
+															</div>
+															<div class="progress-circular-gap"></div>
+															<div class="progress-circular-right">
+																<div class="progress-circular-spinner"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<p><code>.progress-circular-green</code></p>
+											</div>
+										</div>
+										<div class="col-xs-3 col-xx-6">
+											<div class="text-center">
+												<div class="progress-circular progress-circular-inline progress-circular-orange">
+													<div class="progress-circular-wrapper">
+														<div class="progress-circular-inner">
+															<div class="progress-circular-left">
+																<div class="progress-circular-spinner"></div>
+															</div>
+															<div class="progress-circular-gap"></div>
+															<div class="progress-circular-right">
+																<div class="progress-circular-spinner"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<p><code>.progress-circular-orange</code></p>
+											</div>
+										</div>
+										<div class="col-xs-3 col-xx-6">
+											<div class="text-center">
+												<div class="progress-circular progress-circular-inline progress-circular-red">
+													<div class="progress-circular-wrapper">
+														<div class="progress-circular-inner">
+															<div class="progress-circular-left">
+																<div class="progress-circular-spinner"></div>
+															</div>
+															<div class="progress-circular-gap"></div>
+															<div class="progress-circular-right">
+																<div class="progress-circular-spinner"></div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<p><code>.progress-circular-red</code></p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-brand">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
+						<h2 class="content-sub-heading">Determinate Linear</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="progress">
+										<div class="progress-bar" style="width: 20%"></div>
 									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
-									</div>
+<pre>
+&lt;div class="progress"&gt;
+    &lt;div class="progress-bar"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-amber">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Coloured Determinate Linear</h3>
 									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
+								</div>
+								<div class="card-inner">
+									<div class="progress progress-brand">
+										<div class="progress-bar" style="width: 30%"></div>
 									</div>
+									<p><code>.progress-brand</code></p>
+									<div class="progress progress-green">
+										<div class="progress-bar" style="width: 50%"></div>
+									</div>
+									<p><code>.progress-green</code></p>
+									<div class="progress progress-orange">
+										<div class="progress-bar" style="width: 40%"></div>
+									</div>
+									<p><code>.progress-orange</code></p>
+									<div class="progress progress-red">
+										<div class="progress-bar" style="width: 70%"></div>
+									</div>
+									<p><code>.progress-red</code></p>
 								</div>
 							</div>
 						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-green">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
+						<h2 class="content-sub-heading">Indeterminate Linear</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="progress">
+										<div class="progress-bar-indeterminate"></div>
 									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
-									</div>
+<pre>
+&lt;div class="progress"&gt;
+    &lt;div class="progress-bar-indeterminate"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 								</div>
 							</div>
-						</div>
-						<div class="progress-circular progress-circular-inline progress-circular-red">
-							<div class="progress-circular-wrapper">
-								<div class="progress-circular-inner">
-									<div class="progress-circular-left">
-										<div class="progress-circular-spinner"></div>
-									</div>
-									<div class="progress-circular-gap"></div>
-									<div class="progress-circular-right">
-										<div class="progress-circular-spinner"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<h2 class="content-sub-heading">Determinate Progress Bars</h2>
-						<p>Default progress bar inherits accent colour (<code>$brand-color-accent</code>).</p>
-						<div class="progress">
-							<div class="progress-bar" style="width: 20%"></div>
-						</div>
-						<div class="progress progress-brand">
-							<div class="progress-bar" style="width: 30%"></div>
-						</div>
-						<div class="progress progress-amber">
-							<div class="progress-bar" style="width: 40%"></div>
-						</div>
-						<div class="progress progress-green">
-							<div class="progress-bar" style="width: 50%"></div>
-						</div>
-						<div class="progress progress-red">
-							<div class="progress-bar" style="width: 70%"></div>
-						</div>
-						<h2 class="content-sub-heading">Indeterminate Progress Bars</h2>
-						<div class="progress">
-							<div class="progress-bar-indeterminate"></div>
 						</div>
 						<h2 class="content-sub-heading">Load Bars</h2>
-						<p>A <code>.load-bar</code> requires four different colours (i.e. four <code>&lt;div class="load-bar-progress"&gt;</code> with different colour classes) to achieve the best visual effect. By default, a <code>.load-bar-progress</code> inherits accent colour (<code>$brand-color-accent</code>).</p>
-						<p>A complete load bar consists of two separate <code>.load-bar</code>s, and the order of <code>.load-bar-progress</code>s in each of the two <code>.load-bar</code>s will be different.</p>
-						<div class="progress">
-							<div class="load-bar">
-								<div class="load-bar-base">
-									<div class="load-bar-content">
-										<div class="load-bar-progress"></div>
-										<div class="load-bar-progress load-bar-progress-brand"></div>
-										<div class="load-bar-progress load-bar-progress-amber"></div>
-										<div class="load-bar-progress load-bar-progress-green"></div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="progress">
+										<div class="load-bar">
+											<div class="load-bar-base">
+												<div class="load-bar-content">
+													<div class="load-bar-progress"></div>
+													<div class="load-bar-progress load-bar-progress-brand"></div>
+													<div class="load-bar-progress load-bar-progress-green"></div>
+													<div class="load-bar-progress load-bar-progress-orange"></div>
+												</div>
+											</div>
+										</div>
+										<div class="load-bar">
+											<div class="load-bar-base">
+												<div class="load-bar-content">
+													<div class="load-bar-progress"></div>
+													<div class="load-bar-progress load-bar-progress-orange"></div>
+													<div class="load-bar-progress load-bar-progress-green"></div>
+													<div class="load-bar-progress load-bar-progress-brand"></div>
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="load-bar">
-								<div class="load-bar-base">
-									<div class="load-bar-content">
-										<div class="load-bar-progress"></div>
-										<div class="load-bar-progress load-bar-progress-green"></div>
-										<div class="load-bar-progress load-bar-progress-amber"></div>
-										<div class="load-bar-progress load-bar-progress-brand"></div>
-									</div>
+									<p><span class="label label-brand-accent">Usage</span></p>
+									<p>A <code>.load-bar</code> requires four different colours to achieve the best visual effect. A complete load bar consists of two separate <code>.load-bar</code>s, and the order of <code>.load-bar-progress</code>s in each of the two <code>.load-bar</code>s is different.</p>
+<pre>
+&lt;div class="progress"&gt;
+    &lt;div class="load-bar"&gt;
+        &lt;div class="load-bar-base"&gt;
+            &lt;div class="load-bar-content"&gt;
+                &lt;div class="load-bar-progress"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-brand"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-green"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-orange"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="load-bar"&gt;
+        &lt;div class="load-bar-base"&gt;
+            &lt;div class="load-bar-content"&gt;
+                &lt;div class="load-bar-progress"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-orange"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-green"&gt;&lt;/div&gt;
+                &lt;div class="load-bar-progress load-bar-progress-brand"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">Loading Additional Content Examples</h2>
-						<p>Combine <code>.el-loading</code> with progress bars or text on any elements or <code>body</code> to indicate additional content is being loaded. Add <code>.el-loading-done</code> using custom javascript when content has been loaded to remove loading indicators.</p>
-						<div class="el-loading" id="el-loading-1">
+						<h2 class="content-sub-heading">Loading Examples</h2>
+						<div class="margin-bottom margin-top media">
+							<div class="media-object pull-left">
+								<span class="icon icon-lg text-brand-accent">info_outline</span>
+							</div>
+							<div class="media-inner">
+								<span>Use <code>.el-loading</code> with progress to indicate additional content is being loaded. Add <code>.el-loading-done</code> via custom Javascript when content has been loaded to remove loading indicators.</span>
+							</div>
+						</div>
+						<div class="el-loading" id="doc_el_loading_example_1">
 							<div class="el-loading-indicator">
 								<div class="progress-circular progress-circular-inline">
 									<div class="progress-circular-wrapper">
@@ -310,23 +422,23 @@
 							<div class="tile-wrap">
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#el-loading-1">Finish Loading</a></p>
-						<div class="el-loading" id="el-loading-2">
+						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#doc_el_loading_example_1">Finish Loading</a></p>
+						<div class="el-loading" id="doc_el_loading_example_2">
 							<div class="el-loading-indicator">
 								<div class="progress progress-position-absolute-top">
 									<div class="progress-bar-indeterminate"></div>
@@ -335,23 +447,23 @@
 							<div class="tile-wrap">
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#el-loading-2">Finish Loading</a></p>
-						<div class="el-loading" id="el-loading-3">
+						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#doc_el_loading_example_2">Finish Loading</a></p>
+						<div class="el-loading" id="doc_el_loading_example_3">
 							<div class="el-loading-indicator">
 								<div class="progress progress-position-absolute-bottom">
 									<div class="load-bar">
@@ -359,8 +471,8 @@
 											<div class="load-bar-content">
 												<div class="load-bar-progress"></div>
 												<div class="load-bar-progress load-bar-progress-brand"></div>
-												<div class="load-bar-progress load-bar-progress-amber"></div>
 												<div class="load-bar-progress load-bar-progress-green"></div>
+												<div class="load-bar-progress load-bar-progress-orange"></div>
 											</div>
 										</div>
 									</div>
@@ -368,8 +480,8 @@
 										<div class="load-bar-base">
 											<div class="load-bar-content">
 												<div class="load-bar-progress"></div>
+												<div class="load-bar-progress load-bar-progress-orange"></div>
 												<div class="load-bar-progress load-bar-progress-green"></div>
-												<div class="load-bar-progress load-bar-progress-amber"></div>
 												<div class="load-bar-progress load-bar-progress-brand"></div>
 											</div>
 										</div>
@@ -379,30 +491,30 @@
 							<div class="tile-wrap">
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 								<div class="tile">
 									<div class="tile-inner">
-										<span>placeholder tile</span>
+										<span>placeholder</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#el-loading-3">Finish Loading</a></p>
-						<div class="tile-wrap" id="el-loading-tile-wrap">
+						<p class="text-right"><a class="btn waves-attach waves-button finish-loading" data-target="#doc_el_loading_example_3">Finish Loading</a></p>
+						<div class="tile-wrap" id="doc_el_loading_example_wrap">
 							<div class="tile tile-collapse">
-								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-1" data-toggle="tile">
+								<div class="tile-toggle" data-parent="#doc_el_loading_example_wrap" data-target="#doc_el_loading_example_wrap_1" data-toggle="tile">
 									<div class="tile-inner">
 										<div class="text-overflow">click to expand this tile</div>
 									</div>
 								</div>
-								<div class="tile-active-show collapse" id="el-loading-tile-collapse-1">
+								<div class="tile-active-show collapse" id="doc_el_loading_example_wrap_1">
 									<div class="el-loading">
 										<div class="el-loading-indicator el-loading-indicator-linear">
 											<div class="progress progress-position-absolute-top">
@@ -413,12 +525,12 @@
 								</div>
 							</div>
 							<div class="tile tile-collapse">
-								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-2" data-toggle="tile">
+								<div class="tile-toggle" data-parent="#doc_el_loading_example_wrap" data-target="#doc_el_loading_example_wrap_2" data-toggle="tile">
 									<div class="tile-inner">
 										<div class="text-overflow">click to expand this tile</div>
 									</div>
 								</div>
-								<div class="tile-active-show collapse" id="el-loading-tile-collapse-2">
+								<div class="tile-active-show collapse" id="doc_el_loading_example_wrap_2">
 									<div class="el-loading">
 										<div class="el-loading-indicator el-loading-indicator-linear">
 											<div class="progress progress-position-absolute-top">
@@ -429,12 +541,12 @@
 								</div>
 							</div>
 							<div class="tile tile-collapse">
-								<div class="tile-toggle" data-parent="#el-loading-tile-wrap" data-target="#el-loading-tile-collapse-3" data-toggle="tile">
+								<div class="tile-toggle" data-parent="#doc_el_loading_example_wrap" data-target="#doc_el_loading_example_wrap_3" data-toggle="tile">
 									<div class="tile-inner">
 										<div class="text-overflow">click to expand this tile</div>
 									</div>
 								</div>
-								<div class="tile-active-show collapse" id="el-loading-tile-collapse-3">
+								<div class="tile-active-show collapse" id="doc_el_loading_example_wrap_3">
 									<div class="el-loading">
 										<div class="el-loading-indicator el-loading-indicator-linear">
 											<div class="progress progress-position-absolute-top">
@@ -445,12 +557,11 @@
 								</div>
 							</div>
 						</div>
-						<p><code>.avoid-fout</code> on HTML pages uses a similar technique to avoid flash of unstyled text (FOUT). <code>.avoid-fout-done</code> is added when <code>Roboto</code> font either is successfully loaded or fails to load. <code>.avoid-fout</code> also can be used on any HTML elements.</p>
 					</section>
 				</div>
 			</div>
 		</div>
-	</div>
+	</main>
 	<footer class="footer">
 		<div class="container">
 			<p>Material</p>
@@ -458,11 +569,11 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
 			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="fa fa-github"></span></a>
-				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="fa fa-twitter"></span></a>
-				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
@@ -471,7 +582,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
 
-	<!-- js for this project -->
+	<!-- js for doc -->
 	<script src="js/project.min.js"></script>
 </body>
 </html>
