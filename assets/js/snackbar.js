@@ -1,26 +1,26 @@
-// toast
+// snackbar
 	(function ($) {
 		'use strict';
 
-		var Toast = function (options) {
+		var Snackbar = function (options) {
 			this.options  = options;
-			this.$element = $('<div class="toast-inner">' + this.options.content + '</div>');
+			this.$element = $('<div class="snackbar-inner">' + this.options.content + '</div>');
 		};
 
-		Toast.DEFAULTS = {
+		Snackbar.DEFAULTS = {
 			alive: 6000,
 			content: '&nbsp;',
 			hide: function () {},
 			show: function () {}
 		};
 
-		Toast.prototype.fbtn = function (margin) {
+		Snackbar.prototype.fbtn = function (margin) {
 			if ($(window).width() < 768 && $('.fbtn-container').length) {
 				$('.fbtn-container').css('margin-bottom', margin);
 			};
 		};
 
-		Toast.prototype.hide = function () {
+		Snackbar.prototype.hide = function () {
 			var that = this;
 
 			this.$element.removeClass('in');
@@ -40,15 +40,15 @@
 			this.fbtn('');
 		};
 
-		Toast.prototype.show = function () {
+		Snackbar.prototype.show = function () {
 			var that = this;
 
-			if (!$('.toast').length) {
-				$(document.body).append('<div class="toast"></div>');
+			if (!$('.snackbar').length) {
+				$(document.body).append('<div class="snackbar"></div>');
 			};
 
-			this.$element.appendTo('.toast').show().addClass(function () {
-				that.$element.on('click', '[data-dismiss="toast"]', function () {
+			this.$element.appendTo('.snackbar').show().addClass(function () {
+				that.$element.on('click', '[data-dismiss="snackbar"]', function () {
 					that.hide();
 				});
 
@@ -75,38 +75,38 @@
 		function Plugin (option) {
 			return this.each(function () {
 				var $this    = $(document.body);
-				var data     = $this.data('bs.toast');
-				var options  = $.extend({}, Toast.DEFAULTS, option);
+				var data     = $this.data('bs.snackbar');
+				var options  = $.extend({}, Snackbar.DEFAULTS, option);
 
 				if (!data) {
-					$this.data('bs.toast', (data = new Toast(options)));
+					$this.data('bs.snackbar', (data = new Snackbar(options)));
 					data.show();
-				} else if ($('.toast-inner').length && !$('.toast-inner.old').length) {
-					$('.toast-inner.in').addClass('old')
+				} else if ($('.snackbar-inner').length && !$('.snackbar-inner.old').length) {
+					$('.snackbar-inner.in').addClass('old')
 					data.hide();
 					if ($.support.transition) {
-						$(document).one('bsTransitionEnd', '.toast-inner.old', function () {
-							$this.data('bs.toast', (data = new Toast(options)));
+						$(document).one('bsTransitionEnd', '.snackbar-inner.old', function () {
+							$this.data('bs.snackbar', (data = new Snackbar(options)));
 							data.show();
 						});
 					} else {
-						$this.data('bs.toast', (data = new Toast(options)));
+						$this.data('bs.snackbar', (data = new Snackbar(options)));
 						data.show();
 					};
-				} else if (!$('.toast-inner').length) {
-					$this.data('bs.toast', (data = new Toast(options)));
+				} else if (!$('.snackbar-inner').length) {
+					$this.data('bs.snackbar', (data = new Snackbar(options)));
 					data.show();
 				};
 			});
 		};
 
-		var old = $.fn.toast;
+		var old = $.fn.snackbar;
 
-		$.fn.toast             = Plugin;
-		$.fn.toast.Constructor = Toast;
+		$.fn.snackbar             = Plugin;
+		$.fn.snackbar.Constructor = Snackbar;
 
-		$.fn.toast.noConflict = function () {
-			$.fn.toast = old;
+		$.fn.snackbar.noConflict = function () {
+			$.fn.snackbar = old;
 			return this;
 		};
 	}(jQuery));

@@ -5080,6 +5080,91 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   background-color: #f44336;
 }
 
+.snackbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 21;
+}
+.snackbar a {
+  cursor: pointer;
+}
+.snackbar a:focus, .snackbar a:hover {
+  text-decoration: none;
+}
+@media only screen and (min-width: 768px) {
+  .snackbar {
+    padding-right: 16px;
+    padding-left: 16px;
+    bottom: 24px;
+  }
+  .fbtn-container ~ .snackbar {
+    right: 72px;
+  }
+}
+
+.snackbar-inner {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  padding: 12px 16px;
+  -webkit-transform: translate(0, 200%);
+      -ms-transform: translate(0, 200%);
+          transform: translate(0, 200%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+}
+.snackbar-inner:after, .snackbar-inner:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.snackbar-inner:after {
+  clear: both;
+}
+.snackbar-inner.in {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+@media only screen and (min-width: 768px) {
+  .snackbar-inner {
+    border-radius: 2px;
+    float: left;
+  }
+}
+.no-csstransforms .snackbar-inner {
+  opacity: 0;
+}
+.no-csstransforms .snackbar-inner.in {
+  opacity: 1;
+}
+
+.snackbar-text {
+  overflow: hidden;
+}
+
+[data-dismiss="snackbar"] {
+  cursor: pointer;
+  float: right;
+  font-weight: 500;
+  margin-left: 16px;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .tab-nav {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
   margin-top: 24px;
@@ -5553,91 +5638,6 @@ div[data-toggle="tile"] [data-ignore="tile"] {
 }
 .no-flexbox div[data-toggle="tile"]:after {
   clear: both;
-}
-
-.toast {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 21;
-}
-.toast a {
-  cursor: pointer;
-}
-.toast a:focus, .toast a:hover {
-  text-decoration: none;
-}
-@media only screen and (min-width: 768px) {
-  .toast {
-    padding-right: 16px;
-    padding-left: 16px;
-    bottom: 24px;
-  }
-  .fbtn-container ~ .toast {
-    right: 72px;
-  }
-}
-
-.toast-inner {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  background-color: rgba(0, 0, 0, 0.87);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
-  color: white;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 100%;
-  padding: 12px 16px;
-  -webkit-transform: translate(0, 200%);
-      -ms-transform: translate(0, 200%);
-          transform: translate(0, 200%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-}
-.toast-inner:after, .toast-inner:before {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-.toast-inner:after {
-  clear: both;
-}
-.toast-inner.in {
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
-@media only screen and (min-width: 768px) {
-  .toast-inner {
-    border-radius: 2px;
-    float: left;
-  }
-}
-.no-csstransforms .toast-inner {
-  opacity: 0;
-}
-.no-csstransforms .toast-inner.in {
-  opacity: 1;
-}
-
-.toast-text {
-  overflow: hidden;
-}
-
-[data-dismiss="toast"] {
-  cursor: pointer;
-  float: right;
-  font-weight: 500;
-  margin-left: 16px;
-  -webkit-order: 1;
-      -ms-flex-order: 1;
-          order: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
 
 .content-heading {
