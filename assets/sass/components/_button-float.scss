@@ -3,7 +3,7 @@
 	border-radius: 50%;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.3);
 	clear: both;
-	color: $offwhite-text;
+	color: inherit;
 	cursor: pointer;
 	display: block;
 	font-size: $line-height;
@@ -13,12 +13,12 @@
 	position: relative;
 	text-align: center;
 	transition: all 0.3s $timing;
-	transition-property: background-color, box-shadow, opacity, transform;
+	transition-property: background-color, box-shadow, color, opacity, transform;
 	width: $fbtn-height;
 	&:active,
 	&:focus,
 	&:hover {
-		color: $offwhite-text;
+		color: inherit;
 	}
 	&:active,
 	&:focus {
@@ -41,6 +41,10 @@
 			&:hover {
 				background-color: nth($palette-list-color, $i);
 				color: nth($palette-list-text, $i);
+			}
+			&:active {
+				background-color: nth($palette-list-dark, $i);
+				color: nth($palette-list-text-dark, $i);
 			}
 		}
 	}
@@ -180,7 +184,7 @@
 	font-size: $font-size-h6;
 	height: 0;
 	line-height: $line-height;
-	margin-top: ($line-height / -2);
+	margin-top: ($line-height / -2 - 2);
 	margin-right: $grid-gutter;
 	opacity: 0;
 	overflow: hidden;
@@ -193,25 +197,19 @@
 	white-space: nowrap;
 	width: 0;
 	// touch & no touch
-		.no-touch .fbtn:hover & {
+		.no-touch .fbtn:hover > & {
 			height: auto;
 			opacity: 1;
-			width: auto;
-		}
-		.no-touch .fbtn-dropdown .fbtn:hover & {
-			height: 0;
-			opacity: 0;
-			width: 0;
-		}
-		.no-touch .fbtn-inner.open .fbtn-dropdown .fbtn:hover & {
-			height: auto;
-			opacity: 1;
+			padding-top: 2px;
+			padding-bottom: 2px;
 			width: auto;
 		}
 		.touch & {
 			display: none;
 			height: auto;
 			opacity: 1;
+			padding-top: 2px;
+			padding-bottom: 2px;
 			width: auto;
 		}
 		.touch .fbtn-inner.open & {

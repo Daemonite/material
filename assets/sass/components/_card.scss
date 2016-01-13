@@ -160,7 +160,7 @@
 }
 
 .card-side {
-	background-color: $black-divider;
+	background-color: $offwhite-solid;
 	border-radius: 2px 0 0 2px;
 	max-width: 33.33333%;
 	padding-right: $grid-gutter;
@@ -182,6 +182,16 @@
 		order: 1;
 	}
 }
+
+// colour
+	@each $color in $palette-list-class {
+		$i: index($palette-list-class, $color);
+
+		.card-#{$color} .card-side {
+			background-color: nth($palette-list-dark, $i);
+			color: nth($palette-list-text-dark, $i);
+		}
+	}
 
 .card-wrap {
 	margin-top: $margin-md;

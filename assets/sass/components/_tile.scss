@@ -5,13 +5,11 @@
 	display: flex;
 	min-height: $tile-height;
 	position: relative;
-	&[href] {
-		color: $black-text;
-		&:focus,
-		&:hover {
-			color: $link-color;
-			text-decoration: none;
-		}
+	&[href],
+	&[href]:focus,
+	&[href]:hover {
+		color: inherit;
+		text-decoration: none;
 	}
 	&.active {
 		margin-top: $margin-md !important;
@@ -100,7 +98,7 @@
 }
 
 .tile-footer {
-	background-color: $offwhite;
+	background-color: $offwhite-solid;
 	border-top: 1px solid $black-divider;
 	position: relative;
 	@include clearfix();
@@ -115,7 +113,6 @@
 
 		.tile-#{$color} .tile-footer {
 			background-color: nth($palette-list-dark, $i);
-			border-top-color: nth($palette-list-dark, $i);
 			color: nth($palette-list-text-dark, $i);
 		}
 	}

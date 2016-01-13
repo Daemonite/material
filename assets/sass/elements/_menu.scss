@@ -58,24 +58,19 @@
 .menu-content {
 	padding-top: $margin-base;
 	padding-bottom: $margin-base;
-	hr {
-		border-top-color: $black-divider;
-		margin-top: $margin-base;
-		margin-bottom: $margin-base;
-	}
 	.nav {
 		margin-top: 0;
 		margin-bottom: 0;
 		a,
 		.a {
-			color: $black-text;
+			color: $black-text-solid;
 			font-weight: $font-weight-medium;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			&:focus,
 			&:hover {
-				background-color: $offwhite;
+				background-color: $offwhite-solid;
 			}
 			.fa,
 			.icon {
@@ -153,8 +148,8 @@
 
 .menu-logo {
 	@extend .header-logo;
-	border-bottom: 1px solid $black-divider;
-	color: $black-text;
+	border-bottom: 1px solid $black-divider-solid;
+	color: $black-text-solid;
 	float: none;
 	height: $header-height;
 	margin-right: 0;
@@ -163,7 +158,7 @@
 	padding: (($header-height - $line-height-h4) / 2) $grid-gutter (($header-height - $line-height-h4) / 2 - 1);
 	&:focus,
 	&:hover {
-		color: $black-text;
+		color: $black-text-solid;
 	}
 	.menu-content > & {
 		&:first-child {
@@ -212,14 +207,13 @@
 	// no boxshadow
 		.no-boxshadow & {
 			&:after {
-				background-color: $black-divider;
+				border-right: 1px solid $black-divider-solid;
 				content: "";
 				display: block;
 				height: 100%;
 				position: absolute;
 					top: 0;
 					right: 0;
-				width: 1px;
 			}
 		}
 		.no-boxshadow .menu.menu-right & {
@@ -232,14 +226,14 @@
 }
 
 .menu-top {
-	background-color: $black-text;
+	background-color: $black;
 	color: $white-text-solid;
 	position: relative;
 	z-index: 1;
 	a,
 	a:focus,
 	a:hover {
-		color: $white-text-solid;
+		color: inherit;
 		text-decoration: none;
 	}
 }

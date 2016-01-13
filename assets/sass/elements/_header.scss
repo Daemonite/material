@@ -1,6 +1,6 @@
 .header {
 	backface-visibility: hidden;
-	background-color: $white;
+	background-color: $offwhite-solid;
 	color: $black-text-solid;
 	min-height: $header-height;
 	padding-top: (($header-height - $nav-height) / 2);
@@ -15,44 +15,6 @@
 	a {
 		color: inherit;
 		z-index: 1;
-	}
-	.dropdown-menu {
-		border-radius: 2px !important;
-		a {
-			color: $black-text;
-		}
-	}
-	.dropdown-toggle {
-		&:after {
-			background-color: rgba(0, 0, 0, 0.3);
-			border-radius: 50%;
-			content: "";
-			display: block;
-			height: ($nav-height - $base);
-			margin-left: (($nav-height - $base) / -2);
-			position: absolute;
-				top: ($base / 2);
-				left: 50%;
-			transform: scale(0, 0);
-			transition: all 0.3s $timing;
-			transition-property: background-color, transform;
-			width: ($nav-height - $base);
-			z-index: -1;
-			// no csstransforms
-				.no-csstransforms & {
-					display: none;
-				}
-		}
-	}
-	.dropdown.open .dropdown-toggle {
-		background-color: transparent;
-		&:after {
-			transform: scale(1, 1);
-			// no csstransforms
-				.no-csstransforms & {
-					display: block;
-				}
-		}
 	}
 	.nav {
 		margin: 0;

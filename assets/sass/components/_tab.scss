@@ -11,14 +11,13 @@
 			> a,
 			> .a {
 				border-bottom: 2px solid transparent;
-				color: $black-text;
+				color: inherit;
 				padding-bottom: (($nav-height - $line-height) / 2 - 2);
 				text-transform: uppercase;
 				transition: border-bottom-color 0s;
 				&:focus,
 				&:hover {
 					border-bottom-color: lighten($link-color, 30%);
-					color: $brand-color-accent;
 					transition: border-bottom-color 0.3s $timing;
 				}
 			}
@@ -47,30 +46,6 @@
 }
 
 // colour
-	.tab-nav-white {
-		.nav {
-			> li {
-				> a,
-				> .a {
-					color: $white-text;
-					&:focus,
-					&:hover {
-						border-bottom-color: rgba(255, 255, 255, 0.5);
-						color: $white-text;
-					}
-				}
-				&.active > a,
-				&.active > .a {
-					border-bottom-color: $white;
-					color: $white-text;
-				}
-			}
-		}
-		.tab-nav-indicator.animate {
-			background-color: $white;
-		}
-	}
-
 	@each $color in $palette-list-class {
 		$i: index($palette-list-class, $color);
 
@@ -83,7 +58,6 @@
 							&:focus,
 							&:hover {
 								border-bottom-color: nth($palette-list-light, $i);
-								color: nth($palette-list-color, $i);
 							}
 						}
 						&.active > a,

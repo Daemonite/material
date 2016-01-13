@@ -1,35 +1,5 @@
-legend {
-	&[class*="col-xx-"] {
-		padding-left: ($grid-gutter / 2);
-	}
-	// 480
-		@include responsive(xs) {
-			&[class*="col-xs-"] {
-				padding-left: ($grid-gutter / 2);
-			}
-		}
-	// 768
-		@include responsive(sm) {
-			&[class*="col-sm-"] {
-				padding-left: ($grid-gutter / 2);
-			}
-		}
-	// 992
-		@include responsive(md) {
-			&[class*="col-md-"] {
-				padding-left: ($grid-gutter / 2);
-			}
-		}
-	// 1440
-		@include responsive(lg) {
-			&[class*="col-lg-"] {
-				padding-left: ($grid-gutter / 2);
-			}
-		}
-}
-
 .checkbox,
-.radio {
+.radiobtn {
 	display: block;
 	position: relative;
 	.form-group & {
@@ -52,13 +22,13 @@ legend {
 }
 
 .checkbox input[type="checkbox"],
-.radio input[type="radio"] {
+.radiobtn input[type="radio"] {
 	margin-left: ($line-height * -1);
 	position: absolute;
 }
 
 .checkbox-inline,
-.radio-inline {
+.radiobtn-inline {
 	display: inline-block;
 	margin-right: $grid-gutter;
 }
@@ -72,9 +42,9 @@ legend {
 	background-color: transparent;
 	background-image: none;
 	border: 0;
-	border-bottom: 1px solid $black-hint;
+	border-bottom: 1px solid $black-divider;
 	border-radius: 0;
-	color: $black-text;
+	color: inherit;
 	display: block;
 	font-size: $font-size;
 	height: $input-height;
@@ -103,7 +73,7 @@ legend {
 		width: auto;
 	}
 	&.form-control-default {
-		border: 1px solid $black-hint;
+		border: 1px solid $black-divider;
 		padding: (($input-height - $line-height) / 2 - 1) ($grid-gutter / 2);
 		transition: none;
 		&:focus {
@@ -113,7 +83,7 @@ legend {
 		&[disabled],
 		&[readonly],
 		fieldset[disabled] & {
-			background-color: $offwhite-dark;
+			background-color: $offwhite;
 		}
 	}
 }
@@ -166,13 +136,8 @@ textarea.form-control {
 	height: auto;
 }
 
-.form-control-inverse {
-	color: $white-text;
-	@include placeholder($offwhite);
-}
-
 .form-control-static {
-	border-bottom: 1px solid $black-hint;
+	border-bottom: 1px solid $black-divider;
 	display: block;
 	font-size: $font-size;
 	font-weight: $font-weight-normal;
@@ -191,14 +156,6 @@ textarea.form-control {
 	margin-bottom: $margin-md;
 	legend + & {
 		margin-top: 0;
-	}
-}
-
-.form-group-btn {
-	margin-bottom: $margin-md;
-	.btn {
-		margin-top: $margin-md;
-		margin-right: $grid-gutter;
 	}
 }
 
@@ -258,7 +215,3 @@ textarea.form-control {
 			color: nth($palette-list-color, $i);
 		}
 	}
-
-.label {
-	margin-bottom: $margin-sm;
-}
