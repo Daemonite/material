@@ -3465,8 +3465,9 @@ input[type="color"].form-control-default {
 select.form-control, select.picker__select--month,
 select.picker__select--year {
   -webkit-appearance: none;
+  -moz-appearance: none;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+@media only screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
   select.form-control, select.picker__select--month,
   select.picker__select--year {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAkCAMAAACg5NohAAAAZlBMVEUAAABlZWXLy8vg4OB6enrX19fg4OCdnZ2KiopsbGzn5+dzc3Pt7e3GxsbPz89ubm7u7u5ycnLY2NiJiYmGhoZoaGjq6up/f3+WlpaGhoaZmZllZWVhYWFYWFhaWlpdXV1bW1tWVlaZeqNTAAAAHHRSTlMA+WVC31BEqMzyNekpcGDpKNxJzcjkL9CjwZ/yNlWBeQAAALBJREFUKM/NztkWwiAMRdFQoNparR2cGf//J8UFNdXEd8/rXrkAq9rLoIGt3Vkn9A8xJoiaSqeSJGskuXlJNs2sFRPjWo7lptzVVEoO7VyEWofvoEn8NTUUxuZo2KyCPjo2+wB9m7ZM01zB/9feN2zXEVS0bLEHZQ1b6EE2jhNvDsBbMBWkampepJtizNpi4UPyGrEimBbhLT4L2nLnzR6+ksnIGm7iGjXv8xq14bSWJwymLjvMk/6KAAAAAElFTkSuQmCC);
@@ -3483,14 +3484,13 @@ select.picker__select--year {
   }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+@media only screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
   select.form-control-default {
-    background-position: 99% 11px;
     background-position: calc(100% - 8px) 11px;
-    padding-right: 24px;
+    padding-right: 28px !important;
   }
   select.form-control-default[multiple], select.form-control-default[size] {
-    padding-right: 8px;
+    padding-right: 8px !important;
   }
 }
 
@@ -3991,18 +3991,22 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
 
 .picker__select--month,
 .picker__select--year {
-  background-image: none !important;
+  background-position: 100% 4px !important;
   border-bottom: 0;
   display: inline-block;
   height: 20px;
   margin-left: 16px;
   padding: 0;
   width: auto;
-  -webkit-appearance: menulist-button !important;
 }
 .picker__select--month:first-child,
 .picker__select--year:first-child {
   margin-left: 0;
+}
+.picker__select--month:focus,
+.picker__select--year:focus {
+  border-bottom: 0;
+  padding-bottom: 0;
 }
 
 .picker__table {

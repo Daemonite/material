@@ -224,16 +224,19 @@
 .picker__select--month,
 .picker__select--year {
 	@extend .form-control;
-	background-image: none !important;
+	background-position: 100% (($line-height - 12) / 2) !important;
 	border-bottom: 0;
 	display: inline-block;
 	height: $line-height;
 	margin-left: $grid-gutter;
 	padding: 0;
 	width: auto;
-	-webkit-appearance: menulist-button !important;
 	&:first-child {
 		margin-left: 0;
+	}
+	&:focus {
+		border-bottom: 0;
+		padding-bottom: 0;
 	}
 }
 
