@@ -33,8 +33,7 @@
 	max-width: 100%;
 	padding: $margin-sm $grid-gutter;
 	transform: translate(0, 200%);
-	transition: all 0.3s $timing;
-	transition-property: transform;
+	transition: transform 0.3s $timing;
 	@include clearfix();
 	&.in {
 		transform: translate(0, 0);
@@ -43,13 +42,6 @@
 		@include responsive(sm) {
 			border-radius: 2px;
 			float: left;
-		}
-	// no csstransforms
-		.no-csstransforms & {
-			opacity: 0;
-			&.in {
-				opacity: 1;
-			}
 		}
 }
 

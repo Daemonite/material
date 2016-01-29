@@ -1,3 +1,8 @@
+/*!
+ * normalize.css v3.0.3
+ * github.com/necolas/normalize.css
+ */
+
 *,
 *:after,
 *:before {
@@ -8,59 +13,29 @@
 	width: device-width;
 }
 
-// basic
-	article,
-	aside,
-	footer,
-	header,
-	nav,
-	section {
-		display: block;
-	}
+body {
+	background-color: $white;
+	background-image: none;
+	color: $black-text-solid;
+	font-family: $font-fam;
+	font-size: $font-size;
+	font-weight: $font-weight-normal;
+	line-height: $line-height;
+	margin: 0;
+	padding: 0;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
 
-	audio {
-		display: inline-block;
-		max-width: 100%;
-		vertical-align: baseline;
-	}
-
-	body {
-		background-color: $white;
-		background-image: none;
-		color: $black-text-solid;
-		font-family: $font-fam;
-		font-size: $font-size;
-		font-weight: $font-weight-normal;
-		line-height: $line-height;
-		margin: 0;
-		padding: 0;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: subpixel-antialiased;
-	}
-
-	html {
-		font-family: sans-serif;
-		font-size: 100%;
-		min-height: 100%;
-		position: relative;
-		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-		-webkit-text-size-adjust: 100%;
-		    -ms-text-size-adjust: 100%;
-	}
-
-	svg:not(:root) {
-		overflow: hidden;
-	}
-
-	template,
-	[hidden] {
-		display: none;
-	}
-
-	video {
-		display: block;
-		max-width: 100%;
-	}
+html {
+	font-family: sans-serif;
+	font-size: 100%;
+	min-height: 100%;
+	position: relative;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: 100%;
+	    -ms-text-size-adjust: 100%;
+}
 
 // form
 	button,
@@ -197,50 +172,7 @@
 		overflow: auto;
 	}
 
-// text
-	a {
-		background-color: transparent;
-		background-image: none;
-		color: $link-color;
-		text-decoration: none;
-		&:focus,
-		&:hover {
-			color: $link-color-hover;
-			outline: 0;
-			text-decoration: underline;
-		}
-	}
-
-	abbr {
-		border-bottom: 1px dashed $black-divider;
-		cursor: help;
-	}
-
-	address {
-		font-size: $font-size;
-		font-style: normal;
-		font-weight: $font-weight-normal;
-		line-height: $line-height;
-		margin: $margin-sm 0;
-	}
-
-	b,
-	strong {
-		font-weight: $font-weight-medium;
-	}
-
-	blockquote,
-	q {
-		font-size: $font-size-h4;
-		font-style: italic;
-		font-weight: $font-weight-light;
-		line-height: $line-height-h4;
-		margin: $margin-md 0;
-		padding-right: ($grid-gutter * 2);
-		padding-left: ($grid-gutter * 2);
-		position: relative;
-	}
-
+// list
 	dd,
 	dt,
 	li {
@@ -257,6 +189,60 @@
 
 	dt {
 		font-weight: $font-weight-medium;
+	}
+
+	ol,
+	ul {
+		margin: $margin-sm 0;
+		padding: 0 0 0 ($grid-gutter * 2);
+		ol,
+		ul {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+// table
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+	td,
+	th {
+		padding: 0;
+	}
+
+	th {
+		text-align: left;
+	}
+
+// typography
+	a {
+		background-color: transparent;
+		background-image: none;
+		color: $link-color;
+		text-decoration: none;
+		&:focus,
+		&:hover {
+			color: $link-color-hover;
+			outline: 0;
+			text-decoration: underline;
+		}
+	}
+
+	abbr[title] {
+		border-bottom: 1px dashed $black-divider;
+		cursor: help;
+	}
+
+	b,
+	strong {
+		font-weight: $font-weight-medium;
+	}
+
+	dfn {
+		font-style: italic;
 	}
 
 	h1,
@@ -327,33 +313,6 @@
 		}
 	}
 
-	hr,
-	.hr {
-		border: 0;
-		border-top: 1px solid $black-divider;
-		box-sizing: content-box;
-		display: block;
-		height: 0;
-		margin-top: $margin-md;
-		margin-bottom: $margin-md;
-	}
-
-	img {
-		border: 0;
-		vertical-align: middle;
-	}
-
-	ol,
-	ul {
-		margin: $margin-sm 0;
-		padding: 0 0 0 ($grid-gutter * 2);
-		ol,
-		ul {
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-	}
-
 	p {
 		margin: $margin-sm 0;
 	}
@@ -381,16 +340,82 @@
 			top: -0.5em;
 	}
 
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
+// utilities
+	address {
+		font-size: $font-size;
+		font-style: normal;
+		font-weight: $font-weight-normal;
+		line-height: $line-height;
+		margin: $margin-sm 0;
 	}
 
-	td,
-	th {
-		padding: 0;
+	article,
+	aside,
+	details,
+	figcaption,
+	figure,
+	footer,
+	header,
+	hgroup,
+	main,
+	menu,
+	nav,
+	section,
+	summary {
+		display: block;
 	}
 
-	th {
-		text-align: left;
+	audio,
+	canvas,
+	progress,
+	video {
+		display: inline-block;
+		max-width: 100%;
+		vertical-align: baseline;
+	}
+
+	audio:not([controls]) {
+		display: none;
+		height: 0;
+	}
+
+	blockquote,
+	q {
+		font-size: $font-size-h4;
+		font-style: italic;
+		font-weight: $font-weight-light;
+		line-height: $line-height-h4;
+		margin: $margin-md 0;
+		padding-right: ($grid-gutter * 2);
+		padding-left: ($grid-gutter * 2);
+		position: relative;
+	}
+
+	figure {
+		margin: 1em 40px;
+	}
+
+	hr,
+	.hr {
+		border: 0;
+		border-top: 1px solid $black-divider;
+		box-sizing: content-box;
+		display: block;
+		height: 0;
+		margin-top: $margin-md;
+		margin-bottom: $margin-md;
+	}
+
+	img {
+		border: 0;
+		vertical-align: middle;
+	}
+
+	svg:not(:root) {
+		overflow: hidden;
+	}
+
+	template,
+	[hidden] {
+		display: none;
 	}

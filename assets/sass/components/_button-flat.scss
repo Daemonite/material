@@ -1,14 +1,18 @@
 .btn-flat {
 	background-color: transparent;
 	box-shadow: none;
-	&:active,
-	&:focus,
-	&:hover {
-		background-color: $offwhite;
-		box-shadow: none;
-	}
-	&:active {
+	&:after {
 		background-color: $offwhite-dark;
+		box-shadow: none;
+		display: block !important;
+	}
+	&:active:after,
+	&:focus:after,
+	&:hover:after {
+		opacity: 0.5;
+	}
+	&:not(.waves-attach):active:after {
+		opacity: 1;
 	}
 	&.disabled,
 	&[disabled],

@@ -5,27 +5,14 @@
 	display: flex;
 	min-height: $tile-height;
 	position: relative;
-	&[href],
 	&[href]:focus,
 	&[href]:hover {
-		color: inherit;
 		text-decoration: none;
 	}
 	&.active {
 		margin-top: $margin-md !important;
 		margin-bottom: $margin-md !important;
 	}
-	// no boxshadow
-		.no-boxshadow & {
-			border: 1px solid $black-divider;
-			+ .tile {
-				margin-top: -1px;
-			}
-		}
-	// no flexbox
-		.no-flexbox & {
-			@include clearfix();
-		}
 }
 
 // colour
@@ -50,12 +37,10 @@
 	min-width: 0;
 	order: 1;
 	user-select: none;
-	.no-touch &,
-	.touch .tile-collapse & {
+	html.no-touchevents & {
 		display: none;
 	}
-	.no-touch .tile:hover &,
-	.tile-collapse.active & {
+	html.no-touchevents .tile:hover & {
 		display: block;
 	}
 }
@@ -75,8 +60,8 @@
 	flex-direction: column;
 	transition: margin 0.15s linear;
 	&.active {
-		margin-right: ($grid-gutter * -1 + 1);
-		margin-left: ($grid-gutter * -1 + 1);
+		margin-right: ($grid-gutter / -2);
+		margin-left: ($grid-gutter / -2);
 	}
 }
 
@@ -126,11 +111,6 @@
 	margin: (($tile-height - $line-height) / 2) $grid-gutter;
 	min-width: 0;
 	position: relative;
-	// no flexbox
-		.no-flexbox .tile-action ~ &,
-		.no-flexbox .tile-side ~ & {
-			overflow: hidden;
-		}
 }
 
 .tile-side {
@@ -172,8 +152,4 @@ div[data-toggle="tile"] {
 		cursor: default;
 		cursor: initial;
 	}
-	// no flexbox
-		.no-flexbox & {
-			@include clearfix();
-		}
 }

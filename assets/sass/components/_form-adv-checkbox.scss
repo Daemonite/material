@@ -28,9 +28,6 @@
 	input[type="checkbox"]:focus ~ & {
 		border-color: $black-text;
 	}
-	input[type="checkbox"]:checked ~ & {
-		border-color: $brand-color-accent;
-	}
 	fieldset[disabled] input[type="checkbox"] ~ &,
 	input[type="checkbox"][disabled] ~ &,
 	.checkbox-adv.disabled input[type="checkbox"] ~ & {
@@ -61,19 +58,30 @@
 .radiobtn-circle-check {
 	background-color: transparent;
 	transform: scale(0, 0);
-	transition: all 0.3s $timing;
-	transition-property: background-color, transform;
-	&:after {
+	transition: transform 0.3s $timing;
+	&:after,
+	&:before {
 		background-color: $brand-color-accent;
 		border-radius: 50%;
 		content: "";
 		display: block;
-		height: ($font-size * 5);
 		opacity: 0;
 		position: absolute;
+	}
+	&:after {
+		height: ($font-size * 5);
+		// position
 			top: ($font-size * -2);
 			left: ($font-size * -2);
 		width: ($font-size * 5);
+	}
+	&:before {
+		height: 100%;
+		// position
+			top: 0;
+			left: 0;
+		transition: opacity 0.3s $timing;
+		width: 100%;
 	}
 }
 
@@ -93,16 +101,19 @@
 
 .radiobtn-circle-check {
 	input[type="radio"]:checked ~ & {
-		background-color: $brand-color-accent;
 		transform: scale(0.5, 0.5);
 		&:after {
 			animation: circle-check 0.6s;
+		}
+		&:before {
+			opacity: 1;
 		}
 	}
 	fieldset[disabled] &,
 	input[type="radio"][disabled] ~ &,
 	.radiobtn-adv.disabled & {
-		&:after {
+		&:after,
+		&:before {
 			display: none;
 		}
 	}
@@ -114,18 +125,19 @@
 }
 
 .checkbox-circle-icon {
-	background-color: transparent;
-	color: transparent;
+	background-color: $brand-color-accent;
+	color: $brand-text-accent;
+	opacity: 0;
 	transform: scale(0.5, 0.5);
-	transition: all 0.3s $timing;
-	transition-property: background-color, color, transform;
+	transition-duration: 0.3s;
+	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	&:before {
 		// position
 			top: auto;
 	}
 	input[type="checkbox"]:checked ~ & {
-		background-color: $brand-color-accent;
-		color: $brand-text-accent;
+		opacity: 1;
 		transform: scale(1, 1);
 	}
 	fieldset[disabled] input[type="checkbox"]:checked ~ &,

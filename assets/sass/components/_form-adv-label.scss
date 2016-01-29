@@ -8,16 +8,17 @@
 	position: absolute;
 		top: (($input-height - $font-size) / 2);
 		left: 0;
-	transition: color 0.3s $timing, font-size 0.3s $timing, top 0.3s $timing;
+	transform-origin: 0 0;
+	transition-duration: 0.3s;
+	transition-property: color, transform;
+	transition-timing-function: $timing;
 	.form-group-label [class*="col-"] & {
 		// position
 			left: $grid-gutter;
 	}
 	.form-group-label.control-focus &,
 	.form-group-label.control-highlight & {
-		font-size: $font-size-h6;
-		// position
-			top: (($input-height - $line-height) * -1);
+		transform: scale(($font-size-h6 / $font-size), ($font-size-h6 / $font-size)) translateY(($input-height - $line-height) * -1 - ($input-height - $font-size) / 2);
 	}
 	.form-group-label.control-focus & {
 		color: $link-color;

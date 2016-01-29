@@ -12,20 +12,30 @@
 	padding: (($fbtn-height - $line-height) / 2) 0;
 	position: relative;
 	text-align: center;
-	transition: all 0.3s $timing;
-	transition-property: background-color, box-shadow, color, opacity, transform;
+	transition-duration: 0.3s;
+	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	width: $fbtn-height;
 	&:active,
 	&:focus,
 	&:hover {
 		color: $black-text-solid;
 	}
-	&:active,
-	&:focus {
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.3), 0 6px 9px rgba(0, 0, 0, 0.15);
+	&:after {
+		border-radius: 50%;
+		box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
+		content: "";
+		display: block;
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+			top: 0;
+			left: 0;
+		transition: opacity 0.3s $timing;
+		width: 100%;
 	}
-	&:active {
-		background-color: $offwhite-solid-dark;
+	&:active:after {
+		opacity: 1;
 	}
 }
 
@@ -42,10 +52,6 @@
 				background-color: nth($palette-list-color, $i);
 				color: nth($palette-list-text, $i);
 			}
-			&:active {
-				background-color: nth($palette-list-dark, $i);
-				color: nth($palette-list-text-dark, $i);
-			}
 		}
 	}
 
@@ -59,9 +65,6 @@
 			// position
 				top: (($fbtn-height + $base * 2 - $line-height) / 2);
 		}
-		~ .fbtn-dropdown {
-			min-width: ($fbtn-height + $base * 2 + $grid-gutter * 2);
-		}
 	}
 
 .fbtn-container {
@@ -69,67 +72,28 @@
 	position: fixed;
 		right: $grid-gutter;
 		bottom: $margin-sm;
-	transition: margin-bottom 0.3s $timing, right 0.3s $timing;
+	transform: translateY(0);
+	transition: transform 0.3s $timing;
 	z-index: ($content-base + 1);
 }
 
 .fbtn-dropdown {
-	max-height: 0;
-	overflow: hidden;
-	padding-right: $grid-gutter;
-	padding-left: $grid-gutter;
 	position: absolute;
-		right: ($grid-gutter * -1);
 		bottom: 100%;
-	transition: max-height 0s 0.5s;
+		left: 0;
+	transform: scale(0, 0);
+	transition: transform 0s 0.3s;
+	width: 100%;
 	.fbtn-inner.open & {
-		max-height: 99999px;
-		overflow: visible;
-		transition: max-height 0s;
+		transform: scale(1, 1);
+		transition: none;
 	}
 	.fbtn {
 		opacity: 0;
-		transform: scale(0.5, 0.5);
-		&:nth-last-child(1) {
-			transition-delay: 300ms;
-		}
-		&:nth-last-child(2) {
-			transition-delay: 250ms;
-		}
-		&:nth-last-child(3) {
-			transition-delay: 200ms;
-		}
-		&:nth-last-child(4) {
-			transition-delay: 150ms;
-		}
-		&:nth-last-child(5) {
-			transition-delay: 100ms;
-		}
-		&:nth-last-child(6) {
-			transition-delay: 50ms;
-		}
+		transform: scale(0, 0);
 		.fbtn-inner.open & {
 			opacity: 1;
 			transform: scale(1, 1);
-			transition-delay: 300ms;
-			&:nth-last-child(1) {
-				transition-delay: 0s;
-			}
-			&:nth-last-child(2) {
-				transition-delay: 50ms;
-			}
-			&:nth-last-child(3) {
-				transition-delay: 100ms;
-			}
-			&:nth-last-child(4) {
-				transition-delay: 150ms;
-			}
-			&:nth-last-child(5) {
-				transition-delay: 200ms;
-			}
-			&:nth-last-child(6) {
-				transition-delay: 250ms;
-			}
 		}
 	}
 }
@@ -140,8 +104,9 @@
 
 .fbtn-ori,
 .fbtn-sub {
-	transition: all 0.3s $timing;
+	transition-duration: 0.3s;
 	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	&.#{$mdicon-css-prefix} {
 		vertical-align: bottom;
 	}
@@ -155,8 +120,9 @@
 }
 
 .fbtn-rotate {
-	transition: all 0.3s $timing;
+	transition-duration: 0.3s;
 	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	.fbtn-inner.open & {
 		transform: rotate(225deg);
 	}
@@ -181,38 +147,38 @@
 	background-color: $black-text;
 	border-radius: 2px;
 	color: $white-text-solid;
+	display: none;
 	font-size: $font-size-h6;
-	height: 0;
 	line-height: $line-height;
 	margin-top: ($line-height / -2 - 2);
 	margin-right: $grid-gutter;
-	opacity: 0;
-	overflow: hidden;
-	padding-right: ($grid-gutter / 2);
-	padding-left: ($grid-gutter / 2);
+	padding: 2px ($grid-gutter / 2);
 	position: absolute;
 		top: 50%;
 		right: 100%;
-	transition: opacity 0.3s $timing;
 	white-space: nowrap;
-	width: 0;
-	// touch & no touch
-		.no-touch .fbtn:hover > & {
-			height: auto;
-			opacity: 1;
-			padding-top: 2px;
-			padding-bottom: 2px;
-			width: auto;
-		}
-		.touch & {
-			display: none;
-			height: auto;
-			opacity: 1;
-			padding-top: 2px;
-			padding-bottom: 2px;
-			width: auto;
-		}
-		.touch .fbtn-inner.open & {
+	.fbtn-inner.open & {
+		display: block;
+	}
+	// touch
+		html.no-touchevents & {
 			display: block;
+			opacity: 0;
+			transform: scale(0, 0);
+			transition: opacity 0.3s $timing, transform 0s 0.3s;
 		}
+		html.no-touchevents .fbtn:hover > & {
+			opacity: 1;
+			transform: scale(1, 1);
+			transition: opacity 0.3s $timing;
+		}
+}
+
+.fbtn-wave {
+	border-radius: 50%;
+	height: 100%;
+	position: absolute;
+		top: 0;
+		left: 0;
+	width: 100%;
 }

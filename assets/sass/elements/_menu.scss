@@ -35,8 +35,9 @@
 		left: 50%;
 	text-align: center;
 	transform: rotate(0);
-	transition: all 0.3s $timing;
+	transition-duration: 0.3s;
 	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	width: $font-size;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 0;
@@ -47,8 +48,9 @@
 .menu-collapse-toggle-default {
 	opacity: 0;
 	transform: rotate(225deg);
-	transition: all 0.3s $timing;
+	transition-duration: 0.3s;
 	transition-property: opacity, transform;
+	transition-timing-function: $timing;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 1;
 		transform: rotate(0);
@@ -101,16 +103,6 @@
 			}
 		}
 	}
-	// no boxshadow
-		.nav  {
-			.no-boxshadow & {
-				margin-right: 1px;
-			}
-			.no-boxshadow .menu.menu-right & {
-				margin-right: 0;
-				margin-left: 1px;
-			}
-		}
 }
 
 // colour
@@ -176,52 +168,25 @@
 	overflow-y: auto;
 	position: fixed;
 		top: 0;
-		left: ($grid-gutter * -20);
-	transition-duration: 0.3s;
-	transition-property: box-shadow, left;
-	transition-timing-function: $timing;
+		left: 0;
+	transform: translateX(-100%);
+	transition: transform 0.3s $timing;
 	width: ($grid-gutter * 20);
 	z-index: 1;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: none;
-	.menu.in & {
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-		// left
-			left: 0;
-	}
 	.menu-right & {
-		// position
-			right: ($grid-gutter * -20);
-			left: auto;
-		transition-property: box-shadow, right;
-	}
-	.menu-right.in & {
 		// position
 			right: 0;
 			left: auto;
+		transform: translateX(100%);
+	}
+	.menu.in & {
+		transform: translateX(0);
 	}
 	// 992
 		@include responsive(md) {
 			max-width: none;
-		}
-	// no boxshadow
-		.no-boxshadow & {
-			&:after {
-				border-right: 1px solid $black-divider-solid;
-				content: "";
-				display: block;
-				height: 100%;
-				position: absolute;
-					top: 0;
-					right: 0;
-			}
-		}
-		.no-boxshadow .menu.menu-right & {
-			&:after {
-				// position
-					right: auto;
-					left: 0;
-			}
 		}
 }
 
@@ -278,10 +243,6 @@
 .menu-top-user {
 	align-items: center;
 	display: flex;
-	// no flexbox
-		.no-flexbox & {
-			@include clearfix();
-		}
 }
 
 @mixin nav-drawer() {
@@ -290,12 +251,6 @@
 	overflow: visible;
 	width: ($grid-gutter * 15);
 	z-index: $header-base;
-	.menu-scroll {
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-		// left
-			left: 0;
-		width: ($grid-gutter * 15);
-	}
 	&.menu-left {
 		~ .content {
 			margin-left: ($grid-gutter * 15);
@@ -325,6 +280,14 @@
 			// position
 				right: ($grid-gutter * 15);
 		}
+	}
+	.menu-scroll {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		transform: none;
+		width: ($grid-gutter * 15);
+	}
+	~ .menu-backdrop {
+		display: none;
 	}
 }
 

@@ -16,7 +16,11 @@
 
 		Snackbar.prototype.fbtn = function (margin) {
 			if ($(window).width() < 768 && $('.fbtn-container').length) {
-				$('.fbtn-container').css('margin-bottom', margin);
+				var str = 'translateY(-' + margin + 'px)';
+				$('.fbtn-container').css({
+					'-webkit-transform': str,
+					'transform': str
+				});
 			};
 		};
 
@@ -37,7 +41,7 @@
 				that.$element.remove();
 			}
 
-			this.fbtn('');
+			this.fbtn('0');
 		};
 
 		Snackbar.prototype.show = function () {

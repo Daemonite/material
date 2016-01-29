@@ -18,7 +18,6 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	transition: background-color 0.3s $timing, box-shadow 0.3s $timing, color 0.3s $timing;
 	user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
@@ -29,12 +28,26 @@
 		outline: 0;
 		text-decoration: none;
 	}
-	&:active,
-	&:focus {
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 3px 9px rgba(0, 0, 0, 0.3);
+	&:after {
+		background-color: $offwhite;
+		border-radius: 2px;
+		box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+		content: "";
+		display: block;
+		height: 100%;
+		opacity: 0;
+		position: absolute;
+			top: 0;
+			left: 0;
+		transition: opacity 0.3s $timing;
+		width: 100%;
 	}
-	&:active {
-		background-color: $offwhite-dark;
+	&:active:after,
+	&:focus:after {
+		opacity: 1;
+	}
+	&.waves-attach:after {
+		display: none;
 	}
 	&.disabled,
 	&[disabled],
@@ -42,6 +55,9 @@
 		box-shadow: none !important;
 		cursor: not-allowed;
 		opacity: 0.78;
+		&:after {
+			display: none;
+		}
 		.waves-ripple {
 			display: none;
 		}
@@ -58,7 +74,6 @@
 			&:active,
 			&:focus,
 			&:hover {
-				background-color: nth($palette-list-color, $i);
 				color: nth($palette-list-text, $i);
 			}
 		}

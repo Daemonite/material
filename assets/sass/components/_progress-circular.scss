@@ -94,15 +94,17 @@
 	@each $color in $palette-list-class {
 		$i: index($palette-list-class, $color);
 
-		.progress-circular-spinner {
-			.progress-circular-#{$color} & {
-				border-top-color: nth($palette-list-color, $i);
-			}
-			.progress-circular-#{$color} .progress-circular-left & {
-				border-left-color: nth($palette-list-color, $i);
-			}
-			.progress-circular-#{$color} .progress-circular-right & {
-				border-right-color: nth($palette-list-color, $i);
+		@if $color != "brand-accent" {
+			.progress-circular-spinner {
+				.progress-circular-#{$color} & {
+					border-top-color: nth($palette-list-color, $i);
+				}
+				.progress-circular-#{$color} .progress-circular-left & {
+					border-left-color: nth($palette-list-color, $i);
+				}
+				.progress-circular-#{$color} .progress-circular-right & {
+					border-right-color: nth($palette-list-color, $i);
+				}
 			}
 		}
 	}
