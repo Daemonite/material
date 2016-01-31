@@ -33,7 +33,10 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		};
 
 		Datepicker.DEFAULTS = {
+			disable: [false],
 			format: 'd/m/yyyy',
+			max: false,
+			min: false,
 			selecrtMonths: false,
 			selectYears: false
 		};
@@ -50,6 +53,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 				close: 'OK',
 				closeOnSelect: false,
 				container: 'body',
+				disable: that.options.disable,
 				format: that.options.format,
 				klass: {
 					buttonClear: 'btn btn-flat btn-brand picker__button--clear',
@@ -58,6 +62,8 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 					navPrev: 'icon icon-lg picker__nav--prev',
 					navNext: 'icon icon-lg picker__nav--next',
 				},
+				max: that.options.max,
+				min: that.options.min,
 				selectMonths: that.options.selectMonths,
 				selectYears: that.options.selectYears,
 				weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
