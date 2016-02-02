@@ -251,6 +251,12 @@
 	overflow: visible;
 	width: ($grid-gutter * 15);
 	z-index: $header-base;
+	&.in ~ .menu-backdrop {
+		display: none;
+		~ .menu-backdrop {
+			display: block;
+		}
+	}
 	&.menu-left {
 		~ .content {
 			margin-left: ($grid-gutter * 15);
@@ -285,9 +291,6 @@
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 		transform: none;
 		width: ($grid-gutter * 15);
-	}
-	~ .menu-backdrop {
-		display: none;
 	}
 }
 

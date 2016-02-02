@@ -6230,6 +6230,12 @@ div[data-toggle="tile"] [data-ignore="tile"] {
     width: 240px;
     z-index: 30;
   }
+  .nav-drawer.nav-drawer-md.in ~ .menu-backdrop {
+    display: none;
+  }
+  .nav-drawer.nav-drawer-md.in ~ .menu-backdrop ~ .menu-backdrop {
+    display: block;
+  }
   .nav-drawer.nav-drawer-md.menu-left ~ .content {
     margin-left: 240px;
   }
@@ -6260,9 +6266,6 @@ div[data-toggle="tile"] [data-ignore="tile"] {
             transform: none;
     width: 240px;
   }
-  .nav-drawer.nav-drawer-md ~ .menu-backdrop {
-    display: none;
-  }
 }
 @media only screen and (min-width: 1440px) {
   .nav-drawer.nav-drawer-lg {
@@ -6271,6 +6274,12 @@ div[data-toggle="tile"] [data-ignore="tile"] {
     overflow: visible;
     width: 240px;
     z-index: 30;
+  }
+  .nav-drawer.nav-drawer-lg.in ~ .menu-backdrop {
+    display: none;
+  }
+  .nav-drawer.nav-drawer-lg.in ~ .menu-backdrop ~ .menu-backdrop {
+    display: block;
   }
   .nav-drawer.nav-drawer-lg.menu-left ~ .content {
     margin-left: 240px;
@@ -6301,8 +6310,5 @@ div[data-toggle="tile"] [data-ignore="tile"] {
     -webkit-transform: none;
             transform: none;
     width: 240px;
-  }
-  .nav-drawer.nav-drawer-lg ~ .menu-backdrop {
-    display: none;
   }
 }
