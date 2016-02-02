@@ -3,13 +3,7 @@
  * http://fian.my.id/Waves
  */
 
-.waves-button,
-.waves-circle {
-	transform: translateZ(0);
-}
-
 .waves-effect {
-	overflow: hidden;
 	position: relative;
 	-webkit-tap-highlight-color: transparent;
 	.waves-ripple {
@@ -25,7 +19,7 @@
 		transform: scale(0) translate(0, 0);
 		transition-duration: 0.9s;
 		transition-property: opacity, transform;
-		transition-timing-function: $timing;
+		transition-timing-function: linear;
 		width: 100px;
 
 	}
@@ -37,4 +31,21 @@
 
 .waves-notransition {
 	transition: none !important;
+}
+
+.waves-wrap {
+	cursor: pointer;
+	overflow: hidden;
+	position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	.waves-circle > & {
+		border-radius: 50%;
+		transform: translateZ(0);
+		-webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
+	}
 }

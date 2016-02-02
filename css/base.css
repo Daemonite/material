@@ -1604,14 +1604,7 @@ template,
  * waves v0.7.2
  * http://fian.my.id/Waves
  */
-.waves-button,
-.waves-circle {
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-}
-
 .waves-effect {
-  overflow: hidden;
   position: relative;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1634,8 +1627,8 @@ template,
   transition-property: opacity, -webkit-transform;
   transition-property: opacity, transform;
   transition-property: opacity, transform, -webkit-transform;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
   width: 100px;
 }
 .waves-effect.waves-light .waves-ripple {
@@ -1647,6 +1640,27 @@ template,
 .waves-notransition {
   -webkit-transition: none !important;
   transition: none !important;
+}
+
+.waves-wrap {
+  cursor: pointer;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.waves-circle > .waves-wrap {
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
 }
 
 @media print {
@@ -2504,7 +2518,7 @@ body.el-loading {
   opacity: 1;
 }
 .btn.waves-attach:after {
-  display: none;
+  background-color: transparent;
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   box-shadow: none !important;
