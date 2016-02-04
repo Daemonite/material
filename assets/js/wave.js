@@ -10,6 +10,6 @@
 		Waves.attach('.waves-attach');
 
 		Waves.init({
-			duration: 900
+			duration: 600
 		});
 	});

@@ -1601,7 +1601,7 @@ template,
 }
 
 /*!
- * waves v0.7.2
+ * waves v0.7.4
  * http://fian.my.id/Waves
  */
 .waves-effect {
@@ -1609,42 +1609,33 @@ template,
   -webkit-tap-highlight-color: transparent;
 }
 .waves-effect .waves-ripple {
-  background-color: rgba(0, 0, 0, 0.1);
-  background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 0, rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
+  background-clip: content-box;
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
   opacity: 0;
-  pointer-events: none;
   position: absolute;
   -webkit-transform: scale(0) translate(0, 0);
           transform: scale(0) translate(0, 0);
-  -webkit-transition-duration: 0.9s;
-          transition-duration: 0.9s;
+  -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
   -webkit-transition-property: opacity, -webkit-transform;
   transition-property: opacity, -webkit-transform;
   transition-property: opacity, transform;
   transition-property: opacity, transform, -webkit-transform;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-  width: 100px;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 60px;
 }
 .waves-effect.waves-light .waves-ripple {
-  background-color: rgba(255, 255, 255, 0.4);
-  background-image: -webkit-radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 60%);
-}
-
-.waves-notransition {
-  -webkit-transition: none !important;
-  transition: none !important;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .waves-wrap {
-  cursor: pointer;
   overflow: hidden;
+  pointer-events: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -1654,10 +1645,11 @@ template,
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-tap-highlight-color: transparent;
 }
 .waves-circle > .waves-wrap {
   border-radius: 50%;
+  -webkit-mask: url();
+          mask: url();
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);

@@ -755,6 +755,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 		Waves.attach('.waves-attach');
 
 		Waves.init({
-			duration: 900
+			duration: 600
 		});
 	});
