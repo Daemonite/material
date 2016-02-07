@@ -164,6 +164,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			$(this).floatingLabel('focusout');
 		});
 	});
+
 /*!
  * textarea autosize v0.4.0
  * https://github.com/javierjulio/textarea-autosize
@@ -391,6 +392,19 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 			Plugin.call($target, option, this);
 		});
 	}(jQuery));
+
+// modale dialog vertical alignment
+	$(function () {
+		'use strict';
+
+		$(document).on('hidden.bs.modal', '.modal-va-middle', function () {
+			$(this).removeClass('modal-va-middle-show');
+		});
+
+		$(document).on('show.bs.modal', '.modal-va-middle', function () {
+			$(this).addClass('modal-va-middle-show');
+		});
+	});
 
 // snackbar
 	(function ($) {
