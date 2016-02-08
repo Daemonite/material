@@ -28,7 +28,7 @@
 		};
 
 		Datepicker.prototype.display = function (datepickerApi, datepickerRoot) {
-			$('.picker__box', datepickerRoot).prepend('<div class="picker__date-display"><div class="picker__date-display-top"><span class="picker__year-display">' + datepickerApi.get('select', 'yyyy') + '</span></div><div class="picker__date-display-bottom"><span class="picker__weekday-display">' + datepickerApi.get('select', 'dddd') + '</span><span class="picker__day-display">' + datepickerApi.get('select', 'd') + '</span><span class="picker__month-display">' + datepickerApi.get('select', 'mmm') + '</span></div></div>');
+			$('.picker__box', datepickerRoot).wrapInner('<div class="picker__date-inner"></div>').prepend('<div class="picker__date-display"><div class="picker__date-display-top"><span class="picker__year-display">' + datepickerApi.get('select', 'yyyy') + '</span></div><div class="picker__date-display-bottom"><span class="picker__weekday-display">' + datepickerApi.get('select', 'dddd') + '</span><span class="picker__day-display">' + datepickerApi.get('select', 'd') + '</span><span class="picker__month-display">' + datepickerApi.get('select', 'mmm') + '</span></div></div>');
 		};
 
 		Datepicker.prototype.show = function () {

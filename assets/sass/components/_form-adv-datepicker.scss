@@ -5,30 +5,17 @@
 }
 
 .picker__box {
-	background-clip: padding-box;
-	background-color: $white;
 	border-radius: 4px;
 	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
 	outline: 0;
-	overflow: hidden;
 	position: relative;
 	vertical-align: middle;
 	z-index: 1;
-	@include clearfix();
 	// 992
 		@include responsive(md) {
-			&:before {
-				background-color: $brand-color;
-				border-radius: 4px 0 0 4px;
-				content: "";
-				display: block;
-				height: 100%;
-				position: absolute;
-					top: 0;
-					left: 0;
-				width: floor(($cell-height * 7 + $grid-gutter) / 2);
-				z-index: -1;
-			}
+			flex-direction: row;
 		}
 }
 
@@ -41,7 +28,6 @@
 	// 992
 		@include responsive(md) {
 			border-radius: 4px 0 0 4px;
-			float: left;
 			width: floor(($cell-height * 7 + $grid-gutter) / 2);
 		}
 }
@@ -54,6 +40,16 @@
 .picker__date-display-top {
 	color: $brand-color-light;
 	margin-bottom: $margin-base;
+}
+
+.picker__date-inner {
+	background-color: $white;
+	border-radius: 0 0 4px 4px;
+	flex: 1;
+	// 992
+		@include responsive(md) {
+			border-radius: 0 4px 4px 0;
+		}
 }
 
 .picker__day {
@@ -90,7 +86,6 @@
 }
 
 .picker__footer {
-	clear: both;
 	padding: $margin-base $grid-gutter;
 	text-align: right;
 	button {
@@ -125,11 +120,6 @@
 	margin-top: $margin-sm;
 	margin-bottom: (($btn-height - $line-height) / 2);
 	position: relative;
-	// 992
-		@include responsive(md) {
-			float: left;
-			width: ($cell-height * 7 + $grid-gutter);
-		}
 }
 
 .picker__holder {
@@ -162,7 +152,7 @@
 		width: 100%;
 	}
 	.picker--opened & {
-		transform: translateY(0);
+		transform: translateZ(0);
 		transition: none;
 		&:before {
 			opacity: 0.5;
@@ -257,7 +247,6 @@
 	table-layout: fixed;
 	// 992
 		@include responsive(md) {
-			float: left;
 			margin: 0;
 		}
 }
