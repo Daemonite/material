@@ -144,6 +144,19 @@
 
 .modal-va-middle {
 	align-items: center;
+	.modal-dialog {
+		flex-grow: 1;
+		// 480
+			@include responsive(xs) {
+				&.modal-xs {
+					flex-grow: 0;
+				}
+			}
+		// 992
+			@include responsive(md) {
+				flex-grow: 0;
+			}
+	}
 }
 
 .modal-va-middle-show {
