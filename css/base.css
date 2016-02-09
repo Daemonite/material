@@ -2730,13 +2730,17 @@ body.el-loading {
   position: fixed;
   right: 16px;
   bottom: 12px;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 21;
+}
+@media only screen and (min-width: 992px) {
+  .fbtn-container {
+    -webkit-transform: translateY(0) !important;
+            transform: translateY(0) !important;
+  }
 }
 
 .fbtn-dropdown {

@@ -72,9 +72,12 @@
 	position: fixed;
 		right: $grid-gutter;
 		bottom: $margin-sm;
-	transform: translateY(0);
 	transition: transform 0.3s $timing;
 	z-index: ($content-base + 1);
+	// 992
+		@include responsive(md) {
+			transform: translateY(0) !important;
+		}
 }
 
 .fbtn-dropdown {
