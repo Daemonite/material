@@ -4573,18 +4573,43 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   padding: 0;
 }
 
+.nav-justified,
+.nav-list {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .nav-justified {
-  width: 100%;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
 }
 .nav-justified > li {
-  display: table-cell !important;
-  float: none !important;
-  width: 1% !important;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
-.nav-justified > li > a {
+.nav-justified > li > a,
+.nav-justified > li > .a {
   text-align: center;
 }
 
+.nav-list {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
 .nav-list > li {
   float: left;
 }

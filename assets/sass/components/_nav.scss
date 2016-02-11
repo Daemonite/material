@@ -24,19 +24,26 @@
 	}
 }
 
+.nav-justified,
+.nav-list {
+	align-items: flex-start;
+	display: flex;
+	justify-content: flex-start;
+}
+
 .nav-justified {
-	width: 100%;
+	flex-wrap: nowrap;
 	> li {
-		display: table-cell !important;
-		float: none !important;
-		width: 1% !important;
-		> a {
+		flex-grow: 1;
+		> a,
+		> .a {
 			text-align: center;
 		}
 	}
 }
 
 .nav-list {
+	flex-wrap: wrap;
 	> li {
 		float: left;
 	}
