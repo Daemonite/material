@@ -51,12 +51,14 @@
 	line-height: $line-height;
 	padding: (($input-height - $line-height) / 2) 0 (($input-height - $line-height) / 2 - 1);
 	width: 100%;
-	@include placeholder($black-hint);
 	&:focus {
 		border-color: $link-color;
 		border-bottom-width: 2px;
 		outline: 0;
 		padding-bottom: (($input-height - $line-height) / 2 - 2);
+	}
+	&::placeholder {
+		color: $black-hint;
 	}
 	&[disabled],
 	&[readonly],

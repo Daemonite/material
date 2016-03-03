@@ -32,7 +32,9 @@
 	.form-control {
 		position: relative;
 		z-index: 1;
-		@include placeholder(transparent);
+		&::placeholder {
+			color: transparent;
+		}
 	}
 	legend + & {
 		margin-top: ($margin-md / 2);

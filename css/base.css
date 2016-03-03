@@ -3366,25 +3366,28 @@ pre code {
   padding: 8px 0 7px;
   width: 100%;
 }
-.form-control:-ms-input-placeholder, .picker__select--month:-ms-input-placeholder,
-.picker__select--year:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.38);
-}
-.form-control::-moz-placeholder, .picker__select--month::-moz-placeholder,
-.picker__select--year::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.38);
-  opacity: 1;
-}
-.form-control::-webkit-input-placeholder, .picker__select--month::-webkit-input-placeholder,
-.picker__select--year::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.38);
-}
 .form-control:focus, .picker__select--month:focus,
 .picker__select--year:focus {
   border-color: #ff4081;
   border-bottom-width: 2px;
   outline: 0;
   padding-bottom: 6px;
+}
+.form-control::-webkit-input-placeholder, .picker__select--month::-webkit-input-placeholder,
+.picker__select--year::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+.form-control::-moz-placeholder, .picker__select--month::-moz-placeholder,
+.picker__select--year::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+.form-control:-ms-input-placeholder, .picker__select--month:-ms-input-placeholder,
+.picker__select--year:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.38);
+}
+.form-control::placeholder, .picker__select--month::placeholder,
+.picker__select--year::placeholder {
+  color: rgba(0, 0, 0, 0.38);
 }
 .form-control[disabled], [disabled].picker__select--month,
 [disabled].picker__select--year, .form-control[readonly], [readonly].picker__select--month,
@@ -4143,17 +4146,20 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
   position: relative;
   z-index: 1;
 }
-.form-group-label .form-control:-ms-input-placeholder, .form-group-label .picker__select--month:-ms-input-placeholder,
-.form-group-label .picker__select--year:-ms-input-placeholder {
+.form-group-label .form-control::-webkit-input-placeholder, .form-group-label .picker__select--month::-webkit-input-placeholder,
+.form-group-label .picker__select--year::-webkit-input-placeholder {
   color: transparent;
 }
 .form-group-label .form-control::-moz-placeholder, .form-group-label .picker__select--month::-moz-placeholder,
 .form-group-label .picker__select--year::-moz-placeholder {
   color: transparent;
-  opacity: 1;
 }
-.form-group-label .form-control::-webkit-input-placeholder, .form-group-label .picker__select--month::-webkit-input-placeholder,
-.form-group-label .picker__select--year::-webkit-input-placeholder {
+.form-group-label .form-control:-ms-input-placeholder, .form-group-label .picker__select--month:-ms-input-placeholder,
+.form-group-label .picker__select--year:-ms-input-placeholder {
+  color: transparent;
+}
+.form-group-label .form-control::placeholder, .form-group-label .picker__select--month::placeholder,
+.form-group-label .picker__select--year::placeholder {
   color: transparent;
 }
 legend + .form-group-label {
