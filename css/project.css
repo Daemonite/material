@@ -3,6 +3,22 @@ body {
   padding-bottom: 69px;
 }
 
+.card-wrap {
+  margin-top: 24px;
+  margin-bottom: -24px;
+}
+.card-wrap:after, .card-wrap:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.card-wrap:after {
+  clear: both;
+}
+.card-wrap .card {
+  margin-top: 0;
+}
+
 .content-heading {
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -35,8 +51,21 @@ body {
   .ui-card-pre {
     min-height: 189px;
   }
-  .ui-card-pre.ui-card-pre-media {
-    min-height: 408px;
+}
+
+@media only screen and (min-width: 768px) {
+  .ui-card-pre-media {
+    min-height: 353px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .ui-card-pre-media {
+    min-height: 394px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .ui-card-pre-media {
+    min-height: 389px;
   }
 }
 

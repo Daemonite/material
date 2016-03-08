@@ -2,17 +2,14 @@
 	background-color: $white;
 	border-radius: 2px;
 	box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
-	display: block;
 	display: flex;
 	margin-top: $margin-md;
 	margin-bottom: $margin-md;
 	position: relative;
 	&[href]:focus,
 	&[href]:hover {
+		outline: 0;
 		text-decoration: none;
-	}
-	.card-wrap & {
-		margin-top: 0;
 	}
 }
 
@@ -36,8 +33,10 @@
 	min-height: $nav-height;
 	position: relative;
 	@include clearfix();
-	&:first-child {
-		border-top: 0;
+	.card-main > & {
+		&:first-child {
+			border-top: 0;
+		}
 	}
 }
 
@@ -55,8 +54,10 @@
 	display: flex;
 	min-height: $header-height;
 	position: relative;
-	&:last-child {
-		border-bottom: 0;
+	.card-main > & {
+		&:last-child {
+			border-bottom: 0;
+		}
 	}
 }
 
@@ -90,11 +91,13 @@
 	display: block;
 	overflow: hidden;
 	position: relative;
-	&:first-child {
-		border-radius: 2px 2px 0 0;
-	}
-	&:last-child {
-		border-radius: 0 0 2px 2px;
+	.card-main > & {
+		&:first-child {
+			border-radius: 2px 2px 0 0;
+		}
+		&:last-child {
+			border-radius: 0 0 2px 2px;
+		}
 	}
 	img {
 		display: block;
@@ -152,6 +155,7 @@
 		color: inherit;
 		&:focus,
 		&:hover {
+			outline: 0;
 			text-decoration: none;
 		}
 	}
@@ -175,9 +179,3 @@
 			color: nth($palette-list-text-dark, $i);
 		}
 	}
-
-.card-wrap {
-	margin-top: $margin-md;
-	margin-bottom: ($margin-md * -1);
-	@include clearfix();
-}

@@ -2746,7 +2746,6 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   background-color: #ffffff;
   border-radius: 2px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
-  display: block;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2756,10 +2755,8 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   position: relative;
 }
 .card[href]:focus, .card[href]:hover {
+  outline: 0;
   text-decoration: none;
-}
-.card-wrap .card {
-  margin-top: 0;
 }
 
 .card-brand {
@@ -2825,7 +2822,7 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
 .card-action:after, .tile-action:after {
   clear: both;
 }
-.card-action:first-child, .tile-action:first-child {
+.card-main > .card-action:first-child, .card-main > .tile-action:first-child {
   border-top: 0;
 }
 
@@ -2850,7 +2847,7 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   min-height: 56px;
   position: relative;
 }
-.card-header:last-child {
+.card-main > .card-header:last-child {
   border-bottom: 0;
 }
 
@@ -2891,10 +2888,10 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   overflow: hidden;
   position: relative;
 }
-.card-img:first-child {
+.card-main > .card-img:first-child {
   border-radius: 2px 2px 0 0;
 }
-.card-img:last-child {
+.card-main > .card-img:last-child {
   border-radius: 0 0 2px 2px;
 }
 .card-img img {
@@ -2960,6 +2957,7 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   color: inherit;
 }
 .card-side[href]:focus, .card-side[href]:hover {
+  outline: 0;
   text-decoration: none;
 }
 .card-side.card-side-img {
@@ -2998,19 +2996,6 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
 .card-red .card-side {
   background-color: #d32f2f;
   color: white;
-}
-
-.card-wrap {
-  margin-top: 24px;
-  margin-bottom: -24px;
-}
-.card-wrap:after, .card-wrap:before {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-.card-wrap:after {
-  clear: both;
 }
 
 code,
