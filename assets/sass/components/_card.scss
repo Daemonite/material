@@ -50,6 +50,7 @@
 }
 
 .card-header {
+	align-items: center;
 	border-bottom: 1px solid $black-divider;
 	display: flex;
 	min-height: $header-height;
@@ -60,9 +61,9 @@
 }
 
 .card-header-side {
+	margin-top: $margin-sm;
+	margin-bottom: $margin-sm;
 	min-width: 0;
-	padding-top: (($header-height - $line-height) / 2);
-	padding-bottom: (($header-height - $line-height) / 2);
 	&.pull-left {
 		order: -1;
 		padding-left: $grid-gutter;
@@ -122,10 +123,8 @@
 	position: relative;
 	.card-header & {
 		flex: 1;
-		font-size: $font-size-h5;
-		line-height: $line-height-h5;
-		margin-top: (($header-height - $line-height-h5) / 2);
-		margin-bottom: (($header-height - $line-height-h5) / 2);
+		margin-top: $margin-sm;
+		margin-bottom: $margin-sm;
 	}
 }
 
