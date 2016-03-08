@@ -6,8 +6,10 @@
 	@include clearfix();
 	a,
 	.a {
-		display: block;
-		padding: (($nav-height - $line-height) / 2) $grid-gutter;
+		align-items: center;
+		display: flex;
+		min-height: $nav-height;
+		padding: 0 $grid-gutter;
 		position: relative;
 		&:focus,
 		&:hover {
@@ -37,6 +39,7 @@
 		flex-grow: 1;
 		> a,
 		> .a {
+			justify-content: center;
 			text-align: center;
 		}
 	}

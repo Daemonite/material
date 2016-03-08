@@ -2300,10 +2300,6 @@ body.el-loading {
 .card-header-side > .avatar:last-child, .tile-side > .avatar:last-child {
   margin-bottom: -10px;
 }
-.nav a > .avatar, .nav .a > .avatar {
-  margin-top: -10px;
-  margin-bottom: -10px;
-}
 .avatar img {
   border-radius: 50%;
   height: 100%;
@@ -2375,10 +2371,6 @@ body.el-loading {
   margin-top: -6px;
 }
 .card-header-side > .avatar-sm:last-child, .tile-side > .avatar-sm:last-child {
-  margin-bottom: -6px;
-}
-.nav a > .avatar-sm, .nav .a > .avatar-sm {
-  margin-top: -6px;
   margin-bottom: -6px;
 }
 
@@ -4528,8 +4520,16 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
 }
 .nav a,
 .nav .a {
-  display: block;
-  padding: 14px 16px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 48px;
+  padding: 0 16px;
   position: relative;
 }
 .nav a:focus, .nav a:hover,
@@ -4575,6 +4575,10 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
 }
 .nav-justified > li > a,
 .nav-justified > li > .a {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 
