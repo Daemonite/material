@@ -2563,8 +2563,10 @@ body.el-loading {
   color: #212121;
   cursor: pointer;
   display: block;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 500;
   height: 40px;
+  line-height: 20px;
   margin: 12px auto;
   padding: 10px 0;
   position: relative;
@@ -2581,6 +2583,8 @@ body.el-loading {
 }
 .fbtn:active, .fbtn:focus, .fbtn:hover {
   color: #212121;
+  outline: 0;
+  text-decoration: none;
 }
 .fbtn:after {
   border-radius: 50%;
@@ -2596,63 +2600,42 @@ body.el-loading {
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
-.fbtn:active:after {
+.fbtn:active:after, .fbtn:focus:after {
   opacity: 1;
 }
 
 .fbtn-brand {
   background-color: #3f51b5;
-  color: white;
-}
-.fbtn-brand:active, .fbtn-brand:focus, .fbtn-brand:hover {
-  background-color: #3f51b5;
-  color: white;
+  color: white !important;
 }
 
 .fbtn-brand-accent {
   background-color: #ff4081;
-  color: white;
-}
-.fbtn-brand-accent:active, .fbtn-brand-accent:focus, .fbtn-brand-accent:hover {
-  background-color: #ff4081;
-  color: white;
+  color: white !important;
 }
 
 .fbtn-green {
   background-color: #4caf50;
-  color: rgba(0, 0, 0, 0.87);
-}
-.fbtn-green:active, .fbtn-green:focus, .fbtn-green:hover {
-  background-color: #4caf50;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .fbtn-orange {
   background-color: #ff9800;
-  color: rgba(0, 0, 0, 0.87);
-}
-.fbtn-orange:active, .fbtn-orange:focus, .fbtn-orange:hover {
-  background-color: #ff9800;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 .fbtn-red {
   background-color: #f44336;
-  color: white;
-}
-.fbtn-red:active, .fbtn-red:focus, .fbtn-red:hover {
-  background-color: #f44336;
-  color: white;
+  color: white !important;
 }
 
 .fbtn-lg {
+  font-size: 20px;
   height: 56px;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  line-height: 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
   width: 56px;
-}
-.fbtn-lg .fbtn-sub {
-  top: 18px;
 }
 
 .fbtn-container {
@@ -2709,6 +2692,23 @@ body.el-loading {
 
 .fbtn-ori,
 .fbtn-sub {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
   -webkit-transition-property: opacity, -webkit-transform;
@@ -2717,11 +2717,6 @@ body.el-loading {
   transition-property: opacity, transform, -webkit-transform;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fbtn-ori.icon, .breadcrumb > li + li.fbtn-ori:before,
-.fbtn-sub.icon,
-.breadcrumb > li + li.fbtn-sub:before {
-  vertical-align: bottom;
 }
 
 .fbtn-inner.open .fbtn-ori {
@@ -2730,31 +2725,10 @@ body.el-loading {
           transform: rotate(225deg);
 }
 
-.fbtn-rotate {
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-property: opacity, -webkit-transform;
-  transition-property: opacity, -webkit-transform;
-  transition-property: opacity, transform;
-  transition-property: opacity, transform, -webkit-transform;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.fbtn-inner.open .fbtn-rotate {
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
-}
-
 .fbtn-sub {
-  margin-left: -10px;
   opacity: 0;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  text-align: center;
   -webkit-transform: rotate(-225deg);
           transform: rotate(-225deg);
-  width: 20px;
 }
 .fbtn-inner.open .fbtn-sub {
   opacity: 1;
@@ -2769,7 +2743,7 @@ body.el-loading {
   display: none;
   font-size: 12px;
   line-height: 20px;
-  margin-top: -12px;
+  margin-top: -11px;
   margin-right: 16px;
   padding: 2px 8px;
   position: absolute;
@@ -2796,15 +2770,6 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
           transform: scale(1, 1);
   -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fbtn-wave {
-  border-radius: 50%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .card {
