@@ -46,15 +46,15 @@
 	&:focus:after {
 		opacity: 1;
 	}
-	&.waves-attach:after {
+	&.waves-attach:active:after {
 		background-color: transparent;
 	}
 	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
-		box-shadow: none !important;
+		box-shadow: none;
 		cursor: not-allowed;
-		opacity: 0.78;
+		opacity: 0.54;
 		&:after {
 			display: none;
 		}
@@ -70,11 +70,11 @@
 
 		.btn-#{$color} {
 			background-color: nth($palette-list-color, $i);
-			color: nth($palette-list-text, $i);
+			color: nth($palette-list-text, $i) !important;
 			&:active,
 			&:focus,
 			&:hover {
-				color: nth($palette-list-text, $i);
+				color: nth($palette-list-text, $i) !important;
 			}
 		}
 	}

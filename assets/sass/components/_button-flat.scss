@@ -4,20 +4,11 @@
 	&:after {
 		background-color: $offwhite-dark;
 		box-shadow: none;
-		display: block !important;
-	}
-	&:active:after,
-	&:focus:after,
-	&:hover:after {
-		opacity: 0.5;
-	}
-	&:not(.waves-attach):active:after {
-		opacity: 1;
 	}
 	&.disabled,
 	&[disabled],
 	fieldset[disabled] & {
-		background-color: transparent !important;
+		background-color: transparent;
 	}
 }
 
@@ -26,10 +17,10 @@
 		$i: index($palette-list-class, $color);
 
 		.btn-flat.btn-#{$color} {
-			color: nth($palette-list-color, $i);
+			color: nth($palette-list-color, $i) !important;
 			&[disabled],
 			fieldset[disabled] & {
-				color: nth($palette-list-light, $i);
+				color: nth($palette-list-light, $i) !important;
 			}
 		}
 	}
