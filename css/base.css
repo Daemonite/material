@@ -2752,7 +2752,6 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   display: flex;
   margin-top: 24px;
   margin-bottom: 24px;
-  position: relative;
 }
 .card[href]:focus, .card[href]:hover {
   outline: 0;
@@ -2809,28 +2808,27 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   color: inherit;
 }
 
-.card-action, .tile-action {
+.card-action {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   min-height: 48px;
-  position: relative;
 }
-.card-action:after, .tile-action:after, .card-action:before, .tile-action:before {
+.card-action:after, .card-action:before {
   content: "";
   display: table;
   line-height: 0;
 }
-.card-action:after, .tile-action:after {
+.card-action:after {
   clear: both;
 }
-.card-main > .card-action:first-child, .card-main > .tile-action:first-child {
+.card-main > .card-action:first-child {
   border-top: 0;
 }
 
-.card-action-btn, .tile-footer-btn {
+.card-action-btn {
   margin: 6px 8px;
   white-space: nowrap;
 }
-.card-action-btn .btn + .btn, .tile-footer-btn .btn + .btn {
+.card-action-btn .btn + .btn {
   margin-left: 8px;
 }
 
@@ -2845,25 +2843,23 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
   display: -ms-flexbox;
   display: flex;
   min-height: 56px;
-  position: relative;
 }
 .card-main > .card-header:last-child {
   border-bottom: 0;
 }
 
-.card-header-side, .tile-side {
+.card-header-side {
   margin-top: 12px;
   margin-bottom: 12px;
-  min-width: 0;
 }
-.card-header-side.pull-left, .pull-left.tile-side {
+.card-header-side.pull-left {
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;
       -ms-flex-order: -1;
           order: -1;
   padding-left: 16px;
 }
-.card-header-side.pull-right, .pull-right.tile-side {
+.card-header-side.pull-right {
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
       -ms-flex-order: 1;
@@ -2927,7 +2923,6 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
 .card-inner {
   margin: 24px 16px;
   min-width: 0;
-  position: relative;
 }
 .card-header .card-inner {
   -webkit-box-flex: 1;
@@ -5341,20 +5336,19 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
 .tile {
   background-color: #ffffff;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
-  display: block;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   min-height: 48px;
-  position: relative;
 }
 .tile[href]:focus, .tile[href]:hover {
+  outline: 0;
   text-decoration: none;
 }
 .tile.active {
-  margin-top: 24px !important;
-  margin-bottom: 24px !important;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .tile-brand {
@@ -5408,9 +5402,7 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
 }
 
 .tile-action {
-  border-top: 0;
-  float: right;
-  min-width: 0;
+  min-height: 48px;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
       -ms-flex-order: 1;
@@ -5427,13 +5419,10 @@ html.no-touchevents .tile:hover .tile-action {
   display: block;
 }
 
-.tile-action-show {
-  display: block !important;
+html.no-touchevents .tile-action-show {
+  display: block;
 }
 
-.tile-active-show {
-  min-height: 0;
-}
 .tile-active-show.collapsing {
   -webkit-transition: height 0.15s linear;
   transition: height 0.15s linear;
@@ -5452,24 +5441,37 @@ html.no-touchevents .tile:hover .tile-action {
   margin-right: -8px;
   margin-left: -8px;
 }
-
-@media only screen and (min-width: 1056px) and (max-width: 1439px) {
-  .tile-collapse-full.active {
-    margin-right: -63px;
-    margin-left: -63px;
-  }
+.tile-collapse > [data-toggle="tile"] {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
-@media only screen and (min-width: 1504px) {
+.tile-collapse > [data-toggle="tile"] [data-ignore="tile"] {
+  cursor: default;
+  cursor: initial;
+}
+
+.tile-collapse-full.active {
+  margin-right: calc(-50vw + 50% + 2px);
+  margin-left: calc(-50vw + 50% + 2px);
+}
+@media only screen and (min-width: 992px) {
   .tile-collapse-full.active {
-    margin-right: -63px;
-    margin-left: -63px;
+    margin-right: calc(-50vw + 50% + 16px);
+    margin-left: calc(-50vw + 50% + 16px);
   }
 }
 
 .tile-footer {
   background-color: #f5f5f5;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  position: relative;
+  min-height: 48px;
 }
 .tile-footer:after, .tile-footer:before {
   content: "";
@@ -5479,7 +5481,7 @@ html.no-touchevents .tile:hover .tile-action {
 .tile-footer:after {
   clear: both;
 }
-.tile-footer:first-child {
+.tile > .tile-footer:first-child, .tile-active-show > .tile-footer:first-child {
   border-top: 0;
 }
 
@@ -5508,6 +5510,14 @@ html.no-touchevents .tile:hover .tile-action {
   color: white;
 }
 
+.tile-footer-btn {
+  margin: 6px 8px;
+  white-space: nowrap;
+}
+.tile-footer-btn .btn + .btn {
+  margin-left: 8px;
+}
+
 .tile-inner {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -5515,19 +5525,32 @@ html.no-touchevents .tile:hover .tile-action {
           flex: 1;
   margin: 14px 16px;
   min-width: 0;
-  position: relative;
 }
 
 .tile-side {
-  padding-top: 14px;
-  padding-bottom: 14px;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+}
+.tile-side.pull-left {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+  margin-left: 16px;
+}
+.tile-side.pull-right {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-right: 16px;
 }
 
 .tile-sub {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  padding-right: 16px;
-  padding-left: 16px;
-  position: relative;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 .tile-sub:after, .tile-sub:before {
   content: "";
@@ -5561,25 +5584,6 @@ html.no-touchevents .tile:hover .tile-action {
 .tile-wrap {
   margin-top: 24px;
   margin-bottom: 24px;
-  position: relative;
-}
-
-div[data-toggle="tile"] {
-  cursor: pointer;
-  display: block;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  min-height: 0;
-}
-div[data-toggle="tile"] [data-ignore="tile"] {
-  cursor: default;
-  cursor: initial;
 }
 
 .content-heading {
