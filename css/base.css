@@ -5650,8 +5650,6 @@ html.no-touchevents .tile-action-show {
   background-color: #f5f5f5;
   color: #212121;
   min-height: 56px;
-  padding-top: 4px;
-  padding-bottom: 4px;
   z-index: 30;
 }
 .header:after {
@@ -5676,17 +5674,17 @@ html.no-touchevents .tile-action-show {
   z-index: 1;
 }
 .header .nav {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.header .nav > li > a,
+.header .nav > li > .a {
+  height: 56px;
 }
 .header .tab-nav {
   box-shadow: none;
-  margin-top: -4px;
-  margin-bottom: -4px;
-}
-.header .tab-nav .nav > li > a,
-.header .tab-nav .nav > li > .a {
-  padding-top: 18px;
-  padding-bottom: 16px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .header-brand {
@@ -5715,39 +5713,44 @@ html.no-touchevents .tile-action-show {
 }
 
 .header-affix {
-  max-height: 48px;
+  max-height: 56px;
   overflow: hidden;
-  position: static !important;
   width: 0;
 }
 .header-affix.affix {
-  overflow: visible;
   width: auto;
 }
 
 .header-affix-hide {
-  position: static !important;
+  max-height: 56px;
+  overflow: hidden;
+  width: auto;
 }
 .header-affix-hide.affix {
-  max-height: 48px;
-  overflow: hidden;
   width: 0;
 }
 
 .header-logo, .menu-logo,
 .header-text {
-  display: block;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   float: left;
   font-weight: 300;
-  height: 48px;
+  height: 56px;
   line-height: 28px;
   margin: 0 16px;
-  padding: 10px 0;
   white-space: nowrap;
 }
 .header-logo:focus, .menu-logo:focus, .header-logo:hover, .menu-logo:hover,
 .header-text:focus,
 .header-text:hover {
+  outline: 0;
   text-decoration: none;
 }
 
