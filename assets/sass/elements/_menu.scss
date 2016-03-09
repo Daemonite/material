@@ -12,33 +12,40 @@
 }
 
 .menu-collapse-toggle {
-	background-color: transparent !important;
+	align-items: center;
 	cursor: pointer;
-	display: block;
-	float: right;
-	padding: (($nav-height - $line-height) / 2) $grid-gutter;
+	display: flex;
+	height: 100%;
+	padding: 0 $grid-gutter;
 	position: absolute;
 		top: 0;
 		right: 0;
 	z-index: 1;
+	&:focus,
 	&:hover {
-		color: $link-color !important;
+		outline: 0;
+		text-decoration: none;
 	}
 }
 
-.menu-collapse-toggle-close {
-	margin-top: ($font-size / -2);
-	margin-left: ($font-size / -2);
-	opacity: 1;
-	position: absolute;
-		top: 50%;
-		left: 50%;
-	text-align: center;
-	transform: rotate(0);
+.menu-collapse-toggle-close,
+.menu-collapse-toggle-default {
 	transition-duration: 0.3s;
 	transition-property: opacity, transform;
 	transition-timing-function: $timing;
-	width: $font-size;
+}
+
+.menu-collapse-toggle-close {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	opacity: 1;
+	position: absolute;
+		top: 0;
+		left: 0;
+	transform: rotate(0);
+	width: 100%;;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 0;
 		transform: rotate(-225deg);
@@ -48,9 +55,6 @@
 .menu-collapse-toggle-default {
 	opacity: 0;
 	transform: rotate(225deg);
-	transition-duration: 0.3s;
-	transition-property: opacity, transform;
-	transition-timing-function: $timing;
 	.menu-collapse-toggle.collapsed & {
 		opacity: 1;
 		transform: rotate(0);
@@ -67,15 +71,9 @@
 		.a {
 			color: $black-text-solid;
 			font-weight: $font-weight-medium;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
 			&:focus,
 			&:hover {
 				background-color: $offwhite-solid;
-			}
-			.icon {
-				margin-right: $grid-gutter;
 			}
 		}
 		li.active {
@@ -88,15 +86,13 @@
 			a,
 			.a {
 				font-weight: $font-weight-normal;
+				min-height: ($nav-height * 0.75);
 				padding-left: ($grid-gutter * 2);
 			}
 			ul {
 				a,
 				.a {
 					font-size: $font-size-h6;
-					font-weight: $font-weight-light;
-					padding-top: (($nav-height - $line-height) / 4);
-					padding-bottom: (($nav-height - $line-height) / 4);
 					padding-left: ($grid-gutter * 3);
 				}
 			}
@@ -138,23 +134,31 @@
 }
 
 .menu-logo {
-	@extend .header-logo;
+	align-items: center;
 	border-bottom: 1px solid $black-divider-solid;
 	color: $black-text-solid;
-	float: none;
-	height: $header-height;
-	margin-right: 0;
+	display: flex;
+	font-size: $font-size-h4;
+	font-weight: $font-weight-light;
+	line-height: $line-height-h4;
 	margin-bottom: $margin-base;
-	margin-left: 0;
-	padding: (($header-height - $line-height-h4) / 2) $grid-gutter (($header-height - $line-height-h4) / 2 - 1);
-	&:focus,
-	&:hover {
+	min-height: $header-height;
+	padding: 0 $grid-gutter;
+	&[href]:focus,
+	&[href]:hover {
 		color: $black-text-solid;
+		outline: 0;
+		text-decoration: none;
 	}
 	.menu-content > & {
 		&:first-child {
 			margin-top: ($margin-base * -1);
 		}
+	}
+	img {
+		display: block;
+		max-height: ($header-height * 0.75);
+		width: auto;
 	}
 }
 
@@ -242,6 +246,9 @@
 .menu-top-user {
 	align-items: center;
 	display: flex;
+	> * {
+		flex-shrink: 0;
+	}
 }
 
 .nav-drawer {
