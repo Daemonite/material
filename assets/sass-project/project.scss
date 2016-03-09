@@ -20,22 +20,20 @@
 		}
 	}
 
-	.content-heading {
+	.content-header {
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 		background-size: cover;
 		margin-bottom: (($line-height / 2 + $margin-md * 2) * -1);
 		padding-top: ($header-height + $margin-sm);
 		padding-bottom: ($line-height / 2 + $margin-md * 2);
-		z-index: 0;
+		.page-brand & {
+			background-image: url(#{$css-path}/images/bg/brand.jpg);
+		}
 	}
 
 	.header .dropdown.open .dropdown-toggle {
 		background-color: transparent;
-	}
-
-	.page-brand .content-heading {
-		background-image: url(#{$css-path}/images/bg/brand.jpg);
 	}
 
 	.ui-card-pre {

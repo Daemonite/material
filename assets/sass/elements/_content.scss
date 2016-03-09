@@ -1,25 +1,25 @@
-.content-heading {
+.content-header {
 	background-color: $offwhite-solid;
 	color: $black-text-solid;
 	overflow: hidden;
 	padding-top: $margin-sm;
 	padding-bottom: $margin-sm;
-	position: relative;
-	z-index: 1;
-	.heading {
-		font-weight: $font-weight-light;
-	}
 }
 
 // colour
 	@each $color in $palette-list-class {
 		$i: index($palette-list-class, $color);
 
-		.page-#{$color} .content-heading {
+		.content-header-#{$color},
+		.page-#{$color} .content-header {
 			background-color: nth($palette-list-color, $i);
 			color: nth($palette-list-text, $i);
 		}
 	}
+
+.content-heading {
+	font-weight: $font-weight-light;
+}
 
 .content-inner {
 	margin-top: $margin-lg;
