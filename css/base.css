@@ -1777,18 +1777,12 @@ template,
   display: block;
 }
 
-.collapsed-hide {
-  display: inline;
-}
-.collapsed .collapsed-hide {
+.collapsed > .collapsed-hide {
   display: none;
 }
 
-.collapsed-show {
+:not(.collapsed) > .collapsed-show {
   display: none;
-}
-.collapsed .collapsed-show {
-  display: inline;
 }
 
 .collapsible-region {
