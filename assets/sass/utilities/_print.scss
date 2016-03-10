@@ -56,6 +56,10 @@
 		display: table-header-group;
 	}
 
+	.hidden-print {
+		display: none !important;
+	}
+
 	// material
 		.card,
 		.card-img,
@@ -67,53 +71,25 @@
 		.tile {
 			border: 1px solid $black-divider-solid;
 		}
-
-		.fbtn-container,
-		.menu,
-		.menu-toggle {
-			display: none !important;
-		}
-
-		.footer {
-			page-break-after: always;
-		}
-
-		.header a {
-			color: $link-color;
-		}
-
-		.tab-nav .nav > li.active > a {
-			border-bottom: 3px solid $black-divider-solid;
-			padding-bottom: ($line-height / 2 - 3);
-		}
 }
 
 .visible-print-block {
 	display: none !important;
-	// print
-		@media print {
-			display: block !important;
-		}
+	@media print {
+		display: block !important;
+	}
 }
 
 .visible-print-inline {
 	display: none !important;
-	// print
-		@media print {
-			display: inline !important;
-		}
+	@media print {
+		display: inline !important;
+	}
 }
 
 .visible-print-inline-block {
 	display: none !important;
-	// print
-		@media print {
-			display: inline-block !important;
-		}
-}
-
-@media print {
-	.hidden-print {
-		display: none !important;
+	@media print {
+		display: inline-block !important;
 	}
 }
