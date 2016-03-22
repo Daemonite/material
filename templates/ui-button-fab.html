@@ -163,7 +163,7 @@
 								</div>
 							</div>
 						</div>
-						<h2 class="content-sub-heading">FAB</h2>
+						<h2 class="content-sub-heading">Basic FAB</h2>
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
@@ -227,6 +227,23 @@
 							<div class="card-main">
 								<div class="card-header">
 									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Positioning</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p>Use <code>.fbtn-container</code> to place FAB at the bottom right corner of a page. Creating a customised wrapper may be required to place FAB somewhere else on a page.</p>
+<pre>
+&lt;div class="fbtn-container"&gt;
+    &lt;a class="fbtn"&gt; ... &lt;/a&gt;
+&lt;/div&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
 										<h3 class="h5 margin-bottom-no margin-top-no">Sizes</h3>
 									</div>
 								</div>
@@ -234,6 +251,120 @@
 									<p class="margin-top-no"><a class="fbtn fbtn-lg waves-attach waves-circle"><span class="icon">add</span></a></p>
 <pre>
 &lt;a class="fbtn fbtn-lg"&gt; ... &lt;/a&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Dropdown/Dropup</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Dropdown</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<div class="fbtn-inner">
+										<a class="fbtn fbtn-lg waves-attach waves-circle" data-toggle="dropdown"><span class="icon">add</span></a>
+										<div class="fbtn-dropdown">
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+										</div>
+									</div>
+<pre>
+&lt;div class="fbtn-inner"&gt;
+    &lt;a class="fbtn fbtn-lg" data-toggle="dropdown"&gt; ... &lt;/a&gt;
+    &lt;div class="fbtn-dropdown"&gt;
+        &lt;a class="fbtn fbtn-lg"&gt; ... &lt;/a&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Dropup</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<div class="fbtn-inner">
+										<a class="fbtn fbtn-lg waves-attach waves-circle" data-toggle="dropdown"><span class="icon">add</span></a>
+										<div class="fbtn-dropup">
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+										</div>
+									</div>
+<pre>
+&lt;div class="fbtn-inner"&gt;
+    &lt;a class="fbtn fbtn-lg" data-toggle="dropdown"&gt; ... &lt;/a&gt;
+    &lt;div class="fbtn-dropup"&gt;
+        &lt;a class="fbtn fbtn-lg"&gt; ... &lt;/a&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-header">
+									<div class="card-inner">
+										<h3 class="h5 margin-bottom-no margin-top-no">Transition Animation</h3>
+									</div>
+								</div>
+								<div class="card-inner">
+									<p>Add meaningful animation to FAB by combining <code>.fbtn-ori</code> and <code>.fbtn-sub</code>. <code>.fbtn-ori</code> displays by default and translates to <code>.fbtn-sub</code> once the dropdown/dropup menu associated with its FAB is being made visible to the user. <code>.fbtn-sub</code> then translates back to the original <code>.fbtn-ori</code> once the associated menu starts to hide from the user.</p>
+									<div class="fbtn-inner">
+										<a class="fbtn fbtn-lg waves-attach waves-circle" data-toggle="dropdown"><span class="fbtn-ori icon">add</span><span class="fbtn-sub icon">close</span></a>
+										<div class="fbtn-dropdown">
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+											<a class="fbtn waves-attach waves-circle" href="javascript:void(0)"><span class="icon">more_horiz</span></a>
+										</div>
+									</div>
+<pre>
+&lt;div class="fbtn-inner"&gt;
+    &lt;a class="fbtn fbtn-lg" data-toggle="dropdown"&gt;
+        &lt;span class="fbtn-ori"&gt; ... &lt;/span&gt;
+        &lt;span class="fbtn-sub"&gt; ... &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class="fbtn-dropdown"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+								</div>
+							</div>
+						</div>
+						<h2 class="content-sub-heading">Tooltip Text</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner">
+									<div class="row">
+										<div class="col-xx-6">
+											<a class="fbtn waves-attach waves-circle"><span class="fbtn-text">Tooltip Text (Right)</span><span class="icon">add</span></a>
+										</div>
+										<div class="col-xx-6">
+											<a class="fbtn waves-attach waves-circle"><span class="fbtn-text fbtn-text-left">Tooltip Text (Left)</span><span class="icon">add</span></a>
+										</div>
+									</div>
+<pre>
+&lt;a class="fbtn"&gt;
+    &lt;span class="fbtn-text"&gt; ... &lt;/span&gt;
+    ...
+&lt;/a&gt;
+
+&lt;a class="fbtn"&gt;
+    &lt;span class="fbtn-text fbtn-text-left"&gt; ... &lt;/span&gt;
+    ...
+&lt;/a&gt;
 </pre>
 								</div>
 							</div>
@@ -250,11 +381,11 @@
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
-			<div class="fbtn-dropdown">
-				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
-				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
-				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropup">
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>

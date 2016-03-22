@@ -2509,6 +2509,10 @@ template,
   transition-property: opacity, transform, -webkit-transform;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 40px;
 }
 .fbtn:active, .fbtn:focus, .fbtn:hover {
@@ -2587,9 +2591,9 @@ template,
   }
 }
 
-.fbtn-dropdown {
+.fbtn-dropdown,
+.fbtn-dropup {
   position: absolute;
-  bottom: 100%;
   left: 0;
   -webkit-transform: scale(0, 0);
           transform: scale(0, 0);
@@ -2599,21 +2603,32 @@ template,
   transition: transform 0s 0.3s, -webkit-transform 0s 0.3s;
   width: 100%;
 }
-.fbtn-inner.open .fbtn-dropdown {
+.fbtn-inner.open .fbtn-dropdown, .fbtn-inner.open
+.fbtn-dropup {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
   -webkit-transition: none;
   transition: none;
 }
-.fbtn-dropdown .fbtn {
+.fbtn-dropdown .fbtn,
+.fbtn-dropup .fbtn {
   opacity: 0;
   -webkit-transform: scale(0, 0);
           transform: scale(0, 0);
 }
-.fbtn-inner.open .fbtn-dropdown .fbtn {
+.fbtn-inner.open .fbtn-dropdown .fbtn, .fbtn-inner.open
+.fbtn-dropup .fbtn {
   opacity: 1;
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
+}
+
+.fbtn-dropdown {
+  top: 100%;
+}
+
+.fbtn-dropup {
+  bottom: 100%;
 }
 
 .fbtn-inner {
@@ -2670,11 +2685,11 @@ template,
   font-size: 12px;
   line-height: 20px;
   margin-top: -11px;
-  margin-right: 16px;
+  margin-left: 16px;
   padding: 2px 8px;
   position: absolute;
   top: 50%;
-  right: 100%;
+  left: 100%;
   white-space: nowrap;
 }
 .fbtn-inner.open .fbtn-text {
@@ -2696,6 +2711,13 @@ html.no-touchevents .fbtn:hover > .fbtn-text {
           transform: scale(1, 1);
   -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fbtn-text-left {
+  margin-right: 16px;
+  margin-left: 0;
+  right: 100%;
+  left: auto;
 }
 
 .card {

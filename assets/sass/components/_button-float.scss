@@ -17,6 +17,7 @@
 	transition-duration: 0.3s;
 	transition-property: opacity, transform;
 	transition-timing-function: $timing;
+	user-select: none;
 	width: $fbtn-height;
 	&:active,
 	&:focus,
@@ -77,9 +78,9 @@
 		}
 }
 
-.fbtn-dropdown {
+.fbtn-dropdown,
+.fbtn-dropup {
 	position: absolute;
-		bottom: 100%;
 		left: 0;
 	transform: scale(0, 0);
 	transition: transform 0s 0.3s;
@@ -96,6 +97,16 @@
 			transform: scale(1, 1);
 		}
 	}
+}
+
+.fbtn-dropdown {
+	// position
+		top: 100%;
+}
+
+.fbtn-dropup {
+	// position
+		bottom: 100%;
 }
 
 .fbtn-inner {
@@ -140,11 +151,11 @@
 	font-size: $font-size-h6;
 	line-height: $line-height-h6;
 	margin-top: ($line-height-h6 / -2 - 1);
-	margin-right: $grid-gutter;
+	margin-left: $grid-gutter;
 	padding: 2px ($grid-gutter / 2);
 	position: absolute;
 		top: 50%;
-		right: 100%;
+		left: 100%;
 	white-space: nowrap;
 	.fbtn-inner.open & {
 		display: block;
@@ -161,4 +172,12 @@
 			transform: scale(1, 1);
 			transition: opacity 0.3s $timing;
 		}
+}
+
+.fbtn-text-left {
+	margin-right: $grid-gutter;
+	margin-left: 0;
+	// position
+		right: 100%;
+		left: auto;
 }
