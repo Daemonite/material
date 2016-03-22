@@ -23,12 +23,12 @@
 				<ul class="nav">
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
-						<ul class="collapse in menu-collapse" id="doc_menu_components">
+						<ul class="menu-collapse collapse in" id="doc_menu_components">
 							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons<small class="margin-left-xs">(Floating Action Button)</small></a>
 							</li>
 							<li>
 								<a class="waves-attach" href="ui-card.html">Cards</a>
@@ -70,7 +70,7 @@
 					</li>
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
-						<ul class="collapse menu-collapse" id="doc_menu_extras">
+						<ul class="menu-collapse collapse" id="doc_menu_extras">
 							<li>
 								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
 							</li>
@@ -90,7 +90,7 @@
 					</li>
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
-						<ul class="collapse menu-collapse" id="doc_menu_javascript">
+						<ul class="menu-collapse collapse" id="doc_menu_javascript">
 							<li>
 								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
@@ -120,8 +120,9 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-affix-hide header-logo hidden-md hidden-lg margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Nav Drawers</span>
+		<a class="header-logo header-affix-hide margin-left-no margin-right-no hidden-md hidden-lg" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-logo header-affix hidden-md hidden-lg margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Nav Drawers</span>
+		<span class="header-logo header-affix visible-md-block visible-lg-block margin-right-no" data-offset-top="213" data-spy="affix">Nav Drawers</span>
 		<ul class="nav nav-list pull-right">
 			<li>
 				<a data-toggle="menu" href="#doc_menu_profile">
@@ -138,7 +139,7 @@
 					<img alt="John Smith" src="images/samples/landscape.jpg">
 				</div>
 				<div class="menu-top-info">
-					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar avatar-inline margin-right"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
 				</div>
 				<div class="menu-top-info-sub">
 					<small>Some additional information about John Smith</small>
@@ -147,9 +148,18 @@
 			<div class="menu-content">
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" href="javascript:void(0)">Profile Settings</a>
-						<span class="collapsed menu-collapse-toggle waves-attach" data-target="#doc_menu_profile_settings" data-toggle="collapse"><i class="icon menu-collapse-toggle-close">close</i><i class="icon menu-collapse-toggle-default">add</i></span>
-						<ul class="collapse menu-collapse" id="doc_menu_profile_settings">
+						<a class="waves-attach" href="javascript:void(0)">
+							Profile Settings
+							<span class="menu-collapse-toggle collapsed waves-attach" data-target="#doc_menu_profile_settings" data-toggle="collapse">
+								<div class="menu-collapse-toggle-close">
+									<i class="icon icon-lg">close</i>
+								</div>
+								<div class="menu-collapse-toggle-default">
+									<i class="icon icon-lg">add</i>
+								</div>
+							</span>
+						</a>
+						<ul class="menu-collapse collapse" id="doc_menu_profile_settings">
 							<li>
 								<a class="waves-attach" href="javascript:void(0)">First Item</a>
 							</li>
@@ -172,11 +182,11 @@
 		</div>
 	</nav>
 	<main class="content">
-		<div class="content-heading">
+		<div class="content-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
-						<h1 class="heading">Navigation Drawers</h1>
+						<h1 class="content-heading">Navigation Drawers</h1>
 					</div>
 				</div>
 			</div>
@@ -223,24 +233,24 @@
 			</div>
 		</div>
 	</main>
-	<footer class="footer">
+	<footer class="ui-footer">
 		<div class="container">
 			<p>Material</p>
 		</div>
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
-			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
-				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
-				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropup">
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
 
 	<!-- js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
 
 	<!-- js for doc -->

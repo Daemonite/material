@@ -24,15 +24,15 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Collapse</span>
+		<a class="header-logo header-affix-hide margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-logo header-affix margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Collapse</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 					<span class="access-hide">John Smith</span>
 					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu dropdown-menu-right">
 					<li>
 						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
 					</li>
@@ -53,12 +53,12 @@
 				<ul class="nav">
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
-						<ul class="collapse menu-collapse" id="doc_menu_components">
+						<ul class="menu-collapse collapse" id="doc_menu_components">
 							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons<small class="margin-left-xs">(Floating Action Button)</small></a>
 							</li>
 							<li>
 								<a class="waves-attach" href="ui-card.html">Cards</a>
@@ -100,7 +100,7 @@
 					</li>
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
-						<ul class="collapse menu-collapse" id="doc_menu_extras">
+						<ul class="menu-collapse collapse" id="doc_menu_extras">
 							<li>
 								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
 							</li>
@@ -120,7 +120,7 @@
 					</li>
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
-						<ul class="collapse in menu-collapse" id="doc_menu_javascript">
+						<ul class="menu-collapse collapse in" id="doc_menu_javascript">
 							<li>
 								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
@@ -143,11 +143,11 @@
 		</div>
 	</nav>
 	<main class="content">
-		<div class="content-heading">
+		<div class="content-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-						<h1 class="heading">Collapse</h1>
+						<h1 class="content-heading">Collapse</h1>
 					</div>
 				</div>
 			</div>
@@ -164,7 +164,7 @@
 								</div>
 								<div class="card-action">
 									<div class="card-action-btn pull-left">
-										<a class="btn btn-flat waves-attach waves-button" href="http://getbootstrap.com/javascript/#collapse" target="_blank">Bootstrap Collapse<span class="icon margin-left-sm">open_in_new</span></a>
+										<a class="btn btn-flat waves-attach" href="http://getbootstrap.com/javascript/#collapse" target="_blank">Bootstrap Collapse<span class="icon margin-left-sm">open_in_new</span></a>
 									</div>
 								</div>
 							</div>
@@ -173,8 +173,13 @@
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
-									<p><a class="btn btn-flat collapsed waves-attach waves-button" data-toggle="collapse" href="#doc_collapse_example"><span class="collapsed-hide">Collapse</span><span class="collapsed-show">Expand</span></a></p>
-									<div class="collapse collapsible-region" id="doc_collapse_example">
+									<p>
+										<a class="btn btn-flat collapsed waves-attach" data-toggle="collapse" href="#doc_collapse_example">
+											<span class="collapsed-hide">Collapse</span>
+											<span class="collapsed-show">Expand</span>
+										</a>
+									</p>
+									<div class="collapsible-region collapse" id="doc_collapse_example">
 										<p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
 										<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 										<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
@@ -186,29 +191,69 @@
 &lt;a data-toggle="collapse" href="#selector"&gt; ... &lt;/a&gt;
 &lt;div class="collapse collapsible-region" id="selector"&gt; ... &lt;/div&gt;
 </pre>
+						<h2 class="content-sub-heading">Helper Classes</h2>
+						<div class="card">
+							<div class="card-main">
+								<div class="card-inner margin-bottom-no">
+									<p>Helper classes <code>.collapsed-hide</code> and <code>.collapsed-show</code> can be used to change content of collapse's toggle depending on whether its target is collapsed or expanded.</p>
+									<div class="card-table">
+										<div class="table-responsive">
+											<table class="table" title="A table within a card">
+												<thead>
+													<tr>
+														<th>Class</th>
+														<th>Collapsed</th>
+														<th>Expanded</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><code>.collapsed-hide</code></td>
+														<td>Hidden</td>
+														<td>Shown</td>
+													</tr>
+													<tr>
+														<td><code>.collapsed-show</code></td>
+														<td>Shown</td>
+														<td>Hidden</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+<pre>
+&lt;a data-toggle="collapse" href="#selector"&gt;
+    ...
+    &lt;span class="collapsed-hide"&gt; show when expanded &lt;/span&gt;
+    &lt;span class="collapsed-hide"&gt; show when collapsed &lt;/span&gt;
+&lt;/a&gt;
+</pre>
 					</section>
 				</div>
 			</div>
 		</div>
 	</main>
-	<footer class="footer">
+	<footer class="ui-footer">
 		<div class="container">
 			<p>Material</p>
 		</div>
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
-			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
-				<a class="fbtn fbtn-blue" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
-				<a class="fbtn fbtn-alt" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropup">
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
 
 	<!-- js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
 
 	<!-- js for doc -->

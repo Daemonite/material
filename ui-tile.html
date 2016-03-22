@@ -24,15 +24,15 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-affix-hide header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
-		<span class="header-affix header-logo margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Tiles</span>
+		<a class="header-logo header-affix-hide margin-left-no margin-right-no" data-offset-top="213" data-spy="affix" href="index.html">Material</a>
+		<span class="header-logo header-affix margin-left-no margin-right-no" data-offset-top="213" data-spy="affix">Tiles</span>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 				<a class="dropdown-toggle padding-left-no padding-right-no" data-toggle="dropdown">
 					<span class="access-hide">John Smith</span>
 					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
 				</a>
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu dropdown-menu-right">
 					<li>
 						<a class="padding-right-lg waves-attach" href="javascript:void(0)"><span class="icon icon-lg margin-right">account_box</span>Profile Settings</a>
 					</li>
@@ -53,12 +53,12 @@
 				<ul class="nav">
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
-						<ul class="collapse menu-collapse" id="doc_menu_components">
+						<ul class="menu-collapse collapse" id="doc_menu_components">
 							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
 							<li>
-								<a class="waves-attach" href="ui-button-fab.html">Buttons <small>(Floating Action Button)</small></a>
+								<a class="waves-attach" href="ui-button-fab.html">Buttons<small class="margin-left-xs">(Floating Action Button)</small></a>
 							</li>
 							<li>
 								<a class="waves-attach" href="ui-card.html">Cards</a>
@@ -100,7 +100,7 @@
 					</li>
 					<li>
 						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
-						<ul class="collapse in menu-collapse" id="doc_menu_extras">
+						<ul class="menu-collapse collapse in" id="doc_menu_extras">
 							<li>
 								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
 							</li>
@@ -120,7 +120,7 @@
 					</li>
 					<li>
 						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
-						<ul class="collapse menu-collapse" id="doc_menu_javascript">
+						<ul class="menu-collapse collapse" id="doc_menu_javascript">
 							<li>
 								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
@@ -143,11 +143,11 @@
 		</div>
 	</nav>
 	<main class="content">
-		<div class="content-heading">
+		<div class="content-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
-						<h1 class="heading">Tiles</h1>
+						<h1 class="content-heading">Tiles</h1>
 					</div>
 				</div>
 			</div>
@@ -166,7 +166,7 @@
 						<h2 class="content-sub-heading">Basic Tiles</h2>
 						<div class="tile-wrap">
 							<div class="tile">
-								<div class="pull-left tile-side">
+								<div class="tile-side pull-left">
 									<div class="avatar avatar-sm">
 										<span class="icon">alarm</span>
 									</div>
@@ -176,13 +176,13 @@
 								</div>
 							</div>
 							<div class="tile">
-								<div class="pull-left tile-side">
+								<div class="tile-side pull-left">
 									<div class="avatar avatar-sm avatar-brand">
 										<span class="icon">backup</span>
 									</div>
 								</div>
 								<div class="tile-action tile-action-show">
-									<ul class="margin-no nav nav-list pull-right">
+									<ul class="nav nav-list margin-no pull-right">
 										<li>
 											<a class="text-black-sec waves-attach" href="javascript:void(0)"><span class="icon">delete</span></a>
 										</li>
@@ -193,13 +193,13 @@
 								</div>
 							</div>
 							<div class="tile">
-								<div class="pull-left tile-side">
+								<div class="tile-side pull-left">
 									<div class="avatar avatar-sm avatar-brand-accent">
 										<span class="icon">launch</span>
 									</div>
 								</div>
 								<div class="tile-action">
-									<ul class="margin-no nav nav-list pull-right">
+									<ul class="nav nav-list margin-no pull-right">
 										<li>
 											<a class="text-black-sec waves-attach" href="javascript:void(0)"><span class="icon">add</span></a>
 										</li>
@@ -208,7 +208,7 @@
 										</li>
 										<li class="dropdown">
 											<a class="dropdown-toggle text-black-sec waves-attach" data-toggle="dropdown"><span class="icon">settings</span></a>
-											<ul class="dropdown-menu">
+											<ul class="dropdown-menu dropdown-menu-right">
 												<li>
 													<a class="waves-attach" href="javascript:void(0)"><span class="icon margin-right-sm">loop</span>Lorem Ipsum</a>
 												</li>
@@ -230,7 +230,7 @@
 <pre>
 &lt;div class="tile-wrap"&gt;
     &lt;div class="tile"&gt;
-        &lt;div class="pull-left tile-side"&gt; ... &lt;/div&gt;
+        &lt;div class="tile-side pull-left"&gt; ... &lt;/div&gt;
         &lt;div class="tile-action"&gt; ... &lt;/div&gt;
         &lt;div class="tile-inner"&gt; ... &lt;/div&gt;
     &lt;/div&gt;
@@ -241,7 +241,7 @@
 						<div class="tile-wrap">
 							<div class="tile tile-collapse">
 								<div data-target="#doc_tile_example_1" data-toggle="tile">
-									<div class="pull-left tile-side" data-ignore="tile">
+									<div class="tile-side pull-left" data-ignore="tile">
 										<div class="avatar avatar-sm">
 											<span class="icon">alarm</span>
 										</div>
@@ -264,7 +264,7 @@
 							</div>
 							<div class="tile tile-collapse">
 								<div data-target="#doc_tile_example_2" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand">
 											<span class="icon">backup</span>
 										</div>
@@ -287,7 +287,7 @@
 							</div>
 							<div class="tile tile-collapse">
 								<div data-target="#doc_tile_example_3" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand-accent">
 											<span class="icon">launch</span>
 										</div>
@@ -315,7 +315,7 @@
         &lt;div data-target="..." data-toggle="tile"&gt;
             &lt;div class="tile-inner"&gt; ... &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class="collapse tile-active-show" id="..."&gt;
+        &lt;div class="tile-active-show collapse" id="..."&gt;
             &lt;div class="tile-sub"&gt; ... &lt;/div&gt;
             &lt;div class="tile-footer"&gt; ... &lt;/div&gt;
         &lt;/div&gt;
@@ -330,8 +330,8 @@
 							</div>
 							<div class="tile tile-collapse">
 								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_4" data-toggle="tile">
-									<div class="pull-left tile-side">
-										<div class="avatar avatar-sm avatar-amber">
+									<div class="tile-side pull-left">
+										<div class="avatar avatar-sm">
 											<span class="icon">alarm</span>
 										</div>
 									</div>
@@ -353,7 +353,7 @@
 							</div>
 							<div class="tile tile-collapse">
 								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_5" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand">
 											<span class="icon">backup</span>
 										</div>
@@ -376,7 +376,7 @@
 							</div>
 							<div class="tile tile-collapse">
 								<div data-parent="#doc_tile_example_parent" data-target="#doc_tile_example_6" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand-accent">
 											<span class="icon">launch</span>
 										</div>
@@ -406,8 +406,8 @@
 							</div>
 							<div class="tile tile-collapse tile-collapse-full">
 								<div data-parent=".content" data-target="#doc_tile_example_7" data-toggle="tile">
-									<div class="pull-left tile-side">
-										<div class="avatar avatar-sm avatar-amber">
+									<div class="tile-side pull-left">
+										<div class="avatar avatar-sm">
 											<span class="icon">alarm</span>
 										</div>
 									</div>
@@ -429,7 +429,7 @@
 							</div>
 							<div class="tile tile-collapse tile-collapse-full">
 								<div data-parent=".content" data-target="#doc_tile_example_8" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand">
 											<span class="icon">backup</span>
 										</div>
@@ -452,7 +452,7 @@
 							</div>
 							<div class="tile tile-collapse tile-collapse-full">
 								<div data-parent=".content" data-target="#doc_tile_example_9" data-toggle="tile">
-									<div class="pull-left tile-side">
+									<div class="tile-side pull-left">
 										<div class="avatar avatar-sm avatar-brand-accent">
 											<span class="icon">launch</span>
 										</div>
@@ -580,24 +580,24 @@
 			</div>
 		</div>
 	</main>
-	<footer class="footer">
+	<footer class="ui-footer">
 		<div class="container">
 			<p>Material</p>
 		</div>
 	</footer>
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
-			<a class="fbtn fbtn-brand-accent fbtn-lg" data-toggle="dropdown"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
-			<div class="fbtn-dropdown">
-				<a class="fbtn" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text">Fork me on GitHub</span><span class="icon">code</span></a>
-				<a class="fbtn fbtn-brand" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text">Follow Daemon on Twitter</span><span class="icon">share</span></a>
-				<a class="fbtn fbtn-green" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text">Visit Daemon Website</span><span class="icon">link</span></a>
+			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light" data-toggle="dropdown"><span class="fbtn-text fbtn-text-left">Links</span><span class="fbtn-ori icon">apps</span><span class="fbtn-sub icon">close</span></a>
+			<div class="fbtn-dropup">
+				<a class="fbtn waves-attach waves-circle" href="https://github.com/Daemonite/material" target="_blank"><span class="fbtn-text fbtn-text-left">Fork me on GitHub</span><span class="icon">code</span></a>
+				<a class="fbtn fbtn-brand waves-attach waves-circle waves-light" href="https://twitter.com/daemonites" target="_blank"><span class="fbtn-text fbtn-text-left">Follow Daemon on Twitter</span><span class="icon">share</span></a>
+				<a class="fbtn fbtn-green waves-attach waves-circle" href="http://www.daemon.com.au/" target="_blank"><span class="fbtn-text fbtn-text-left">Visit Daemon Website</span><span class="icon">link</span></a>
 			</div>
 		</div>
 	</div>
 
 	<!-- js -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
 
 	<!-- js for doc -->
