@@ -3592,29 +3592,16 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
 }
 
 .picker__box {
-  border-radius: 4px;
-  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  outline: 0;
-  position: relative;
-  vertical-align: middle;
-  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0 0 4px 4px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 @media only screen and (min-width: 992px) {
   .picker__box {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    border-radius: 0 4px 4px 0;
   }
 }
 
@@ -3635,25 +3622,14 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
 .picker__date-display-bottom {
   font-size: 34px;
   line-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .picker__date-display-top {
   color: #7986cb;
   margin-bottom: 8px;
-}
-
-.picker__date-inner {
-  background-color: #ffffff;
-  border-radius: 0 0 4px 4px;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-@media only screen and (min-width: 992px) {
-  .picker__date-inner {
-    border-radius: 0 4px 4px 0;
-  }
 }
 
 .picker__day {
@@ -3922,6 +3898,35 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
 @media only screen and (min-width: 992px) {
   .picker__weekday-display {
     display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.picker__wrap {
+  border-radius: 4px;
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  outline: 0;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+}
+@media only screen and (min-width: 992px) {
+  .picker__wrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 
@@ -5050,7 +5055,7 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 21;
+  z-index: 41;
 }
 .snackbar a {
   cursor: pointer;

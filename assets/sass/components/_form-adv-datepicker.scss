@@ -5,17 +5,12 @@
 }
 
 .picker__box {
-	border-radius: 4px;
-	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
-	display: flex;
-	flex-direction: column;
-	outline: 0;
-	position: relative;
-	vertical-align: middle;
-	z-index: 1;
+	background-color: $white;
+	border-radius: 0 0 4px 4px;
+	flex: 1;
 	// 992
 		@include responsive(md) {
-			flex-direction: row;
+			border-radius: 0 4px 4px 0;
 		}
 }
 
@@ -35,21 +30,14 @@
 .picker__date-display-bottom {
 	font-size: $font-size-h2;
 	line-height: $line-height-h2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .picker__date-display-top {
 	color: $brand-color-light;
 	margin-bottom: $margin-base;
-}
-
-.picker__date-inner {
-	background-color: $white;
-	border-radius: 0 0 4px 4px;
-	flex: 1;
-	// 992
-		@include responsive(md) {
-			border-radius: 0 4px 4px 0;
-		}
 }
 
 .picker__day {
@@ -289,5 +277,22 @@
 	// 992
 		@include responsive(md) {
 			display: block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+}
+
+.picker__wrap {
+	border-radius: 4px;
+	box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	outline: 0;
+	position: relative;
+	vertical-align: middle;
+	z-index: 1;
+	// 992
+		@include responsive(md) {
+			flex-direction: row;
 		}
 }
