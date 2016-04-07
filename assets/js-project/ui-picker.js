@@ -1,7 +1,7 @@
 // ui-picker.html
-	$('#doc_datepicker_example_1').pickdate();
+	$('#ui_datepicker_example_1').pickdate();
 
-	$('#doc_datepicker_example_2').pickdate({
+	$('#ui_datepicker_example_2').pickdate({
 		cancel: 'Clear',
 		closeOnCancel: false,
 		closeOnSelect: true,
@@ -25,7 +25,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_3').pickdate({
+	$('#ui_datepicker_example_3').pickdate({
 		disable: [
 			[2016,0,12],
 			[2016,0,13],
@@ -34,7 +34,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_4').pickdate({
+	$('#ui_datepicker_example_4').pickdate({
 		disable: [
 			new Date(2016,0,12),
 			new Date(2016,0,13),
@@ -43,14 +43,14 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_5').pickdate({
+	$('#ui_datepicker_example_5').pickdate({
 		disable: [
 			2, 4, 6
 		],
 		today: ''
 	});
 
-	$('#doc_datepicker_example_6').pickdate({
+	$('#ui_datepicker_example_6').pickdate({
 		disable: [
 			{
 				from: [2016,0,12],
@@ -60,7 +60,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_7').pickdate({
+	$('#ui_datepicker_example_7').pickdate({
 		disable: [
 			true,
 			3,
@@ -70,7 +70,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_8').pickdate({
+	$('#ui_datepicker_example_8').pickdate({
 		disable: [
 			{
 				from: [2016,0,10],
@@ -86,19 +86,19 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_9').pickdate({
+	$('#ui_datepicker_example_9').pickdate({
 		max: [2016,0,30],
 		min: [2016,0,10],
 		today: ''
 	});
 
-	$('#doc_datepicker_example_10').pickdate({
+	$('#ui_datepicker_example_10').pickdate({
 		max: new Date(2016,0,30),
 		min: new Date(2016,0,10),
 		today: ''
 	});
 
-	$('#doc_datepicker_example_11').pickdate({
+	$('#ui_datepicker_example_11').pickdate({
 		max: true,
 		min: -10,
 		today: ''

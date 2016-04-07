@@ -3,8 +3,8 @@
 	    pickerMap,
 	    pickerMarker;
 
-	function initMap () {
-		pickerMap = new google.maps.Map(document.getElementById('picker_info_map_wrap'), {
+	function initPickerMap () {
+		pickerMap = new google.maps.Map(document.getElementById('ui_picker_map_wrap'), {
 			center: {
 				lat: 0,
 				lng: 0
@@ -21,7 +21,7 @@
 	};
 
 	if (typeof google != 'undefined') {
-		initMap();
+		initPickerMap();
 	};
 
 	if (typeof jQuery.ui != 'undefined') {
@@ -74,7 +74,7 @@
 					$('.ui-picker-info-desc-wrap').html($selectingParent.find('.ui-picker-info-desc').html());
 					$('.ui-picker-info-title-wrap').html($selectingParent.find('.ui-picker-info-title').html());
 
-					var pickerMapLatLng = new google.maps.LatLng($selectingParent.find('.ui-picker-info-map-lat').html(), $selectingParent.find('.ui-picker-info-map-lng').html());
+					var pickerMapLatLng = new google.maps.LatLng($selectingParent.find('.ui-picker-map-lat').html(), $selectingParent.find('.ui-picker-map-lng').html());
 
 					pickerMap.setCenter(pickerMapLatLng);
 					pickerMarker.setMap(pickerMap);
@@ -96,7 +96,7 @@
 						$('.ui-picker-info-desc-wrap').html($first.find('.ui-picker-info-desc').html());
 						$('.ui-picker-info-title-wrap').html($first.find('.ui-picker-info-title').html());
 
-						var firstLatLng = new google.maps.LatLng($first.find('.ui-picker-info-map-lat').html(), $first.find('.ui-picker-info-map-lng').html());
+						var firstLatLng = new google.maps.LatLng($first.find('.ui-picker-map-lat').html(), $first.find('.ui-picker-map-lng').html());
 
 						pickerMap.setCenter(firstLatLng);
 						pickerMarker.setMap(pickerMap);

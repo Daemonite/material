@@ -4,7 +4,7 @@
 		$($(this).attr('data-target')).addClass('el-loading-done');
 	});
 
-	$('#doc_el_loading_example_wrap .tile-active-show').each(function (index) {
+	$('#ui_el_loading_example_wrap .tile-active-show').each(function (index) {
 		var $this = $(this),
 		    timer;
 

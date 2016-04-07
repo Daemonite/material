@@ -3,8 +3,8 @@
 	    pickerMap,
 	    pickerMarker;
 
-	function initMap () {
-		pickerMap = new google.maps.Map(document.getElementById('picker_info_map_wrap'), {
+	function initPickerMap () {
+		pickerMap = new google.maps.Map(document.getElementById('ui_picker_map_wrap'), {
 			center: {
 				lat: 0,
 				lng: 0
@@ -21,7 +21,7 @@
 	};
 
 	if (typeof google != 'undefined') {
-		initMap();
+		initPickerMap();
 	};
 
 	if (typeof jQuery.ui != 'undefined') {
@@ -74,7 +74,7 @@
 					$('.ui-picker-info-desc-wrap').html($selectingParent.find('.ui-picker-info-desc').html());
 					$('.ui-picker-info-title-wrap').html($selectingParent.find('.ui-picker-info-title').html());
 
-					var pickerMapLatLng = new google.maps.LatLng($selectingParent.find('.ui-picker-info-map-lat').html(), $selectingParent.find('.ui-picker-info-map-lng').html());
+					var pickerMapLatLng = new google.maps.LatLng($selectingParent.find('.ui-picker-map-lat').html(), $selectingParent.find('.ui-picker-map-lng').html());
 
 					pickerMap.setCenter(pickerMapLatLng);
 					pickerMarker.setMap(pickerMap);
@@ -96,7 +96,7 @@
 						$('.ui-picker-info-desc-wrap').html($first.find('.ui-picker-info-desc').html());
 						$('.ui-picker-info-title-wrap').html($first.find('.ui-picker-info-title').html());
 
-						var firstLatLng = new google.maps.LatLng($first.find('.ui-picker-info-map-lat').html(), $first.find('.ui-picker-info-map-lng').html());
+						var firstLatLng = new google.maps.LatLng($first.find('.ui-picker-map-lat').html(), $first.find('.ui-picker-map-lng').html());
 
 						pickerMap.setCenter(firstLatLng);
 						pickerMarker.setMap(pickerMap);
@@ -111,9 +111,9 @@
 	});
 
 // ui-picker.html
-	$('#doc_datepicker_example_1').pickdate();
+	$('#ui_datepicker_example_1').pickdate();
 
-	$('#doc_datepicker_example_2').pickdate({
+	$('#ui_datepicker_example_2').pickdate({
 		cancel: 'Clear',
 		closeOnCancel: false,
 		closeOnSelect: true,
@@ -137,7 +137,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_3').pickdate({
+	$('#ui_datepicker_example_3').pickdate({
 		disable: [
 			[2016,0,12],
 			[2016,0,13],
@@ -146,7 +146,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_4').pickdate({
+	$('#ui_datepicker_example_4').pickdate({
 		disable: [
 			new Date(2016,0,12),
 			new Date(2016,0,13),
@@ -155,14 +155,14 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_5').pickdate({
+	$('#ui_datepicker_example_5').pickdate({
 		disable: [
 			2, 4, 6
 		],
 		today: ''
 	});
 
-	$('#doc_datepicker_example_6').pickdate({
+	$('#ui_datepicker_example_6').pickdate({
 		disable: [
 			{
 				from: [2016,0,12],
@@ -172,7 +172,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_7').pickdate({
+	$('#ui_datepicker_example_7').pickdate({
 		disable: [
 			true,
 			3,
@@ -182,7 +182,7 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_8').pickdate({
+	$('#ui_datepicker_example_8').pickdate({
 		disable: [
 			{
 				from: [2016,0,10],
@@ -198,19 +198,19 @@
 		today: ''
 	});
 
-	$('#doc_datepicker_example_9').pickdate({
+	$('#ui_datepicker_example_9').pickdate({
 		max: [2016,0,30],
 		min: [2016,0,10],
 		today: ''
 	});
 
-	$('#doc_datepicker_example_10').pickdate({
+	$('#ui_datepicker_example_10').pickdate({
 		max: new Date(2016,0,30),
 		min: new Date(2016,0,10),
 		today: ''
 	});
 
-	$('#doc_datepicker_example_11').pickdate({
+	$('#ui_datepicker_example_11').pickdate({
 		max: true,
 		min: -10,
 		today: ''
@@ -222,7 +222,7 @@
 		$($(this).attr('data-target')).addClass('el-loading-done');
 	});
 
-	$('#doc_el_loading_example_wrap .tile-active-show').each(function (index) {
+	$('#ui_el_loading_example_wrap .tile-active-show').each(function (index) {
 		var $this = $(this),
 		    timer;
 
@@ -243,7 +243,7 @@
 // ui-snackbar.html
 	var snackbarText = 1;
 
-	$('#doc_snackbar_toggle_1').on('click', function () {
+	$('#ui_snackbar_toggle_1').on('click', function () {
 		$('body').snackbar({
 			content: 'Simple snackbar ' + snackbarText + ' with some text',
 			show: function () {
@@ -252,7 +252,7 @@
 		});
 	});
 
-	$('#doc_snackbar_toggle_2').on('click', function () {
+	$('#ui_snackbar_toggle_2').on('click', function () {
 		$('body').snackbar({
 			content: '<a data-dismiss="snackbar">Dismiss</a><div class="snackbar-text">Simple snackbar ' + snackbarText + ' with some text and a simple <a href="javascript:void(0)">link</a>.</div>',
 			show: function () {
