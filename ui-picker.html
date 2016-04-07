@@ -8,18 +8,16 @@
 
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
-
-	<!-- css for doc -->
 	<link href="css/project.min.css" rel="stylesheet">
 
 	<!-- favicon -->
 	<!-- ... -->
 </head>
 <body class="page-brand">
-	<header class="header header-transparent header-waterfall">
+	<header class="header header-transparent header-waterfall ui-header">
 		<ul class="nav nav-list pull-left">
 			<li>
-				<a data-toggle="menu" href="#doc_menu">
+				<a data-toggle="menu" href="#ui_menu">
 					<span class="icon icon-lg">menu</span>
 				</a>
 			</li>
@@ -46,14 +44,14 @@
 			</li>
 		</ul>
 	</header>
-	<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
+	<nav aria-hidden="true" class="menu" id="ui_menu" tabindex="-1">
 		<div class="menu-scroll">
 			<div class="menu-content">
 				<a class="menu-logo" href="index.html">Material</a>
 				<ul class="nav">
 					<li>
-						<a class="waves-attach" data-toggle="collapse" href="#doc_menu_components">Components</a>
-						<ul class="menu-collapse collapse in" id="doc_menu_components">
+						<a class="waves-attach" data-toggle="collapse" href="#ui_menu_components">Components</a>
+						<ul class="menu-collapse collapse in" id="ui_menu_components">
 							<li>
 								<a class="waves-attach" href="ui-button.html">Buttons</a>
 							</li>
@@ -99,8 +97,8 @@
 						</ul>
 					</li>
 					<li>
-						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_extras">Extras</a>
-						<ul class="menu-collapse collapse" id="doc_menu_extras">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_extras">Extras</a>
+						<ul class="menu-collapse collapse" id="ui_menu_extras">
 							<li>
 								<a class="waves-attach" href="ui-avatar.html">Avatars</a>
 							</li>
@@ -119,8 +117,8 @@
 						</ul>
 					</li>
 					<li>
-						<a class="collapsed waves-attach" data-toggle="collapse" href="#doc_menu_javascript">Javascript</a>
-						<ul class="menu-collapse collapse" id="doc_menu_javascript">
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_javascript">Javascript</a>
+						<ul class="menu-collapse collapse" id="ui_menu_javascript">
 							<li>
 								<a class="waves-attach" href="ui-affix.html">Affix</a>
 							</li>
@@ -138,12 +136,23 @@
 							</li>
 						</ul>
 					</li>
+					<li>
+						<a class="collapsed waves-attach" data-toggle="collapse" href="#ui_menu_samples">Sample Pages</a>
+						<ul class="menu-collapse collapse" id="ui_menu_samples">
+							<li>
+								<a class="waves-attach" href="page-login.html">Login Page</a>
+							</li>
+							<li>
+								<a class="waves-attach" href="page-picker.html">Picker Page</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<main class="content">
-		<div class="content-header">
+		<div class="content-header ui-content-header">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
@@ -160,61 +169,391 @@
 							<div class="card-main">
 								<div class="card-inner">
 									<p>Pickers provide a simple way to select a single value from a pre-determined set.</p>
-									<p><span class="icon icon-lg text-brand-accent">info_outline</span> Only date pickers have been implemented at this moment.</p>
+									<p><span class="icon icon-lg text-brand-accent">info_outline</span> Only datepicker has been implemented at this moment.</p>
 								</div>
 							</div>
 						</div>
 						<form>
-							<h2 class="content-sub-heading">Date Pickers</h2>
-							<fieldset>
-								<legend class="access-hide">Date Pickers</legend>
-								<div class="card">
-									<div class="card-main">
-										<div class="card-inner">
-											<div class="form-group form-group-label">
-												<label class="floating-label" for="doc_datepicker_example_1">Date picker</label>
-												<input class="datepicker-adv form-control" id="doc_datepicker_example_1" type="text">
-												<p><span class="label label-brand-accent">Usage</span></p>
-												<p>Use <code>.datepicker-adv</code> to apply material date picker styles, then activate the datepicker via simple javascript, for example: <code>$('#selector').datepicker();</code></p>
-											</div>
-<pre>
-&lt;input class="datepicker-adv form-control" id="selector" type="text"&gt;
-
-$('#selector').datepicker();
-</pre>
+							<h2 class="content-sub-heading">Examples</h2>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-inner">
+										<div class="form-group">
+											<label for="ui_datepicker_example_1">A basic example:</label>
+											<input class="form-control" id="ui_datepicker_example_1" type="text">
+											<p><span class="label label-brand-accent">Usage</span></p>
+											<p>Activate the datepicker via simple javascript, for example: <code>$('#selector').pickdate();</code></p>
 										</div>
+<pre>
+&lt;input class="form-control" id="selector" type="text"&gt;
+
+$('#selector').pickdate();
+</pre>
 									</div>
 								</div>
-								<div class="card">
-									<div class="card-main">
-										<div class="card-inner">
-											<div class="form-group form-group-label">
-												<label class="floating-label" for="doc_datepicker_example_2">Date picker</label>
-												<input class="datepicker-adv form-control" id="doc_datepicker_example_2" type="text" value="01-Jan-2010">
-												<p><span class="label label-brand-accent">Options</span></p>
-												<p>Alternatively, options can be passed to override some default date picker settings:</p>
-												<ul>
-													<li><code>disable</code> to disable a specific or arbitrary set of dates selectable on the picker</li>
-													<li><code>format</code> to change date format</li>
-													<li><code>max</code> to set the maximum selectable dates on the picker</li>
-													<li><code>min</code> to set the minimum selectable dates on the picker</li>
-													<li><code>selectMonths</code> and <code>selectYears</code> to hide/show dropdown menus for picking month and year. The number of years to be shown in the dropdown can also be specified using an even integer.</li>
-												</ul>
-												<p>For detailed usage of these options, please visit <a href="http://amsul.ca/pickadate.js/date/" target="_blank">pickadate.js documentation site<sup class="margin-left-xs"><span class="icon">open_in_new</span></sup></a>.</p>
-											</div>
+							</div>
+							<h2 class="content-sub-heading">Options</h2>
+							<p>Alternatively, options can be passed on to override some default datepicker behaviours.</p>
+							<div class="table-responsive">
+								<table class="table" title="Snackbar Options">
+									<thead>
+										<tr>
+											<th>Option</th>
+											<th>Description</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="text-nowrap">cancel</td>
+											<td>Change the text of the cancel button or use <code>cancel: ''</code> to hide the button. Default is <code>'Cancel'</code>.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">closeOnCancel</td>
+											<td>Close the picker when the cancel button is clicked. Default is <code>true</code>. Set to <code>false</code> to change this behaviour.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">closeOnSelect</td>
+											<td>Close the picker when a date is selected. Default is <code>false</code>. Set to <code>true</code> to change this behaviour.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">container</td>
+											<td>Change where to insert the datepicker element by passing any valid CSS selector. Default is <code>'body'</code>. Set it to <code>''</code> to insert the picker right after the associated <code>input</code> element</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">disable</td>
+											<td>Disable a date or a set of dates from being selectable in the picker. See below for detailed usage.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">firstDay</td>
+											<td>Change the first day of the week. Default is <code>0</code> which sets it to Sunday. Set it to Monday by changing the value to <code>1</code>.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">format</td>
+											<td>Set the date format. See below for a full list of available date format rules.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">formatSubmit</td>
+											<td>Optionally, set a different date format for the value to be submitted to the server. When <code>formatSubmit</code> is specified, a hidden <code>input</code> will be created to hold the value</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">max</td>
+											<td>Set the maximum selectable date.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">min</td>
+											<td>Set the minimum selectable date.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">monthsFull</td>
+											<td>Change labels of months.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">monthsShort</td>
+											<td>Change abbreviations of months.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">ok</td>
+											<td>Change the text of the OK button or set it to <code>''</code> to hide the button. Default is <code>'OK'</code>.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">onClose,<br>onOpen,<br>onRender,<br>onSet,<br>onStart,<br>onStop</td>
+											<td>Fire events as the user interacts with the picker. Within scope of these events, <code>this</code> refers to the picker.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">selectMonths</td>
+											<td>Default is <code>false</code>. Set it to <code>true</code> to display a dropdown menu to pick the month.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">selectYears</td>
+											<td>Default is <code>false</code>. Set it to <code>true</code> to display a dropdown menu to pick the year or use an even integer to specify the number of years to be shown in the dropdown menu (half after and the other half before the year in focus).</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">today</td>
+											<td>Change the text of the today button or pass an empty value to hide the button: <code>today: ''</code>. Default is <code>'Today'</code>.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">weekdaysFull</td>
+											<td>Change labels of weekdays.</td>
+										</tr>
+										<tr>
+											<td class="text-nowrap">weekdaysShort</td>
+											<td>Change abbreviations of weekdays.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-inner">
+										<div class="form-group">
+											<label for="ui_datepicker_example_2">A more advanced example</label>
+											<input class="form-control" id="ui_datepicker_example_2" type="text">
+										</div>
 <pre>
-&lt;input class="datepicker-adv form-control" id="selector" type="text" value="01-Jan-2010"&gt;
-
-$('#selector').datepicker({
-    format: "dd-mmm-yyyy",
+$('#selector').pickdate({
+    cancel: 'Clear',
+    closeOnCancel: false,
+    closeOnSelect: true,
+    container: '',
+    firstDay: 1,
+    format: 'You selecte!d: dddd, d mm, yy', // escape any formatting characters with an exclamation mark
+    formatSubmit: 'dd/mmmm/yyyy',
+    ok: 'Close',
+    onClose: function () {
+        $('body').snackbar({
+            content: 'Datepicker closes'
+        });
+    },
+    onOpen: function () {
+        $('body').snackbar({
+            content: 'Datepicker opens'
+        });
+    }
     selectMonths: true,
-    selectYears: 30
+    selectYears: 10,
+    today: ''
 });
 </pre>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-header">
+										<div class="card-inner">
+											<h3 class="card-heading">Disable</h3>
+										</div>
+									</div>
+									<div class="card-inner">
+										<div class="form-group">
+											<label for="ui_datepicker_example_3">Using arrays formatted as <code>[YEAR,MONTH,DATE]</code></label>
+											<input class="form-control" id="ui_datepicker_example_3" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        [2016,0,12],
+        [2016,0,13],
+        [2016,0,14]
+    ]
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_4">Using javascript dates</label>
+											<input class="form-control" id="ui_datepicker_example_4" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        new Date(2016,0,12),
+        new Date(2016,0,13),
+        new Date(2016,0,14)
+    ]
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_5">Using numbers as days of the week (1 to 7)</label>
+											<input class="form-control" id="ui_datepicker_example_5" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        2, 4, 6
+    ]
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_6">Using objects as a range of dates</label>
+											<input class="form-control" id="ui_datepicker_example_6" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        {
+            from: [2016,0,12],
+            to: 2
+        }
+    ]
+});
+</pre>
+										<p>The values for <code>from</code> and <code>to</code> can be:</p>
+										<ul>
+											<li>Array formatted as <code>[YEAR,MONTH,DATE]</code> or javascript date object</li>
+											<li>
+												Integers representing dates relative to the other
+												<ul>
+													<li><code>from</code> can only be negative</li>
+													<li><code>to</code> can only be positive</li>
+												</ul>
+											</li>
+											<li>Use <code>true</code> to set it as today</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-header">
+										<div class="card-inner">
+											<h3 class="card-heading">Disable with exceptions</h3>
+										</div>
+									</div>
+									<div class="card-inner">
+										<div class="form-group">
+											<label for="ui_datepicker_example_7">Disable all with a set of exceptions</label>
+											<input class="form-control" id="ui_datepicker_example_7" type="text" value="19/1/2016"></input>
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        true,
+        3,
+        [2016,0,13],
+        new Date(2016,0,14)
+    ]
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_8">Enable dates that fall within a range of disabled dates by adding <code>inverted</code></label>
+											<input class="form-control" id="ui_datepicker_example_8" type="text" value="19/1/2016"></input>
+										</div>
+<pre>
+$('#selector').pickdate({
+    disable: [
+        {
+            from: [2016,0,10],
+            to: [2016,0,30]
+        },
+        [2016,0,13, 'inverted'],
+        {
+            from: [2016,0,19],
+            to: [2016,0,21],
+            inverted: true
+        }
+    ]
+});
+</pre>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-header">
+										<div class="card-inner">
+											<h3 class="card-heading">Format</h3>
+										</div>
+									</div>
+									<div class="card-inner margin-bottom-no">
+										<p>The following rules can be used to format any date:</p>
+										<div class="card-table">
+											<div class="table-responsive">
+												<table class="table" title="Snackbar Options">
+													<thead>
+														<tr>
+															<th>Rule</th>
+															<th>Description</th>
+															<th>Result</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><code>d</code></td>
+															<td>Date of the month</td>
+															<td>1 – 31</td>
+														</tr>
+														<tr>
+															<td><code>dd</code></td>
+															<td>Date of the month with a leading zero</td>
+															<td>01 – 31</td>
+														</tr>
+														<tr>
+															<td><code>ddd</code></td>
+															<td>Day of the week in short form</td>
+															<td>Can be changed via changing <code>weekdaysShort</code>. Default is S - S.</td>
+														</tr>
+														<tr>
+															<td><code>dddd</code></td>
+															<td>Day of the week in full form</td>
+															<td>Can be changed via changing <code>weekdaysFull</code>. Default is Sun - Sat.</td>
+														</tr>
+														<tr>
+															<td><code>m</code></td>
+															<td>Month of the year</td>
+															<td>1 – 12</td>
+														</tr>
+														<tr>
+															<td><code>mm</code></td>
+															<td>Month of the year with a leading zero</td>
+															<td>01 – 12</td>
+														</tr>
+														<tr>
+															<td><code>mmm</code></td>
+															<td>Month name in short form</td>
+															<td>Can be changed via changing <code>monthsShort</code>. Default is Jan - Dec.</td>
+														</tr>
+														<tr>
+															<td><code>mmmm</code></td>
+															<td>Month name in full form</td>
+															<td>Can be changed via changing <code>monthsFull</code>. Default is January – December.</td>
+														</tr>
+														<tr>
+															<td><code>yy</code></td>
+															<td>Year in short form</td>
+															<td>00 – 99</td>
+														</tr>
+														<tr>
+															<td><code>yyyy</code></td>
+															<td>Year in full form</td>
+															<td>2000 – 2999</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
 										</div>
 									</div>
 								</div>
-							</fieldset>
+							</div>
+							<div class="card">
+								<div class="card-main">
+									<div class="card-header">
+										<div class="card-inner">
+											<h3 class="card-heading">Max/Min</h3>
+										</div>
+									</div>
+									<div class="card-inner">
+										<div class="form-group">
+											<label for="ui_datepicker_example_9">Using arrays formatted as <code>[YEAR,MONTH,DATE]</code></label>
+											<input class="form-control" id="ui_datepicker_example_9" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    max: [2016,0,30],
+    min: [2016,0,10]
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_10">Using javascript dates</code></label>
+											<input class="form-control" id="ui_datepicker_example_10" type="text" value="19/1/2016">
+										</div>
+<pre>
+$('#selector').pickdate({
+    max: new Date(2016,0,30),
+    min: new Date(2016,0,10)
+});
+</pre>
+										<div class="form-group">
+											<label for="ui_datepicker_example_10">Using a boolean or integers</code></label>
+											<input class="form-control" id="ui_datepicker_example_11" type="text">
+										</div>
+<pre>
+$('#selector').pickdate({
+    max: true, // <code>true</code> sets it to today
+    min: -10   // an integer (negative/positive) sets it relative to today
+});
+</pre>
+									</div>
+								</div>
+							</div>
 							<button class="access-hide" type="submit">Submit Button</button>
 						</form>
 					</section>
@@ -241,8 +580,6 @@ $('#selector').datepicker({
 	<!-- js -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
-
-	<!-- js for doc -->
 	<script src="js/project.min.js"></script>
 </body>
 </html>
