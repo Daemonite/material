@@ -20,7 +20,7 @@
 		});
 	};
 
-	if (typeof google != 'undefined') {
+	if ((typeof google != 'undefined') && $('.ui-picker-map-wrap').length) {
 		initPickerMap();
 	};
 
