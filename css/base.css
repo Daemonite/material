@@ -3585,13 +3585,16 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
 .floating-label {
   color: rgba(0, 0, 0, 0.38);
   cursor: text;
+  display: block;
   font-size: 14px;
   line-height: 1;
   margin: 0;
+  overflow: hidden;
   padding: 0;
   position: absolute;
   top: 11px;
   left: 0;
+  text-overflow: ellipsis;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
   -webkit-transition-duration: 0.3s;
@@ -3602,6 +3605,7 @@ fieldset[disabled] input[type="checkbox"]:checked ~ .checkbox-circle-icon, input
   transition-property: color, transform, -webkit-transform;
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
 }
 .form-group-label [class*="col-"] .floating-label {
   left: 16px;

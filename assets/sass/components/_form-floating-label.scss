@@ -1,17 +1,21 @@
 .floating-label {
 	color: $black-hint;
 	cursor: text;
+	display: block;
 	font-size: $font-size;
 	line-height: 1;
 	margin: 0;
+	overflow: hidden;
 	padding: 0;
 	position: absolute;
 		top: (($input-height - $font-size) / 2);
 		left: 0;
+	text-overflow: ellipsis;
 	transform-origin: 0 0;
 	transition-duration: 0.3s;
 	transition-property: color, transform;
 	transition-timing-function: $timing;
+	white-space: nowrap;
 	.form-group-label [class*="col-"] & {
 		// position
 			left: $grid-gutter;
