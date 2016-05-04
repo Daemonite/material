@@ -4,21 +4,21 @@
 	padding: 0;
 	position: relative;
 	@include clearfix();
-	a,
-	.a {
-		align-items: center;
-		display: flex;
-		min-height: $nav-height;
-		padding: 0 $grid-gutter;
-		position: relative;
-		&:focus,
-		&:hover {
-			text-decoration: none;
-		}
-	}
 	li {
 		display: block;
 		position: relative;
+		> a,
+		> .a {
+			align-items: center;
+			display: flex;
+			min-height: $nav-height;
+			padding: 0 $grid-gutter;
+			position: relative;
+			&:focus,
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	ul {
 		margin: 0;

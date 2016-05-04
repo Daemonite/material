@@ -19,9 +19,9 @@
 	margin: 0 !important;
 	min-width: 100%;
 	opacity: 0;
-	padding-top: $margin-base !important;
+	padding-top: $margin-base;
 	padding-right: 0;
-	padding-bottom: $margin-base !important;
+	padding-bottom: $margin-base;
 	padding-left: 0;
 	position: absolute !important;
 		top: 100%;
@@ -43,18 +43,22 @@
 			left: auto;
 		transform-origin: 100% 0;
 	}
-	a,
-	.a {
-		color: $black-text-solid !important;
-		@include text-overflow();
-		&:focus,
-		&:hover {
-			background-color: $offwhite-solid;
+	li {
+		> a,
+		> .a {
+			color: $black-text-solid;
+			@include text-overflow();
+			&:focus,
+			&:hover {
+				background-color: $offwhite-solid;
+			}
 		}
-	}
-	.active > a,
-	.active > .a {
-		background-color: $offwhite-solid;
+		&.active {
+			> a,
+			> .a {
+				background-color: $offwhite-solid;
+			}
+		}
 	}
 }
 
@@ -80,7 +84,7 @@
 	}
 	~ .dropdown-menu {
 		min-width: 100%;
-		padding-top: ($btn-height + $margin-base + ($nav-height - $btn-height)) !important;
+		padding-top: ($btn-height + $margin-base + ($nav-height - $btn-height));
 		// position
 			top: ($margin-base * -1 + ($nav-height - $btn-height) / -2);
 			left: 0;
