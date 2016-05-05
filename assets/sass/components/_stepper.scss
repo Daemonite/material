@@ -37,6 +37,10 @@
 	overflow: hidden;
 	padding: $margin-md ($grid-gutter * 1.5 - $grid-gutter / 2) $margin-md ($grid-gutter * 1.5);
 	position: relative;
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
 	.stepper-horiz & {
 		align-items: center;
 		&:before {
@@ -75,8 +79,15 @@
 	}
 }
 
+.stepper-inner-control {
+	cursor: pointer;
+	&:focus,
+	&:hover {
+		background-color: $offwhite-solid;
+	}
+}
+
 .stepper-step {
-	color: $brand-text;
 	font-size: $font-size-h6;
 	font-weight: $font-weight-light;
 	height: $line-height;
@@ -85,7 +96,7 @@
 	text-align: center;
 	width: $line-height;
 	&:before {
-		background-color: $brand-color;;
+		background-color: $black-hint-solid;
 		border: ($grid-gutter / 2) solid $white;
 		border-radius: 50%;
 		content: "";
@@ -95,35 +106,35 @@
 			right: ($grid-gutter / -2);
 			bottom: ($grid-gutter / -2);
 			left: ($grid-gutter / -2);
-		.stepper-inner.active ~ .stepper-inner & {
-			background-color: $black-hint-solid;
+		.stepper-inner.active &,
+		.stepper-inner.done & {
+			background-color: $brand-color;
+		}
+		.stepper-inner-control:focus &,
+		.stepper-inner-control:hover & {
+			border-color: $offwhite-solid;
 		}
 	}
 }
 
 .stepper-step-icon {
-	color: $brand-text;
-	display: inline-block;
+	color: $white-text-solid;
+	display: none;
 	position: relative;
-	.stepper-inner.active &,
-	.stepper-inner.active ~ .stepper-inner & {
-		display: none;
-	}
-	.stepper-inner.active ~ .stepper-inner & {
-		color: $white-text-solid;
+	.stepper-inner.done & {
+		display: inline-block;
 	}
 }
 
 .stepper-step-num {
-	color: $brand-text;
-	display: none;
+	color: $white-text-solid;
+	display: inline-block;
 	position: relative;
-	.stepper-inner.active &,
-	.stepper-inner.active ~ .stepper-inner & {
-		display: inline-block;
+	.stepper-inner.active & {
+		color: $brand-text;
 	}
-	.stepper-inner.active ~ .stepper-inner & {
-		color: $white-text-solid;
+	.stepper-inner.done & {
+		display: none;
 	}
 }
 
@@ -143,6 +154,10 @@
 	}
 	.stepper-inner.active & {
 		font-weight: $font-weight-medium;
+	}
+	.stepper-inner-control:focus &,
+	.stepper-inner-control:hover & {
+		background-color: $offwhite-solid;
 	}
 	.stepper-vert & {
 		padding-top: (($line-height - $font-size) / 2);
