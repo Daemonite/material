@@ -5132,6 +5132,191 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   white-space: nowrap;
 }
 
+.stepper-horiz {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.stepper-horiz:before {
+  border-top: 1px solid #dadada;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  left: 24px;
+}
+
+.stepper-horiz-content {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-right: 24px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.stepper-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  overflow: hidden;
+  padding: 24px 16px 24px 24px;
+  position: relative;
+}
+.stepper-horiz .stepper-inner {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+}
+.stepper-horiz .stepper-inner:before {
+  border-top: 1px solid #dadada;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+}
+.stepper-horiz .stepper-inner:first-child:before {
+  left: 24px;
+}
+.stepper-horiz .stepper-inner:last-child:before {
+  right: 24px;
+}
+
+.stepper-step {
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  width: 20px;
+}
+.stepper-step:before {
+  background-color: #3f51b5;
+  border: 8px solid #ffffff;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+}
+.stepper-inner.active ~ .stepper-inner .stepper-step:before {
+  background-color: #9a9a9a;
+}
+
+.stepper-step-icon {
+  color: white;
+  display: inline-block;
+  position: relative;
+}
+.stepper-inner.active .stepper-step-icon, .stepper-inner.active ~ .stepper-inner .stepper-step-icon {
+  display: none;
+}
+.stepper-inner.active ~ .stepper-inner .stepper-step-icon {
+  color: #ffffff;
+}
+
+.stepper-step-num {
+  color: white;
+  display: none;
+  position: relative;
+}
+.stepper-inner.active .stepper-step-num, .stepper-inner.active ~ .stepper-inner .stepper-step-num {
+  display: inline-block;
+}
+.stepper-inner.active ~ .stepper-inner .stepper-step-num {
+  color: #ffffff;
+}
+
+.stepper-text {
+  background-color: #ffffff;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding-right: 8px;
+  padding-left: 8px;
+  position: relative;
+}
+.stepper-inner.active .stepper-text {
+  font-weight: 500;
+}
+.stepper-vert .stepper-text {
+  padding-top: 3px;
+}
+
+.stepper-text-sub {
+  font-weight: 400;
+}
+
+.stepper-vert {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+}
+.stepper-vert:before {
+  border-left: 1px solid #dadada;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 44px;
+  bottom: 44px;
+  left: 34px;
+}
+
+.stepper-vert-content {
+  border-left: 1px solid #dadada;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 34px;
+  padding-right: 24px;
+  padding-left: 18px;
+  position: relative;
+}
+.stepper-vert-content:after, .stepper-vert-content:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.stepper-vert-content:after {
+  clear: both;
+}
+.stepper-vert-content > :first-child {
+  margin-top: 0;
+}
+
 .tab-nav {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
   margin-top: 24px;
