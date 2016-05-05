@@ -5161,6 +5161,10 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   left: 24px;
 }
 
+.stepper-horiz-alt:before {
+  display: none;
+}
+
 .stepper-horiz-content {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -5204,6 +5208,26 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
 }
 .stepper-horiz .stepper-inner:last-child:before {
   right: 24px;
+}
+.stepper-horiz-alt .stepper-inner {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.stepper-horiz-alt .stepper-inner:before {
+  top: 34px;
+}
+.stepper-horiz-alt .stepper-inner:first-child:before {
+  left: 50%;
+}
+.stepper-horiz-alt .stepper-inner:last-child:before {
+  right: 50%;
 }
 
 .stepper-step {
@@ -5265,6 +5289,11 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   padding-right: 8px;
   padding-left: 8px;
   position: relative;
+}
+.stepper-horiz-alt .stepper-text {
+  margin-top: 12px;
+  padding-right: 0;
+  padding-left: 0;
 }
 .stepper-inner.active .stepper-text {
   font-weight: 500;
