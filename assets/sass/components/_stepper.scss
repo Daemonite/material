@@ -1,4 +1,5 @@
 .stepper-horiz {
+	background-color: $white;
 	display: flex;
 	flex-grow: 1;
 	justify-content: space-between;
@@ -35,7 +36,7 @@
 	display: flex;
 	flex-shrink: 0;
 	overflow: hidden;
-	padding: $margin-md ($grid-gutter * 1.5 - $grid-gutter / 2) $margin-md ($grid-gutter * 1.5);
+	padding: $margin-md ($grid-gutter * 1.5);
 	position: relative;
 	&:focus,
 	&:hover {
@@ -43,38 +44,61 @@
 	}
 	.stepper-horiz & {
 		align-items: center;
+		background-color: $white;
+		&:after,
 		&:before {
 			border-top: 1px solid $black-divider-solid;
 			content: "";
 			display: block;
 			position: absolute;
 				top: 50%;
+			width: $grid-gutter;
+		}
+		&:after {
+			// position
 				right: 0;
+		}
+		&:before {
+			// position
 				left: 0;
 		}
-		&:first-child:before {
-			// position
-				left: ($grid-gutter * 1.5);
-		}
-		&:last-child:before {
-			// position
-				right: ($grid-gutter * 1.5);
+		&:first-child:before,
+		&:last-child:after {
+			display: none;
 		}
 	}
 	.stepper-horiz-alt & {
 		flex-direction: column;
 		flex-grow: 1;
+		&:after,
 		&:before {
 			// position
 				top: ($line-height / 2 + $margin-md);
+			width: calc(50% - #{$grid-gutter / 2 + $line-height / 2});
 		}
-		&:first-child:before {
-			// position
-				left: 50%;
+	}
+	.stepper-vert & {
+		&:after,
+		&:before {
+			border-left: 1px solid $black-divider-solid;
+			content: "";
+			display: block;
+			position: absolute;
+				left: ($grid-gutter * 1.5 + $line-height / 2);
 		}
-		&:last-child:before {
+		&:after {
 			// position
-				right: 50%;
+				top: ($grid-gutter / 2 + $line-height + $margin-md);
+				bottom: 0;
+		}
+		&:before {
+			height: ($margin-md - $grid-gutter / 2);
+			// position
+				top: 0;
+		}
+		&:first-child:before,
+		&:last-child:after {
+			display: none;
 		}
 	}
 }
@@ -97,22 +121,17 @@
 	width: $line-height;
 	&:before {
 		background-color: $black-hint-solid;
-		border: ($grid-gutter / 2) solid $white;
 		border-radius: 50%;
 		content: "";
 		display: block;
+		height: 100%;
 		position: absolute;
-			top: ($grid-gutter / -2);
-			right: ($grid-gutter / -2);
-			bottom: ($grid-gutter / -2);
-			left: ($grid-gutter / -2);
+			top: 0;
+			left: 0;
+		width: 100%;
 		.stepper-inner.active &,
 		.stepper-inner.done & {
 			background-color: $brand-color;
-		}
-		.stepper-inner-control:focus &,
-		.stepper-inner-control:hover & {
-			border-color: $offwhite-solid;
 		}
 	}
 }
@@ -139,18 +158,15 @@
 }
 
 .stepper-text {
-	background-color: $white;
 	color: $black-text-solid;
 	font-size: $font-size;
 	font-weight: $font-weight-normal;
 	line-height: 1;
-	padding-right: ($grid-gutter / 2);
-	padding-left: ($grid-gutter / 2);
+	margin-left: ($grid-gutter / 2);
 	position: relative;
 	.stepper-horiz-alt & {
 		margin-top: $margin-sm;
-		padding-right: 0;
-		padding-left: 0;
+		margin-left: 0;
 	}
 	.stepper-inner.active & {
 		font-weight: $font-weight-medium;
@@ -169,17 +185,9 @@
 }
 
 .stepper-vert {
+	background-color: $white;
 	flex-grow: 1;
 	position: relative;
-	&:before {
-		border-left: 1px solid $black-divider-solid;
-		content: "";
-		display: block;
-		position: absolute;
-			top: ($line-height + $margin-md);
-			bottom: ($line-height + $margin-md);
-			left: ($grid-gutter * 1.5 + $line-height / 2);
-	}
 }
 
 .stepper-vert-content {
