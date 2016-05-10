@@ -1,38 +1,4 @@
-.stepper-horiz {
-	background-color: $white;
-	display: flex;
-	flex-grow: 1;
-	justify-content: space-between;
-	overflow-x: auto;
-	overflow-y: hidden;
-	position: relative;
-	-webkit-overflow-scrolling: touch;
-	-ms-overflow-style: -ms-autohiding-scrollbar;
-	&:before {
-		border-top: 1px solid $black-divider-solid;
-		content: "";
-		display: block;
-		position: absolute;
-			top: 50%;
-			right: ($grid-gutter * 1.5);
-			left: ($grid-gutter * 1.5);
-	}
-}
-
-.stepper-horiz-alt {
-	&:before {
-		display: none;
-	}
-}
-
-.stepper-horiz-content {
-	flex-grow: 1;
-	padding-right: ($grid-gutter * 1.5);
-	padding-left: ($grid-gutter * 1.5);
-	position: relative;
-}
-
-.stepper-inner {
+.stepper {
 	display: flex;
 	flex-shrink: 0;
 	overflow: hidden;
@@ -103,12 +69,43 @@
 	}
 }
 
-.stepper-inner-control {
+.stepper-control {
 	cursor: pointer;
 	&:focus,
 	&:hover {
 		background-color: $offwhite-solid;
 	}
+}
+
+.stepper-horiz {
+	background-color: $white;
+	flex-grow: 1;
+	overflow-x: auto;
+	overflow-y: hidden;
+	position: relative;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	&:before {
+		border-top: 1px solid $black-divider-solid;
+		content: "";
+		display: block;
+		position: absolute;
+			top: 50%;
+			right: ($grid-gutter * 1.5);
+			left: ($grid-gutter * 1.5);
+	}
+}
+
+.stepper-horiz-content {
+	flex-grow: 1;
+	padding-right: ($grid-gutter * 1.5);
+	padding-left: ($grid-gutter * 1.5);
+	position: relative;
+}
+
+.stepper-horiz-inner {
+	display: flex;
+	justify-content: space-between;
 }
 
 .stepper-step {
@@ -129,8 +126,8 @@
 			top: 0;
 			left: 0;
 		width: 100%;
-		.stepper-inner.active &,
-		.stepper-inner.done & {
+		.stepper.active &,
+		.stepper.done & {
 			background-color: $brand-color;
 		}
 	}
@@ -140,7 +137,7 @@
 	color: $white-text-solid;
 	display: none;
 	position: relative;
-	.stepper-inner.done & {
+	.stepper.done & {
 		display: inline-block;
 	}
 }
@@ -149,10 +146,10 @@
 	color: $white-text-solid;
 	display: inline-block;
 	position: relative;
-	.stepper-inner.active & {
+	.stepper.active & {
 		color: $brand-text;
 	}
-	.stepper-inner.done & {
+	.stepper.done & {
 		display: none;
 	}
 }
@@ -168,11 +165,11 @@
 		margin-top: $margin-sm;
 		margin-left: 0;
 	}
-	.stepper-inner.active & {
+	.stepper.active & {
 		font-weight: $font-weight-medium;
 	}
-	.stepper-inner-control:focus &,
-	.stepper-inner-control:hover & {
+	.stepper-control:focus &,
+	.stepper-control:hover & {
 		background-color: $offwhite-solid;
 	}
 	.stepper-vert & {

@@ -5132,20 +5132,93 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   white-space: nowrap;
 }
 
-.stepper-horiz {
-  background-color: #ffffff;
+.stepper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  overflow: hidden;
+  padding: 24px 24px;
+  position: relative;
+}
+.stepper:focus, .stepper:hover {
+  text-decoration: none;
+}
+.stepper-horiz .stepper {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+  background-color: #ffffff;
+}
+.stepper-horiz .stepper:after, .stepper-horiz .stepper:before {
+  border-top: 1px solid #dadada;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 16px;
+}
+.stepper-horiz .stepper:after {
+  right: 0;
+}
+.stepper-horiz .stepper:before {
+  left: 0;
+}
+.stepper-horiz .stepper:first-child:before, .stepper-horiz .stepper:last-child:after {
+  display: none;
+}
+.stepper-horiz-alt .stepper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+}
+.stepper-horiz-alt .stepper:after, .stepper-horiz-alt .stepper:before {
+  top: 34px;
+  width: calc(50% - 18px);
+}
+.stepper-vert .stepper:after, .stepper-vert .stepper:before {
+  border-left: 1px solid #dadada;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 34px;
+}
+.stepper-vert .stepper:after {
+  top: 52px;
+  bottom: 0;
+}
+.stepper-vert .stepper:before {
+  height: 16px;
+  top: 0;
+}
+.stepper-vert .stepper:first-child:before, .stepper-vert .stepper:last-child:after {
+  display: none;
+}
+
+.stepper-control {
+  cursor: pointer;
+}
+.stepper-control:focus, .stepper-control:hover {
+  background-color: #f5f5f5;
+}
+
+.stepper-horiz {
+  background-color: #ffffff;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
@@ -5162,10 +5235,6 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   left: 24px;
 }
 
-.stepper-horiz-alt:before {
-  display: none;
-}
-
 .stepper-horiz-content {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -5176,85 +5245,15 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   position: relative;
 }
 
-.stepper-inner {
+.stepper-horiz-inner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  overflow: hidden;
-  padding: 24px 24px;
-  position: relative;
-}
-.stepper-inner:focus, .stepper-inner:hover {
-  text-decoration: none;
-}
-.stepper-horiz .stepper-inner {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-              -ms-grid-row-align: center;
-          align-items: center;
-  background-color: #ffffff;
-}
-.stepper-horiz .stepper-inner:after, .stepper-horiz .stepper-inner:before {
-  border-top: 1px solid #dadada;
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  width: 16px;
-}
-.stepper-horiz .stepper-inner:after {
-  right: 0;
-}
-.stepper-horiz .stepper-inner:before {
-  left: 0;
-}
-.stepper-horiz .stepper-inner:first-child:before, .stepper-horiz .stepper-inner:last-child:after {
-  display: none;
-}
-.stepper-horiz-alt .stepper-inner {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.stepper-horiz-alt .stepper-inner:after, .stepper-horiz-alt .stepper-inner:before {
-  top: 34px;
-  width: calc(50% - 18px);
-}
-.stepper-vert .stepper-inner:after, .stepper-vert .stepper-inner:before {
-  border-left: 1px solid #dadada;
-  content: "";
-  display: block;
-  position: absolute;
-  left: 34px;
-}
-.stepper-vert .stepper-inner:after {
-  top: 52px;
-  bottom: 0;
-}
-.stepper-vert .stepper-inner:before {
-  height: 16px;
-  top: 0;
-}
-.stepper-vert .stepper-inner:first-child:before, .stepper-vert .stepper-inner:last-child:after {
-  display: none;
-}
-
-.stepper-inner-control {
-  cursor: pointer;
-}
-.stepper-inner-control:focus, .stepper-inner-control:hover {
-  background-color: #f5f5f5;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .stepper-step {
@@ -5277,7 +5276,7 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   left: 0;
   width: 100%;
 }
-.stepper-inner.active .stepper-step:before, .stepper-inner.done .stepper-step:before {
+.stepper.active .stepper-step:before, .stepper.done .stepper-step:before {
   background-color: #3f51b5;
 }
 
@@ -5286,7 +5285,7 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   display: none;
   position: relative;
 }
-.stepper-inner.done .stepper-step-icon {
+.stepper.done .stepper-step-icon {
   display: inline-block;
 }
 
@@ -5295,10 +5294,10 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   display: inline-block;
   position: relative;
 }
-.stepper-inner.active .stepper-step-num {
+.stepper.active .stepper-step-num {
   color: white;
 }
-.stepper-inner.done .stepper-step-num {
+.stepper.done .stepper-step-num {
   display: none;
 }
 
@@ -5314,10 +5313,10 @@ input[type="checkbox"]:checked + .switch-toggle-red:active:after, input[type="ra
   margin-top: 12px;
   margin-left: 0;
 }
-.stepper-inner.active .stepper-text {
+.stepper.active .stepper-text {
   font-weight: 500;
 }
-.stepper-inner-control:focus .stepper-text, .stepper-inner-control:hover .stepper-text {
+.stepper-control:focus .stepper-text, .stepper-control:hover .stepper-text {
   background-color: #f5f5f5;
 }
 .stepper-vert .stepper-text {
