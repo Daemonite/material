@@ -1,6 +1,6 @@
 # Material
 
-Daemonite's Material UI is a fully responsive, cross-platform, front-end interface based on Google Material Design. This lightweight framework is built in HTML5 using Bootstrap, JS and CSS.
+Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design. This lightweight framework is built in HTML5 using Bootstrap, CSS and JS.
 
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > http://www.google.com/design/spec/material-design/introduction.html
