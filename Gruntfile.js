@@ -21,17 +21,17 @@ module.exports = function(grunt) {
 			concat: {
 				default: {
 					files: {
-						'js/material.js': 'assets/js/*.js',
-						'js/project.js': 'assets/js-project/*.js'
+						'js/material.js': 'assets/js/**/*.js',
+						'js/project.js': 'assets/js-project/**/*.js'
 					}
 				},
 				material: {
 					dest: 'js/material.js',
-					src: 'assets/js/*.js'
+					src: 'assets/js/**/*.js'
 				},
 				project: {
 					dest: 'js/project.js',
-					src: 'assets/js-project/*.js'
+					src: 'assets/js-project/**/*.js'
 				}
 			},
 
@@ -62,8 +62,8 @@ module.exports = function(grunt) {
 						expand: true,
 						ext: '.min.css',
 						src: [
-							'*.css',
-							'!*.min.css'
+							'**/*.css',
+							'!**/*.min.css'
 						]
 					}]
 				},
@@ -91,8 +91,8 @@ module.exports = function(grunt) {
 						expand: true,
 						ext: '.css',
 						src: [
-							'*.css',
-							'!*.min.css'
+							'**/*.css',
+							'!**/*.min.css'
 						]
 					}]
 				},
@@ -134,8 +134,8 @@ module.exports = function(grunt) {
 						expand: true,
 						ext: '.min.js',
 						src: [
-							'*.js',
-							'!*.min.js'
+							'**/*.js',
+							'!**/*.min.js'
 						]
 					}]
 				},
