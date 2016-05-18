@@ -1,203 +1,341 @@
+// todo: rename "menu" to "navdrawer" based on material design specs
+// https://www.google.com/design/spec/patterns/navigation-drawer.html
+
 /*
  * navigation drawer
- * requires bootstrap's modal js (/assets/js/addons/bootstrap.js)
+ * based on Bootstrap's (v4.0.0-alpha.2) modal.js
  */
-(function ($) {
-	'use strict';
+var Menu = (function ($) {
+  var BACKDROP_TRANSITION_DURATION = 150;
+  var DATA_API_KEY = '.data-api';
+  var DATA_KEY = 'md.menu';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var NAME = 'menu';
+  var NO_CONFLICT = $.fn[NAME];
+  var TRANSITION_DURATION = 300;
 
-	var Menu = function (element, options) {
-		this.ignoreBackdropClick = false;
-		this.isShown             = null;
-		this.options             = options;
-		this.originalBodyPad     = null;
-		this.scrollbarWidth      = 0;
-		this.$backdrop           = null;
-		this.$body               = $(document.body);
-		this.$element            = $(element);
-		this.$dialog             = this.$element.find('.menu-scroll');
-	};
+  var ClassName = {
+    BACKDROP: 'menu-backdrop',
+    IN: 'in',
+    OPEN: 'menu-open'
+  };
 
-	if (typeof $.fn.modal === 'undefined') {
-		throw new Error('Material\'s JavaScript requires Bootstrap\'s modal.js');
-	};
+  var Default = {
+    keyboard: true,
+    show: true
+  };
 
-	Menu.DEFAULTS = $.extend({}, $.fn.modal.Constructor.DEFAULTS, {});
-	Menu.TRANSITION_DURATION = 300;
-	Menu.TRANSITION_DURATION_BACKDROP = 150;
+  var DefaultType = {
+    keyboard: 'boolean',
+    show: 'boolean'
+  };
 
-	Menu.prototype = $.extend({}, $.fn.modal.Constructor.prototype);
+  var Event = {
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+    FOCUSIN: 'focusin' + EVENT_KEY,
+    HIDDEN: 'hidden' + EVENT_KEY,
+    HIDE: 'hide' + EVENT_KEY,
+    KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+    MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
+    MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
+    SHOW: 'show' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY
+  };
 
-	Menu.prototype.backdrop = function (callback) {
-		var that = this;
+  var Selector = {
+    CONTENT: '.menu-scroll',
+    DATA_DISMISS: '[data-dismiss="menu"]',
+    DATA_TOGGLE: '[data-toggle="menu"]'
+  };
 
-		if (this.isShown && this.options.backdrop) {
-			var doAnimate = $.support.transition;
+  var Menu = (function () {
+    function Menu(element, config) {
+      _classCallCheck(this, Menu);
 
-			this.$backdrop = $(document.createElement('div')).addClass('menu-backdrop').appendTo(this.$body);
+      this._backdrop = null;
+      this._config = this._getConfig(config);
+      this._content = $(element).find(Selector.CONTENT)[0];
+      this._element = element;
+      this._ignoreBackdropClick = false;
+      this._isShown = false;
+    }
 
-			this.$element.on('click.dismiss.bs.menu', $.proxy(function (e) {
-				if (this.ignoreBackdropClick) {
-					this.ignoreBackdropClick = false;
-					return;
-				};
+    _createClass(Menu, [{
+      key: 'hide',
+      value: function hide(event) {
+        if (event) {
+          event.preventDefault();
+        };
 
-				if (e.target !== e.currentTarget) {
-					return;
-				};
+        var hideEvent = $.Event(Event.HIDE);
 
-				this.options.backdrop == 'static' ? this.$element[0].focus() : this.hide();
-			}, this));
+        $(this._element).trigger(hideEvent);
 
-			if (doAnimate) {
-				this.$backdrop[0].offsetWidth;
-			};
+        if (!this._isShown || hideEvent.isDefaultPrevented()) {
+          return;
+        };
 
-			this.$backdrop.addClass('in');
+        this._isShown = false;
+        this._setEscapeEvent();
+        $(document).off(Event.FOCUSIN);
+        $(this._element).removeClass(ClassName.IN);
+        $(this._element).off(Event.CLICK_DISMISS);
+        $(this._content).off(Event.MOUSEDOWN_DISMISS);
 
-			if (!callback) {
-				return;
-			};
+        if (Util.supportsTransitionEnd()) {
+          $(this._element).one(Util.TRANSITION_END, $.proxy(this._hideMenu, this)).emulateTransitionEnd(TRANSITION_DURATION);
+        } else {
+          this._hideMenu();
+        };
+      }
+    }, {
+      key: 'show',
+      value: function show(relatedTarget) {
+        var _this = this;
+        var showEvent = $.Event(Event.SHOW, {
+          relatedTarget: relatedTarget
+        });
 
-			doAnimate ? this.$backdrop.one('bsTransitionEnd', callback).emulateTransitionEnd(Menu.TRANSITION_DURATION_BACKDROP) : callback();
-		} else if (!this.isShown && this.$backdrop) {
-			this.$backdrop.removeClass('in');
+        $(this._element).trigger(showEvent);
 
-			var callbackRemove = function () {
-				that.removeBackdrop();
-				callback && callback();
-			};
+        if (this._isShown || showEvent.isDefaultPrevented()) {
+          return;
+        };
 
-			$.support.transition ? this.$backdrop.one('bsTransitionEnd', callbackRemove).emulateTransitionEnd(Menu.TRANSITION_DURATION_BACKDROP) : callbackRemove();
-		} else if (callback) {
-			callback();
-		};
-	};
+        this._isShown = true;
+        $(document.body).addClass(ClassName.OPEN);
+        this._setEscapeEvent();
+        $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, $.proxy(this.hide, this));
 
-	Menu.prototype.hide = function (e) {
-		if (e) e.preventDefault();
+        $(this._content).on(Event.MOUSEDOWN_DISMISS, function () {
+          $(_this._element).one(Event.MOUSEUP_DISMISS, function (event) {
+            if ($(event.target).is(_this._element)) {
+              _this._ignoreBackdropClick = true;
+            };
+          });
+        });
 
-		e = $.Event('hide.bs.menu');
+        this._showBackdrop($.proxy(this._showElement, this, relatedTarget));
+      }
+    }, {
+      key: 'toggle',
+      value: function toggle(relatedTarget) {
+        return this._isShown ? this.hide() : this.show(relatedTarget);
+      }
+    }, {
+      key: '_enforceFocus',
+      value: function _enforceFocus() {
+        var _this = this;
 
-		this.$element.trigger(e);
+        $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
+          if (_this._element !== event.target && !$(_this._element).has(event.target).length) {
+            _this._element.focus();
+          };
+        });
+      }
+    }, {
+      key: '_getConfig',
+      value: function _getConfig(config) {
+        config = $.extend({}, Default, config);
+        Util.typeCheckConfig(NAME, config, DefaultType);
+        return config;
+      }
+    }, {
+      key: '_hideMenu',
+      value: function _hideMenu() {
+        var _this = this;
 
-		if (!this.isShown || e.isDefaultPrevented()) {
-			return;
-		};
+        this._showBackdrop(function () {
+          $(document.body).removeClass(ClassName.OPEN);
+          $(_this._element).trigger(Event.HIDDEN);
+        });
+      }
+    }, {
+      key: '_removeBackdrop',
+      value: function _removeBackdrop() {
+        if (this._backdrop) {
+          $(this._backdrop).remove();
+          this._backdrop = null;
+        };
+      }
+    }, {
+      key: '_setEscapeEvent',
+      value: function _setEscapeEvent() {
+        var _this = this;
 
-		this.isShown = false;
+        if (this._isShown && this._config.keyboard) {
+          $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
+            if (event.which === 27) {
+              _this.hide();
+            }
+          });
+        } else if (!this._isShown) {
+          $(this._element).off(Event.KEYDOWN_DISMISS);
+        };
+      }
+    }, {
+      key: '_showBackdrop',
+      value: function _showBackdrop(callback) {
+        var _this = this;
 
-		this.escape();
+        if (this._isShown) {
+          var doAnimate = Util.supportsTransitionEnd();
 
-		$(document).off('focusin.bs.modal');
+          this._backdrop = document.createElement('div');
+          this._backdrop.className = ClassName.BACKDROP;
+          $(this._backdrop).addClass('fade');
 
-		this.$element.removeClass('in').off('click.dismiss.bs.menu').off('mouseup.dismiss.bs.menu');
+          $(this._backdrop).appendTo(document.body);
+          $(this._element).on(Event.CLICK_DISMISS, function (event) {
+            if (_this._ignoreBackdropClick) {
+              _this._ignoreBackdropClick = false;
+              return;
+            };
 
-		this.$dialog.off('mousedown.dismiss.bs.menu');
+            if (event.target !== event.currentTarget) {
+              return;
+            };
 
-		$.support.transition ? this.$element.one('bsTransitionEnd', $.proxy(this.hideModal, this)).emulateTransitionEnd(Menu.TRANSITION_DURATION) : this.hideModal();
-	};
+            _this.hide();
+          });
 
-	Menu.prototype.hideModal = function () {
-		var that = this;
+          if (doAnimate) {
+            Util.reflow(this._backdrop);
+          };
 
-		this.$element.hide();
+          $(this._backdrop).addClass(ClassName.IN);
 
-		this.backdrop(function () {
-			that.$element.trigger('hidden.bs.menu');
-		});
-	};
+          if (!callback) {
+            return;
+          };
 
-	Menu.prototype.show = function (_relatedTarget) {
-		var that = this;
-		var e    = $.Event('show.bs.menu', { relatedTarget: _relatedTarget });
+          if (!doAnimate) {
+            callback();
+            return;
+          };
 
-		this.$element.trigger(e);
+          $(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+        } else if (this._backdrop) {
+          $(this._backdrop).removeClass(ClassName.IN);
 
-		if (this.isShown || e.isDefaultPrevented()) {
-			return;
-		};
+          var callbackRemove = function callbackRemove() {
+            _this._removeBackdrop();
 
-		this.isShown = true;
+            if (callback) {
+              callback();
+            };
+          };
 
-		this.escape();
+          if (Util.supportsTransitionEnd()) {
+            $(this._backdrop).one(Util.TRANSITION_END, callbackRemove).emulateTransitionEnd(BACKDROP_TRANSITION_DURATION);
+          } else {
+            callbackRemove();
+          };
+        } else if (callback) {
+          callback();
+        };
+      }
+    }, {
+      key: '_showElement',
+      value: function _showElement(relatedTarget) {
+        var _this = this;
+        var transition = Util.supportsTransitionEnd();
 
-		this.$element.on('click.dismiss.bs.menu', '[data-dismiss="menu"]', $.proxy(this.hide, this));
+        if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
+          document.body.appendChild(this._element);
+        };
 
-		this.$dialog.on('mousedown.dismiss.bs.menu', function () {
-			that.$element.one('mouseup.dismiss.bs.menu', function (e) {
-				if ($(e.target).is(that.$element)) {
-					that.ignoreBackdropClick = true;
-				};
-			});
-		});
+        if (transition) {
+          Util.reflow(this._element);
+        };
 
-		this.backdrop(function () {
-			var transition = $.support.transition;
+        $(this._element).addClass(ClassName.IN);
+        this._enforceFocus();
 
-			if (!that.$element.parent().length) {
-				that.$element.appendTo(that.$body);
-			};
+        var shownEvent = $.Event(Event.SHOWN, {
+          relatedTarget: relatedTarget
+        });
 
-			that.$element.show();
+        var transitionComplete = function transitionComplete() {
+          _this._element.focus();
+          $(_this._element).trigger(shownEvent);
+        };
 
-			if (transition) {
-				that.$element[0].offsetWidth;
-			};
+        if (transition) {
+          $(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(TRANSITION_DURATION);
+        } else {
+          transitionComplete();
+        };
+      }
+    }], [{
+      key: 'Default',
+      get: function get() {
+        return Default;
+      }
+    }, {
+      key: '_jQueryInterface',
+      value: function _jQueryInterface(config, relatedTarget) {
+        return this.each(function () {
+          var data = $(this).data(DATA_KEY);
+          var _config = $.extend({}, Menu.Default, $(this).data(), typeof config === 'object' && config);
 
-			that.$element.addClass('in');
+          if (!data) {
+            data = new Menu(this, _config);
+            $(this).data(DATA_KEY, data);
+          };
 
-			that.enforceFocus();
+          if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            };
+            data[config](relatedTarget);
+          } else if (_config.show) {
+            data.show(relatedTarget);
+          };
+        });
+      }
+    }]);
 
-			var e = $.Event('shown.bs.menu', { relatedTarget: _relatedTarget });
+    return Menu;
+  })();
 
-			transition ? that.$dialog.one('bsTransitionEnd', function () {
-				that.$element.trigger('focus').trigger(e);
-			}).emulateTransitionEnd(Menu.TRANSITION_DURATION) : that.$element.trigger('focus').trigger(e);
-		});
-	};
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    var _this = this;
+    var selector = Util.getSelectorFromElement(this);
+    var target = undefined;
 
-	function Plugin (option, _relatedTarget) {
-		return this.each(function () {
-			var $this   = $(this);
-			var data    = $this.data('bs.menu');
-			var options = $.extend({}, Menu.DEFAULTS, $this.data(), typeof option == 'object' && option);
+    if (selector) {
+      target = $(selector)[0];
+    };
 
-			if (!data) $this.data('bs.menu', (data = new Menu(this, options)));
-			if (typeof option == 'string') data[option](_relatedTarget);
-			else if (options.show) data.show(_relatedTarget);
-		});
-	};
+    var config = $(target).data(DATA_KEY) ? 'toggle' : $.extend({}, $(target).data(), $(this).data());
 
-	var old = $.fn.menu;
+    if (this.tagName === 'A') {
+      event.preventDefault();
+    };
 
-	$.fn.menu             = Plugin;
-	$.fn.menu.Constructor = Menu;
+    var $target = $(target).one(Event.SHOW, function (showEvent) {
+      if (showEvent.isDefaultPrevented()) {
+        return;
+      };
 
-	$.fn.menu.noConflict = function () {
-		$.fn.menu = old;
-		return this;
-	};
+      $target.one(Event.HIDDEN, function () {
+        if ($(_this).is(':visible')) {
+          _this.focus();
+        };
+      });
+    });
 
-	$(document).on('click.bs.menu.data-api', '[data-toggle="menu"]', function (e) {
-		var $this   = $(this);
-		var href    = $this.attr('href');
-		var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, '')));
-		var option  = $target.data('bs.menu') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
+    Menu._jQueryInterface.call($(target), config, this);
+  });
 
-		if ($this.is('a')) e.preventDefault();
+  $.fn[NAME] = Menu._jQueryInterface;
+  $.fn[NAME].Constructor = Menu;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = NO_CONFLICT;
+    return Menu._jQueryInterface;
+  };
 
-		$target.one('show.bs.menu', function (showEvent) {
-			if (showEvent.isDefaultPrevented()) {
-				return;
-			} else {
-				$target.attr('tabindex', '-1');
-			};
-
-			$target.one('hidden.bs.menu', function () {
-				$this.is(':visible') && $this.trigger('focus');
-			});
-		});
-
-		Plugin.call($target, option, this);
-	});
-}(jQuery));
+  return Menu;
+})(jQuery);
