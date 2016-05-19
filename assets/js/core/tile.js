@@ -1,184 +1,300 @@
+// todo: rename "tile" to "panel" based on material design specs
+// https://www.google.com/design/spec/components/expansion-panels.html
+
 /*
- * tile
- * requires bootstrap's collapse js (/assets/js/addons/bootstrap.js)
+ * expansion panels
+ * based on Bootstrap's (v4.0.0-alpha.2) collapse.js
  */
-(function ($) {
-	'use strict';
+var Tile = (function ($) {
+  var DATA_API_KEY = '.data-api';
+  var DATA_KEY = 'md.tile';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var NAME = 'tile';
+  var NO_CONFLICT = $.fn[NAME];
+  var TRANSITION_DURATION = 300;
 
-	var Tile = function (element, options) {
-		this.options       = $.extend({}, Tile.DEFAULTS, options);
-		this.transitioning = null;
-		this.$element      = $(element);
+  var ClassName = {
+    COLLAPSE: 'collapse',
+    COLLAPSED: 'collapsed',
+    COLLAPSING: 'collapsing',
+    IN: 'in'
+  };
 
-		if (this.options.parent) {
-			this.$parent = this.getParent();
-		};
+  var Default = {
+    keyboard: true,
+    parent: '',
+    toggle: true
+  };
 
-		if (this.options.toggle) {
-			this.toggle();
-		};
-	};
+  var DefaultType = {
+    keyboard: 'boolean',
+    parent: 'string',
+    toggle: 'boolean'
+  };
 
-	if (typeof $.fn.collapse === 'undefined') {
-		throw new Error('Material\'s JavaScript requires Bootstrap\'s collapse.js');
-	};
+  var Dimension = {
+    HEIGHT: 'height',
+    WIDTH: 'width'
+  };
 
-	Tile.DEFAULTS = {
-		keyboard: true,
-		toggle: true
-	};
-	Tile.TRANSITION_DURATION = 150;
+  var Event = {
+    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+    HIDDEN: 'hidden' + EVENT_KEY,
+    HIDE: 'hide' + EVENT_KEY,
+    SHOW: 'show' + EVENT_KEY,
+    SHOWN: 'shown' + EVENT_KEY
+  };
 
-	Tile.prototype = $.extend({}, $.fn.collapse.Constructor.prototype);
+  var Selector = {
+    ACTIVES: '.tile-active-show.collapsing, .tile-active-show.in',
+    DATA_TOGGLE: '[data-toggle="tile"]',
+    PARENT: '.tile-collapse'
+  };
 
-	Tile.prototype.escape = function () {
-		if (this.$element.hasClass('in') && this.options.keyboard) {
-			$(document).on('keydown.dismiss.bs.tile', $.proxy(function (e) {
-				e.which == 27 && this.hide();
-			}, this));
-		} else if (!this.$element.hasClass('in')) {
-			this.$element.off('keydown.dismiss.bs.tile');
-		};
-	};
+  var Tile = (function () {
+    function Tile(element, config) {
+      _classCallCheck(this, Tile);
 
-	Tile.prototype.hide = function () {
-		if (this.transitioning || !this.$element.hasClass('in')) {
-			return;
-		};
+      this._config = this._getConfig(config);
+      this._element = element;
+      this._isTransitioning = false;
+      this._parent = this._config.parent ? this._getParent() : null;
+      this._triggerArray = $.makeArray($('[data-toggle="tile"][href="#' + element.id + '"],' + ('[data-toggle="tile"][data-target="#' + element.id + '"]')));
 
-		var startEvent = $.Event('hide.bs.tile');
+      if (!this._config.parent) {
+        this._addAriaAndCollapsedClass(this._element, this._triggerArray);
+      };
 
-		this.$element.trigger(startEvent);
+      if (this._config.toggle) {
+        this.toggle();
+      };
+    }
 
-		if (startEvent.isDefaultPrevented()) {
-			return;
-		};
+    _createClass(Tile, [{
+      key: 'hide',
+      value: function hide() {
+        var _this = this;
 
-		var dimension = this.dimension();
+        if (this._isTransitioning || !$(this._element).hasClass(ClassName.IN)) {
+          return;
+        };
 
-		this.$element[dimension](this.$element[dimension]())[0].offsetHeight;
+        var startEvent = $.Event(Event.HIDE);
 
-		this.$element.addClass('collapsing').removeClass('collapse in');
+        $(this._element).trigger(startEvent);
 
-		this.$element.closest('.tile-collapse').removeClass('active');
+        if (startEvent.isDefaultPrevented()) {
+          return;
+        };
 
-		this.transitioning = 1
+        var dimension = this._getDimension();
+        var offsetDimension = dimension === Dimension.WIDTH ? 'offsetWidth' : 'offsetHeight';
 
-		var complete = function () {
-			this.transitioning = 0;
-			this.$element.removeClass('collapsing').addClass('collapse').trigger('hidden.bs.tile');
-			this.escape();
-		};
+        this._element.style[dimension] = this._element[offsetDimension] + 'px';
+        Util.reflow(this._element);
+        $(this._element).closest(Selector.PARENT).removeClass(ClassName.IN);
+        $(this._element).addClass(ClassName.COLLAPSING).removeClass(ClassName.COLLAPSE).removeClass(ClassName.IN);
+        this._element.setAttribute('aria-expanded', false);
 
-		if (!$.support.transition) {
-			return complete.call(this);
-		};
+        if (this._triggerArray.length) {
+          $(this._triggerArray).addClass(ClassName.COLLAPSED).attr('aria-expanded', false);
+        };
 
-		this.$element[dimension](0).one('bsTransitionEnd', $.proxy(complete, this)).emulateTransitionEnd(Tile.TRANSITION_DURATION);
-	};
+        this.setTransitioning(true);
 
-	Tile.prototype.show = function () {
-		if (this.transitioning || this.$element.hasClass('in')) {
-			return;
-		};
+        var complete = function complete() {
+          _this.setTransitioning(false);
+          $(_this._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
+        };
 
-		var actives = this.$parent && this.$parent.find('.tile-collapse').children('.in, .collapsing');
-		var activesData;
+        this._element.style[dimension] = 0;
 
-		if (actives && actives.length) {
-			activesData = actives.data('bs.tile');
-			if (activesData && activesData.transitioning) {
-				return;
-			};
-		};
+        if (!Util.supportsTransitionEnd()) {
+          complete();
+          return;
+        };
 
-		var startEvent = $.Event('show.bs.tile');
+        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+      }
+    }, {
+      key: 'setTransitioning',
+      value: function setTransitioning(isTransitioning) {
+        this._isTransitioning = isTransitioning;
+      }
+    }, {
+      key: 'show',
+      value: function show() {
+        var _this = this;
 
-		this.$element.trigger(startEvent);
+        if (this._isTransitioning || $(this._element).hasClass(ClassName.IN)) {
+          return;
+        };
 
-		if (startEvent.isDefaultPrevented()) {
-			return;
-		};
+        var actives = undefined;
+        var activesData = undefined;
 
-		if (actives && actives.length) {
-			Plugin.call(actives, 'hide');
-			activesData || actives.data('bs.tile', null);
-		};
+        if (this._parent) {
+          actives = $.makeArray($(Selector.ACTIVES, this._parent));
 
-		var dimension = this.dimension();
+          if (!actives.length) {
+            actives = null;
+          };
+        };
 
-		this.$element.removeClass('collapse').addClass('collapsing')[dimension](0);
+        if (actives) {
+          activesData = $(actives).data(DATA_KEY);
 
-		this.$element.closest('.tile-collapse').addClass('active');
+          if (activesData && activesData._isTransitioning) {
+            return;
+          };
+        };
 
-		this.transitioning = 1;
+        var startEvent = $.Event(Event.SHOW);
 
-		var complete = function () {
-			this.$element.removeClass('collapsing').addClass('collapse in')[dimension]('');
-			this.transitioning = 0;
-			this.$element.trigger('shown.bs.tile');
-			this.escape();
-		};
+        $(this._element).trigger(startEvent);
 
-		if (!$.support.transition) {
-			return complete.call(this);
-		};
+        if (startEvent.isDefaultPrevented()) {
+          return;
+        };
 
-		var scrollSize = $.camelCase(['scroll', dimension].join('-'));
+        if (actives) {
+          Tile._jQueryInterface.call($(actives), 'hide');
 
-		this.$element.one('bsTransitionEnd', $.proxy(complete, this)).emulateTransitionEnd(Tile.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize]);
-	};
+          if (!activesData) {
+            $(actives).data(DATA_KEY, null);
+          };
+        };
 
-	function getTargetFromTrigger($trigger) {
-		var href;
-		var target = $trigger.attr('data-target') || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
+        var dimension = this._getDimension();
 
-		return $(target);
-	};
+        $(this._element).closest(Selector.PARENT).addClass(ClassName.IN);
+        $(this._element).removeClass(ClassName.COLLAPSE).addClass(ClassName.COLLAPSING);
+        this._element.style[dimension] = 0;
+        this._element.setAttribute('aria-expanded', true);
 
-	function Plugin(option) {
-		return this.each(function () {
-			var $this   = $(this);
-			var data    = $this.data('bs.tile');
-			var options = $.extend({}, Tile.DEFAULTS, $this.data(), typeof option == 'object' && option);
+        if (this._triggerArray.length) {
+          $(this._triggerArray).removeClass(ClassName.COLLAPSED).attr('aria-expanded', true);
+        };
 
-			if (!data && options.toggle && /show|hide/.test(option)) {
-				options.toggle = false;
-			};
+        this.setTransitioning(true);
 
-			if (!data) {
-				$this.data('bs.tile', (data = new Tile(this, options)));
-			};
+        var complete = function complete() {
+          $(_this._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).addClass(ClassName.IN);
+          _this._element.style[dimension] = '';
+          _this.setTransitioning(false);
+          $(_this._element).trigger(Event.SHOWN);
+        };
 
-			if (typeof option == 'string') {
-				data[option]();
-			};
-		})
-	};
+        if (!Util.supportsTransitionEnd()) {
+          complete();
+          return;
+        };
 
-	var old = $.fn.tile;
+        var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
+        var scrollSize = 'scroll' + capitalizedDimension;
+        $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
+        this._element.style[dimension] = this._element[scrollSize] + 'px';
+      }
+    }, {
+      key: 'toggle',
+      value: function toggle() {
+        if ($(this._element).hasClass(ClassName.IN)) {
+          this.hide();
+        } else {
+          this.show();
+        };
+      }
+    }, {
+      key: '_addAriaAndCollapsedClass',
+      value: function _addAriaAndCollapsedClass(element, triggerArray) {
+        if (element) {
+          var isOpen = $(element).hasClass(ClassName.IN);
 
-	$.fn.tile             = Plugin;
-	$.fn.tile.Constructor = Tile;
+          element.setAttribute('aria-expanded', isOpen);
 
-	$.fn.tile.noConflict = function () {
-		$.fn.tile = old;
-		return this;
-	};
+          if (triggerArray.length) {
+            $(triggerArray).toggleClass(ClassName.COLLAPSED, !isOpen).attr('aria-expanded', isOpen);
+          };
+        };
+      }
+    }, {
+      key: '_getConfig',
+      value: function _getConfig(config) {
+        config = $.extend({}, Default, config);
+        config.toggle = Boolean(config.toggle);
+        Util.typeCheckConfig(NAME, config, DefaultType);
+        return config;
+      }
+    }, {
+      key: '_getDimension',
+      value: function _getDimension() {
+        var hasWidth = $(this._element).hasClass(Dimension.WIDTH);
+        return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT;
+      }
+    }, {
+      key: '_getParent',
+      value: function _getParent() {
+        var _this = this;
+        var parent = $(this._config.parent)[0];
+        var selector = '[data-toggle="tile"][data-parent="' + this._config.parent + '"]';
 
-	$(document).on('click.bs.tile.data-api', '[data-toggle="tile"]', function (e) {
-		var $this = $(this);
+        $(parent).find(selector).each(function (i, element) {
+          _this._addAriaAndCollapsedClass(Tile._getTargetFromElement(element), [element]);
+        });
+        return parent;
+      }
+    }], [{
+      key: '_getTargetFromElement',
+      value: function _getTargetFromElement(element) {
+        var selector = Util.getSelectorFromElement(element);
+        return selector ? $(selector)[0] : null;
+      }
+    }, {
+      key: '_jQueryInterface',
+      value: function _jQueryInterface(config) {
+        return this.each(function () {
+          var $this = $(this);
+          var data = $this.data(DATA_KEY);
+          var _config = $.extend({}, Default, $this.data(), typeof config === 'object' && config);
 
-		if (!$(e.target).is('[data-ignore="tile"], [data-ignore="tile"] *')) {
-			if (!$this.attr('data-target')) {
-				e.preventDefault();
-			};
+          if (!data && _config.toggle && /show|hide/.test(config)) {
+            _config.toggle = false;
+          };
 
-			var $target = getTargetFromTrigger($this);
-			var data    = $target.data('bs.tile');
-			var option  = data ? 'toggle' : $this.data();
+          if (!data) {
+            data = new Tile(this, _config);
+            $this.data(DATA_KEY, data);
+          };
 
-			Plugin.call($target, option);
-		};
-	});
-}(jQuery));
+          if (typeof config === 'string') {
+            if (data[config] === undefined) {
+              throw new Error('No method named "' + config + '"');
+            };
+            data[config]();
+          };
+        });
+      }
+    }]);
+
+    return Tile;
+  })();
+
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    event.preventDefault();
+
+    var target = Tile._getTargetFromElement(this);
+    var data = $(target).data(DATA_KEY);
+    var config = data ? 'toggle' : $(this).data();
+
+    Tile._jQueryInterface.call($(target), config);
+  });
+
+  $.fn[NAME] = Tile._jQueryInterface;
+  $.fn[NAME].Constructor = Tile;
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Tile._jQueryInterface;
+  };
+
+  return Tile;
+})(jQuery);
