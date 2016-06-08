@@ -269,7 +269,6 @@ const Panel = (($) => {
       if ($(this._element).hasClass(ClassName.IN) &&
         this._config.keyboard) {
         $(this._element).on(Event.KEYDOWN_DISMISS, (event) => {
-          console.log(event.which);
           if (event.which === 27) {
             this.hide();
           }
