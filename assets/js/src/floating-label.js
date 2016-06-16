@@ -96,7 +96,7 @@ const Floatinglabel = (($) => {
   $.fn[NAME]             = Floatinglabel._jQueryInterface;
   $.fn[NAME].Constructor = Floatinglabel;
   $.fn[NAME].noConflict  = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    $.fn[NAME] = NO_CONFLICT;
     return Floatinglabel._jQueryInterface;
   };
 

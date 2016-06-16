@@ -198,7 +198,7 @@ const Snackbar = (($) => {
   $.fn[NAME]             = Snackbar._jQueryInterface;
   $.fn[NAME].Constructor = Snackbar;
   $.fn[NAME].noConflict  = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    $.fn[NAME] = NO_CONFLICT;
     return Snackbar._jQueryInterface;
   };
 

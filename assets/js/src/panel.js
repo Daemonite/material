@@ -332,7 +332,7 @@ const Panel = (($) => {
   $.fn[NAME]             = Panel._jQueryInterface;
   $.fn[NAME].Constructor = Panel;
   $.fn[NAME].noConflict  = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    $.fn[NAME] = NO_CONFLICT;
     return Panel._jQueryInterface;
   };
 

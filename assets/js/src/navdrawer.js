@@ -340,7 +340,7 @@ const NavDrawer = (($) => {
   $.fn[NAME]             = NavDrawer._jQueryInterface;
   $.fn[NAME].Constructor = NavDrawer;
   $.fn[NAME].noConflict  = function () {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    $.fn[NAME] = NO_CONFLICT;
     return NavDrawer._jQueryInterface;
   };
 
