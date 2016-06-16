@@ -1,4 +1,4 @@
-/*
+/*!
  * floating label:
  * when a user engages with the text input field,
  * the floating inline labels move to float above the field
@@ -24,7 +24,7 @@ const Floatinglabel = (($) => {
 
     const Selector = {
       DATA_TOGGLE : `.floating-label-control`
-    }
+    };
   // <<< constants
 
   class Floatinglabel {

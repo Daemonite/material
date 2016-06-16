@@ -16,7 +16,7 @@ const Panel = (($) => {
       COLLAPSE   : 'collapse',
       COLLAPSING : 'collapsing',
       COLLAPSED  : 'collapsed'
-    }
+    };
 
     const Default = {
       keyboard : true,
@@ -47,7 +47,7 @@ const Panel = (($) => {
       ACTIVES     : '.tile-active-show.collapsing, .tile-active-show.in',
       DATA_TOGGLE : '[data-toggle="panel"]',
       PARENT      : '.tile-collapse'
-    }
+    };
   // <<< constants
 
   class Panel {
