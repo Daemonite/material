@@ -1,5 +1,5 @@
-@function unicode($str){
-	@return unquote("\"") + $str + unquote("\"");
+@function -rgba($color, $alpha) {
+	@return "rgba(" + red($color) + ", " + green($color) + ", " + blue($color) + ", " + $alpha + ")";
 }
 
 @mixin clearfix() {
