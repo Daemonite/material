@@ -1,38 +1,86 @@
 module.exports = function(grunt) {
 	'use strict';
 
-	// load grunt tasks
 	require('load-grunt-tasks')(grunt);
 
-	// grunt config
-	var postcssOptions = {
-		browsers: ['> 1%', 'Firefox ESR', 'last 2 versions', 'not ie <= 9']
-		// browsers: [
-		// 	'Android 2.3',
-		// 	'Android >= 4',
-		// 	'Chrome >= 35',
-		// 	'Edge >= 12',
-		// 	'Explorer >= 9',
-		// 	'Firefox >= 31',
-		// 	'iOS >= 8',
-		// 	'Opera >= 12',
-		// 	'Safari >= 8'
-		// ]
-	};
+	// config
+		var concatBanner = '/*!\n' +
+		                   ' * Material\n' +
+		                   ' */\n' +
+		                   'if (typeof jQuery === \'undefined\') {\n' +
+		                   '	throw new Error(\'Material\\\'s JavaScript requires jQuery\')\n' +
+		                   '}\n\n' +
+		                   '+function ($) {\n' +
+		                   '	var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
+		                   '	if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 3)) {\n' +
+		                   '		throw new Error(\'Material\\\'s JavaScript requires at least jQuery v1.9.1 but less than v3.0.0\')\n' +
+		                   '	}\n' +
+		                   '}(jQuery);\n\n' +
+		                   '+function ($) {\n' +
+		                   '\'use strict\';\n\n';
 
-	var sassOptions = {
-		precision: 6,
-		sourcemap: 'auto',
-		style: 'expanded'
-	};
+		var concatFooter = '\n}(jQuery);';
+
+		var postcssOptions = {
+			browsers: ['> 1%', 'Firefox ESR', 'last 2 versions', 'not ie <= 9']
+			// browsers: [
+			// 	'Android 2.3',
+			// 	'Android >= 4',
+			// 	'Chrome >= 35',
+			// 	'Edge >= 12',
+			// 	'Explorer >= 9',
+			// 	'Firefox >= 31',
+			// 	'iOS >= 8',
+			// 	'Opera >= 12',
+			// 	'Safari >= 8'
+			// ]
+		};
+
+		var sassOptions = {
+			precision: 6,
+			sourcemap: 'auto',
+			style: 'expanded'
+		};
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		babel: {
+			material: {
+				options: {
+					presets: ['es2015']
+				},
+				dest: '<%= concat.babelpre.dest %>',
+				src: '<%= concat.babelpre.dest %>'
+			}
+		},
+
 		concat: {
+			babelpost: {
+				options: {
+					banner: concatBanner,
+					footer: concatFooter,
+					process: function(file, filepath) {
+						return file.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+					},
+					stripBanners: {
+						block: false,
+						line: true
+					}
+				},
+				dest: '<%= babel.material.dest %>',
+				src: '<%= babel.material.dest %>'
+			},
+			babelpre: {
+				dest: 'assets/js/src.js',
+				src: 'assets/js/src/**/*.js'
+			},
 			material: {
 				dest: 'js/material.js',
-				src: 'assets/js/**/*.js'
+				src: [
+					'assets/js/addons/**/*.js',
+					'<%= concat.babelpost.dest %>',
+				]
 			},
 			project: {
 				dest: 'js/project.js',
@@ -77,6 +125,7 @@ module.exports = function(grunt) {
 					require('autoprefixer') (postcssOptions)
 				]
 			},
+
 			material: {
 				dest: 'css/material.css',
 				src: '<%= sass.material.dest %>'
@@ -90,11 +139,13 @@ module.exports = function(grunt) {
 		sass: {
 			material: {
 				options: sassOptions,
+
 				dest: 'css/material.css',
 				src: 'assets/sass/material.scss'
 			},
 			project: {
 				options: sassOptions,
+
 				dest: 'css/project.css',
 				src: 'assets/sass-project/project.scss'
 			}
@@ -142,18 +193,17 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// dev update
-		devUpdate: {
-			default: {
-				options: {
-					semver: false,
-					updateType: 'prompt'
+		// update package.json packages
+			devUpdate: {
+				default: {
+					options: {
+						semver: false,
+						updateType: 'prompt'
+					}
 				}
 			}
-		}
 	});
 
-	// grunt tasks
 	grunt.registerTask(
 		'default',
 		[
@@ -165,9 +215,26 @@ module.exports = function(grunt) {
 	grunt.registerTask(
 		'material',
 		[
+			'material-css',
+			'material-js'
+		]
+	);
+
+	grunt.registerTask(
+		'material-css',
+		[
 			'sass:material',
 			'postcss:material',
-			'cssmin:material',
+			'cssmin:material'
+		]
+	);
+
+	grunt.registerTask(
+		'material-js',
+		[
+			'concat:babelpre',
+			'babel:material',
+			'concat:babelpost',
 			'concat:material',
 			'uglify:material'
 		]
@@ -176,9 +243,23 @@ module.exports = function(grunt) {
 	grunt.registerTask(
 		'project',
 		[
+			'project-css',
+			'project-js'
+		]
+	);
+
+	grunt.registerTask(
+		'project-css',
+		[
 			'sass:project',
 			'postcss:project',
-			'cssmin:project',
+			'cssmin:project'
+		]
+	);
+
+	grunt.registerTask(
+		'project-js',
+		[
 			'concat:project',
 			'uglify:project'
 		]
