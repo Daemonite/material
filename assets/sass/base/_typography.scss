@@ -1,0 +1,258 @@
+// blockquote
+  blockquote,
+  q {
+    margin: 0 0 $spacer-md-y;
+  }
+
+// headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    color: $heading-color;
+    font-family: $heading-font-family;
+    margin: 0 0 $spacer-sm-y;
+  }
+
+  h1,
+  .h1 {
+    @include typography-display-2;
+  }
+
+  h2,
+  .h2 {
+    @include typography-display-1;
+  }
+
+  h3,
+  .h3 {
+    @include typography-headline;
+  }
+
+  h4,
+  .h4 {
+    @include typography-title;
+  }
+
+  h5,
+  .h5 {
+    @include typography-subheading;
+  }
+
+  h6,
+  .h6 {
+    @include typography-body-2;
+  }
+
+  .typography-display-4 {
+    @include typography-display-4;
+  }
+
+  .typography-display-3 {
+    @include typography-display-3;
+  }
+
+  .typography-display-2 {
+    @include typography-display-2;
+  }
+
+  .typography-display-1 {
+    @include typography-display-1;
+  }
+
+  .typography-headline {
+    @include typography-headline;
+  }
+
+  .typography-title {
+    @include typography-title;
+  }
+
+  .typography-subheading {
+    @include typography-subheading;
+  }
+
+  .typography-body-2 {
+    @include typography-body-2;
+  }
+
+  .typography-body-1 {
+    @include typography-body-1;
+  }
+
+  .typography-caption {
+    @include typography-caption;
+  }
+
+// hr
+  hr,
+  .hr {
+    border: 0;
+    border-top: $hr-border-width $hr-border-style $hr-border-color;
+    box-sizing: content-box;
+    display: block;
+    height: 0;
+    margin: $spacer-md-y 0;
+  }
+
+// list
+  dd {
+    margin: 0;
+  }
+
+  dl {
+    margin: 0 0 $spacer-md-y;
+  }
+
+  dt {
+    font-weight: $font-weight-medium;
+  }
+
+  ol,
+  ul {
+    margin: 0 0 $spacer-md-y;
+    ol,
+    ul {
+      margin-bottom: 0;
+    }
+  }
+
+  .dl-horizontal {
+    margin-right: ($grid-gutter-width * -1);
+    margin-left: ($grid-gutter-width * -1);
+    @include clearfix;
+  }
+
+  .list-inline {
+    @include list-unstyled;
+  }
+
+  .list-inline-item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: $spacer-sm-x;
+    }
+  }
+
+  .list-unstyled {
+    @include list-unstyled;
+  }
+
+// misc
+  a {
+    background-color: transparent;
+    color: $link-color;
+    text-decoration: $link-decoration;
+    &:active,
+    &:hover {
+      outline: 0;
+    }
+    &:focus,
+    &:hover {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+    &:focus {
+      @include tab-focus;
+    }
+  }
+
+  abbr[title] {
+    border-bottom: $abbr-border-width $abbr-border-style $abbr-border-color;
+    cursor: help;
+  }
+
+  address {
+    font-style: normal;
+    line-height: inherit;
+    margin: 0 0 $spacer-md-y;
+  }
+
+  b,
+  strong {
+    font-weight: $font-weight-medium;
+  }
+
+  dfn {
+    font-style: italic;
+  }
+
+  figure {
+    margin: 0 0 $spacer-md-y;
+  }
+
+  img {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  mark,
+  .mark {
+    background-color: #ffff00;
+    color: #000000;
+  }
+
+  p {
+    margin: 0 0 $spacer-md-y;
+  }
+
+  small,
+  .small {
+    font-size: 75%;
+    line-height: 1;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    // position
+      bottom: -0.25em;
+  }
+
+  sup {
+    // position
+      top: -0.5em;
+  }
+
+  .initialism {
+    font-size: 90%;
+    text-transform: uppercase;
+  }
+
+// table
+  caption {
+    caption-side: bottom;
+    color: $black-hint-solid;
+    padding: (($table-tbody-cell-height - $line-height-caption) / 2) $table-tbody-cell-padding-x;
+    text-align: left;
+    @include typography-caption;
+  }
+
+  table {
+    background-color: $table-bg;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  td,
+  th {
+    padding: 0;
+  }
+
+  th {
+   text-align: left;
+  }

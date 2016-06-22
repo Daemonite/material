@@ -1,0 +1,189 @@
+// based on Bootstrap's (v4.0.0-alpha.2) reboot and normalize.css v3.0.3
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+@at-root {
+  @-webkit-viewport { width: device-width; }
+     @-moz-viewport { width: device-width; }
+      @-ms-viewport { width: device-width; }
+       @-o-viewport { width: device-width; }
+          @viewport { width: device-width; }
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $font-family;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: $font-size-root;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+// elements
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  main,
+  menu,
+  nav,
+  section,
+  summary {
+    display: block;
+  }
+
+  audio,
+  canvas,
+  progress,
+  video {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+
+  svg:not(:root) {
+    overflow: hidden;
+  }
+
+  template,
+  [hidden] {
+    display: none;
+  }
+
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  [tabindex="-1"]:focus {
+   outline: none !important;
+  }
+
+// form
+  button,
+  html input[type="button"],
+  html input[type="reset"],
+  html input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    border-radius: 0;
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button {
+    overflow: visible;
+  }
+
+  button[disabled],
+  html input[disabled] {
+    cursor: default;
+  }
+
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+  }
+
+  input {
+    line-height: normal;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    line-height: normal;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  input[type="search"] {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  label {
+    display: inline-block;
+    font-weight: $font-weight-medium;
+    margin: 0;
+  }
+
+  legend {
+    border: 0;
+    display: block;
+    margin: 0 0 $spacer;
+    padding: 0;
+    width: 100%;
+    @include typography-title;
+  }
+
+  optgroup {
+    font-weight: $font-weight-medium;
+  }
+
+  output {
+    display: inline-block;
+  }
+
+  select[multiple],
+  select[size] {
+    height: auto;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+  }
