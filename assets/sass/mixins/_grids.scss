@@ -1,0 +1,91 @@
+@mixin make-grid-columns {
+  %grid-column {
+    min-height: 1px;
+    padding-left: ($grid-gutter-width / 2);
+    padding-right: ($grid-gutter-width / 2);
+    position: relative;
+  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        @extend %grid-column;
+      }
+    }
+    @include media-breakpoint-up($breakpoint) {
+      %grid-column-float-#{$breakpoint} {
+        float: left;
+      }
+      @for $i from 1 through $grid-columns {
+        .col-#{$breakpoint}-#{$i} {
+          @include make-col-span($i);
+        }
+      }
+      @each $modifier in (pull, push, offset) {
+        @for $i from 0 through $grid-columns {
+          .col-#{$breakpoint}-#{$modifier}-#{$i} {
+            @include make-col-modifier($i, $modifier);
+          }
+        }
+      }
+    }
+  }
+}
+
+// columns
+  @mixin make-col {
+    float: left;
+    min-height: 1px;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    position: relative;
+  }
+
+  @mixin make-col-modifier($size, $type) {
+    @if ($type == offset) {
+      @include make-col-offset($size);
+    } @else if ($type == pull) {
+      @include make-col-pull($size);
+    } @else if ($type == push ){
+      @include make-col-push($size);
+    }
+  }
+
+  @mixin make-col-offset($size) {
+    margin-left: percentage($size / $grid-columns);
+  }
+
+  @mixin make-col-pull($size) {
+    right: if($size > 0, percentage($size / $grid-columns), auto);
+  }
+
+  @mixin make-col-push($size) {
+    left: if($size > 0, percentage($size / $grid-columns), auto);
+  }
+
+  @mixin make-col-span($size) {
+    width: percentage($size / $grid-columns);
+  }
+
+// containers
+  @mixin make-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    @include clearfix;
+  }
+
+  @mixin make-container-max-widths {
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      @include media-breakpoint-up($breakpoint) {
+        max-width: $container-max-width;
+      }
+    }
+  }
+
+// row
+  @mixin make-row {
+    margin-right: ($grid-gutter-width * -2);
+    margin-left: ($grid-gutter-width * -2);
+    @include clearfix;
+  }
