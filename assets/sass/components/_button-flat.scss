@@ -1,22 +1,18 @@
-.btn-flat {
-	background-color: transparent;
-	box-shadow: none;
-	&:after {
-		background-color: $offwhite-dark;
-		box-shadow: none;
-	}
-	&.disabled,
-	&[disabled],
-	fieldset[disabled] & {
-		background-color: transparent;
-	}
+.btn-flat,
+.btn-outline {
+  background-color: transparent;
+  box-shadow: none;
+  &::after {
+    box-shadow: none;
+  }
 }
 
 // colour
-	@each $color in $palette-list-class {
-		$i: index($palette-list-class, $color);
+  @each $color in $palette-list-class {
+    $i: index($palette-list-class, $color);
 
-		.btn-flat.btn-#{$color} {
-			color: nth($palette-list-color, $i) !important;
-		}
-	}
+    .btn-#{$color}-flat,
+    .btn-#{$color}-outline {
+      color: nth($palette-list, $i) !important;
+    }
+  }
