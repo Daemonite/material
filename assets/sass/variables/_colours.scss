@@ -277,10 +277,10 @@
 // based on https://material.google.com/style/color.html#color-text-background-colors
   $black:                         #000000 !default;
 
-  $black-primary:                 -rgba($black, 0.87) !default;
-  $black-secondary:               -rgba($black, 0.54) !default;
-  $black-hint:                    -rgba($black, 0.38) !default;
-  $black-divider:                 -rgba($black, 0.12) !default;
+  $black-primary:                 rgba(red($black), green($black), blue($black), 0.87) !default;
+  $black-secondary:               rgba(red($black), green($black), blue($black), 0.54) !default;
+  $black-hint:                    rgba(red($black), green($black), blue($black), 0.38) !default;
+  $black-divider:                 rgba(red($black), green($black), blue($black), 0.12) !default;
 
   $black-primary-solid:           #212121 !default;
   $black-secondary-solid:         #757575 !default;
@@ -289,10 +289,10 @@
 
   $white:                         #ffffff !default;
 
-  $white-primary:                 -rgba($white, 1.00) !default;
-  $white-secondary:               -rgba($white, 0.70) !default;
-  $white-hint:                    -rgba($white, 0.50) !default;
-  $white-divider:                 -rgba($white, 0.12) !default;
+  $white-primary:                 rgba(red($white), green($white), blue($white), 1.00) !default;
+  $white-secondary:               rgba(red($white), green($white), blue($white), 0.70) !default;
+  $white-hint:                    rgba(red($white), green($white), blue($white), 0.50) !default;
+  $white-divider:                 rgba(red($white), green($white), blue($white), 0.12) !default;
 
   $white-primary-solid:           #ffffff !default;
   $white-secondary-solid:         #b3b3b3 !default;
@@ -307,7 +307,7 @@
 
 // palettes
 // based on https://material.google.com/style/color.html#color-color-schemes
-// change these values to suit particular colour palettes
+// change these values to customise colour palettes
   $brand-color:                   $palette-indigo-500 !default;
   $brand-color-dark:              $palette-indigo-700 !default;
   $brand-color-light:             $palette-indigo-100 !default;
@@ -316,13 +316,13 @@
   $brand-color-accent-dark:       $palette-pink-a400 !default;
   $brand-color-accent-light:      $palette-pink-a100 !default;
 
-  $brand-color-text:              $white-primary !default;
-  $brand-color-text-dark:         $white-primary !default;
-  $brand-color-text-light:        $black-primary !default;
+  $brand-color-text:              $white-primary-solid !default;
+  $brand-color-text-dark:         $white-primary-solid !default;
+  $brand-color-text-light:        $black-primary-solid !default;
 
-  $brand-color-accent-text:       $white-primary !default;
-  $brand-color-accent-text-dark:  $white-primary !default;
-  $brand-color-accent-text-light: $black-primary !default;
+  $brand-color-accent-text:       $white-primary-solid !default;
+  $brand-color-accent-text-dark:  $white-primary-solid !default;
+  $brand-color-accent-text-light: $black-primary-solid !default;
 
   $palette-list-class:            "brand",                 "brand-accent",                 "green",            "orange",            "red"            !default;
   $palette-list:                  $brand-color,            $brand-color-accent,            $palette-green-500, $palette-orange-500, $palette-red-500 !default;
