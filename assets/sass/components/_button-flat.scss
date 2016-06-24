@@ -14,6 +14,7 @@
     &.disabled,
     fieldset[disabled] & {
       background-color: transparent;
+      color: $btn-disabled-color;
     }
   // waves
     &.waves-attach:active {
@@ -27,6 +28,19 @@
 
     .btn-#{$color}-flat,
     .btn-#{$color}-outline {
-      color: nth($palette-list, $i) !important;
+      color: nth($palette-list, $i);
+      &::before {
+        background-color: hex-to-rgba(nth($palette-list, $i), 0.12);
+      }
+      // active, focus, hover
+        &:active,
+        &.active {
+          background-color: hex-to-rgba(nth($palette-list, $i), 0.4);
+        }
+        &:focus,
+        &:hover,
+        &.focus {
+          color: nth($palette-list, $i);
+        }
     }
   }
