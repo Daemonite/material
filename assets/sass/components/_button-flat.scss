@@ -1,7 +1,3 @@
-/*!
- * to-do: dark themed buttons
- */
-
 .btn-flat,
 .btn-outline {
   background-color: transparent;
@@ -43,4 +39,16 @@
           color: nth($palette-list, $i);
         }
     }
+  }
+
+// inverse
+  .btn-inverse-flat,
+  .btn-inverse-outline {
+    @extend .btn-inverse;
+    // disabled
+      &:disabled,
+      &.disabled,
+      fieldset[disabled] & {
+        color: $btn-disabled-color-inverse;
+      }
   }
