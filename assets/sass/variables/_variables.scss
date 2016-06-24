@@ -1,5 +1,6 @@
 $css-path: "." !default;
 
+@import "animations";
 @import "colours";
 @import "grids";
 @import "spacers";
@@ -15,10 +16,15 @@ $css-path: "." !default;
 // default button (.btn) and dense button (.btn-sm)
   $btn-bg:                     $white-divider !default;
   $btn-color:                  $black-primary !default;
+  $btn-color-inverse:          $white-primary !default;
   $btn-disabled-bg:            rgba(0, 0, 0, 0.12) !default;
+  $btn-disabled-bg-inverse:    rgba(255, 255, 255, 0.12) !default;
   $btn-disabled-color:         rgba(0, 0, 0, 0.26) !default;
+  $btn-disabled-color-inverse: rgba(255, 255, 255, 0.30) !default;
   $btn-focus-overlay:          rgba(0, 0, 0, 0.12) !default;
-  $btn-pressed-bg:             rgba(153, 153, 153, 0.4) !default;
+  $btn-pressed-bg:             rgba(153, 153, 153, 0.40) !default;
+  $btn-pressed-bg-inverse:     rgba(204, 204, 204, 0.25) !default;
+  $btn-transition-duration:    $transition-duration !default;
 
   $btn-border-radius:          $border-radius !default;
   $btn-border-radius-lg:       $btn-border-radius !default;
@@ -58,10 +64,27 @@ $css-path: "." !default;
   $card-border-color-inverse:  $white-divider !default;
   $card-border-radius:         $border-radius !default;
   $card-border-width:          $border-width !default;
+  $card-color:                 $black-primary !default;
+  $card-color-inverse:         $white-primary !default;
   $card-margin:                $spacer-sm !default;
   $card-padding:               $spacer-md !default;
   $card-padding-lg:            $spacer-lg !default;
   $card-padding-sm:            $spacer-sm !default;
+
+// code
+  $code-bg:                    #f7f7f9 !default;
+  $code-border-radius:         $border-radius !default;
+  $code-color:                 #bd4147 !default;
+
+  $kbd-bg:                     #333333 !default;
+  $kbd-border-radius:          $border-radius !default;
+  $kbd-color:                  #ffffff !default;
+
+  $pre-bg:                     #f7f7f9 !default;
+  $pre-border-color:           $black-divider !default;
+  $pre-border-radius:          $border-radius !default;
+  $pre-color:                  #333333 !default;
+  $pre-scrollable-max-height:  320px !default;
 
 // cursor
   $cursor-disabled:            not-allowed !default;
@@ -90,12 +113,6 @@ $css-path: "." !default;
   $table-thead-cell-padding-x: $table-tfoot-cell-padding-x !default;
   $table-thead-cell-padding-y: $table-tfoot-cell-padding-y !default;
 
-// transition
-  $transition-duration:        0.3s !default;
-  $transition-duration-lg:     0.6s !default;
-  $transition-duration-sm:     0.15s !default;
-  $transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !default;
-
 // typography
   $abbr-border-color:          $border-color-black !default;
   $abbr-border-style:          dotted !default;
@@ -110,6 +127,6 @@ $css-path: "." !default;
 
 // waves
   $waves-bg:                   $black-hint !default;
-  $waves-light-bg:             $white-hint !default;
+  $waves-bg-light:             $white-hint !default;
   $waves-size:                 4rem !default;
   $waves-transition-duration:  $transition-duration-lg !default;
