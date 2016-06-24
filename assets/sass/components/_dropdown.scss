@@ -27,18 +27,15 @@
   @include typography-body-1;
   // active, focus, hover
     &:active,
-    &:focus,
-    &.fcous {
+    &:focus {
       background-color: $dropdown-link-focus-bg;
     }
     &:focus,
-    &:hover,
-    &.focus {
+    &:hover {
       color: inherit;
       text-decoration: none;
     }
-    &:focus,
-    &.focus {
+    &:focus {
       outline: 0;
     }
     &.active {
@@ -97,4 +94,56 @@
     .dropup & {
       transform-origin: 100% 100%;
     }
+  }
+
+//
+// toggle
+//
+  .dropdown-toggle {
+    transition: background-color $transition-duration $transition-timing-function;
+    &::after {
+      border-top: $caret-width solid;
+      border-right: $caret-width solid transparent;
+      border-left: $caret-width solid transparent;
+      content: "";
+      display: inline-block;
+      height: 0;
+      margin-left: $spacer-xs-x;
+      vertical-align: middle;
+      width: 0;
+    }
+    &::before {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
+      content: "";
+      display: block;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+        top: 0;
+        left: 0;
+      transition: opacity $transition-duration $transition-timing-function;
+      width: 100%;
+    }
+    // active. focus, hover
+      &:active,
+      &:focus,
+      &.active {
+        background-color: $dropdown-toggle-hover-bg;
+        &::before {
+          opacity: 1;
+        }
+      }
+      &:focus {
+        outline: 0;
+      }
+      &:hover {
+        background-color: $dropdown-toggle-hover-bg;
+      }
+    // open
+      .open > & {
+        background-color: $dropdown-toggle-hover-bg;
+        &::before {
+          opacity: 1;
+        }
+      }
   }
