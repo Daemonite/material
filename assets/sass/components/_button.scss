@@ -1,3 +1,7 @@
+/*!
+ * to-do: dark themed buttons
+ */
+
 .btn {
   background-color: $btn-bg;
   background-image: none;
@@ -17,28 +21,10 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
+  transition: background-color $transition-duration $transition-timing-function;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  &:active,
-  &:focus,
-  &:hover,
-  &.active,
-  &.focus {
-    color: $btn-focus-color;
-    outline: 0;
-    text-decoration: none;
-  }
-  &:disabled,
-  &.disabled,
-  fieldset[disabled] & {
-    background-color: $btn-disabled-bg;
-    box-shadow: none;
-    color: $btn-disabled-color;
-    cursor: $cursor-disabled;
-    opacity: 1;
-    pointer-events: none;
-  }
   &::after,
   &::before {
     border-radius: $btn-border-radius;
@@ -56,29 +42,56 @@
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
   }
   &::before {
-    background-color: $btn-focus-bg;
+    background-color: $btn-focus-overlay;
   }
-  &:active,
-  &:focus,
-  &.active,
-  &.focus {
-    &::after,
-    &::before {
+  // active, focus, hover
+    &:active,
+    &:focus,
+    &.active,
+    &.focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+    &:active,
+    &.active {
+      background-color: $btn-pressed-bg;
+      &::after {
+        opacity: 1;
+      }
+    }
+    &:focus,
+    &:hover,
+    &.focus {
+      color: $btn-color;
+      text-decoration: none;
+    }
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+  // disabled
+    &:disabled,
+    &.disabled,
+    fieldset[disabled] & {
+      background-color: $btn-disabled-bg;
+      color: $btn-disabled-color;
+      cursor: $cursor-disabled;
       opacity: 1;
+      pointer-events: none;
+      &::after,
+      &::before,
+      .waves-ripple {
+        display: none;
+      }
     }
-  }
-  &:disabled,
-  &.disabled,
-  fieldset[disabled] & {
-    &::after,
-    &::before,
-    .waves-ripple {
-      display: none;
+  // waves
+    &.waves-attach:active {
+      background-color: $btn-bg;
+      &::before {
+        transition-delay: $waves-transition-duration;
+      }
     }
-  }
-  &.waves-attach:active::before {
-    transition-delay: $waves-transition-duration;
-  }
 }
 
 // colour
@@ -88,13 +101,24 @@
     .btn-#{$color} {
       background-color: nth($palette-list, $i);
       color: nth($palette-list-text, $i);
-      &:active,
-      &:focus,
-      &:hover,
-      &.active,
-      &.focus {
-        color: nth($palette-list-text, $i);
-      }
+      // active, focus, hover
+        &:active,
+        &.active {
+          background-color: nth($palette-list-dark, $i);
+          &::before {
+            opacity: 0;
+            transition-duration: 0;
+          }
+        }
+        &:focus,
+        &:hover,
+        &.focus {
+          color: nth($palette-list-text, $i);
+        }
+      // waves
+        &.waves-attach:active {
+          background-color: nth($palette-list, $i);
+        }
     }
   }
 

@@ -1,3 +1,7 @@
+/*!
+ * to-do: dark themed buttons
+ */
+
 .btn-flat,
 .btn-outline {
   background-color: transparent;
@@ -5,6 +9,16 @@
   &::after {
     box-shadow: none;
   }
+  // disabled
+    &:disabled,
+    &.disabled,
+    fieldset[disabled] & {
+      background-color: transparent;
+    }
+  // waves
+    &.waves-attach:active {
+      background-color: transparent;
+    }
 }
 
 // colour
