@@ -2,6 +2,7 @@
   background-color: $card-bg;
   border-radius: $card-border-radius;
   box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
+  color: $card-color;
   display: block;
   margin-bottom: $card-margin;
   &[href] {
@@ -33,8 +34,18 @@
 }
 
 // colours
+  @each $color in $palette-list-class {
+    $i: index($palette-list-class, $color);
+
+    .card-#{$color} {
+      background-color: nth($palette-list, $i);
+      color: nth($palette-list-text, $i);
+    }
+  }
+
+// inverse
   .card-inverse {
-    color: $white-primary;
+    color: $card-color-inverse;
     .card-actions-bordered,
     .card-footer-bordered {
       border-top-color: $card-border-color-inverse;
