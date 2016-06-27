@@ -1,0 +1,41 @@
+@function hex-to-rgba($color, $opacity) {
+	@return rgba(red($color), green($color), blue($color), $opacity);
+}
+
+@mixin clearfix {
+	&:after,
+	&:before {
+		content: "";
+		display: table;
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin img-responsive {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: 100% \9;
+}
+
+@mixin list-unstyled {
+	list-style: none;
+	padding-left: 0;
+}
+
+@mixin tab-focus {
+	outline: thin dotted;
+	outline: 3px auto -webkit-focus-ring-color;
+	outline-offset: 0;
+}
+
+@mixin text-overflow {
+	display: block;
+	line-height: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
