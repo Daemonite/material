@@ -1,0 +1,40 @@
+.input-group {
+  display: flex;
+  .form-control {
+    flex-grow: 1;
+  }
+}
+
+.input-group-addon {
+  @extend .form-control-static;
+  color: inherit;
+  font-weight: normal;
+  min-width: ($input-height + $input-margin-bottom);
+  text-align: center;
+  white-space: nowrap;
+  &.form-control-lg {
+    min-width: ($input-height-lg + $input-margin-bottom-lg);
+  }
+  &.form-control-sm {
+    min-width: ($input-height-sm + $input-margin-bottom-sm);
+  }
+}
+
+// size
+  .input-group-lg > .form-control {
+    @extend .form-control-lg;
+  }
+
+  .input-group-lg > .input-group-addon {
+    @extend .form-control-static.form-control-lg;
+    min-width: ($input-height-lg + $input-margin-bottom-lg);
+  }
+
+  .input-group-sm > .form-control {
+    @extend .form-control-sm;
+  }
+
+  .input-group-sm > .input-group-addon {
+    @extend .form-control-static.form-control-sm;
+    min-width: ($input-height-sm + $input-margin-bottom-sm);
+  }
