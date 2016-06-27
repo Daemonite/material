@@ -147,3 +147,30 @@ select.form-control {
   .form-group {
     margin-bottom: $spacer-md-y;
   }
+
+//
+// form inline
+//
+  .form-inline {
+    @include media-breakpoint-up(sm) {
+      .form-control {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+      }
+
+      .form-control-label {
+        display: inline-block;
+      }
+
+      .form-control-static {
+        display: inline-block;
+      }
+
+      .form-group {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+  }
