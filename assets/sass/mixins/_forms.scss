@@ -1,0 +1,22 @@
+@mixin form-control-size($border-width, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+  font-size: $font-size;
+  line-height: $line-height;
+  margin-bottom: $margin-bottom;
+  padding: $padding-top 0 ($height - $padding-top - $line-height - $border-width / $font-size-root);
+  @if $border-width != 0px {
+    &:focus {
+      padding-bottom: ($height - $padding-top - $line-height - ($border-width + 1) / $font-size-root);
+    }
+  }
+}
+
+@mixin form-control-validation($color) {
+  .form-control {
+    border-bottom-color: $color;
+  }
+
+  .form-control-label,
+  .text-help {
+    color: $color;
+  }
+}
