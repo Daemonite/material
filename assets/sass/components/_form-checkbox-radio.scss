@@ -1,0 +1,153 @@
+.c-indicator {
+  border: $c-input-border-width solid $c-input-border-color;
+  color: $c-input-theme-color;
+  display: block;
+  height: 16px;
+  line-height: 16px;
+  position: absolute;
+    top: 0;
+    left: 0;
+  text-align: center;
+  transition: all $transition-duration $transition-timing-function;
+  user-select: none;
+  width: 16px;
+  &::after {
+    direction: ltr;
+    display: block;
+    font-family: 'Material Icons';
+    font-feature-settings: 'liga';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    opacity: 0;
+    position: absolute;
+      top: -4px;
+      left: -4px;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    transition: opacity $transition-duration $transition-timing-function;
+    vertical-align: top;
+    white-space: nowrap;
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  &::before {
+    background-color: $c-input-pressed-bg;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+      top: -16px;
+      right: -16px;
+      bottom: -16px;
+      left: -16px;
+    transition: opacity $transition-duration $transition-timing-function;
+  }
+  // active, focus, hover
+    &:active::before {
+      animation: c-indicator-active $transition-duration;
+    }
+}
+
+// animation
+  @keyframes c-indicator-active {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.c-input {
+  cursor: pointer;
+  display: inline;
+  padding-left: (16px / $font-size-root + $spacer-sm-x);
+  position: relative;
+  > input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    // active, focus, hover
+      // &:focus ~ .c-indicator {
+      //   &::before {
+      //     opacity: 0.12;
+      //   }
+      // }
+    // checked
+      &:checked ~ .c-indicator {
+        border-color: $c-input-theme-color;
+        &::after {
+          opacity: 1;
+        }
+        &::before {
+          background-color: hex-to-rgba($c-input-theme-color, 0.12);
+        }
+      }
+  }
+  + .c-input {
+    margin-left: $spacer-md-x;
+  }
+}
+
+//
+// checkbox
+//
+  .c-checkbox {
+    .c-indicator {
+      border-radius: $border-radius;
+      &::after {
+        content: "check_box";
+      }
+    }
+    > input {
+      // indeterminate
+        &:indeterminate ~ .c-indicator {
+          border-color: $c-input-theme-color;
+          &::after {
+            content: "indeterminate_check_box";
+            opacity: 1;
+          }
+          &::before {
+            background-color: $c-input-theme-color;
+          }
+        }
+    }
+  }
+
+//
+// radio button
+//
+  .c-radio {
+    .c-indicator {
+      border-radius: 50%;
+      &::after {
+        content: "radio_button_checked";
+      }
+    }
+  }
+
+//
+// stacked layout
+//
+  .c-inputs-stacked {
+    .c-indicator {
+      // position
+        top: (($font-size-default * $line-height-default - 16px / $font-size-root) / 2);
+    }
+
+    .c-input {
+      display: block;
+      + .c-input {
+        margin-top: $spacer-xs-y;
+        margin-left: 0;
+      }
+    }
+  }
