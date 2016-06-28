@@ -249,6 +249,19 @@ select.form-control {
 //
   .form-inline {
     @include media-breakpoint-up(sm) {
+      .checkbox,
+      .radio {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+
+      .checkbox + .checkbox,
+      .radio + .radio {
+        margin-left: $spacer-sm-x;
+      }
+
       .form-control {
         display: inline-block;
         vertical-align: middle;

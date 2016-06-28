@@ -11,12 +11,20 @@
 }
 
 @mixin form-control-validation($color) {
-  .form-control {
-    border-bottom-color: $color;
+  .checkbox,
+  .checkbox-inline,
+  .form-control-label,
+  .radio,
+  .radio-inline,
+  .text-help,
+  &.checkbox,
+  &.checkbox-inline,
+  &.radio,
+  &.radio-inline {
+    color: $color;
   }
 
-  .form-control-label,
-  .text-help {
-    color: $color;
+  .form-control {
+    border-bottom-color: $color;
   }
 }
