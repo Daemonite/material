@@ -308,6 +308,7 @@ var Floatinglabel = function ($) {
 
   return Floatinglabel;
 }(jQuery);
+
 /*!
  * navigation drawer
  * based on Bootstrap's (v4.0.0-alpha.2) modal.js
