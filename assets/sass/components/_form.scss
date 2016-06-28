@@ -95,6 +95,95 @@ select.form-control {
   }
 
 //
+// checkbox and radio button
+//
+  .checkbox,
+  .radio {
+    display: block;
+    margin-bottom: $spacer-sm-y;
+    position: relative;
+    label {
+      cursor: pointer;
+      font-weight: normal;
+      margin-bottom: 0;
+      padding-left: 1.25rem;
+      // input:only-child {
+      //   position: static;
+      // }
+    }
+  }
+
+  label.checkbox,
+  label.radio {
+    cursor: pointer;
+    font-weight: normal;
+    padding-left: 1.25rem;
+  }
+
+  .checkbox + .checkbox,
+  .radio + .radio {
+    margin-top: ($spacer-sm-y * -1);
+  }
+
+  .checkbox-inline,
+  .radio-inline {
+    display: inline-block;
+    margin-bottom: 0;
+    position: relative;
+    vertical-align: middle;
+    label {
+      cursor: pointer;
+      font-weight: normal;
+      margin-bottom: 0;
+      padding-left: 1.25rem;
+    }
+  }
+
+  label.checkbox-inline,
+  label.radio-inline {
+    cursor: pointer;
+    font-weight: normal;
+    padding-left: 1.25rem;
+  }
+
+  .checkbox-inline + .checkbox-inline,
+  .radio-inline + .radio-inline {
+    margin-top: 0;
+    margin-left: $spacer-sm-x;
+  }
+
+  // disabled
+    input[type="checkbox"],
+    input[type="radio"] {
+      &:disabled,
+      &.disabled {
+        cursor: $cursor-disabled;
+      }
+    }
+
+    .checkbox,
+    .checkbox-inline,
+    .radio,
+    .radio-inline {
+      &.disabled {
+        cursor: $cursor-disabled;
+        label {
+          cursor: $cursor-disabled;
+        }
+      }
+    }
+
+  // positioning
+    .checkbox input[type="checkbox"],
+    .checkbox-inline input[type="checkbox"],
+    .radio input[type="radio"],
+    .radio-inline input[type="radio"] {
+      margin-top: 0.25rem;
+      margin-left: -1.25rem;
+      position: absolute;
+    }
+
+//
 // form control label
 //
   .form-control-label {
