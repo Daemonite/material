@@ -4,45 +4,6 @@
   z-index: 1;
 }
 
-.dropdown-backdrop {
-  position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  z-index: 1;
-}
-
-.dropdown-item {
-  background: none;
-  border: 0;
-  clear: both;
-  color: inherit;
-  display: block;
-  padding: $dropdown-padding-y-sm $dropdown-padding-x $dropdown-padding-y-sm $dropdown-padding-x-lg;
-  text-align: inherit;
-  transition: background-color $transition-duration $transition-timing-function;
-  white-space: nowrap;
-  width: 100%;
-  @include typography-body-1;
-  // active, focus, hover
-    &:active,
-    &:focus {
-      background-color: $dropdown-link-focus-bg;
-    }
-    &:focus,
-    &:hover {
-      color: inherit;
-      text-decoration: none;
-    }
-    &:focus {
-      outline: 0;
-    }
-    &.active {
-      color: $link-hover-color;
-    }
-}
-
 .dropdown-menu {
   background-clip: padding-box;
   background-color: $dropdown-bg;
@@ -94,6 +55,51 @@
     .dropup & {
       transform-origin: 100% 100%;
     }
+  }
+
+//
+// backdrop to catch body clicks on mobile
+//
+  .dropdown-backdrop {
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: 1;
+  }
+
+//
+// button, link and more within the dropdown menu
+//
+  .dropdown-item {
+    background: none;
+    border: 0;
+    clear: both;
+    color: inherit;
+    display: block;
+    padding: $dropdown-padding-y-sm $dropdown-padding-x $dropdown-padding-y-sm $dropdown-padding-x-lg;
+    text-align: inherit;
+    transition: background-color $transition-duration $transition-timing-function;
+    white-space: nowrap;
+    width: 100%;
+    @include typography-body-1;
+    // active, focus, hover
+      &:active,
+      &:focus {
+        background-color: $dropdown-link-focus-bg;
+      }
+      &:focus,
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
+      &:focus {
+        outline: 0;
+      }
+      &.active {
+        color: $link-hover-color;
+      }
   }
 
 //

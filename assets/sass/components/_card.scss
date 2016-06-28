@@ -18,22 +18,7 @@
   padding: $card-padding;
 }
 
-.card-subtitle {
-  margin-top: ($spacer-md-y * -1);
-  margin-bottom: 0;
-  @include typography-body-1;
-}
-
-.card-text:last-child {
-  margin-bottom: 0;
-}
-
-.card-title {
-  margin-bottom: $spacer-md-y;
-  @include typography-headline;
-}
-
-// colours
+// colour
   @each $color in $palette-list-class {
     $i: index($palette-list-class, $color);
 
@@ -56,7 +41,7 @@
   }
 
 //
-// actions
+// action
 //
   .card-actions {
     padding: $card-padding-sm;
@@ -141,4 +126,22 @@
       right: 0;
       bottom: 0;
       left: 0;
+  }
+
+//
+// text and title
+//
+  .card-subtitle {
+    margin-top: ($spacer-md-y * -1);
+    margin-bottom: 0;
+    @include typography-body-1;
+  }
+
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-title {
+    margin-bottom: $spacer-md-y;
+    @include typography-headline;
   }
