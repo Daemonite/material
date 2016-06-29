@@ -1,26 +1,23 @@
 .floating-label {
-  margin-bottom: $input-margin-bottom;
-  padding-top: ($floating-label-height - $input-height);
   position: relative;
+  @include floating-label-size($floating-label-height, $floating-label-padding-top, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
   > label {
     color: $floating-label-color;
     cursor: text;
     display: block;
-    font-size: $input-font-size;
     font-weight: normal;
-    line-height: $input-line-height;
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: absolute;
-      bottom: ($input-height - $input-padding-top - $input-line-height);
       left: 0;
     text-overflow: ellipsis;
     transform-origin: 0 0;
-    transition-duration: $transition-duration;
-    transition-property: color, transform;
-    transition-timing-function: $transition-timing-function;
+    transition: all $transition-duration $transition-timing-function;
     white-space: nowrap;
+  }
+  &.is-focused > label {
+    color: $floating-label-color-focus;
   }
   > .form-control {
     margin-bottom: 0;
@@ -31,18 +28,17 @@
   }
 }
 
-//
-// form control state
-//
-  .floating-label.has-value,
-  .floating-label.is-focused {
-    > label {
-      transform: scale(($floating-label-font-size-focus / $input-font-size), ($floating-label-font-size-focus / $input-font-size)) translateY(($input-font-size + $floating-label-divider-padding) * -1);
+// size
+  .floating-label-lg {
+    @include floating-label-size($floating-label-height-lg, $floating-label-padding-top-lg, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
+    > .form-control {
+      @extend .form-control-lg;
     }
   }
 
-  .floating-label.is-focused {
-    > label {
-      color: $floating-label-color-focus;
+  .floating-label-sm {
+    @include floating-label-size($floating-label-height-sm, $floating-label-padding-top-sm, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
+    > .form-control {
+      @extend .form-control-sm;
     }
   }

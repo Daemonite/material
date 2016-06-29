@@ -1,3 +1,23 @@
+@mixin floating-label-size($floating-label-height, $floating-label-padding-top, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+  margin-bottom: $margin-bottom;
+  padding-top: $floating-label-padding-top;
+  > label {
+    font-size: $font-size;
+    line-height: $line-height;
+    // position
+      top: ($floating-label-padding-top + ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height)));
+  }
+  &.has-value > label,
+  &.is-focused > label {
+    // position
+      top: $floating-label-padding-top;
+    transform: scale($floating-label-font-size-focus / $font-size);
+  }
+  > .form-control {
+    padding-top: ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height));
+  }
+}
+
 @mixin form-control-size($border-width, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
   font-size: $font-size;
   line-height: $line-height;
