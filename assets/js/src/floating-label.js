@@ -12,8 +12,8 @@ const Floatinglabel = (($) => {
     const NO_CONFLICT         = $.fn[NAME];
 
     const ClassName = {
-      focus     : 'control-focus',
-      highlight : 'control-highlight'
+      IS_FOCUSED : 'is-focused',
+      HAS_VALUE  : 'has-value'
     };
 
     const Event = {
@@ -23,7 +23,8 @@ const Floatinglabel = (($) => {
     };
 
     const Selector = {
-      DATA_TOGGLE : `.floating-label-control`
+      DATA_PARENT : '.floating-label',
+      DATA_TOGGLE : '.floating-label .form-control'
     };
   // <<< constants
 
@@ -36,37 +37,24 @@ const Floatinglabel = (($) => {
       if ($(this._element).val() ||
         ($(this._element).is('select') && 
           $('option:first-child', $(this._element)).html().replace(' ', '') !== '')) {
-        $(relatedTarget).addClass(ClassName.highlight);
+        $(relatedTarget).addClass(ClassName.HAS_VALUE);
       } else {
-        $(relatedTarget).removeClass(ClassName.highlight);
+        $(relatedTarget).removeClass(ClassName.HAS_VALUE);
       }
     }
 
     focusin(relatedTarget) {
-      $(relatedTarget).addClass(ClassName.focus);
+      $(relatedTarget).addClass(ClassName.IS_FOCUSED);
     }
 
     focusout(relatedTarget) {
-      $(relatedTarget).removeClass(ClassName.focus);
+      $(relatedTarget).removeClass(ClassName.IS_FOCUSED);
     }
 
-    static _getTargetFromElement(element) {
-      let selector = element.getAttribute('id');
-      let target   = null;
-
-      if (selector) {
-        target = $('[for=' + selector + ']');
-        target = /[a-z]/i.test(target) ? target : null;
-      }
-
-      return target;
-    }
-
-    static _jQueryInterface(event, relatedTarget) {
+    static _jQueryInterface(event) {
       return this.each(function () {
         let data           = $(this).data(DATA_KEY);
         let _event         = event ? event : 'change';
-        let _relatedTarget = relatedTarget ? relatedTarget : Floatinglabel._getTargetFromElement(this);
 
         if (!data) {
           data = new Floatinglabel(this);
@@ -78,7 +66,7 @@ const Floatinglabel = (($) => {
             throw new Error(`No method named "${_event}"`);
           }
 
-          data[_event](_relatedTarget);
+          data[_event]($(this).parent(Selector.DATA_PARENT));
         }
       });
     }
@@ -88,9 +76,8 @@ const Floatinglabel = (($) => {
     Selector.DATA_TOGGLE,
     function (event) {
     let data          = $(this).data(DATA_KEY);
-    let relatedTarget = Floatinglabel._getTargetFromElement(this);
 
-    Floatinglabel._jQueryInterface.call($(this), event.type, relatedTarget);
+    Floatinglabel._jQueryInterface.call($(this), event.type);
   });
 
   $.fn[NAME]             = Floatinglabel._jQueryInterface;

@@ -187,26 +187,16 @@ select.form-control {
 // form control label
 //
   .form-control-label {
-    margin-bottom: $input-margin-bottom;
-    min-height: $input-height;
-    padding: $input-padding-top 0 0;
+    @include form-control-size(0px, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
   }
 
   // size
     .form-control-label-lg {
-      font-size: $input-font-size-lg;
-      line-height: $input-line-height-lg;
-      margin-bottom: $input-margin-bottom-lg;
-      min-height: $input-height-lg;
-      padding: $input-padding-top-lg 0 0;
+      @include form-control-size(0px, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
     }
 
     .form-control-label-sm {
-      font-size: $input-font-size-sm;
-      line-height: $input-line-height-sm;
-      margin-bottom: $input-margin-bottom-sm;
-      min-height: $input-height-sm;
-      padding: $input-padding-top-sm 0 0;
+      @include form-control-size(0px, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
     }
 
 //
