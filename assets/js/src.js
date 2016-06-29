@@ -211,8 +211,8 @@ var Floatinglabel = function ($) {
   var NO_CONFLICT = $.fn[NAME];
 
   var ClassName = {
-    focus: 'control-focus',
-    highlight: 'control-highlight'
+    IS_FOCUSED: 'is-focused',
+    HAS_VALUE: 'has-value'
   };
 
   var Event = {
@@ -222,7 +222,8 @@ var Floatinglabel = function ($) {
   };
 
   var Selector = {
-    DATA_TOGGLE: '.floating-label-control'
+    DATA_PARENT: '.floating-label',
+    DATA_TOGGLE: '.floating-label .form-control'
   };
   // <<< constants
 
@@ -237,41 +238,27 @@ var Floatinglabel = function ($) {
       key: 'change',
       value: function change(relatedTarget) {
         if ($(this._element).val() || $(this._element).is('select') && $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
-          $(relatedTarget).addClass(ClassName.highlight);
+          $(relatedTarget).addClass(ClassName.HAS_VALUE);
         } else {
-          $(relatedTarget).removeClass(ClassName.highlight);
+          $(relatedTarget).removeClass(ClassName.HAS_VALUE);
         }
       }
     }, {
       key: 'focusin',
       value: function focusin(relatedTarget) {
-        $(relatedTarget).addClass(ClassName.focus);
+        $(relatedTarget).addClass(ClassName.IS_FOCUSED);
       }
     }, {
       key: 'focusout',
       value: function focusout(relatedTarget) {
-        $(relatedTarget).removeClass(ClassName.focus);
+        $(relatedTarget).removeClass(ClassName.IS_FOCUSED);
       }
     }], [{
-      key: '_getTargetFromElement',
-      value: function _getTargetFromElement(element) {
-        var selector = element.getAttribute('id');
-        var target = null;
-
-        if (selector) {
-          target = $('[for=' + selector + ']');
-          target = /[a-z]/i.test(target) ? target : null;
-        }
-
-        return target;
-      }
-    }, {
       key: '_jQueryInterface',
-      value: function _jQueryInterface(event, relatedTarget) {
+      value: function _jQueryInterface(event) {
         return this.each(function () {
           var data = $(this).data(DATA_KEY);
           var _event = event ? event : 'change';
-          var _relatedTarget = relatedTarget ? relatedTarget : Floatinglabel._getTargetFromElement(this);
 
           if (!data) {
             data = new Floatinglabel(this);
@@ -283,7 +270,7 @@ var Floatinglabel = function ($) {
               throw new Error('No method named "' + _event + '"');
             }
 
-            data[_event](_relatedTarget);
+            data[_event]($(this).parent(Selector.DATA_PARENT));
           }
         });
       }
@@ -294,9 +281,8 @@ var Floatinglabel = function ($) {
 
   $(document).on(Event.CHANGE_DATA_API + ' ' + Event.FOCUSIN_DATA_API + ' ' + Event.FOCUSOUT_DATA_API, Selector.DATA_TOGGLE, function (event) {
     var data = $(this).data(DATA_KEY);
-    var relatedTarget = Floatinglabel._getTargetFromElement(this);
 
-    Floatinglabel._jQueryInterface.call($(this), event.type, relatedTarget);
+    Floatinglabel._jQueryInterface.call($(this), event.type);
   });
 
   $.fn[NAME] = Floatinglabel._jQueryInterface;
