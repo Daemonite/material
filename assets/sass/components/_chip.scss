@@ -1,0 +1,25 @@
+.chip,
+.label {
+  background-color: $chip-bg;
+  border-radius: ($chip-height / 2);
+  color: $chip-color;
+  display: inline;
+  font-size: $chip-font-size;
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  line-height: ($chip-height - $chip-padding-y * 2);
+  padding: $chip-padding-y $chip-padding-x;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+// colour
+  @each $color in $palette-list-class {
+    $i: index($palette-list-class, $color);
+
+    .chip-#{$color},
+    .label-#{$color} {
+      background-color: nth($palette-list, $i);
+      color: nth($palette-list-text, $i);
+    }
+  }
