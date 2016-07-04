@@ -1,55 +1,60 @@
 .c-indicator {
-  border: $c-input-border-width solid $c-input-border-color;
+  background-clip: content-box;
+  border-style: solid;
+  border-width: $c-input-border-width;
   color: $c-input-theme-color;
   display: block;
-  height: 16px;
-  line-height: 16px;
+  height: $c-input-size;
+  line-height: $c-input-size;
   position: absolute;
     top: 0;
     left: 0;
   text-align: center;
   transition: all $transition-duration $transition-timing-function;
   user-select: none;
-  width: 16px;
   &::after {
     direction: ltr;
     display: block;
     font-family: 'Material Icons';
     font-feature-settings: 'liga';
-    font-size: 20px;
+    font-size: ($c-input-size * 1.25);
     font-style: normal;
     font-weight: normal;
+    height: ($c-input-size * 1.25);
     letter-spacing: normal;
     line-height: 1;
-    opacity: 0;
     position: absolute;
-      top: -4px;
-      left: -4px;
+      top: ($c-input-size / -4);
+      left: ($c-input-size / -4);
     text-rendering: optimizeLegibility;
     text-transform: none;
-    transition: opacity $transition-duration $transition-timing-function;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
     vertical-align: top;
+    width: ($c-input-size * 1.25);
     white-space: nowrap;
     word-wrap: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   &::before {
-    background-color: $c-input-pressed-bg;
+    background-color: $c-input-radial-bg;
     border-radius: 50%;
     content: "";
     display: block;
+    height: ($c-input-size * 3);
+    margin-top: ($c-input-size * -1);
+    margin-left: ($c-input-size * -1);
     opacity: 0;
     position: absolute;
-      top: -16px;
-      right: -16px;
-      bottom: -16px;
-      left: -16px;
+      top: ($c-input-border-width * -1);
+      left: ($c-input-border-width * -1);
+    width: ($c-input-size * 3);
     transition: opacity $transition-duration $transition-timing-function;
   }
   // active, focus, hover
     &:active::before {
-      animation: c-indicator-active $transition-duration;
+      animation: c-indicator-active $transition-duration $transition-timing-function;
     }
 }
 
@@ -69,7 +74,7 @@
 .c-input {
   cursor: pointer;
   display: inline;
-  padding-left: (16px / $font-size-root + $spacer-sm-x);
+  padding-left: ($c-input-size / $font-size-root + $spacer-sm-x);
   position: relative;
   > input {
     opacity: 0;
@@ -83,7 +88,6 @@
       // }
     // checked
       &:checked ~ .c-indicator {
-        border-color: $c-input-theme-color;
         &::after {
           opacity: 1;
         }
@@ -102,12 +106,23 @@
 //
   .c-checkbox {
     .c-indicator {
+      border-color: $c-input-border-color;
       border-radius: $border-radius;
+      width: $c-input-size;
       &::after {
         content: "check_box";
+        opacity: 0;
+        transition-property: opacity;
       }
     }
     > input {
+      // checked
+        &:checked ~ .c-indicator {
+          border-color: $c-input-theme-color;
+          &::after {
+            opacity: 1;
+          }
+        }
       // indeterminate
         &:indeterminate ~ .c-indicator {
           border-color: $c-input-theme-color;
@@ -127,10 +142,23 @@
 //
   .c-radio {
     .c-indicator {
+      border-color: $c-input-border-color;
       border-radius: 50%;
+      width: $c-input-size;
       &::after {
         content: "radio_button_checked";
+        opacity: 0;
+        transition-property: opacity;
       }
+    }
+    > input {
+      // checked
+        &:checked ~ .c-indicator {
+          border-color: $c-input-theme-color;
+          &::after {
+            opacity: 1;
+          }
+        }
     }
   }
 
@@ -140,7 +168,7 @@
   .c-inputs-stacked {
     .c-indicator {
       // position
-        top: (($font-size-default * $line-height-default - 16px / $font-size-root) / 2);
+        top: (($font-size-default * $line-height-default - ($c-input-size) / $font-size-root) / 2);
     }
 
     .c-input {
@@ -149,5 +177,39 @@
         margin-top: $spacer-xs-y;
         margin-left: 0;
       }
+    }
+  }
+
+//
+// switch
+//
+  .c-switch {
+    padding-left: ($c-input-track-width / $font-size-root + $spacer-sm-x);
+    .c-indicator {
+      background-color: $c-input-track-bg;
+      border-color: transparent;
+      border-radius: (($c-input-size - $c-input-border-width) / 2);
+      width: $c-input-track-width;
+      &::after {
+        background-color: $c-input-thumb-bg;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+        content: "";
+        transition-property: background-color transform;
+      }
+    }
+    > input {
+      // checked
+        &:checked ~ .c-indicator {
+          background-color: hex-to-rgba($c-input-theme-color, 0.5);
+          border-color: transparent;
+          &::after,
+          &::before {
+            transform: translateX($c-input-size);
+          }
+          &::after {
+            background-color: $c-input-theme-color;
+          }
+        }
     }
   }
