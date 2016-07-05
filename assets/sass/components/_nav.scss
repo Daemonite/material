@@ -6,6 +6,7 @@
 
 .nav-link {
   display: inline-block;
+  position: relative;
   // active, focus, hover
     &:focus,
     &:hover {
@@ -16,7 +17,6 @@
       color: $nav-link-color-disabled;
       &:focus,
       &:hover {
-        background-color: transparent;
         color: $nav-link-color-disabled;
         cursor: $cursor-disabled;
       }
@@ -43,17 +43,35 @@
     @include clearfix;
     .nav-item {
       float: left;
+      + .nav-item {
+        margin-left: 1px;
+      }
     }
     .nav-link {
       border-radius: $border-radius;
       color: $nav-link-color;
       display: block;
       padding: $nav-link-padding;
+      &::before {
+        background-color: $nav-link-bg-active;
+        border-radius: $border-radius;
+        content: "";
+        display: block;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+          top: 0;
+          left: 0;
+        transition: opacity $transition-duration $transition-timing-function;
+        width: 100%;
+      }
       // active, focus, hover
         &.active {
-          background-color: $nav-link-bg-active;
           color: $nav-link-color-active;
           cursor: default;
+          &::before {
+            opacity: 1;
+          }
         }
       // disabled
         &.disabled {
@@ -62,19 +80,27 @@
     }
     .dropdown.open,
     .dropup.open {
-      .nav-link,
-      .nav-link:focus,
-      .nav-link:hover {
-        background-color: $nav-link-bg-active;
+      > .nav-link,
+      > .nav-link:focus,
+      > .nav-link:hover {
         color: $nav-link-color-active;
         cursor: default;
+        &::before {
+          opacity: 1;
+        }
       }
     }
-    .dropdown.open .nav-link{
-      border-radius: $border-radius $border-radius 0 0;
+    .dropdown.open {
+      > .nav-link,
+      > .nav-link::before {
+        border-radius: $border-radius $border-radius 0 0;
+      }
     }
-    .dropup.open .nav-link {
-      border-radius: 0 0 $border-radius $border-radius;
+    .dropup.open {
+      > .nav-link,
+      > .nav-link::before {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
     }
   }
 
@@ -82,5 +108,9 @@
     .nav-item {
       display: block;
       float: none;
+      + .nav-item {
+        margin-top: 1px;
+        margin-left: 0;
+      }
     }
   }

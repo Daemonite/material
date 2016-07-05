@@ -81,14 +81,29 @@
     display: block;
     line-height: $dropdown-line-height;
     padding: $dropdown-link-padding;
+    position: relative;
     text-align: inherit;
-    transition: background-color $transition-duration $transition-timing-function;
     white-space: nowrap;
     width: 100%;
+    &::before {
+      background-color: $dropdown-link-focus-bg;
+      content: "";
+      display: block;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+        top: 0;
+        left: 0;
+      transition: opacity $transition-duration $transition-timing-function;
+      width: 100%;
+      z-index: -1;
+    }
     // active, focus, hover
       &:active,
       &:focus {
-        background-color: $dropdown-link-focus-bg;
+        &::before {
+          opacity: 1;
+        }
       }
       &:focus,
       &:hover {
@@ -107,7 +122,6 @@
 // toggle
 //
   .dropdown-toggle:not(.btn) {
-    transition: background-color $transition-duration $transition-timing-function;
     &::after {
       border-top: $caret-width solid;
       border-right: $caret-width solid transparent;
@@ -119,38 +133,8 @@
       vertical-align: middle;
       width: 0;
     }
-    &::before {
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
-      content: "";
-      display: block;
-      height: 100%;
-      opacity: 0;
-      position: absolute;
-        top: 0;
-        left: 0;
-      transition: opacity $transition-duration $transition-timing-function;
-      width: 100%;
-    }
     // active. focus, hover
-      &:active,
-      &:focus,
-      &.active {
-        background-color: $dropdown-toggle-hover-bg;
-        &::before {
-          opacity: 1;
-        }
-      }
       &:focus {
         outline: 0;
-      }
-      &:hover {
-        background-color: $dropdown-toggle-hover-bg;
-      }
-    // open
-      .open > & {
-        background-color: $dropdown-toggle-hover-bg;
-        &::before {
-          opacity: 1;
-        }
       }
   }
