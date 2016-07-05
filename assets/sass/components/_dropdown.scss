@@ -57,6 +57,11 @@
     }
   }
 
+// size
+  .dropdown-menu-cascading {
+    padding: $dropdown-padding-cascading;
+  }
+
 //
 // backdrop to catch body clicks on mobile
 //
@@ -86,7 +91,7 @@
     white-space: nowrap;
     width: 100%;
     &::before {
-      background-color: $dropdown-link-focus-bg;
+      background-color: $dropdown-link-bg-focus;
       content: "";
       display: block;
       height: 100%;
@@ -115,6 +120,12 @@
       }
       &.active {
         color: $link-hover-color;
+      }
+    // size
+      .dropdown-menu-cascading & {
+        font-size: $dropdown-font-size-cascading;
+        line-height: $dropdown-line-height-cascading;
+        padding: $dropdown-link-padding-cascading;
       }
   }
 
