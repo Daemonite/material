@@ -15,7 +15,7 @@
   margin: 0;
   min-width: 100%;
   opacity: 0;
-  padding: $dropdown-padding-y 0;
+  padding: $dropdown-padding;
   position: absolute;
     top: 100%;
     left: 0;
@@ -77,13 +77,14 @@
     border: 0;
     clear: both;
     color: inherit;
+    font-size: $dropdown-font-size;
     display: block;
-    padding: $dropdown-padding-y-sm $dropdown-padding-x $dropdown-padding-y-sm $dropdown-padding-x-lg;
+    line-height: $dropdown-line-height;
+    padding: $dropdown-link-padding;
     text-align: inherit;
     transition: background-color $transition-duration $transition-timing-function;
     white-space: nowrap;
     width: 100%;
-    @include typography-body-1;
     // active, focus, hover
       &:active,
       &:focus {
@@ -105,7 +106,7 @@
 //
 // toggle
 //
-  .dropdown-toggle {
+  .dropdown-toggle:not(.btn) {
     transition: background-color $transition-duration $transition-timing-function;
     &::after {
       border-top: $caret-width solid;

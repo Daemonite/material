@@ -82,6 +82,27 @@
         display: none;
       }
     }
+  // open
+    .dropdown.open > &.dropdown-toggle,
+    .dropup.open > &.dropdown-toggle {
+      &::before {
+        opacity: 1;
+      }
+    }
+    .dropdown.open > & {
+      &.dropdown-toggle,
+      &.dropdown-toggle::after,
+      &.dropdown-toggle::before {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
+    .dropup.open > & {
+      &.dropdown-toggle,
+      &.dropdown-toggle::after,
+      &.dropdown-toggle::before {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+    }
   // waves
     &.waves-attach:active {
       background-color: $btn-bg;
