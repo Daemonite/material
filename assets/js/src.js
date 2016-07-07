@@ -22,18 +22,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
- * dialogs are displayed centered vertically on the screen
- * based on Bootstrap's (v4.0.0-alpha.2) modal.js
- */
-$(document).on('hidden.bs.modal', '.modal-va-middle', function () {
-  $(this).removeClass('modal-va-middle-show');
-});
-
-$(document).on('show.bs.modal', '.modal-va-middle', function () {
-  $(this).addClass('modal-va-middle-show');
-});
-
-/*!
  * waterfall header:
  * header is initially presented as seamed,
  * but then separates to form the step

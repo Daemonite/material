@@ -1,0 +1,154 @@
+.dialog,
+.modal {
+  display: none;
+  overflow: hidden;
+  outline: 0;
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 100;
+  -webkit-overflow-scrolling: touch;
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 1px;
+  }
+  &.fade {
+    transform: scale(0);
+    transition: transform $transition-duration $transition-timing-function;
+  }
+  &.in {
+    transform: scale(1);
+  }
+}
+
+.dialog-open,
+.modal-open {
+  overflow: hidden;
+  .dialog,
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+//
+// backdrop
+//
+  .dialog-backdrop,
+  .modal-backdrop {
+    background-color: $dialog-backdrop-bg;
+    opacity: 0;
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    transition: opacity $transition-duration $transition-timing-function;
+    z-index: 99;
+    &.fade {
+      opacity: 0;
+    }
+    &.in {
+      opacity: 1;
+    }
+  }
+
+//
+// dialog
+//
+  .dialog-dialog,
+  .modal-dialog {
+    display: inline-block;
+    margin: $dialog-margin;
+    max-width: $dialog-width;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+    width: calc(100% - #{$dialog-margin} * 2);
+  }
+
+  // size
+    .dialog-lg,
+    .modal-lg {
+      max-width: $dialog-width-lg;
+    }
+
+    .dialog-sm,
+    .modal-sm {
+      max-width: $dialog-width-sm;
+    }
+
+//
+// misc
+//
+  .dialog-body,
+  .modal-body {
+    padding: $dialog-body-padding;
+    position: relative;
+  }
+
+  .dialog-content,
+  .modal-content {
+    background-clip: padding-box;
+    background-color: $dialog-content-bg;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.5);
+    outline: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  .dialog-footer,
+  .modal-footer {
+    padding: $dialog-footer-padding;
+    @include clearfix;
+    .btn {
+      float: right;
+      margin-left: $spacer-sm-x;
+      min-width: $dialog-footer-btn-min-width;
+      padding-right: $dialog-footer-btn-padding-x;
+      padding-left: $dialog-footer-btn-padding-x;
+    }
+  }
+
+  .dialog-header,
+  .modal-header {
+    padding: $dialog-header-padding;
+    + .dialog-body,
+    + .modal-body {
+      padding-top: 0;
+    }
+  }
+
+  .dialog-text,
+  .modal-text {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .dialog-title,
+  .modal-title {
+    margin: 0;
+    @include typography-title;
+  }
+
+//
+// scrollbar measure
+//
+  .modal-scrollbar-measure {
+    height: 50px;
+    overflow: scroll;
+    position: absolute;
+      top: -99999px;
+    width: 50px;
+  }
