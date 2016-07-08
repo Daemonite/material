@@ -182,7 +182,9 @@ if ($('.textarea-autosize').length && typeof $.fn.textareaAutoSize !== 'undefine
  */
 if ($('.waves-attach').length && typeof Waves !== 'undefined') {
   Waves.attach('.waves-attach');
-  Waves.init();
+  Waves.init({
+    duration: 300
+  });
 };
 
 /*!

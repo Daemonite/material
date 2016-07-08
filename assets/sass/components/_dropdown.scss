@@ -1,7 +1,6 @@
 .dropdown,
 .dropup {
   position: relative;
-  z-index: 1;
 }
 
 .dropdown-menu {
@@ -9,7 +8,7 @@
   background-color: $dropdown-bg;
   border: 0;
   border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: map-get($dropdown-elevation-shadow, shadow);
   color: $dropdown-color;
   list-style: none;
   margin: 0;
@@ -25,6 +24,7 @@
   transition-duration: $transition-duration;
   transition-property: opacity, transform;
   transition-timing-function: $transition-timing-function;
+  z-index: map-get($dropdown-elevation-shadow, elevation);
 }
 
 // direction
@@ -71,7 +71,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-    z-index: 1;
+    z-index: (map-get($dropdown-elevation-shadow, elevation) - 1);
   }
 
 //

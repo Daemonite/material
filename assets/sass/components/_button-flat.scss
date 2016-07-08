@@ -2,15 +2,16 @@
 .btn-outline {
   background-color: transparent;
   box-shadow: none;
-  &::after {
-    box-shadow: none;
-  }
+  // active, focus, hover
+    &:active,
+    &.active {
+      box-shadow: none;
+    }
   // disabled
     &:disabled,
     &.disabled,
     fieldset[disabled] & {
       background-color: transparent;
-      color: $btn-disabled-color;
     }
   // waves
     &.waves-attach:active {

@@ -1,22 +1,23 @@
 .btn-float {
   border-radius: 50%;
+  box-shadow: map-get($btn-float-elevation-shadow, shadow);
   font-size: $btn-float-font-size;
   font-weight: normal;
   height: $btn-float-size;
   line-height: $btn-float-size;
   padding: 0;
+  position: relative;
   min-width: 0;
-  transition-duration: $transition-duration;
-  transition-property: opacity, transform;
-  transition-timing-function: $transition-timing-function;
   width: $btn-float-size;
-  &::after,
+  z-index: map-get($btn-float-elevation-shadow, elevation);
   &::before {
     border-radius: 50%;
   }
-  &::after {
-    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.15);
-  }
+  // active, focus, hover
+    &:active {
+      box-shadow: map-get($btn-float-elevation-shadow-pressed, shadow);
+      z-index: map-get($btn-float-elevation-shadow-pressed, elevation);
+    }
 }
 
 // size

@@ -3,7 +3,7 @@
   background-image: none;
   border: 0;
   border-radius: $btn-border-radius;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: map-get($btn-elevation-shadow, shadow);
   color: $btn-color;
   cursor: pointer;
   display: inline-block;
@@ -17,12 +17,13 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  transition: background-color $transition-duration $transition-timing-function;
+  transition: all $transition-duration $transition-timing-function;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  &::after,
+  z-index: map-get($btn-elevation-shadow, elevation);
   &::before {
+    background-color: $btn-focus-overlay;
     border-radius: $btn-border-radius;
     content: "";
     display: block;
@@ -33,12 +34,7 @@
       left: 0;
     transition: opacity $transition-duration $transition-timing-function;
     width: 100%;
-  }
-  &::after {
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
-  }
-  &::before {
-    background-color: $btn-focus-overlay;
+    z-index: -1;
   }
   // active, focus, hover
     &:active,
@@ -52,9 +48,8 @@
     &:active,
     &.active {
       background-color: $btn-pressed-bg;
-      &::after {
-        opacity: 1;
-      }
+      box-shadow: map-get($btn-elevation-shadow-pressed, shadow);
+      z-index: map-get($btn-elevation-shadow-pressed, elevation);
     }
     &:focus,
     &:hover,
@@ -62,21 +57,18 @@
       color: $btn-color;
       text-decoration: none;
     }
-    &:focus,
-    &.focus {
+    &:focus {
       outline: 0;
     }
   // disabled
     &:disabled,
-    &.disabled,
-    fieldset[disabled] & {
+    &.disabled {
       background-color: $btn-disabled-bg;
       box-shadow: none;
       color: $btn-disabled-color;
       cursor: $cursor-disabled;
       opacity: 1;
       pointer-events: none;
-      &::after,
       &::before,
       .waves-ripple {
         display: none;
@@ -91,21 +83,18 @@
     }
     .dropdown.open > & {
       &.dropdown-toggle,
-      &.dropdown-toggle::after,
       &.dropdown-toggle::before {
         border-radius: $border-radius $border-radius 0 0;
       }
     }
     .dropup.open > & {
       &.dropdown-toggle,
-      &.dropdown-toggle::after,
       &.dropdown-toggle::before {
         border-radius: 0 0 $border-radius $border-radius;
       }
     }
   // waves
     &.waves-attach:active {
-      background-color: $btn-bg;
       &::before {
         transition-delay: $waves-transition-duration;
       }
@@ -123,19 +112,11 @@
         &:active,
         &.active {
           background-color: nth($palette-list-dark, $i);
-          &::before {
-            opacity: 0;
-            transition-duration: 0;
-          }
         }
         &:focus,
         &:hover,
         &.focus {
           color: nth($palette-list-text, $i);
-        }
-      // waves
-        &.waves-attach:active {
-          background-color: nth($palette-list, $i);
         }
     }
   }
@@ -155,8 +136,7 @@
       }
     // disabled
       &:disabled,
-      &.disabled,
-      fieldset[disabled] & {
+      &.disabled {
         background-color: $btn-disabled-bg-inverse;
         color: $btn-disabled-color-inverse;
       }
@@ -201,17 +181,30 @@
     box-shadow: none;
     color: $link-color;
     font-weight: normal;
-    &:focus,
-    &:hover,
-    &.focus {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
-    }
-    &:focus {
-      @include tab-focus;
-    }
-    &::after,
+    text-transform: none;
+    z-index: initial;
     &::before {
       display: none;
     }
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: transparent;
+        box-shadow: none;
+      }
+      &:focus,
+      &:hover,
+      &.focus {
+        color: $link-hover-color;
+        text-decoration: $link-hover-decoration;
+      }
+      &:focus,
+      &.focus {
+        @include tab-focus;
+      }
+    // disabled
+      &:disabled,
+      &.disabled {
+        background-color: transparent;
+      }
   }
