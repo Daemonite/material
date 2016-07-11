@@ -12,7 +12,6 @@
 	<title>KcalT Scheduler</title>
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
-	<link href="css/project.min.css" rel="stylesheet">
 
 	<!-- Upper Left nav drawer icon -->
 </head>
@@ -138,13 +137,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+
 					<section class="content-inner margin-top-no">
 						<div class="card">
 							<div class="card-main">
 								<div class="card-inner">
 									<p>Calm down and get orgaized with kcalT</p>
 									<blockquote>Quote<sup class="margin-left-xs">
-										<a href="http://www.google.com/design/spec/material-design/introduction.html"
+										<a href="https://chemfan.science/me.html"
 											target="_blank"><span class="icon">open_in_new</span>
 										</a></sup>
 									</blockquote>
@@ -152,6 +152,7 @@
 								</div>
 							</div>
 						</div>
+
 						<h2 class="content-sub-heading">Demo 1</h2>
 						<p>Below are test text for test purpose only</p>
 						<div class="tile-wrap">
@@ -160,18 +161,20 @@
 									<span class="text-black">Link to my blog</span>
 								</div>
 							</a>
+							<form>
+								<input class="form-control" id="act_Dpiker" type="text">
+							</form>
 						</div>
+
+
 					</section>
 				</div>
 			</div>
 		</div>
-		<!-- Additional cards in the cenetr -->
+
 	</main>
-	<footer class="ui-footer">
-		<div class="container">
-			<p>Kcalt  Act Man</p>
-		</div>
-	</footer>
+
+	<!--fbt -->
 	<div class="fbtn-container">
 		<div class="fbtn-inner">
 			<a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
@@ -191,10 +194,35 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- js -->
 	<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
-	<script src="js/project.min.js"></script>
+	<!-- Date picker js -->
+	<script>
+	$('#act_Dpiker').pickdate({
+		cancel: 'Clear',
+		closeOnCancel: false,
+		closeOnSelect: true,
+		container: '',
+		firstDay: 1,
+		format: 'You selecte!d: dddd, d mm, yy',
+		formatSubmit: 'dd/mmmm/yyyy',
+		ok: 'Close',
+		onClose: function () {
+			$('body').snackbar({
+				content: 'Datepicker closes'
+			});
+		},
+		onOpen: function () {
+			$('body').snackbar({
+				content: 'Datepicker opens'
+			});
+		},
+		selectMonths: true,
+		selectYears: 10,
+		today: ''
+	});
+	</script>
 </body>
+
 </html>
