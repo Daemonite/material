@@ -1,0 +1,23 @@
+<?php
+#make 'DAYS' table
+include 'conn.php';
+$fkact='
+	CREATE TABLE kcalt.Fri (
+	T int(4) NOT NULL, 
+	Owner varchar(30), 
+	Note varchar(150),
+	PRIMARY KEY(T)
+	);
+';
+include 'db_do.php';
+
+for ($t=1;$t<159;$t++) {
+	$fkact="
+		INSERT INTO kcalt.Fri (T)
+		VALUES ('$t');
+	";
+	include 'db_do.php';
+};
+
+include 'cloz.php';
+?>
