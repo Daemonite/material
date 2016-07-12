@@ -1,6 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head><?head>
+<body>
 <?php session_start(); ?>
 
-<html>
 <?php
 #$input = $Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
@@ -31,7 +34,7 @@ if ($result = $conn->query($fkact)) {
 include 'cloz.php';
 
 if ($row_cnt < $Tend - $Tstr){
-	echo '<br>Time not available during your selected time, ' . 
+	echo '<br>Time not available during your selected time, ' .
     	'please choose another time instead.<br><br>';
 	include 'cract/badclub.php';
     include 'clock.php';
@@ -51,5 +54,5 @@ if ($row_cnt < $Tend - $Tstr){
 
 <br>
 <p><a href='../frame/clubmain.php'>Return to the Index</a>
-
+</body>
 </html>

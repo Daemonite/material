@@ -161,12 +161,13 @@
 									<span class="text-black">Link to my blog</span>
 								</div>
 							</a>
-							<form>
+							<form action="php/action/cract.php">
 								<input class="form-control" id="act_Dpiker" type="text">
+								<!-- REMEMBER to use GET instead of POST (for the sake of js???) in action php file -->
+								<input type="submit" >
+								<a class="btn btn-green waves-attach" href="php/action/cract.php">.btn-green</a>
 							</form>
 						</div>
-
-
 					</section>
 				</div>
 			</div>
@@ -195,34 +196,9 @@
 		</div>
 	</div>
 	<!-- js -->
-	<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
+	<<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
 	<script src="js/base.min.js"></script>
-	<!-- Date picker js -->
-	<script>
-	$('#act_Dpiker').pickdate({
-		cancel: 'Clear',
-		closeOnCancel: false,
-		closeOnSelect: true,
-		container: '',
-		firstDay: 1,
-		format: 'You selecte!d: dddd, d mm, yy',
-		formatSubmit: 'dd/mmmm/yyyy',
-		ok: 'Close',
-		onClose: function () {
-			$('body').snackbar({
-				content: 'Datepicker closes'
-			});
-		},
-		onOpen: function () {
-			$('body').snackbar({
-				content: 'Datepicker opens'
-			});
-		},
-		selectMonths: true,
-		selectYears: 10,
-		today: ''
-	});
-	</script>
+	<script src="js/mine.js"></script>
 </body>
 
 </html>
