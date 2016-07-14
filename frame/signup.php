@@ -1,3 +1,16 @@
+<body class="page-brand">
+	<header class="header header-transparent header-waterfall ui-header">
+		<ul class="nav nav-list pull-left">
+			<li>
+				<a data-toggle="menu" href="#act_menu">
+					<span class="icon icon-lg">menu</span>
+				</a>
+			</li>
+		</ul>
+		<a class="header-logo margin-left-no" href="index.html">KcalT</a>
+		<ul class="nav nav-list pull-right">
+			<li class="dropdown margin-right">
+
 <form name="crclub" action="/action/crclub.php" method="post">
 	<input type="text"
 		placeholder="Club name: e.g. Flying Noodles Club"

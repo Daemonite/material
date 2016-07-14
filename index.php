@@ -14,25 +14,27 @@
 	<!-- css -->
 	<link href="css/base.min.css" rel="stylesheet">
 </head>
+<body>
+<!-- club/user identification -->
 <?php
 if (isset($_SESSION['user'])) {
 	echo $_SESSION['user'];
 	echo 'Goof';
-} else { include 'frame/signup.php';
-	echo '
-		<script type="text/javascript">
-		var user_type = <?php echo $_SESSION['user']; ?>
-		switch(user_type) {
-			case user:
-				<?php include 'frame/user.php'; ?>
-			case club:
-			<?php include 'frame/club.php'; ?>
-		'
-		}
-		</script>
+} else {
+	include 'frame/signup.php';
+	echo 'good';
 }
 ?>
-	<body>
+
+<script>
+	var user_type = <?php echo $_SESSION['user']; ?>
+	switch(user_type) {
+		case user:
+			<?php include 'frame/user.php'; ?>
+			case club:
+			<?php include 'frame/club.php'; ?>
+		}
+</script>
 
     <!--fbt -->
 	<div class="fbtn-container">
