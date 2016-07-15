@@ -37,7 +37,7 @@
 
 					<span class="avatar avatar-sm">
 						<img alt="alt text for Club avatar"
-								src="images/users/avatar-001.jpg">
+								src="../images/users/avatar-001.jpg">
 					</span>
 				</a>
 				<ul class="dropdown-menu dropdown-menu-right">
@@ -56,7 +56,7 @@
 					</li>
 					<li>
 						<a class="padding-right-lg waves-attach"
-								href="page-login.html">
+								href="../page-login.html">
 							<span class="icon icon-lg margin-right">exit_to_app</span>
 							Logout</a>
 					</li>
@@ -124,53 +124,94 @@
 <!-- Left nav end, there is the central context-->
 <!-- Central graphics should show all user's activity in the month-->
 <!-- 'Big Calendar' should be deployed -->
-	<main class="content">
-		<div class="content-header ui-content-header">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-						<h1 class="content-heading">All for one. One for all.</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-
+<main class="content">
+	<div class="content-header ui-content-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-
-					<section class="content-inner margin-top-no">
-
-<!-- central content -->
-            <div class="card-main">
-                <div class="card-inner">
-						<h2 class="content-sub-heading">Creat your club with one click</h2>
-						<p>After creating your club, you may set up activities (like presentation, group discussion, club outing, etc) in your club members' calendar.</p>
-                        <p>You can easily make roll-calls, distribute questionares and track contributions with kcalT. </p>
-<!-- Form for crcalub -->
-                	<form action="php/action/cract.php">
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="Cname">Club name, e.g. Flying Noodles Club</label>
-                            <input class="form-control" id="Cname" type="text" name="name">
-                        </div>
-
-                        <div class="form-group form-group-label">
-                            <label class="floating-label" for="Cinfo">Club slogan: e.g. Dive in to Noodles!</label>
-                            <input class="form-control" id="Cinfo" type="text" name="info">
-                        </div>
-                        <div class="">
-							<input class="btn waves-attach" type="submit" >
-                        </div>
-						</form>
-<!-- Form ends -->
-            </div>
-        </div>
-					</section>
+					<h1 class="content-heading">All for one. One for all.</h1>
 				</div>
 			</div>
 		</div>
+	</div>
 
-	</main>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
+<!-- central content -->
+				<section class="content-inner margin-top-no">
+<!-- Stepper bar card-->
+					<div class="card">
+						<div class="card-main">
+						<div class="stpper-horiz">
+    						<div class="stepper-horiz-inner">
+<!-- steper bar -->
+        <div class="stepper active">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">1</span>
+            </div>
+            <span class="stepper-text">Register your club</span>
+        </div>
+
+        <div class="stepper next">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">2</span>
+            </div>
+            <span class="stepper-text">Post an activity
+			<br><small class="stepper-text-sub text-black-hint">Optional</small>
+			</span>
+        </div>
+
+        <div class="stepper">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">3</span>
+            </div>
+            <span class="stepper-text">Send Invitations
+			<br><small class="stepper-text-sub text-black-hint">Optional</small>
+			</span>
+        </div>
+<!-- Stepper bar ends-->
+							</div>
+						</div>
+						</div>
+					</div>
+<!-- Stepper bar card ends-->
+<!-- create club card -->
+<h3 class="content-sub-heading">Creat your club with one click</h3>
+<p style="font-size:16px;">You can easily make roll-calls, distribute questionares and track members'
+	contributions with kcalT. <br>
+	After creating your club, you may set up activities (like presentation, group
+	discussion, club outing, etc) in your club members' calendar.</p>
+				<div class="card">
+					<div class="card-main">
+				    	<div class="card-inner">
+<!-- create club -->
+<!-- Form-->
+        <form action="../action/cract.php">
+        	<div class="form-group form-group-label">
+                <label class="floating-label" for="Cname">Club name, e.g. Flying Noodles Club</label>
+                <input class="form-control" id="Cname" type="text" name="name">
+            </div>
+            <div class="form-group form-group-label">
+                <label class="floating-label" for="Cinfo">Club slogan: e.g. Dive in to Noodles!</label>
+                <input class="form-control" id="Cinfo" type="text" name="info">
+            </div>
+            <div>
+				<input type="submit" value="Register">
+        	</div>
+		</form>
+<!-- Form ends -->
+<!-- create club ends -->
+				            </div>
+						</div>
+					</div>
+<!-- create club ends -->
+				</section>
+			</div>
+		</main>
 
     <!--fbt -->
 	<div class="fbtn-container">
