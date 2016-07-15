@@ -141,8 +141,8 @@
 <!-- central content -->
 				<section class="content-inner margin-top-no">
 <!-- Stepper bar card-->
-					<div class="card">
-						<div class="card-main">
+					<div class="tile">
+						<div class="stepper-horiz">
 						<div class="stpper-horiz">
     						<div class="stepper-horiz-inner">
 <!-- steper bar -->
