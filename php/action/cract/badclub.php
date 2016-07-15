@@ -1,17 +1,8 @@
 <?php SESSION_START(); 
-
-$servername = 'localhost';
-$username = 'kcalt';
-$password = 'IAoEyoTwFe1aqHgO';
-$dbname = 'kcalt';
-
-$conn =  new mysqli($servername,$username,$password,$kcalt);
-if ($conn->connect_error) {
-    die('Conn failure' . $conn->connect_erroor);
-}
+include '../conn.php';
 //Time
 $Tbad = "
-    SELECT * FROM kcalt.$Tday 
+    SELECT * FROM kcalt.$Tday
     WHERE Owner IS NOT NULL AND (T BETWEEN $Tstr AND $Tend);
 ";
 $result = $conn->query($Tbad);
