@@ -6,12 +6,12 @@
 
 <?php
 #validate inputs
-function vali($input) {
-    $input = trim($input);
-    $input = stripslashes($input);
-    $inpuy = htmlspecialchars($input);
-    return $input;
-}
+#function vali($input) {
+#    $input = trim($input);
+#    $input = stripslashes($input);
+#    $inpuy = htmlspecialchars($input);
+#    return $input;
+#}
 #$input = $Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
