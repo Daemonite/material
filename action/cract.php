@@ -5,24 +5,20 @@
 <?php SESSION_START(); ?>
 
 <?php
-//validate inputs
+#validate inputs
 function vali($input) {
     $input = trim($input);
     $input = stripslashes($input);
     $inpuy = htmlspecialchars($input);
     return $input;
 }
-//clear variables
-$input = $Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
+#$input = $Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Tday = $_POST['day'];
     $Tstr = $_POST['strh']*12+$_POST['strm'];
     $Tend = $_POST['endh']*12+$_POST['endm'];
     $Town = $_SESSION['clubname'];
-    $Tday = vali($Tday);
-    $Tstr = vali($Tstr);
-    $Tend = vali($Tend);
 }
 
 #Availability check: row_num+comparison
