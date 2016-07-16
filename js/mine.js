@@ -1,12 +1,14 @@
 <!-- Date picker -->
-$('#act_Dpiker').pickdate({
+$('#cract_Dpiker').pickdate({
     cancel: 'Clear',
     closeOnCancel: false,
     closeOnSelect: true,
     container: '',
-    firstDay: 1,
-    format: 'You selecte!d: dddd, d mm, yy',
-    formatSubmit: 'dd/mmmm/yyyy',
+    disable: [6],
+    format: 'You selecte!d: dd, mmmm, yy. It\'s a dddd.',
+    formatSubmit: 'dddd',
+    max:7,
+    min:true,
     ok: 'Close',
     onClose: function () {
         $('body').snackbar({
@@ -18,7 +20,7 @@ $('#act_Dpiker').pickdate({
             content: 'Datepicker opens'
         });
     },
-    selectMonths: true,
-    selectYears: 10,
-    today: ''
+    selectMonths: false,
+    selectYears: false,
+    today: 'Today'
 });

@@ -226,7 +226,7 @@
         </div>
     </div>
     <!-- js -->
-    <<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="../js/base.min.js"></script>
     <script src="../js/mine.js"></script>
 </body>
