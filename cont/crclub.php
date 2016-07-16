@@ -102,7 +102,7 @@
 						</ul>
 					</li>
 					<!-- CLUB activity, public to people in a club -->
-				<!-- CLUB activity, public to pwner of the  club -->
+				<!-- CLUB activity, public to owner of the  club -->
 				<!-- This identification work should be done with php-->
 					<li>
 						<a class="collapsed waves-attach"

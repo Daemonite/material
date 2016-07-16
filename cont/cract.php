@@ -1,20 +1,4 @@
 <!DOCTYPE html>
-<?php SESSION_START(); ?>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0,
-					maximum-scale=1.0,
-					user-scalable=no,
-					width=device-width"
-					name="viewport">
-
-	<title>KcalT Scheduler</title>
-	<!-- css -->
-	<link href="css/base.min.css" rel="stylesheet">
-</head>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -104,7 +88,7 @@
 							</li>
 						</ul>
 					</li>
-				<!-- USER's own activity-->
+				<!-- USER's own club-->
 					<li>
 						<a class="collapsed waves-attach"
 							data-toggle="collapse"
@@ -117,14 +101,14 @@
 							</li>
 						</ul>
 					</li>
-					<!-- CLUB activity, public to people in a club -->
-				<!-- CLUB activity, public to owner of the  club -->
+					<!-- Club activity, public to people in a club -->
+				<!-- Club activity, public to owner of the  activity -->
 				<!-- This identification work should be done with php-->
 					<li>
 						<a class="collapsed waves-attach"
 							data-toggle="collapse"
 							href="#show-act-sub">
-							Club Activity
+							Club activity
 						</a>
 						<ul class="menu-collapse collapse" id="show-act-sub">
 							<li> <a class="waves-attach" href="showact.html">
@@ -145,7 +129,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-					<h1 class="content-heading">Your ACT this month</h1>
+					<h1 class="content-heading">All for one. One for all.</h1>
 				</div>
 			</div>
 		</div>
@@ -154,41 +138,94 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-
+<!-- central content -->
 				<section class="content-inner margin-top-no">
-					<div class="card">
-						<div class="card-main">
-							<div class="card-inner">
-								<p>Under construction</p>
-								<blockquote>Demo 1<sup class="margin-left-xs">
-									<a href="https://kcalt.hangwai.club/cont/cract.php"
-										target="_blank"><span class="icon">open_in_new</span>
-									</a></sup>
-								</blockquote>
-								<p>Save time and do something more interesting</p>
+<!-- Stepper bar card-->
+					<div class="tile">
+						<div class="stepper-horiz">
+						<div class="stpper-horiz">
+    						<div class="stepper-horiz-inner">
+<!-- steper bar -->
+        <div class="stepper done">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">1</span>
+            </div>
+            <span class="stepper-text">Club Regisration</span>
+        </div>
+
+        <div class="stepper active">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">2</span>
+            </div>
+            <span class="stepper-text">Post an activity on public calendar
+                <br><small class="stepper-text-sub text-black-hint">Private act coming soon</small>
+			</span>
+        </div>
+
+        <div class="stepper">
+            <div class="stepper-step">
+                <i class="icon stepper-step-icon">check</i>
+                <span class="stepper-step-num">3</span>
+            </div>
+            <span class="stepper-text">Send Invitations
+			</span>
+        </div>
+<!-- Stepper bar ends-->
 							</div>
 						</div>
+						</div>
 					</div>
+<!-- Stepper bar card ends-->
+<!-- create Activity card -->
+<h3 class="content-sub-heading">Creat your Activity with one click</h3>
+<p style="font-size:16px;">You can easily make roll-calls, distribute questionares and track members'
+	contributions with kcalT. <br>
+	After creating your Activity, you may set up activities (like presentation, group
+	discussion, Activity outing, etc) in your Activity members' calendar.</p>
+				<div class="card">
+					<div class="card-main">
+				    	<div class="card-inner">
+<!-- create activity -->
+<!-- Form-->
+        <form action="../action/cract.php" method="post">
+        	<div class="checkbox checkbox-adv">
+                <label class="access-hide" id="day">
+                    <input class="access-hide" id="day" name="day[]" value="Mon" type="checkbox">
+                    <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+
+                    <input class="access-hide" id="day" name="day[]" value="Tue" type="checkbox">
+                    <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+
+                    <input class="access-hide" id="day" name="day[]" value="Wen" type="checkbox">
+                    <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+
+                    <input class="access-hide" id="day" name="day[]" value="Thu" type="checkbox">
+                    <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+
+                    <input class="access-hide" id="day" name="day[]" value="Fri" type="checkbox">
+                    <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
+                </label>
+            <div>
+				<input type="submit" value="Register">
+        	</div>
+		</form>
+<!-- Form ends -->
+<!-- create Activity ends -->
+				            </div>
+						</div>
+					</div>
+<!-- create Activity ends -->
 				</section>
 			</div>
-		</div>
-	</div>
-
-</main>
-
-
-
-
-
-
-
-
+		</main>
 
     <!--fbt -->
 	<div class="fbtn-container">
         <div class="fbtn-inner">
             <a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
-                href="cont/help.html">
+                href="help.html">
                 <span class="fbtn-text fbtn-text-left">
                     Need help?</span>
                 <span class="icon">
@@ -197,9 +234,9 @@
         </div>
     </div>
     <!-- js -->
-	<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
-	<script src="js/base.min.js"></script>
-	<script src="js/mine.js"></script>
+    <<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
+    <script src="../js/base.min.js"></script>
+    <script src="../js/mine.js"></script>
 </body>
 
 </html>
