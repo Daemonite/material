@@ -207,19 +207,12 @@
                     <input class="access-hide" id="day" name="day[]" value="Fri" type="checkbox">
                     <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon">done</span>
                 </label>
-            <div>
+            </div>
 				<input type="submit" value="Register">
         	</div>
 		</form>
 <!-- Form ends -->
 <!-- create Activity ends -->
-				            </div>
-						</div>
-					</div>
-<!-- create Activity ends -->
-				</section>
-			</div>
-		</main>
 
     <!--fbt -->
 	<div class="fbtn-container">
