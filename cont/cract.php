@@ -184,34 +184,34 @@
 				    	<div class="card-inner">
 <!-- create activity -->
 <!-- Form -->
-	<div class="form-group">
-		<form action="../action/cract.php">
-			<input class="form-control" id="cract_Dpiker" type="text"
-					value="You may select dates within a week.">
-					<br><br>
-					<select name="strh">
-						<?php include 'cract/opt_hor.html'; ?>
-					</select>
-					:
-					<select name="strm">
-				                <?php include 'cract/opt_min.html'; ?>
-					</select>
-					Starting time
+<div class="form-group">
+	<form action="../action/cract.php">
+		<h3>Please click thr text area below to select the date of your acvitity.</h3><br>
+		<input class="form-control" id="cract_Dpiker" name="day" type="text" value="Pick a date">
+				<br><br>
+				<select name="strh">
+					<?php include 'cract/opt_hor.html'; ?>
+				</select>
+				:
+				<select name="strm">
+							<?php include 'cract/opt_min.html'; ?>
+				</select>
+				Starting time
 
-					<br><br>
-					<select name="endh">
-				                <?php include 'cract/opt_hor.html'; ?>
-					</select>
-					:
-					<select name="endm">
-						<?php include 'cract/opt_min.html'; ?>
-					</select>
-					Ending time
+				<br><br>
+				<select name="endh">
+							<?php include 'cract/opt_hor.html'; ?>
+				</select>
+				:
+				<select name="endm">
+					<?php include 'cract/opt_min.html'; ?>
+				</select>
+				Ending time
 
-				<input type="submit" value="Register" formmethod="POST">
+			<input type="submit" value="Register" formmethod="POST">
 
-		</form>
-    </div>
+	</form>
+</div>
 <!-- Form ends -->
 						</div>
 					</div>

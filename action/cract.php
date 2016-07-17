@@ -9,18 +9,18 @@
 function vali($input) {
     $input = trim($input);
     $input = stripslashes($input);
-    $inpuy = htmlspecialchars($input);
+    $input = htmlspecialchars($input);
     return $input;
 }
-$input = $Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
+$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $Tday = $_POST['_submit'];
+    $Tday = $_POST['day'];
     $Tstr = $_POST['strh']*12+$_POST['strm'];
     $Tend = $_POST['endh']*12+$_POST['endm'];
     $Town = $_SESSION['clubname'];
 }
-#echo $Tday . $Tstr . $Tend . '<br>';
+echo $Tday . $Tstr . $Tend . '<br>';
 #Availability check: row_num+comparison
 include 'conn.php';
 $Tend -= 1;
@@ -38,16 +38,14 @@ if ($row_cnt < $Tend - $Tstr){
     echo '<br>Time not available during your selected time, ' .
         'please choose another time instead.<br><br>';
    include 'cract/badclub.php';
-   include 'clock.php';
+#   include 'cract/clock.php';
 } else {
-
     for($t = $Tstr; $t < $Tend; $t++) {
         $fkact = "
             UPDATE kcalt.$Tday
             SET Owner = '$Town'
             WHERE T = $t;
         ";
-    echo $fkact;
     include 'db_do.php';
     }
     include 'cloz.php';

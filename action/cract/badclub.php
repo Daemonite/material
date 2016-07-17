@@ -1,20 +1,30 @@
-<?php SESSION_START(); 
-include '../conn.php';
+<?php SESSION_START();
+$servername = 'localhost';
+$username = 'kcalt';
+$password = 'IAoEyoTwFe1aqHgO';
+$dbname = 'kcalt';
+$conn = new mysqli($servername, $username, $password);
+if ($conn->connect_error) {
+    die('Conn error: ' . $conn->connect_error);
+}
+
 //Time
 $Tbad = "
     SELECT * FROM kcalt.$Tday
     WHERE Owner IS NOT NULL AND (T BETWEEN $Tstr AND $Tend);
 ";
+
 $result = $conn->query($Tbad);
-$Badmin = $result->fetch_assoc();
+$Badmin = mysqli_fetch_assoc($result);
 $Bmin = $Badmin['T'];
 $Bclub = $Badmin['Owner'];
 
-while($Tbad = $result->fetch_assoc()){
+while ($Tbad = mysqli_fetch_assoc($result)){
     $Bmaxx = $Tbad;
     $Bmax = $Bmaxx['T'];
 }
 
+echo $Tday;
 echo "Time is occupied next $Tday from ";
 
 $Tmin = $Tnum = $Bmin;
@@ -26,7 +36,6 @@ $Tmax = $Tnum = $Bmax;
 include 'num2T.php';
 
 echo "<br><br>You may contact the manager of $Bclub to solve this conflict.";
-
 
 $conn->close;
 ?>
