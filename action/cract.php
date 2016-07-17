@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $Tend = $_POST['endh']*12+$_POST['endm'];
     $Town = $_SESSION['clubname'];
 }
+if ($Tday = 'Wed') $Tday = 'Wen';
 echo $Tday . $Tstr . $Tend . '<br>';
 #Availability check: row_num+comparison
 include 'conn.php';
@@ -38,7 +39,6 @@ if ($row_cnt < $Tend - $Tstr){
     echo '<br>Time not available during your selected time, ' .
         'please choose another time instead.<br><br>';
    include 'cract/badclub.php';
-#   include 'cract/clock.php';
 } else {
     for($t = $Tstr; $t < $Tend; $t++) {
         $fkact = "

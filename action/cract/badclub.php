@@ -38,4 +38,6 @@ include 'num2T.php';
 echo "<br><br>You may contact the manager of $Bclub to solve this conflict.";
 
 $conn->close;
+
+include 'clock.php';
 ?>
