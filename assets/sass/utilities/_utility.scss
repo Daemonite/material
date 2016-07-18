@@ -1,0 +1,130 @@
+//
+// float
+//
+  .center-block {
+    @include center-block;
+  }
+
+  .clearfix {
+    @include clearfix;
+  }
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      .pull-#{$breakpoint}-left {
+        @include pull-left;
+      }
+
+      .pull-#{$breakpoint}-none {
+        float: none !important;
+      }
+
+      .pull-#{$breakpoint}-right {
+        @include pull-right;
+      }
+    }
+  }
+
+//
+// screenreader
+//
+  .invisible {
+    visibility: hidden !important;
+  }
+
+  .sr-only {
+    @include sr-only;
+  }
+
+  .sr-only-focusable {
+    @include sr-only-focusable;
+  }
+
+  .text-hide {
+    @include text-hide;
+  }
+
+//
+// text
+//
+  // alignment
+    .text-justify {
+      text-align: justify !important;
+    }
+
+    .text-nowrap {
+      white-space: nowrap !important;
+    }
+
+    .text-truncate {
+      @include text-truncate;
+    }
+
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      @include media-breakpoint-up($breakpoint) {
+        .text-#{$breakpoint}-center {
+          text-align: center !important;
+        }
+
+        .text-#{$breakpoint}-left {
+          text-align: left !important;
+        }
+
+        .text-#{$breakpoint}-right {
+          text-align: right !important;
+        }
+      }
+    }
+
+  // color
+    .text-muted {
+      color: $text-muted;
+    }
+
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .text-#{$color} {
+        color: nth($palettes-color, $i) !important;
+      }
+
+      a.text-#{$color} {
+        // active, focus, hover
+          &:focus,
+          &:hover {
+            color: nth($palettes-color-dark, $i) !important;
+          }
+      }
+    }
+
+  // italcs and weight
+    .font-italic {
+      font-style: italic;
+    }
+
+    .font-weight-bold,
+    .font-weight-medium {
+      font-weight: $font-weight-medium;
+    }
+
+    .font-weight-light {
+      font-weight: $font-weight-light;
+    }
+
+    .font-weight-normal,
+    .font-weight-regular {
+      font-weight: $font-weight-regular;
+    }
+
+  // transformation
+    .text-capitalize {
+      text-transform: capitalize !important;
+    }
+
+    .text-lowercase {
+      text-transform: lowercase !important;
+    }
+
+    .text-uppercase {
+      text-transform: uppercase !important;
+    }

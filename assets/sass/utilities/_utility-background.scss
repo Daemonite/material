@@ -1,0 +1,29 @@
+//
+// contextual backgrounds
+//
+  .bg-faded {
+    background-color: $offwhite;
+  }
+
+  .bg-inverse {
+    background-color: $brand-color-accent;
+    color: $brand-text-color-accent;
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .bg-#{$color} {
+      background-color: nth($palettes-color, $i) !important;
+      color: nth($palettes-text-color, $i) !important;
+    }
+
+    a.bg-#{$color} {
+      // active, focus, hover
+        &:focus,
+        &:hover {
+          background-color: nth($palettes-color-dark, $i) !important;
+          color: nth($palettes-text-color-dark, $i) !important;
+        }
+    }
+  }
