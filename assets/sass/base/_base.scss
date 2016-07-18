@@ -1,5 +1,5 @@
 /*
- * based on Bootstrap's (v4.0.0-alpha.2) reboot and normalize.css v3.0.3
+ * based on Bootstrap's (v4.0.0-alpha.2) reboot and normalize.css (v3.0.3)
  */
 
 *,
@@ -36,6 +36,19 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+//
+// fast click
+//
+  a,
+  button,
+  input,
+  label,
+  select,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
 
 //
 // form element
@@ -121,7 +134,7 @@ html {
   legend {
     border: 0;
     display: block;
-    margin: 0 0 $spacer;
+    margin: 0 0 $spacer-md-y;
     padding: 0;
     width: 100%;
     @include typography-title;

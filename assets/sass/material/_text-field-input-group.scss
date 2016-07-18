@@ -1,0 +1,53 @@
+.input-group {
+  display: flex;
+  .form-control {
+    flex-grow: 1;
+  }
+}
+
+.input-group-addon {
+  color: inherit;
+  font-size: $input-font-size;
+  font-weight: $font-weight-regular;
+  line-height: $input-line-height;
+  margin: 0 $spacer-md-x;
+  min-height: ($input-height + $input-margin-bottom);
+  min-width: ($input-height + $input-margin-bottom);
+  padding: (($input-height + $input-margin-bottom - $input-line-height) / 2) 0;
+  text-align: center;
+  white-space: nowrap;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// size
+  .input-group-addon {
+    &.form-control-lg,
+    .input-group-lg > & {
+      font-size: $input-font-size-lg;
+      line-height: $input-line-height-lg;
+      min-height: ($input-height-lg + $input-margin-bottom-lg);
+      min-width: ($input-height-lg + $input-margin-bottom-lg);
+      padding: (($input-height-lg + $input-margin-bottom-lg - $input-line-height-lg) / 2) 0;
+    }
+    &.form-control-sm,
+    .input-group-sm > & {
+      font-size: $input-font-size-sm;
+      line-height: $input-line-height-sm;
+      min-height: ($input-height-sm + $input-margin-bottom-sm);
+      min-width: ($input-height-sm + $input-margin-bottom-sm);
+      padding: (($input-height-sm + $input-margin-bottom-sm - $input-line-height-sm) / 2) 0;
+    }
+  }
+
+  .input-group-lg > .form-control {
+    @extend .form-control-lg;
+  }
+
+  .input-group-sm > .form-control {
+    @extend .form-control-sm;
+  }

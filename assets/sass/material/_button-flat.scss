@@ -20,24 +20,24 @@
 }
 
 // colour
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .btn-#{$color}-flat,
     .btn-#{$color}-outline {
-      color: nth($palette-list, $i);
+      color: nth($palettes-color, $i);
       &::before {
-        background-color: hex-to-rgba(nth($palette-list, $i), 0.12);
+        background-color: hex-to-rgba(nth($palettes-color, $i), 0.12);
       }
       // active, focus, hover
         &:active,
         &.active {
-          background-color: hex-to-rgba(nth($palette-list, $i), 0.4);
+          background-color: hex-to-rgba(nth($palettes-color, $i), 0.4);
         }
         &:focus,
         &:hover,
         &.focus {
-          color: nth($palette-list, $i);
+          color: nth($palettes-color, $i);
         }
     }
   }
@@ -46,10 +46,17 @@
   .btn-inverse-flat,
   .btn-inverse-outline {
     @extend .btn-inverse;
+    &::before {
+      background-color: $btn-flat-focus-overlay-inverse;
+    }
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: $btn-flat-bg-inverse-pressed;
+      }
     // disabled
       &:disabled,
-      &.disabled,
-      fieldset[disabled] & {
-        color: $btn-disabled-color-inverse;
+      &.disabled {
+        background-color: transparent;
       }
   }

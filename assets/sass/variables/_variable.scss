@@ -10,8 +10,8 @@ $css-path: "." !default;
 //
 // body
 //
-  $body-bg:    $white-primary-solid !default;
-  $body-color: $black-primary-solid !default;
+  $body-bg:    $white-primary !default;
+  $body-color: $black-primary !default;
 
 //
 // button
@@ -19,43 +19,40 @@ $css-path: "." !default;
 // n.b. material design guideline only specifies specs for
 // default button (.btn) and dense button (.btn-sm)
 //
-  $btn-bg:                       $white-divider !default;
+  $btn-bg:                       transparent !default;
+  $btn-bg-disabled:              $black-divider !default;
+  $btn-bg-pressed:               rgba(153, 153, 153, 0.40) !default;
   $btn-color:                    $black-primary !default;
-  $btn-color-inverse:            $white-primary !default;
-  $btn-disabled-bg:              rgba(0, 0, 0, 0.12) !default;
-  $btn-disabled-bg-inverse:      rgba(255, 255, 255, 0.12) !default;
-  $btn-disabled-color:           rgba(0, 0, 0, 0.26) !default;
-  $btn-disabled-color-inverse:   rgba(255, 255, 255, 0.30) !default;
+  $btn-color-disabled:           rgba(0, 0, 0, 0.26) !default;
+  $btn-color-pressed:            $btn-color !default;
   $btn-elevation-shadow:         $elevation-shadow-2dp !default;
   $btn-elevation-shadow-pressed: $elevation-shadow-8dp !default;
-  $btn-focus-overlay:            rgba(0, 0, 0, 0.12) !default;
-  $btn-pressed-bg:               rgba(153, 153, 153, 0.40) !default;
-  $btn-pressed-bg-inverse:       rgba(204, 204, 204, 0.25) !default;
+  $btn-focus-overlay:            $black-divider !default;
+  $btn-font-weight:              $font-weight-medium !default;
+  $btn-min-width:                5.5rem !default;
 
-  $btn-border-radius:            $border-radius !default;
-  $btn-border-radius-lg:         $btn-border-radius !default;
-  $btn-border-radius-sm:         $btn-border-radius !default;
+  // inverse
+  $btn-bg-inverse:               $brand-color-accent !default;
+  $btn-bg-inverse-disabled:      $white-divider !default;
+  $btn-bg-inverse-pressed:       $brand-color-accent-dark !default;
+  $btn-color-inverse:            $brand-text-color-accent !default;
+  $btn-color-inverse-disabled:   rgba(255, 255, 255, 0.30) !default;
+  $btn-color-inverse-pressed:    $btn-color-inverse !default;
+
+  // size
   $btn-font-size:                0.875rem !default;
   $btn-font-size-lg:             0.9375rem !default;
   $btn-font-size-sm:             0.8125rem !default;
-  $btn-font-weight:              $font-weight-medium !default;
-  $btn-font-weight-lg:           $btn-font-weight !default;
-  $btn-font-weight-sm:           $btn-font-weight !default;
   $btn-height:                   2.25rem !default;
-  $btn-height-lg:                3rem !default;
+  $btn-height-lg:                2.5rem !default;
   $btn-height-sm:                2rem !default;
-  $btn-line-height:              1.25rem !default;
-  $btn-line-height-lg:           $btn-line-height !default;
-  $btn-line-height-sm:           $btn-line-height !default;
-  $btn-min-width:                5.5rem !default;
-  $btn-min-width-lg:             $btn-min-width !default;
-  $btn-min-width-sm:             $btn-min-width !default;
-  $btn-padding-x:                $spacer-md-x !default;
-  $btn-padding-x-lg:             $btn-padding-x !default;
-  $btn-padding-x-sm:             $btn-padding-x !default;
-  $btn-padding-y:                (($btn-height - $btn-line-height) / 2) !default;
-  $btn-padding-y-lg:             (($btn-height-lg - $btn-line-height-lg) / 2) !default;
-  $btn-padding-y-sm:             (($btn-height-sm - $btn-line-height-sm) / 2) !default;
+
+//
+// button: flat button
+// based on https://material.google.com/components/buttons.html#buttons-flat-buttons
+//
+  $btn-flat-bg-inverse-pressed:    rgba(204, 204, 204, 0.25) !default;
+  $btn-flat-focus-overlay-inverse: rgba(204, 204, 204, 0.12) !default;
 
 //
 // button: floating action button
@@ -64,6 +61,8 @@ $css-path: "." !default;
   $btn-float-elevation-shadow:         $elevation-shadow-6dp !default;
   $btn-float-elevation-shadow-pressed: $elevation-shadow-12dp !default;
   $btn-float-font-size:                1.5rem !default;
+
+  // size
   $btn-float-size:                     3.5rem !default;
   $btn-float-size-sm:                  2.5rem !default;
 
@@ -71,19 +70,10 @@ $css-path: "." !default;
 // card
 // based on https://material.google.com/components/cards.html#cards-usage
 //
-  $card-bg:                       $white-primary-solid !default;
-  $card-border-color:             $black-divider !default;
-  $card-border-color-inverse:     $white-divider !default;
-  $card-border-radius:            $border-radius !default;
-  $card-border-width:             $border-width !default;
+  $card-bg:                       $white-primary !default;
   $card-color:                    $black-primary !default;
-  $card-color-inverse:            $white-primary !default;
   $card-elevation-shadow:         $elevation-shadow-2dp !default;
   $card-elevation-shadow-pressed: $elevation-shadow-8dp !default;
-  $card-margin:                   $spacer-sm !default;
-  $card-padding:                  $spacer-md !default;
-  $card-padding-lg:               $spacer-lg !default;
-  $card-padding-sm:               $spacer-sm !default;
 
 //
 // caret
@@ -106,16 +96,12 @@ $css-path: "." !default;
 // code
 //
   $code-bg:                   #f7f7f9 !default;
-  $code-border-radius:        $border-radius !default;
   $code-color:                #bd4147 !default;
 
   $kbd-bg:                    #333333 !default;
-  $kbd-border-radius:         $border-radius !default;
   $kbd-color:                 #ffffff !default;
 
   $pre-bg:                    #f7f7f9 !default;
-  $pre-border-color:          $black-divider !default;
-  $pre-border-radius:         $border-radius !default;
   $pre-color:                 #333333 !default;
   $pre-scrollable-max-height: 320px !default;
 
@@ -129,14 +115,10 @@ $css-path: "." !default;
 // based on https://material.google.com/components/dialogs.html#dialogs-specs
 //
   $dialog-backdrop-bg:          $black-hint !default;
-  $dialog-body-padding:         1.25rem $spacer-lg-x !default;
-  $dialog-content-bg:           $white-primary-solid !default;
+  $dialog-content-bg:           $white-primary !default;
   $dialog-elevation-shadow:     $elevation-shadow-24dp !default;
   $dialog-footer-btn-min-width: 4rem !default;
-  $dialog-footer-btn-padding-x: $spacer-sm-x !default;
-  $dialog-footer-padding:       $spacer-sm-y $spacer-sm-x $spacer-sm-y $spacer-lg-x !default;
-  $dialog-header-padding:       $dialog-body-padding !default;
-  $dialog-margin:               $spacer-lg !default;
+  $dialog-inner-padding:        1.25rem $spacer-lg-x !default;
   $dialog-width:                35rem !default;
   $dialog-width-lg:             52.5rem !default;
   $dialog-width-sm:             17.5rem !default;
@@ -145,29 +127,27 @@ $css-path: "." !default;
 // form
 // based on https://material.google.com/components/text-fields.html#text-fields-single-line-text-field
 //
-  $input-border-color:       $black-divider !default;
-  $input-border-width:       $border-width !default;
   $input-color:              $black-primary !default;
-  $input-disabled-color:     $black-hint !default;
-  $input-focus-border-color: $brand-color !default;
+  $input-color-disabled:     $black-hint !default;
+  $input-border-color-focus: $brand-color !default;
   $input-hint-color:         $black-hint !default;
 
+  // size
   $input-font-size:          1rem !default;
   $input-font-size-lg:       2.125rem !default;
   $input-font-size-sm:       0.8125rem !default;
-  $input-line-height:        1.5rem !default;
-  $input-line-height-lg:     2.5rem !default;
-  $input-line-height-sm:     1.125rem !default;
-
   $input-height:             2.5rem !default;
   $input-height-lg:          3.75rem !default;
   $input-height-sm:          2.25rem !default;
+  $input-line-height:        1.5rem !default;
+  $input-line-height-lg:     2.5rem !default;
+  $input-line-height-sm:     1.125rem !default;
   $input-margin-bottom:      0.5rem !default;
-  $input-margin-bottom-lg:   $input-margin-bottom !default;
+  $input-margin-bottom-lg:   0.75rem !default;
   $input-margin-bottom-sm:   0.25rem !default;
   $input-padding-top:        0.75rem !default;
-  $input-padding-top-lg:     $input-padding-top !default;
-  $input-padding-top-sm:     0.75rem !default;
+  $input-padding-top-lg:     0.875rem !default;
+  $input-padding-top-sm:     0.625rem !default;
 
 //
 // form: custom checkbox, radio button and switch
@@ -187,98 +167,85 @@ $css-path: "." !default;
 // form: floating label
 // based on https://material.google.com/components/text-fields.html#text-fields-labels
 //
-  $floating-label-color:              $black-hint !default;
+  $floating-label-color:              $input-hint-color !default;
   $floating-label-color-focus:        $brand-color !default;
-  $floating-label-divider-padding:    0.5rem !default;
-  $floating-label-divider-padding-lg: $floating-label-divider-padding !default;
-  $floating-label-divider-padding-sm: 0.25rem !default;
   $floating-label-font-size-focus:    0.75rem !default;
+
+  // size
+  $floating-label-divider-padding:    0.5rem !default;
+  $floating-label-divider-padding-lg: 0.75rem !default;
+  $floating-label-divider-padding-sm: 0.25rem !default;
   $floating-label-height:             4rem !default;
   $floating-label-height-lg:          5.25rem !default;
   $floating-label-height-sm:          3.5rem !default;
   $floating-label-padding-top:        1rem !default;
-  $floating-label-padding-top-lg:     $floating-label-padding-top !default;
+  $floating-label-padding-top-lg:     1.25rem !default;
   $floating-label-padding-top-sm:     0.75rem !default;
 
 //
 // link
 //
   $link-color:            $brand-color !default;
+  $link-color-hover:      $brand-color-dark !default;
   $link-decoration:       none !default;
-  $link-hover-color:      $brand-color-dark !default;
-  $link-hover-decoration: underline !default;
+  $link-decoration-hover: underline !default;
 
 //
 // nav
 // based on https://material.google.com/components/menus.html#menus-specs
 //
+  $nav-font-size:           1rem !default;
+  $nav-height:              3rem !default;
+  $nav-line-height:         1.5rem !default;
   $nav-link-bg-active:      $black-divider !default;
   $nav-link-color:          $black-primary !default;
   $nav-link-color-active:   $black-primary !default;
   $nav-link-color-disabled: $black-hint !default;
-  $nav-link-padding:        0.625rem 1rem !default;
-  $nav-link-padding-lg:     0.875rem 1rem !default;
-  $nav-link-padding-sm:     0.5rem 1rem !default;
 
 //
 // nav: dropdown
 // based on https://material.google.com/components/menus.html#menus-specs
 //
-  $dropdown-bg:                     $white-primary-solid !default;
-  $dropdown-border-radius:          $border-radius !default;
-  $dropdown-color:                  $black-primary-solid !default;
-  $dropdown-font-size:              1rem !default;
-  $dropdown-font-size-cascading:    0.9375rem !default;
-  $dropdown-elevation-shadow:       $elevation-shadow-8dp !default;
-  $dropdown-link-bg:                transparent !default;
-  $dropdown-link-bg-focus:          $offwhite !default;
-  $dropdown-line-height:            1.5rem !default;
-  $dropdown-line-height-cascading:  $dropdown-line-height !default;
-  $dropdown-link-padding:           0.75rem 1rem !default;
-  $dropdown-link-padding-cascading: 0.25rem 1.5rem !default;
-  $dropdown-padding:                0.5rem 0 !default;
-  $dropdown-padding-cascading:      1rem 0 !default;
+  $dropdown-bg:                    $white-primary !default;
+  $dropdown-color:                 $black-primary !default;
+  $dropdown-font-size:             1rem !default;
+  $dropdown-font-size-cascading:   0.9375rem !default;
+  $dropdown-elevation-shadow:      $elevation-shadow-8dp !default;
+  $dropdown-link-bg:               transparent !default;
+  $dropdown-link-bg-focus:         $offwhite !default;
+  $dropdown-link-height:           3rem !default;
+  $dropdown-link-height-cascading: 2rem !default;
+  $dropdown-line-height:           1.5rem !default;
+  $dropdown-line-height-cascading: $dropdown-line-height !default;
 
 //
 // table
 // based on https://material.google.com/components/data-tables.html#data-tables-structure
 //
-  $table-bg:                            $white-primary-solid !default;
-  $table-bg-accent:                     $palette-grey-100 !default;
-  $table-bg-hover:                      $palette-grey-200 !default;
-  $table-border-color:                  $black-divider-solid !default;
-  $table-border-width:                  $border-width !default;
-  $table-elevation-shadow:              $elevation-shadow-2dp !default;
+  $table-bg:                $white-primary !default;
+  $table-bg-accent:         $palette-grey-100 !default;
+  $table-bg-hover:          $palette-grey-200 !default;
+  $table-cell-padding:      0.75rem 1.75rem !default;
+  $table-cell-padding-alt:  $spacer-lg-x !default;
+  $table-elevation-shadow:  $elevation-shadow-2dp !default;
 
-  $table-tbody-cell-height:             3rem !default;
-  $table-tbody-cell-padding:            0.75rem 1.75rem !default;
-  $table-tbody-cell-padding-first-last: $spacer-lg-x !default;
-  $table-tbody-color:                   $black-primary !default;
-  $table-tbody-font-size:               0.8125rem !default;
-  $table-tfoot-cell-height:             3.5rem !default;
-  $table-tfoot-cell-padding:            $table-tbody-cell-padding !default;
-  $table-tfoot-cell-padding-first-last: $table-tbody-cell-padding-first-last !default;
-  $table-tfoot-color:                   $black-secondary !default;
-  $table-tfoot-font-size:               0.75rem !default;
-  $table-thead-cell-height:             $table-tfoot-cell-height !default;
-  $table-thead-cell-padding:            $table-tfoot-cell-padding !default;
-  $table-thead-cell-padding-first-last: $table-tfoot-cell-padding-first-last !default;
-  $table-thead-color:                   $table-tfoot-color !default;
-  $table-thead-font-size:               $table-tfoot-font-size !default;
+  $table-tbody-cell-height: 3rem !default;
+  $table-tbody-color:       $black-primary !default;
+  $table-tbody-font-size:   0.8125rem !default;
+
+  $table-tfoot-cell-height: 3.5rem !default;
+  $table-tfoot-color:       $black-secondary !default;
+  $table-tfoot-font-size:   0.75rem !default;
+
+  $table-thead-cell-height: $table-tfoot-cell-height !default;
+  $table-thead-color:       $table-tfoot-color !default;
+  $table-thead-font-size:   $table-tfoot-font-size !default;
 
 //
 // typography
 //
-  $abbr-border-color:   $border-color-black !default;
-  $abbr-border-style:   dotted !default;
-  $abbr-border-width:   $border-width !default;
-
   $heading-color:       inherit !default;
   $heading-font-family: inherit !default;
-
-  $hr-border-color:     $border-color-black !default;
-  $hr-border-style:     solid !default;
-  $hr-border-width:     $border-width !default;
 
 //
 // waves

@@ -3,7 +3,7 @@
   background-color: $chip-bg;
   border-radius: ($chip-height / 2);
   color: $chip-color;
-  display: inline;
+  display: inline-block;
   font-size: $chip-font-size;
   font-style: normal;
   font-weight: $font-weight-regular;
@@ -14,12 +14,12 @@
 }
 
 // colour
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .chip-#{$color},
     .label-#{$color} {
-      background-color: nth($palette-list, $i);
-      color: nth($palette-list-text, $i);
+      background-color: nth($palettes-color, $i);
+      color: nth($palettes-text-color, $i);
     }
   }

@@ -102,7 +102,7 @@
   hr,
   .hr {
     border: 0;
-    border-top: $hr-border-width $hr-border-style $hr-border-color;
+    border-top: $border-width solid $border-color;
     box-sizing: content-box;
     display: block;
     height: 0;
@@ -134,8 +134,8 @@
   }
 
   .dl-horizontal {
-    margin-right: ($grid-gutter-width * -1);
-    margin-left: ($grid-gutter-width * -1);
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
     @include clearfix;
   }
 
@@ -163,8 +163,8 @@
     text-decoration: $link-decoration;
     &:focus,
     &:hover {
-      color: $link-hover-color;
-      text-decoration: $link-hover-decoration;
+      color: $link-color-hover;
+      text-decoration: $link-decoration-hover;
     }
     &:focus {
       @include tab-focus;
@@ -172,7 +172,7 @@
   }
 
   abbr[title] {
-    border-bottom: $abbr-border-width $abbr-border-style $abbr-border-color;
+    border-bottom: $border-width dotted $border-color;
     cursor: help;
   }
 
@@ -243,10 +243,12 @@
   caption {
     caption-side: bottom;
     color: $black-hint-solid;
-    padding: $table-tbody-cell-padding;
-    padding-right: $table-tbody-cell-padding-first-last;
-    padding-left: $table-tbody-cell-padding-first-last;
+    min-height: $table-thead-cell-height;
+    padding: $table-cell-padding;
+    padding-right: $table-cell-padding-alt;
+    padding-left: $table-cell-padding-alt;
     text-align: left;
+    vertical-align: middle;
     @include typography-caption;
   }
 
@@ -262,5 +264,5 @@
   }
 
   th {
-   text-align: left;
+    text-align: left;
   }

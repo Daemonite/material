@@ -1,50 +1,41 @@
-@charset "UTF-8";
+@import "variables/variable";
 
-@import "mixin/grid";
-@import "mixin/responsive";
-@import "mixin/utilities";
+@import "mixins/breakpoint", "mixins/form", "mixins/grid", "mixins/typography", "mixins/utility.scss";
 
-@import "var/variables";
+//
+// base css
+//
+  @import "base/base";
+  @import "base/grid";
+  @import "base/typography";
 
-// css
-	@import "base/reset";
-	@import "base/grid";
+//
+// bootstrap components
+// components covered in Bootstrap's (v4.0.0-alpha.2) css but not in material design guidelines
+//
+  @import "bootstrap/code";
+  @import "bootstrap/nav";
 
-	// addons & utilities
-		@import "addons/material-icons";
-		@import "addons/waves";
+//
+// material components
+// components covered in material design guidelines https://material.google.com/components
+//
+  @import "material/button";
+  @import "material/button-flat";
+  @import "material/button-float";
+  @import "material/card";
+  @import "material/chip";
+  @import "material/data-table";
+  @import "material/dialog";
+  @import "material/menu";
+  @import "material/selection-control";
+  @import "material/text-field";
+  @import "material/text-field-floating-label";
+  @import "material/text-field-input-group";
+  @import "material/text-field-textarea";
 
-		@import "utilities/print";
-		@import "utilities/utilities";
-		@import "utilities/utilities-responsive";
-
-	// components & elements
-		@import "components/avatar";
-		@import "components/breadcrumb";
-		@import "components/button";
-		@import "components/button-flat";
-		@import "components/button-float";
-		@import "components/card";
-		@import "components/code";
-		@import "components/dropdown";
-		@import "components/form";
-		@import "components/form-checkbox";
-		@import "components/form-floating-label";
-		@import "components/form-switch";
-		@import "components/form-textarea";
-		@import "components/label";
-		@import "components/modal";
-		@import "components/nav";
-		@import "components/picker";
-		@import "components/progress";
-		@import "components/progress-circular";
-		@import "components/progress-loadbar";
-		@import "components/snackbar";
-		@import "components/stepper";
-		@import "components/tab";
-		@import "components/table";
-		@import "components/tile";
-
-		@import "elements/content";
-		@import "elements/header";
-		@import "elements/menu";
+//
+// utilities
+//
+  @import "utilities/material-icons";
+  @import "utilities/waves";

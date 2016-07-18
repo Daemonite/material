@@ -2,15 +2,15 @@
   background-color: transparent;
   background-image: none;
   border: 0;
-  border-bottom: $input-border-width solid $input-border-color;
+  border-bottom: $border-width solid $border-color;
   border-radius: 0;
   box-shadow: none;
   color: inherit;
   display: block;
-  font-weight: normal;
+  font-weight: $font-weight-regular;
   transition: border-color $transition-duration $transition-timing-function;
   width: 100%;
-  @include form-control-size($input-border-width, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
+  @include form-control-size($border-width, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
   &::-ms-expand {
     background-color: transparent;
     border: 0;
@@ -21,28 +21,28 @@
   }
   // active, focus, hover
     &:focus {
-      border-bottom-color: $input-focus-border-color;
-      border-bottom-width: ($input-border-width + 1);
+      border-bottom-color: $input-border-color-focus;
+      border-bottom-width: ($border-width + 1);
       outline: 0;
     }
   // disbaled
     &:disabled,
     &[readonly],
     &[readonly]:focus {
-      border-color: $input-border-color;
+      border-color: $border-color;
       border-style: dotted;
     }
     &:disabled,
     &[readonly] {
-      color: $input-disabled-color;
+      color: $input-color-disabled;
       opacity: 1;
     }
     &:disabled {
       cursor: $cursor-disabled;
     }
     &[readonly]:focus {
-      border-bottom-width: $input-border-width;
-      padding-bottom: ($input-height - $input-padding-top - $input-line-height - $input-border-width / $font-size-root);
+      border-bottom-width: $border-width;
+      padding-bottom: ($input-height - $input-padding-top - $input-line-height - $border-width / $font-size-root);
     }
 }
 
@@ -64,18 +64,18 @@ select.form-control {
 }
 
 // colour
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .form-control-#{$color},
     .form-control-#{$color}:focus {
-      border-bottom-color: nth($palette-list, $i);
+      border-bottom-color: nth($palettes-color, $i);
     }
   }
 
 // size
   .form-control-lg {
-    @include form-control-size($input-border-width, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
+    @include form-control-size($border-width, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
   }
 
   select.form-control-lg {
@@ -85,7 +85,7 @@ select.form-control {
   }
 
   .form-control-sm {
-    @include form-control-size($input-border-width, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
+    @include form-control-size($border-width, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
   }
 
   select.form-control-sm {

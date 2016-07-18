@@ -5,14 +5,22 @@
 .table {
   background-color: $table-bg;
   border: 0;
+  border-collapse: separate;
   margin-bottom: $spacer-md-y;
   max-width: 100%;
   width: 100%;
   td,
   th {
-    border-top: $table-border-width solid $table-border-color;
+    border-top: $border-width solid $border-color;
     line-height: $line-height-default;
+    padding: $table-cell-padding;
     vertical-align: middle;
+    &:first-child {
+      padding-left: $table-cell-padding-alt;
+    }
+    &:last-child {
+      padding-right: $table-cell-padding-alt;
+    }
   }
   tbody {
     td,
@@ -20,13 +28,6 @@
       color: $table-tbody-color;
       font-size: $table-tbody-font-size;
       height: $table-tbody-cell-height;
-      padding: $table-tbody-cell-padding;
-      &:first-child {
-        padding-left: $table-tbody-cell-padding-first-last;
-      }
-      &:last-child {
-        padding-right: $table-tbody-cell-padding-first-last;
-      }
     }
   }
   tfoot {
@@ -35,16 +36,9 @@
       color: $table-tfoot-color;
       font-size: $table-tfoot-font-size;
       height: $table-tfoot-cell-height;
-      padding: $table-tfoot-cell-padding;
-      &:first-child {
-        padding-left: $table-tfoot-cell-padding-first-last;
-      }
-      &:last-child {
-        padding-right: $table-tfoot-cell-padding-first-last;
-      }
     }
     th {
-      font-weight: normal;
+      font-weight: $font-weight-regular;
     }
   }
   thead {
@@ -53,16 +47,9 @@
       color: $table-thead-color;
       font-size: $table-thead-font-size;
       height: $table-thead-cell-height;
-      padding: $table-thead-cell-padding;
-      &:first-child {
-        padding-left: $table-thead-cell-padding-first-last;
-      }
-      &:last-child {
-        padding-right: $table-thead-cell-padding-first-last;
-      }
     }
     th {
-      font-weight: normal;
+      font-weight: $font-weight-regular;
     }
   }
   > tbody:first-child > tr:first-child,
@@ -74,12 +61,12 @@
     }
   }
   .table {
-    border-top: $table-border-width solid $table-border-color;
+    border-top: $border-width solid $border-color;
   }
 }
 
 //
-// bordered and striped versions
+// additional versions
 //
   .table-bordered {
     box-shadow: map-get($table-elevation-shadow, shadow);
@@ -103,23 +90,23 @@
 //
 // table background
 //
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .table .table-#{$color} {
       &,
       > td,
       > th {
-        background-color: nth($palette-list, $i);
-        color: nth($palette-list-text, $i);
+        background-color: nth($palettes-color, $i);
+        color: nth($palettes-text-color, $i);
       }
     }
 
     .table-hover .table-#{$color}:hover,
     .table-hover .table-#{$color}:hover > td,
     .table-hover .table-#{$color}:hover > th {
-      background-color: nth($palette-list-dark, $i);
-      color: nth($palette-list-text-dark, $i);
+      background-color: nth($palettes-color-dark, $i);
+      color: nth($palettes-text-color-dark, $i);
     }
   }
 
@@ -131,8 +118,4 @@
     min-height: 0.01%;
     overflow-x: auto;
     width: 100%;
-    .table-bordered {
-      border: $table-border-width solid $table-border-color;
-      box-shadow: none;
-    }
   }

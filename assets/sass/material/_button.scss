@@ -2,18 +2,18 @@
   background-color: $btn-bg;
   background-image: none;
   border: 0;
-  border-radius: $btn-border-radius;
+  border-radius: $border-radius;
   box-shadow: map-get($btn-elevation-shadow, shadow);
   color: $btn-color;
   cursor: pointer;
   display: inline-block;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
+  line-height: 1;
   margin: 0;
   max-width: 100%;
   min-width: $btn-min-width;
-  padding: $btn-padding-y $btn-padding-x;
+  padding: (($btn-height - $btn-font-size) / 2) $spacer-md-x;
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -24,38 +24,36 @@
   z-index: map-get($btn-elevation-shadow, elevation);
   &::before {
     background-color: $btn-focus-overlay;
-    border-radius: $btn-border-radius;
+    border-radius: $border-radius;
     content: "";
     display: block;
-    height: 100%;
     opacity: 0;
     position: absolute;
       top: 0;
+      right: 0;
+      bottom: 0;
       left: 0;
     transition: opacity $transition-duration $transition-timing-function;
-    width: 100%;
     z-index: -1;
   }
   // active, focus, hover
     &:active,
-    &:focus,
-    &.active,
-    &.focus {
-      &::before {
-        opacity: 1;
-      }
-    }
-    &:active,
     &.active {
-      background-color: $btn-pressed-bg;
+      background-color: $btn-bg-pressed;
       box-shadow: map-get($btn-elevation-shadow-pressed, shadow);
       z-index: map-get($btn-elevation-shadow-pressed, elevation);
     }
     &:focus,
     &:hover,
     &.focus {
-      color: $btn-color;
+      color: $btn-color-pressed;
       text-decoration: none;
+    }
+    &:focus,
+    &.focus {
+      &::before {
+        opacity: 1;
+      }
     }
     &:focus {
       outline: 0;
@@ -63,9 +61,9 @@
   // disabled
     &:disabled,
     &.disabled {
-      background-color: $btn-disabled-bg;
+      background-color: $btn-bg-disabled;
       box-shadow: none;
-      color: $btn-disabled-color;
+      color: $btn-color-disabled;
       cursor: $cursor-disabled;
       opacity: 1;
       pointer-events: none;
@@ -102,63 +100,58 @@
 }
 
 // colour
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .btn-#{$color} {
-      background-color: nth($palette-list, $i);
-      color: nth($palette-list-text, $i);
+      background-color: nth($palettes-color, $i);
+      color: nth($palettes-text-color, $i);
       // active, focus, hover
         &:active,
         &.active {
-          background-color: nth($palette-list-dark, $i);
+          background-color: nth($palettes-color-dark, $i);
         }
         &:focus,
         &:hover,
         &.focus {
-          color: nth($palette-list-text, $i);
+          color: nth($palettes-text-color, $i);
         }
     }
   }
 
 // inverse
   .btn-inverse {
+    background-color: $btn-bg-inverse;
     color: $btn-color-inverse;
     // active, focus, hover
       &:active,
       &.active {
-        background-color: $btn-pressed-bg-inverse;
+        background-color: $btn-bg-inverse-pressed;
       }
       &:focus,
       &:hover,
       &.focus {
-        color: $btn-color-inverse;
+        color: $btn-color-inverse-pressed;
       }
     // disabled
       &:disabled,
       &.disabled {
-        background-color: $btn-disabled-bg-inverse;
-        color: $btn-disabled-color-inverse;
+        background-color: $btn-bg-inverse-disabled;
+        color: $btn-color-inverse-disabled;
       }
   }
 
 // size
   .btn-lg {
-    border-radius: $btn-border-radius-lg;
     font-size: $btn-font-size-lg;
-    font-weight: $btn-font-weight-lg;
-    line-height: $btn-line-height-lg;
-    min-width: $btn-min-width-lg;
-    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    padding-top: (($btn-height-lg - $btn-font-size-lg) / 2);
+    padding-bottom: (($btn-height-lg - $btn-font-size-lg) / 2)
   }
 
   .btn-sm {
-    border-radius: $btn-border-radius-sm;
     font-size: $btn-font-size-sm;
-    font-weight: $btn-font-weight-sm;
-    line-height: $btn-line-height-sm;
-    min-width: $btn-min-width-sm;
-    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    padding-top: (($btn-height-sm - $btn-font-size-sm) / 2);
+    padding-bottom: (($btn-height-sm - $btn-font-size-sm) / 2)
   }
 
 //
@@ -195,8 +188,8 @@
       &:focus,
       &:hover,
       &.focus {
-        color: $link-hover-color;
-        text-decoration: $link-hover-decoration;
+        color: $link-color-hover;
+        text-decoration: $link-decoration-hover;
       }
       &:focus,
       &.focus {

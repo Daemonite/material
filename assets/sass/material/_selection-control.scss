@@ -49,12 +49,14 @@
     position: absolute;
       top: ($c-input-border-width * -1);
       left: ($c-input-border-width * -1);
+    transform: scale(0);
     width: ($c-input-size * 3);
     transition: opacity $transition-duration $transition-timing-function;
   }
   // active, focus, hover
     &:active::before {
       animation: c-indicator-active $transition-duration $transition-timing-function;
+      transform: scale(1);
     }
 }
 

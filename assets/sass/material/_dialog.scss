@@ -66,13 +66,13 @@
   .dialog-dialog,
   .modal-dialog {
     display: inline-block;
-    margin: $dialog-margin;
+    margin: $spacer-lg-y $spacer-lg-x;
     max-width: $dialog-width;
     position: relative;
     text-align: left;
     vertical-align: middle;
     white-space: normal;
-    width: calc(100% - #{$dialog-margin} * 2);
+    width: calc(100% - #{$spacer-lg-x} * 2);
   }
 
   // size
@@ -91,7 +91,7 @@
 //
   .dialog-body,
   .modal-body {
-    padding: $dialog-body-padding;
+    padding: $dialog-inner-padding;
     position: relative;
   }
 
@@ -109,20 +109,20 @@
 
   .dialog-footer,
   .modal-footer {
-    padding: $dialog-footer-padding;
+    padding: $spacer-sm-y $spacer-sm-x $spacer-sm-y $spacer-lg-x;
     @include clearfix;
     .btn {
       float: right;
       margin-left: $spacer-sm-x;
       min-width: $dialog-footer-btn-min-width;
-      padding-right: $dialog-footer-btn-padding-x;
-      padding-left: $dialog-footer-btn-padding-x;
+      padding-right: $spacer-sm-x;
+      padding-left: $spacer-sm-x;
     }
   }
 
   .dialog-header,
   .modal-header {
-    padding: $dialog-header-padding;
+    padding: $dialog-inner-padding;
     + .dialog-body,
     + .modal-body {
       padding-top: 0;

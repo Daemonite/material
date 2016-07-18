@@ -1,10 +1,9 @@
 .card {
   background-color: $card-bg;
-  border-radius: $card-border-radius;
+  border-radius: $border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
-  color: $card-color;
   display: block;
-  margin-bottom: $card-margin;
+  margin-bottom: $spacer-md-y;
   z-index: map-get($card-elevation-shadow, elevation);
 }
 
@@ -16,7 +15,6 @@ a.card {
     }
     &:focus,
     &:hover {
-      color: $card-color;
       outline: 0;
       text-decoration: none;
     }
@@ -24,28 +22,30 @@ a.card {
 
 // block
   .card-block {
-    padding: $card-padding;
+    padding: $spacer-md-y $spacer-md-x;
+    > :last-child {
+      margin-bottom: 0;
+    }
   }
 
 // colour
-  @each $color in $palette-list-class {
-    $i: index($palette-list-class, $color);
+  @each $color in $palettes {
+    $i: index($palettes, $color);
 
     .card-#{$color} {
-      background-color: nth($palette-list, $i);
-      color: nth($palette-list-text, $i);
+      background-color: nth($palettes-color, $i);
     }
   }
 
 // inverse
   .card-inverse {
-    color: $card-color-inverse;
+    color: $white-primary;
     .card-actions-bordered,
     .card-footer-bordered {
-      border-top-color: $card-border-color-inverse;
+      border-top-color: $border-color-inverse;
     }
     .card-header-bordered {
-      border-bottom-color: $card-border-color-inverse;
+      border-bottom-color: $border-color-inverse;
     }
   }
 
@@ -53,17 +53,17 @@ a.card {
 // action
 //
   .card-actions {
-    padding: $card-padding-sm;
+    padding: $spacer-sm-y $spacer-sm-x;
     @include clearfix;
     .btn {
       min-width: 0;
-      padding-right: ($card-padding - $card-padding-sm);
-      padding-left: ($card-padding - $card-padding-sm);
+      padding-right: $spacer-sm-x;
+      padding-left: $spacer-sm-x;
     }
   }
 
   .card-actions-bordered {
-    border-top: $card-border-width solid $card-border-color;
+    border-top: $border-width solid $border-color;
   }
 
   .card-actions-horizontal {
@@ -86,50 +86,50 @@ a.card {
 // footer
 //
   .card-footer {
-    padding: $card-padding;
+    padding: $spacer-md-y $spacer-md-x;
     &:last-child {
-      border-radius: 0 0 $card-border-radius $card-border-radius;
+      border-radius: 0 0 $border-radius $border-radius;
     }
   }
 
   .card-footer-bordered {
-    border-top: $card-border-width solid $card-border-color;
+    border-top: $border-width solid $border-color;
   }
 
 //
 // header
 //
   .card-header {
-    padding: $card-padding;
+    padding: $spacer-md-y $spacer-md-x;
     &:first-child {
-      border-radius: $card-border-radius $card-border-radius 0 0;
+      border-radius: $border-radius $border-radius 0 0;
     }
   }
 
   .card-header-bordered {
-    border-bottom: $card-border-width solid $card-border-color;
+    border-bottom: $border-width solid $border-color;
   }
 
 //
 // image
 //
   .card-img {
-    border-radius: $card-border-radius;
+    border-radius: $border-radius;
   }
 
   .card-img-bottom {
-    border-radius: 0 0 $card-border-radius $card-border-radius;
+    border-radius: 0 0 $border-radius $border-radius;
   }
 
   .card-img-top {
-    border-radius: $card-border-radius $card-border-radius 0 0;
+    border-radius: $border-radius $border-radius 0 0;
   }
 
 //
 // image overlay
 //
   .card-img-overlay {
-    padding: $card-padding-lg $card-padding $card-padding;
+    padding: $spacer-lg-y $spacer-md-x $spacer-md-y;
     position: absolute;
       top: 0;
       right: 0;

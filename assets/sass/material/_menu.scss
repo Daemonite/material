@@ -1,3 +1,7 @@
+//
+// todo: `.disabled`, `.dropdown-divider` and `.dropdown-header`
+//
+
 .dropdown,
 .dropup {
   position: relative;
@@ -7,14 +11,14 @@
   background-clip: padding-box;
   background-color: $dropdown-bg;
   border: 0;
-  border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius;
+  border-radius: 0 0 $border-radius $border-radius;
   box-shadow: map-get($dropdown-elevation-shadow, shadow);
   color: $dropdown-color;
   list-style: none;
   margin: 0;
   min-width: 100%;
   opacity: 0;
-  padding: $dropdown-padding;
+  padding: $spacer-sm-y 0;
   position: absolute;
     top: 100%;
     left: 0;
@@ -30,7 +34,7 @@
 // direction
   .dropup {
     .dropdown-menu {
-      border-radius: $dropdown-border-radius $dropdown-border-radius 0 0;
+      border-radius: $border-radius $border-radius 0 0;
       // position
         top: auto;
         bottom: 100%;
@@ -59,7 +63,7 @@
 
 // size
   .dropdown-menu-cascading {
-    padding: $dropdown-padding-cascading;
+    padding: $spacer-md-y 0;
   }
 
 //
@@ -85,7 +89,7 @@
     font-size: $dropdown-font-size;
     display: block;
     line-height: $dropdown-line-height;
-    padding: $dropdown-link-padding;
+    padding: (($dropdown-link-height - $dropdown-line-height) / 2) $spacer-md-x;
     position: relative;
     text-align: inherit;
     white-space: nowrap;
@@ -105,7 +109,8 @@
     }
     // active, focus, hover
       &:active,
-      &:focus {
+      &:focus,
+      &.active {
         &::before {
           opacity: 1;
         }
@@ -118,21 +123,18 @@
       &:focus {
         outline: 0;
       }
-      &.active {
-        color: $link-hover-color;
-      }
     // size
       .dropdown-menu-cascading & {
         font-size: $dropdown-font-size-cascading;
         line-height: $dropdown-line-height-cascading;
-        padding: $dropdown-link-padding-cascading;
+        padding: (($dropdown-link-height-cascading - $dropdown-line-height-cascading) / 2) $spacer-lg-x;
       }
   }
 
 //
 // toggle
 //
-  .dropdown-toggle:not(.btn) {
+  .dropdown-toggle {
     &::after {
       border-top: $caret-width solid;
       border-right: $caret-width solid transparent;

@@ -280,28 +280,20 @@
 // based on https://material.google.com/style/color.html#color-text-background-colors
 //
   $black:                         #000000 !default;
-
   $black-primary:                 rgba(red($black), green($black), blue($black), 0.87) !default;
   $black-secondary:               rgba(red($black), green($black), blue($black), 0.54) !default;
   $black-hint:                    rgba(red($black), green($black), blue($black), 0.38) !default;
   $black-divider:                 rgba(red($black), green($black), blue($black), 0.12) !default;
-
   $black-primary-solid:           #212121 !default;
   $black-secondary-solid:         #757575 !default;
   $black-hint-solid:              #9e9e9e !default;
   $black-divider-solid:           #e1e1e1 !default;
 
   $white:                         #ffffff !default;
-
   $white-primary:                 rgba(red($white), green($white), blue($white), 1.00) !default;
   $white-secondary:               rgba(red($white), green($white), blue($white), 0.70) !default;
   $white-hint:                    rgba(red($white), green($white), blue($white), 0.50) !default;
   $white-divider:                 rgba(red($white), green($white), blue($white), 0.12) !default;
-
-  $white-primary-solid:           #ffffff !default;
-  $white-secondary-solid:         #b3b3b3 !default;
-  $white-hint-solid:              #7f7f7f !default;
-  $white-divider-solid:           #1e1e1e !default;
 
 //
 // offwhite
@@ -316,69 +308,74 @@
 // based on https://material.google.com/style/color.html#color-color-schemes
 // change these values to customise colour palettes
 //
-  $brand-color:                   $palette-indigo-500 !default;
-  $brand-color-dark:              $palette-indigo-700 !default;
-  $brand-color-light:             $palette-indigo-100 !default;
+  $brand-color:                   $palette-purple-500 !default;
+  $brand-color-dark:              $palette-purple-700 !default;
+  $brand-color-light:             $palette-purple-100 !default;
+  $brand-text-color:              $white-primary !default;
+  $brand-text-color-dark:         $white-primary !default;
+  $brand-text-color-light:        $black-primary !default;
 
   $brand-color-accent:            $palette-pink-a200 !default;
   $brand-color-accent-dark:       $palette-pink-a400 !default;
   $brand-color-accent-light:      $palette-pink-a100 !default;
+  $brand-text-color-accent:       $white-primary !default;
+  $brand-text-color-accent-dark:  $white-primary !default;
+  $brand-text-color-accent-light: $black-primary !default;
 
-  $brand-color-text:              $white-primary-solid !default;
-  $brand-color-text-dark:         $white-primary-solid !default;
-  $brand-color-text-light:        $black-primary-solid !default;
-
-  $brand-color-accent-text:       $white-primary-solid !default;
-  $brand-color-accent-text-dark:  $white-primary-solid !default;
-  $brand-color-accent-text-light: $black-primary-solid !default;
-
-  // change the following lists to add, edit, or remove
-  // colours used throughout material css
-    $palette-list-class:
-      "brand",
-      "brand-accent",
+  // change the following lists to add, edit, or remove colours used throughout material css
+    $palettes: (
+      "primary",
+      // "primary" inherits brand colour, so that naming is in line with Bootstrap 4
       "danger",
+      "info",
       "success",
-      "warning" !default;
+      "warning"
+    ) !default;
 
-    $palette-list:
+    $palettes-color: (
       $brand-color,
-      $brand-color-accent,
       $palette-red-500,
+      $palette-blue-500,
       $palette-green-500,
-      $palette-orange-500 !default;
+      $palette-orange-500
+    ) !default;
 
-    $palette-list-dark:
+    $palettes-color-dark: (
       $brand-color-dark,
-      $brand-color-accent-dark,
       $palette-red-700,
+      $palette-blue-700,
       $palette-green-700,
-      $palette-orange-700 !default;
+      $palette-orange-700
+    ) !default;
 
-    $palette-list-light:
+    $palettes-color-light: (
       $brand-color-light,
-      $brand-color-accent-light,
       $palette-red-300,
+      $palette-blue-300,
       $palette-green-300,
-      $palette-orange-300 !default;
+      $palette-orange-300
+    ) !default;
 
-    $palette-list-text:
-      $brand-color-text,
-      $brand-color-accent-text,
-      $white-primary,
-      $black-primary,
-      $black-primary !default;
-
-    $palette-list-text-dark:
-      $brand-color-text-dark,
-      $brand-color-accent-text-dark,
+    $palettes-text-color: (
+      $brand-text-color,
       $white-primary,
       $white-primary,
-      $black-primary !default;
+      $black-primary,
+      $black-primary
+    ) !default;
 
-    $palette-list-text-light:
-      $brand-color-text-light,
-      $brand-color-accent-text-light,
+    $palettes-text-color-dark: (
+      $brand-text-color-dark,
+      $white-primary,
+      $white-primary,
+      $white-primary,
+      $black-primary
+    ) !default;
+
+    $palettes-text-color-light: (
+      $brand-text-color-light,
       $black-primary,
       $black-primary,
-      $black-primary !default;
+      $black-primary,
+      $black-primary
+    ) !default;
