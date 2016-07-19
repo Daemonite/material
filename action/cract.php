@@ -1,4 +1,15 @@
-<?php SESSION_START(); ?>
+<?php SESSION_START();
+$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$Tday = $_POST['day'];
+	$Tstr = $_POST['strh']*12+$_POST['strm'];
+	$Tend = $_POST['endh']*12+$_POST['endm'];
+	$Town = $_SESSION['clubname'];
+}
+if ($Tday = 'Wed') $Tday = 'Wen';
+	echo $Tday . $Tstr . $Tend . '<br>';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,14 +189,8 @@
 						</div>
 					</div>
 <!-- Stepper bar card ends-->
-<!-- create Activity card -->
-<h3 class="content-sub-heading">Error! You've run into a schedule conflict, information below may help you solve it.</h3>
-<p>You can always check public events in <a href="../cont/pubact.php">Public Events Page</a>.</p>
-				<div class="card">
-					<div class="card-main">
-				    	<div class="card-inner">
-<!-- create activity -->
-<!-- START PHP card-->
+
+<!-- START PHP-->
 
 	<?php
 	#validate inputs
@@ -195,16 +200,7 @@
 	    $input = htmlspecialchars($input);
 	    return $input;
 	}
-	$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	    $Tday = $_POST['day'];
-	    $Tstr = $_POST['strh']*12+$_POST['strm'];
-	    $Tend = $_POST['endh']*12+$_POST['endm'];
-	    $Town = $_SESSION['clubname'];
-	}
-	if ($Tday = 'Wed') $Tday = 'Wen';
-#	echo $Tday . $Tstr . $Tend . '<br>';
 	#Availability check: row_num+comparison
 	include 'conn.php';
 	$Tend -= 1;
@@ -218,26 +214,40 @@
 	    echo 'Fatal database error, please check your input or contack the manager of the site ASAP!';
 	}
 
-
-
-	if ($row_cnt < $Tend - $Tstr){
-	    echo '<br>Time not available during your selected time, ' .
-	        'please choose another time instead.<br><br>';
-	   include 'cract/badclub.php';
-	} else {
-	    for($t = $Tstr; $t < $Tend; $t++) {
-	        $fkact = "
-	            UPDATE kcalt.$Tday
-	            SET Owner = '$Town'
-	            WHERE T = $t;
-	        ";
-	    include 'db_do.php';
-	    }
-	    include 'cloz.php';
-	}
+	if ($row_cnt < $Tend - $Tstr) {$Bad = 1;} else $Bad = 0;
 	?>
 </div>
-<!-- END PHP card-->
+<!-- END PHP Badclub verification-->
+<!-- create Activity card -->
+
+
+<!-- create activity -->
+<?php
+if ($Bad) {
+	echo "<h3 class='content-sub-heading'>Error! You\'ve run into a schedule conflict, information below may help you solve it.</h3>" .
+ 		'<p>You can always check public events in <a href="../cont/pubact.php">Public Events Page</a>.</p>' .
+		"<div class="card">
+			<div class="card-main">
+				<div class="card-inner">" .
+		'<br>Time not available during your selected time, ' .
+		'please choose another time instead.<br><br>';
+   include 'cract/badclub.php';
+} else {
+	echo '<h3 class='content-sub-geading'>Congrats! </h3>' .
+		'<div class='card'>
+			<div class='card-main'>
+				<div class='card-inner'>';
+	for ($t = $Tstr; $t < $Tend; $t++) {
+		$fkact = "
+			UPDATE kcalt.$Tday
+			SET Owner = '$Town'
+			WHERE T = $t;
+		";
+		include 'db_do.php';
+	}
+	include 'cloz.php';
+}
+?>
 						</div>
 					</div>
 				</div>
@@ -260,5 +270,4 @@
     <script src="../js/base.min.js"></script>
     <script src="../js/mine.js"></script>
 </body>
-
 </html>
