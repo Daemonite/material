@@ -1,15 +1,4 @@
-<?php SESSION_START();
-$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$Tday = $_POST['day'];
-	$Tstr = $_POST['strh']*12+$_POST['strm'];
-	$Tend = $_POST['endh']*12+$_POST['endm'];
-	$Town = $_SESSION['clubname'];
-}
-if ($Tday = 'Wed') $Tday = 'Wen';
-	echo $Tday . $Tstr . $Tend . '<br>';
-?>
+<?php SESSION_START();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -200,6 +189,16 @@ function vali($input) {
     return $input;
 }
 
+$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$Tday = $_POST['day'];
+	$Tstr = $_POST['strh']*12+$_POST['strm'];
+	$Tend = $_POST['endh']*12+$_POST['endm'];
+	$Town = $_SESSION['clubname'];
+}
+if ($Tday = 'Wed') $Tday = 'Wen';
+	#echo $Tday . $Tstr . $Tend . '<br>';
+
 	#Availability check: row_num+comparison
 include 'conn.php';
 $Tend -= 1;
@@ -210,10 +209,9 @@ $fkact = "SELECT Owner FROM kcalt.$Tday
 if ($result = $conn->query($fkact)) {
     $row_cnt = $result->num_rows;
     $result->close();
-    echo 'Fatal database error, please check your input or contack the manager of the site ASAP!';
 }
 
-if ($row_cnt < $Tend - $Tstr) {$Bad = 1;} else $Bad = 0;
+if ($row_cnt < $Tend - $Tstr) $Bad = 1; else $Bad = 0;
 ?>
 <!-- END PHP Badclub verification-->
 </div>
@@ -228,24 +226,24 @@ if ($Bad) {
  		<p>You can always check public events in <a href='../cont/pubact.php'>Public Events Page</a>.</p>
 		<div class='card'>
 			<div class='card-main'>
-				<div class='card-inner">" .
-		"<br>Time not available during your selected time, " .
+				<div class='card-inner'>
+		<br>Time not available during your selected time, ".
 		"please choose another time instead.<br><br>";
    include 'cract/badclub.php';
 } else {
-	echo '<h3 class='content-sub-geading'>Congrats! </h3>' .
-		'<div class='card'>
+	echo "<h3 class='content-sub-geading'>Congrats! </h3>
+		<div class='card'>
 			<div class='card-main'>
-				<div class='card-inner'>';
+				<div class='card-inner'>";
 	for ($t = $Tstr; $t < $Tend; $t++) {
 		$fkact = "
 			UPDATE kcalt.$Tday
 			SET Owner = '$Town'
 			WHERE T = $t;
 		";
-		include 'db_do.php';
+	include 'db_do.php';
 	}
-	include 'cloz.php';
+include 'cloz.php';
 }
 ?>
 						</div>
@@ -257,7 +255,7 @@ if ($Bad) {
 	<div class="fbtn-container">
         <div class="fbtn-inner">
             <a class="fbtn fbtn-lg fbtn-brand-accent waves-attach waves-circle waves-light"
-                href="help.html">
+                href="../cont/help.html">
                 <span class="fbtn-text fbtn-text-left">
                     Need help?</span>
                 <span class="icon">
