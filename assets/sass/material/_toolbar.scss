@@ -149,7 +149,7 @@
     border-radius: 50%;
     display: block;
     float: left;
-    font-size: 24px; // default font size for material icons
+    font-size: $material-icon-size;
     height: $nav-height;
     line-height: 1;
     margin-right: $spacer-md-x;
@@ -175,7 +175,8 @@
       transition: opacity $transition-duration $transition-timing-function;
     }
     // active, focus, hover
-      &:active {
+      &:active,
+      &:focus {
         &::before {
           opacity: 0.12;
         }
@@ -183,6 +184,9 @@
       &:focus,
       &:hover {
         text-decoration: none;
+      }
+      &:focus {
+        outline: 0;
       }
   }
 
