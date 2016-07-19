@@ -1,3 +1,4 @@
+<?php SESSION_START(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,7 +157,7 @@
 
         <div class="stepper active">
             <div class="stepper-step">
-                <i class="icon stepper-step-icon">check</i>
+                <i class="icon stepper-step-icon">add_alert</i>
                 <span class="stepper-step-num">2</span>
             </div>
             <span class="stepper-text">Post an activity
@@ -178,41 +179,65 @@
 					</div>
 <!-- Stepper bar card ends-->
 <!-- create Activity card -->
-<h3 class="content-sub-heading">Creat your Activity with one click </h3>
+<h3 class="content-sub-heading">Error! You've run into a schedule conflict, information below may help you solve it.</h3>
+<p>You can always check public events in <a href="../cont/pubact.php">Public Events Page</a>.</p>
 				<div class="card">
 					<div class="card-main">
 				    	<div class="card-inner">
 <!-- create activity -->
-<!-- Form -->
-<div class="form-group">
-	<form action="../action/cract.php">
-		<h3>Please click the text area below to select the date of your acvitity.</h3><br>
-		<input class="form-control" id="cract_Dpiker" name="day" type="text" value="Pick a date">
-				<br><br>
-				<select name="strh">
-					<?php include 'cract/opt_hor.html'; ?>
-				</select>
-				:
-				<select name="strm">
-							<?php include 'cract/opt_min.html'; ?>
-				</select>
-				Starting time
+<!-- START PHP card-->
 
-				<br><br>
-				<select name="endh">
-							<?php include 'cract/opt_hor.html'; ?>
-				</select>
-				:
-				<select name="endm">
-					<?php include 'cract/opt_min.html'; ?>
-				</select>
-				Ending time
+	<?php
+	#validate inputs
+	function vali($input) {
+	    $input = trim($input);
+	    $input = stripslashes($input);
+	    $input = htmlspecialchars($input);
+	    return $input;
+	}
+	$Tday = $Tstr = $Bmin = $Tend = $Bmax = $Town = '';
 
-			<input type="submit" value="Register" formmethod="POST">
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	    $Tday = $_POST['day'];
+	    $Tstr = $_POST['strh']*12+$_POST['strm'];
+	    $Tend = $_POST['endh']*12+$_POST['endm'];
+	    $Town = $_SESSION['clubname'];
+	}
+	if ($Tday = 'Wed') $Tday = 'Wen';
+#	echo $Tday . $Tstr . $Tend . '<br>';
+	#Availability check: row_num+comparison
+	include 'conn.php';
+	$Tend -= 1;
+	$fkact = "SELECT Owner FROM kcalt.$Tday
+	    WHERE Owner IS NULL AND (T BETWEEN $Tstr AND $Tend);
+	    ";
 
-	</form>
+	if ($result = $conn->query($fkact)) {
+	    $row_cnt = $result->num_rows;
+	    $result->close();
+	    echo 'Fatal database error, please check your input or contack the manager of the site ASAP!';
+	}
+
+
+
+	if ($row_cnt < $Tend - $Tstr){
+	    echo '<br>Time not available during your selected time, ' .
+	        'please choose another time instead.<br><br>';
+	   include 'cract/badclub.php';
+	} else {
+	    for($t = $Tstr; $t < $Tend; $t++) {
+	        $fkact = "
+	            UPDATE kcalt.$Tday
+	            SET Owner = '$Town'
+	            WHERE T = $t;
+	        ";
+	    include 'db_do.php';
+	    }
+	    include 'cloz.php';
+	}
+	?>
 </div>
-<!-- Form ends -->
+<!-- END PHP card-->
 						</div>
 					</div>
 				</div>
