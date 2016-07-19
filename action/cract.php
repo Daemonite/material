@@ -191,46 +191,46 @@ if ($Tday = 'Wed') $Tday = 'Wen';
 <!-- Stepper bar card ends-->
 
 <!-- START PHP-->
-
-	<?php
+<?php
 	#validate inputs
-	function vali($input) {
-	    $input = trim($input);
-	    $input = stripslashes($input);
-	    $input = htmlspecialchars($input);
-	    return $input;
-	}
+function vali($input) {
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = htmlspecialchars($input);
+    return $input;
+}
 
 	#Availability check: row_num+comparison
-	include 'conn.php';
-	$Tend -= 1;
-	$fkact = "SELECT Owner FROM kcalt.$Tday
-	    WHERE Owner IS NULL AND (T BETWEEN $Tstr AND $Tend);
-	    ";
+include 'conn.php';
+$Tend -= 1;
+$fkact = "SELECT Owner FROM kcalt.$Tday
+    WHERE Owner IS NULL AND (T BETWEEN $Tstr AND $Tend);
+    ";
 
-	if ($result = $conn->query($fkact)) {
-	    $row_cnt = $result->num_rows;
-	    $result->close();
-	    echo 'Fatal database error, please check your input or contack the manager of the site ASAP!';
-	}
+if ($result = $conn->query($fkact)) {
+    $row_cnt = $result->num_rows;
+    $result->close();
+    echo 'Fatal database error, please check your input or contack the manager of the site ASAP!';
+}
 
-	if ($row_cnt < $Tend - $Tstr) {$Bad = 1;} else $Bad = 0;
-	?>
-</div>
+if ($row_cnt < $Tend - $Tstr) {$Bad = 1;} else $Bad = 0;
+?>
 <!-- END PHP Badclub verification-->
+</div>
+
 <!-- create Activity card -->
 
 
 <!-- create activity -->
 <?php
 if ($Bad) {
-	echo "<h3 class='content-sub-heading'>Error! You\'ve run into a schedule conflict, information below may help you solve it.</h3>" .
- 		'<p>You can always check public events in <a href="../cont/pubact.php">Public Events Page</a>.</p>' .
-		"<div class="card">
-			<div class="card-main">
-				<div class="card-inner">" .
-		'<br>Time not available during your selected time, ' .
-		'please choose another time instead.<br><br>';
+	echo "<h3 class='content-sub-heading'>Error! You have run into a schedule conflict, information below may help you solve it.</h3>
+ 		<p>You can always check public events in <a href='../cont/pubact.php'>Public Events Page</a>.</p>
+		<div class='card'>
+			<div class='card-main'>
+				<div class='card-inner">" .
+		"<br>Time not available during your selected time, " .
+		"please choose another time instead.<br><br>";
    include 'cract/badclub.php';
 } else {
 	echo '<h3 class='content-sub-geading'>Congrats! </h3>' .
