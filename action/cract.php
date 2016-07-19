@@ -124,7 +124,6 @@
 	</nav>
 <!-- Left nav end, there is the central context-->
 <!-- Central graphics should show all user's activity in the month-->
-<!-- 'Big Calendar' should be deployed -->
 <main class="content">
 	<div class="content-header ui-content-header">
 		<div class="container">
@@ -214,27 +213,24 @@ if ($result = $conn->query($fkact)) {
 if ($row_cnt < $Tend - $Tstr) $Bad = 1; else $Bad = 0;
 ?>
 <!-- END PHP Badclub verification-->
-</div>
 
 <!-- create Activity card -->
 
+<h3 class='content-sub-heading'>Error! You have run into a schedule conflict, information below may help you solve it.</h3>
 
 <!-- create activity -->
 <?php
 if ($Bad) {
-	echo "<h3 class='content-sub-heading'>Error! You have run into a schedule conflict, information below may help you solve it.</h3>
- 		<p>You can always check public events in <a href='../cont/pubact.php'>Public Events Page</a>.</p>
+   include 'cract/badclub.php';
+} else {
+	echo "<h3 class='content-sub-geading'>Congrats! You now may:</h3>
 		<div class='card'>
 			<div class='card-main'>
 				<div class='card-inner'>
-		<br>Time not available during your selected time, ".
-		"please choose another time instead.<br><br>";
-   include 'cract/badclub.php';
-} else {
-	echo "<h3 class='content-sub-geading'>Congrats! </h3>
-		<div class='card'>
-			<div class='card-main'>
-				<div class='card-inner'>";
+					<p>See your activity on <a href='../cont/act.php'>Public Events Page</a></p>
+					<p>Or return to <a href='../index.php'>the KcalT Index</a>.</p>
+					<p>Thankyou for choosing KcalT for your better club management, your club members will receive a notice in a minute.</p>
+				";
 	for ($t = $Tstr; $t < $Tend; $t++) {
 		$fkact = "
 			UPDATE kcalt.$Tday
@@ -250,6 +246,10 @@ include 'cloz.php';
 					</div>
 				</div>
 <!-- create Activity ends -->
+</section>
+</div>
+</div>
+</div>
 
     <!--fbt -->
 	<div class="fbtn-container">
