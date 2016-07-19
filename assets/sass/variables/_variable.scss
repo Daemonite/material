@@ -16,8 +16,7 @@ $css-path: "." !default;
 //
 // button
 // based on https://material.google.com/components/buttons.html#buttons-style
-// n.b. material design guideline only specifies specs for
-// default button (.btn) and dense button (.btn-sm)
+// n.b. material design guideline only specifies specs for default button (.btn) and dense button (.btn-sm)
 //
   $btn-bg:                       transparent !default;
   $btn-bg-disabled:              $black-divider !default;
@@ -82,7 +81,7 @@ $css-path: "." !default;
   $caret-width: 0.3em !default;
 
 //
-// chip
+// chip (label)
 // based on https://material.google.com/components/chips.html#chips-specs
 //
   $chip-bg:        $black-divider !default;
@@ -111,7 +110,30 @@ $css-path: "." !default;
   $cursor-disabled: not-allowed !default;
 
 //
-// dialog
+// data table (table)
+// based on https://material.google.com/components/data-tables.html#data-tables-structure
+//
+  $table-bg:                $white-primary !default;
+  $table-bg-accent:         $palette-grey-100 !default;
+  $table-bg-hover:          $palette-grey-200 !default;
+  $table-cell-padding:      0.75rem 1.75rem !default;
+  $table-cell-padding-alt:  $spacer-lg-x !default;
+  $table-elevation-shadow:  $elevation-shadow-2dp !default;
+
+  $table-tbody-cell-height: 3rem !default;
+  $table-tbody-color:       $black-primary !default;
+  $table-tbody-font-size:   0.8125rem !default;
+
+  $table-tfoot-cell-height: 3.5rem !default;
+  $table-tfoot-color:       $black-secondary !default;
+  $table-tfoot-font-size:   0.75rem !default;
+
+  $table-thead-cell-height: $table-tfoot-cell-height !default;
+  $table-thead-color:       $table-tfoot-color !default;
+  $table-thead-font-size:   $table-tfoot-font-size !default;
+
+//
+// dialog (modal)
 // based on https://material.google.com/components/dialogs.html#dialogs-specs
 //
   $dialog-backdrop-bg:          $black-hint !default;
@@ -124,7 +146,54 @@ $css-path: "." !default;
   $dialog-width-sm:             17.5rem !default;
 
 //
-// form
+// link
+//
+  $link-color:            $brand-color !default;
+  $link-color-hover:      $brand-color-dark !default;
+  $link-decoration:       none !default;
+  $link-decoration-hover: underline !default;
+
+//
+// menu (nav)
+// based on https://material.google.com/components/menus.html#menus-specs
+//
+  $nav-font-size:           1rem !default;
+  $nav-height:              3rem !default;
+  $nav-line-height:         1.5rem !default;
+  $nav-link-bg-active:      $black-divider !default;
+  $nav-link-color:          $black-primary !default;
+  $nav-link-color-active:   $black-primary !default;
+  $nav-link-color-disabled: $black-hint !default;
+
+  // dropdown
+  $dropdown-bg:                    $white-primary !default;
+  $dropdown-color:                 $black-primary !default;
+  $dropdown-font-size:             1rem !default;
+  $dropdown-font-size-cascading:   0.9375rem !default;
+  $dropdown-elevation-shadow:      $elevation-shadow-8dp !default;
+  $dropdown-link-bg:               transparent !default;
+  $dropdown-link-bg-focus:         $offwhite !default;
+  $dropdown-link-height:           3rem !default;
+  $dropdown-link-height-cascading: 2rem !default;
+  $dropdown-line-height:           1.5rem !default;
+  $dropdown-line-height-cascading: $dropdown-line-height !default;
+
+//
+// selection control
+// based on https://material.google.com/components/selection-controls.html
+//
+  $c-input-border-color: $black-secondary !default;
+  $c-input-border-width: 2px !default;
+  $c-input-radial-bg:    $black-divider !default;
+  $c-input-size:         16px !default;
+  $c-input-theme-color:  $brand-color-accent !default;
+  $c-input-thumb-bg:     $offwhite-light !default;
+  $c-input-thumb-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6) !default;
+  $c-input-track-bg:     $black-hint !default;
+  $c-input-track-width:  ($c-input-size * 2) !default;
+
+//
+// text field (form)
 // based on https://material.google.com/components/text-fields.html#text-fields-single-line-text-field
 //
   $input-color:              $black-primary !default;
@@ -150,21 +219,7 @@ $css-path: "." !default;
   $input-padding-top-sm:     0.625rem !default;
 
 //
-// form: custom checkbox, radio button and switch
-// based on https://material.google.com/components/selection-controls.html
-//
-  $c-input-border-color: $black-secondary !default;
-  $c-input-border-width: 2px !default;
-  $c-input-radial-bg:    $black-divider !default;
-  $c-input-size:         16px !default;
-  $c-input-theme-color:  $brand-color-accent !default;
-  $c-input-thumb-bg:     $offwhite-light !default;
-  $c-input-thumb-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6) !default;
-  $c-input-track-bg:     $black-hint !default;
-  $c-input-track-width:  ($c-input-size * 2) !default;
-
-//
-// form: floating label
+// text field: floating label (form: floating label)
 // based on https://material.google.com/components/text-fields.html#text-fields-labels
 //
   $floating-label-color:              $input-hint-color !default;
@@ -181,65 +236,6 @@ $css-path: "." !default;
   $floating-label-padding-top:        1rem !default;
   $floating-label-padding-top-lg:     1.25rem !default;
   $floating-label-padding-top-sm:     0.75rem !default;
-
-//
-// link
-//
-  $link-color:            $brand-color !default;
-  $link-color-hover:      $brand-color-dark !default;
-  $link-decoration:       none !default;
-  $link-decoration-hover: underline !default;
-
-//
-// nav
-// based on https://material.google.com/components/menus.html#menus-specs
-//
-  $nav-font-size:           1rem !default;
-  $nav-height:              3rem !default;
-  $nav-line-height:         1.5rem !default;
-  $nav-link-bg-active:      $black-divider !default;
-  $nav-link-color:          $black-primary !default;
-  $nav-link-color-active:   $black-primary !default;
-  $nav-link-color-disabled: $black-hint !default;
-
-//
-// nav: dropdown
-// based on https://material.google.com/components/menus.html#menus-specs
-//
-  $dropdown-bg:                    $white-primary !default;
-  $dropdown-color:                 $black-primary !default;
-  $dropdown-font-size:             1rem !default;
-  $dropdown-font-size-cascading:   0.9375rem !default;
-  $dropdown-elevation-shadow:      $elevation-shadow-8dp !default;
-  $dropdown-link-bg:               transparent !default;
-  $dropdown-link-bg-focus:         $offwhite !default;
-  $dropdown-link-height:           3rem !default;
-  $dropdown-link-height-cascading: 2rem !default;
-  $dropdown-line-height:           1.5rem !default;
-  $dropdown-line-height-cascading: $dropdown-line-height !default;
-
-//
-// table
-// based on https://material.google.com/components/data-tables.html#data-tables-structure
-//
-  $table-bg:                $white-primary !default;
-  $table-bg-accent:         $palette-grey-100 !default;
-  $table-bg-hover:          $palette-grey-200 !default;
-  $table-cell-padding:      0.75rem 1.75rem !default;
-  $table-cell-padding-alt:  $spacer-lg-x !default;
-  $table-elevation-shadow:  $elevation-shadow-2dp !default;
-
-  $table-tbody-cell-height: 3rem !default;
-  $table-tbody-color:       $black-primary !default;
-  $table-tbody-font-size:   0.8125rem !default;
-
-  $table-tfoot-cell-height: 3.5rem !default;
-  $table-tfoot-color:       $black-secondary !default;
-  $table-tfoot-font-size:   0.75rem !default;
-
-  $table-thead-cell-height: $table-tfoot-cell-height !default;
-  $table-thead-color:       $table-tfoot-color !default;
-  $table-thead-font-size:   $table-tfoot-font-size !default;
 
 //
 // typography
