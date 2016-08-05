@@ -182,7 +182,7 @@
         </div>
     </div>
     <!-- js -->
-	<script src="//upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.3.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 	<script src="js/base.min.js"></script>
 	<script src="js/mine.js"></script>
 </body>
