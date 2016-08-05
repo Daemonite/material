@@ -1,19 +1,4 @@
-<!DOCTYPE html>
 <?php SESSION_START(); ?>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0,
-					maximum-scale=1.0,
-					user-scalable=no,
-					width=device-width"
-					name="viewport">
-
-	<title>KcalT Scheduler</title>
-	<!-- css -->
-	<link href="css/base.min.css" rel="stylesheet">
-</head>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +26,7 @@
 				</a>
 			</li>
 		</ul>
-		<a class="header-logo margin-left-no" href="index.html">KcalT</a>
+		<a class="header-logo margin-left-no" href="index.php">KcalT</a>
 		<ul class="nav nav-list pull-right">
 			<li class="dropdown margin-right">
 <!-- Upper Right Avatar -->
@@ -161,7 +146,7 @@
 							<div class="card-inner">
 								<p>Under construction</p>
 								<blockquote>Demo 1<sup class="margin-left-xs">
-									<a href="https://kcalt.hangwai.club/cont/cract.php"
+									<a href="  cont/cract.php"
 										target="_blank"><span class="icon">open_in_new</span>
 									</a></sup>
 								</blockquote>
