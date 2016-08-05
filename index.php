@@ -182,7 +182,7 @@
         </div>
     </div>
     <!-- js -->
-	<script src="https://staticfile.qnssl.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.slim.js"></script>
 	<script src="js/base.min.js"></script>
 	<script src="js/mine.js"></script>
 </body>
