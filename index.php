@@ -14,12 +14,12 @@
 	<!-- css -->
 	<link href="../css/base.min.css" rel="stylesheet">
     <link href="../css/mine.css" rel="stylesheet">
-	
-	<!-- color the browser elements :D -->
+
+	<!-- color the browser elements :D https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/theme-color -->
 	<!-- Chrome, Firefox OS and Opera -->
-	<meta name="theme-color" content="#4285f4">
+	<meta name="theme-color" content="#3f51b5">
 	<!-- Windows Phone -->
-	<meta name="msapplication-navbutton-color" content="#4285f4">
+	<meta name="msapplication-navbutton-color" content="#3f51b5">
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
