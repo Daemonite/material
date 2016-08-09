@@ -2213,6 +2213,7 @@ a.card:focus, a.card:hover {
 
 .card-actions-horizontal {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -2222,13 +2223,16 @@ a.card:focus, a.card:hover {
 
 .card-actions-vertical {
   -webkit-box-align: start;
+  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -2851,17 +2855,21 @@ a.card:focus, a.card:hover {
 
 .navdrawer-actionbar {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
   min-height: 3.5rem;
   padding-top: 0.499999rem;
   padding-bottom: 0.499999rem;
@@ -2992,6 +3000,253 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
 }
 .navdrawer-nav .nav-link.disabled::before {
   display: none;
+}
+
+.picker {
+  position: absolute;
+  z-index: 240;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.picker__box {
+  background-color: white;
+  border-radius: 0 0 2px 2px;
+  overflow: hidden;
+}
+
+.picker__date-display {
+  background-color: #9c27b0;
+  border-radius: 2px 2px 0 0;
+  color: white;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.picker__date-display-bottom {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 2.5rem;
+}
+
+.picker__date-display-top {
+  margin-bottom: 0.25rem;
+}
+
+.picker__day {
+  border-radius: 50%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: auto;
+  vertical-align: middle;
+  width: 2.5rem;
+}
+.picker__day:focus, .picker__day:hover {
+  cursor: pointer;
+}
+.picker__day.picker__day--selected {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.picker__day--disabled {
+  color: inherit;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.picker__day-display {
+  margin-right: 0.5rem;
+}
+
+.picker__day--outfocus {
+  display: none;
+}
+
+.picker__day--today {
+  color: #9c27b0;
+  font-weight: 500;
+}
+
+.picker__footer {
+  padding: 0.5rem 0.5rem;
+  text-align: right;
+}
+.picker__footer button {
+  margin-left: 0.5rem;
+  min-width: 0;
+}
+.picker__footer button:first-child {
+  margin-left: 0;
+}
+
+.picker__frame {
+  display: inline-block;
+  margin: 1.5rem auto;
+  max-width: 18.5rem;
+  position: relative;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+}
+.picker--opened .picker__frame {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.picker__header {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.25rem 0.5rem;
+  position: relative;
+  vertical-align: middle;
+}
+
+.picker__holder {
+  background-color: rgba(0, 0, 0, 0.38);
+  outline: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+  -webkit-transition: opacity 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s 0.3s;
+  transition: opacity 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s 0.3s;
+  transition: opacity 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0s 0.3s;
+  transition: opacity 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1), transform 0s 0.3s, -webkit-transform 0s 0.3s;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+.picker__holder::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 1px;
+}
+.picker--opened .picker__holder {
+  opacity: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0s;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0s;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0s, -webkit-transform 0s;
+}
+.picker--opened .picker__holder::before {
+  opacity: 1;
+}
+
+.picker__input {
+  border-bottom-style: solid !important;
+  color: inherit !important;
+  cursor: text !important;
+}
+.picker__input.picker__input--active {
+  border-bottom-color: #9c27b0 !important;
+}
+
+.picker__month,
+.picker__year {
+  display: inline;
+  margin-left: 1rem;
+}
+.picker__month:first-child,
+.picker__year:first-child {
+  margin-left: 0;
+}
+
+.picker__nav--next,
+.picker__nav--prev {
+  cursor: pointer;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: -1.25rem;
+  position: absolute;
+  top: 50%;
+  width: 2.5rem;
+}
+
+.picker__nav--next {
+  right: 0;
+}
+.picker__nav--next:before {
+  content: "keyboard_arrow_right";
+}
+
+.picker__nav--prev {
+  left: 0;
+}
+.picker__nav--prev:before {
+  content: "keyboard_arrow_left";
+}
+
+.picker__select--month,
+.picker__select--year {
+  display: inline-block !important;
+  margin: 0 0.5rem !important;
+  width: auto !important;
+}
+
+.picker__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0 0.5rem;
+  table-layout: fixed;
+}
+
+.picker__table td,
+.picker__table th {
+  border: 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.picker__weekday {
+  color: rgba(0, 0, 0, 0.38);
+  height: 2.5rem;
+  vertical-align: middle;
+  width: 2.5rem;
+}
+
+.picker__weekday-display {
+  margin-right: 0.25rem;
+}
+.picker__weekday-display:after {
+  content: ",";
+}
+
+.picker__wrap {
+  border-radius: 2px;
+  z-index: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.4);
+  outline: 0;
+  position: relative;
+  vertical-align: middle;
+  z-index: 1;
+}
+
+.picker__year-display {
+  opacity: 0.5;
 }
 
 .c-indicator {
@@ -3196,7 +3451,8 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   background-color: #ff4081;
 }
 
-.form-control {
+.form-control, .picker__select--month,
+.picker__select--year {
   background-color: transparent;
   background-image: none;
   border: 0;
@@ -3214,63 +3470,81 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   margin-bottom: 0.5rem;
   padding: 0.75rem 0 0.1875rem;
 }
-.form-control:focus {
+.form-control:focus, .picker__select--month:focus,
+.picker__select--year:focus {
   padding-bottom: 0.125rem;
 }
-.form-control::-ms-expand {
+.form-control::-ms-expand, .picker__select--month::-ms-expand,
+.picker__select--year::-ms-expand {
   background-color: transparent;
   border: 0;
 }
-.form-control::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder, .picker__select--month::-webkit-input-placeholder,
+.picker__select--year::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder, .picker__select--month::-moz-placeholder,
+.picker__select--year::-moz-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
-.form-control:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, .picker__select--month:-ms-input-placeholder,
+.picker__select--year:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
-.form-control::placeholder {
+.form-control::placeholder, .picker__select--month::placeholder,
+.picker__select--year::placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
-.form-control:focus {
+.form-control:focus, .picker__select--month:focus,
+.picker__select--year:focus {
   border-bottom-color: #9c27b0;
   border-bottom-width: 2px;
   outline: 0;
 }
-.form-control:disabled, .form-control[readonly], .form-control[readonly]:focus {
+.form-control:disabled, .picker__select--month:disabled,
+.picker__select--year:disabled, .form-control[readonly], [readonly].picker__select--month,
+[readonly].picker__select--year, .form-control[readonly]:focus, [readonly].picker__select--month:focus,
+[readonly].picker__select--year:focus {
   border-color: rgba(0, 0, 0, 0.12);
   border-style: dotted;
 }
-.form-control:disabled, .form-control[readonly] {
+.form-control:disabled, .picker__select--month:disabled,
+.picker__select--year:disabled, .form-control[readonly], [readonly].picker__select--month,
+[readonly].picker__select--year {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
-.form-control:disabled {
+.form-control:disabled, .picker__select--month:disabled,
+.picker__select--year:disabled {
   cursor: not-allowed;
 }
-.form-control[readonly]:focus {
+.form-control[readonly]:focus, [readonly].picker__select--month:focus,
+[readonly].picker__select--year:focus {
   border-bottom-width: 1px;
   padding-bottom: 0.1875rem;
 }
 
-select.form-control {
+select.form-control, select.picker__select--month,
+select.picker__select--year {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-  select.form-control {
+  select.form-control, select.picker__select--month,
+  select.picker__select--year {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1ODZCNTU1QkIxQkUxMUU1OEYzRkZEMkE1Q0Y3MDFBNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1ODZCNTU1Q0IxQkUxMUU1OEYzRkZEMkE1Q0Y3MDFBNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU4NkI1NTU5QjFCRTExRTU4RjNGRkQyQTVDRjcwMUE3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU4NkI1NTVBQjFCRTExRTU4RjNGRkQyQTVDRjcwMUE3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+TozEogAAAGxJREFUeNrs1DEOgDAIheHH4XpqDocdiInYVqA6mEBC2P5vg0QEXw4VUMCPACJq/bSXuty7bAEosIuwAhgBuwjrYgVkkTPuAaLIJe4FvMgtHgGekGE8CsyQaTwDWGQZzwIwAEJAPbsC0nMIMADa5XjRmvnODAAAAABJRU5ErkJggg==");
     background-position: 100% 1.125rem;
     background-repeat: no-repeat;
     background-size: 12px 12px;
     padding-right: 1rem;
   }
-  select.form-control[multiple], select.form-control[size] {
+  select.form-control[multiple], select[multiple].picker__select--month,
+  select[multiple].picker__select--year, select.form-control[size], select[size].picker__select--month,
+  select[size].picker__select--year {
     background-image: none;
     padding-right: 0;
   }
@@ -3301,34 +3575,47 @@ select.form-control {
   border-bottom-color: #ff9800;
 }
 
-.form-control-lg, .floating-label-lg > .form-control, .input-group-lg > .form-control {
+.form-control-lg, .floating-label-lg > .form-control, .floating-label-lg > .picker__select--month,
+.floating-label-lg > .picker__select--year, .input-group-lg > .form-control, .input-group-lg > .picker__select--month,
+.input-group-lg > .picker__select--year {
   font-size: 2.125rem;
   line-height: 2.5rem;
   margin-bottom: 0.75rem;
   padding: 0.875rem 0 0.3125rem;
 }
-.form-control-lg:focus, .floating-label-lg > .form-control:focus, .input-group-lg > .form-control:focus {
+.form-control-lg:focus, .floating-label-lg > .form-control:focus, .floating-label-lg > .picker__select--month:focus,
+.floating-label-lg > .picker__select--year:focus, .input-group-lg > .form-control:focus, .input-group-lg > .picker__select--month:focus,
+.input-group-lg > .picker__select--year:focus {
   padding-bottom: 0.25rem;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-  select.form-control-lg, .floating-label-lg > select.form-control, .input-group-lg > select.form-control {
+  select.form-control-lg, .floating-label-lg > select.form-control, .floating-label-lg > select.picker__select--month,
+  .floating-label-lg > select.picker__select--year, .input-group-lg > select.form-control, .input-group-lg > select.picker__select--month,
+  .input-group-lg > select.picker__select--year {
     background-position: 100% 1.75rem;
   }
 }
 
-.form-control-sm, .floating-label-sm > .form-control, .input-group-sm > .form-control {
+.form-control-sm, .picker__select--month,
+.picker__select--year, .floating-label-sm > .form-control, .floating-label-sm > .picker__select--month,
+.floating-label-sm > .picker__select--year, .input-group-sm > .form-control, .input-group-sm > .picker__select--month,
+.input-group-sm > .picker__select--year {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 0.25rem;
   padding: 0.625rem 0 0.4375rem;
 }
-.form-control-sm:focus, .floating-label-sm > .form-control:focus, .input-group-sm > .form-control:focus {
+.form-control-sm:focus, .picker__select--month:focus,
+.picker__select--year:focus, .floating-label-sm > .form-control:focus, .input-group-sm > .form-control:focus {
   padding-bottom: 0.375rem;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-  select.form-control-sm, .floating-label-sm > select.form-control, .input-group-sm > select.form-control {
+  select.form-control-sm, select.picker__select--month,
+  select.picker__select--year, .floating-label-sm > select.form-control, .floating-label-sm > select.picker__select--month,
+  .floating-label-sm > select.picker__select--year, .input-group-sm > select.form-control, .input-group-sm > select.picker__select--month,
+  .input-group-sm > select.picker__select--year {
     background-position: 100% 0.8125rem;
   }
 }
@@ -3445,7 +3732,8 @@ input[type="radio"].disabled {
 .has-danger .text-help, .has-danger.checkbox, .has-danger.checkbox-inline, .has-danger.radio, .has-danger.radio-inline {
   color: #f44336;
 }
-.has-danger .form-control {
+.has-danger .form-control, .has-danger .picker__select--month,
+.has-danger .picker__select--year {
   border-bottom-color: #f44336;
 }
 
@@ -3458,7 +3746,8 @@ input[type="radio"].disabled {
 .has-success .text-help, .has-success.checkbox, .has-success.checkbox-inline, .has-success.radio, .has-success.radio-inline {
   color: #4caf50;
 }
-.has-success .form-control {
+.has-success .form-control, .has-success .picker__select--month,
+.has-success .picker__select--year {
   border-bottom-color: #4caf50;
 }
 
@@ -3471,7 +3760,8 @@ input[type="radio"].disabled {
 .has-warning .text-help, .has-warning.checkbox, .has-warning.checkbox-inline, .has-warning.radio, .has-warning.radio-inline {
   color: #ff9800;
 }
-.has-warning .form-control {
+.has-warning .form-control, .has-warning .picker__select--month,
+.has-warning .picker__select--year {
   border-bottom-color: #ff9800;
 }
 
@@ -3481,13 +3771,16 @@ input[type="radio"].disabled {
   margin-bottom: 0.5rem;
   padding: 0.75rem 0 0.25rem;
 }
-.form-control-static.form-control-lg, .floating-label-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.form-control {
+.form-control-static.form-control-lg, .floating-label-lg > .form-control-static.form-control, .floating-label-lg > .form-control-static.picker__select--month,
+.floating-label-lg > .form-control-static.picker__select--year, .input-group-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.picker__select--month,
+.input-group-lg > .form-control-static.picker__select--year {
   font-size: 2.125rem;
   line-height: 2.5rem;
   margin-bottom: 0.75rem;
   padding: 0.875rem 0 0.375rem;
 }
-.form-control-static.form-control-sm, .floating-label-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.form-control {
+.form-control-static.form-control-sm, .form-control-static.picker__select--month,
+.form-control-static.picker__select--year, .floating-label-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.form-control {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 0.25rem;
@@ -3510,7 +3803,8 @@ input[type="radio"].disabled {
   .form-inline .radio + .radio {
     margin-left: 0.5rem;
   }
-  .form-inline .form-control {
+  .form-inline .form-control, .form-inline .picker__select--month,
+  .form-inline .picker__select--year {
     display: inline-block;
     vertical-align: middle;
     width: auto;
@@ -3548,7 +3842,8 @@ input[type="radio"].disabled {
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
 }
-.floating-label > .form-control {
+.floating-label > .form-control, .floating-label > .picker__select--month,
+.floating-label > .picker__select--year {
   padding-top: 1.25rem;
 }
 .floating-label > label {
@@ -3571,22 +3866,27 @@ input[type="radio"].disabled {
 .floating-label.is-focused > label {
   color: #9c27b0;
 }
-.floating-label > .form-control {
+.floating-label > .form-control, .floating-label > .picker__select--month,
+.floating-label > .picker__select--year {
   margin-bottom: 0;
 }
-.floating-label > .form-control::-webkit-input-placeholder {
+.floating-label > .form-control::-webkit-input-placeholder, .floating-label > .picker__select--month::-webkit-input-placeholder,
+.floating-label > .picker__select--year::-webkit-input-placeholder {
   color: transparent;
   opacity: 0;
 }
-.floating-label > .form-control::-moz-placeholder {
+.floating-label > .form-control::-moz-placeholder, .floating-label > .picker__select--month::-moz-placeholder,
+.floating-label > .picker__select--year::-moz-placeholder {
   color: transparent;
   opacity: 0;
 }
-.floating-label > .form-control:-ms-input-placeholder {
+.floating-label > .form-control:-ms-input-placeholder, .floating-label > .picker__select--month:-ms-input-placeholder,
+.floating-label > .picker__select--year:-ms-input-placeholder {
   color: transparent;
   opacity: 0;
 }
-.floating-label > .form-control::placeholder {
+.floating-label > .form-control::placeholder, .floating-label > .picker__select--month::placeholder,
+.floating-label > .picker__select--year::placeholder {
   color: transparent;
   opacity: 0;
 }
@@ -3605,7 +3905,8 @@ input[type="radio"].disabled {
   -webkit-transform: scale(0.352941);
           transform: scale(0.352941);
 }
-.floating-label-lg > .form-control {
+.floating-label-lg > .form-control, .floating-label-lg > .picker__select--month,
+.floating-label-lg > .picker__select--year {
   padding-top: 1.125rem;
 }
 
@@ -3623,17 +3924,21 @@ input[type="radio"].disabled {
   -webkit-transform: scale(0.923077);
           transform: scale(0.923077);
 }
-.floating-label-sm > .form-control {
+.floating-label-sm > .form-control, .floating-label-sm > .picker__select--month,
+.floating-label-sm > .picker__select--year {
   padding-top: 1.125rem;
 }
 
 .input-group {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-.input-group .form-control {
+.input-group .form-control, .input-group .picker__select--month,
+.input-group .picker__select--year {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
@@ -3657,14 +3962,17 @@ input[type="radio"].disabled {
   margin-right: 0;
 }
 
-.input-group-addon.form-control-lg, .floating-label-lg > .input-group-addon.form-control, .input-group-lg > .input-group-addon.form-control, .input-group-lg > .input-group-addon {
+.input-group-addon.form-control-lg, .floating-label-lg > .input-group-addon.form-control, .floating-label-lg > .input-group-addon.picker__select--month,
+.floating-label-lg > .input-group-addon.picker__select--year, .input-group-lg > .input-group-addon.form-control, .input-group-lg > .input-group-addon.picker__select--month,
+.input-group-lg > .input-group-addon.picker__select--year, .input-group-lg > .input-group-addon {
   font-size: 2.125rem;
   line-height: 2.5rem;
   min-height: 4.5rem;
   min-width: 4.5rem;
   padding: 1rem 0;
 }
-.input-group-addon.form-control-sm, .floating-label-sm > .input-group-addon.form-control, .input-group-sm > .input-group-addon.form-control, .input-group-sm > .input-group-addon {
+.input-group-addon.form-control-sm, .input-group-addon.picker__select--month,
+.input-group-addon.picker__select--year, .floating-label-sm > .input-group-addon.form-control, .input-group-sm > .input-group-addon.form-control, .input-group-sm > .input-group-addon {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   min-height: 2.5rem;
@@ -3678,12 +3986,15 @@ input[type="radio"].disabled {
   resize: none;
 }
 
-.form-control-lg.textarea-autosize, .floating-label-lg > .textarea-autosize.form-control, .input-group-lg > .textarea-autosize.form-control {
+.form-control-lg.textarea-autosize, .floating-label-lg > .textarea-autosize.form-control, .floating-label-lg > .textarea-autosize.picker__select--month,
+.floating-label-lg > .textarea-autosize.picker__select--year, .input-group-lg > .textarea-autosize.form-control, .input-group-lg > .textarea-autosize.picker__select--month,
+.input-group-lg > .textarea-autosize.picker__select--year {
   height: 3.75rem;
   min-height: 3.75rem;
 }
 
-.form-control-sm.textarea-autosize, .floating-label-sm > .textarea-autosize.form-control, .input-group-sm > .textarea-autosize.form-control {
+.form-control-sm.textarea-autosize, .textarea-autosize.picker__select--month,
+.textarea-autosize.picker__select--year, .floating-label-sm > .textarea-autosize.form-control, .input-group-sm > .textarea-autosize.form-control {
   height: 2.25rem;
   min-height: 2.25rem;
 }
@@ -3712,6 +4023,8 @@ input[type="radio"].disabled {
 }
 .navbar .btn,
 .navbar .form-control,
+.navbar .picker__select--month,
+.navbar .picker__select--year,
 .navbar .navbar-brand,
 .navbar .navbar-divider,
 .navbar .navbar-nav .nav-link,
@@ -3780,11 +4093,13 @@ input[type="radio"].disabled {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.navbar .form-control {
+.navbar .form-control, .navbar .picker__select--month,
+.navbar .picker__select--year {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
-.navbar .form-control-sm, .navbar .floating-label-sm > .form-control, .navbar .input-group-sm > .form-control {
+.navbar .form-control-sm, .navbar .picker__select--month,
+.navbar .picker__select--year, .navbar .floating-label-sm > .form-control, .navbar .input-group-sm > .form-control {
   margin-top: 0.375rem;
   margin-bottom: 0.375rem;
 }

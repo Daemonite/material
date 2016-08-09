@@ -104,8 +104,8 @@ Datepicker.prototype.show = function () {
       buttonClear: 'btn btn-flat btn-brand picker__button--clear',
       buttonClose: 'btn btn-flat btn-brand picker__button--close',
       buttonToday: 'btn btn-flat btn-brand picker__button--today',
-      navPrev: 'icon icon-lg picker__nav--prev',
-      navNext: 'icon icon-lg picker__nav--next'
+      navPrev: 'material-icons picker__nav--prev',
+      navNext: 'material-icons picker__nav--next'
     },
     max: that._options.max,
     min: that._options.min,
