@@ -1,86 +1,124 @@
-@mixin make-grid-columns {
-  %grid-column {
-    min-height: 1px;
-    padding-left: ($grid-gutter-width / 2);
-    padding-right: ($grid-gutter-width / 2);
-    position: relative;
-  }
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    @for $i from 1 through $grid-columns {
-      .col-#{$breakpoint}-#{$i} {
-        @extend %grid-column;
+//
+// make column
+//
+  @mixin make-grid-columns() {
+    %grid-column {
+      min-height: 1px;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+      position: relative;
+      @if $enable-flex {
+        width: 100%;
       }
     }
-    @include media-breakpoint-up($breakpoint) {
-      %grid-column-float-#{$breakpoint} {
-        float: left;
-      }
+
+    $breakpoint-counter: 0;
+
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $breakpoint-counter: ($breakpoint-counter + 1);
+
       @for $i from 1 through $grid-columns {
         .col-#{$breakpoint}-#{$i} {
-          @extend %grid-column-float-#{$breakpoint};
-          @include make-col-span($i);
+          @extend %grid-column;
         }
       }
-      @each $modifier in (pull, push, offset) {
-        @for $i from 0 through $grid-columns {
-          .col-#{$breakpoint}-#{$modifier}-#{$i} {
-            @include make-col-modifier($i, $modifier);
+
+      @include media-breakpoint-up($breakpoint) {
+        @if $enable-flex {
+          .col-#{$breakpoint} {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+            min-height: 1px;
+            padding-right: ($grid-gutter-width / 2);
+            padding-left: ($grid-gutter-width / 2);
+            position: relative;
+          }
+        }
+
+        @for $i from 1 through $grid-columns {
+          .col-#{$breakpoint}-#{$i} {
+            @include make-col($i);
+          }
+        }
+
+        @each $modifier in (pull, push) {
+          @for $i from 0 through $grid-columns {
+            .#{$modifier}-#{$breakpoint}-#{$i} {
+              @include make-col-modifier($i, $modifier);
+            }
+          }
+        }
+
+        @for $i from 0 through ($grid-columns - 1) {
+          @if $breakpoint-counter != 1 or $i != 0 {
+            .offset-#{$breakpoint}-#{$i} {
+              @include make-col-modifier($i, offset);
+            }
           }
         }
       }
     }
   }
-}
 
-//
-// make column
-//
-  @mixin make-col {
-    float: left;
-    min-height: 1px;
-    padding-right: ($grid-gutter-width / 2);
-    padding-left: ($grid-gutter-width / 2);
-    position: relative;
-  }
-
-  @mixin make-col-modifier($size, $type) {
-    @if ($type == offset) {
-      @include make-col-offset($size);
-    } @else if ($type == pull) {
-      @include make-col-pull($size);
-    } @else if ($type == push ){
-      @include make-col-push($size);
+  // basic
+    @mixin make-col($size) {
+      @if $enable-flex {
+        flex: 0 0 percentage($size / $grid-columns);
+        max-width: percentage($size / $grid-columns);
+      } @else {
+        float: left;
+        width: percentage($size / $grid-columns);
+      }
     }
-  }
 
-  @mixin make-col-offset($size) {
-    margin-left: percentage($size / $grid-columns);
-  }
+    @mixin make-col-ready() {
+      min-height: 1px;
+      padding-right: ($grid-gutter-width / 2);
+      padding-left: ($grid-gutter-width / 2);
+      position: relative;
+      @if $enable-flex {
+        width: 100%;
+      }
+    }
 
-  @mixin make-col-pull($size) {
-    right: if($size > 0, percentage($size / $grid-columns), auto);
-  }
+  // modifier
+    @mixin make-col-modifier($size, $type) {
+      @if ($type == offset) {
+        @include make-col-offset($size);
+      } @else if ($type == pull) {
+        @include make-col-pull($size);
+      } @else if ($type == push ){
+        @include make-col-push($size);
+      }
+    }
 
-  @mixin make-col-push($size) {
-    left: if($size > 0, percentage($size / $grid-columns), auto);
-  }
+    @mixin make-col-offset($size) {
+      margin-left: percentage($size / $grid-columns);
+    }
 
-  @mixin make-col-span($size) {
-    width: percentage($size / $grid-columns);
-  }
+    @mixin make-col-pull($size) {
+      right: if($size > 0, percentage($size / $grid-columns), auto);
+    }
+
+    @mixin make-col-push($size) {
+      left: if($size > 0, percentage($size / $grid-columns), auto);
+    }
 
 //
 // make container
 //
-  @mixin make-container {
+  @mixin make-container() {
     margin-right: auto;
     margin-left: auto;
     padding-right: ($grid-gutter-width / 2);
     padding-left: ($grid-gutter-width / 2);
-    @include clearfix;
+    @if not $enable-flex {
+      @include clearfix;
+    }
   }
 
-  @mixin make-container-max-widths {
+  @mixin make-container-max-widths() {
     @each $breakpoint, $container-max-width in $container-max-widths {
       @include media-breakpoint-up($breakpoint) {
         max-width: $container-max-width;
@@ -91,8 +129,13 @@
 //
 // make row
 //
-  @mixin make-row {
+  @mixin make-row() {
     margin-right: ($grid-gutter-width / -2);
     margin-left: ($grid-gutter-width / -2);
-    @include clearfix;
+    @if $enable-flex {
+      display: flex;
+      flex-wrap: wrap;
+    } @else {
+      @include clearfix;
+    }
   }

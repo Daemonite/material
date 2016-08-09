@@ -1,23 +1,31 @@
 //
 // column
 //
-  @include make-grid-columns;
+  @if $enable-grid-classes {
+    @include make-grid-columns;
+  }
 
 //
 // container
 //
-  .container {
-    @include make-container;
-    @include make-container-max-widths;
+  @if $enable-grid-classes {
+    .container {
+      @include make-container();
+      @include make-container-max-widths();
+    }
   }
 
-  .container-fluid {
-    @include make-container;
+  @if $enable-grid-classes {
+    .container-fluid {
+      @include make-container();
+    }
   }
 
 //
 // row
 //
-  .row {
-    @include make-row;
+  @if $enable-grid-classes {
+    .row {
+      @include make-row;
+    }
   }
