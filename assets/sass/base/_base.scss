@@ -9,11 +9,9 @@
 }
 
 @at-root {
-  @-webkit-viewport { width: device-width; }
-     @-moz-viewport { width: device-width; }
-      @-ms-viewport { width: device-width; }
-       @-o-viewport { width: device-width; }
-          @viewport { width: device-width; }
+  @-ms-viewport {
+    width: device-width;
+  }
 }
 
 body {
@@ -41,10 +39,12 @@ html {
 // fast click
 //
   a,
+  area,
   button,
   input,
   label,
   select,
+  summary,
   textarea,
   [role="button"] {
     touch-action: manipulation;
@@ -63,7 +63,6 @@ html {
 
   button,
   input,
-  optgroup,
   select,
   textarea {
     border-radius: 0;
@@ -74,23 +73,33 @@ html {
   }
 
   button,
+  input,
+  select {
+    overflow: visible;
+  }
+
+  button,
   select {
     text-transform: none;
   }
 
   button {
     overflow: visible;
-  }
-
-  button[disabled],
-  html input[disabled] {
-    cursor: default;
+    &:focus {
+      outline: 1px dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+    }
   }
 
   button::-moz-focus-inner,
   input::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+
+  button:-moz-focusring,
+  input:-moz-focusring {
+    outline: 1px dotted ButtonText;
   }
 
   fieldset {
@@ -104,27 +113,6 @@ html {
     line-height: normal;
   }
 
-  input[type="checkbox"],
-  input[type="radio"] {
-    box-sizing: border-box;
-    line-height: normal;
-  }
-
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-
-  input[type="search"] {
-    box-sizing: border-box;
-    -webkit-appearance: none;
-  }
-
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
   label {
     display: inline-block;
     font-weight: $font-weight-medium;
@@ -133,9 +121,13 @@ html {
 
   legend {
     border: 0;
+    box-sizing: border-box;
+    color: inherit;
     display: block;
     margin: 0 0 $spacer-md-y;
+    max-width: 100%;
     padding: 0;
+    white-space: normal;
     width: 100%;
     @include typography-title;
   }
@@ -158,8 +150,42 @@ html {
     resize: vertical;
   }
 
+  [disabled] {
+    cursor: default;
+  }
+
   [role="button"] {
     cursor: pointer;
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    &:disabled {
+      cursor: $cursor-disabled;
+    }
+  }
+
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="time"] {
+    -webkit-appearance: listbox;
+  }
+
+  [type="number"]::-webkit-inner-spin-button,
+  [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  [type="search"] {
+    -webkit-appearance: none;
+  }
+
+  [type="search"]::-webkit-search-cancel-button,
+  [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
   }
 
 //
@@ -172,7 +198,6 @@ html {
   figure,
   footer,
   header,
-  hgroup,
   main,
   menu,
   nav,
@@ -192,6 +217,10 @@ html {
   audio:not([controls]) {
     display: none;
     height: 0;
+  }
+
+  progress {
+    vertical-align: baseline;
   }
 
   svg:not(:root) {

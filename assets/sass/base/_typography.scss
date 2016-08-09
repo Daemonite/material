@@ -107,6 +107,7 @@
     display: block;
     height: 0;
     margin: $spacer-md-y 0;
+    overflow: visible;
   }
 
 //
@@ -161,6 +162,10 @@
     background-color: transparent;
     color: $link-color;
     text-decoration: $link-decoration;
+    &:active,
+    &:hover {
+      outline-width: 0;
+    }
     &:focus,
     &:hover {
       color: $link-color-hover;
@@ -171,9 +176,24 @@
     }
   }
 
+  a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+
   abbr[title] {
-    border-bottom: $border-width dotted $border-color;
+    border-bottom: 0;
     cursor: help;
+    text-decoration: underline;
+    text-decoration: underline dotted;
   }
 
   address {
@@ -256,11 +276,6 @@
     background-color: $table-bg;
     border-collapse: collapse;
     border-spacing: 0;
-  }
-
-  td,
-  th {
-    padding: 0;
   }
 
   th {

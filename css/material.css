@@ -7,19 +7,7 @@
   box-sizing: inherit;
 }
 
-@-webkit-viewport {
-  width: device-width;
-}
-@-moz-viewport {
-  width: device-width;
-}
 @-ms-viewport {
-  width: device-width;
-}
-@-o-viewport {
-  width: device-width;
-}
-@viewport {
   width: device-width;
 }
 body {
@@ -44,10 +32,12 @@ html {
 }
 
 a,
+area,
 button,
 input,
 label,
 select,
+summary,
 textarea,
 [role="button"] {
   -ms-touch-action: manipulation;
@@ -64,7 +54,6 @@ html input[type="submit"] {
 
 button,
 input,
-optgroup,
 select,
 textarea {
   border-radius: 0;
@@ -75,6 +64,12 @@ textarea {
 }
 
 button,
+input,
+select {
+  overflow: visible;
+}
+
+button,
 select {
   text-transform: none;
 }
@@ -82,16 +77,20 @@ select {
 button {
   overflow: visible;
 }
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+}
+
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 fieldset {
@@ -105,27 +104,6 @@ input {
   line-height: normal;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  line-height: normal;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-input[type="search"] {
-  box-sizing: border-box;
-  -webkit-appearance: none;
-}
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
 label {
   display: inline-block;
   font-weight: 500;
@@ -134,9 +112,13 @@ label {
 
 legend {
   border: 0;
+  box-sizing: border-box;
+  color: inherit;
   display: block;
   margin: 0 0 1rem;
+  max-width: 100%;
   padding: 0;
+  white-space: normal;
   width: 100%;
   font-size: 1.25rem;
   font-weight: 500;
@@ -162,8 +144,43 @@ textarea {
   resize: vertical;
 }
 
+[disabled] {
+  cursor: default;
+}
+
 [role="button"] {
   cursor: pointer;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type="checkbox"]:disabled,
+[type="radio"]:disabled {
+  cursor: not-allowed;
+}
+
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="time"] {
+  -webkit-appearance: listbox;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: none;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 article,
@@ -173,7 +190,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 menu,
 nav,
@@ -193,6 +209,10 @@ video {
 audio:not([controls]) {
   display: none;
   height: 0;
+}
+
+progress {
+  vertical-align: baseline;
 }
 
 svg:not(:root) {
@@ -1478,6 +1498,7 @@ hr,
   display: block;
   height: 0;
   margin: 1rem 0;
+  overflow: visible;
 }
 
 dd {
@@ -1535,6 +1556,9 @@ a {
   color: #9c27b0;
   text-decoration: none;
 }
+a:active, a:hover {
+  outline-width: 0;
+}
 a:focus, a:hover {
   color: #7b1fa2;
   text-decoration: underline;
@@ -1545,9 +1569,23 @@ a:focus {
   outline-offset: 0;
 }
 
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
+}
+
 abbr[title] {
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.12);
+  border-bottom: 0;
   cursor: help;
+  text-decoration: underline;
+  text-decoration: underline dotted;
 }
 
 address {
@@ -1630,11 +1668,6 @@ table {
   background-color: white;
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-td,
-th {
-  padding: 0;
 }
 
 th {
