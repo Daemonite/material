@@ -2262,7 +2262,6 @@ a.card:focus, a.card:hover {
 
 .card-actions-horizontal {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -2272,16 +2271,13 @@ a.card:focus, a.card:hover {
 
 .card-actions-vertical {
   -webkit-box-align: start;
-  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -2904,21 +2900,17 @@ a.card:focus, a.card:hover {
 
 .navdrawer-actionbar {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   min-height: 3.5rem;
   padding-top: 0.499999rem;
   padding-bottom: 0.499999rem;
@@ -3980,14 +3972,12 @@ input[type="radio"].disabled {
 
 .input-group {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 .input-group .form-control, .input-group .picker__select--month,
 .input-group .picker__select--year {
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
@@ -4124,10 +4114,34 @@ input[type="radio"].disabled {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 40;
 }
 .navbar-sticky-top::before {
   display: none;
+}
+
+.navbar-waterfall-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  z-index: 40;
+}
+.navbar-waterfall-top::before {
+  background-color: #9c27b0;
+  border-top: 0;
+  border-bottom: 0;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar-waterfall-top.waterfall {
+  position: fixed;
+}
+.navbar-waterfall-top.waterfall::before {
+  opacity: 1;
 }
 
 .navbar .btn {

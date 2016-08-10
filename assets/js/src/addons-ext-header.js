@@ -6,14 +6,16 @@
  * waterfall toggle binds to JavaScript's scroll event
  * since Bootstrap (v4.0.0-alpha.2) removes affix.js
  */
-var $headerWaterfall = $('.header-waterfall');
+var $navbarWaterfall = $('.navbar-waterfall-top');
 
-if ($headerWaterfall.length) {
+if ($navbarWaterfall.length) {
+  var navbarWaterfallOffset = $navbarWaterfall.offset().top;
+
   $(window).on('scroll', function () {
-    if ($(this).scrollTop() > 1) {
-      $headerWaterfall.addClass('affix');
+    if ($(this).scrollTop() > navbarWaterfallOffset) {
+      $navbarWaterfall.addClass('waterfall');
     } else {
-      $headerWaterfall.removeClass('affix');
+      $navbarWaterfall.removeClass('waterfall');
     };
   });
 };

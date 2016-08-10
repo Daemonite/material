@@ -76,6 +76,29 @@
     }
   }
 
+  .navbar-waterfall-top {
+    position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    transform: translate3d(0, 0, 0);
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+    &::before {
+      background-color: $toolbar-waterfall-bg;
+      border-top: 0;
+      border-bottom: 0;
+      box-shadow: map-get($toolbar-elevation-shadow, shadow);
+      opacity: 0;
+      transition: opacity $transition-duration $transition-timing-function;
+    }
+    &.waterfall {
+      position: fixed;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
 // vertical align some elements normally placed in `.navbar`
   .navbar {
     .btn {
