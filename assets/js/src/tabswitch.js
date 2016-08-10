@@ -10,10 +10,11 @@ const Tabswitch = (($) => {
     const TRANSITION_DURATION = 300;
 
     const ClassName = {
-      ANIMATE   : 'animate',
-      IN        : 'in',
-      INDICATOR : 'nav-tabs-indicator',
-      REVERSE   : 'reverse'
+      ANIMATE    : 'animate',
+      IN         : 'in',
+      INDICATOR  : 'nav-tabs-indicator',
+      REVERSE    : 'reverse',
+      SCROLLABLE : 'nav-tabs-scrollable'
     };
 
     const Event = {
@@ -43,24 +44,25 @@ const Tabswitch = (($) => {
         this._createIndicator();
       }
 
-      let left     = $(element).offset().left;
-      let width    = $(element).outerWidth();
-      let navLeft  = $(this._nav).offset().left;
-      let navWidth = $(this._nav).outerWidth();
+      let elLeft        = $(element).offset().left;
+      let elWidth       = $(element).outerWidth();
+      let navLeft       = $(this._nav).offset().left;
+      let navScrollLeft = $(this._nav).scrollLeft();
+      let navWidth      = $(this._nav).outerWidth();
 
       if (relatedTarget !== undefined) {
         let relatedLeft  = $(relatedTarget).offset().left;
         let relatedWidth = $(relatedTarget).outerWidth();
 
         $(this._navindicator).css({
-          left  : (relatedLeft - navLeft),
-          right : (navLeft + navWidth - relatedLeft - relatedWidth)
+          left  : ((relatedLeft + navScrollLeft) - navLeft),
+          right : (navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth)
         });
 
         if (supportsTransition) {
           $(this._navindicator).addClass(ClassName.ANIMATE);
 
-          if (relatedLeft > left) {
+          if ((relatedLeft + navScrollLeft) > elLeft) {
             $(this._navindicator).addClass(ClassName.REVERSE);
           }
 
@@ -69,8 +71,8 @@ const Tabswitch = (($) => {
       }
 
       $(this._navindicator).addClass(ClassName.IN).css({
-        left  : (left - navLeft),
-        right : (navLeft + navWidth - left - width)
+        left  : ((elLeft + navScrollLeft) - navLeft),
+        right : (navLeft + navWidth - (elLeft + navScrollLeft) - elWidth)
       });
 
       let complete = () => {

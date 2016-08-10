@@ -1180,7 +1180,8 @@ var Tabswitch = function ($) {
     ANIMATE: 'animate',
     IN: 'in',
     INDICATOR: 'nav-tabs-indicator',
-    REVERSE: 'reverse'
+    REVERSE: 'reverse',
+    SCROLLABLE: 'nav-tabs-scrollable'
   };
 
   var Event = {
@@ -1216,9 +1217,10 @@ var Tabswitch = function ($) {
           this._createIndicator();
         }
 
-        var left = $(element).offset().left;
-        var width = $(element).outerWidth();
+        var elLeft = $(element).offset().left;
+        var elWidth = $(element).outerWidth();
         var navLeft = $(this._nav).offset().left;
+        var navScrollLeft = $(this._nav).scrollLeft();
         var navWidth = $(this._nav).outerWidth();
 
         if (relatedTarget !== undefined) {
@@ -1226,14 +1228,14 @@ var Tabswitch = function ($) {
           var relatedWidth = $(relatedTarget).outerWidth();
 
           $(this._navindicator).css({
-            left: relatedLeft - navLeft,
-            right: navLeft + navWidth - relatedLeft - relatedWidth
+            left: relatedLeft + navScrollLeft - navLeft,
+            right: navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth
           });
 
           if (supportsTransition) {
             $(this._navindicator).addClass(ClassName.ANIMATE);
 
-            if (relatedLeft > left) {
+            if (relatedLeft + navScrollLeft > elLeft) {
               $(this._navindicator).addClass(ClassName.REVERSE);
             }
 
@@ -1242,8 +1244,8 @@ var Tabswitch = function ($) {
         }
 
         $(this._navindicator).addClass(ClassName.IN).css({
-          left: left - navLeft,
-          right: navLeft + navWidth - left - width
+          left: elLeft + navScrollLeft - navLeft,
+          right: navLeft + navWidth - (elLeft + navScrollLeft) - elWidth
         });
 
         var complete = function complete() {

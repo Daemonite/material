@@ -3569,12 +3569,70 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 }
 
+.nav-tabs-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav-tabs-fixed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.nav-tabs-fixed .nav-item {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.nav-tabs-fixed .nav-link {
+  max-width: 16.5rem;
+  min-height: 100%;
+  min-width: 4.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (min-width: 1280px) {
+  .nav-tabs-fixed .nav-link {
+    min-width: 10rem;
+  }
+}
+
+.nav-tabs-scrollable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-tabs-scrollable .nav-link {
+  max-width: 16.5rem;
+  min-width: 4.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (min-width: 1280px) {
+  .nav-tabs-scrollable .nav-link {
+    min-width: 10rem;
+  }
+}
+
 .nav-tabs-indicator {
   background-color: #ff4081;
   height: 2px;
   opacity: 0;
   position: absolute;
   bottom: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
 }
 .nav-tabs-indicator.animate {
   opacity: 1;

@@ -1,5 +1,5 @@
 //
-// todo: fixed tabs, scrollable tabs, and tabs with icons
+// todo: tabs with icons
 //
 
 .nav-tabs {
@@ -70,12 +70,50 @@
     box-shadow: 0 1px 0 $nav-tab-border-color;
   }
 
+  .nav-tabs-centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-tabs-fixed {
+    display: flex;
+    .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+    .nav-link {
+      max-width: $nav-tab-link-max-width;
+      min-height: 100%;
+      min-width: $nav-tab-link-min-width;
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
+      }
+      @include text-truncate;
+    }
+  }
+
+  .nav-tabs-scrollable {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    .nav-link {
+      max-width: $nav-tab-link-max-width;
+      min-width: $nav-tab-link-min-width;
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
+      }
+      @include text-truncate;
+    }
+  }
+
 .nav-tabs-indicator {
   background-color: $nav-tab-indicator-bg;
   height: $nav-tab-indicator-height;
   opacity: 0;
   position: absolute;
     bottom: 0;
+  transform: translateZ(0);
   &.animate {
     opacity: 1;
     transition: left $transition-duration-sm $transition-timing-function $transition-duration-sm, right $transition-duration $transition-timing-function;
