@@ -1174,12 +1174,12 @@ var Tabswitch = function ($) {
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
   var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 450;
+  var TRANSITION_DURATION = 300;
 
   var ClassName = {
     ANIMATE: 'animate',
     IN: 'in',
-    INDICATOR: 'tab-nav-indicator',
+    INDICATOR: 'nav-tabs-indicator',
     REVERSE: 'reverse'
   };
 
@@ -1188,8 +1188,8 @@ var Tabswitch = function ($) {
   };
 
   var Selector = {
-    DATA_TOGGLE: '.tab-nav [data-toggle="tab"]',
-    TAB_NAV: '.tab-nav'
+    DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
+    TAB_NAV: '.nav-tabs'
   };
   // <<< constants
 
@@ -1236,6 +1236,8 @@ var Tabswitch = function ($) {
             if (relatedLeft > left) {
               $(this._navindicator).addClass(ClassName.REVERSE);
             }
+
+            Util.reflow(this._navindicator);
           }
         }
 

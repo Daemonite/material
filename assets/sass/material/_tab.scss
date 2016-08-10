@@ -1,0 +1,90 @@
+//
+// todo: fixed tabs, scrollable tabs, and tabs with icons
+//
+
+.nav-tabs {
+  position: relative;
+  @include clearfix;
+  .dropdown-menu {
+    border-radius: $border-radius;
+    // position
+      top: ($spacer-sm-y * -1);
+    transform: scale(1, 0);
+    transform-origin: 50% ($nav-height / 2 + $spacer-sm-y);
+  }
+  .dropup .dropdown-menu {
+    // position
+      top: auto;
+      bottom: ($spacer-sm-y * -1);
+      transform-origin: 50% calc(100% - #{($nav-height / 2 + $spacer-sm-y)});
+  }
+  .nav-item {
+    float: left;
+  }
+  .nav-link {
+    color: inherit;
+    display: block;
+    font-size: $nav-tab-link-font-size;
+    font-weight: $nav-tab-link-font-weight;
+    opacity: $nav-tab-link-opacity;
+    padding: (($nav-height - $nav-line-height) / 2) $nav-tab-link-padding-x;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color $transition-duration-sm $transition-timing-function, opacity $transition-duration $transition-timing-function;
+    &::before {
+      background-color: $nav-tab-indicator-bg;
+      content: "";
+      display: block;
+      height: $nav-tab-indicator-height;
+      opacity: 0;
+      position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      transition: opacity $transition-duration $transition-timing-function;
+    }
+    @include media-breakpoint-up(lg) {
+      padding-right: $nav-tab-link-padding-x-lg;
+      padding-left: $nav-tab-link-padding-x-lg;
+    }
+    // active, focus, hover
+      &:active {
+        background-color: $nav-link-bg-active;
+      }
+    // waves
+      &.waves-attach:active {
+        background-color: transparent;
+      }
+  }
+  .nav-link.active {
+    opacity: 1;
+    &::before {
+      opacity: 1;
+      transition: opacity 0s $transition-duration;
+    }
+  }
+}
+
+// variation
+  .nav-tabs-bordered {
+    box-shadow: 0 1px 0 $nav-tab-border-color;
+  }
+
+.nav-tabs-indicator {
+  background-color: $nav-tab-indicator-bg;
+  height: $nav-tab-indicator-height;
+  opacity: 0;
+  position: absolute;
+    bottom: 0;
+  &.animate {
+    opacity: 1;
+    transition: left $transition-duration-sm $transition-timing-function $transition-duration-sm, right $transition-duration $transition-timing-function;
+    will-change: left, right;
+    &.reverse {
+      transition: left $transition-duration $transition-timing-function, right $transition-duration-sm $transition-timing-function $transition-duration-sm;
+    }
+  }
+  &.in {
+    opacity: 1;
+  }
+}

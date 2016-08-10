@@ -2752,8 +2752,8 @@ a.card:focus, a.card:hover {
 
 .open > .dropdown-menu {
   opacity: 1;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
+  -webkit-transform: scale(1, 1) !important;
+          transform: scale(1, 1) !important;
 }
 
 .dropdown-menu-right {
@@ -3492,6 +3492,102 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   background-color: #ff4081;
 }
 
+.nav-tabs {
+  position: relative;
+}
+.nav-tabs::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.nav-tabs .dropdown-menu {
+  border-radius: 2px;
+  top: -0.5rem;
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transform-origin: 50% 2rem;
+          transform-origin: 50% 2rem;
+}
+.nav-tabs .dropup .dropdown-menu {
+  top: auto;
+  bottom: -0.5rem;
+  -webkit-transform-origin: 50% calc(100% - 2rem);
+          transform-origin: 50% calc(100% - 2rem);
+}
+.nav-tabs .nav-item {
+  float: left;
+}
+.nav-tabs .nav-link {
+  color: inherit;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.7;
+  padding: 0.75rem 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-tabs .nav-link::before {
+  background-color: #ff4081;
+  content: "";
+  display: block;
+  height: 2px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 1280px) {
+  .nav-tabs .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+.nav-tabs .nav-link:active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.nav-tabs .nav-link.waves-attach:active {
+  background-color: transparent;
+}
+.nav-tabs .nav-link.active {
+  opacity: 1;
+}
+.nav-tabs .nav-link.active::before {
+  opacity: 1;
+  -webkit-transition: opacity 0s 0.3s;
+  transition: opacity 0s 0.3s;
+}
+
+.nav-tabs-bordered {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.nav-tabs-indicator {
+  background-color: #ff4081;
+  height: 2px;
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+}
+.nav-tabs-indicator.animate {
+  opacity: 1;
+  -webkit-transition: left 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: left, right;
+}
+.nav-tabs-indicator.animate.reverse {
+  -webkit-transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), right 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1), right 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+.nav-tabs-indicator.in {
+  opacity: 1;
+}
+
 .form-control, .picker__select--month,
 .picker__select--year {
   background-color: transparent;
@@ -4114,6 +4210,7 @@ input[type="radio"].disabled {
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 40;
 }
 .navbar-sticky-top::before {
   display: none;
