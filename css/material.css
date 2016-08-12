@@ -3589,19 +3589,19 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  max-width: 16.5rem;
+  min-width: 4.5rem;
+}
+@media (min-width: 1280px) {
+  .nav-tabs-fixed .nav-item {
+    min-width: 10rem;
+  }
 }
 .nav-tabs-fixed .nav-link {
-  max-width: 16.5rem;
   min-height: 100%;
-  min-width: 4.5rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-@media (min-width: 1280px) {
-  .nav-tabs-fixed .nav-link {
-    min-width: 10rem;
-  }
 }
 
 .nav-tabs-scrollable {
@@ -3612,17 +3612,19 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
-.nav-tabs-scrollable .nav-link {
+.nav-tabs-scrollable .nav-item {
   max-width: 16.5rem;
   min-width: 4.5rem;
+}
+@media (min-width: 1280px) {
+  .nav-tabs-scrollable .nav-item {
+    min-width: 10rem;
+  }
+}
+.nav-tabs-scrollable .nav-link {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-@media (min-width: 1280px) {
-  .nav-tabs-scrollable .nav-link {
-    min-width: 10rem;
-  }
 }
 
 .nav-tabs-indicator {
@@ -3631,8 +3633,6 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   opacity: 0;
   position: absolute;
   bottom: 0;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
 }
 .nav-tabs-indicator.animate {
   opacity: 1;
