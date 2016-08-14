@@ -1674,6 +1674,30 @@ th {
   text-align: left;
 }
 
+.collapse {
+  display: none;
+}
+.collapse.in {
+  display: block;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fade.in {
+  opacity: 1;
+}
+
 code,
 kbd,
 pre,

@@ -1,0 +1,21 @@
+.collapse {
+  display: none;
+  &.in {
+    display: block;
+  }
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  transition: height $transition-duration $transition-timing-function;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity $transition-duration-sm $transition-timing-function;
+  &.in {
+    opacity: 1;
+  }
+}
