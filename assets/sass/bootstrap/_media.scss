@@ -1,0 +1,53 @@
+@if $enable-flex {
+  .media {
+    display: flex;
+    margin-bottom: $spacer-md-y;
+  }
+  .media-body {
+    flex: 1;
+  }
+  .media-bottom {
+    align-self: flex-end;
+  }
+  .media-middle {
+    align-self: center;
+  }
+} @else {
+  .media,
+  .media-body {
+    overflow: hidden;
+  }
+  .media-body {
+    width: 10000px;
+  }
+  .media-body,
+  .media-left,
+  .media-right {
+    display: table-cell;
+    vertical-align: top;
+  }
+  .media-bottom {
+    vertical-align: bottom;
+  }
+  .media-middle {
+    vertical-align: middle;
+  }
+}
+
+//
+// alignment
+//
+  .media-right {
+    padding-left: $spacer-md-x;
+  }
+
+  .media-left {
+    padding-right: $spacer-md-x;
+  }
+
+//
+// misc
+//
+  .media-object {
+    display: block;
+  }
