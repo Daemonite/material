@@ -77,25 +77,31 @@
     }
 
   // color
-    .text-muted {
-      color: $text-muted;
-    }
+    @include text-emphasis-variant('.text-muted', $text-muted, $text-muted);
 
-    @each $color in $palettes {
-      $i: index($palettes, $color);
+    // black and white
+      @include text-emphasis-variant('.text-black', $black, $black);
+      @include text-emphasis-variant('.text-black-primary', $black-primary, $black-primary);
+      @include text-emphasis-variant('.text-black-secondary', $black-secondary, $black-secondary);
+      @include text-emphasis-variant('.text-black-hint', $black-hint, $black-hint);
+      @include text-emphasis-variant('.text-black-divider', $black-divider, $black-divider);
+      @include text-emphasis-variant('.text-black-primary-solid', $black-primary-solid, $black-primary-solid);
+      @include text-emphasis-variant('.text-black-secondary-solid', $black-secondary-solid, $black-secondary-solid);
+      @include text-emphasis-variant('.text-black-hint-solid', $black-hint-solid, $black-hint-solid);
+      @include text-emphasis-variant('.text-black-divider-solid', $black-divider-solid, $black-divider-solid);
 
-      .text-#{$color} {
-        color: nth($palettes-color, $i) !important;
+      @include text-emphasis-variant('.text-white', $white, $white);
+      @include text-emphasis-variant('.text-white-primary', $white-primary, $white-primary);
+      @include text-emphasis-variant('.text-white-secondary', $white-secondary, $white-secondary);
+      @include text-emphasis-variant('.text-white-hint', $white-hint, $white-hint);
+      @include text-emphasis-variant('.text-white-divider', $white-divider, $white-divider);
+
+    // palette
+      @each $color in $palettes {
+        $i: index($palettes, $color);
+
+        @include text-emphasis-variant('.text-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
       }
-
-      a.text-#{$color} {
-        // active, focus, hover
-          &:focus,
-          &:hover {
-            color: nth($palettes-color-dark, $i) !important;
-          }
-      }
-    }
 
   // italcs and weight
     .font-italic {

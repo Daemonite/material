@@ -1,0 +1,12 @@
+@mixin text-emphasis-variant($class, $color, $color-focus-hover) {
+  #{$class} {
+    color: $color !important;
+  }
+  a#{$class} {
+    // active, focus, hover
+      &:focus,
+      &:hover {
+        color: $color-focus-hover !important;
+      }
+  }
+}
