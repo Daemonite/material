@@ -1,29 +1,23 @@
-//
-// contextual backgrounds
-//
-  .bg-faded {
-    background-color: $offwhite;
-  }
+// black and white
+// based on https://material.google.com/style/color.html#color-themes
+  @include bg-variant-bw('.bg-dark-1', $black, $white-primary);
+  @include bg-variant-bw('.bg-dark-2', $palette-grey-900, $white-primary);
+  @include bg-variant-bw('.bg-dark-3', #303030, $white-primary);
+  @include bg-variant-bw('.bg-dark-4', $palette-grey-800, $white-primary);
 
-  .bg-inverse {
-    background-color: $brand-color-accent;
-    color: $brand-text-color-accent;
-  }
+  @include bg-variant-bw('.bg-light-1', $palette-grey-300);
+  @include bg-variant-bw('.bg-light-2', $palette-grey-100);
+  @include bg-variant-bw('.bg-light-3', $palette-grey-050);
+  @include bg-variant-bw('.bg-light-4', $white);
 
+// offwhite
+  @include bg-variant-bw('.bg-faded', $offwhite);
+
+// palette
   @each $color in $palettes {
     $i: index($palettes, $color);
 
-    .bg-#{$color} {
-      background-color: nth($palettes-color, $i) !important;
-      color: nth($palettes-text-color, $i) !important;
-    }
-
-    a.bg-#{$color} {
-      // active, focus, hover
-        &:focus,
-        &:hover {
-          background-color: nth($palettes-color-dark, $i) !important;
-          color: nth($palettes-text-color-dark, $i) !important;
-        }
-    }
+    @include bg-variant('.bg-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i), nth($palettes-text-color, $i), nth($palettes-text-color-dark, $i));
   }
+
+  @include bg-variant('.bg-inverse', $brand-color-accent, $brand-color-accent-dark, $brand-text-color-accent, $brand-text-color-accent-dark);

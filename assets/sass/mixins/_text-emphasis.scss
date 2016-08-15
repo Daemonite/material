@@ -1,12 +1,15 @@
-@mixin text-emphasis-variant($class, $color, $color-focus-hover) {
+@mixin text-emphasis-variant($class, $color, $color-focus-hover: "inherit") {
   #{$class} {
     color: $color !important;
   }
-  a#{$class} {
-    // active, focus, hover
-      &:focus,
-      &:hover {
-        color: $color-focus-hover !important;
-      }
+
+  @if $color-focus-hover != "inherit" {
+    a#{$class} {
+      // active, focus, hover
+        &:focus,
+        &:hover {
+          color: $color-focus-hover !important;
+        }
+    }
   }
 }
