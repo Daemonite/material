@@ -44,7 +44,7 @@ const NavDrawer = (($) => {
     };
 
     const Selector = {
-      CONTENT      : '.navdrawer-scroll',
+      CONTENT      : '.navdrawer-content',
       DATA_DISMISS : '[data-dismiss="navdrawer"]',
       DATA_TOGGLE  : '[data-toggle="navdrawer"]'
     };
