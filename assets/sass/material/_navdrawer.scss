@@ -35,12 +35,12 @@
   .navdrawer-content {
     background-color: $navdrawer-content-bg;
     box-shadow: map-get($navdrawer-elevation-shadow, shadow);
-    height: 100%;
     max-width: calc(100% - #{$navdrawer-edge-gap});
     overflow-x: hidden;
     overflow-y: auto;
     position: fixed;
       top: 0;
+      bottom: 0;
       left: 0;
     transform: translateX(-100%);
     transition: transform $transition-duration $transition-timing-function;
@@ -203,4 +203,75 @@
           }
         }
     }
+  }
+
+//
+// permanent
+//
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent {
+      display: block !important;
+      // position
+        right: auto;
+      width: $navdrawer-width-mobile;
+      .navdrawer-content {
+        box-shadow: none;
+        max-width: none;
+        position: absolute;
+        transform: translateX(0);
+        width: 100%;
+        &::before {
+          background-color: $black-divider;
+          content: "";
+          display: block;
+          position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+          width: 1px;
+        }
+      }
+    }
+
+    // backdrop
+      .navdrawer-backdrop-permanent {
+        display: none;
+      }
+
+    // variation
+      .navdrawer-permanent-clipped,
+      .navdrawer-permanent-float {
+        // position
+          top: $toolbar-height;
+        z-index: initial;
+      }
+
+      .navdrawer-permanent-float .navdrawer-content {
+        background-color: transparent;
+        &::before {
+          display: none;
+        }
+      }
+  }
+
+//
+// temporary
+//
+  @include media-breakpoint-up(lg) {
+    .navdrawer-temporary {
+      overflow: visible;
+      // position
+        right: auto;
+      width: $navdrawer-width-mobile;
+      .navdrawer-content {
+        max-width: none;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    // backdrop
+      .navdrawer-backdrop-temporary {
+        display: none;
+      }
   }

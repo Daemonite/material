@@ -2967,12 +2967,12 @@ a.card:focus, a.card:hover {
 .navdrawer-content {
   background-color: white;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
-  height: 100%;
   max-width: calc(100% - 3.5rem);
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
@@ -3139,6 +3139,64 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   display: none;
 }
 
+@media (min-width: 1280px) {
+  .navdrawer-permanent {
+    display: block !important;
+    right: auto;
+    width: 17.5rem;
+  }
+  .navdrawer-permanent .navdrawer-content {
+    box-shadow: none;
+    max-width: none;
+    position: absolute;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    width: 100%;
+  }
+  .navdrawer-permanent .navdrawer-content::before {
+    background-color: rgba(0, 0, 0, 0.12);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+  }
+
+  .navdrawer-backdrop-permanent {
+    display: none;
+  }
+
+  .navdrawer-permanent-clipped,
+  .navdrawer-permanent-float {
+    top: 3.5rem;
+    z-index: initial;
+  }
+
+  .navdrawer-permanent-float .navdrawer-content {
+    background-color: transparent;
+  }
+  .navdrawer-permanent-float .navdrawer-content::before {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .navdrawer-temporary {
+    overflow: visible;
+    right: auto;
+    width: 17.5rem;
+  }
+  .navdrawer-temporary .navdrawer-content {
+    max-width: none;
+    position: absolute;
+    width: 100%;
+  }
+
+  .navdrawer-backdrop-temporary {
+    display: none;
+  }
+}
 .picker {
   position: absolute;
   z-index: 240;

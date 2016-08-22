@@ -21,7 +21,7 @@ const NavDrawer = (($) => {
     const Default = {
       keyboard : true,
       show     : true,
-      type     : 'temporary'
+      type     : 'default'
     };
 
     const DefaultType = {
@@ -175,12 +175,12 @@ const NavDrawer = (($) => {
     _showBackdrop(callback) {
       let supportsTransition = Util.supportsTransitionEnd();
 
-      if (this._config.type === 'temporary' &&
-        this._isShown) {
+      if (this._isShown) {
         this._backdrop = document.createElement('div');
 
         $(this._backdrop)
           .addClass(ClassName.BACKDROP)
+          .addClass(`${ClassName.BACKDROP}-${this._config.type}`)
           .appendTo(document.body);
 
         $(this._element).on(Event.CLICK_DISMISS, (event) => {
