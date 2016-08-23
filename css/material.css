@@ -2356,6 +2356,7 @@ a.card:focus, a.card:hover {
 
 .card-actions-horizontal {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
@@ -2365,13 +2366,16 @@ a.card:focus, a.card:hover {
 
 .card-actions-vertical {
   -webkit-box-align: start;
+  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -2395,6 +2399,9 @@ a.card:focus, a.card:hover {
 }
 .card-header:first-child {
   border-radius: 2px 2px 0 0;
+}
+.card-header > :last-child {
+  margin-bottom: 0;
 }
 
 .card-header-bordered {
@@ -2996,17 +3003,21 @@ a.card:focus, a.card:hover {
 
 .navdrawer-actionbar {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
   min-height: 3.5rem;
   padding-top: 0.499999rem;
   padding-bottom: 0.499999rem;
@@ -3723,17 +3734,21 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
 
 .nav-tabs-centered, .nav-tabs-fixed {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
+  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 .nav-tabs-fixed .nav-item {
-  -ms-flex-preferred-size: 0;
-      flex-basis: 0;
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   max-width: 16.5rem;
@@ -3753,6 +3768,7 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
 
 .nav-tabs-scrollable {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   overflow-x: auto;
@@ -4275,12 +4291,14 @@ input[type="radio"].disabled {
 
 .input-group {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 .input-group .form-control, .input-group .picker__select--month,
 .input-group .picker__select--year {
   -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
@@ -4327,6 +4345,10 @@ input[type="radio"].disabled {
   min-height: 2.5rem;
   resize: none;
 }
+.floating-label > .textarea-autosize {
+  height: 3rem;
+  min-height: 3rem;
+}
 
 .form-control-lg.textarea-autosize, .floating-label-lg > .textarea-autosize.form-control, .floating-label-lg > .textarea-autosize.picker__select--month,
 .floating-label-lg > .textarea-autosize.picker__select--year, .input-group-lg > .textarea-autosize.form-control, .input-group-lg > .textarea-autosize.picker__select--month,
@@ -4334,11 +4356,22 @@ input[type="radio"].disabled {
   height: 3.75rem;
   min-height: 3.75rem;
 }
+.floating-label > .form-control-lg.textarea-autosize, .floating-label-lg.floating-label > .textarea-autosize.form-control, .floating-label-lg.floating-label > .textarea-autosize.picker__select--month,
+.floating-label-lg.floating-label > .textarea-autosize.picker__select--year, .input-group-lg.floating-label > .textarea-autosize.form-control, .input-group-lg.floating-label > .textarea-autosize.picker__select--month,
+.input-group-lg.floating-label > .textarea-autosize.picker__select--year {
+  height: 4rem;
+  min-height: 4rem;
+}
 
 .form-control-sm.textarea-autosize, .textarea-autosize.picker__select--month,
 .textarea-autosize.picker__select--year, .floating-label-sm > .textarea-autosize.form-control, .input-group-sm > .textarea-autosize.form-control {
   height: 2.25rem;
   min-height: 2.25rem;
+}
+.floating-label > .form-control-sm.textarea-autosize, .floating-label > .textarea-autosize.picker__select--month,
+.floating-label > .textarea-autosize.picker__select--year, .floating-label-sm.floating-label > .textarea-autosize.form-control, .input-group-sm.floating-label > .textarea-autosize.form-control {
+  height: 2.75rem;
+  min-height: 2.75rem;
 }
 
 .navbar {
@@ -5537,14 +5570,10 @@ a.text-inverse:focus, a.text-inverse:hover {
   position: absolute;
   -webkit-transform: scale(0) translate(0, 0);
           transform: scale(0) translate(0, 0);
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-property: opacity, -webkit-transform;
-  transition-property: opacity, -webkit-transform;
-  transition-property: opacity, transform;
-  transition-property: opacity, transform, -webkit-transform;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   width: 4rem;
 }
 .waves-effect.waves-light .waves-ripple {
