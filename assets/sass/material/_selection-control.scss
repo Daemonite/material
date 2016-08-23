@@ -1,66 +1,97 @@
-.c-indicator {
-  background-clip: content-box;
-  border-style: solid;
-  border-width: $c-input-border-width;
-  color: $c-input-theme-color;
-  display: block;
-  height: $c-input-size;
-  line-height: $c-input-size;
+.custom-control {
+  cursor: pointer;
+  display: inline;
+  padding-left: ($c-input-size / $font-size-root + $spacer-sm-x);
+  position: relative;
+  + .custom-control {
+    margin-left: $spacer-md-x;
+  }
+}
+
+.custom-control-input {
+  opacity: 0;
   position: absolute;
-    top: 0;
-    left: 0;
-  text-align: center;
-  transition: all $transition-duration $transition-timing-function;
-  user-select: none;
-  &::after {
-    direction: ltr;
-    display: block;
-    font-family: 'Material Icons';
-    font-feature-settings: 'liga';
-    font-size: ($c-input-size * 1.25);
-    font-style: normal;
-    font-weight: normal;
-    height: ($c-input-size * 1.25);
-    letter-spacing: normal;
-    line-height: 1;
-    position: absolute;
-      top: ($c-input-size / -4);
-      left: ($c-input-size / -4);
-    text-rendering: optimizeLegibility;
-    text-transform: none;
-    transition-duration: $transition-duration;
-    transition-timing-function: $transition-timing-function;
-    vertical-align: top;
-    width: ($c-input-size * 1.25);
-    white-space: nowrap;
-    word-wrap: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  &::before {
-    background-color: $c-input-radial-bg;
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: ($c-input-size * 3);
-    margin-top: ($c-input-size * -1);
-    margin-left: ($c-input-size * -1);
-    opacity: 0;
-    position: absolute;
-      top: ($c-input-border-width * -1);
-      left: ($c-input-border-width * -1);
-    transform: scale(0);
-    width: ($c-input-size * 3);
-    transition: opacity $transition-duration $transition-timing-function;
-  }
+  z-index: -1;
   // active, focus, hover
-    &:active::before {
-      animation: c-indicator-active $transition-duration $transition-timing-function;
-      transform: scale(1);
+    // &:focus ~ .c-indicator {
+    //   &::before {
+    //     opacity: 0.12;
+    //   }
+    // }
+  // checked
+    &:checked ~ .c-indicator {
+      &::after {
+        opacity: 1;
+      }
+      &::before {
+        background-color: hex-to-rgba($c-input-theme-color, 0.12);
+      }
     }
 }
 
-// animation
+// indicator
+  .custom-control-indicator {
+    background-clip: content-box;
+    border-style: solid;
+    border-width: $c-input-border-width;
+    color: $c-input-theme-color;
+    display: block;
+    height: $c-input-size;
+    line-height: $c-input-size;
+    position: absolute;
+      top: 0;
+      left: 0;
+    text-align: center;
+    transition: all $transition-duration $transition-timing-function;
+    user-select: none;
+    &::after {
+      direction: ltr;
+      display: block;
+      font-family: 'Material Icons';
+      font-feature-settings: 'liga';
+      font-size: ($c-input-size * 1.25);
+      font-style: normal;
+      font-weight: normal;
+      height: ($c-input-size * 1.25);
+      letter-spacing: normal;
+      line-height: 1;
+      position: absolute;
+        top: ($c-input-size / -4);
+        left: ($c-input-size / -4);
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      transition-duration: $transition-duration;
+      transition-timing-function: $transition-timing-function;
+      vertical-align: top;
+      width: ($c-input-size * 1.25);
+      white-space: nowrap;
+      word-wrap: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    &::before {
+      background-color: $c-input-radial-bg;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      height: ($c-input-size * 3);
+      margin-top: ($c-input-size * -1);
+      margin-left: ($c-input-size * -1);
+      opacity: 0;
+      position: absolute;
+        top: ($c-input-border-width * -1);
+        left: ($c-input-border-width * -1);
+      transform: scale(0);
+      width: ($c-input-size * 3);
+      transition: opacity $transition-duration $transition-timing-function;
+    }
+    // active, focus, hover
+      &:active::before {
+        animation: c-indicator-active $transition-duration $transition-timing-function;
+        transform: scale(1);
+      }
+  }
+
   @keyframes c-indicator-active {
     0% {
       opacity: 0;
@@ -73,41 +104,11 @@
     }
   }
 
-.c-input {
-  cursor: pointer;
-  display: inline;
-  padding-left: ($c-input-size / $font-size-root + $spacer-sm-x);
-  position: relative;
-  > input {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-    // active, focus, hover
-      // &:focus ~ .c-indicator {
-      //   &::before {
-      //     opacity: 0.12;
-      //   }
-      // }
-    // checked
-      &:checked ~ .c-indicator {
-        &::after {
-          opacity: 1;
-        }
-        &::before {
-          background-color: hex-to-rgba($c-input-theme-color, 0.12);
-        }
-      }
-  }
-  + .c-input {
-    margin-left: $spacer-md-x;
-  }
-}
-
 //
 // checkbox
 //
-  .c-checkbox {
-    .c-indicator {
+  .custom-checkbox {
+    .custom-control-indicator {
       border-color: $c-input-border-color;
       border-radius: $border-radius;
       width: $c-input-size;
@@ -117,16 +118,16 @@
         transition-property: opacity;
       }
     }
-    > input {
+    .custom-control-input {
       // checked
-        &:checked ~ .c-indicator {
+        &:checked ~ .custom-control-indicator {
           border-color: $c-input-theme-color;
           &::after {
             opacity: 1;
           }
         }
       // indeterminate
-        &:indeterminate ~ .c-indicator {
+        &:indeterminate ~ .custom-control-indicator {
           border-color: $c-input-theme-color;
           &::after {
             content: "indeterminate_check_box";
@@ -142,8 +143,8 @@
 //
 // radio button
 //
-  .c-radio {
-    .c-indicator {
+  .custom-radio {
+    .custom-control-indicator {
       border-color: $c-input-border-color;
       border-radius: 50%;
       width: $c-input-size;
@@ -153,9 +154,9 @@
         transition-property: opacity;
       }
     }
-    > input {
+    .custom-control-input {
       // checked
-        &:checked ~ .c-indicator {
+        &:checked ~ .custom-control-indicator {
           border-color: $c-input-theme-color;
           &::after {
             opacity: 1;
@@ -167,15 +168,15 @@
 //
 // stacked layout
 //
-  .c-inputs-stacked {
-    .c-indicator {
+  .custom-controls-stacked {
+    .custom-control-indicator {
       // position
         top: (($font-size-default * $line-height-default - ($c-input-size) / $font-size-root) / 2);
     }
 
-    .c-input {
+    .custom-control {
       display: block;
-      + .c-input {
+      + .custom-control {
         margin-top: $spacer-xs-y;
         margin-left: 0;
       }
@@ -185,9 +186,9 @@
 //
 // switch
 //
-  .c-switch {
+  .custom-switch {
     padding-left: ($c-input-track-width / $font-size-root + $spacer-sm-x);
-    .c-indicator {
+    .custom-control-indicator {
       background-color: $c-input-track-bg;
       border-color: transparent;
       border-radius: (($c-input-size - $c-input-border-width) / 2);
@@ -200,9 +201,9 @@
         transition-property: background-color transform;
       }
     }
-    > input {
+    .custom-control {
       // checked
-        &:checked ~ .c-indicator {
+        &:checked ~ .custom-control-indicator {
           background-color: hex-to-rgba($c-input-theme-color, 0.5);
           border-color: transparent;
           &::after,
