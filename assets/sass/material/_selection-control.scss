@@ -13,18 +13,34 @@
   position: absolute;
   z-index: -1;
   // active, focus, hover
-    // &:focus ~ .c-indicator {
-    //   &::before {
-    //     opacity: 0.12;
-    //   }
-    // }
+    &.focus ~ .custom-control-indicator {
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   // checked
-    &:checked ~ .c-indicator {
+    &:checked ~ .custom-control-indicator {
       &::after {
         opacity: 1;
       }
       &::before {
         background-color: hex-to-rgba($c-input-theme-color, 0.12);
+      }
+    }
+  // disabled
+    &:disabled ~ {
+      .custom-control-indicator,
+      .custom-control-description {
+        color: $c-input-color-disabled;
+        cursor: $cursor-disabled;
+      }
+      .custom-control-indicator {
+        border-color: $c-input-color-disabled;
+        color: $c-input-color-disabled;
+        &::before {
+          display: none;
+        }
       }
     }
 }
@@ -126,6 +142,10 @@
             opacity: 1;
           }
         }
+      // disabled
+        &:checked:disabled ~ .custom-control-indicator {
+          border-color: transparent;
+        }
       // indeterminate
         &:indeterminate ~ .custom-control-indicator {
           border-color: $c-input-theme-color;
@@ -161,6 +181,10 @@
           &::after {
             opacity: 1;
           }
+        }
+      // disabled
+        &:checked:disabled ~ .custom-control-indicator {
+          border-color: transparent;
         }
     }
   }
@@ -201,7 +225,7 @@
         transition-property: background-color transform;
       }
     }
-    .custom-control {
+    .custom-control-input {
       // checked
         &:checked ~ .custom-control-indicator {
           background-color: hex-to-rgba($c-input-theme-color, 0.5);
@@ -212,6 +236,14 @@
           }
           &::after {
             background-color: $c-input-theme-color;
+          }
+        }
+      // disabled
+        &:disabled ~ .custom-control-indicator {
+          background-color: $c-input-track-bg-disabled;
+          border-color: transparent;
+          &::after {
+            background-color: $c-input-thumb-bg-disabled;
           }
         }
     }
