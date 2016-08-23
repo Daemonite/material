@@ -2,15 +2,27 @@
   height: $input-height;
   min-height: $input-height;
   resize: none;
+  .floating-label > & {
+    height: ($floating-label-height - $floating-label-padding-top);
+    min-height: ($floating-label-height - $floating-label-padding-top);
+  }
 }
 
 // size
   .form-control-lg.textarea-autosize {
     height: $input-height-lg;
     min-height: $input-height-lg;
+    .floating-label > & {
+      height: ($floating-label-height-lg - $floating-label-padding-top-lg);
+      min-height: ($floating-label-height-lg - $floating-label-padding-top-lg);
+    }
   }
 
   .form-control-sm.textarea-autosize {
     height: $input-height-sm;
     min-height: $input-height-sm;
+    .floating-label > & {
+      height: ($floating-label-height-sm - $floating-label-padding-top-sm);
+      min-height: ($floating-label-height-sm - $floating-label-padding-top-sm);
+    }
   }
