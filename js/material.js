@@ -211,6 +211,17 @@ $.fn.pickdate.noConflict = function () {
 };
 
 /*!
+ * selection control focus state
+ */
+$(document).on('change focusout', '.custom-control-input', function () {
+  $(this).removeClass('focus');
+});
+
+$(document).on('focusin', '.custom-control-input', function () {
+  $(this).addClass('focus');
+});
+
+/*!
  * activate textarea-autosize for material
  * based on textarea-autosize.js
  */
@@ -1439,7 +1450,7 @@ var Util = function ($) {
     },
     getUID: function getUID(prefix) {
       do {
-        prefix += ~~(Math.random() * 1000000);
+        prefix += ~ ~(Math.random() * 1000000);
       } while (document.getElementById(prefix));
       return prefix;
     },

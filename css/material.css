@@ -3455,7 +3455,46 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   opacity: 0.5;
 }
 
-.c-indicator {
+.custom-control {
+  cursor: pointer;
+  display: inline;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.custom-control + .custom-control {
+  margin-left: 1rem;
+}
+
+.custom-control-input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.custom-control-input.focus ~ .custom-control-indicator::before {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.custom-control-input:checked ~ .custom-control-indicator::after {
+  opacity: 1;
+}
+.custom-control-input:checked ~ .custom-control-indicator::before {
+  background-color: rgba(255, 64, 129, 0.12);
+}
+.custom-control-input:disabled ~ .custom-control-indicator,
+.custom-control-input:disabled ~ .custom-control-description {
+  color: rgba(0, 0, 0, 0.26);
+  cursor: not-allowed;
+}
+.custom-control-input:disabled ~ .custom-control-indicator {
+  border-color: rgba(0, 0, 0, 0.26);
+  color: rgba(0, 0, 0, 0.26);
+}
+.custom-control-input:disabled ~ .custom-control-indicator::before {
+  display: none;
+}
+
+.custom-control-indicator {
   background-clip: content-box;
   border-style: solid;
   border-width: 2px;
@@ -3474,7 +3513,7 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
       -ms-user-select: none;
           user-select: none;
 }
-.c-indicator::after {
+.custom-control-indicator::after {
   direction: ltr;
   display: block;
   font-family: 'Material Icons';
@@ -3502,7 +3541,7 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.c-indicator::before {
+.custom-control-indicator::before {
   background-color: rgba(0, 0, 0, 0.12);
   border-radius: 50%;
   content: "";
@@ -3520,7 +3559,7 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.c-indicator:active::before {
+.custom-control-indicator:active::before {
   -webkit-animation: c-indicator-active 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           animation: c-indicator-active 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transform: scale(1);
@@ -3550,94 +3589,79 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
     opacity: 0;
   }
 }
-.c-input {
-  cursor: pointer;
-  display: inline;
-  padding-left: 1.5rem;
-  position: relative;
-}
-.c-input > input {
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-}
-.c-input > input:checked ~ .c-indicator::after {
-  opacity: 1;
-}
-.c-input > input:checked ~ .c-indicator::before {
-  background-color: rgba(255, 64, 129, 0.12);
-}
-.c-input + .c-input {
-  margin-left: 1rem;
-}
-
-.c-checkbox .c-indicator {
+.custom-checkbox .custom-control-indicator {
   border-color: rgba(0, 0, 0, 0.54);
   border-radius: 2px;
   width: 16px;
 }
-.c-checkbox .c-indicator::after {
+.custom-checkbox .custom-control-indicator::after {
   content: "check_box";
   opacity: 0;
   -webkit-transition-property: opacity;
   transition-property: opacity;
 }
-.c-checkbox > input:checked ~ .c-indicator {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
   border-color: #ff4081;
 }
-.c-checkbox > input:checked ~ .c-indicator::after {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator::after {
   opacity: 1;
 }
-.c-checkbox > input:indeterminate ~ .c-indicator {
+.custom-checkbox .custom-control-input:checked:disabled ~ .custom-control-indicator {
+  border-color: transparent;
+}
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-indicator {
   border-color: #ff4081;
 }
-.c-checkbox > input:indeterminate ~ .c-indicator::after {
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-indicator::after {
   content: "indeterminate_check_box";
   opacity: 1;
 }
-.c-checkbox > input:indeterminate ~ .c-indicator::before {
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-indicator::before {
   background-color: #ff4081;
 }
 
-.c-radio .c-indicator {
+.custom-radio .custom-control-indicator {
   border-color: rgba(0, 0, 0, 0.54);
   border-radius: 50%;
   width: 16px;
 }
-.c-radio .c-indicator::after {
+.custom-radio .custom-control-indicator::after {
   content: "radio_button_checked";
   opacity: 0;
   -webkit-transition-property: opacity;
   transition-property: opacity;
 }
-.c-radio > input:checked ~ .c-indicator {
+.custom-radio .custom-control-input:checked ~ .custom-control-indicator {
   border-color: #ff4081;
 }
-.c-radio > input:checked ~ .c-indicator::after {
+.custom-radio .custom-control-input:checked ~ .custom-control-indicator::after {
   opacity: 1;
 }
+.custom-radio .custom-control-input:checked:disabled ~ .custom-control-indicator {
+  border-color: transparent;
+}
 
-.c-inputs-stacked .c-indicator {
+.custom-controls-stacked .custom-control-indicator {
   top: 0.125rem;
 }
-.c-inputs-stacked .c-input {
+.custom-controls-stacked .custom-control {
   display: block;
 }
-.c-inputs-stacked .c-input + .c-input {
+.custom-controls-stacked .custom-control + .custom-control {
   margin-top: 0.25rem;
   margin-left: 0;
 }
 
-.c-switch {
+.custom-switch {
   padding-left: 2.5rem;
 }
-.c-switch .c-indicator {
+.custom-switch .custom-control-indicator {
   background-color: rgba(0, 0, 0, 0.38);
   border-color: transparent;
   border-radius: 7px;
   width: 32px;
 }
-.c-switch .c-indicator::after {
+.custom-switch .custom-control-indicator::after {
   background-color: #fafafa;
   border-radius: 50%;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
@@ -3645,16 +3669,23 @@ a.navdrawer-actionbar:focus, a.navdrawer-actionbar:hover {
   -webkit-transition-property: background-color transform;
   transition-property: background-color transform;
 }
-.c-switch > input:checked ~ .c-indicator {
+.custom-switch .custom-control-input:checked ~ .custom-control-indicator {
   background-color: rgba(255, 64, 129, 0.5);
   border-color: transparent;
 }
-.c-switch > input:checked ~ .c-indicator::after, .c-switch > input:checked ~ .c-indicator::before {
+.custom-switch .custom-control-input:checked ~ .custom-control-indicator::after, .custom-switch .custom-control-input:checked ~ .custom-control-indicator::before {
   -webkit-transform: translateX(16px);
           transform: translateX(16px);
 }
-.c-switch > input:checked ~ .c-indicator::after {
+.custom-switch .custom-control-input:checked ~ .custom-control-indicator::after {
   background-color: #ff4081;
+}
+.custom-switch .custom-control-input:disabled ~ .custom-control-indicator {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+}
+.custom-switch .custom-control-input:disabled ~ .custom-control-indicator::after {
+  background-color: #bdbdbd;
 }
 
 .nav-tabs {
