@@ -127,7 +127,23 @@
 
   .navdrawer-header {
     background-color: $navdrawer-header-bg;
-    padding: $spacer-sm-y $spacer-md-x;
+    display: block;
+    height: $toolbar-height;
+    padding: (($toolbar-height - $line-height-headline) / 2) $spacer-md-x;
+    @include typography-headline;
+    // active, focus, hover
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
+    > img {
+      display: block;
+    }
+  }
+
+  .navdrawer-header-bordered {
+    border-bottom: $border-width solid $border-color;
+    padding-bottom: (($toolbar-height - $line-height-headline) / 2 - 1px / $font-size-root);
   }
 
   .navdrawer-subheader {
