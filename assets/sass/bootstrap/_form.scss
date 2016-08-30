@@ -1,0 +1,114 @@
+//
+// todo: .custom-file
+//
+
+//
+// checkbox and radio button
+//
+  .form-check {
+    display: block;
+    margin-bottom: $textfield-margin-bottom;
+    position: relative;
+    &.disabled {
+      .form-check-label {
+        color: $textfield-color-disabled;
+        cursor: $cursor-disabled;
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      .form-inline & {
+        display: inline-block;
+        margin-top: 0;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .form-check-input {
+    margin-top: 0.25rem;
+    margin-left: -1.25rem;
+    position: absolute;
+    // &:only-child {
+    //   position: static;
+    // }
+
+    @include media-breakpoint-up(sm) {
+      .form-inline & {
+        margin-left: 0;
+        position: relative;
+      }
+    }
+  }
+
+  .form-check-label {
+    cursor: pointer;
+    margin-bottom: 0;
+    min-height: $font-size-base;
+    padding-left: 1.25rem;
+
+    @include media-breakpoint-up(sm) {
+      .form-inline & {
+        padding-left: 0;
+      }
+    }
+  }
+
+  // inline
+    .form-check-inline {
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 0;
+      padding-left: 1.25rem;
+      position: relative;
+      vertical-align: middle;
+      // disabled
+        &.disabled {
+          cursor: $cursor-disabled;
+        }
+      + .form-check-inline {
+        margin-left: (1.25rem - 0.75rem);
+      }
+    }
+
+//
+// form group
+//
+  .form-group {
+    margin-bottom: $form-group-margin-bottom;
+
+    @include media-breakpoint-up(sm) {
+      .form-inline & {
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+//
+// misc
+//
+  .form-control-file,
+  .form-control-range {
+    display: block;
+  }
+
+  .form-control-file {
+    margin-top: $textfield-margin-bottom;
+    margin-bottom: $textfield-margin-bottom;
+  }
+
+  .form-text {
+    display: block;
+    margin-top: $textfield-margin-bottom;
+    .form-control-lg + &,
+    .textfield-lg + & {
+      margin-top: $textfield-margin-bottom-lg;
+    }
+    .form-control-sm + &,
+    .textfield-sm + & {
+      margin-top: $textfield-margin-bottom-sm;
+    }
+  }

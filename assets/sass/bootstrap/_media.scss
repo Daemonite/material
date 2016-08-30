@@ -1,7 +1,16 @@
+.media {
+  margin-bottom: $media-margin-bottom;
+  .media {
+    margin-top: $media-margin-bottom;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 @if $enable-flex {
   .media {
     display: flex;
-    margin-bottom: $spacer-md-y;
   }
   .media-body {
     flex: 1;
@@ -38,16 +47,26 @@
 // alignment
 //
   .media-right {
-    padding-left: $spacer-md-x;
+    padding-left: $media-alignment-padding-x;
   }
 
   .media-left {
-    padding-right: $spacer-md-x;
+    padding-right: $media-alignment-padding-x;
   }
 
 //
 // misc
 //
+  .media-heading {
+    margin-top: 0;
+    margin-bottom: $media-heading-margin-bottom;
+  }
+
+  .media-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
   .media-object {
     display: block;
   }

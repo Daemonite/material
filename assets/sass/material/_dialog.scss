@@ -19,16 +19,15 @@
     vertical-align: middle;
     width: 1px;
   }
-  &.fade {
+  &.fade .modal-dialog {
     transform: scale(0);
     transition: transform $transition-duration $transition-timing-function;
   }
-  &.in {
+  &.in .modal-dialog {
     transform: scale(1);
   }
 }
 
-.dialog-open,
 .modal-open {
   overflow: hidden;
   .dialog,
@@ -41,7 +40,6 @@
 //
 // backdrop
 //
-  .dialog-backdrop,
   .modal-backdrop {
     background-color: $dialog-backdrop-bg;
     opacity: 0;
@@ -66,13 +64,13 @@
   .dialog-dialog,
   .modal-dialog {
     display: inline-block;
-    margin: $spacer-lg-y $spacer-lg-x;
+    margin: $dialog-margin-y $dialog-margin-x;
     max-width: $dialog-width;
     position: relative;
     text-align: left;
     vertical-align: middle;
     white-space: normal;
-    width: calc(100% - #{$spacer-lg-x} * 2);
+    width: calc(100% - #{$dialog-margin-x} * 2);
   }
 
   // size
@@ -109,14 +107,15 @@
 
   .dialog-footer,
   .modal-footer {
-    padding: $spacer-sm-y $spacer-sm-x $spacer-sm-y $spacer-lg-x;
+    padding: $dialog-footer-spacer-y $dialog-footer-spacer-x;
+    padding-left: $dialog-inner-padding;
+    text-align: right;
     @include clearfix;
     .btn {
-      float: right;
-      margin-left: $spacer-sm-x;
+      margin-left: $dialog-footer-spacer-x;
       min-width: $dialog-footer-btn-min-width;
-      padding-right: $spacer-sm-x;
-      padding-left: $spacer-sm-x;
+      padding-right: $dialog-footer-spacer-x;
+      padding-left: $dialog-footer-spacer-x;
     }
   }
 

@@ -1,5 +1,5 @@
-.btn-flat,
-.btn-outline {
+[class*="btn-flat"],
+[class*="btn-outline"] {
   background-color: transparent;
   box-shadow: none;
   // active, focus, hover
@@ -7,56 +7,44 @@
     &.active {
       box-shadow: none;
     }
-  // disabled
-    &:disabled,
-    &.disabled,
-    fieldset[disabled] & {
-      background-color: transparent;
-    }
-  // waves
     &.waves-attach:active {
       background-color: transparent;
+    }
+  // disabled
+    &:disabled,
+    &.disabled {
+      &,
+      &:active {
+        background-color: transparent;
+      }
     }
 }
 
 // colour
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
-    .btn-#{$color}-flat,
-    .btn-#{$color}-outline {
-      color: nth($palettes-color, $i);
-      &::before {
-        background-color: hex-to-rgba(nth($palettes-color, $i), 0.12);
-      }
-      // active, focus, hover
-        &:active,
-        &.active {
-          background-color: hex-to-rgba(nth($palettes-color, $i), 0.4);
-        }
-        &:focus,
-        &:hover,
-        &.focus {
-          color: nth($palettes-color, $i);
-        }
-    }
-  }
-
-// inverse
-  .btn-inverse-flat,
-  .btn-inverse-outline {
-    @extend .btn-inverse;
+  .btn-flat-inverse,
+  .btn-flat-secondary,
+  .btn-outline-inverse,
+  .btn-outline-secondary {
+    color: $btn-color-inverse;
     &::before {
       background-color: $btn-flat-focus-overlay-inverse;
     }
     // active, focus, hover
       &:active,
       &.active {
-        background-color: $btn-flat-bg-inverse-pressed;
+        background-color: $btn-flat-bg-inverse-active;
+        color: $btn-color-inverse;
       }
-    // disabled
-      &:disabled,
-      &.disabled {
-        background-color: transparent;
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .btn-flat-#{$color},
+    .btn-outline-#{$color} {
+      &,
+      &:active {
+        color: nth($palettes-color, $i);
       }
+    }
   }

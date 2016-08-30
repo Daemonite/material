@@ -1,7 +1,4 @@
 .nav {
-  font-size: $nav-font-size;
-  font-weight: $font-weight-regular;
-  line-height: $nav-line-height;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
@@ -11,15 +8,12 @@
   display: inline-block;
   position: relative;
   // active, focus, hover
-    &:focus,
-    &:hover {
+    @include focus-hover {
       text-decoration: none;
     }
   // disabled
     &.disabled {
-      color: $nav-link-color-disabled;
-      &:focus,
-      &:hover {
+      @include plain-focus-hover {
         color: $nav-link-color-disabled;
         cursor: $cursor-disabled;
       }
@@ -35,50 +29,41 @@
     }
     .nav-item + .nav-item,
     .nav-link + .nav-link {
-      margin-left: $spacer-md-x;
+      margin-left: $nav-inline-item-spacer;
     }
   }
 
 //
-// pill
+// pills
 //
   .nav-pills {
     @include clearfix;
     .nav-item {
       float: left;
       + .nav-item {
-        margin-left: 1px;
+        margin-left: $nav-item-margin;
       }
     }
     .nav-link {
       border-radius: $border-radius;
+      color: $nav-link-color;
       display: block;
-      padding: (($nav-height - $nav-line-height) / 2) $spacer-md-x;
-      &::before {
-        background-color: $nav-link-bg-active;
-        border-radius: $border-radius;
-        content: "";
-        display: block;
-        height: 100%;
-        opacity: 0;
-        position: absolute;
-          top: 0;
-          left: 0;
-        transition: opacity $transition-duration $transition-timing-function;
-        width: 100%;
-      }
+      padding: $nav-link-padding;
       // active, focus, hover
-        &.active {
+        &:active,
+        &:focus {
           color: $nav-link-color-active;
-          cursor: default;
-          &::before {
-            opacity: 1;
-          }
         }
       // disabled
         &.disabled {
           color: $nav-link-color-disabled;
         }
+    }
+    .nav-link.active,
+    .nav-item.open .nav-link {
+      background-color: $nav-link-bg-active;
+      color: $nav-link-color-active;
+      cursor: default;
     }
   }
 
@@ -87,12 +72,12 @@
       display: block;
       float: none;
       + .nav-item {
-        margin-top: 1px;
+        margin-top: $nav-item-margin;
         margin-left: 0;
       }
     }
   }
 
 //
-// tab: /assets/sass/material/_tab.scss
+// tabs: /assets/sass/material/_tab.scss
 //

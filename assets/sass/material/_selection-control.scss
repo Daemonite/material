@@ -1,11 +1,50 @@
+//
+// todo: .custome-file and .custon-select
+//
+
 .custom-control {
   cursor: pointer;
   display: inline;
-  padding-left: ($c-input-size / $font-size-root + $spacer-sm-x);
+  padding-left: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
   position: relative;
   + .custom-control {
-    margin-left: $spacer-md-x;
+    margin-left: ($selection-control-spacer-x * 2);
   }
+}
+
+.custom-control-indicator {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: $selection-control-indicator-size;
+  display: block;
+  height: $selection-control-indicator-size;
+  line-height: $selection-control-indicator-size;
+  position: absolute;
+    top: (($font-size-base - $selection-control-indicator-size / $font-size-root) / 2);
+    left: 0;
+  text-align: center;
+  transition: background-image $transition-duration $transition-timing-function;
+  user-select: none;
+  width: $selection-control-indicator-size;
+  &::before {
+    background-color: $selection-control-radial-bg;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: ($selection-control-indicator-size * 2);
+    margin-top: ($selection-control-indicator-size / -2);
+    margin-left: ($selection-control-indicator-size / -2);
+    opacity: 0;
+    position: absolute;
+      top: 0;
+      left: 0;
+    transition: all $transition-duration $transition-timing-function;
+    width: ($selection-control-indicator-size * 2);
+  }
+  // active, focus, hover
+    &:active::before {
+      opacity: 1;
+    }
 }
 
 .custom-control-input {
@@ -13,31 +52,24 @@
   position: absolute;
   z-index: -1;
   // active, focus, hover
-    &.focus ~ .custom-control-indicator {
-      &::before {
-        opacity: 1;
-        transform: scale(1);
-      }
+    &:focus ~ .custom-control-indicator::before {
+      opacity: 1;
     }
   // checked
     &:checked ~ .custom-control-indicator {
-      &::after {
-        opacity: 1;
-      }
       &::before {
-        background-color: hex-to-rgba($c-input-theme-color, 0.12);
+        background-color: hex-to-rgba($selection-control-color-active, 0.12);
       }
     }
   // disabled
     &:disabled ~ {
       .custom-control-indicator,
       .custom-control-description {
-        color: $c-input-color-disabled;
+        color: $selection-control-color-disabled;
         cursor: $cursor-disabled;
       }
-      .custom-control-indicator {
-        border-color: $c-input-color-disabled;
-        color: $c-input-color-disabled;
+      .custom-control-indicator{
+        pointer-events: none;
         &::before {
           display: none;
         }
@@ -45,78 +77,22 @@
     }
 }
 
-// indicator
-  .custom-control-indicator {
-    background-clip: content-box;
-    border-style: solid;
-    border-width: $c-input-border-width;
-    color: $c-input-theme-color;
-    display: block;
-    height: $c-input-size;
-    line-height: $c-input-size;
-    position: absolute;
-      top: 0;
-      left: 0;
-    text-align: center;
-    transition: all $transition-duration $transition-timing-function;
-    user-select: none;
-    &::after {
-      direction: ltr;
-      display: block;
-      font-family: 'Material Icons';
-      font-feature-settings: 'liga';
-      font-size: ($c-input-size * 1.25);
-      font-style: normal;
-      font-weight: normal;
-      height: ($c-input-size * 1.25);
-      letter-spacing: normal;
-      line-height: 1;
-      position: absolute;
-        top: ($c-input-size / -4);
-        left: ($c-input-size / -4);
-      text-rendering: optimizeLegibility;
-      text-transform: none;
-      transition-duration: $transition-duration;
-      transition-timing-function: $transition-timing-function;
-      vertical-align: top;
-      width: ($c-input-size * 1.25);
-      white-space: nowrap;
-      word-wrap: normal;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    &::before {
-      background-color: $c-input-radial-bg;
-      border-radius: 50%;
-      content: "";
-      display: block;
-      height: ($c-input-size * 3);
-      margin-top: ($c-input-size * -1);
-      margin-left: ($c-input-size * -1);
-      opacity: 0;
-      position: absolute;
-        top: ($c-input-border-width * -1);
-        left: ($c-input-border-width * -1);
-      transform: scale(0);
-      width: ($c-input-size * 3);
-      transition: opacity $transition-duration $transition-timing-function;
-    }
-    // active, focus, hover
-      &:active::before {
-        animation: c-indicator-active $transition-duration $transition-timing-function;
-        transform: scale(1);
+// stacked layout
+  .custom-controls-stacked {
+    // .custom-control-indicator {
+    //   // position
+    //     top: (($font-size-base * $line-height-base - ($selection-control-indicator-size) / $font-size-root) / 2);
+    // }
+    .custom-control {
+      &::after {
+        content: "";
+        display: block;
+        margin-bottom: $selection-control-spacer-y;
       }
-  }
-
-  @keyframes c-indicator-active {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
+      + .custom-control {
+        margin-top: $spacer-xs-y;
+        margin-left: 0;
+      }
     }
   }
 
@@ -125,37 +101,25 @@
 //
   .custom-checkbox {
     .custom-control-indicator {
-      border-color: $c-input-border-color;
-      border-radius: $border-radius;
-      width: $c-input-size;
-      &::after {
-        content: "check_box";
-        opacity: 0;
-        transition-property: opacity;
-      }
+      background-image: $selection-control-checkbox-bg;
     }
     .custom-control-input {
       // checked
         &:checked ~ .custom-control-indicator {
-          border-color: $c-input-theme-color;
-          &::after {
-            opacity: 1;
-          }
+          background-image: $selection-control-checkbox-bg-checked;
         }
       // disabled
-        &:checked:disabled ~ .custom-control-indicator {
-          border-color: transparent;
+        &:disabled {
+          ~ .custom-control-indicator {
+            background-image: $selection-control-checkbox-bg-disabled;
+          }
+          &:checked ~ .custom-control-indicator {
+            background-image: $selection-control-checkbox-bg-disabled-checked;
+          }
         }
       // indeterminate
         &:indeterminate ~ .custom-control-indicator {
-          border-color: $c-input-theme-color;
-          &::after {
-            content: "indeterminate_check_box";
-            opacity: 1;
-          }
-          &::before {
-            background-color: $c-input-theme-color;
-          }
+          background-image: $selection-control-checkbox-bg-indeterminate;
         }
     }
   }
@@ -165,45 +129,22 @@
 //
   .custom-radio {
     .custom-control-indicator {
-      border-color: $c-input-border-color;
-      border-radius: 50%;
-      width: $c-input-size;
-      &::after {
-        content: "radio_button_checked";
-        opacity: 0;
-        transition-property: opacity;
-      }
+      background-image: $selection-control-radio-bg;
     }
     .custom-control-input {
       // checked
         &:checked ~ .custom-control-indicator {
-          border-color: $c-input-theme-color;
-          &::after {
-            opacity: 1;
-          }
+          background-image: $selection-control-radio-bg-checked;
         }
       // disabled
-        &:checked:disabled ~ .custom-control-indicator {
-          border-color: transparent;
+        &:disabled {
+          ~ .custom-control-indicator {
+            background-image: $selection-control-radio-bg-disabled;
+          }
+          &:checked ~ .custom-control-indicator {
+            background-image: $selection-control-radio-bg-disabled-checked;
+          }
         }
-    }
-  }
-
-//
-// stacked layout
-//
-  .custom-controls-stacked {
-    .custom-control-indicator {
-      // position
-        top: (($font-size-default * $line-height-default - ($c-input-size) / $font-size-root) / 2);
-    }
-
-    .custom-control {
-      display: block;
-      + .custom-control {
-        margin-top: $spacer-xs-y;
-        margin-left: 0;
-      }
     }
   }
 
@@ -211,39 +152,49 @@
 // switch
 //
   .custom-switch {
-    padding-left: ($c-input-track-width / $font-size-root + $spacer-sm-x);
+    padding-left: ($selection-control-track-width / $font-size-root + $selection-control-spacer-x);
     .custom-control-indicator {
-      background-color: $c-input-track-bg;
-      border-color: transparent;
-      border-radius: (($c-input-size - $c-input-border-width) / 2);
-      width: $c-input-track-width;
+      background-clip: content-box;
+      background-color: $selection-control-track-bg;
+      border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
+      border-radius: $selection-control-track-height;
+      transition: background-color $transition-duration $transition-timing-function;
+      width: $selection-control-track-width;
+      &::after,
+      &::before {
+        // position
+          top: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+          left: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+      }
       &::after {
-        background-color: $c-input-thumb-bg;
+        background-color: $selection-control-thumb-bg;
         border-radius: 50%;
-        box-shadow: $c-input-thumb-shadow;
+        box-shadow: $selection-control-thumb-shadow;
         content: "";
-        transition-property: background-color transform;
+        display: block;
+        height: $selection-control-indicator-size;
+        position: absolute;
+        transition: all $transition-duration $transition-timing-function;
+        width: $selection-control-indicator-size;
       }
     }
     .custom-control-input {
       // checked
         &:checked ~ .custom-control-indicator {
-          background-color: hex-to-rgba($c-input-theme-color, 0.5);
-          border-color: transparent;
+          background-color: hex-to-rgba($selection-control-color-active, 0.5);
           &::after,
           &::before {
-            transform: translateX($c-input-size);
+            transform: translateX($selection-control-track-width - $selection-control-indicator-size);
           }
           &::after {
-            background-color: $c-input-theme-color;
+            background-color: $selection-control-color-active;
           }
         }
       // disabled
         &:disabled ~ .custom-control-indicator {
-          background-color: $c-input-track-bg-disabled;
-          border-color: transparent;
+          background-color: $selection-control-track-bg-disabled;
           &::after {
-            background-color: $c-input-thumb-bg-disabled;
+            background-color: $selection-control-thumb-bg-disabled;
           }
         }
     }

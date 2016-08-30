@@ -9,80 +9,15 @@
 }
 
 .picker__box {
-  background-color: $picker-bg;
+  background-color: $picker-content-bg;
   border-radius: 0 0 $border-radius $border-radius;
   overflow: hidden;
 }
 
-.picker__date-display {
-  background-color: $picker-header-bg;
-  border-radius: $border-radius $border-radius 0 0;
-  color: $picker-header-color;
-  padding: $spacer-md-y $spacer-lg-x;
-  text-align: left;
-}
-
-.picker__date-display-bottom {
-  @include text-truncate;
-  @include typography-display-1;
-}
-
-.picker__date-display-top {
-  margin-bottom: $spacer-xs-y;
-}
-
-.picker__day {
-  border-radius: 50%;
-  height: $picker-cell-size;
-  line-height: $picker-cell-size;
-  margin: auto;
-  vertical-align: middle;
-  width: $picker-cell-size;
-  &:focus,
-  &:hover {
-    cursor: pointer;
-  }
-  &.picker__day--selected {
-    background-color: $picker-selected-bg;
-    color: $picker-selected-color;
-  }
-}
-
-.picker__day--disabled {
-  color: inherit;
-  cursor: $cursor-disabled;
-  opacity: 0.5;
-}
-
-.picker__day-display {
-  margin-right: $spacer-sm-x;
-}
-
-.picker__day--outfocus {
-  display: none;
-}
-
-.picker__day--today {
-  color: $picker-today-color;
-  font-weight: $font-weight-medium;
-}
-
-.picker__footer {
-  padding: $spacer-sm-y $spacer-sm-x;
-  text-align: right;
-  button {
-    margin-left: $spacer-sm-x;
-    min-width: 0;
-    &:first-child {
-      margin-left: 0;
-    }
-  }
-}
-
 .picker__frame {
   display: inline-block;
-  margin: $spacer-lg-y auto;
-  max-width: ($picker-cell-size * 7 + $spacer-sm-x * 2);
+  margin: $picker-margin-y $picker-margin-x;
+  max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
   position: relative;
   transform: scale(0, 0);
   transition: transform $transition-duration $transition-timing-function;
@@ -90,14 +25,6 @@
   .picker--opened & {
     transform: scale(1, 1);
   }
-}
-
-.picker__header {
-  height: $picker-cell-size;
-  line-height: $picker-cell-size;
-  margin: $spacer-xs-y $spacer-sm-x;
-  position: relative;
-  vertical-align: middle;
 }
 
 .picker__holder {
@@ -111,7 +38,7 @@
     bottom: 0;
     left: 0;
   text-align: center;
-  transform: translate3d(0, 100%, 0);
+  transform: translateY(100%);
   transition: opacity $transition-duration-sm $transition-duration-sm $transition-timing-function, transform 0s $transition-duration;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
@@ -126,7 +53,7 @@
     opacity: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
     transition: opacity $transition-duration $transition-timing-function, transform 0s;
     &::before {
       opacity: 1;
@@ -134,100 +61,174 @@
   }
 }
 
-.picker__input {
-  border-bottom-style: solid !important;
-  color: inherit !important;
-  cursor: text !important;
-  &.picker__input--active {
-    border-bottom-color: $input-border-color-focus !important;
-  }
-}
-
-.picker__month,
-.picker__year {
-  display: inline;
-  margin-left: $spacer-md-x;
-  &:first-child {
-    margin-left: 0;
-  }
-}
-
-.picker__nav--next,
-.picker__nav--prev {
-  cursor: pointer;
-  height: $picker-cell-size;
-  line-height: $picker-cell-size;
-  margin-top: ($picker-cell-size / -2);
-  position: absolute;
-    top: 50%;
-  width: $picker-cell-size;
-}
-
-.picker__nav--next {
-  // position
-    right: 0;
-  &:before {
-    content: "keyboard_arrow_right";
-  }
-}
-
-.picker__nav--prev {
-  // position
-    left: 0;
-  &:before {
-    content: "keyboard_arrow_left";
-  }
-}
-
-.picker__select--month,
-.picker__select--year {
-  @extend .form-control;
-  @extend .form-control-sm;
-  display: inline-block !important;
-  margin: 0 $spacer-sm-x !important;
-  width: auto !important;
-}
-
-.picker__table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin: 0 $spacer-sm-x;
-  table-layout: fixed;
-}
-
-.picker__table td,
-.picker__table th {
-  border: 0;
-  font-size: $font-size-caption;
-  font-weight: $font-weight-regular;
-  padding: 0;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.picker__weekday {
-  color: $picker-weekday-color;
-  height: $picker-cell-size;
-  vertical-align: middle;
-  width: $picker-cell-size;
-}
-
-.picker__weekday-display {
-  margin-right: $spacer-xs-x;
-  &:after {
-    content: ",";
-  }
-}
+// .picker__input {
+//   border-bottom-style: solid !important;
+//   color: inherit !important;
+//   cursor: text !important;
+//   &.picker__input--active {
+//     border-bottom-color: $input-border-color-focus !important;
+//   }
+// }
 
 .picker__wrap {
   border-radius: $border-radius;
-  z-index: map-get($picker-elevation-shadow, shadow);
+  box-shadow: map-get($picker-elevation-shadow, shadow);
   outline: 0;
   position: relative;
   vertical-align: middle;
-  z-index: 1;
 }
 
-.picker__year-display {
-  opacity: 0.5;
-}
+//
+// footer
+//
+  .picker__footer {
+    padding: $picker-inner-spacer-y $picker-inner-spacer-x;
+    text-align: right;
+    button {
+      margin-left: $picker-inner-spacer-x;
+      min-width: 0;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+//
+// header
+//
+  .picker__header {
+    height: $picker-cell-size;
+    line-height: $picker-cell-size;
+    margin-right: $picker-inner-spacer-x;
+    margin-left: $picker-inner-spacer-x;
+    position: relative;
+    vertical-align: middle;
+  } 
+
+  .picker__month,
+  .picker__year {
+    display: inline;
+    margin-left: $picker-inner-spacer-x;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .picker__nav--next,
+  .picker__nav--prev {
+    cursor: pointer;
+    height: $picker-cell-size;
+    margin-top: ($picker-cell-size / -2);
+    position: absolute;
+      top: 50%;
+    width: $picker-cell-size;
+    &,
+    &.material-icons {
+      line-height: $picker-cell-size;
+    }
+  }
+
+  .picker__nav--next {
+    // position
+      right: 0;
+    &:before {
+      content: $picker-nav-next-icon;
+    }
+  }
+
+  .picker__nav--prev {
+    // position
+      left: 0;
+    &:before {
+      content: $picker-nav-prev-icon;
+    }
+  }
+
+//
+// material date display
+//
+  .picker__date-display {
+    background-color: $picker-header-bg;
+    border-radius: $border-radius $border-radius 0 0;
+    color: $picker-header-color;
+    padding: $picker-header-padding;
+    text-align: left;
+  }
+
+  .picker__date-display-bottom {
+    @include text-truncate;
+    @include typography-display-1;
+  }
+
+  .picker__day-display {
+    margin-right: $picker-inner-spacer-x;
+  }
+
+  .picker__weekday-display {
+    margin-right: $picker-inner-spacer-x;
+    &:after {
+      content: ",";
+    }
+  }
+
+//
+// table
+//
+  .picker__day {
+    border-radius: 50%;
+    cursor: pointer;
+    height: $picker-cell-size;
+    line-height: $picker-cell-size;
+    margin: auto;
+    vertical-align: middle;
+    width: $picker-cell-size;
+    &.picker__day--selected {
+      background-color: $picker-day-bg-selected;
+      color: $picker-day-color-selected;
+    }
+  }
+
+  .picker__day--disabled {
+    color: $picker-day-color-disabled;
+    cursor: $cursor-disabled;
+  }
+
+  .picker__day--outfocus {
+    display: none;
+  }
+
+  .picker__day--today {
+    color: $picker-day-color-today;
+    font-weight: bolder;
+  }
+
+  .picker__table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 $picker-inner-spacer-x;
+    table-layout: fixed;
+    td,
+    th {
+      border: 0;
+      font-weight: normal;
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
+  .picker__weekday {
+    color: $picker-weekday-color;
+    height: $picker-cell-size;
+    vertical-align: middle;
+    width: $picker-cell-size;
+  }
+
+// .picker__select--month,
+// .picker__select--year {
+//   // @extend .form-control;
+//   // @extend .form-control-sm;
+//   display: inline-block !important;
+//   margin: 0 $spacer-sm-x !important;
+//   width: auto !important;
+// }

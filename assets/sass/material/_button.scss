@@ -13,7 +13,7 @@
   margin: 0;
   max-width: 100%;
   min-width: $btn-min-width;
-  padding: (($btn-height - $btn-font-size) / 2) $spacer-md-x;
+  padding: $btn-padding-y $btn-padding-x;
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -39,14 +39,18 @@
   // active, focus, hover
     &:active,
     &.active {
-      background-color: $btn-bg-pressed;
-      box-shadow: map-get($btn-elevation-shadow-pressed, shadow);
-      z-index: map-get($btn-elevation-shadow-pressed, elevation);
+      background-color: $btn-bg-active;
+      box-shadow: map-get($btn-elevation-shadow-active, shadow);
+      color: $btn-color;
+      z-index: map-get($btn-elevation-shadow-active, elevation);
+      &::before {
+        opacity: 0;
+      }
     }
-    &:focus,
-    &:hover,
+    @include focus-hover {
+      text-decoration: none;
+    }
     &.focus {
-      color: $btn-color-pressed;
       text-decoration: none;
     }
     &:focus,
@@ -58,6 +62,12 @@
     &:focus {
       outline: 0;
     }
+    &.waves-attach:active {
+      background-color: $btn-bg;
+      &::before {
+        transition-delay: $transition-duration;
+      }
+    }
   // disabled
     &:disabled,
     &.disabled {
@@ -67,15 +77,19 @@
       cursor: $cursor-disabled;
       opacity: 1;
       pointer-events: none;
+      &:active {
+        background-color: $btn-bg-disabled;
+        color: $btn-color-disabled;
+      }
       &::before,
       .waves-ripple {
         display: none;
       }
     }
   // open
-    .dropdown.open > &.dropdown-toggle,
-    .dropup.open > &.dropdown-toggle {
-      &::before {
+    .dropdown.open > &,
+    .dropup.open > & {
+      &.dropdown-toggle::before {
         opacity: 1;
       }
     }
@@ -91,15 +105,33 @@
         border-radius: 0 0 $border-radius $border-radius;
       }
     }
-  // waves
-    &.waves-attach:active {
-      &::before {
-        transition-delay: $waves-transition-duration;
-      }
-    }
 }
 
 // colour
+  .btn-inverse,
+  .btn-secondary {
+    background-color: $btn-bg-inverse;
+    color: $btn-color-inverse;
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: $btn-bg-inverse-active;
+        color: $btn-color-inverse;
+      }
+      &.waves-attach:active {
+        background-color: $btn-bg-inverse;
+      }
+    // disabled
+      &:disabled,
+      &.disabled {
+        &,
+        &:active {
+          background-color: $btn-bg-inverse-disabled;
+          color: $btn-color-inverse-disabled;
+        }
+      }
+  }
+
   @each $color in $palettes {
     $i: index($palettes, $color);
 
@@ -110,48 +142,32 @@
         &:active,
         &.active {
           background-color: nth($palettes-color-dark, $i);
-        }
-        &:focus,
-        &:hover,
-        &.focus {
           color: nth($palettes-text-color, $i);
         }
-    }
-  }
-
-// inverse
-  .btn-inverse {
-    background-color: $btn-bg-inverse;
-    color: $btn-color-inverse;
-    // active, focus, hover
-      &:active,
-      &.active {
-        background-color: $btn-bg-inverse-pressed;
-      }
-      &:focus,
-      &:hover,
-      &.focus {
-        color: $btn-color-inverse-pressed;
-      }
-    // disabled
+        &.waves-attach:active {
+          background-color: nth($palettes-color, $i);
+        }
+      // disabled
       &:disabled,
       &.disabled {
-        background-color: $btn-bg-inverse-disabled;
-        color: $btn-color-inverse-disabled;
+        &,
+        &:active {
+          background-color: $btn-bg-disabled;
+          color: $btn-color-disabled;
+        }
       }
+    }
   }
 
 // size
   .btn-lg {
     font-size: $btn-font-size-lg;
-    padding-top: (($btn-height-lg - $btn-font-size-lg) / 2);
-    padding-bottom: (($btn-height-lg - $btn-font-size-lg) / 2)
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
   }
 
   .btn-sm {
     font-size: $btn-font-size-sm;
-    padding-top: (($btn-height-sm - $btn-font-size-sm) / 2);
-    padding-bottom: (($btn-height-sm - $btn-font-size-sm) / 2)
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
   }
 
 //
@@ -161,7 +177,15 @@
     display: block;
     width: 100%;
     + .btn-block {
-      margin-top: $spacer-xs-y;
+      margin-top: $btn-block-spacer;
+    }
+  }
+
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    &.btn-block {
+      width: 100%;
     }
   }
 
@@ -184,11 +208,9 @@
       &.active {
         background-color: transparent;
         box-shadow: none;
-      }
-      &:focus,
-      &:hover,
-      &.focus {
         color: $link-color-hover;
+      }
+      @include focus-hover {
         text-decoration: $link-decoration-hover;
       }
       &:focus,
@@ -198,7 +220,16 @@
     // disabled
       &:disabled,
       &.disabled {
-        background-color: transparent;
+        &,
+        &:active {
+          background-color: transparent;
+        }
+        @include focus-hover {
+          text-decoration: none;
+        }
+        &:focus {
+          outline: 0;
+        }
       }
   }
 

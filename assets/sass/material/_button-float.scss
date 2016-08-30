@@ -14,8 +14,16 @@
   }
   // active, focus, hover
     &:active {
-      box-shadow: map-get($btn-float-elevation-shadow-pressed, shadow);
-      z-index: map-get($btn-float-elevation-shadow-pressed, elevation);
+      box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
+      z-index: map-get($btn-float-elevation-shadow-active, elevation);
+    }
+  // disabled
+    &:disabled,
+    &.disabled {
+      &:active {
+        box-shadow: none;
+        z-index: map-get($btn-float-elevation-shadow, elevation);
+      }
     }
 }
 

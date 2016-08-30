@@ -1,51 +1,38 @@
 .card {
   background-color: $card-bg;
+  border: 0;
   border-radius: $border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: block;
-  margin-bottom: $spacer-md-y;
+  margin-bottom: $card-margin-bottom;
+  position: relative;
   z-index: map-get($card-elevation-shadow, elevation);
 }
 
-a.card {
+.card[href] {
   // active, focus, hover
     &:active {
-      box-shadow: map-get($card-elevation-shadow-pressed, shadow);
-      z-index: map-get($card-elevation-shadow-pressed, elevation);
+      box-shadow: map-get($card-elevation-shadow-active, shadow);
+      z-index: map-get($card-elevation-shadow-active, elevation);
     }
-    &:focus,
-    &:hover {
+    @include focus-hover {
       outline: 0;
       text-decoration: none;
     }
 }
 
-// block
-  .card-block {
-    padding: $spacer-md-y $spacer-md-x;
-    > :last-child {
-      margin-bottom: 0;
-    }
+// colour
+  .card-inverse {
+    background-color: $brand-color-accent;
+    color: $brand-text-color-accent;
   }
 
-// colour
   @each $color in $palettes {
     $i: index($palettes, $color);
 
     .card-#{$color} {
       background-color: nth($palettes-color, $i);
-    }
-  }
-
-// inverse
-  .card-inverse {
-    color: $white-primary;
-    .card-actions-bordered,
-    .card-footer-bordered {
-      border-top-color: $border-color-inverse;
-    }
-    .card-header-bordered {
-      border-bottom-color: $border-color-inverse;
+      color:  nth($palettes-text-color, $i);
     }
   }
 
@@ -53,23 +40,32 @@ a.card {
 // action
 //
   .card-actions {
-    padding: $spacer-sm-y $spacer-sm-x;
+    padding: $card-action-spacer-y $card-action-spacer-x;
     @include clearfix;
+    &:first-child {
+      border-radius: $border-radius $border-radius 0 0;
+    }
+    &:last-child {
+      border-radius: 0 0 $border-radius $border-radius;
+    }
     .btn {
       min-width: 0;
-      padding-right: $spacer-sm-x;
-      padding-left: $spacer-sm-x;
+      padding-right: $card-action-spacer-x;
+      padding-left: $card-action-spacer-x;
+      + .btn {
+        margin-left: $card-action-spacer-x;
+      }
     }
   }
 
   .card-actions-bordered {
-    border-top: $border-width solid $border-color;
-  }
-
-  .card-actions-horizontal {
-    display: flex;
-    .card-link + .card-link {
-      margin-left: $spacer-sm-x;
+    border-top: $card-border-width solid $card-border-color;
+    border-bottom: $card-border-width solid $card-border-color;
+    &:first-child {
+      border-top: 0;
+    }
+    &:last-child {
+      border-bottom: 0;
     }
   }
 
@@ -77,8 +73,25 @@ a.card {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
+    .btn + .btn,
     .card-link + .card-link {
-      margin-top: $spacer-xs-y;
+      margin-top: $card-action-spacer-y;
+      margin-left: 0;
+    }
+  }
+
+  .card-link + .card-link {
+    margin-left: $card-action-spacer-x;
+  }
+
+//
+// block
+//
+  .card-block {
+    padding: $card-spacer-inner-y $card-spacer-inner-x;
+    @include clearfix;
+    > :last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -86,31 +99,28 @@ a.card {
 // footer
 //
   .card-footer {
-    padding: $spacer-md-y $spacer-md-x;
+    border-top: $card-border-width solid $card-border-color;
+    padding: $card-spacer-inner-y $card-spacer-inner-x;
     &:last-child {
       border-radius: 0 0 $border-radius $border-radius;
     }
-  }
-
-  .card-footer-bordered {
-    border-top: $border-width solid $border-color;
   }
 
 //
 // header
 //
   .card-header {
-    padding: $spacer-md-y $spacer-md-x;
+    border-bottom: $card-border-width solid $card-border-color;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: $card-spacer-inner-y $card-spacer-inner-x;
+    @include clearfix;
     &:first-child {
       border-radius: $border-radius $border-radius 0 0;
     }
     > :last-child {
       margin-bottom: 0;
     }
-  }
-
-  .card-header-bordered {
-    border-bottom: $border-width solid $border-color;
   }
 
 //
@@ -132,7 +142,7 @@ a.card {
 // image overlay
 //
   .card-img-overlay {
-    padding: $spacer-lg-y $spacer-md-x $spacer-md-y;
+    padding: $card-spacer-inner-y $card-spacer-inner-x;
     position: absolute;
       top: 0;
       right: 0;
@@ -140,11 +150,92 @@ a.card {
       left: 0;
   }
 
+  .card-img-overlay-body {
+    display: block;
+  }
+
+  .card-img-overlay-bottom {
+    @if $enable-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    } @else {
+      white-space: nowrap;
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 1px;
+      }
+      .card-img-overlay-body {
+        display: inline-block;
+        white-space: normal;
+        width: 100%;
+      }
+    }
+  }
+
+//
+// set
+//
+  .card-columns {
+    margin-bottom: $card-margin-bottom;
+    .card {
+      margin-bottom: $card-spacer-outer-y;
+    }
+    @include media-breakpoint-up(sm) {
+      column-count: 2;
+      column-gap: $card-spacer-outer-x;
+      margin-bottom: ($card-margin-bottom - $card-spacer-outer-y);
+      .card {
+        display: inline-block;
+        width: 100%;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      column-count: 3;
+    }
+  }
+
+  .card-deck,
+  .card-group {
+    margin-bottom: $card-margin-bottom;
+    .card {
+      margin-bottom: $card-spacer-outer-y;
+    }
+  }
+
+  @if $enable-flex {
+    @include media-breakpoint-up(sm) {
+    }
+  } @else {
+    @include media-breakpoint-up(sm) {
+      .card-deck,
+      .card-group {
+        border-spacing: $card-spacer-outer-x 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        .card {
+          display: table-cell;
+          margin-bottom: 0;
+          vertical-align: top;
+        }
+      }
+
+      .card-deck-wrapper,
+      .card-group-wrapper {
+        margin-right: ($card-spacer-outer-x * -1);
+        margin-left: ($card-spacer-outer-x * -1);
+      }
+    }
+  }
+
 //
 // text and title
 //
   .card-subtitle {
-    margin-top: ($spacer-md-y * -1);
+    margin-top: ($card-spacer-inner-y / -2);
     margin-bottom: 0;
     @include typography-body-1;
   }
@@ -154,6 +245,7 @@ a.card {
   }
 
   .card-title {
-    margin-bottom: $spacer-md-y;
+    margin-top: $card-title-additonal-margin;
+    margin-bottom: $card-spacer-inner-y;
     @include typography-headline;
   }

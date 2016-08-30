@@ -1,66 +1,70 @@
-.form-control {
+.custom-select,
+.form-control,
+.textfield {
+  background-clip: padding-box;
   background-color: transparent;
   background-image: none;
   border: 0;
-  border-bottom: $border-width solid $border-color;
+  border-bottom: $textfield-border-width solid $textfield-border-color;
   border-radius: 0;
   box-shadow: none;
   color: inherit;
   display: block;
   font-weight: $font-weight-regular;
-  transition: border-color $transition-duration $transition-timing-function;
+  transition: border-bottom-color $transition-duration $transition-timing-function;
   width: 100%;
-  @include form-control-size($border-width, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
+  @include form-control-size($border-width, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
   &::-ms-expand {
     background-color: transparent;
     border: 0;
   }
   &::placeholder {
-    color: $input-hint-color;
+    color: $textfield-hint-color;
     opacity: 1;
   }
   // active, focus, hover
     &:focus {
-      border-bottom-color: $input-border-color-focus;
-      border-bottom-width: ($border-width + 1);
+      border-bottom-color: $textfield-border-color-focus;
+      border-bottom-width: ($textfield-border-width + 1);
       outline: 0;
     }
   // disbaled
     &:disabled,
-    &[readonly],
-    &[readonly]:focus {
-      border-color: $border-color;
-      border-style: dotted;
-    }
-    &:disabled,
     &[readonly] {
-      color: $input-color-disabled;
+      border-bottom-style: dotted;
+      color: $textfield-color-disabled;
       opacity: 1;
     }
     &:disabled {
       cursor: $cursor-disabled;
     }
-    &[readonly]:focus {
-      border-bottom-width: $border-width;
-      padding-bottom: ($input-height - $input-padding-top - $input-line-height - $border-width / $font-size-root);
+
+  @include media-breakpoint-up(sm) {
+    .form-inline & {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
     }
+  }
 }
 
-select.form-control {
- -webkit-appearance: none;
-    -moz-appearance: none;
- @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-   background-image: url($caret-bg);
-   background-position: 100% ($input-padding-top + ($input-line-height - 0.75) / 2);
-   background-repeat: no-repeat;
-   background-size: 12px 12px;
-   padding-right: ($spacer-xs-x + 0.75);
-   &[multiple],
-   &[size] {
-     background-image: none;
-     padding-right: 0;
-   }
- }
+.custom-select,
+select.form-control,
+select.textfield {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+  @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    background-image: url($caret-bg);
+    background-position: 100% ($textfield-padding-top + ($textfield-line-height - $material-icon-size / $font-size-root) / 2);
+    background-repeat: no-repeat;
+    background-size: $material-icon-size;
+    padding-right: ($spacer-xs-x + $material-icon-size / $font-size-root);
+    &[multiple],
+    &[size] {
+      background-image: none;
+      padding-right: 0;
+    }
+  }
 }
 
 // colour
@@ -68,136 +72,42 @@ select.form-control {
     $i: index($palettes, $color);
 
     .form-control-#{$color},
-    .form-control-#{$color}:focus {
-      border-bottom-color: nth($palettes-color, $i);
+    .textfield-#{$color} {
+      &,
+      &:focus {
+        border-bottom-color: nth($palettes-color, $i);
+      }
     }
   }
 
 // size
-  .form-control-lg {
-    @include form-control-size($border-width, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
+  .custom-select-lg,
+  .form-control-lg,
+  .textfield-lg {
+    @include form-control-size($border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
   }
 
-  select.form-control-lg {
+  .custom-select-lg,
+  select.form-control-lg,
+  select.textfield-lg {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-      background-position: 100% ($input-padding-top-lg + ($input-line-height-lg - 0.75) / 2);
+      background-position: 100% ($textfield-padding-top-lg + ($textfield-line-height-lg - $material-icon-size / $font-size-root) / 2);
     }
   }
 
-  .form-control-sm {
-    @include form-control-size($border-width, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
+  .custom-select-sm,
+  .form-control-sm,
+  .textfield-sm {
+    @include form-control-size($border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
   }
 
-  select.form-control-sm {
+  .custom-select-sm,
+  select.form-control-sm,
+  select.textfield-sm {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-      background-position: 100% ($input-padding-top-sm + ($input-line-height-sm - 0.75) / 2);
+      background-position: 100% ($textfield-padding-top-sm + ($textfield-line-height-sm - $material-icon-size / $font-size-root) / 2);
     }
   }
-
-//
-// checkbox and radio button
-//
-  .checkbox,
-  .radio {
-    display: block;
-    margin-bottom: $spacer-sm-y;
-    position: relative;
-    label {
-      cursor: pointer;
-      font-weight: normal;
-      margin-bottom: 0;
-      padding-left: 1.25rem;
-      // input:only-child {
-      //   position: static;
-      // }
-    }
-  }
-
-  label.checkbox,
-  label.radio {
-    cursor: pointer;
-    font-weight: normal;
-    padding-left: 1.25rem;
-  }
-
-  .checkbox + .checkbox,
-  .radio + .radio {
-    margin-top: ($spacer-sm-y * -1);
-  }
-
-  .checkbox-inline,
-  .radio-inline {
-    display: inline-block;
-    margin-bottom: 0;
-    position: relative;
-    vertical-align: middle;
-    label {
-      cursor: pointer;
-      font-weight: normal;
-      margin-bottom: 0;
-      padding-left: 1.25rem;
-    }
-  }
-
-  label.checkbox-inline,
-  label.radio-inline {
-    cursor: pointer;
-    font-weight: normal;
-    padding-left: 1.25rem;
-  }
-
-  .checkbox-inline + .checkbox-inline,
-  .radio-inline + .radio-inline {
-    margin-top: 0;
-    margin-left: $spacer-sm-x;
-  }
-
-  // disabled
-    input[type="checkbox"],
-    input[type="radio"] {
-      &:disabled,
-      &.disabled {
-        cursor: $cursor-disabled;
-      }
-    }
-
-    .checkbox,
-    .checkbox-inline,
-    .radio,
-    .radio-inline {
-      &.disabled {
-        cursor: $cursor-disabled;
-        label {
-          cursor: $cursor-disabled;
-        }
-      }
-    }
-
-  // positioning
-    .checkbox input[type="checkbox"],
-    .checkbox-inline input[type="checkbox"],
-    .radio input[type="radio"],
-    .radio-inline input[type="radio"] {
-      margin-top: 0.25rem;
-      margin-left: -1.25rem;
-      position: absolute;
-    }
-
-//
-// form control label
-//
-  .form-control-label {
-    @include form-control-size(0px, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
-  }
-
-  // size
-    .form-control-label-lg {
-      @include form-control-size(0px, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
-    }
-
-    .form-control-label-sm {
-      @include form-control-size(0px, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
-    }
 
 //
 // form control state
@@ -217,67 +127,24 @@ select.form-control {
 //
 // form control static
 //
-  .form-control-static {
-    @include form-control-size(0px, $input-font-size, $input-height, $input-line-height, $input-margin-bottom, $input-padding-top);
-    &.form-control-lg {
-      @include form-control-size(0px, $input-font-size-lg, $input-height-lg, $input-line-height-lg, $input-margin-bottom-lg, $input-padding-top-lg);
-    }
-    &.form-control-sm {
-      @include form-control-size(0px, $input-font-size-sm, $input-height-sm, $input-line-height-sm, $input-margin-bottom-sm, $input-padding-top-sm);
-    }
-  }
+  .form-control-static,
+  .textfield-static {
+    @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
 
-//
-// form group
-//
-  .form-group {
-    margin-bottom: $spacer-md-y;
-  }
 
-//
-// form inline
-//
-  .form-inline {
     @include media-breakpoint-up(sm) {
-      .checkbox,
-      .radio {
+      .form-inline & {
         display: inline-block;
-        margin-top: 0;
-        margin-bottom: 0;
-        vertical-align: middle;
-      }
-
-      .checkbox + .checkbox,
-      .radio + .radio {
-        margin-left: $spacer-sm-x;
-      }
-
-      .form-control {
-        display: inline-block;
-        vertical-align: middle;
-        width: auto;
-      }
-
-      .form-control-label {
-        display: inline-block;
-      }
-
-      .form-control-static {
-        display: inline-block;
-      }
-
-      .form-group {
-        display: inline-block;
-        margin-bottom: 0;
-        vertical-align: middle;
       }
     }
-  }
 
-//
-// misc
-//
-  .form-control-file,
-  .form-control-range {
-    display: block;
+    &.form-control-lg,
+    &.textfield-lg {
+      @include form-control-size(0px, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
+    }
+
+    &.form-control-sm,
+    &.textfield-sm {
+      @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
+    }
   }

@@ -1,13 +1,27 @@
 //
 // blockquote
 //
-  blockquote,
-  q {
-    margin: 0 0 $spacer-md-y;
+  /* todo: blockquote */
+  .blockquote {
   }
 
 //
-// heading
+// emphasis
+//
+  mark,
+  .mark {
+    background-color: $mark-bg;
+    padding: $mark-padding;
+  }
+
+  small,
+  .small {
+    font-size: $small-font-size;
+    font-weight: normal;
+  }
+
+//
+// headings
 //
   h1,
   h2,
@@ -21,39 +35,43 @@
   .h4,
   .h5,
   .h6 {
-    color: $heading-color;
-    font-family: $heading-font-family;
-    margin: 0 0 $spacer-sm-y;
+    color: $headings-color;
+    font-family: $headings-font-family;
+    margin-bottom: $headings-margin-bottom;
   }
 
   h1,
   .h1 {
-    @include typography-display-2;
+    @include typography-h1;
   }
 
   h2,
   .h2 {
-    @include typography-display-1;
+    @include typography-h2;
   }
 
   h3,
   .h3 {
-    @include typography-headline;
+    @include typography-h3;
   }
 
   h4,
   .h4 {
-    @include typography-title;
+    @include typography-h4;
   }
 
   h5,
   .h5 {
-    @include typography-subheading;
+    @include typography-h5;
   }
 
   h6,
   .h6 {
-    @include typography-body-2;
+    @include typography-h6;
+  }
+
+  .lead {
+    @include typography-title;
   }
 
   .typography-display-4 {
@@ -99,47 +117,16 @@
 //
 // hr
 //
-  hr,
-  .hr {
+  hr {
     border: 0;
-    border-top: $border-width solid $border-color;
-    box-sizing: content-box;
-    display: block;
-    height: 0;
-    margin: $spacer-md-y 0;
-    overflow: visible;
+    border-top: $hr-border-width solid $hr-border-color;
+    margin-top: $spacer-md-y;
+    margin-bottom: $spacer-md-y;
   }
 
 //
 // list
 //
-  dd {
-    margin: 0;
-  }
-
-  dl {
-    margin: 0 0 $spacer-md-y;
-  }
-
-  dt {
-    font-weight: $font-weight-medium;
-  }
-
-  ol,
-  ul {
-    margin: 0 0 $spacer-md-y;
-    ol,
-    ul {
-      margin-bottom: 0;
-    }
-  }
-
-  .dl-horizontal {
-    margin-right: ($grid-gutter-width / -2);
-    margin-left: ($grid-gutter-width / -2);
-    @include clearfix;
-  }
-
   .list-inline {
     @include list-unstyled;
   }
@@ -147,7 +134,7 @@
   .list-inline-item {
     display: inline-block;
     &:not(:last-child) {
-      margin-right: $spacer-sm-x;
+      margin-right: $list-inline-item-spacer;
     }
   }
 
@@ -155,129 +142,18 @@
     @include list-unstyled;
   }
 
+  @if not $enable-flex {
+    dl.row {
+      > dd + dt {
+        clear: left;
+      }
+    }
+  }
+
 //
 // misc
 //
-  a {
-    background-color: transparent;
-    color: $link-color;
-    text-decoration: $link-decoration;
-    &:active,
-    &:hover {
-      outline-width: 0;
-    }
-    &:focus,
-    &:hover {
-      color: $link-color-hover;
-      text-decoration: $link-decoration-hover;
-    }
-    &:focus {
-      @include tab-focus;
-    }
-  }
-
-  a:not([href]):not([tabindex]) {
-    color: inherit;
-    text-decoration: none;
-    &:focus,
-    &:hover {
-      color: inherit;
-      text-decoration: none;
-    }
-    &:focus {
-      outline: 0;
-    }
-  }
-
-  abbr[title] {
-    border-bottom: 0;
-    cursor: help;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-  }
-
-  address {
-    font-style: normal;
-    line-height: inherit;
-    margin: 0 0 $spacer-md-y;
-  }
-
-  b,
-  strong {
-    font-weight: $font-weight-medium;
-  }
-
-  dfn {
-    font-style: italic;
-  }
-
-  figure {
-    margin: 0 0 $spacer-md-y;
-  }
-
-  img {
-    border: 0;
-    vertical-align: middle;
-  }
-
-  mark,
-  .mark {
-    background-color: #ffff00;
-    color: #000000;
-  }
-
-  p {
-    margin: 0 0 $spacer-md-y;
-  }
-
-  small,
-  .small {
-    font-size: 75%;
-    line-height: 1;
-  }
-
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-
-  sub {
-    // position
-      bottom: -0.25em;
-  }
-
-  sup {
-    // position
-      top: -0.5em;
-  }
-
   .initialism {
     font-size: 90%;
     text-transform: uppercase;
-  }
-
-// table
-  caption {
-    caption-side: bottom;
-    color: $black-hint-solid;
-    min-height: $table-thead-cell-height;
-    padding: $table-cell-padding;
-    padding-right: $table-cell-padding-alt;
-    padding-left: $table-cell-padding-alt;
-    text-align: left;
-    vertical-align: middle;
-    @include typography-caption;
-  }
-
-  table {
-    background-color: $table-bg;
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  th {
-    text-align: left;
   }

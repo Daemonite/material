@@ -1,21 +1,43 @@
 .input-group {
-  display: flex;
+  margin-bottom: $textfield-margin-bottom;
+  position: relative;
+  width: 100%;
+
+  @if $enable-flex {
+    display: flex;
+  } @else {
+    border-collapse: separate;
+    display: table;
+  }
+
   .form-control {
-    flex-grow: 1;
+    margin-bottom: 0;
+    position: relative;
+
+    @if $enable-flex {
+      flex-grow: 1;
+    } @else {
+      display: table-cell;
+      width: 100%;
+    }
   }
 }
 
 .input-group-addon {
   color: inherit;
-  font-size: $input-font-size;
-  font-weight: $font-weight-regular;
-  line-height: $input-line-height;
+  font-size: $textfield-font-size;
+  line-height: $textfield-line-height;
   margin: 0 $spacer-md-x;
-  min-height: ($input-height + $input-margin-bottom);
-  min-width: ($input-height + $input-margin-bottom);
-  padding: (($input-height + $input-margin-bottom - $input-line-height) / 2) 0;
+  min-width: ($textfield-height + $textfield-margin-bottom);
+  padding-top: $textfield-padding-top;
   text-align: center;
   white-space: nowrap;
+
+  @if not $enable-flex {
+    display: table-cell;
+    width: 1%;
+  }
+
   &:first-child {
     margin-left: 0;
   }
@@ -28,19 +50,17 @@
   .input-group-addon {
     &.form-control-lg,
     .input-group-lg > & {
-      font-size: $input-font-size-lg;
-      line-height: $input-line-height-lg;
-      min-height: ($input-height-lg + $input-margin-bottom-lg);
-      min-width: ($input-height-lg + $input-margin-bottom-lg);
-      padding: (($input-height-lg + $input-margin-bottom-lg - $input-line-height-lg) / 2) 0;
+      font-size: $textfield-font-size-lg;
+      line-height: $textfield-line-height-lg;
+      min-width: ($textfield-height-lg + $textfield-margin-bottom-lg);
+      padding: $textfield-padding-top-lg;
     }
     &.form-control-sm,
     .input-group-sm > & {
-      font-size: $input-font-size-sm;
-      line-height: $input-line-height-sm;
-      min-height: ($input-height-sm + $input-margin-bottom-sm);
-      min-width: ($input-height-sm + $input-margin-bottom-sm);
-      padding: (($input-height-sm + $input-margin-bottom-sm - $input-line-height-sm) / 2) 0;
+      font-size: $textfield-font-size-sm;
+      line-height: $textfield-line-height-sm;
+      min-width: ($textfield-height-sm + $textfield-margin-bottom-sm);
+      padding: $textfield-padding-top-sm;
     }
   }
 

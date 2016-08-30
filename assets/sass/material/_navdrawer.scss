@@ -8,7 +8,6 @@
     bottom: 0;
     left: 0;
   z-index: map-get($navdrawer-elevation-shadow, elevation);
-  -webkit-overflow-scrolling: touch;
 }
 
 //
@@ -16,13 +15,12 @@
 //
   .navdrawer-backdrop {
     background-color: $navdrawer-backdrop-bg;
-    opacity: 0;
     position: fixed;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-    transition: opacity $transition-duration $transition-timing-function;
+    transition: opacity $transition-duration-sm $transition-timing-function;
     z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
     &.in {
       opacity: 1;
@@ -35,7 +33,7 @@
   .navdrawer-content {
     background-color: $navdrawer-content-bg;
     box-shadow: map-get($navdrawer-elevation-shadow, shadow);
-    max-width: calc(100% - #{$navdrawer-edge-gap});
+    max-width: calc(100% - #{$navdrawer-gutter-width});
     overflow-x: hidden;
     overflow-y: auto;
     position: fixed;
@@ -46,104 +44,38 @@
     transition: transform $transition-duration $transition-timing-function;
     width: $navdrawer-width-mobile;
     -webkit-overflow-scrolling: touch;
-    .navdrawer-right & {
-      // position
-        right: 0;
-        left: auto;
-      transform: translateX(100%);
-    }
-    .navdrawer.in & {
-      transform: translateX(0);
-    }
+    // direction
+      .navdrawer-right & {
+        // position
+          right: 0;
+          left: auto;
+        transform: translateX(100%);
+      }
+    // open
+      .navdrawer.in & {
+        transform: translateX(0);
+      }
   }
 
 //
 // misc
 //
-  .navdrawer-actionbar {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
-    min-height: $navdrawer-actionbar-height;
-    padding-top: (($navdrawer-actionbar-height - $font-size-default * $line-height-default * 2) / 2);
-    padding-bottom: (($navdrawer-actionbar-height - $font-size-default * $line-height-default * 2) / 2);
-    position: relative;
-    a {
-      color: inherit;
-      // active, focus, hover
-        &:focus,
-        &:hover {
-          color: inherit;
-          text-decoration: none;
-        }
-    }
-  }
-
-  .navdrawer-actionbar-toggler {
-    border-radius: 50%;
-    height: $material-icon-size;
-    overflow: hidden;
-    position: absolute;
-      right: 0;
-      bottom: (($navdrawer-actionbar-height - $font-size-default * $line-height-default * 2) / 2 - ($material-icon-size / $font-size-root - $font-size-default * $line-height-default) / 2);
-    transition: transform $transition-duration $transition-timing-function;
-    width: $material-icon-size;
-    .collapsed > & {
-      transform: rotate(180deg);
-    }
-    ~ * {
-      padding-right: $material-icon-size;
-    }
-  }
-
-  a.navdrawer-actionbar {
-    color: inherit;
-    // active, focus, hover
-      &:focus,
-      &:hover {
-        color: inherit;
-        text-decoration: none;
-      }
-  }
-
   .navdrawer-body {
-    margin: $spacer-sm-y $spacer-md-x;
+    margin-bottom: $navdrawer-inner-spacer-y;
+    padding-right: $navdrawer-inner-spacer-x;
+    padding-left: $navdrawer-inner-spacer-x;
   }
 
   .navdrawer-divider {
-    border-top: $border-width solid $border-color;
-    clear: both;
-    display: block;
-    margin-top: $spacer-sm-y;
-    margin-bottom: $spacer-sm-y;
-    + .navdrawer-body {
-      margin-top: ($spacer-sm-y * 2);
-    }
-    + .navdrawer-subheader {
-      margin-top: ($spacer-sm-y * -1);
-    }
+    @include nav-divider($navdrawer-divider-bg);
   }
 
   .navdrawer-header {
     background-color: $navdrawer-header-bg;
+    border-bottom: $navdrawer-header-border-width solid $navdrawer-header-border-color;
     display: block;
-    height: $toolbar-height;
-    padding: (($toolbar-height - $line-height-headline) / 2) $spacer-md-x;
-    @include typography-headline;
-    // active, focus, hover
-      &:focus,
-      &:hover {
-        text-decoration: none;
-      }
-    > img {
-      display: block;
-    }
-  }
-
-  .navdrawer-header-bordered {
-    border-bottom: $border-width solid $border-color;
-    padding-bottom: (($toolbar-height - $line-height-headline) / 2 - 1px / $font-size-root);
+    margin-bottom: $navdrawer-inner-spacer-y;
+    padding: ($navdrawer-inner-spacer-y * 2) $navdrawer-inner-spacer-x;
   }
 
   .navdrawer-subheader {
@@ -151,15 +83,13 @@
     display: block;
     font-weight: $navdrawer-subheader-font-weight;
     height: $navdrawer-subheader-height;
-    line-height: $navdrawer-subheader-line-height;
+    line-height: 1;
     margin-top: 0;
     margin-bottom: 0;
-    overflow: hidden;
-    padding: (($navdrawer-subheader-height - $navdrawer-subheader-line-height) / 2) $spacer-md-x;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    + .navdrawer-nav {
-      margin-top: 0;
+    padding: (($navdrawer-subheader-height - $navdrawer-subheader-font-size) / 2) $navdrawer-inner-spacer-x;
+    @include text-truncate;
+    .navdrawer-divider + & {
+      margin-top: ($navdrawer-inner-spacer-y * -1);
     }
   }
 
@@ -167,57 +97,48 @@
 // nav
 //
   .navdrawer-nav {
-    font-size: $navdrawer-nav-font-size;
-    font-weight: $navdrawer-nav-font-weight;
-    line-height: $navdrawer-nav-line-height;
-    margin-top: $spacer-sm-y;
-    margin-bottom: $spacer-sm-y;
+    margin-bottom: $navdrawer-inner-spacer-y;
     .nav-item + .nav-item {
       margin-top: 1px;
     }
     .nav-link {
       color: $navdrawer-nav-link-color;
       display: block;
-      overflow: hidden;
-      padding: (($navdrawer-nav-height - $navdrawer-nav-line-height) / 2) $spacer-md-x;
-      text-overflow: ellipsis;
-      transition: color $transition-duration $transition-timing-function;
-      white-space: nowrap;
-      &::before {
-        background-color: $navdrawer-nav-link-bg-active;
-        content: "";
-        display: block;
-        height: 100%;
-        opacity: 0;
-        position: absolute;
-          top: 0;
-          left: 0;
-        transition: opacity $transition-duration $transition-timing-function;
-        width: 100%;
-        z-index: -1;
-      }
+      font-size: $navdrawer-nav-link-font-size;
+      font-weight: $navdrawer-nav-link-font-weight;
+      line-height: 1;
+      padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
+      transition-duration: $transition-duration;
+      transition-property: background-color color;
+      transition-timing-function: $transition-timing-function;
+      @include text-truncate;
       // active, focus, hover
         &:active,
         &:focus,
         &.active {
-          &::before {
-            opacity: 1;
-          }
+          background-color: $navdrawer-nav-link-bg-active;
         }
         &:active,
         &.active {
           color: $navdrawer-nav-link-color-active;
         }
-        &.active {
-          cursor: default;
+        &:focus {
+          outline: 0;
         }
       // disabled
         &.disabled {
+          background-color: transparent;
           color: $navdrawer-nav-link-color-disabled;
-          &::before {
-            display: none;
-          }
         }
+    }
+  }
+
+  .navdrawer-nav-icon {
+    color: $navdrawer-nav-icon-color;
+    width: $navdrawer-nav-icon-width;
+    .nav-link:active &,
+    .nav-link.active & {
+      color: $navdrawer-nav-link-color-active;
     }
   }
 
@@ -226,26 +147,24 @@
 //
   @include media-breakpoint-up(lg) {
     .navdrawer-permanent {
+      border-right: $navdrawer-border-width solid $navdrawer-border-color;
       display: block !important;
       // position
         right: auto;
       width: $navdrawer-width-mobile;
+      &.navdrawer-right {
+        border-right: 0;
+        border-left: $navdrawer-border-width solid $navdrawer-border-color;
+        // position
+          right: 0;
+          left: auto;
+      }
       .navdrawer-content {
         box-shadow: none;
         max-width: none;
         position: absolute;
         transform: translateX(0);
         width: 100%;
-        &::before {
-          background-color: $black-divider;
-          content: "";
-          display: block;
-          position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-          width: 1px;
-        }
       }
     }
 
@@ -262,10 +181,17 @@
         z-index: initial;
       }
 
-      .navdrawer-permanent-float .navdrawer-content {
-        background-color: transparent;
-        &::before {
-          display: none;
+      .navdrawer-permanent-clipped {
+        border-top: $navdrawer-border-width solid $navdrawer-border-color;
+      }
+
+      .navdrawer-permanent-float {
+        border-right: 0;
+        &.navdrawer-right {
+          border-left: 0;
+        }
+        .navdrawer-content {
+          background-color: transparent;
         }
       }
   }
@@ -279,6 +205,11 @@
       // position
         right: auto;
       width: $navdrawer-width-mobile;
+      &.navdrawer-right {
+        // position
+          right: 0;
+          left: auto;
+      }
       .navdrawer-content {
         max-width: none;
         position: absolute;

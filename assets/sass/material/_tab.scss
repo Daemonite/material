@@ -3,32 +3,29 @@
 //
 
 .nav-tabs {
+  line-height: 0;
   position: relative;
-  @include clearfix;
-  .dropdown-menu {
-    border-radius: $border-radius;
-    // position
-      top: ($spacer-sm-y * -1);
-    transform: scale(1, 0);
-    transform-origin: 50% ($nav-height / 2 + $spacer-sm-y);
-  }
-  .dropup .dropdown-menu {
-    // position
-      top: auto;
-      bottom: ($spacer-sm-y * -1);
-      transform-origin: 50% calc(100% - #{($nav-height / 2 + $spacer-sm-y)});
+
+  @if $enable-flex {
+    display: flex;
+    flex-wrap: none;
+  } @else {
+    white-space: nowrap;
   }
   .nav-item {
-    float: left;
+    line-height: 0;
+
+    @if not $enable-flex {
+      display: inline-block;
+    }
   }
   .nav-link {
     color: inherit;
-    display: block;
     font-size: $nav-tab-link-font-size;
     font-weight: $nav-tab-link-font-weight;
+    line-height: 1;
     opacity: $nav-tab-link-opacity;
-    padding: (($nav-height - $nav-line-height) / 2) $nav-tab-link-padding-x;
-    text-align: center;
+    padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     text-transform: uppercase;
     transition: background-color $transition-duration-sm $transition-timing-function, opacity $transition-duration $transition-timing-function;
     &::before {
@@ -43,6 +40,20 @@
         left: 0;
       transition: opacity $transition-duration $transition-timing-function;
     }
+
+    @if $enable-flex {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      min-height: $nav-tab-link-height;
+    } @else {
+      display: table-cell;
+      height: $nav-tab-link-height;
+      text-align: center;
+      vertical-align: middle;
+    }
+
     @include media-breakpoint-up(lg) {
       padding-right: $nav-tab-link-padding-x-lg;
       padding-left: $nav-tab-link-padding-x-lg;
@@ -51,17 +62,22 @@
       &:active {
         background-color: $nav-link-bg-active;
       }
+      &.active {
+        opacity: 1;
+        &::before {
+          opacity: 1;
+          transition: opacity 0s $transition-duration;
+        }
+      }
+      &.disabled {
+        background-color: transparent;
+        color: $nav-link-color-disabled;
+        opacity: 1;
+      }
     // waves
       &.waves-attach:active {
         background-color: transparent;
       }
-  }
-  .nav-link.active {
-    opacity: 1;
-    &::before {
-      opacity: 1;
-      transition: opacity 0s $transition-duration;
-    }
   }
 }
 
@@ -71,41 +87,49 @@
   }
 
   .nav-tabs-centered {
-    display: flex;
-    justify-content: center;
+    @if $enable-flex {
+      justify-content: center;
+    } @else {
+      text-align: center;
+    }
   }
 
   .nav-tabs-fixed {
-    @extend .nav-tabs-centered;
     .nav-item {
-      flex-basis: 0;
-      flex-grow: 1;
-      max-width: $nav-tab-link-max-width;
-      min-width: $nav-tab-link-min-width;
-      @include media-breakpoint-up(lg) {
-        min-width: $nav-tab-link-min-width-lg;
+      @if $enable-flex {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: $nav-tab-link-max-width;
+        min-width: $nav-tab-link-min-width;
+        @include media-breakpoint-up(lg) {
+          min-width: $nav-tab-link-min-width-lg;
+        }
       }
     }
     .nav-link {
-      min-height: 100%;
       @include text-truncate;
     }
   }
 
   .nav-tabs-scrollable {
-    display: flex;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    .nav-item {
-      max-width: $nav-tab-link-max-width;
-      min-width: $nav-tab-link-min-width;
-      @include media-breakpoint-up(lg) {
-        min-width: $nav-tab-link-min-width-lg;
-      }
-    }
     .nav-link {
+      max-width: $nav-tab-link-max-width;
       @include text-truncate;
+
+      @if $enable-flex {
+        min-width: $nav-tab-link-min-width;
+        @include media-breakpoint-up(lg) {
+          min-width: $nav-tab-link-min-width-lg;
+        }
+      } @else {
+        width: $nav-tab-link-min-width;
+        @include media-breakpoint-up(lg) {
+          width: $nav-tab-link-min-width-lg;
+        }
+      }
     }
   }
 
@@ -118,7 +142,6 @@
   &.animate {
     opacity: 1;
     transition: left $transition-duration-sm $transition-timing-function $transition-duration-sm, right $transition-duration $transition-timing-function;
-    will-change: left, right;
     &.reverse {
       transition: left $transition-duration $transition-timing-function, right $transition-duration-sm $transition-timing-function $transition-duration-sm;
     }

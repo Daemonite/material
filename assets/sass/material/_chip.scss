@@ -1,25 +1,82 @@
 .chip,
-.label {
+.tag {
   background-color: $chip-bg;
   border-radius: ($chip-height / 2);
   color: $chip-color;
   display: inline-block;
   font-size: $chip-font-size;
-  font-style: normal;
-  font-weight: $font-weight-regular;
-  line-height: ($chip-height - $chip-padding-y * 2);
+  font-weight: $chip-font-weight;
+  line-height: 1;
   padding: $chip-padding-y $chip-padding-x;
-  vertical-align: baseline;
+  position: relative;
+  vertical-align: middle;
   white-space: nowrap;
+  &:empty {
+    display: none;
+  }
+  &::before {
+    background-color: $chip-active-overlay;
+    border-radius: ($chip-height / 2);
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    transition: opacity $transition-duration $transition-timing-function;
+  }
+}
+
+.chip[href],
+.tag[href] {
+  transition: box-shadow $transition-duration $transition-timing-function;
+  // active, focus, hover
+    &:active,
+    &:focus {
+      box-shadow: map-get($chip-elevation-shadow-active, shadow);
+    }
+    &:active::before {
+      opacity: 1;
+    }
+    @include focus-hover {
+      text-decoration: none;
+    }
+    &:focus {
+      outline: 0;
+    }
 }
 
 // colour
+  .chip-inverse,
+  .tag-inverse {
+    background-color: $brand-color-accent;
+    color: $brand-text-color-accent;
+  }
+
+  a.chip-inverse,
+  a.tag-inverse {
+    &,
+    &:not([href]):not([tabindex]) {
+      color: $brand-text-color-accent;
+    }
+  }
+
   @each $color in $palettes {
     $i: index($palettes, $color);
 
     .chip-#{$color},
-    .label-#{$color} {
+    .tag-#{$color} {
       background-color: nth($palettes-color, $i);
       color: nth($palettes-text-color, $i);
+    }
+
+    a.chip-#{$color},
+    a.tag-#{$color} {
+      &,
+      &:not([href]):not([tabindex]) {
+        color: nth($palettes-text-color, $i);
+      }
     }
   }

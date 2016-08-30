@@ -1,6 +1,6 @@
 /*!
  * navigation drawer
- * based on Bootstrap's (v4.0.0-alpha.2) modal.js
+ * based on bootstrap's (v4.0.0-alpha.3) modal.js
  */
 const NavDrawer = (($) => {
   // constants >>>

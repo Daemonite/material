@@ -1,6 +1,6 @@
 /*!
  * customise pickadate js for material
- * based on pickadate.js
+ * requires pickadate.js
  */
 var Datepicker = function (element, options) {
   this._element = element;
