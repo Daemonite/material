@@ -2545,16 +2545,13 @@ input[type="submit"].btn-block {
 
 .card-actions-vertical {
   -webkit-box-align: start;
-  -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -4792,6 +4789,10 @@ select.textfield {
   -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.navbar-brand:active,
+.toolbar-brand:active {
+  color: inherit;
+}
 .navbar-brand:focus, .navbar-brand:hover,
 .toolbar-brand:focus,
 .toolbar-brand:hover {
@@ -4810,7 +4811,8 @@ select.textfield {
   display: block;
 }
 
-.navbar-divider {
+.navbar-divider,
+.toolbar-divider {
   background-color: currentColor;
   float: left;
   margin-right: 1rem;
@@ -4821,11 +4823,13 @@ select.textfield {
   padding-bottom: 0.5rem;
   width: 1px;
 }
-.navbar-divider::before {
+.navbar-divider::before,
+.toolbar-divider::before {
   content: "\00a0";
 }
 
-.navbar-toggler {
+.navbar-toggler,
+.toolbar-toggler {
   background-color: transparent;
   border-radius: 50%;
   color: inherit;
@@ -4841,7 +4845,8 @@ select.textfield {
   vertical-align: middle;
   width: 2.25rem;
 }
-.navbar-toggler::before {
+.navbar-toggler::before,
+.toolbar-toggler::before {
   background-color: currentColor;
   border-radius: 50%;
   content: "";
@@ -4855,23 +4860,35 @@ select.textfield {
   -webkit-transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.navbar-toggler:active::before, .navbar-toggler:focus::before {
+.navbar-toggler:active::before, .navbar-toggler:focus::before,
+.toolbar-toggler:active::before,
+.toolbar-toggler:focus::before {
   opacity: 0.12;
 }
-.navbar-toggler:focus, .navbar-toggler:hover {
+.navbar-toggler:active,
+.toolbar-toggler:active {
+  color: inherit;
+}
+.navbar-toggler:focus, .navbar-toggler:hover,
+.toolbar-toggler:focus,
+.toolbar-toggler:hover {
   text-decoration: none;
 }
-.navbar-toggler:focus {
+.navbar-toggler:focus,
+.toolbar-toggler:focus {
   outline: 0;
 }
-.navbar-toggler.disabled {
+.navbar-toggler.disabled,
+.toolbar-toggler.disabled {
   cursor: not-allowed;
   opacity: 0.38;
 }
-.navbar-toggler.disabled::before {
+.navbar-toggler.disabled::before,
+.toolbar-toggler.disabled::before {
   display: none;
 }
-.open > .navbar-toggler::before {
+.open > .navbar-toggler::before, .open >
+.toolbar-toggler::before {
   opacity: 0.12;
 }
 

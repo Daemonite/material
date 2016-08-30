@@ -163,6 +163,9 @@
       transition: opacity $transition-duration $transition-timing-function;
     }
     // active, focus, hover
+      &:active {
+        color: inherit;
+      }
       @include focus-hover {
         text-decoration: none;
       }
@@ -177,7 +180,8 @@
     }
   }
 
-  .navbar-divider {
+  .navbar-divider,
+  .toolbar-divider {
     background-color: currentColor;
     float: left;
     margin-right: $toolbar-inner-spacer;
@@ -192,7 +196,8 @@
     }
   }
 
-  .navbar-toggler {
+  .navbar-toggler,
+  .toolbar-toggler {
     background-color: transparent;
     border-radius: 50%;
     color: inherit;
@@ -226,6 +231,9 @@
         &::before {
           opacity: 0.12;
         }
+      }
+      &:active {
+        color: inherit;
       }
       @include focus-hover {
         text-decoration: none;
