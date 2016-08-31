@@ -4069,14 +4069,6 @@ a.tag-warning:not([href]):not([tabindex]) {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
-  width: 1rem;
-}
-.stepper::after {
-  right: 0;
-}
-.stepper::before {
-  left: 0;
 }
 .stepper:first-child::before {
   display: none;
@@ -4106,6 +4098,33 @@ a.tag-warning:not([href]):not([tabindex]) {
   top: 50%;
   right: 1.5rem;
   left: 1.5rem;
+}
+.stepper-horiz .stepper::after, .stepper-horiz .stepper::before {
+  border-top: 1px solid #bdbdbd;
+  top: 50%;
+  width: 1rem;
+}
+.stepper-horiz .stepper::after {
+  right: 0;
+}
+.stepper-horiz .stepper::before {
+  left: 0;
+}
+
+.stepper-vert {
+  background-color: white;
+  position: relative;
+}
+.stepper-vert .stepper::after, .stepper-vert .stepper::before {
+  border-left: 1px solid #bdbdbd;
+  height: 1rem;
+  left: 2.25rem;
+}
+.stepper-vert .stepper::after {
+  bottom: 0;
+}
+.stepper-vert .stepper::before {
+  top: 0;
 }
 
 .stepper-icon {
