@@ -185,11 +185,15 @@
     }
     @include media-breakpoint-up(sm) {
       column-count: 2;
-      column-gap: $card-spacer-outer-x;
+      column-gap: 0;
+      margin-right: ($card-spacer-outer-x / -2);
       margin-bottom: ($card-margin-bottom - $card-spacer-outer-y);
+      margin-left: ($card-spacer-outer-x / -2);
       .card {
         display: inline-block;
-        width: 100%;
+        margin-right: ($card-spacer-outer-x / 2);
+        margin-left: ($card-spacer-outer-x / 2);
+        width: calc(100% - #{$card-spacer-outer-x});
       }
     }
     @include media-breakpoint-up(md) {
