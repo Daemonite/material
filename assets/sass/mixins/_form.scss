@@ -1,11 +1,13 @@
 @mixin floating-label-size($floating-label-height, $floating-label-padding-top, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+  $form-control-padding-top: ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height));
+
   margin-bottom: $margin-bottom;
   padding-top: $floating-label-padding-top;
   > label {
     font-size: $font-size;
     line-height: $line-height;
     // position
-      top: ($floating-label-padding-top + ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height)));
+      top: ($floating-label-padding-top + $form-control-padding-top);
   }
   &.has-value > label,
   &.is-focused > label {
@@ -14,7 +16,10 @@
     transform: scale($floating-label-font-size-focus / $font-size);
   }
   > .form-control {
-    padding-top: ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height));
+    padding-top: $form-control-padding-top;
+  }
+  > select.form-control {
+    background-position: 100% ($form-control-padding-top + ($line-height - $material-icon-size / $font-size-root) / 2);
   }
 }
 
