@@ -1,0 +1,238 @@
+.expansion-panel,
+.list-group {
+  margin-bottom: $expansion-panel-margin-bottom;
+  padding-left: 0;
+}
+
+//
+// item
+//
+  .expansion-panel-item,
+  .list-group-item {
+    background-color: $expansion-panel-bg;
+    border: 0;
+    border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
+    box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
+    color: $expansion-panel-color;
+    display: block;
+    font-size: $expansion-panel-font-size;
+    min-height: $expansion-panel-height;
+    padding: $expansion-panel-spacer-y $expansion-panel-spacer-x;
+    position: relative;
+    transition: background-color $transition-duration $transition-timing-function, color $transition-duration $transition-timing-function;
+    &:first-of-type {
+      border-top-color: transparent;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+    &:last-of-type {
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: $expansion-panel-bg-active;
+      }
+      &:active {
+        color: $expansion-panel-color;
+      }
+      @include focus-hover {
+        text-decoration: none;
+      }
+      &:focus {
+        background-color: $expansion-panel-bg-active;
+        outline: 0;
+      }
+    // disabled
+      &.disabled {
+        background-color: $expansion-panel-bg-disabled;
+        color: $expansion-panel-color-disabled;
+        cursor: $cursor-disabled;
+        &:active,
+        &:focus {
+          background-color: $expansion-panel-bg-disabled;
+          color: $expansion-panel-color-disabled;
+        }
+      }
+  }
+
+  .expansion-panel-item-action,
+  .list-group-item-action {
+    text-align: inherit;
+    width: 100%;
+  }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .expansion-panel-item-#{$color},
+      .list-group-item-#{$color} {
+        background-color: nth($palettes-color, $i);
+        color: nth($palettes-text-color, $i);
+        // active, focus, hover
+          &:active,
+          &.active, {
+            background-color: nth($palettes-color-dark, $i);
+            color: nth($palettes-text-color-dark, $i);
+          }
+          &:focus {
+            background-color: nth($palettes-color-dark, $i);
+            color: nth($palettes-text-color-dark, $i);
+          }
+      }
+    }
+
+//
+// expansion
+//
+  .expansion-panel-collapse {
+    background-color: $expansion-panel-bg;
+    border-radius: 0 0 $border-radius $border-radius;
+    box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    &::before {
+      background-color: inherit;
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+        top: -2px;
+        right: 0;
+        left: 0;
+    }
+    &.collapsing,
+    &.in {
+      border-top-color: transparent;
+      margin-bottom: $expansion-panel-margin-between;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      + .expansion-panel-item,
+      + .list-group-item {
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+    }
+    &.collapsing {
+      transition: height $transition-duration-sm linear, margin-bottom $transition-duration-sm linear;
+    }
+  }
+
+  .expansion-panel-collapse-block {
+    padding: $expansion-panel-block-spacer-y $expansion-panel-spacer-x;
+  }
+
+  .expansion-panel-collapse-footer {
+    border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
+    padding: $expansion-panel-footer-spacer-y $expansion-panel-footer-spacer-x;
+    padding-left: $expansion-panel-spacer-y;
+    text-align: right;
+    .btn {
+      min-width: 0;
+      + .btn {
+        margin-left: $expansion-panel-footer-spacer-x;
+      }
+    }
+  }
+
+  .expansion-panel-item,
+  .list-group-item {
+    &[data-toggle="collapse"] {
+      transition: background-color $transition-duration $transition-timing-function, border-radius $transition-duration-sm ease-in, border-top-color $transition-duration-sm ease-in, color $transition-duration $transition-timing-function, margin-top $transition-duration-sm linear;
+      &:not(.collapsed) {
+        border-radius: $border-radius $border-radius 0 0;
+        border-top-color: transparent;
+        margin-top: $expansion-panel-margin-between;
+        &:first-child {
+          margin-top: 0;
+        }
+        // active, focus, hover
+          &:focus {
+            background-color: $expansion-panel-bg;
+          }
+      }
+    }
+  }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .expansion-panel-item-#{$color},
+      .list-group-item-#{$color} {
+        &[data-toggle="collapse"]:not(.collapsed) {
+          // active, focus, hover
+            &:focus {
+              background-color: nth($palettes-color, $i);
+              color: nth($palettes-text-color, $i);
+            }
+        }
+        + .expansion-panel-collapse {
+          background-color: nth($palettes-color, $i);
+          color: nth($palettes-text-color, $i);
+        }
+      }
+    }
+
+//
+// misc
+//
+  .expansion-panel-item-heading,
+  .list-group-item-heading {
+    color: inherit;
+    font-size: $expansion-panel-font-size;
+    line-height: $line-height-base;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .expansion-panel-item-icon {
+    color: $expansion-panel-icon-color;
+    font-size: $font-size-base;
+    line-height: $material-icon-size;
+    height: $material-icon-size;
+    margin-top: ($material-icon-size / -2);
+    position: absolute;
+      top: ($expansion-panel-height / 2);
+      right: $expansion-panel-spacer-x;
+    transition: color $transition-duration $transition-timing-function;
+    width: $material-icon-size;
+  }
+
+  // active, focus, hover
+    .expansion-panel-item,
+    .list-group-item {
+      &.collapsed[data-toggle="collapse"] {
+        &:active,
+        &:focus {
+          .expansion-panel-item-icon {
+            color: $expansion-panel-icon-color-active;
+          }
+        }
+      }
+    }
+
+  // variation
+    .expansion-panel-item-icon-rotate {
+      transition-property: color, transform;
+      .expansion-panel-item[data-toggle="collapse"] &,
+      .list-group-item[data-toggle="collapse"] & {
+        transform: rotate(180deg);
+      }
+      .expansion-panel-item.collapsed[data-toggle="collapse"] &,
+      .list-group-item.collapsed[data-toggle="collapse"] & {
+        transform: rotate(0);
+      }
+    }
+
+  .expansion-panel-item-text,
+  .list-group-item-text {
+    color: inherit;
+    font-size: $expansion-panel-font-size-secondary;
+    line-height: $line-height-base;
+    margin-bottom: 0;
+  }

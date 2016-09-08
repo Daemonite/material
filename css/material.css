@@ -3171,6 +3171,341 @@ a.tag-warning:not([href]):not([tabindex]) {
   width: 50px;
 }
 
+.expansion-panel,
+.list-group {
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+.expansion-panel-item,
+.list-group-item {
+  background-color: white;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.87);
+  display: block;
+  font-size: 0.9375rem;
+  min-height: 3rem;
+  padding: 0.830357rem 1.5rem;
+  position: relative;
+  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expansion-panel-item:first-of-type,
+.list-group-item:first-of-type {
+  border-top-color: transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.expansion-panel-item:last-of-type,
+.list-group-item:last-of-type {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.expansion-panel-item:active, .expansion-panel-item.active,
+.list-group-item:active,
+.list-group-item.active {
+  background-color: #eeeeee;
+}
+.expansion-panel-item:active,
+.list-group-item:active {
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item:focus, .expansion-panel-item:hover,
+.list-group-item:focus,
+.list-group-item:hover {
+  text-decoration: none;
+}
+.expansion-panel-item:focus,
+.list-group-item:focus {
+  background-color: #eeeeee;
+  outline: 0;
+}
+.expansion-panel-item.disabled,
+.list-group-item.disabled {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.38);
+  cursor: not-allowed;
+}
+.expansion-panel-item.disabled:active, .expansion-panel-item.disabled:focus,
+.list-group-item.disabled:active,
+.list-group-item.disabled:focus {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.expansion-panel-item-action,
+.list-group-item-action {
+  text-align: inherit;
+  width: 100%;
+}
+
+.expansion-panel-item-primary,
+.list-group-item-primary {
+  background-color: #9c27b0;
+  color: white;
+}
+.expansion-panel-item-primary:active, .expansion-panel-item-primary.active,
+.list-group-item-primary:active,
+.list-group-item-primary.active {
+  background-color: #7b1fa2;
+  color: white;
+}
+.expansion-panel-item-primary:focus,
+.list-group-item-primary:focus {
+  background-color: #7b1fa2;
+  color: white;
+}
+
+.expansion-panel-item-danger,
+.list-group-item-danger {
+  background-color: #f44336;
+  color: white;
+}
+.expansion-panel-item-danger:active, .expansion-panel-item-danger.active,
+.list-group-item-danger:active,
+.list-group-item-danger.active {
+  background-color: #d32f2f;
+  color: white;
+}
+.expansion-panel-item-danger:focus,
+.list-group-item-danger:focus {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.expansion-panel-item-info,
+.list-group-item-info {
+  background-color: #2196f3;
+  color: white;
+}
+.expansion-panel-item-info:active, .expansion-panel-item-info.active,
+.list-group-item-info:active,
+.list-group-item-info.active {
+  background-color: #1976d2;
+  color: white;
+}
+.expansion-panel-item-info:focus,
+.list-group-item-info:focus {
+  background-color: #1976d2;
+  color: white;
+}
+
+.expansion-panel-item-success,
+.list-group-item-success {
+  background-color: #4caf50;
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item-success:active, .expansion-panel-item-success.active,
+.list-group-item-success:active,
+.list-group-item-success.active {
+  background-color: #388e3c;
+  color: white;
+}
+.expansion-panel-item-success:focus,
+.list-group-item-success:focus {
+  background-color: #388e3c;
+  color: white;
+}
+
+.expansion-panel-item-warning,
+.list-group-item-warning {
+  background-color: #ff9800;
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item-warning:active, .expansion-panel-item-warning.active,
+.list-group-item-warning:active,
+.list-group-item-warning.active {
+  background-color: #f57c00;
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item-warning:focus,
+.list-group-item-warning:focus {
+  background-color: #f57c00;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.expansion-panel-collapse {
+  background-color: white;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.expansion-panel-collapse::before {
+  background-color: inherit;
+  content: "";
+  display: block;
+  height: 2px;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  left: 0;
+}
+.expansion-panel-collapse.collapsing, .expansion-panel-collapse.in {
+  border-top-color: transparent;
+  margin-bottom: 1rem;
+}
+.expansion-panel-collapse.collapsing:last-child, .expansion-panel-collapse.in:last-child {
+  margin-bottom: 0;
+}
+.expansion-panel-collapse.collapsing + .expansion-panel-item,
+.expansion-panel-collapse.collapsing + .list-group-item, .expansion-panel-collapse.in + .expansion-panel-item,
+.expansion-panel-collapse.in + .list-group-item {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.expansion-panel-collapse.collapsing {
+  -webkit-transition: height 0.15s linear, margin-bottom 0.15s linear;
+  transition: height 0.15s linear, margin-bottom 0.15s linear;
+}
+
+.expansion-panel-collapse-block {
+  padding: 1rem 1.5rem;
+}
+
+.expansion-panel-collapse-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 1rem 0.5rem;
+  padding-left: 0.830357rem;
+  text-align: right;
+}
+.expansion-panel-collapse-footer .btn {
+  min-width: 0;
+}
+.expansion-panel-collapse-footer .btn + .btn {
+  margin-left: 0.5rem;
+}
+
+.expansion-panel-item[data-toggle="collapse"],
+.list-group-item[data-toggle="collapse"] {
+  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.15s ease-in, border-top-color 0.15s ease-in, color 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.15s linear;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.15s ease-in, border-top-color 0.15s ease-in, color 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.15s linear;
+}
+.expansion-panel-item[data-toggle="collapse"]:not(.collapsed),
+.list-group-item[data-toggle="collapse"]:not(.collapsed) {
+  border-radius: 2px 2px 0 0;
+  border-top-color: transparent;
+  margin-top: 1rem;
+}
+.expansion-panel-item[data-toggle="collapse"]:not(.collapsed):first-child,
+.list-group-item[data-toggle="collapse"]:not(.collapsed):first-child {
+  margin-top: 0;
+}
+.expansion-panel-item[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: white;
+}
+
+.expansion-panel-item-primary[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item-primary[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: #9c27b0;
+  color: white;
+}
+.expansion-panel-item-primary + .expansion-panel-collapse,
+.list-group-item-primary + .expansion-panel-collapse {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.expansion-panel-item-danger[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item-danger[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: #f44336;
+  color: white;
+}
+.expansion-panel-item-danger + .expansion-panel-collapse,
+.list-group-item-danger + .expansion-panel-collapse {
+  background-color: #f44336;
+  color: white;
+}
+
+.expansion-panel-item-info[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item-info[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: #2196f3;
+  color: white;
+}
+.expansion-panel-item-info + .expansion-panel-collapse,
+.list-group-item-info + .expansion-panel-collapse {
+  background-color: #2196f3;
+  color: white;
+}
+
+.expansion-panel-item-success[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item-success[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: #4caf50;
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item-success + .expansion-panel-collapse,
+.list-group-item-success + .expansion-panel-collapse {
+  background-color: #4caf50;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.expansion-panel-item-warning[data-toggle="collapse"]:not(.collapsed):focus,
+.list-group-item-warning[data-toggle="collapse"]:not(.collapsed):focus {
+  background-color: #ff9800;
+  color: rgba(0, 0, 0, 0.87);
+}
+.expansion-panel-item-warning + .expansion-panel-collapse,
+.list-group-item-warning + .expansion-panel-collapse {
+  background-color: #ff9800;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.expansion-panel-item-heading,
+.list-group-item-heading {
+  color: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.428572;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.expansion-panel-item-icon {
+  color: rgba(0, 0, 0, 0.38);
+  font-size: 0.875rem;
+  line-height: 24px;
+  height: 24px;
+  margin-top: -12px;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  -webkit-transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 24px;
+}
+
+.expansion-panel-item.collapsed[data-toggle="collapse"]:active .expansion-panel-item-icon, .expansion-panel-item.collapsed[data-toggle="collapse"]:focus .expansion-panel-item-icon,
+.list-group-item.collapsed[data-toggle="collapse"]:active .expansion-panel-item-icon,
+.list-group-item.collapsed[data-toggle="collapse"]:focus .expansion-panel-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.expansion-panel-item-icon-rotate {
+  -webkit-transition-property: color, -webkit-transform;
+  transition-property: color, -webkit-transform;
+  transition-property: color, transform;
+  transition-property: color, transform, -webkit-transform;
+}
+.expansion-panel-item[data-toggle="collapse"] .expansion-panel-item-icon-rotate, .list-group-item[data-toggle="collapse"] .expansion-panel-item-icon-rotate {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.expansion-panel-item.collapsed[data-toggle="collapse"] .expansion-panel-item-icon-rotate, .list-group-item.collapsed[data-toggle="collapse"] .expansion-panel-item-icon-rotate {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.expansion-panel-item-text,
+.list-group-item-text {
+  color: inherit;
+  font-size: 0.75rem;
+  line-height: 1.428572;
+  margin-bottom: 0;
+}
+
 .dropdown,
 .dropup {
   position: relative;
