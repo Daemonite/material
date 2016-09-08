@@ -3971,7 +3971,7 @@ a.tag-warning:not([href]):not([tabindex]) {
   .navdrawer-permanent-clipped,
   .navdrawer-permanent-float {
     top: 3.5rem;
-    z-index: initial;
+    z-index: 39;
   }
 
   .navdrawer-permanent-clipped {
@@ -3987,6 +3987,38 @@ a.tag-warning:not([href]):not([tabindex]) {
   }
   .navdrawer-permanent-float .navdrawer-content {
     background-color: transparent;
+  }
+}
+@media (min-width: 1280px) {
+  .navdrawer-persistent {
+    right: auto;
+    width: 17.5rem;
+  }
+  .navdrawer-persistent.navdrawer-right {
+    right: 0;
+    left: auto;
+  }
+  .navdrawer-persistent .navdrawer-content {
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: none;
+    max-width: none;
+    position: absolute;
+    width: 100%;
+  }
+  .navdrawer-persistent.navdrawer-right .navdrawer-content {
+    border-right: 0;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .navdrawer-backdrop-persistent {
+    display: none;
+  }
+
+  .navdrawer-persistent-clipped {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    margin-top: -1px;
+    top: 3.5rem;
+    z-index: 39;
   }
 }
 @media (min-width: 1280px) {

@@ -178,7 +178,7 @@
       .navdrawer-permanent-float {
         // position
           top: $toolbar-height;
-        z-index: initial;
+        z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
       }
 
       .navdrawer-permanent-clipped {
@@ -194,6 +194,47 @@
         .navdrawer-content {
           background-color: transparent;
         }
+      }
+  }
+
+//
+// persistent
+//
+  @include media-breakpoint-up(lg) {
+    .navdrawer-persistent {
+      // position
+        right: auto;
+      width: $navdrawer-width-mobile;
+      &.navdrawer-right {
+        // position
+          right: 0;
+          left: auto;
+      }
+      .navdrawer-content {
+        border-right: $navdrawer-border-width solid $navdrawer-border-color;
+        box-shadow: none;
+        max-width: none;
+        position: absolute;
+        width: 100%;
+      }
+      &.navdrawer-right .navdrawer-content {
+        border-right: 0;
+        border-left: $navdrawer-border-width solid $navdrawer-border-color;
+      }
+    }
+
+    // backdrop
+      .navdrawer-backdrop-persistent {
+        display: none;
+      }
+
+    // variation
+      .navdrawer-persistent-clipped {
+        border-top: $navdrawer-border-width solid $navdrawer-border-color;
+        margin-top: ($navdrawer-border-width * -1);
+        // position
+          top: $toolbar-height;
+        z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
       }
   }
 
