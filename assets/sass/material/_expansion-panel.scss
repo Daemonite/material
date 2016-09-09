@@ -30,19 +30,8 @@
       border-bottom-right-radius: $border-radius;
     }
     // active, focus, hover
-      &:active,
       &.active {
         background-color: $expansion-panel-bg-active;
-      }
-      &:active {
-        color: $expansion-panel-color;
-      }
-      @include focus-hover {
-        text-decoration: none;
-      }
-      &:focus {
-        background-color: $expansion-panel-bg-active;
-        outline: 0;
       }
     // disabled
       &.disabled {
@@ -55,6 +44,25 @@
           color: $expansion-panel-color-disabled;
         }
       }
+  }
+
+  a,
+  button {
+    &.expansion-panel-item,
+    &.list-group-item {
+      // active, focus, hover
+        &:active,
+        &:focus {
+          background-color: $expansion-panel-bg-active;
+          color: $expansion-panel-color;
+        }
+        @include focus-hover {
+          text-decoration: none;
+        }
+        &:focus {
+          outline: 0;
+        }
+    }
   }
 
   .expansion-panel-item-action,
@@ -72,15 +80,23 @@
         background-color: nth($palettes-color, $i);
         color: nth($palettes-text-color, $i);
         // active, focus, hover
-          &:active,
-          &.active, {
+          &.active {
             background-color: nth($palettes-color-dark, $i);
             color: nth($palettes-text-color-dark, $i);
           }
-          &:focus {
-            background-color: nth($palettes-color-dark, $i);
-            color: nth($palettes-text-color-dark, $i);
-          }
+      }
+
+      a,
+      button {
+        &.expansion-panel-item-#{$color},
+        &.list-group-item-#{$color} {
+          // active, focus, hover
+            &:active,
+            &:focus {
+              background-color: nth($palettes-color-dark, $i);
+              color: nth($palettes-text-color-dark, $i);
+            }
+        }
       }
     }
 
@@ -122,8 +138,8 @@
     }
   }
 
-  .expansion-panel-collapse-block {
-    padding: $expansion-panel-block-spacer-y $expansion-panel-spacer-x;
+  .expansion-panel-collapse-body {
+    padding: $expansion-panel-body-spacer-y $expansion-panel-spacer-x;
   }
 
   .expansion-panel-collapse-footer {
@@ -142,6 +158,7 @@
   .expansion-panel-item,
   .list-group-item {
     &[data-toggle="collapse"] {
+      cursor: pointer;
       transition: background-color $transition-duration $transition-timing-function, border-radius $transition-duration-sm ease-in, border-top-color $transition-duration-sm ease-in, color $transition-duration $transition-timing-function, margin-top $transition-duration-sm linear;
       &:not(.collapsed) {
         border-radius: $border-radius $border-radius 0 0;
