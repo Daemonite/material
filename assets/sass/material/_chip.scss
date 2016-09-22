@@ -14,6 +14,11 @@
   &:empty {
     display: none;
   }
+}
+
+a.chip,
+a.tag {
+  transition: box-shadow $transition-duration $transition-timing-function;
   &::before {
     background-color: $chip-active-overlay;
     border-radius: ($chip-height / 2);
@@ -27,11 +32,6 @@
       left: 0;
     transition: opacity $transition-duration $transition-timing-function;
   }
-}
-
-.chip[href],
-.tag[href] {
-  transition: box-shadow $transition-duration $transition-timing-function;
   // active, focus, hover
     &:active,
     &:focus {
@@ -51,15 +51,15 @@
 // colour
   .chip-inverse,
   .tag-inverse {
-    background-color: $brand-color-accent;
-    color: $brand-text-color-accent;
+    background-color: $chip-bg-inverse;
+    color: $chip-color-inverse;
   }
 
   a.chip-inverse,
   a.tag-inverse {
     &,
     &:not([href]):not([tabindex]) {
-      color: $brand-text-color-accent;
+      color: $chip-color-inverse;
     }
   }
 

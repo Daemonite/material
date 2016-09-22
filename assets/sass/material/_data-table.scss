@@ -107,11 +107,13 @@
       }
     }
 
-    .table-hover .table-#{$color}:hover,
-    .table-hover .table-#{$color}:hover > td,
-    .table-hover .table-#{$color}:hover > th {
-      background-color: nth($palettes-color-dark, $i);
-      color: nth($palettes-text-color-dark, $i);
+    .table-hover .table-#{$color}:hover {
+      &,
+      > td,
+      > th {
+        background-color: nth($palettes-color-dark, $i);
+        color: nth($palettes-text-color-dark, $i);
+      }
     }
   }
 

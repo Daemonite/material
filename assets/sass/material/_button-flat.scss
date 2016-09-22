@@ -22,9 +22,7 @@
 
 // colour
   .btn-flat-inverse,
-  .btn-flat-secondary,
-  .btn-outline-inverse,
-  .btn-outline-secondary {
+  .btn-outline-inverse {
     color: $btn-color-inverse;
     &::before {
       background-color: $btn-flat-focus-overlay-inverse;
@@ -32,8 +30,16 @@
     // active, focus, hover
       &:active,
       &.active {
-        background-color: $btn-flat-bg-inverse-active;
+        background-color: $btn-bg-inverse-active;
         color: $btn-color-inverse;
+      }
+    // disabled
+      &:disabled,
+      &.disabled {
+        &,
+        &:active {
+          color: $btn-color-inverse-disabled;
+        }
       }
   }
 

@@ -1,4 +1,4 @@
-.btn-float {
+[class*="btn-float"] {
   border-radius: 50%;
   box-shadow: map-get($btn-float-elevation-shadow, shadow);
   font-weight: normal;
@@ -27,8 +27,21 @@
     }
 }
 
+// color
+  .btn-float-inverse {
+    @extend .btn-inverse;
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .btn-float-#{$color} {
+      @extend .btn-#{$color};
+    }
+  }
+
 // size
-  .btn-float-sm {
+  [class*="btn-float"].btn-sm {
     height: $btn-float-size-sm;
     line-height: $btn-float-size-sm;
     width: $btn-float-size-sm;
