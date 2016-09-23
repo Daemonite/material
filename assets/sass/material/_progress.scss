@@ -11,6 +11,7 @@
   display: block;
   height: $progress-height;
   margin-bottom: $spacer-md-y;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -20,7 +21,7 @@
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
 }
 
-// filled-in portion of the bar
+// bar
   .progress[value]::-ms-fill {
     background-color: $progress-bar-color;
     border: 0;
@@ -48,7 +49,7 @@
     border-right-radius: 0;
   }
 
-// variations
+// colour
   @each $color in $palettes {
     $i: index($palettes, $color);
 
@@ -93,7 +94,6 @@
         top: 0;
         bottom: 0;
         left: 0;
-      transition: width $transition-duration $transition-timing-function;
       width: 0%;
     }
     &::after {
@@ -124,20 +124,25 @@
 
   @keyframes progress-indeterminate-before {
     0%,
-    50% {
+    62.5% {
       // position
         left: 0%;
       width: 0%;
     }
-    75% {
+    71.875% {
       // position
         left: 0%;
       width: 25%;
     }
+    81.25% {
+      // position
+        left: 25%;
+      width: 50%;
+    }
     100% {
       // position
         left: 100%;
-      width: 0%;
+      width: 25%;
     }
   }
 
@@ -153,3 +158,18 @@
       background-color: transparent;
     }
   }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .progress-animated,
+      .progress-indeterminate {
+        &.progress-#{$color} {
+          &::after,
+          &::before {
+            background-color: nth($palettes-color, $i);
+          }
+        }
+      }
+    }

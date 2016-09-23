@@ -4376,6 +4376,7 @@ button.list-group-item-warning:focus {
   display: block;
   height: 0.25rem;
   margin-bottom: 1rem;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
@@ -4556,8 +4557,6 @@ button.list-group-item-warning:focus {
   top: 0;
   bottom: 0;
   left: 0;
-  -webkit-transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 0%;
 }
 .progress-animated::after,
@@ -4602,32 +4601,40 @@ button.list-group-item-warning:focus {
 }
 @-webkit-keyframes progress-indeterminate-before {
   0%,
-    50% {
+    62.5% {
     left: 0%;
     width: 0%;
   }
-  75% {
+  71.875% {
     left: 0%;
     width: 25%;
   }
+  81.25% {
+    left: 25%;
+    width: 50%;
+  }
   100% {
     left: 100%;
-    width: 0%;
+    width: 25%;
   }
 }
 @keyframes progress-indeterminate-before {
   0%,
-    50% {
+    62.5% {
     left: 0%;
     width: 0%;
   }
-  75% {
+  71.875% {
     left: 0%;
     width: 25%;
   }
+  81.25% {
+    left: 25%;
+    width: 50%;
+  }
   100% {
     left: 100%;
-    width: 0%;
+    width: 25%;
   }
 }
 .progress-animated[value]::-ms-fill,
@@ -4641,6 +4648,42 @@ button.list-group-item-warning:focus {
 .progress-animated[value]::-webkit-progress-value,
 .progress-indeterminate[value]::-webkit-progress-value {
   background-color: transparent;
+}
+
+.progress-animated.progress-primary::after, .progress-animated.progress-primary::before,
+.progress-indeterminate.progress-primary::after,
+.progress-indeterminate.progress-primary::before {
+  background-color: #9c27b0;
+}
+
+.progress-animated.progress-secondary::after, .progress-animated.progress-secondary::before,
+.progress-indeterminate.progress-secondary::after,
+.progress-indeterminate.progress-secondary::before {
+  background-color: #ff4081;
+}
+
+.progress-animated.progress-danger::after, .progress-animated.progress-danger::before,
+.progress-indeterminate.progress-danger::after,
+.progress-indeterminate.progress-danger::before {
+  background-color: #f44336;
+}
+
+.progress-animated.progress-info::after, .progress-animated.progress-info::before,
+.progress-indeterminate.progress-info::after,
+.progress-indeterminate.progress-info::before {
+  background-color: #2196f3;
+}
+
+.progress-animated.progress-success::after, .progress-animated.progress-success::before,
+.progress-indeterminate.progress-success::after,
+.progress-indeterminate.progress-success::before {
+  background-color: #4caf50;
+}
+
+.progress-animated.progress-warning::after, .progress-animated.progress-warning::before,
+.progress-indeterminate.progress-warning::after,
+.progress-indeterminate.progress-warning::before {
+  background-color: #ff9800;
 }
 
 .custom-control {
