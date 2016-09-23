@@ -1,0 +1,77 @@
+//
+// todo: indeterminate
+// material design guideline does not have specs for striped progress bars (or animated striped progress bars)
+// maybe striped progress bars can be treated as the buffered inear progress from material design guideline
+//
+
+.progress {
+  display: block;
+  height: $progress-height;
+  margin-bottom: $spacer-md-y;
+  width: 100%;
+}
+
+.progress[value] {
+  appearance: none;
+  background-color: transparent;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
+  border: 0;
+}
+
+// filled-in portion of the bar
+  .progress[value]::-ms-fill {
+    background-color: $progress-bar-color;
+    border: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value]::-moz-progress-bar {
+    background-color: $progress-bar-color;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value]::-webkit-progress-value {
+    background-color: $progress-bar-color;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value="100"]::-moz-progress-bar {
+    border-right-radius: 0;
+  }
+
+  .progress[value="100"]::-webkit-progress-value {
+    border-right-radius: 0;
+  }
+
+// unfilled portion of the bar
+  .progress[value]::-webkit-progress-bar {
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
+  }
+
+// variations
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .progress-#{$color}[value] {
+      background-color: transparent;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
+      // filled-in portion of the bar
+        &::-ms-fill {
+          background-color: nth($palettes-color, $i);
+        }
+        &::-moz-progress-bar {
+          background-color: nth($palettes-color, $i);
+        }
+        &::-webkit-progress-value {
+          background-color: nth($palettes-color, $i);
+        }
+      // unfilled protion of the bar
+        &::-webkit-progress-bar {
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
+        }
+    }
+  }
