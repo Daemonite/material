@@ -17,9 +17,9 @@ const Floatinglabel = (($) => {
     };
 
     const Event = {
-      CHANGE_DATA_API   : `change${EVENT_KEY}${DATA_API_KEY}`,
-      FOCUSIN_DATA_API  : `focusin${EVENT_KEY}${DATA_API_KEY}`,
-      FOCUSOUT_DATA_API : `focusout${EVENT_KEY}${DATA_API_KEY}`
+      CHANGE   : `change${EVENT_KEY}`,
+      FOCUSIN  : `focusin${EVENT_KEY}`,
+      FOCUSOUT : `focusout${EVENT_KEY}`
     };
 
     const Selector = {
@@ -72,9 +72,13 @@ const Floatinglabel = (($) => {
     }
   }
 
-  $(document).on(`${Event.CHANGE_DATA_API} ${Event.FOCUSIN_DATA_API} ${Event.FOCUSOUT_DATA_API}`,
+  $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`,
     Selector.DATA_TOGGLE,
     function (event) {
+    // stop the `Event.FOCUSIN` listener in navdrawer.js from firing
+    event.stopPropagation();
+    $(document).off($.fn.navdrawer.Constructor.Event.FOCUSIN);
+
     let data          = $(this).data(DATA_KEY);
 
     Floatinglabel._jQueryInterface.call($(this), event.type);

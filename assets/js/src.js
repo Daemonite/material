@@ -186,9 +186,9 @@ var Floatinglabel = function ($) {
   };
 
   var Event = {
-    CHANGE_DATA_API: 'change' + EVENT_KEY + DATA_API_KEY,
-    FOCUSIN_DATA_API: 'focusin' + EVENT_KEY + DATA_API_KEY,
-    FOCUSOUT_DATA_API: 'focusout' + EVENT_KEY + DATA_API_KEY
+    CHANGE: 'change' + EVENT_KEY,
+    FOCUSIN: 'focusin' + EVENT_KEY,
+    FOCUSOUT: 'focusout' + EVENT_KEY
   };
 
   var Selector = {
@@ -249,7 +249,11 @@ var Floatinglabel = function ($) {
     return Floatinglabel;
   }();
 
-  $(document).on(Event.CHANGE_DATA_API + ' ' + Event.FOCUSIN_DATA_API + ' ' + Event.FOCUSOUT_DATA_API, Selector.DATA_TOGGLE, function (event) {
+  $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
+    // stop the `Event.FOCUSIN` listener in navdrawer.js from firing
+    event.stopPropagation();
+    $(document).off($.fn.navdrawer.Constructor.Event.FOCUSIN);
+
     var data = $(this).data(DATA_KEY);
 
     Floatinglabel._jQueryInterface.call($(this), event.type);
@@ -873,7 +877,7 @@ var Util = function ($) {
     },
     getUID: function getUID(prefix) {
       do {
-        prefix += ~ ~(Math.random() * 1000000);
+        prefix += ~~(Math.random() * 1000000);
       } while (document.getElementById(prefix));
       return prefix;
     },
