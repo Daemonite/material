@@ -39,7 +39,8 @@ module.exports = function(grunt) {
 		var sassOptions = {
 			precision: 6,
 			sourcemap: 'auto',
-			style: 'expanded'
+			style:     'expanded',
+			trace:     true
 		};
 
 	grunt.initConfig({
