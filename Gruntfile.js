@@ -22,18 +22,17 @@ module.exports = function(grunt) {
 		var concatFooter = '\n}(jQuery);';
 
 		var postcssOptions = {
-			browsers: ['> 1%', 'Firefox ESR', 'last 2 versions', 'not ie <= 9']
-			// browsers: [
-			// 	'Android 2.3',
-			// 	'Android >= 4',
-			// 	'Chrome >= 35',
-			// 	'Edge >= 12',
-			// 	'Explorer >= 9',
-			// 	'Firefox >= 31',
-			// 	'iOS >= 8',
-			// 	'Opera >= 12',
-			// 	'Safari >= 8'
-			// ]
+			browsers: [
+				'Android 2.3',
+				'Android >= 4',
+				'Chrome >= 35',
+				'Edge >= 12',
+				'Explorer >= 9',
+				'Firefox >= 38',
+				'iOS >= 8',
+				'Opera >= 12',
+				'Safari >= 8'
+			]
 		};
 
 		var sassOptions = {
