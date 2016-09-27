@@ -276,6 +276,10 @@ const NavDrawer = (($) => {
       return Default;
     }
 
+    static get Event() {
+      return Event;
+    }
+
     static _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
         let data    = $(this).data(DATA_KEY);

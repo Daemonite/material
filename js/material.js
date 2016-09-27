@@ -595,6 +595,11 @@ var NavDrawer = function ($) {
       get: function get() {
         return Default;
       }
+    }, {
+      key: 'Event',
+      get: function get() {
+        return Event;
+      }
     }]);
 
     return NavDrawer;
