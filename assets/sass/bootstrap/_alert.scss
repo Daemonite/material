@@ -1,0 +1,63 @@
+//
+// .alert will be the same as a simple .card with some variations
+//
+
+.alert {
+  background-color: $card-bg;
+  border: 0;
+  border-radius: $border-radius;
+  box-shadow: map-get($card-elevation-shadow, shadow);
+  display: block;
+  margin-bottom: $card-margin-bottom;
+  padding: $card-spacer-inner-y $card-spacer-inner-x;
+  position: relative;
+  z-index: map-get($card-elevation-shadow, elevation);
+}
+
+// colour
+  .alert-inverse {
+    background-color: $card-bg-inverse;
+    color: $card-color-inverse;
+
+    .alert-link {
+      color: inherit;
+    }
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .alert-#{$color} {
+      background-color: nth($palettes-color, $i);
+      color: darken(nth($palettes-color, $i), 38%);
+
+      .alert-link {
+      	color: darken(nth($palettes-color, $i), 54%);
+      }
+    }
+  }
+
+//
+// dismissible
+//
+	.alert-dismissible {
+		padding-right: ($card-spacer-inner-x * 2);
+
+		.close {
+			position: relative;
+				top: -0.125rem;
+				right: ($card-spacer-inner-x * -1);
+		}
+	}
+
+//
+// misc
+//
+	.alert-heading {
+		color: inherit;
+		margin-top: $card-title-additonal-margin;
+	}
+
+	.alert-link {
+		font-weight: $alert-link-font-weight;
+	}
