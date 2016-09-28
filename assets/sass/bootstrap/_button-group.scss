@@ -1,4 +1,5 @@
-.btn-group {
+.btn-group,
+.btn-group-vertical {
   background-color: $btn-group-bg;
   display: inline-block;
   padding: $btn-group-padding-y $btn-group-padding-x;
@@ -7,14 +8,9 @@
 
   > .btn {
     @extend [class*="btn-flat"];
-    float: left;
-    margin-left: $btn-group-padding-x;
     min-width: 0;
     &::before {
       border-radius: 0;
-    }
-    &:first-child {
-      margin-left: 0;
     }
   }
 
@@ -28,22 +24,68 @@
     }
 
   > .btn-group {
-    float: left;
     padding: 0;
   }
 }
 
-[data-toggle="buttons"] {
+.btn-group {
   > .btn,
-  > .btn-group > .btn {
-    input[type="checkbox"],
-    input[type="radio"] {
-      clip: rect(0, 0, 0, 0);
-      pointer-events: none;
-      position: absolute;
-    }
+  > .btn-group {
+    float: left;
+  }
+
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group {
+    margin-left: $btn-group-padding-x;
   }
 }
+
+.btn-group-vertical {
+  > .btn,
+  > .btn-group,
+  > .btn-group > .btn {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  > .btn-group > .btn {
+    float: none;
+  }
+
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group {
+    margin-top: $btn-group-padding-y;
+  }
+}
+
+// size
+  .btn-group-lg > .btn {
+    @extend .btn-lg;
+  }
+
+  .btn-group-sm > .btn {
+    @extend .btn-sm;
+  }
+
+//
+// checkbox and radio options
+//
+  [data-toggle="buttons"] {
+    > .btn,
+    > .btn-group > .btn {
+      input[type="checkbox"],
+      input[type="radio"] {
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+        position: absolute;
+      }
+    }
+  }
 
 //
 // toolbar

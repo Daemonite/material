@@ -1941,27 +1941,53 @@ dl.row > dd + dt {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.btn-group {
+.btn-group,
+.btn-group-vertical {
   background-color: #f5f5f5;
   display: inline-block;
   padding: 0.5rem 0.5rem;
   position: relative;
   vertical-align: middle;
 }
-.btn-group > .btn {
-  float: left;
-  margin-left: 0.5rem;
+.btn-group > .btn,
+.btn-group-vertical > .btn {
   min-width: 0;
 }
-.btn-group > .btn::before {
+.btn-group > .btn::before,
+.btn-group-vertical > .btn::before {
   border-radius: 0;
 }
-.btn-group > .btn:first-child {
-  margin-left: 0;
+.btn-group > .btn-group,
+.btn-group-vertical > .btn-group {
+  padding: 0;
 }
+
+.btn-group > .btn,
 .btn-group > .btn-group {
   float: left;
-  padding: 0;
+}
+.btn-group > .btn + .btn,
+.btn-group > .btn + .btn-group,
+.btn-group > .btn-group + .btn,
+.btn-group > .btn-group + .btn-group {
+  margin-left: 0.5rem;
+}
+
+.btn-group-vertical > .btn,
+.btn-group-vertical > .btn-group,
+.btn-group-vertical > .btn-group > .btn {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+.btn-group-vertical > .btn-group > .btn {
+  float: none;
+}
+.btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .btn + .btn-group,
+.btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn-group + .btn-group {
+  margin-top: 0.5rem;
 }
 
 [data-toggle="buttons"] > .btn input[type="checkbox"],
@@ -2532,12 +2558,12 @@ pre code {
   color: rgba(0, 0, 0, 0.26);
 }
 
-.btn-lg {
+.btn-lg, .btn-group-lg > .btn {
   font-size: 0.9375rem;
   padding: 0.78125rem 1rem;
 }
 
-.btn-sm {
+.btn-sm, .btn-group-sm > .btn {
   font-size: 0.8125rem;
   padding: 0.59375rem 1rem;
 }
@@ -2598,12 +2624,15 @@ input[type="submit"].btn-block {
 }
 
 [class*="btn-flat"], .btn-group > .btn,
+.btn-group-vertical > .btn,
 [class*="btn-outline"] {
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-[class*="btn-flat"]:active, .btn-group > .btn:active, [class*="btn-flat"].active, .btn-group > .active.btn,
+[class*="btn-flat"]:active, .btn-group > .btn:active,
+.btn-group-vertical > .btn:active, [class*="btn-flat"].active, .btn-group > .active.btn,
+.btn-group-vertical > .active.btn,
 [class*="btn-outline"]:active,
 [class*="btn-outline"].active {
   background-color: rgba(153, 153, 153, 0.4);
@@ -2611,10 +2640,15 @@ input[type="submit"].btn-block {
           box-shadow: none;
 }
 [class*="btn-flat"].waves-attach:active, .btn-group > .waves-attach.btn:active,
+.btn-group-vertical > .waves-attach.btn:active,
 [class*="btn-outline"].waves-attach:active {
   background-color: transparent;
 }
-[class*="btn-flat"]:disabled, .btn-group > .btn:disabled, [class*="btn-flat"]:disabled:active, .btn-group > .btn:disabled:active, [class*="btn-flat"].disabled, .btn-group > .disabled.btn, [class*="btn-flat"].disabled:active, .btn-group > .disabled.btn:active,
+[class*="btn-flat"]:disabled, .btn-group > .btn:disabled,
+.btn-group-vertical > .btn:disabled, [class*="btn-flat"]:disabled:active, .btn-group > .btn:disabled:active,
+.btn-group-vertical > .btn:disabled:active, [class*="btn-flat"].disabled, .btn-group > .disabled.btn,
+.btn-group-vertical > .disabled.btn, [class*="btn-flat"].disabled:active, .btn-group > .disabled.btn:active,
+.btn-group-vertical > .disabled.btn:active,
 [class*="btn-outline"]:disabled,
 [class*="btn-outline"]:disabled:active,
 [class*="btn-outline"].disabled,
@@ -2644,42 +2678,78 @@ input[type="submit"].btn-block {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.btn-flat-primary, .btn-group > .btn-primary, .btn-group > .btn-float-primary, .btn-flat-primary:active, .btn-group > .btn-primary:active, .btn-group > .btn-float-primary:active, .btn-flat-primary.active, .btn-group > .active.btn-primary, .btn-group > .active.btn-float-primary,
+.btn-flat-primary, .btn-group > .btn-primary, .btn-group > .btn-float-primary,
+.btn-group-vertical > .btn-primary,
+.btn-group-vertical > .btn-float-primary, .btn-flat-primary:active, .btn-group > .btn-primary:active, .btn-group > .btn-float-primary:active,
+.btn-group-vertical > .btn-primary:active,
+.btn-group-vertical > .btn-float-primary:active, .btn-flat-primary.active, .btn-group > .active.btn-primary, .btn-group > .active.btn-float-primary,
+.btn-group-vertical > .active.btn-primary,
+.btn-group-vertical > .active.btn-float-primary,
 .btn-outline-primary,
 .btn-outline-primary:active,
 .btn-outline-primary.active {
   color: #9c27b0;
 }
 
-.btn-flat-secondary, .btn-group > .btn-secondary, .btn-group > .btn-float-secondary, .btn-flat-secondary:active, .btn-group > .btn-secondary:active, .btn-group > .btn-float-secondary:active, .btn-flat-secondary.active, .btn-group > .active.btn-secondary, .btn-group > .active.btn-float-secondary,
+.btn-flat-secondary, .btn-group > .btn-secondary, .btn-group > .btn-float-secondary,
+.btn-group-vertical > .btn-secondary,
+.btn-group-vertical > .btn-float-secondary, .btn-flat-secondary:active, .btn-group > .btn-secondary:active, .btn-group > .btn-float-secondary:active,
+.btn-group-vertical > .btn-secondary:active,
+.btn-group-vertical > .btn-float-secondary:active, .btn-flat-secondary.active, .btn-group > .active.btn-secondary, .btn-group > .active.btn-float-secondary,
+.btn-group-vertical > .active.btn-secondary,
+.btn-group-vertical > .active.btn-float-secondary,
 .btn-outline-secondary,
 .btn-outline-secondary:active,
 .btn-outline-secondary.active {
   color: #ff4081;
 }
 
-.btn-flat-danger, .btn-group > .btn-danger, .btn-group > .btn-float-danger, .btn-flat-danger:active, .btn-group > .btn-danger:active, .btn-group > .btn-float-danger:active, .btn-flat-danger.active, .btn-group > .active.btn-danger, .btn-group > .active.btn-float-danger,
+.btn-flat-danger, .btn-group > .btn-danger, .btn-group > .btn-float-danger,
+.btn-group-vertical > .btn-danger,
+.btn-group-vertical > .btn-float-danger, .btn-flat-danger:active, .btn-group > .btn-danger:active, .btn-group > .btn-float-danger:active,
+.btn-group-vertical > .btn-danger:active,
+.btn-group-vertical > .btn-float-danger:active, .btn-flat-danger.active, .btn-group > .active.btn-danger, .btn-group > .active.btn-float-danger,
+.btn-group-vertical > .active.btn-danger,
+.btn-group-vertical > .active.btn-float-danger,
 .btn-outline-danger,
 .btn-outline-danger:active,
 .btn-outline-danger.active {
   color: #f44336;
 }
 
-.btn-flat-info, .btn-group > .btn-info, .btn-group > .btn-float-info, .btn-flat-info:active, .btn-group > .btn-info:active, .btn-group > .btn-float-info:active, .btn-flat-info.active, .btn-group > .active.btn-info, .btn-group > .active.btn-float-info,
+.btn-flat-info, .btn-group > .btn-info, .btn-group > .btn-float-info,
+.btn-group-vertical > .btn-info,
+.btn-group-vertical > .btn-float-info, .btn-flat-info:active, .btn-group > .btn-info:active, .btn-group > .btn-float-info:active,
+.btn-group-vertical > .btn-info:active,
+.btn-group-vertical > .btn-float-info:active, .btn-flat-info.active, .btn-group > .active.btn-info, .btn-group > .active.btn-float-info,
+.btn-group-vertical > .active.btn-info,
+.btn-group-vertical > .active.btn-float-info,
 .btn-outline-info,
 .btn-outline-info:active,
 .btn-outline-info.active {
   color: #2196f3;
 }
 
-.btn-flat-success, .btn-group > .btn-success, .btn-group > .btn-float-success, .btn-flat-success:active, .btn-group > .btn-success:active, .btn-group > .btn-float-success:active, .btn-flat-success.active, .btn-group > .active.btn-success, .btn-group > .active.btn-float-success,
+.btn-flat-success, .btn-group > .btn-success, .btn-group > .btn-float-success,
+.btn-group-vertical > .btn-success,
+.btn-group-vertical > .btn-float-success, .btn-flat-success:active, .btn-group > .btn-success:active, .btn-group > .btn-float-success:active,
+.btn-group-vertical > .btn-success:active,
+.btn-group-vertical > .btn-float-success:active, .btn-flat-success.active, .btn-group > .active.btn-success, .btn-group > .active.btn-float-success,
+.btn-group-vertical > .active.btn-success,
+.btn-group-vertical > .active.btn-float-success,
 .btn-outline-success,
 .btn-outline-success:active,
 .btn-outline-success.active {
   color: #4caf50;
 }
 
-.btn-flat-warning, .btn-group > .btn-warning, .btn-group > .btn-float-warning, .btn-flat-warning:active, .btn-group > .btn-warning:active, .btn-group > .btn-float-warning:active, .btn-flat-warning.active, .btn-group > .active.btn-warning, .btn-group > .active.btn-float-warning,
+.btn-flat-warning, .btn-group > .btn-warning, .btn-group > .btn-float-warning,
+.btn-group-vertical > .btn-warning,
+.btn-group-vertical > .btn-float-warning, .btn-flat-warning:active, .btn-group > .btn-warning:active, .btn-group > .btn-float-warning:active,
+.btn-group-vertical > .btn-warning:active,
+.btn-group-vertical > .btn-float-warning:active, .btn-flat-warning.active, .btn-group > .active.btn-warning, .btn-group > .active.btn-float-warning,
+.btn-group-vertical > .active.btn-warning,
+.btn-group-vertical > .active.btn-float-warning,
 .btn-outline-warning,
 .btn-outline-warning:active,
 .btn-outline-warning.active {
@@ -2713,7 +2783,7 @@ input[type="submit"].btn-block {
   z-index: 60;
 }
 
-[class*="btn-float"].btn-sm {
+[class*="btn-float"].btn-sm, .btn-group-sm > [class*="btn-float"].btn {
   height: 2.5rem;
   line-height: 2.5rem;
   width: 2.5rem;
@@ -6148,13 +6218,15 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
   margin-top: 0rem;
   margin-bottom: 0rem;
 }
-.navbar .btn-lg,
-.toolbar .btn-lg {
+.navbar .btn-lg, .navbar .btn-group-lg > .btn,
+.toolbar .btn-lg,
+.toolbar .btn-group-lg > .btn {
   margin-top: -0.125rem;
   margin-bottom: -0.125rem;
 }
-.navbar .btn-sm,
-.toolbar .btn-sm {
+.navbar .btn-sm, .navbar .btn-group-sm > .btn,
+.toolbar .btn-sm,
+.toolbar .btn-group-sm > .btn {
   margin-top: 0.125rem;
   margin-bottom: 0.125rem;
 }
