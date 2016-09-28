@@ -1959,6 +1959,10 @@ dl.row > dd + dt {
 .btn-group > .btn:first-child {
   margin-left: 0;
 }
+.btn-group > .btn-group {
+  float: left;
+  padding: 0;
+}
 
 [data-toggle="buttons"] > .btn input[type="checkbox"],
 [data-toggle="buttons"] > .btn input[type="radio"],
@@ -1967,6 +1971,31 @@ dl.row > dd + dt {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
   position: absolute;
+}
+
+.btn-toolbar::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.btn-toolbar .btn-group,
+.btn-toolbar .input-group {
+  float: left;
+}
+.btn-toolbar .btn-group::before,
+.btn-toolbar .input-group::before {
+  background-color: rgba(0, 0, 0, 0.12);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0;
+  width: 1px;
+}
+.btn-toolbar .btn-group:first-child::before,
+.btn-toolbar .input-group:first-child::before {
+  display: none;
 }
 
 .close {

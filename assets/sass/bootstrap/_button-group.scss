@@ -18,12 +18,18 @@
     }
   }
 
-  @each $color in $palettes {
-    $i: index($palettes, $color);
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
 
-    > .btn-#{$color} {
-      @extend .btn-flat-#{$color};
+      > .btn-#{$color} {
+        @extend .btn-flat-#{$color};
+      }
     }
+
+  > .btn-group {
+    float: left;
+    padding: 0;
   }
 }
 
@@ -38,3 +44,28 @@
     }
   }
 }
+
+//
+// toolbar
+//
+  .btn-toolbar {
+    @include clearfix;
+
+    .btn-group,
+    .input-group {
+      float: left;
+      &::before {
+        background-color: $btn-toolbar-divider-bg;
+        content: "";
+        display: block;
+        position: absolute;
+          top: $btn-group-padding-y;
+          bottom: $btn-group-padding-y;
+          left: 0;
+        width: 1px;
+      }
+      &:first-child::before {
+        display: none;
+      }
+    }
+  }
