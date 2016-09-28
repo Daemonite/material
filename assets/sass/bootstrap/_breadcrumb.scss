@@ -1,0 +1,40 @@
+.breadcrumb {
+	background-color: $breadcrumb-bg;
+	list-style: none;
+	margin-bottom: $breadcrumb-margin-bottom;
+	padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+	@include clearfix;
+}
+
+.breadcrumb-item {
+	color: $breadcrumb-item-color;
+	float: left;
+	// active, focus, hover
+		&.active {
+			color: $breadcrumb-item-color-active;
+			font-weight: bolder;
+		}
+
+	a {
+		color: inherit;
+	}
+
+	+ .breadcrumb-item::before {
+		color: $breadcrumb-item-color;
+		content: "#{$breadcrumb-divider}";
+		direction: ltr;
+		display: inline-block;
+		font-family: "Material Icons";
+		font-feature-settings: "liga";
+		font-size: #{$line-height-base}em;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		padding-right: $breadcrumb-item-padding;
+		padding-left: $breadcrumb-item-padding;
+		text-rendering: optimizeLegibility;
+		vertical-align: bottom;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}

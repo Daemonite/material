@@ -1894,6 +1894,49 @@ dl.row > dd + dt {
   opacity: 1;
 }
 
+.breadcrumb {
+  background-color: #f5f5f5;
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+}
+.breadcrumb::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.breadcrumb-item {
+  color: rgba(0, 0, 0, 0.54);
+  float: left;
+}
+.breadcrumb-item.active {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bolder;
+}
+.breadcrumb-item a {
+  color: inherit;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(0, 0, 0, 0.54);
+  content: "chevron_right";
+  direction: ltr;
+  display: inline-block;
+  font-family: "Material Icons";
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+  font-size: 1.428572em;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  text-rendering: optimizeLegibility;
+  vertical-align: bottom;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .close {
   color: rgba(0, 0, 0, 0.38);
   float: right;
