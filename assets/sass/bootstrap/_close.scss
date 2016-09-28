@@ -1,0 +1,26 @@
+.close {
+	color: $close-color;
+	float: right;
+	font-size: $close-font-size;
+	font-weight: normal;
+	line-height: 1;
+	transition: color $transition-duration $transition-timing-function;
+	// active, focus, hover
+		&:focus {
+			color: $close-color-hover;
+			outline: none;
+		}
+		@include focus-hover {
+			cursor: pointer;
+			text-decoration: none;
+		}
+}
+
+button.close {
+	appearance: none;
+	background-color: transparent;
+	background-image: none;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+}
