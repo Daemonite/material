@@ -1941,6 +1941,34 @@ dl.row > dd + dt {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.btn-group {
+  background-color: #f5f5f5;
+  display: inline-block;
+  padding: 0.5rem 0.5rem;
+  position: relative;
+  vertical-align: middle;
+}
+.btn-group > .btn {
+  float: left;
+  margin-left: 0.5rem;
+  min-width: 0;
+}
+.btn-group > .btn::before {
+  border-radius: 0;
+}
+.btn-group > .btn:first-child {
+  margin-left: 0;
+}
+
+[data-toggle="buttons"] > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btn input[type="radio"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"],
+[data-toggle="buttons"] > .btn-group > .btn input[type="radio"] {
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+  position: absolute;
+}
+
 .close {
   color: rgba(0, 0, 0, 0.38);
   float: right;
@@ -2540,23 +2568,24 @@ input[type="submit"].btn-block {
   min-width: 0;
 }
 
-[class*="btn-flat"],
+[class*="btn-flat"], .btn-group > .btn,
 [class*="btn-outline"] {
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-[class*="btn-flat"]:active, [class*="btn-flat"].active,
+[class*="btn-flat"]:active, .btn-group > .btn:active, [class*="btn-flat"].active, .btn-group > .active.btn,
 [class*="btn-outline"]:active,
 [class*="btn-outline"].active {
+  background-color: rgba(153, 153, 153, 0.4);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-[class*="btn-flat"].waves-attach:active,
+[class*="btn-flat"].waves-attach:active, .btn-group > .waves-attach.btn:active,
 [class*="btn-outline"].waves-attach:active {
   background-color: transparent;
 }
-[class*="btn-flat"]:disabled, [class*="btn-flat"]:disabled:active, [class*="btn-flat"].disabled, [class*="btn-flat"].disabled:active,
+[class*="btn-flat"]:disabled, .btn-group > .btn:disabled, [class*="btn-flat"]:disabled:active, .btn-group > .btn:disabled:active, [class*="btn-flat"].disabled, .btn-group > .disabled.btn, [class*="btn-flat"].disabled:active, .btn-group > .disabled.btn:active,
 [class*="btn-outline"]:disabled,
 [class*="btn-outline"]:disabled:active,
 [class*="btn-outline"].disabled,
@@ -2586,39 +2615,45 @@ input[type="submit"].btn-block {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.btn-flat-primary, .btn-flat-primary:active,
+.btn-flat-primary, .btn-group > .btn-primary, .btn-group > .btn-float-primary, .btn-flat-primary:active, .btn-group > .btn-primary:active, .btn-group > .btn-float-primary:active, .btn-flat-primary.active, .btn-group > .active.btn-primary, .btn-group > .active.btn-float-primary,
 .btn-outline-primary,
-.btn-outline-primary:active {
+.btn-outline-primary:active,
+.btn-outline-primary.active {
   color: #9c27b0;
 }
 
-.btn-flat-secondary, .btn-flat-secondary:active,
+.btn-flat-secondary, .btn-group > .btn-secondary, .btn-group > .btn-float-secondary, .btn-flat-secondary:active, .btn-group > .btn-secondary:active, .btn-group > .btn-float-secondary:active, .btn-flat-secondary.active, .btn-group > .active.btn-secondary, .btn-group > .active.btn-float-secondary,
 .btn-outline-secondary,
-.btn-outline-secondary:active {
+.btn-outline-secondary:active,
+.btn-outline-secondary.active {
   color: #ff4081;
 }
 
-.btn-flat-danger, .btn-flat-danger:active,
+.btn-flat-danger, .btn-group > .btn-danger, .btn-group > .btn-float-danger, .btn-flat-danger:active, .btn-group > .btn-danger:active, .btn-group > .btn-float-danger:active, .btn-flat-danger.active, .btn-group > .active.btn-danger, .btn-group > .active.btn-float-danger,
 .btn-outline-danger,
-.btn-outline-danger:active {
+.btn-outline-danger:active,
+.btn-outline-danger.active {
   color: #f44336;
 }
 
-.btn-flat-info, .btn-flat-info:active,
+.btn-flat-info, .btn-group > .btn-info, .btn-group > .btn-float-info, .btn-flat-info:active, .btn-group > .btn-info:active, .btn-group > .btn-float-info:active, .btn-flat-info.active, .btn-group > .active.btn-info, .btn-group > .active.btn-float-info,
 .btn-outline-info,
-.btn-outline-info:active {
+.btn-outline-info:active,
+.btn-outline-info.active {
   color: #2196f3;
 }
 
-.btn-flat-success, .btn-flat-success:active,
+.btn-flat-success, .btn-group > .btn-success, .btn-group > .btn-float-success, .btn-flat-success:active, .btn-group > .btn-success:active, .btn-group > .btn-float-success:active, .btn-flat-success.active, .btn-group > .active.btn-success, .btn-group > .active.btn-float-success,
 .btn-outline-success,
-.btn-outline-success:active {
+.btn-outline-success:active,
+.btn-outline-success.active {
   color: #4caf50;
 }
 
-.btn-flat-warning, .btn-flat-warning:active,
+.btn-flat-warning, .btn-group > .btn-warning, .btn-group > .btn-float-warning, .btn-flat-warning:active, .btn-group > .btn-warning:active, .btn-group > .btn-float-warning:active, .btn-flat-warning.active, .btn-group > .active.btn-warning, .btn-group > .active.btn-float-warning,
 .btn-outline-warning,
-.btn-outline-warning:active {
+.btn-outline-warning:active,
+.btn-outline-warning.active {
   color: #ff9800;
 }
 

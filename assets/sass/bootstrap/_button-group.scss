@@ -1,0 +1,40 @@
+.btn-group {
+  background-color: $btn-group-bg;
+  display: inline-block;
+  padding: $btn-group-padding-y $btn-group-padding-x;
+  position: relative;
+  vertical-align: middle;
+
+  > .btn {
+    @extend [class*="btn-flat"];
+    float: left;
+    margin-left: $btn-group-padding-x;
+    min-width: 0;
+    &::before {
+      border-radius: 0;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    > .btn-#{$color} {
+      @extend .btn-flat-#{$color};
+    }
+  }
+}
+
+[data-toggle="buttons"] {
+  > .btn,
+  > .btn-group > .btn {
+    input[type="checkbox"],
+    input[type="radio"] {
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+      position: absolute;
+    }
+  }
+}
