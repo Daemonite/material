@@ -6763,6 +6763,76 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
   display: none;
 }
 
+.tooltip {
+  display: block;
+  font-size: 0.875rem;
+  opacity: 0;
+  position: absolute;
+  -webkit-transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 240;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-break: auto;
+  line-height: 1.428572;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  white-space: normal;
+  word-break: normal;
+  word-spacing: normal;
+}
+.tooltip.bs-tether-element-attached-bottom, .tooltip.tooltip-top {
+  margin-top: -1.5rem;
+}
+.tooltip.bs-tether-element-attached-left, .tooltip.tooltip-right {
+  margin-left: 1.5rem;
+}
+.tooltip.bs-tether-element-attached-right, .tooltip.tooltip-left {
+  margin-left: -1.5rem;
+}
+.tooltip.bs-tether-element-attached-top, .tooltip.tooltip-bottom {
+  margin-top: 1.5rem;
+}
+.tooltip.in {
+  opacity: 0.9;
+}
+
+.tooltip-inner {
+  background-color: #616161;
+  border-radius: 2px;
+  color: white;
+  font-size: 0.875rem;
+  padding: 0.375rem 1rem;
+  text-align: center;
+}
+
+@media (min-width: 840px) {
+  .tooltip {
+    font-size: 0.625rem;
+  }
+  .tooltip.bs-tether-element-attached-bottom, .tooltip.tooltip-top {
+    margin-top: -0.875rem;
+  }
+  .tooltip.bs-tether-element-attached-left, .tooltip.tooltip-right {
+    margin-left: 0.875rem;
+  }
+  .tooltip.bs-tether-element-attached-right, .tooltip.tooltip-left {
+    margin-left: -0.875rem;
+  }
+  .tooltip.bs-tether-element-attached-top, .tooltip.tooltip-bottom {
+    margin-top: 0.875rem;
+  }
+
+  .tooltip-inner {
+    padding: 0.241071rem 0.5rem;
+  }
+}
 .material-icons {
   font-size: 1.714286em;
   line-height: 0.416667em;
