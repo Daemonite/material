@@ -1,0 +1,200 @@
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  > .carousel-item {
+    display: none;
+    position: relative;
+    transition: left $transition-duration-lg $transition-timing-function;
+
+    > img,
+    > a > img {
+      @extend .img-fluid;
+      line-height: 1;
+    }
+  }
+
+  @media all and (transform-3d), (-webkit-transform-3d) {
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transition: transform $transition-duration-lg $transition-timing-function;
+    &.active {
+      // position
+        left: 0;
+      transform: translate3d(0, 0, 0);
+    }
+    &.active.left {
+      // position
+        left: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+    &.active.right {
+      // position
+        left: 0;
+      transform: translate3d(100%, 0, 0);
+    }
+    &.next {
+      // position
+        left: 0;
+      transform: translate3d(100%, 0, 0);
+    }
+    &.next.left {
+      // position
+        left: 0;
+      transform: translate3d(0, 0, 0);
+    }
+    &.prev {
+      // position
+        left: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+    &.prev.right {
+      // position
+        left: 0;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    // position
+      left: 0;
+  }
+
+  > .active.left {
+    // position
+      left: -100%;
+  }
+
+  > .active.right {
+    // position
+      left: 100%;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+      top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    // position
+      left: 100%;
+  }
+
+  > .prev {
+    // position
+      left: -100%;
+  }
+
+  > .next.left,
+  > .prev.right {
+    // position
+      left: 0;
+  }
+}
+
+//
+// left/right controls
+//
+  .carousel-control {
+    @extend .btn;
+    @extend .btn-sm;
+    @extend [class*="btn-float"];
+    opacity: 0;
+    &.left,
+    &.right {
+      margin-top: ($btn-float-size-sm / -2);
+      position: absolute;
+        top: 50%;
+      transition: none;
+      z-index: initial;
+    }
+    &.left {
+      // position
+        left: ($btn-float-size-sm / 2);
+    }
+    &.right {
+      // position
+        right: ($btn-float-size-sm / 2);
+    }
+
+    .icon-next,
+    .icon-prev {
+      display: inline-block;
+      font-size: $material-icon-size;
+    }
+
+    .icon-next::before {
+      content: "\203a";
+    }
+
+    .icon-prev::before {
+      content: "\2039";
+    }
+  }
+
+  .carousel {
+    @include focus-hover {
+      .carousel-control {
+        opacity: 1;
+      }
+    };
+  }
+
+//
+// optional captions
+//
+  .carousel-caption {
+    color: $carousel-caption-color;
+    position: absolute;
+      right: ((100% - $carousel-caption-width) / 2);
+      bottom: ($carousel-indicator-size * 2);
+      left: ((100% - $carousel-caption-width) / 2);
+    text-align: center;
+    z-index: 1;
+  }
+
+//
+// optional indicators
+//
+  .carousel-indicators {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    position: absolute;
+      right: ($btn-float-size-sm / -2);
+      bottom: $carousel-indicator-size;
+      left: ($btn-float-size-sm / -2);
+    text-align: center;
+    z-index: 1;
+
+    li {
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid $carousel-indicator-color;
+      border-radius: $carousel-indicator-size;
+      cursor: pointer;
+      display: inline-block;
+      height: $carousel-indicator-size;
+      margin-right: 1px;
+      margin-left: 1px;
+      overflow: hidden;
+      text-indent: 100%;
+      width: $carousel-indicator-size;
+    }
+
+    .active {
+      background-color: $carousel-indicator-color;
+    }
+  }
