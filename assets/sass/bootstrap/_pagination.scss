@@ -1,0 +1,50 @@
+.pagination {
+  background-color: $pagination-bg;
+  display: inline-block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  position: relative;
+  vertical-align: middle;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  @extend .btn;
+  @extend [class*="btn-flat"];
+  float: left;
+  .page-item.active & {
+    @extend .active.btn;
+    @extend [class*="btn-flat"].active;
+  }
+  .page-item.disabled & {
+    @extend .btn.disabled;
+    @extend [class*="btn-flat"].disabled;
+  }
+}
+
+// make the selector a bit more specific
+// so the styles will not be overridden by material's button styles
+html .page-link {
+  border-radius: 0;
+  margin-left: 1px;
+  min-width: 0;
+  z-index: initial;
+  &::before {
+    border-radius: 0;
+  }
+}
+
+html .page-item:first-child .page-link {
+  margin-left: 0;
+}
+
+// size
+  .pagination-lg .page-link {
+    @extend .btn-lg;
+  }
+
+  .pagination-sm .page-link {
+    @extend .btn-sm;
+  }
