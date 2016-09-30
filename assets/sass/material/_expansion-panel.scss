@@ -19,7 +19,7 @@
     min-height: $expansion-panel-height;
     padding: $expansion-panel-spacer-y $expansion-panel-spacer-x;
     position: relative;
-    transition: background-color $transition-duration $transition-timing-function, color $transition-duration $transition-timing-function;
+    transition: background-color $transition-duration $transition-timing-function-standard, color $transition-duration $transition-timing-function-standard;
     &:first-of-type {
       border-top-color: transparent;
       border-top-left-radius: $border-radius;
@@ -162,7 +162,7 @@
   .list-group-item {
     &[data-toggle="collapse"] {
       cursor: pointer;
-      transition: background-color $transition-duration $transition-timing-function, border-radius $transition-duration-sm ease-in, border-top-color $transition-duration-sm ease-in, color $transition-duration $transition-timing-function, margin-top $transition-duration-sm linear;
+      transition: background-color $transition-duration $transition-timing-function-standard, border-radius $transition-duration-sm ease-in, border-top-color $transition-duration-sm ease-in, color $transition-duration $transition-timing-function-standard, margin-top $transition-duration-sm linear;
       &:not(.collapsed) {
         border-radius: $border-radius $border-radius 0 0;
         border-top-color: transparent;
@@ -219,7 +219,7 @@
     position: absolute;
       top: ($expansion-panel-height / 2);
       right: $expansion-panel-spacer-x;
-    transition: color $transition-duration $transition-timing-function;
+    transition: color $transition-duration $transition-timing-function-standard;
     width: $material-icon-size;
   }
 

@@ -27,7 +27,7 @@
     opacity: $nav-tab-link-opacity;
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     text-transform: uppercase;
-    transition: background-color $transition-duration-sm $transition-timing-function, opacity $transition-duration $transition-timing-function;
+    transition: background-color $transition-duration-sm $transition-timing-function-standard, opacity $transition-duration $transition-timing-function-standard;
     &::before {
       background-color: $nav-tab-indicator-bg;
       content: "";
@@ -38,7 +38,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-      transition: opacity $transition-duration $transition-timing-function;
+      transition: opacity $transition-duration $transition-timing-function-standard;
     }
 
     @if $enable-flex {
@@ -141,9 +141,9 @@
     bottom: 0;
   &.animate {
     opacity: 1;
-    transition: left $transition-duration-sm $transition-timing-function $transition-duration-sm, right $transition-duration $transition-timing-function;
+    transition: left $transition-duration-sm $transition-timing-function-standard $transition-duration-sm, right $transition-duration $transition-timing-function-standard;
     &.reverse {
-      transition: left $transition-duration $transition-timing-function, right $transition-duration-sm $transition-timing-function $transition-duration-sm;
+      transition: left $transition-duration $transition-timing-function-standard, right $transition-duration-sm $transition-timing-function-standard $transition-duration-sm;
     }
   }
   &.in {

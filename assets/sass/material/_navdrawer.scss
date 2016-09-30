@@ -20,7 +20,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-    transition: opacity $transition-duration-sm $transition-timing-function;
+    transition: opacity $transition-duration-sm $transition-timing-function-standard;
     z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
     &.in {
       opacity: 1;
@@ -41,7 +41,7 @@
       bottom: 0;
       left: 0;
     transform: translateX(-100%);
-    transition: transform $transition-duration $transition-timing-function;
+    transition: transform $transition-duration $transition-timing-function-standard;
     width: $navdrawer-width-mobile;
     -webkit-overflow-scrolling: touch;
     // direction
@@ -110,7 +110,7 @@
       padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
       transition-duration: $transition-duration;
       transition-property: background-color color;
-      transition-timing-function: $transition-timing-function;
+      transition-timing-function: $transition-timing-function-standard;
       @include text-truncate;
       // active, focus, hover
         &:active,

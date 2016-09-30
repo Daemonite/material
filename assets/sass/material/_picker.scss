@@ -20,7 +20,7 @@
   max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
   position: relative;
   transform: scale(0, 0);
-  transition: transform $transition-duration $transition-timing-function;
+  transition: transform $transition-duration $transition-timing-function-standard;
   vertical-align: middle;
   .picker--opened & {
     transform: scale(1, 1);
@@ -39,7 +39,7 @@
     left: 0;
   text-align: center;
   transform: translateY(100%);
-  transition: opacity $transition-duration-sm $transition-duration-sm $transition-timing-function, transform 0s $transition-duration;
+  transition: opacity $transition-duration-sm $transition-duration-sm $transition-timing-function-standard, transform 0s $transition-duration;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   &::after {
@@ -54,7 +54,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     transform: translateY(0);
-    transition: opacity $transition-duration $transition-timing-function, transform 0s;
+    transition: opacity $transition-duration $transition-timing-function-standard, transform 0s;
     &::before {
       opacity: 1;
     }
