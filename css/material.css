@@ -6728,6 +6728,7 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
 .navbar-toggler,
 .toolbar-toggler {
   background-color: transparent;
+  border: 0;
   border-radius: 50%;
   color: inherit;
   display: block;
@@ -6834,6 +6835,52 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
 }
 .navbar-nav .nav-link.disabled::before {
   display: none;
+}
+
+.navbar-toggleable-xs::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media (max-width: 479px) {
+  .navbar-toggleable-xs .navbar-nav .nav-item {
+    float: none;
+  }
+}
+@media (min-width: 480px) {
+  .navbar-toggleable-xs {
+    display: block !important;
+  }
+}
+.navbar-toggleable-sm::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media (max-width: 839px) {
+  .navbar-toggleable-sm .navbar-nav .nav-item {
+    float: none;
+  }
+}
+@media (min-width: 840px) {
+  .navbar-toggleable-sm {
+    display: block !important;
+  }
+}
+.navbar-toggleable-md::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media (max-width: 1279px) {
+  .navbar-toggleable-md .navbar-nav .nav-item {
+    float: none;
+  }
+}
+@media (min-width: 1280px) {
+  .navbar-toggleable-md {
+    display: block !important;
+  }
 }
 
 .tooltip {
