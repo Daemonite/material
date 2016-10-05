@@ -1,5 +1,5 @@
 <!-- Date picker -->
-$('#cract_Dpiker').pickdate({
+('#cract_Dpiker').pickdate({
     cancel: 'Clear',
     closeOnCancel: false,
     closeOnSelect: true,
