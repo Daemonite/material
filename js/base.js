@@ -1,4 +1,4 @@
-/*! 
+/*!
  * modernizr 3.3.0 (Custom Build) | MIT
  * http://modernizr.com/download/?-touchevents-setclasses
  */
@@ -27,7 +27,7 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 					case 'focusout':
 						parent.removeClass('control-focus');
 						break;
-					default: 
+					default:
 						if (this.val()) {
 							parent.addClass('control-highlight');
 						} else if (this.is('select') && $('option:first-child', this).html().replace(' ', '') !== '') {
