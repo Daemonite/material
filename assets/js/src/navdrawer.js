@@ -19,9 +19,10 @@ const NavDrawer = (($) => {
     };
 
     const Default = {
-      keyboard : true,
-      show     : true,
-      type     : 'default'
+      breakpoint : 1280,
+      keyboard   : true,
+      show       : true,
+      type       : 'default'
     };
 
     const DefaultType = {
@@ -130,9 +131,12 @@ const NavDrawer = (($) => {
       $(document)
         .off(Event.FOCUSIN)
         .on(Event.FOCUSIN, (event) => {
-        if (this._element !== event.target &&
-          (!$(this._element).has(event.target).length)) {
-          this._element.focus();
+        if ((this._config.type === 'default') ||
+          ($(window).width() <= this._config.breakpoint)) {
+          if (this._element !== event.target &&
+            (!$(this._element).has(event.target).length)) {
+            this._element.focus();
+          }
         }
       });
     }
@@ -274,10 +278,6 @@ const NavDrawer = (($) => {
 
     static get Default() {
       return Default;
-    }
-
-    static get Event() {
-      return Event;
     }
 
     static _jQueryInterface(config, relatedTarget) {

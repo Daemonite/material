@@ -75,10 +75,6 @@ const Floatinglabel = (($) => {
   $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`,
     Selector.DATA_TOGGLE,
     function (event) {
-    // stop the `Event.FOCUSIN` listener in navdrawer.js from firing
-    event.stopPropagation();
-    $(document).off($.fn.navdrawer.Constructor.Event.FOCUSIN);
-
     let data          = $(this).data(DATA_KEY);
 
     Floatinglabel._jQueryInterface.call($(this), event.type);

@@ -270,10 +270,6 @@ var Floatinglabel = function ($) {
   }();
 
   $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
-    // stop the `Event.FOCUSIN` listener in navdrawer.js from firing
-    event.stopPropagation();
-    $(document).off($.fn.navdrawer.Constructor.Event.FOCUSIN);
-
     var data = $(this).data(DATA_KEY);
 
     Floatinglabel._jQueryInterface.call($(this), event.type);
@@ -310,6 +306,7 @@ var NavDrawer = function ($) {
   };
 
   var Default = {
+    breakpoint: 1280,
     keyboard: true,
     show: true,
     type: 'default'
@@ -424,8 +421,10 @@ var NavDrawer = function ($) {
         var _this2 = this;
 
         $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
-          if (_this2._element !== event.target && !$(_this2._element).has(event.target).length) {
-            _this2._element.focus();
+          if (_this2._config.type === 'default' || $(window).width() <= _this2._config.breakpoint) {
+            if (_this2._element !== event.target && !$(_this2._element).has(event.target).length) {
+              _this2._element.focus();
+            }
           }
         });
       }
@@ -594,11 +593,6 @@ var NavDrawer = function ($) {
       key: 'Default',
       get: function get() {
         return Default;
-      }
-    }, {
-      key: 'Event',
-      get: function get() {
-        return Event;
       }
     }]);
 
