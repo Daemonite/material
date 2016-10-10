@@ -240,7 +240,7 @@ var Floatinglabel = function ($) {
               throw new Error('No method named "' + _event + '"');
             }
 
-            data[_event]($(this).parent(Selector.DATA_PARENT));
+            data[_event]($(this).closest(Selector.DATA_PARENT));
           }
         });
       }
