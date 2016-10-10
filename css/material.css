@@ -5527,6 +5527,344 @@ button.list-group-item-warning:focus {
   background-color: #ff9800;
 }
 
+.progress-circular {
+  height: 2.5rem;
+  position: relative;
+  width: 2.5rem;
+}
+
+.progress-circular-gap {
+  border-top: 0.125rem solid #3f51b5;
+  position: absolute;
+  top: 0;
+  right: 1.1875rem;
+  bottom: 0;
+  left: 1.1875rem;
+}
+
+.progress-circular-inner {
+  -webkit-animation: progress-circular-inner-rotate 5.332s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+       -o-animation: progress-circular-inner-rotate 5.332s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation: progress-circular-inner-rotate 5.332s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  height: 2.5rem;
+  position: relative;
+  width: 2.5rem;
+}
+
+.progress-circular-left,
+.progress-circular-right {
+  height: 2.5rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 1.25rem;
+}
+
+.progress-circular-left {
+  left: 0;
+}
+
+.progress-circular-right {
+  right: 0;
+}
+
+.progress-circular-spinner {
+  border: 0.25rem solid #3f51b5;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  height: 2.5rem;
+  position: absolute;
+  top: 0;
+  width: 2.5rem;
+}
+.progress-circular-left .progress-circular-spinner {
+  -webkit-animation: progress-circular-spinner-left 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+       -o-animation: progress-circular-spinner-left 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation: progress-circular-spinner-left 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  border-right-color: transparent;
+  left: 0;
+}
+.progress-circular-right .progress-circular-spinner {
+  -webkit-animation: progress-circular-spinner-right 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+       -o-animation: progress-circular-spinner-right 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          animation: progress-circular-spinner-right 1.333s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  border-left-color: transparent;
+  right: 0;
+}
+
+.progress-circular-wrapper {
+  -webkit-animation: progress-circular-wrapper-rotate 2.666s linear infinite;
+       -o-animation: progress-circular-wrapper-rotate 2.666s linear infinite;
+          animation: progress-circular-wrapper-rotate 2.666s linear infinite;
+}
+
+.progress-circular-primary .progress-circular-gap,
+.progress-circular-primary .progress-circular-spinner {
+  border-top-color: #9c27b0;
+}
+.progress-circular-primary .progress-circular-left .progress-circular-spinner {
+  border-left-color: #9c27b0;
+}
+.progress-circular-primary .progress-circular-right .progress-circular-spinner {
+  border-right-color: #9c27b0;
+}
+
+.progress-circular-secondary .progress-circular-gap,
+.progress-circular-secondary .progress-circular-spinner {
+  border-top-color: #ff4081;
+}
+.progress-circular-secondary .progress-circular-left .progress-circular-spinner {
+  border-left-color: #ff4081;
+}
+.progress-circular-secondary .progress-circular-right .progress-circular-spinner {
+  border-right-color: #ff4081;
+}
+
+.progress-circular-danger .progress-circular-gap,
+.progress-circular-danger .progress-circular-spinner {
+  border-top-color: #f44336;
+}
+.progress-circular-danger .progress-circular-left .progress-circular-spinner {
+  border-left-color: #f44336;
+}
+.progress-circular-danger .progress-circular-right .progress-circular-spinner {
+  border-right-color: #f44336;
+}
+
+.progress-circular-info .progress-circular-gap,
+.progress-circular-info .progress-circular-spinner {
+  border-top-color: #2196f3;
+}
+.progress-circular-info .progress-circular-left .progress-circular-spinner {
+  border-left-color: #2196f3;
+}
+.progress-circular-info .progress-circular-right .progress-circular-spinner {
+  border-right-color: #2196f3;
+}
+
+.progress-circular-success .progress-circular-gap,
+.progress-circular-success .progress-circular-spinner {
+  border-top-color: #4caf50;
+}
+.progress-circular-success .progress-circular-left .progress-circular-spinner {
+  border-left-color: #4caf50;
+}
+.progress-circular-success .progress-circular-right .progress-circular-spinner {
+  border-right-color: #4caf50;
+}
+
+.progress-circular-warning .progress-circular-gap,
+.progress-circular-warning .progress-circular-spinner {
+  border-top-color: #ff9800;
+}
+.progress-circular-warning .progress-circular-left .progress-circular-spinner {
+  border-left-color: #ff9800;
+}
+.progress-circular-warning .progress-circular-right .progress-circular-spinner {
+  border-right-color: #ff9800;
+}
+
+@-webkit-keyframes progress-circular-inner-rotate {
+  12.5% {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  25% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  37.5% {
+    -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+  }
+  50% {
+    -webkit-transform: rotate(540deg);
+            transform: rotate(540deg);
+  }
+  62.5% {
+    -webkit-transform: rotate(675deg);
+            transform: rotate(675deg);
+  }
+  75% {
+    -webkit-transform: rotate(810deg);
+            transform: rotate(810deg);
+  }
+  87.5% {
+    -webkit-transform: rotate(945deg);
+            transform: rotate(945deg);
+  }
+  100% {
+    -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg);
+  }
+}
+
+@-o-keyframes progress-circular-inner-rotate {
+  12.5% {
+    -o-transform: rotate(135deg);
+       transform: rotate(135deg);
+  }
+  25% {
+    -o-transform: rotate(270deg);
+       transform: rotate(270deg);
+  }
+  37.5% {
+    -o-transform: rotate(405deg);
+       transform: rotate(405deg);
+  }
+  50% {
+    -o-transform: rotate(540deg);
+       transform: rotate(540deg);
+  }
+  62.5% {
+    -o-transform: rotate(675deg);
+       transform: rotate(675deg);
+  }
+  75% {
+    -o-transform: rotate(810deg);
+       transform: rotate(810deg);
+  }
+  87.5% {
+    -o-transform: rotate(945deg);
+       transform: rotate(945deg);
+  }
+  100% {
+    -o-transform: rotate(1080deg);
+       transform: rotate(1080deg);
+  }
+}
+
+@keyframes progress-circular-inner-rotate {
+  12.5% {
+    -webkit-transform: rotate(135deg);
+         -o-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  25% {
+    -webkit-transform: rotate(270deg);
+         -o-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  37.5% {
+    -webkit-transform: rotate(405deg);
+         -o-transform: rotate(405deg);
+            transform: rotate(405deg);
+  }
+  50% {
+    -webkit-transform: rotate(540deg);
+         -o-transform: rotate(540deg);
+            transform: rotate(540deg);
+  }
+  62.5% {
+    -webkit-transform: rotate(675deg);
+         -o-transform: rotate(675deg);
+            transform: rotate(675deg);
+  }
+  75% {
+    -webkit-transform: rotate(810deg);
+         -o-transform: rotate(810deg);
+            transform: rotate(810deg);
+  }
+  87.5% {
+    -webkit-transform: rotate(945deg);
+         -o-transform: rotate(945deg);
+            transform: rotate(945deg);
+  }
+  100% {
+    -webkit-transform: rotate(1080deg);
+         -o-transform: rotate(1080deg);
+            transform: rotate(1080deg);
+  }
+}
+@-webkit-keyframes progress-circular-spinner-left {
+  0%,
+    100% {
+    -webkit-transform: rotate(130deg);
+            transform: rotate(130deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+@-o-keyframes progress-circular-spinner-left {
+  0%,
+    100% {
+    -o-transform: rotate(130deg);
+       transform: rotate(130deg);
+  }
+  50% {
+    -o-transform: rotate(-5deg);
+       transform: rotate(-5deg);
+  }
+}
+@keyframes progress-circular-spinner-left {
+  0%,
+    100% {
+    -webkit-transform: rotate(130deg);
+         -o-transform: rotate(130deg);
+            transform: rotate(130deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+         -o-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+@-webkit-keyframes progress-circular-spinner-right {
+  0%,
+    100% {
+    -webkit-transform: rotate(-130deg);
+            transform: rotate(-130deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+}
+@-o-keyframes progress-circular-spinner-right {
+  0%,
+    100% {
+    -o-transform: rotate(-130deg);
+       transform: rotate(-130deg);
+  }
+  50% {
+    -o-transform: rotate(5deg);
+       transform: rotate(5deg);
+  }
+}
+@keyframes progress-circular-spinner-right {
+  0%,
+    100% {
+    -webkit-transform: rotate(-130deg);
+         -o-transform: rotate(-130deg);
+            transform: rotate(-130deg);
+  }
+  50% {
+    -webkit-transform: rotate(5deg);
+         -o-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+}
+@-webkit-keyframes progress-circular-wrapper-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-o-keyframes progress-circular-wrapper-rotate {
+  100% {
+    -o-transform: rotate(360deg);
+       transform: rotate(360deg);
+  }
+}
+@keyframes progress-circular-wrapper-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+         -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .custom-control {
   cursor: pointer;
   display: inline;
