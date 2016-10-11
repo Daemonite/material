@@ -10,6 +10,7 @@
     display: flex;
     flex-wrap: none;
   } @else {
+    letter-spacing: -0.25em;
     white-space: nowrap;
   }
   .nav-item {
@@ -17,6 +18,8 @@
 
     @if not $enable-flex {
       display: inline-block;
+      letter-spacing: normal;
+      white-space: normal;
     }
   }
   .nav-link {
@@ -38,6 +41,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+      @include transition-standard(opacity);
     }
 
     @if $enable-flex {
@@ -66,9 +70,6 @@
         opacity: 1;
         &::before {
           opacity: 1;
-          transition-delay: $transition-duration;
-          transition-duration: 0s;
-          transition-property: opacity;
         }
       }
       &.disabled {
@@ -79,6 +80,22 @@
     // waves
       &.waves-attach:active {
         background-color: transparent;
+      }
+  }
+}
+
+.nav-tabs-material {
+  .nav-link {
+    &::before {
+      transition: none;
+    }
+    // active, focus, hover
+      &.active {
+        &::before {
+          transition-delay: $transition-duration;
+          transition-duration: 0s;
+          transition-property: opacity;
+        }
       }
   }
 }
@@ -97,17 +114,31 @@
   }
 
   .nav-tabs-fixed {
-    .nav-item {
-      @if $enable-flex {
+    @if $enable-flex {
+      .nav-item {
         flex-basis: 0;
         flex-grow: 1;
-        max-width: $nav-tab-link-max-width;
         min-width: $nav-tab-link-min-width;
         @include media-breakpoint-up(lg) {
           min-width: $nav-tab-link-min-width-lg;
         }
       }
+    } @else {
+      letter-spacing: normal;
+      width: 100%;
+
+      .nav-item {
+        display: table-cell;
+        min-width: $nav-tab-link-min-width;
+        width: 1%;
+      }
+
+      .nav-link {
+        max-width: 100%;
+        width: 99999px;
+      }
     }
+
     .nav-link {
       @include text-truncate;
     }
@@ -117,6 +148,7 @@
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+
     .nav-link {
       max-width: $nav-tab-link-max-width;
       @include text-truncate;
@@ -135,19 +167,22 @@
     }
   }
 
-.nav-tabs-indicator {
-  background-color: $nav-tab-indicator-bg;
-  height: $nav-tab-indicator-height;
-  display: none;
-  position: absolute;
-    bottom: 0;
-  &.animate {
-    transition: left ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2), right $transition-duration $transition-timing-function-standard;
-    &.reverse {
-      transition: left $transition-duration $transition-timing-function-standard, right ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2);
+//
+// indicator
+//
+  .nav-tabs-indicator {
+    background-color: $nav-tab-indicator-bg;
+    height: $nav-tab-indicator-height;
+    display: none;
+    position: absolute;
+      bottom: 0;
+    &.animate {
+      transition: left ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2), right $transition-duration $transition-timing-function-standard;
+      &.reverse {
+        transition: left $transition-duration $transition-timing-function-standard, right ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2);
+      }
+    }
+    &.in {
+      display: block;
     }
   }
-  &.in {
-    display: block;
-  }
-}

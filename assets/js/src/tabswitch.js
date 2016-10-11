@@ -13,6 +13,7 @@ const Tabswitch = (($) => {
       ANIMATE    : 'animate',
       IN         : 'in',
       INDICATOR  : 'nav-tabs-indicator',
+      MATERIAL   : 'nav-tabs-material',
       REVERSE    : 'reverse',
       SCROLLABLE : 'nav-tabs-scrollable'
     };
@@ -56,7 +57,7 @@ const Tabswitch = (($) => {
 
         $(this._navindicator).css({
           left  : ((relatedLeft + navScrollLeft) - navLeft),
-          right : (navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth)
+          right : (navWidth - ((relatedLeft + navScrollLeft) - navLeft + relatedWidth))
         });
 
         $(this._navindicator).addClass(ClassName.IN);
@@ -65,7 +66,7 @@ const Tabswitch = (($) => {
         if (supportsTransition) {
           $(this._navindicator).addClass(ClassName.ANIMATE);
 
-          if ((relatedLeft + navScrollLeft) > elLeft) {
+          if (relatedLeft > elLeft) {
             $(this._navindicator).addClass(ClassName.REVERSE);
           }
         }
@@ -73,7 +74,7 @@ const Tabswitch = (($) => {
 
       $(this._navindicator).css({
         left  : ((elLeft + navScrollLeft) - navLeft),
-        right : (navLeft + navWidth - (elLeft + navScrollLeft) - elWidth)
+        right : (navWidth - ((elLeft + navScrollLeft) - navLeft + elWidth))
       });
 
       let complete = () => {
@@ -96,6 +97,8 @@ const Tabswitch = (($) => {
       $(this._navindicator)
         .addClass(ClassName.INDICATOR)
         .appendTo(this._nav);
+
+      $(this._nav).addClass(ClassName.MATERIAL);
     }
 
     static _jQueryInterface(relatedTarget) {

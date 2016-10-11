@@ -6710,11 +6710,14 @@ button.list-group-item-warning:focus {
 .nav-tabs {
   line-height: 0;
   position: relative;
+  letter-spacing: -0.25em;
   white-space: nowrap;
 }
 .nav-tabs .nav-item {
   line-height: 0;
   display: inline-block;
+  letter-spacing: normal;
+  white-space: normal;
 }
 .nav-tabs .nav-link {
   color: inherit;
@@ -6762,6 +6765,29 @@ button.list-group-item-warning:focus {
   right: 0;
   bottom: 0;
   left: 0;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 600px) {
+  .nav-tabs .nav-link::before {
+    -webkit-transition-duration: 0.39s;
+         -o-transition-duration: 0.39s;
+            transition-duration: 0.39s;
+  }
+}
+@media (min-width: 1280px) {
+  .nav-tabs .nav-link::before {
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+  }
 }
 @media (min-width: 1280px) {
   .nav-tabs .nav-link {
@@ -6777,6 +6803,22 @@ button.list-group-item-warning:focus {
 }
 .nav-tabs .nav-link.active::before {
   opacity: 1;
+}
+.nav-tabs .nav-link.disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.38);
+  opacity: 1;
+}
+.nav-tabs .nav-link.waves-attach:active {
+  background-color: transparent;
+}
+
+.nav-tabs-material .nav-link::before {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.nav-tabs-material .nav-link.active::before {
   -webkit-transition-delay: 0.3s;
        -o-transition-delay: 0.3s;
           transition-delay: 0.3s;
@@ -6786,14 +6828,6 @@ button.list-group-item-warning:focus {
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-}
-.nav-tabs .nav-link.disabled {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.38);
-  opacity: 1;
-}
-.nav-tabs .nav-link.waves-attach:active {
-  background-color: transparent;
 }
 
 .nav-tabs-bordered {
@@ -6805,6 +6839,19 @@ button.list-group-item-warning:focus {
   text-align: center;
 }
 
+.nav-tabs-fixed {
+  letter-spacing: normal;
+  width: 100%;
+}
+.nav-tabs-fixed .nav-item {
+  display: table-cell;
+  min-width: 4.5rem;
+  width: 1%;
+}
+.nav-tabs-fixed .nav-link {
+  max-width: 100%;
+  width: 99999px;
+}
 .nav-tabs-fixed .nav-link {
   overflow: hidden;
   text-overflow: ellipsis;

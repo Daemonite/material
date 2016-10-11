@@ -655,6 +655,7 @@ var Tabswitch = function ($) {
     ANIMATE: 'animate',
     IN: 'in',
     INDICATOR: 'nav-tabs-indicator',
+    MATERIAL: 'nav-tabs-material',
     REVERSE: 'reverse',
     SCROLLABLE: 'nav-tabs-scrollable'
   };
@@ -704,7 +705,7 @@ var Tabswitch = function ($) {
 
           $(this._navindicator).css({
             left: relatedLeft + navScrollLeft - navLeft,
-            right: navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth
+            right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
           });
 
           $(this._navindicator).addClass(ClassName.IN);
@@ -713,7 +714,7 @@ var Tabswitch = function ($) {
           if (supportsTransition) {
             $(this._navindicator).addClass(ClassName.ANIMATE);
 
-            if (relatedLeft + navScrollLeft > elLeft) {
+            if (relatedLeft > elLeft) {
               $(this._navindicator).addClass(ClassName.REVERSE);
             }
           }
@@ -721,7 +722,7 @@ var Tabswitch = function ($) {
 
         $(this._navindicator).css({
           left: elLeft + navScrollLeft - navLeft,
-          right: navLeft + navWidth - (elLeft + navScrollLeft) - elWidth
+          right: navWidth - (elLeft + navScrollLeft - navLeft + elWidth)
         });
 
         var complete = function complete() {
@@ -741,6 +742,8 @@ var Tabswitch = function ($) {
         this._navindicator = document.createElement('div');
 
         $(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
+
+        $(this._nav).addClass(ClassName.MATERIAL);
       }
     }], [{
       key: '_jQueryInterface',
