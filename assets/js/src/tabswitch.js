@@ -7,7 +7,7 @@ const Tabswitch = (($) => {
     const DATA_KEY            = 'md.tabswitch';
     const NAME                = 'tabswitch';
     const NO_CONFLICT         = $.fn[NAME];
-    const TRANSITION_DURATION = 300;
+    const TRANSITION_DURATION = 450;
 
     const ClassName = {
       ANIMATE    : 'animate',
@@ -59,18 +59,19 @@ const Tabswitch = (($) => {
           right : (navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth)
         });
 
+        $(this._navindicator).addClass(ClassName.IN);
+        Util.reflow(this._navindicator);
+
         if (supportsTransition) {
           $(this._navindicator).addClass(ClassName.ANIMATE);
 
           if ((relatedLeft + navScrollLeft) > elLeft) {
             $(this._navindicator).addClass(ClassName.REVERSE);
           }
-
-          Util.reflow(this._navindicator);
         }
       }
 
-      $(this._navindicator).addClass(ClassName.IN).css({
+      $(this._navindicator).css({
         left  : ((elLeft + navScrollLeft) - navLeft),
         right : (navLeft + navWidth - (elLeft + navScrollLeft) - elWidth)
       });

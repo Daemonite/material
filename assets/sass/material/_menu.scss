@@ -61,9 +61,17 @@
   .open {
     > .dropdown-menu,
     > .menu {
-      animation-duration: $transition-duration;
-      animation-timing-function: $transition-timing-function-standard;
+      animation-duration: $transition-duration-lg;
+      animation-timing-function: $transition-timing-function-deceleration;
       display: block;
+
+      @include media-breakpoint-up(sm) {
+        transition-duration: $transition-duration-tablet-lg;
+      }
+
+      @include media-breakpoint-up(lg) {
+        transition-duration: $transition-duration-desktop-lg;
+      }
     }
     > .dropdown-menu {
       animation-name: dropdown-open;
@@ -78,7 +86,7 @@
       opacity: 0;
       // position
         top: 50%;
-      transform: scale(0.9, 0.5);
+      transform: scale(0.87, 0.54);
     }
     50% {
       opacity: 1;
@@ -94,7 +102,7 @@
   @keyframes menu-open {
     0% {
       opacity: 0;
-      transform: scale(0.9, 0.5);
+      transform: scale(0.87, 0.54);
     }
     50% {
       opacity: 1;
@@ -116,7 +124,7 @@
       opacity: 0;
       // position
         bottom: 50%;
-      transform: scale(0.9, 0.5);
+      transform: scale(0.87, 0.54);
     }
     50% {
       opacity: 1;
@@ -175,7 +183,7 @@
     padding: $menu-link-padding;
     position: relative;
     text-align: inherit;
-    transition: background-color $transition-duration $transition-timing-function-standard;
+    @include transition-standard(background-color);
     white-space: nowrap;
     width: 100%;
     // active, focus, hover

@@ -13,8 +13,8 @@
       left: 0;
     text-overflow: ellipsis;
     transform-origin: 0 0;
-    transition: all $transition-duration $transition-timing-function-standard;
     white-space: nowrap;
+    @include transition-standard(color, top, transform);
   }
   &.is-focused > label {
     color: $floating-label-color-focus;

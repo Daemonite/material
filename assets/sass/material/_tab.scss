@@ -27,7 +27,7 @@
     opacity: $nav-tab-link-opacity;
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     text-transform: uppercase;
-    transition: background-color $transition-duration-sm $transition-timing-function-standard, opacity $transition-duration $transition-timing-function-standard;
+    @include transition-standard(background-color, opacity);
     &::before {
       background-color: $nav-tab-indicator-bg;
       content: "";
@@ -38,7 +38,6 @@
         right: 0;
         bottom: 0;
         left: 0;
-      transition: opacity $transition-duration $transition-timing-function-standard;
     }
 
     @if $enable-flex {
@@ -58,6 +57,7 @@
       padding-right: $nav-tab-link-padding-x-lg;
       padding-left: $nav-tab-link-padding-x-lg;
     }
+
     // active, focus, hover
       &:active {
         background-color: $nav-link-bg-active;
@@ -66,7 +66,9 @@
         opacity: 1;
         &::before {
           opacity: 1;
-          transition: opacity 0s $transition-duration;
+          transition-delay: $transition-duration;
+          transition-duration: 0s;
+          transition-property: opacity;
         }
       }
       &.disabled {
@@ -136,17 +138,16 @@
 .nav-tabs-indicator {
   background-color: $nav-tab-indicator-bg;
   height: $nav-tab-indicator-height;
-  opacity: 0;
+  display: none;
   position: absolute;
     bottom: 0;
   &.animate {
-    opacity: 1;
-    transition: left $transition-duration-sm $transition-timing-function-standard $transition-duration-sm, right $transition-duration $transition-timing-function-standard;
+    transition: left ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2), right $transition-duration $transition-timing-function-standard;
     &.reverse {
-      transition: left $transition-duration $transition-timing-function-standard, right $transition-duration-sm $transition-timing-function-standard $transition-duration-sm;
+      transition: left $transition-duration $transition-timing-function-standard, right ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2);
     }
   }
   &.in {
-    opacity: 1;
+    display: block;
   }
 }

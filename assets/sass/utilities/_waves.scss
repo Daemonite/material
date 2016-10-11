@@ -16,8 +16,8 @@
     opacity: 0;
     position: absolute;
     transform: scale(0) translate(0, 0);
-    transition: opacity $transition-duration-lg $transition-timing-function-standard, transform $transition-duration $transition-timing-function-standard !important;
     width: $waves-size;
+    @include transition-standard(opacity, transform);
   }
   &.waves-light .waves-ripple {
     background-color: $waves-bg-light;

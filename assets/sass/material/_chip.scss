@@ -18,7 +18,7 @@
 
 a.chip,
 a.tag {
-  transition: box-shadow $transition-duration $transition-timing-function-standard;
+  @include transition-standard(box-shadow);
   &::before {
     background-color: $chip-active-overlay;
     border-radius: ($chip-height / 2);
@@ -30,7 +30,7 @@ a.tag {
       right: 0;
       bottom: 0;
       left: 0;
-    transition: opacity $transition-duration $transition-timing-function-standard;
+    @include transition-standard(opacity);
   }
   // active, focus, hover
     &:active,

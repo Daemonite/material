@@ -74,8 +74,8 @@
       top: 0;
       right: 0;
       left: 0;
-    transition: all $transition-duration $transition-timing-function-standard;
     z-index: map-get($toolbar-elevation-shadow, elevation);
+    @include transition-standard(background-color, box-shadow);
     &.waterfall {
       background-color: $toolbar-waterfall-bg;
       box-shadow: map-get($toolbar-elevation-shadow, shadow);
@@ -162,10 +162,17 @@
         right: ($toolbar-inner-spacer / -2);
         bottom: 0;
         left: ($toolbar-inner-spacer / -2);
-      transition: opacity $transition-duration $transition-timing-function-standard;
       z-index: -1;
+      @include transition-standard(opacity);
     }
     // active, focus, hover
+      &:active,
+      &:focus {
+        z-index: 1;
+        &::before {
+          opacity: 0.12;
+        }
+      }
       &:active {
         color: inherit;
       }
@@ -173,11 +180,9 @@
         text-decoration: none;
       }
       &:focus {
-        outline: none;
-        &::before {
-          opacity: 0.12;
-        }
+        outline: 0;
       }
+
     > img {
       display: block;
     }
@@ -227,12 +232,13 @@
         right: 0;
         bottom: 0;
         left: 0;
-      transition: opacity $transition-duration $transition-timing-function-standard;
       z-index: -1;
+      @include transition-standard(opacity);
     }
     // active, focus, hover
       &:active,
       &:focus {
+        z-index: 1;
         &::before {
           opacity: 0.12;
         }
@@ -276,7 +282,7 @@
       font-size: $toolbar-link-font-size;
       line-height: 1;
       padding: $toolbar-link-padding-y $toolbar-link-padding-x;
-      transition: background-color $transition-duration $transition-timing-function-standard;
+      @include transition-standard(background-color);
       &::before {
         background-color: currentColor;
         border-radius: $border-radius;
@@ -288,7 +294,7 @@
           right: 0;
           bottom: 0;
           left: 0;
-        transition: opacity $transition-duration $transition-timing-function-standard;
+        @include transition-standard(opacity);
       }
       // active, focus, hover
         &:active,

@@ -9,8 +9,8 @@ const NavDrawer = (($) => {
     const EVENT_KEY                    = `.${DATA_KEY}`;
     const NAME                         = 'navdrawer';
     const NO_CONFLICT                  = $.fn[NAME];
-    const TRANSITION_DURATION          = 300;
-    const TRANSITION_DURATION_BACKDROP = 150;
+    const TRANSITION_DURATION          = 375;
+    const TRANSITION_DURATION_BACKDROP = 225;
 
     const ClassName = {
       BACKDROP : 'navdrawer-backdrop',

@@ -15,15 +15,17 @@
 //
   .navdrawer-backdrop {
     background-color: $navdrawer-backdrop-bg;
+    opacity: 0;
     position: fixed;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
-    transition: opacity $transition-duration-sm $transition-timing-function-standard;
     z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
+    @include transition-sharp(opacity);
     &.in {
       opacity: 1;
+      @include transition-deceleration(opacity);
     }
   }
 
@@ -40,8 +42,8 @@
       top: 0;
       bottom: 0;
       left: 0;
-    transform: translateX(-100%);
-    transition: transform $transition-duration $transition-timing-function-standard;
+    transform: translate3d(-100%, 0, 0);
+    @include transition-sharp(transform);
     width: $navdrawer-width-mobile;
     -webkit-overflow-scrolling: touch;
     // direction
@@ -49,11 +51,12 @@
         // position
           right: 0;
           left: auto;
-        transform: translateX(100%);
+        transform: translate3d(100%, 0, 0);
       }
     // open
       .navdrawer.in & {
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
+        @include transition-deceleration(transform);
       }
   }
 
@@ -108,9 +111,7 @@
       font-weight: $navdrawer-nav-link-font-weight;
       line-height: 1;
       padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
-      transition-duration: $transition-duration;
-      transition-property: background-color color;
-      transition-timing-function: $transition-timing-function-standard;
+      @include transition-standard(background-color, color);
       @include text-truncate;
       // active, focus, hover
         &:active,
@@ -163,7 +164,7 @@
         box-shadow: none;
         max-width: none;
         position: absolute;
-        transform: translateX(0);
+        transform: translate3d(0, 0, 0);
         width: 100%;
       }
     }

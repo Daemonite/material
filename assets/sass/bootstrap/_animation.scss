@@ -9,13 +9,16 @@
   height: 0;
   overflow: hidden;
   position: relative;
-  transition: height $transition-duration $transition-timing-function-standard;
+  @include transition-standard(height);
 }
 
 .fade {
   opacity: 0;
-  transition: opacity $transition-duration-sm $transition-timing-function-standard;
+  transform: scale(0.87);
+  @include transition-acceleration(opacity, transform);
   &.in {
     opacity: 1;
+    transform: scale(1);
+    @include transition-deceleration(opacity, transform);
   }
 }

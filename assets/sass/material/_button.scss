@@ -17,7 +17,7 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  transition: all $transition-duration $transition-timing-function-standard;
+  @include transition-standard(background-color, box-shadow, color);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -33,7 +33,7 @@
       right: 0;
       bottom: 0;
       left: 0;
-    transition: opacity $transition-duration $transition-timing-function-standard;
+    @include transition-standard(opacity);
     z-index: -1;
   }
   // active, focus, hover
@@ -61,12 +61,6 @@
     }
     &:focus {
       outline: 0;
-    }
-    &.waves-attach:active {
-      background-color: $btn-bg;
-      &::before {
-        transition-delay: $transition-duration;
-      }
     }
   // disabled
     &:disabled,

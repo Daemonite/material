@@ -276,8 +276,8 @@ var NavDrawer = function ($) {
   var EVENT_KEY = '.' + DATA_KEY;
   var NAME = 'navdrawer';
   var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 300;
-  var TRANSITION_DURATION_BACKDROP = 150;
+  var TRANSITION_DURATION = 375;
+  var TRANSITION_DURATION_BACKDROP = 225;
 
   var ClassName = {
     BACKDROP: 'navdrawer-backdrop',
@@ -629,7 +629,7 @@ var Tabswitch = function ($) {
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
   var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 300;
+  var TRANSITION_DURATION = 450;
 
   var ClassName = {
     ANIMATE: 'animate',
@@ -687,18 +687,19 @@ var Tabswitch = function ($) {
             right: navLeft + navWidth - (relatedLeft + navScrollLeft) - relatedWidth
           });
 
+          $(this._navindicator).addClass(ClassName.IN);
+          Util.reflow(this._navindicator);
+
           if (supportsTransition) {
             $(this._navindicator).addClass(ClassName.ANIMATE);
 
             if (relatedLeft + navScrollLeft > elLeft) {
               $(this._navindicator).addClass(ClassName.REVERSE);
             }
-
-            Util.reflow(this._navindicator);
           }
         }
 
-        $(this._navindicator).addClass(ClassName.IN).css({
+        $(this._navindicator).css({
           left: elLeft + navScrollLeft - navLeft,
           right: navLeft + navWidth - (elLeft + navScrollLeft) - elWidth
         });

@@ -24,7 +24,6 @@
     top: (($font-size-base - $selection-control-indicator-size / $font-size-root) / 2);
     left: 0;
   text-align: center;
-  transition: background-image $transition-duration $transition-timing-function-standard;
   user-select: none;
   width: $selection-control-indicator-size;
   &::before {
@@ -39,9 +38,9 @@
     position: absolute;
       top: 0;
       left: 0;
-    transition: all $transition-duration $transition-timing-function-standard;
     width: ($selection-control-indicator-size * 2);
     z-index: -1;
+    @include transition-standard(background-color, opacity, transform);
   }
   // active, focus, hover
     &:active::before {
@@ -58,10 +57,8 @@
       opacity: 1;
     }
   // checked
-    &:checked ~ .custom-control-indicator {
-      &::before {
-        background-color: hex-to-rgba($selection-control-color-active, 0.12);
-      }
+    &:checked ~ .custom-control-indicator::before {
+      background-color: hex-to-rgba($selection-control-color-active, 0.12);
     }
   // disabled
     &:disabled ~ {
@@ -162,8 +159,8 @@
       background-color: $selection-control-track-bg;
       border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
       border-radius: $selection-control-track-height;
-      transition: background-color $transition-duration $transition-timing-function-standard;
       width: $selection-control-track-width;
+      @include transition-standard(background-color);
       &::after,
       &::before {
         // position
@@ -178,8 +175,8 @@
         display: block;
         height: $selection-control-indicator-size;
         position: absolute;
-        transition: all $transition-duration $transition-timing-function-standard;
         width: $selection-control-indicator-size;
+        @include transition-standard(background-color, transform);
       }
     }
     .custom-control-input {

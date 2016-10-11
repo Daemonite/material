@@ -19,7 +19,7 @@
     min-height: $expansion-panel-height;
     padding: $expansion-panel-spacer-y $expansion-panel-spacer-x;
     position: relative;
-    transition: background-color $transition-duration $transition-timing-function-standard, color $transition-duration $transition-timing-function-standard;
+    @include transition-standard(background-color, color);
     &:first-of-type {
       border-top-color: transparent;
       border-top-left-radius: $border-radius;
@@ -107,35 +107,34 @@
     background-color: $expansion-panel-bg;
     border-radius: 0 0 $border-radius $border-radius;
     box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
-    margin: 0;
     position: relative;
-    z-index: 1;
-    &::before {
-      background-color: inherit;
-      content: "";
-      display: block;
-      height: 2px;
-      position: absolute;
-        top: -2px;
-        right: 0;
-        left: 0;
-    }
     &.collapsing,
     &.in {
-      border-top-color: transparent;
       margin-bottom: $expansion-panel-margin-between;
-      &:last-child {
-        margin-bottom: 0;
-      }
+
       + .expansion-panel-item,
       + .list-group-item {
+        border-top-color: transparent;
         border-top-left-radius: $border-radius;
         border-top-right-radius: $border-radius;
       }
     }
     &.collapsing {
-      transition: height $transition-duration-sm linear, margin-bottom $transition-duration-sm linear;
+      transition-property: height, margin-bottom;
     }
+    .collapsed + & {
+      &.collapsing {
+        margin-bottom: 0;
+
+        + .expansion-panel-item,
+        + .list-group-item {
+          border-top-color: $expansion-panel-border-color;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+
   }
 
   .expansion-panel-collapse-body {
@@ -161,19 +160,32 @@
   .expansion-panel-item,
   .list-group-item {
     &[data-toggle="collapse"] {
+      border-radius: $border-radius $border-radius 0 0;
+      border-top-color: transparent;
       cursor: pointer;
-      transition: background-color $transition-duration $transition-timing-function-standard, border-radius $transition-duration-sm ease-in, border-top-color $transition-duration-sm ease-in, color $transition-duration $transition-timing-function-standard, margin-top $transition-duration-sm linear;
-      &:not(.collapsed) {
-        border-radius: $border-radius $border-radius 0 0;
-        border-top-color: transparent;
-        margin-top: $expansion-panel-margin-between;
-        &:first-child {
-          margin-top: 0;
-        }
-        // active, focus, hover
-          &:focus {
-            background-color: $expansion-panel-bg;
-          }
+      margin-top: $expansion-panel-margin-between;
+      transition-property: background-color, border-radius, border-top-color, color, margin-top;
+      &::before {
+        background-color: inherit;
+        content: "";
+        display: block;
+        height: 2px;
+        position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        z-index: 1;
+      }
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    &.collapsed {
+      border-radius: 0;
+      border-top-color: $expansion-panel-border-color;
+      margin-top: 0;
+      &::before {
+        display: none;
       }
     }
   }
@@ -219,8 +231,8 @@
     position: absolute;
       top: ($expansion-panel-height / 2);
       right: $expansion-panel-spacer-x;
-    transition: color $transition-duration $transition-timing-function-standard;
     width: $material-icon-size;
+    @include transition-standard(color);
   }
 
   // active, focus, hover
