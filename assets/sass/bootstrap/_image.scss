@@ -3,15 +3,16 @@
 }
 
 .img-fluid {
-  @include img-fluid();
+  @include img-fluid;
 }
 
 .img-rounded {
   border-radius: $border-radius;
 }
 
-/* todo img-thumbnail */
 .img-thumbnail {
+  box-shadow: $thumbnail-box-shadow;
+  @include img-fluid(inline-block);
 }
 
 //
