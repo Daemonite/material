@@ -63,23 +63,23 @@
     }
 
     // active, focus, hover
-      &:active {
+      @include active-focus-hover {
         background-color: $nav-link-bg-active;
       }
+      &:active,
       &.active {
         opacity: 1;
+      }
+      &.active {
         &::before {
           opacity: 1;
         }
       }
+    // disabled
       &.disabled {
         background-color: transparent;
         color: $nav-link-color-disabled;
         opacity: 1;
-      }
-    // waves
-      &.waves-attach:active {
-        background-color: transparent;
       }
   }
 }

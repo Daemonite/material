@@ -18,6 +18,8 @@
 
 a.chip,
 a.tag {
+  color: $chip-color;
+  z-index: 1;
   @include transition-standard(box-shadow);
   &::before {
     background-color: $chip-active-overlay;
@@ -30,18 +32,22 @@ a.tag {
       right: 0;
       bottom: 0;
       left: 0;
+    z-index: -1;
     @include transition-standard(opacity);
   }
   // active, focus, hover
-    &:active,
-    &:focus {
+    @include active-focus-hover {
+      color: $chip-color;
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+      &::before {
+        opacity: 1; 
+      }
+    }
+    &:active {
       box-shadow: map-get($chip-elevation-shadow-active, shadow);
-    }
-    &:active::before {
-      opacity: 1;
-    }
-    @include focus-hover {
-      text-decoration: none;
+      z-index: map-get($chip-elevation-shadow-active, elevation);
     }
     &:focus {
       outline: 0;
@@ -57,10 +63,10 @@ a.tag {
 
   a.chip-inverse,
   a.tag-inverse {
-    &,
-    &:not([href]):not([tabindex]) {
-      color: $chip-color-inverse;
-    }
+    // active, focus, hover
+      @include plain-active-focus-hover {
+        color: $chip-color-inverse;
+      }
   }
 
   @each $color in $palettes {
@@ -74,9 +80,9 @@ a.tag {
 
     a.chip-#{$color},
     a.tag-#{$color} {
-      &,
-      &:not([href]):not([tabindex]) {
-        color: nth($palettes-text-color, $i);
-      }
+      // active, focus, hover
+        @include plain-active-focus-hover {
+          color: nth($palettes-text-color, $i);
+        }
     }
   }

@@ -46,6 +46,26 @@
   }
 }
 
+@mixin plain-active-focus-hover {
+  @if $enable-hover-media-query {
+    &,
+    &:active,
+    &:focus {
+      @content
+    }
+    @include hover {
+      @content
+    }
+  } @else {
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      @content
+    }
+  }
+}
+
 @mixin plain-focus-hover {
   @if $enable-hover-media-query {
     &,

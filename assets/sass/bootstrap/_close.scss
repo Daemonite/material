@@ -6,13 +6,17 @@
   line-height: 1;
   @include transition-standard(color);
   // active, focus, hover
-    &:focus {
-      color: $close-color-hover;
-      outline: none;
+    @include active-focus-hover {
+      color: $close-color-active;
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
     }
-    @include focus-hover {
+    &:focus {
+      outline: 0;
+    }
+    @include hover {
       cursor: pointer;
-      text-decoration: none;
     }
 }
 

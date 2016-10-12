@@ -37,38 +37,34 @@
       &.disabled {
         background-color: $expansion-panel-bg-disabled;
         color: $expansion-panel-color-disabled;
-        cursor: $cursor-disabled;
-        &:active,
-        &:focus {
-          background-color: $expansion-panel-bg-disabled;
-          color: $expansion-panel-color-disabled;
-        }
+        // active, focus, hover
+          @include hover {
+            cursor: $cursor-disabled;
+          }
       }
-  }
-
-  a,
-  button {
-    &.expansion-panel-item,
-    &.list-group-item {
-      // active, focus, hover
-        &:active,
-        &:focus {
-          background-color: $expansion-panel-bg-active;
-          color: $expansion-panel-color;
-        }
-        @include focus-hover {
-          text-decoration: none;
-        }
-        &:focus {
-          outline: 0;
-        }
-    }
   }
 
   .expansion-panel-item-action,
   .list-group-item-action {
+    color: $expansion-panel-color;
     text-align: inherit;
     width: 100%;
+    // active, focus, hover
+      @include active-focus-hover {
+        background-color: $expansion-panel-bg-active;
+        color: $expansion-panel-color;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+      }
+      &:focus {
+        outline: 0;
+      }
+    // disabled
+      &.disabled {
+        background-color: $expansion-panel-bg-disabled;
+        color: $expansion-panel-color-disabled;
+      }
   }
 
   // colour
@@ -84,17 +80,18 @@
             background-color: nth($palettes-color-dark, $i);
             color: nth($palettes-text-color-dark, $i);
           }
-      }
-
-      a,
-      button {
-        &.expansion-panel-item-#{$color},
-        &.list-group-item-#{$color} {
+        &.expansion-panel-item-action,
+        &.list-group-item-action {
+          color: nth($palettes-text-color, $i);
           // active, focus, hover
-            &:active,
-            &:focus {
+            @include active-focus-hover {
               background-color: nth($palettes-color-dark, $i);
               color: nth($palettes-text-color-dark, $i);
+            }
+          // disabled
+            &.disabled {
+              background-color: $expansion-panel-bg-disabled;
+              color: $expansion-panel-color-disabled;
             }
         }
       }
@@ -179,14 +176,42 @@
       &:first-child {
         margin-top: 0;
       }
+      // active, focus, hover
+        @include active-focus-hover {
+          @if ($link-decoration-active != "none") {
+            text-decoration: none;
+          }
+        }
+        &:active,
+        &:focus {
+          background-color: $expansion-panel-bg-active;
+          color: $expansion-panel-color;
+        }
+        &:focus {
+          outline: 0;
+        }
     }
-    &.collapsed {
+    &[data-toggle="collapse"].collapsed {
       border-radius: 0;
       border-top-color: $expansion-panel-border-color;
       margin-top: 0;
       &::before {
         display: none;
       }
+      // active, focus, hover
+        @include hover {
+          background-color: $expansion-panel-bg-active;
+          color: $expansion-panel-color;
+        }
+    }
+    &[data-toggle="collapse"].disabled {
+      background-color: $expansion-panel-bg-disabled;
+      color: $expansion-panel-color-disabled;
+      // active, focus, hover
+        @include hover {
+          background-color: $expansion-panel-bg-disabled;
+          color: $expansion-panel-color-disabled;
+        }
     }
   }
 
@@ -196,14 +221,22 @@
 
       .expansion-panel-item-#{$color},
       .list-group-item-#{$color} {
-        &[data-toggle="collapse"]:not(.collapsed) {
+        &[data-toggle="collapse"] {
           // active, focus, hover
+            &:active,
             &:focus {
-              background-color: nth($palettes-color, $i);
-              color: nth($palettes-text-color, $i);
+              background-color: nth($palettes-color-dark, $i);
+              color: nth($palettes-text-color-dark, $i);
             }
         }
-        + .expansion-panel-collapse {
+        &[data-toggle="collapse"].collapsed:not(.disabled) {
+          // active, focus, hover
+            @include hover {
+              background-color: nth($palettes-color-dark, $i);
+              color: nth($palettes-text-color-dark, $i);
+            }
+        }
+        &:not(.disabled) + .expansion-panel-collapse {
           background-color: nth($palettes-color, $i);
           color: nth($palettes-text-color, $i);
         }
@@ -238,11 +271,26 @@
   // active, focus, hover
     .expansion-panel-item,
     .list-group-item {
-      &.collapsed[data-toggle="collapse"] {
-        &:active,
-        &:focus {
+      &[data-toggle="collapse"] {
+        @include active-focus-hover {
           .expansion-panel-item-icon {
             color: $expansion-panel-icon-color-active;
+          }
+        }
+      }
+    }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .expansion-panel-item-#{$color},
+      .list-group-item-#{$color} {
+        &[data-toggle="collapse"] {
+          @include plain-active-focus-hover {
+            .expansion-panel-item-icon {
+              color: inherit;
+            }
           }
         }
       }

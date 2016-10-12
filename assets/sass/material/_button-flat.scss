@@ -8,14 +8,12 @@
       background-color: $btn-bg-active;
       box-shadow: none;
     }
-    &.waves-attach:active {
-      background-color: transparent;
-    }
   // disabled
     &:disabled,
     &.disabled {
       &,
-      &:active {
+      &:active,
+      &.active {
         background-color: transparent;
       }
     }
@@ -24,23 +22,24 @@
 // colour
   .btn-flat-inverse,
   .btn-outline-inverse {
-    color: $btn-color-inverse;
     &::before {
       background-color: $btn-flat-focus-overlay-inverse;
     }
     // active, focus, hover
+      @include plain-active-focus-hover {
+        color: $btn-color-inverse;
+      }
       &:active,
       &.active {
         background-color: $btn-bg-inverse-active;
-        color: $btn-color-inverse;
       }
     // disabled
       &:disabled,
       &.disabled {
-        &,
-        &:active {
-          color: $btn-color-inverse-disabled;
-        }
+        // active, focus, hover
+          @include plain-active-focus-hover {
+            color: $btn-color-inverse-disabled;
+          }
       }
   }
 
@@ -49,10 +48,9 @@
 
     .btn-flat-#{$color},
     .btn-outline-#{$color} {
-      &,
-      &:active,
-      &.active {
-        color: nth($palettes-color, $i);
-      }
+      // active, focus, hover
+        @include plain-active-focus-hover {
+          color: nth($palettes-color, $i);
+        }
     }
   }

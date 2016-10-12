@@ -87,8 +87,10 @@
 // hover
 //
   .table-hover {
-    tbody tr:hover {
-      background-color: $table-bg-hover;
+    tbody tr {
+      @include hover {
+        background-color: $table-bg-hover;
+      }
     }
   }
 
@@ -107,12 +109,14 @@
       }
     }
 
-    .table-hover .table-#{$color}:hover {
-      &,
-      > td,
-      > th {
-        background-color: nth($palettes-color-dark, $i);
-        color: nth($palettes-text-color-dark, $i);
+    .table-hover .table-#{$color} {
+      @include hover {
+        &,
+        > td,
+        > th {
+          background-color: nth($palettes-color-dark, $i);
+          color: nth($palettes-text-color-dark, $i);
+        }
       }
     }
   }

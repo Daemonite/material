@@ -18,10 +18,6 @@
   .alert-inverse {
     background-color: $card-bg-inverse;
     color: $card-color-inverse;
-
-    .alert-link {
-      color: inherit;
-    }
   }
 
   @each $color in $palettes {
@@ -29,11 +25,7 @@
 
     .alert-#{$color} {
       background-color: nth($palettes-color, $i);
-      color: darken(nth($palettes-color, $i), 38%);
-
-      .alert-link {
-        color: darken(nth($palettes-color, $i), 54%);
-      }
+      color: nth($palettes-text-color, $i);
     }
   }
 
@@ -60,4 +52,13 @@
 
   .alert-link {
     font-weight: $alert-link-font-weight;
+    // active, focus, hover
+      @include plain-active-focus-hover {
+        color: inherit;
+      }
+      @include active-focus-hover {
+        @if ($link-decoration-active == "none") {
+          text-decoration: underline;
+        }
+      }
   }

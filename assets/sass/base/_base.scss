@@ -265,7 +265,7 @@
     }
 
     [tabindex="-1"]:focus {
-      outline: none !important;
+      outline: 0 !important;
     }
 
     // clickable elements
@@ -377,14 +377,12 @@
         color: $link-color;
         text-decoration: $link-decoration;
         // active, focus, hover
-          &:active {
-            color: $link-color-hover;
-          }
-          @include focus-hover {
-            text-decoration: $link-decoration-hover;
+          @include active-focus-hover {
+            color: $link-color-active;
+            text-decoration: $link-decoration-active;
           }
           &:focus {
-            @include tab-focus();
+            @include tab-focus;
           }
       }
 
@@ -392,14 +390,14 @@
         color: inherit;
         text-decoration: none;
         // active, focus, hover
-          &:active {
+          @include active-focus-hover {
             color: inherit;
           }
-          @include focus-hover {
-            text-decoration: none;
-          }
           &:focus {
-            outline: none;
+            outline: 0;
+          }
+          @include hover {
+            text-decoration: none;
           }
       }
 

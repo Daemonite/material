@@ -9,7 +9,11 @@
 .breadcrumb-item {
   color: $breadcrumb-item-color;
   float: left;
+  @include transition-standard(color);
   // active, focus, hover
+    @include active-focus-hover {
+      color: $breadcrumb-item-color-active;
+    }
     &.active {
       color: $breadcrumb-item-color-active;
       font-weight: bolder;
@@ -17,9 +21,16 @@
 
   a {
     color: inherit;
+    // active, focus, hover
+      @include active-focus-hover {
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+      }
   }
 
   + .breadcrumb-item::before {
+    @include reset-text;
     color: $breadcrumb-item-color;
     content: "#{$breadcrumb-divider}";
     direction: ltr;
@@ -27,17 +38,11 @@
     font-family: "Material Icons";
     font-feature-settings: "liga";
     font-size: #{$line-height-base}em;
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: normal;
     line-height: 1;
     padding-right: $breadcrumb-item-padding;
     padding-left: $breadcrumb-item-padding;
     text-rendering: optimizeLegibility;
-    text-transform: none;
     vertical-align: bottom;
-    white-space: normal;
-    word-wrap: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -6,8 +6,7 @@
 
   a#{$class} {
     // active, focus, hover
-      &:focus,
-      &:hover {
+      @include active-focus-hover {
         background-color: $color-focus-hover !important;
         color: $color-text-focus-hover !important;
       }
@@ -18,7 +17,7 @@
   #{$class} {
     background-color: $color !important;
 
-    @if $color-text != "inherit" {
+    @if ($color-text != "inherit") {
       color: $color-text !important;
     }
   }

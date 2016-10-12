@@ -271,10 +271,15 @@
 //
 // nav
 //
-  .navbar-nav {
+  .navbar-nav,
+  .toolbar-nav {
     .nav-item {
       float: left;
+      + .nav-item {
+        margin-left: 1px;
+      }
     }
+
     .nav-link {
       border-radius: $border-radius;
       color: inherit;
@@ -303,9 +308,6 @@
             opacity: 0.12;
           }
         }
-        &.active {
-          cursor: default;
-        }
         &:focus {
           outline: 0;
         }
@@ -317,6 +319,14 @@
             display: none;
           }
         }
+    }
+    .nav-link.active,
+    .nav-link.open,
+    .active > .nav-link,
+    .open > .nav-link {
+      &::before {
+        opacity: 0.12;
+      }
     }
   }
 

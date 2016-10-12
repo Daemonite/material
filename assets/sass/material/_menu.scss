@@ -183,23 +183,25 @@
     padding: $menu-link-padding;
     position: relative;
     text-align: inherit;
-    @include transition-standard(background-color);
     white-space: nowrap;
     width: 100%;
+    @include transition-standard(background-color, color);
     // active, focus, hover
-      &:active,
-      &.active {
+      @include active-focus-hover {
         background-color: $menu-link-bg-active;
         color: $menu-link-color;
-      }
-      @include focus-hover {
-        text-decoration: none;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
       }
     // disabled
       &.disabled {
         background-color: transparent;
         color: $menu-link-color-disabled;
-        cursor: $cursor-disabled;
+        // active, focus, hover
+          @include hover {
+            cursor: $cursor-disabled;
+          }
       }
     // size
       .dropdown-menu-cascading &,

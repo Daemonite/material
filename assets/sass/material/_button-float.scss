@@ -1,7 +1,6 @@
-[class*="btn-float"] {
+.btn-float {
   border-radius: 50%;
   box-shadow: map-get($btn-float-elevation-shadow, shadow);
-  font-weight: normal;
   height: $btn-float-size;
   line-height: $btn-float-size;
   padding: 0;
@@ -13,35 +12,15 @@
     border-radius: 50%;
   }
   // active, focus, hover
-    &:active {
+    &:active,
+    &.active {
       box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
       z-index: map-get($btn-float-elevation-shadow-active, elevation);
     }
-  // disabled
-    &:disabled,
-    &.disabled {
-      &:active {
-        box-shadow: none;
-        z-index: map-get($btn-float-elevation-shadow, elevation);
-      }
-    }
 }
 
-// color
-  .btn-float-inverse {
-    @extend .btn-inverse;
-  }
-
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
-    .btn-float-#{$color} {
-      @extend .btn-#{$color};
-    }
-  }
-
 // size
-  [class*="btn-float"].btn-sm {
+  .btn-float.btn-sm {
     height: $btn-float-size-sm;
     line-height: $btn-float-size-sm;
     width: $btn-float-size-sm;

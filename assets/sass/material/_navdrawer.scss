@@ -114,9 +114,7 @@
       @include transition-standard(background-color, color);
       @include text-truncate;
       // active, focus, hover
-        &:active,
-        &:focus,
-        &.active {
+        @include active-focus-hover {
           background-color: $navdrawer-nav-link-bg-active;
         }
         &:active,

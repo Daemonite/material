@@ -9,15 +9,21 @@
   z-index: map-get($card-elevation-shadow, elevation);
 }
 
-.card[href] {
+.card[href]:not([tabindex]) {
   // active, focus, hover
-    &:active {
+    @include active-focus-hover {
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+    &:active,
+    &.active {
       box-shadow: map-get($card-elevation-shadow-active, shadow);
       z-index: map-get($card-elevation-shadow-active, elevation);
     }
-    @include focus-hover {
+    &:focus {
+      box-shadow: map-get($card-elevation-shadow-active, shadow);
       outline: 0;
-      text-decoration: none;
     }
 }
 

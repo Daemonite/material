@@ -17,11 +17,11 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  @include transition-standard(background-color, box-shadow, color);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
   z-index: map-get($btn-elevation-shadow, elevation);
+  @include transition-standard(background-color, box-shadow, color);
   &::before {
     background-color: $btn-focus-overlay;
     border-radius: $border-radius;
@@ -33,30 +33,28 @@
       right: 0;
       bottom: 0;
       left: 0;
-    @include transition-standard(opacity);
     z-index: -1;
+    @include transition-standard(opacity);
   }
   // active, focus, hover
+    @include active-focus-hover {
+      color: $btn-color;
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+    @include focus-hover {
+      &::before {
+        opacity: 1;
+      }
+    }
     &:active,
     &.active {
       background-color: $btn-bg-active;
       box-shadow: map-get($btn-elevation-shadow-active, shadow);
-      color: $btn-color;
       z-index: map-get($btn-elevation-shadow-active, elevation);
       &::before {
         opacity: 0;
-      }
-    }
-    @include focus-hover {
-      text-decoration: none;
-    }
-    &.focus {
-      text-decoration: none;
-    }
-    &:focus,
-    &.focus {
-      &::before {
-        opacity: 1;
       }
     }
     &:focus {
@@ -67,18 +65,25 @@
     &.disabled {
       background-color: $btn-bg-disabled;
       box-shadow: none;
-      color: $btn-color-disabled;
       cursor: $cursor-disabled;
       opacity: 1;
       pointer-events: none;
-      &:active {
-        background-color: $btn-bg-disabled;
-        color: $btn-color-disabled;
-      }
       &::before,
       .waves-ripple {
         display: none;
       }
+      // active, focus, hover
+        @include plain-active-focus-hover {
+          color: $btn-color-disabled;
+        }
+        @include hover {
+          cursor: $cursor-disabled;
+        }
+        &:active,
+        &.active {
+          background-color: $btn-bg-disabled;
+          box-shadow: none;
+        }
     }
   // open
     .open > &,
@@ -105,19 +110,25 @@
   .btn-inverse {
     color: $btn-color-inverse;
     // active, focus, hover
+      @include active-focus-hover {
+        color: $btn-color-inverse;
+      }
       &:active,
       &.active {
         background-color: $btn-bg-inverse-active;
-        color: $btn-color-inverse;
       }
     // disabled
       &:disabled,
       &.disabled {
-        &,
-        &:active {
-          background-color: $btn-bg-inverse-disabled;
-          color: $btn-color-inverse-disabled;
-        }
+        background-color: $btn-bg-inverse-disabled;
+        // active, focus, hover
+          @include plain-active-focus-hover {
+            color: $btn-color-inverse-disabled;
+          }
+          &:active,
+          &.active {
+            background-color: $btn-bg-inverse-disabled;
+          }
       }
   }
 
@@ -128,22 +139,25 @@
       background-color: nth($palettes-color, $i);
       color: nth($palettes-text-color, $i);
       // active, focus, hover
+        @include active-focus-hover {
+          color: nth($palettes-text-color, $i);
+        }
         &:active,
         &.active {
           background-color: nth($palettes-color-dark, $i);
-          color: nth($palettes-text-color, $i);
-        }
-        &.waves-attach:active {
-          background-color: nth($palettes-color, $i);
         }
       // disabled
         &:disabled,
         &.disabled {
-          &,
-          &:active {
-            background-color: $btn-bg-disabled;
-            color: $btn-color-disabled;
-          }
+          background-color: $btn-bg-disabled;
+          // active, focus, hover
+            @include plain-active-focus-hover {
+              color: $btn-color-disabled;
+            }
+            &:active,
+            &.active {
+              background-color: $btn-bg-disabled;
+            }
         }
     }
   }
@@ -187,38 +201,46 @@
     box-shadow: none;
     color: $link-color;
     font-weight: normal;
+    text-decoration: $link-decoration;
     text-transform: none;
     z-index: initial;
     &::before {
       display: none;
     }
     // active, focus, hover
+      @include active-focus-hover {
+        color: $link-color-active;
+        text-decoration: $link-decoration-active;
+      }
       &:active,
       &.active {
         background-color: transparent;
         box-shadow: none;
-        color: $link-color-hover;
+        z-index: initial;
       }
-      @include focus-hover {
-        text-decoration: $link-decoration-hover;
-      }
-      &:focus,
-      &.focus {
+      &:focus {
         @include tab-focus;
       }
     // disabled
       &:disabled,
       &.disabled {
-        &,
-        &:active {
-          background-color: transparent;
-        }
-        @include focus-hover {
-          text-decoration: none;
-        }
-        &:focus {
-          outline: 0;
-        }
+        background-color: transparent;
+        // active, focus, hover
+          @include plain-active-focus-hover {
+            color: $btn-color-disabled;
+          }
+          @include active-focus-hover {
+            @if ($link-decoration-active != "none") {
+              text-decoration: none;
+            }
+          }
+          &:active,
+          &.active {
+            background-color: transparent;
+          }
+          &:focus {
+            outline: 0;
+          }
       }
   }
 

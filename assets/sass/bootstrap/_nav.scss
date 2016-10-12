@@ -8,13 +8,17 @@
   display: inline-block;
   position: relative;
   // active, focus, hover
-    @include focus-hover {
-      text-decoration: none;
+    @include active-focus-hover {
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
     }
   // disabled
     &.disabled {
-      @include plain-focus-hover {
+      @include plain-active-focus-hover {
         color: $nav-link-color-disabled;
+      }
+      @include hover {
         cursor: $cursor-disabled;
       }
     }
@@ -49,21 +53,28 @@
       color: $nav-link-color;
       display: block;
       padding: $nav-link-padding;
+      @include transition-standard(background-color, color);
       // active, focus, hover
-        &:active,
-        &:focus {
+        @include active-focus-hover {
           color: $nav-link-color-active;
         }
       // disabled
         &.disabled {
-          color: $nav-link-color-disabled;
+          @include plain-active-focus-hover {
+            color: $nav-link-color-disabled;
+          }
         }
     }
     .nav-link.active,
     .nav-item.open .nav-link {
-      background-color: $nav-link-bg-active;
-      color: $nav-link-color-active;
-      cursor: default;
+      // active, focus, hover
+        @include plain-active-focus-hover {
+          background-color: $nav-link-bg-active;
+          color: $nav-link-color-active;
+        }
+        @include hover {
+          cursor: default;
+        }
     }
   }
 
