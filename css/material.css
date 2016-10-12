@@ -8141,6 +8141,7 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   position: relative;
+  z-index: 1;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -8185,24 +8186,17 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
             transition-duration: 0.2s;
   }
 }
-.navbar-brand:active, .navbar-brand:focus,
+.navbar-brand:active, .navbar-brand:focus, .navbar-brand:hover,
 .toolbar-brand:active,
-.toolbar-brand:focus {
-  z-index: 1;
-}
-.navbar-brand:active::before, .navbar-brand:focus::before,
-.toolbar-brand:active::before,
-.toolbar-brand:focus::before {
-  opacity: 0.12;
-}
-.navbar-brand:active,
-.toolbar-brand:active {
-  color: inherit;
-}
-.navbar-brand:focus, .navbar-brand:hover,
 .toolbar-brand:focus,
 .toolbar-brand:hover {
-  text-decoration: none;
+  color: inherit;
+}
+.navbar-brand:active::before, .navbar-brand:focus::before, .navbar-brand:hover::before,
+.toolbar-brand:active::before,
+.toolbar-brand:focus::before,
+.toolbar-brand:hover::before {
+  opacity: 0.12;
 }
 .navbar-brand:focus,
 .toolbar-brand:focus {
@@ -8247,6 +8241,7 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
   text-align: center;
   vertical-align: middle;
   width: 2.25rem;
+  z-index: 1;
 }
 .navbar-toggler::before,
 .toolbar-toggler::before {
@@ -8287,24 +8282,17 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
             transition-duration: 0.2s;
   }
 }
-.navbar-toggler:active, .navbar-toggler:focus,
+.navbar-toggler:active, .navbar-toggler:focus, .navbar-toggler:hover,
 .toolbar-toggler:active,
-.toolbar-toggler:focus {
-  z-index: 1;
-}
-.navbar-toggler:active::before, .navbar-toggler:focus::before,
-.toolbar-toggler:active::before,
-.toolbar-toggler:focus::before {
-  opacity: 0.12;
-}
-.navbar-toggler:active,
-.toolbar-toggler:active {
-  color: inherit;
-}
-.navbar-toggler:focus, .navbar-toggler:hover,
 .toolbar-toggler:focus,
 .toolbar-toggler:hover {
-  text-decoration: none;
+  color: inherit;
+}
+.navbar-toggler:active::before, .navbar-toggler:focus::before, .navbar-toggler:hover::before,
+.toolbar-toggler:active::before,
+.toolbar-toggler:focus::before,
+.toolbar-toggler:hover::before {
+  opacity: 0.12;
 }
 .navbar-toggler:focus,
 .toolbar-toggler:focus {
@@ -8312,12 +8300,15 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
 }
 .navbar-toggler.disabled,
 .toolbar-toggler.disabled {
-  cursor: not-allowed;
   opacity: 0.38;
 }
 .navbar-toggler.disabled::before,
 .toolbar-toggler.disabled::before {
   display: none;
+}
+.navbar-toggler.disabled:hover,
+.toolbar-toggler.disabled:hover {
+  cursor: not-allowed;
 }
 .open > .navbar-toggler::before, .open >
 .toolbar-toggler::before {
@@ -8404,9 +8395,10 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
             transition-duration: 0.2s;
   }
 }
-.navbar-nav .nav-link:active::before, .navbar-nav .nav-link:focus::before,
+.navbar-nav .nav-link:active::before, .navbar-nav .nav-link:focus::before, .navbar-nav .nav-link:hover::before,
 .toolbar-nav .nav-link:active::before,
-.toolbar-nav .nav-link:focus::before {
+.toolbar-nav .nav-link:focus::before,
+.toolbar-nav .nav-link:hover::before {
   opacity: 0.12;
 }
 .navbar-nav .nav-link:focus,

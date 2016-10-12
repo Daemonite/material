@@ -150,6 +150,7 @@
     padding-top: (($toolbar-link-height - $line-height-title) / 2);
     padding-bottom: (($toolbar-link-height - $line-height-title) / 2);
     position: relative;
+    z-index: 1;
     @include typography-title;
     &::before {
       background-color: currentColor;
@@ -166,18 +167,14 @@
       @include transition-standard(opacity);
     }
     // active, focus, hover
-      &:active,
-      &:focus {
-        z-index: 1;
+      @include active-focus-hover {
+        color: inherit;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
         &::before {
           opacity: 0.12;
         }
-      }
-      &:active {
-        color: inherit;
-      }
-      @include focus-hover {
-        text-decoration: none;
       }
       &:focus {
         outline: 0;
@@ -221,6 +218,7 @@
     text-align: center;
     vertical-align: middle;
     width: $toolbar-link-height;
+    z-index: 1;
     &::before {
       background-color: currentColor;
       border-radius: 50%;
@@ -236,29 +234,28 @@
       @include transition-standard(opacity);
     }
     // active, focus, hover
-      &:active,
-      &:focus {
-        z-index: 1;
+      @include active-focus-hover {
+        color: inherit;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
         &::before {
           opacity: 0.12;
         }
-      }
-      &:active {
-        color: inherit;
-      }
-      @include focus-hover {
-        text-decoration: none;
       }
       &:focus {
         outline: 0;
       }
     // disabled
       &.disabled {
-        cursor: $cursor-disabled;
         opacity: 0.38;
         &::before {
           display: none;
         }
+        // active, focus, hover
+          @include hover {
+            cursor: $cursor-disabled;
+          }
       }
     // open
       .open > & {
@@ -302,8 +299,7 @@
         @include transition-standard(opacity);
       }
       // active, focus, hover
-        &:active,
-        &:focus {
+        @include active-focus-hover {
           &::before {
             opacity: 0.12;
           }
