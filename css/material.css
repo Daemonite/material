@@ -1572,7 +1572,42 @@ p {
   display: table;
 }
 
-/* todo: blockquote */
+.blockquote {
+  border-left: 0.3125rem solid #9c27b0;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.75rem;
+}
+
+.blockquote-footer {
+  color: rgba(0, 0, 0, 0.38);
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.125rem;
+}
+.blockquote-footer::before {
+  content: "\2014 \00A0";
+}
+
+.blockquote-reverse {
+  border-left: 0;
+  border-right: 0.3125rem solid #9c27b0;
+  text-align: right;
+}
+
+.blockquote-reverse .blockquote-footer::after {
+  content: "\00A0 \2014";
+}
+.blockquote-reverse .blockquote-footer::before {
+  content: "";
+}
+
 mark,
 .mark {
   background-color: #ffeb3b;

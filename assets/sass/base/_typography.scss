@@ -1,8 +1,36 @@
 //
 // blockquote
 //
-  /* todo: blockquote */
   .blockquote {
+    border-left: $blockquote-border-width solid $blockquote-border-color;
+    margin-bottom: $spacer-md-y;
+    padding: 0 $spacer-md-x;
+    @include typography-title;
+  }
+
+  .blockquote-footer {
+    color: $blockquote-small-color;
+    display: block;
+    margin-top: $spacer-xs-y;
+    @include typography-caption;
+    &::before {
+      content: "\2014 \00A0";
+    }
+  }
+
+  .blockquote-reverse {
+    border-left: 0;
+    border-right: $blockquote-border-width solid $blockquote-border-color;
+    text-align: right;
+  }
+
+  .blockquote-reverse .blockquote-footer {
+    &::after {
+      content: "\00A0 \2014";
+    }
+    &::before {
+      content: "";
+    }
   }
 
 //
