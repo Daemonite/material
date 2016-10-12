@@ -2014,35 +2014,27 @@ dl.row > dd + dt {
   color: inherit;
 }
 .breadcrumb-item + .breadcrumb-item::before {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: normal;
-  line-break: auto;
-  line-height: 1.428572;
-  text-align: left;
-  text-align: start;
-  text-decoration: none;
-  text-shadow: none;
-  text-transform: none;
-  white-space: normal;
-  word-break: normal;
-  word-spacing: normal;
-  color: rgba(0, 0, 0, 0.54);
-  content: "chevron_right";
   direction: ltr;
   display: inline-block;
   font-family: "Material Icons";
   -webkit-font-feature-settings: "liga";
           font-feature-settings: "liga";
-  font-size: 1.428572em;
-  line-height: 1;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  font-size: 1.714286em;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 0.510417em;
   text-rendering: optimizeLegibility;
-  vertical-align: bottom;
+  text-transform: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.54);
+  content: "chevron_right";
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .btn-group,
@@ -2480,6 +2472,125 @@ pre code {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
+}
+
+.custom-file {
+  cursor: pointer;
+  display: block;
+  height: 2.5rem;
+  max-width: 100%;
+  position: relative;
+}
+
+.custom-file-control {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.38);
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 0 0.1875rem;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: border-bottom-color;
+  -o-transition-property: border-bottom-color;
+  transition-property: border-bottom-color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.custom-file-control:focus {
+  padding-bottom: 0.125rem;
+}
+@media (min-width: 600px) {
+  .custom-file-control {
+    -webkit-transition-duration: 0.39s;
+         -o-transition-duration: 0.39s;
+            transition-duration: 0.39s;
+  }
+}
+@media (min-width: 1280px) {
+  .custom-file-control {
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+  }
+}
+.custom-file-control:lang(en)::after {
+  content: "Choose file...";
+}
+.custom-file-control::before {
+  direction: ltr;
+  display: inline-block;
+  font-family: "Material Icons";
+  -webkit-font-feature-settings: "liga";
+          font-feature-settings: "liga";
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 0.666667em;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  word-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.38);
+  height: 2.5rem;
+  padding-top: 0.75rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (min-width: 600px) {
+  .custom-file-control::before {
+    -webkit-transition-duration: 0.39s;
+         -o-transition-duration: 0.39s;
+            transition-duration: 0.39s;
+  }
+}
+@media (min-width: 1280px) {
+  .custom-file-control::before {
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+  }
+}
+.custom-file-control:lang(en)::before {
+  content: "attach_file";
+}
+.custom-file-control:active::before, .custom-file-control:focus::before, .custom-file-control:hover::before {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.custom-file-input {
+  margin: 0;
+  max-width: 100%;
+  min-width: 14rem;
+  opacity: 0;
 }
 
 .form-check {
@@ -8506,12 +8617,8 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
 }
 .material-icons {
   font-size: 1.714286em;
-  line-height: 0.416667em;
+  line-height: 0.510417em;
   vertical-align: middle;
-}
-.btn .material-icons, .carousel-control .material-icons, .page-link .material-icons {
-  position: relative;
-  top: -1px;
 }
 
 .bg-black-primary {

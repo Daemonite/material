@@ -1,9 +1,5 @@
 .material-icons {
-  font-size: #{($material-icon-size / $font-size-root) / ($font-size-base / ($font-size-base * 0 + 1))}em;
-  line-height: #{(1 - ($font-size-base / ($font-size-base * 0 + 1)) / ($material-icon-size / $font-size-root))}em;
+  font-size: #{($material-icon-size / $font-size-root) / strip-unit($font-size-base)}em;
+  line-height: #{strip-unit($font-size-base) / (($material-icon-size / $font-size-root) / strip-unit($font-size-base))}em;
   vertical-align: middle;
-  .btn & {
-    position: relative;
-      top: -1px;
-  }
 }
