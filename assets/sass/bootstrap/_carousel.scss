@@ -109,18 +109,25 @@
 // left/right controls
 //
   .carousel-control {
-    @extend .btn;
-    @extend .btn-sm;
-    @extend .btn-float;
-    opacity: 0;
-    &.left,
-    &.right {
-      margin-top: ($btn-float-size-sm / -2);
-      position: absolute;
-        top: 50%;
-      transition: none;
-      z-index: initial;
-    }
+    background-color: $btn-bg;
+    border-radius: 50%;
+    box-shadow: map-get($btn-float-elevation-shadow, shadow);
+    color: $btn-color;
+    display: block;
+    font-size: $btn-font-size;
+    font-weight: $btn-font-weight;
+    height: $btn-float-size-sm;
+    line-height: $btn-float-size-sm;
+    margin-top: ($btn-float-size-sm / -2);
+    position: absolute;
+      top: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: $btn-float-size-sm;
+    z-index: map-get($btn-elevation-shadow, elevation);
     &.left {
       // position
         left: ($btn-float-size-sm / 2);
@@ -129,6 +136,21 @@
       // position
         right: ($btn-float-size-sm / 2);
     }
+    // active, focus, hover
+      @include active-focus-hover {
+        background-color: $btn-bg-active;
+        color: $btn-color;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+      }
+      &:active,
+      &.active {
+        box-shadow: map-get($btn-elevation-shadow-active, shadow);
+      }
+      &:focus {
+        outline: 0;
+      }
 
     .icon-next,
     .icon-prev {

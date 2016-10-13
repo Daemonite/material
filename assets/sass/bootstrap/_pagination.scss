@@ -11,40 +11,56 @@
 }
 
 .page-link {
-  @extend .btn;
-  @extend [class*="btn-flat"];
+  background-color: transparent;
+  border-radius: $border-radius;
+  color: $btn-color;
+  display: block;
   float: left;
-  .page-item.active & {
-    @extend .active.btn;
-    @extend [class*="btn-flat"].active;
-  }
-  .page-item.disabled & {
-    @extend .btn.disabled;
-    @extend [class*="btn-flat"].disabled;
-  }
-}
-
-// make the selector a bit more specific
-// so the styles will not be overridden by material's button styles
-html .page-link {
-  border-radius: 0;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: 1;
   margin-left: 1px;
-  min-width: 0;
-  z-index: initial;
-  &::before {
-    border-radius: 0;
-  }
-}
+  padding: $btn-padding-y $btn-padding-x;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  @include transition-standard(background-color, color);
 
-html .page-item:first-child .page-link {
-  margin-left: 0;
+  // active, focus, hover
+    @include active-focus-hover {
+      background-color: $btn-bg-active;
+      color: $btn-color;
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+    &:focus {
+      outline: 0;
+    }
+
+  .page-item:first-child & {
+    margin-left: 0;
+  }
+
+  .page-item.active & {
+    background-color: $btn-bg-active;
+  }
+
+  .page-item.disabled & {
+    background-color: transparent;
+    color: $btn-color-disabled;
+    cursor: $cursor-disabled;
+  }
 }
 
 // size
   .pagination-lg .page-link {
-    @extend .btn-lg;
+    font-size: $btn-font-size-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
   }
 
   .pagination-sm .page-link {
-    @extend .btn-sm;
+    font-size: $btn-font-size-sm;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
   }

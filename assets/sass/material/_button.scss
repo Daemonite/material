@@ -65,6 +65,7 @@
     &.disabled {
       background-color: $btn-bg-disabled;
       box-shadow: none;
+      color: $btn-color-disabled;
       cursor: $cursor-disabled;
       opacity: 1;
       pointer-events: none;
@@ -72,18 +73,6 @@
       .waves-ripple {
         display: none;
       }
-      // active, focus, hover
-        @include plain-active-focus-hover {
-          color: $btn-color-disabled;
-        }
-        @include hover {
-          cursor: $cursor-disabled;
-        }
-        &:active,
-        &.active {
-          background-color: $btn-bg-disabled;
-          box-shadow: none;
-        }
     }
   // open
     .open > &,
@@ -121,14 +110,7 @@
       &:disabled,
       &.disabled {
         background-color: $btn-bg-inverse-disabled;
-        // active, focus, hover
-          @include plain-active-focus-hover {
-            color: $btn-color-inverse-disabled;
-          }
-          &:active,
-          &.active {
-            background-color: $btn-bg-inverse-disabled;
-          }
+        color: $btn-color-inverse-disabled;
       }
   }
 
@@ -150,14 +132,7 @@
         &:disabled,
         &.disabled {
           background-color: $btn-bg-disabled;
-          // active, focus, hover
-            @include plain-active-focus-hover {
-              color: $btn-color-disabled;
-            }
-            &:active,
-            &.active {
-              background-color: $btn-bg-disabled;
-            }
+          color: $btn-color-disabled;
         }
     }
   }
@@ -225,22 +200,11 @@
       &:disabled,
       &.disabled {
         background-color: transparent;
-        // active, focus, hover
-          @include plain-active-focus-hover {
-            color: $btn-color-disabled;
-          }
-          @include active-focus-hover {
-            @if ($link-decoration-active != "none") {
-              text-decoration: none;
-            }
-          }
-          &:active,
-          &.active {
-            background-color: transparent;
-          }
-          &:focus {
-            outline: 0;
-          }
+        color: $btn-color-disabled;
+        outline: 0;
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
       }
   }
 

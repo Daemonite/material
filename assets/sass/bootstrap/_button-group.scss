@@ -7,11 +7,20 @@
   vertical-align: middle;
 
   > .btn {
-    @extend [class*="btn-flat"];
+    background-color: transparent;
+    box-shadow: none;
     min-width: 0;
-    &::before {
-      border-radius: 0;
-    }
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: $btn-bg-active;
+        box-shadow: none;
+      }
+    // disabled
+      &:disabled,
+      &.disabled {
+        background-color: transparent;
+      }
   }
 
   // colour
@@ -19,7 +28,9 @@
       $i: index($palettes, $color);
 
       > .btn-#{$color} {
-        @extend .btn-flat-#{$color};
+        @include plain-active-focus-hover {
+          color: nth($palettes-color, $i);
+        }
       }
     }
 
