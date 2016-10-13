@@ -74,14 +74,16 @@
   }
 }
 
-// .picker__input {
-//   border-bottom-style: solid !important;
-//   color: inherit !important;
-//   cursor: text !important;
-//   &.picker__input--active {
-//     border-bottom-color: $input-border-color-focus !important;
-//   }
-// }
+.picker__input {
+  &.form-control[readonly] {
+    border-bottom-style: solid;
+    color: inherit;
+    cursor: text;
+  }
+  &.picker__input--active {
+    border-bottom-color: $textfield-border-color-focus;
+  }
+}
 
 .picker__wrap {
   border-radius: $border-radius;
