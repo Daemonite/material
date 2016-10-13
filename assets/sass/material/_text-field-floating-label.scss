@@ -1,6 +1,7 @@
 .floating-label {
   position: relative;
   @include floating-label-size($floating-label-height, $floating-label-padding-top, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
+
   > label {
     color: $floating-label-color;
     cursor: text;
@@ -16,12 +17,15 @@
     white-space: nowrap;
     @include transition-standard(color, top, transform);
   }
+
   &.is-focused > label {
     color: $floating-label-color-focus;
   }
+
   > .form-control {
     margin-bottom: 0;
     position: relative;
+
     &::placeholder {
       color: transparent;
       opacity: 0;
@@ -32,6 +36,7 @@
 // size
   .floating-label-lg {
     @include floating-label-size($floating-label-height-lg, $floating-label-padding-top-lg, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
+
     > .form-control {
       @extend .form-control-lg;
     }
@@ -39,6 +44,7 @@
 
   .floating-label-sm {
     @include floating-label-size($floating-label-height-sm, $floating-label-padding-top-sm, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
+
     > .form-control {
       @extend .form-control-sm;
     }

@@ -20,27 +20,27 @@
     padding: $expansion-panel-spacer-y $expansion-panel-spacer-x;
     position: relative;
     @include transition-standard(background-color, color);
+
     &:first-of-type {
       border-top-color: transparent;
       border-top-left-radius: $border-radius;
       border-top-right-radius: $border-radius;
     }
+
     &:last-of-type {
       border-bottom-left-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
     }
+
     // active, focus, hover
       &.active {
         background-color: $expansion-panel-bg-active;
       }
+
     // disabled
       &.disabled {
         background-color: $expansion-panel-bg-disabled;
         color: $expansion-panel-color-disabled;
-        // active, focus, hover
-          @include hover {
-            cursor: $cursor-disabled;
-          }
       }
   }
 
@@ -49,21 +49,26 @@
     color: $expansion-panel-color;
     text-align: inherit;
     width: 100%;
+
     // active, focus, hover
       @include active-focus-hover {
         background-color: $expansion-panel-bg-active;
         color: $expansion-panel-color;
+
         @if ($link-decoration-active != "none") {
           text-decoration: none;
         }
       }
+
       &:focus {
         outline: 0;
       }
+
     // disabled
       &.disabled {
         background-color: $expansion-panel-bg-disabled;
         color: $expansion-panel-color-disabled;
+        cursor: $cursor-disabled;
       }
   }
 
@@ -75,23 +80,19 @@
       .list-group-item-#{$color} {
         background-color: nth($palettes-color, $i);
         color: nth($palettes-text-color, $i);
+
         // active, focus, hover
           &.active {
             background-color: nth($palettes-color-dark, $i);
             color: nth($palettes-text-color-dark, $i);
           }
+
         &.expansion-panel-item-action,
         &.list-group-item-action {
-          color: nth($palettes-text-color, $i);
           // active, focus, hover
             @include active-focus-hover {
               background-color: nth($palettes-color-dark, $i);
               color: nth($palettes-text-color-dark, $i);
-            }
-          // disabled
-            &.disabled {
-              background-color: $expansion-panel-bg-disabled;
-              color: $expansion-panel-color-disabled;
             }
         }
       }
@@ -105,6 +106,7 @@
     border-radius: 0 0 $border-radius $border-radius;
     box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
     position: relative;
+
     &.collapsing,
     &.in {
       margin-bottom: $expansion-panel-margin-between;
@@ -116,9 +118,11 @@
         border-top-right-radius: $border-radius;
       }
     }
+
     &.collapsing {
       transition-property: height, margin-bottom;
     }
+
     .collapsed + & {
       &.collapsing {
         margin-bottom: 0;
@@ -136,6 +140,7 @@
 
   .expansion-panel-collapse-body {
     padding: $expansion-panel-body-spacer-y $expansion-panel-spacer-x;
+
     > :last-child {
       margin-bottom: 0;
     }
@@ -146,8 +151,10 @@
     padding: $expansion-panel-footer-spacer-y $expansion-panel-footer-spacer-x;
     padding-left: $expansion-panel-spacer-y;
     text-align: right;
+
     .btn {
       min-width: 0;
+
       + .btn {
         margin-left: $expansion-panel-footer-spacer-x;
       }
@@ -162,6 +169,7 @@
       cursor: pointer;
       margin-top: $expansion-panel-margin-between;
       transition-property: background-color, border-radius, border-top-color, color, margin-top;
+
       &::before {
         background-color: inherit;
         content: "";
@@ -173,45 +181,40 @@
           left: 0;
         z-index: 1;
       }
+
       &:first-child {
         margin-top: 0;
       }
+
       // active, focus, hover
         @include active-focus-hover {
+          background-color: $expansion-panel-bg-active;
+          color: $expansion-panel-color;
+
           @if ($link-decoration-active != "none") {
             text-decoration: none;
           }
         }
-        &:active,
-        &:focus {
-          background-color: $expansion-panel-bg-active;
-          color: $expansion-panel-color;
-        }
+
         &:focus {
           outline: 0;
         }
     }
+
     &[data-toggle="collapse"].collapsed {
       border-radius: 0;
       border-top-color: $expansion-panel-border-color;
       margin-top: 0;
+
       &::before {
         display: none;
       }
-      // active, focus, hover
-        @include hover {
-          background-color: $expansion-panel-bg-active;
-          color: $expansion-panel-color;
-        }
     }
+
     &[data-toggle="collapse"].disabled {
       background-color: $expansion-panel-bg-disabled;
       color: $expansion-panel-color-disabled;
-      // active, focus, hover
-        @include hover {
-          background-color: $expansion-panel-bg-disabled;
-          color: $expansion-panel-color-disabled;
-        }
+      cursor: $cursor-disabled;
     }
   }
 
@@ -223,22 +226,10 @@
       .list-group-item-#{$color} {
         &[data-toggle="collapse"] {
           // active, focus, hover
-            &:active,
-            &:focus {
+            @include active-focus-hover {
               background-color: nth($palettes-color-dark, $i);
               color: nth($palettes-text-color-dark, $i);
             }
-        }
-        &[data-toggle="collapse"].collapsed:not(.disabled) {
-          // active, focus, hover
-            @include hover {
-              background-color: nth($palettes-color-dark, $i);
-              color: nth($palettes-text-color-dark, $i);
-            }
-        }
-        &:not(.disabled) + .expansion-panel-collapse {
-          background-color: nth($palettes-color, $i);
-          color: nth($palettes-text-color, $i);
         }
       }
     }
@@ -280,29 +271,15 @@
       }
     }
 
-  // colour
-    @each $color in $palettes {
-      $i: index($palettes, $color);
-
-      .expansion-panel-item-#{$color},
-      .list-group-item-#{$color} {
-        &[data-toggle="collapse"] {
-          @include plain-active-focus-hover {
-            .expansion-panel-item-icon {
-              color: inherit;
-            }
-          }
-        }
-      }
-    }
-
   // variation
     .expansion-panel-item-icon-rotate {
       transition-property: color, transform;
+
       .expansion-panel-item[data-toggle="collapse"] &,
       .list-group-item[data-toggle="collapse"] & {
         transform: rotate(180deg);
       }
+
       .expansion-panel-item.collapsed[data-toggle="collapse"] &,
       .list-group-item.collapsed[data-toggle="collapse"] & {
         transform: rotate(0);

@@ -3,21 +3,25 @@
 
   margin-bottom: $margin-bottom;
   padding-top: $floating-label-padding-top;
+
   > label {
     font-size: $font-size;
     line-height: $line-height;
     // position
       top: ($floating-label-padding-top + $form-control-padding-top);
   }
+
   &.has-value > label,
   &.is-focused > label {
     // position
       top: $floating-label-padding-top;
     transform: scale($floating-label-font-size-focus / $font-size);
   }
+
   > .form-control {
     padding-top: $form-control-padding-top;
   }
+
   > select.form-control {
     background-position: 100% ($form-control-padding-top + ($line-height - $material-icon-size / $font-size-root) / 2);
   }
@@ -28,6 +32,7 @@
   line-height: $line-height;
   margin-bottom: $margin-bottom;
   padding: $padding-top 0 ($height - $padding-top - $line-height - $border-width / $font-size-root);
+
   @if $border-width != 0px {
     &:focus {
       padding-bottom: ($height - $padding-top - $line-height - ($border-width + 1) / $font-size-root);

@@ -376,11 +376,13 @@
       a {
         color: $link-color;
         text-decoration: $link-decoration;
+
         // active, focus, hover
           @include active-focus-hover {
             color: $link-color-active;
             text-decoration: $link-decoration-active;
           }
+
           &:focus {
             @include tab-focus;
           }
@@ -389,15 +391,18 @@
       a:not([href]):not([tabindex]) {
         color: inherit;
         text-decoration: none;
+
         // active, focus, hover
           @include active-focus-hover {
             color: inherit;
+
+            @if ($link-decoration-active != "none") {
+              text-decoration: none;
+            }
           }
+
           &:focus {
             outline: 0;
-          }
-          @include hover {
-            text-decoration: none;
           }
       }
 

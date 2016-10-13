@@ -13,6 +13,7 @@
     letter-spacing: -0.25em;
     white-space: nowrap;
   }
+
   .nav-item {
     line-height: 0;
 
@@ -22,6 +23,7 @@
       white-space: normal;
     }
   }
+
   .nav-link {
     color: inherit;
     font-size: $nav-tab-link-font-size;
@@ -31,6 +33,7 @@
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     text-transform: uppercase;
     @include transition-standard(background-color, opacity);
+
     &::before {
       background-color: $nav-tab-indicator-bg;
       content: "";
@@ -66,15 +69,18 @@
       @include active-focus-hover {
         background-color: $nav-link-bg-active;
       }
+
       &:active,
       &.active {
         opacity: 1;
       }
+
       &.active {
         &::before {
           opacity: 1;
         }
       }
+
     // disabled
       &.disabled {
         background-color: transparent;
@@ -89,13 +95,12 @@
     &::before {
       transition: none;
     }
+
     // active, focus, hover
-      &.active {
-        &::before {
-          transition-delay: $transition-duration;
-          transition-duration: 0s;
-          transition-property: opacity;
-        }
+      &.active::before {
+        transition-delay: $transition-duration;
+        transition-duration: 0s;
+        transition-property: opacity;
       }
   }
 }
@@ -176,12 +181,15 @@
     display: none;
     position: absolute;
       bottom: 0;
+
     &.animate {
       transition: left ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2), right $transition-duration $transition-timing-function-standard;
+
       &.reverse {
         transition: left $transition-duration $transition-timing-function-standard, right ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2);
       }
     }
+
     &.in {
       display: block;
     }

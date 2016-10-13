@@ -26,6 +26,7 @@
   vertical-align: middle;
   white-space: nowrap;
   @include transition-acceleration(opacity);
+
   &::after {
     content: "";
     display: inline-block;
@@ -33,6 +34,7 @@
     vertical-align: middle;
     width: 1px;
   }
+
   .picker--opened & {
     opacity: 1;
     @include transition-deceleration(opacity);
@@ -68,6 +70,7 @@
     overflow-y: auto;
     transform: translate3d(0, 0, 0);
     transition: none;
+
     &::before {
       opacity: 1;
     }
@@ -80,6 +83,7 @@
     color: inherit;
     cursor: text;
   }
+
   &.picker__input--active {
     border-bottom-color: $textfield-border-color-focus;
   }
@@ -96,6 +100,7 @@
   transform: scale(0.87);
   vertical-align: middle;
   @include transition-acceleration(transform);
+
   .picker--opened & {
     transform: scale(1);
     @include transition-deceleration(transform);
@@ -108,9 +113,11 @@
   .picker__footer {
     padding: $picker-inner-spacer-y $picker-inner-spacer-x;
     text-align: right;
+
     button {
       margin-left: $picker-inner-spacer-x;
       min-width: 0;
+
       &:first-child {
         margin-left: 0;
       }
@@ -133,6 +140,7 @@
   .picker__year {
     display: inline;
     margin-left: $picker-inner-spacer-x;
+
     &:first-child {
       margin-left: 0;
     }
@@ -146,6 +154,7 @@
     position: absolute;
       top: 50%;
     width: $picker-cell-size;
+
     &,
     &.material-icons {
       line-height: $picker-cell-size;
@@ -155,6 +164,7 @@
   .picker__nav--next {
     // position
       right: 0;
+
     &:before {
       content: $picker-nav-next-icon;
     }
@@ -163,6 +173,7 @@
   .picker__nav--prev {
     // position
       left: 0;
+
     &:before {
       content: $picker-nav-prev-icon;
     }
@@ -190,6 +201,7 @@
 
   .picker__weekday-display {
     margin-right: $picker-inner-spacer-x;
+
     &:after {
       content: ",";
     }
@@ -206,6 +218,7 @@
     margin: auto;
     vertical-align: middle;
     width: $picker-cell-size;
+
     &.picker__day--selected {
       background-color: $picker-day-bg-selected;
       color: $picker-day-color-selected;
@@ -231,6 +244,7 @@
     border-spacing: 0;
     margin: 0 $picker-inner-spacer-x;
     table-layout: fixed;
+
     td,
     th {
       border: 0;

@@ -10,6 +10,7 @@
   overflow: hidden;
   padding: $stepper-padding-y $stepper-padding-x;
   position: relative;
+
   &::after,
   &::before {
     border-top: $stepper-border-width solid $stepper-border-color;
@@ -17,9 +18,11 @@
     display: block;
     position: absolute;
   }
+
   &:first-child::before {
     display: none;
   }
+
   &:last-child::after {
     display: none;
   }
@@ -34,6 +37,7 @@
     overflow-y: hidden;
     position: relative;
     -webkit-overflow-scrolling: touch;
+
     &:before {
       border-top: $stepper-border-width solid $stepper-border-color;
       content: "";
@@ -43,6 +47,7 @@
         right: $stepper-padding-x;
         left: $stepper-padding-x;
     }
+
     .stepper {
       &::after,
       &::before {
@@ -65,6 +70,7 @@
   .stepper-vert {
     background-color: $stepper-bg;
     position: relative;
+
     .stepper {
       &::after,
       &::before {
@@ -100,6 +106,7 @@
     text-align: center;
     vertical-align: middle;
     width: $stepper-icon-height;
+
     .stepper.active &,
     .stepper.done & {
       background-color: $stepper-icon-bg-active;
@@ -112,10 +119,12 @@
     font-size: $stepper-text-font-size;
     font-weight: $stepper-text-font-weight;
     position: relative;
+
     .stepper.active &,
     .stepper.done & {
       color: $stepper-text-color-active;
     }
+
     .stepper.active & {
       font-weight: bolder;
     }

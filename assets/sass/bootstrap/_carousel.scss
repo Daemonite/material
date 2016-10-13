@@ -14,7 +14,7 @@
 
     > img,
     > a > img {
-      @extend .img-fluid;
+      @include img-fluid;
       line-height: 1;
     }
   }
@@ -23,36 +23,43 @@
     backface-visibility: hidden;
     perspective: 1000px;
     @include transition-standard(transform);
+
     &.active {
       // position
         left: 0;
       transform: translate3d(0, 0, 0);
     }
+
     &.active.left {
       // position
         left: 0;
       transform: translate3d(-100%, 0, 0);
     }
+
     &.active.right {
       // position
         left: 0;
       transform: translate3d(100%, 0, 0);
     }
+
     &.next {
       // position
         left: 0;
       transform: translate3d(100%, 0, 0);
     }
+
     &.next.left {
       // position
         left: 0;
       transform: translate3d(0, 0, 0);
     }
+
     &.prev {
       // position
         left: 0;
       transform: translate3d(-100%, 0, 0);
     }
+
     &.prev.right {
       // position
         left: 0;
@@ -128,26 +135,31 @@
     white-space: nowrap;
     width: $btn-float-size-sm;
     z-index: map-get($btn-elevation-shadow, elevation);
+
     &.left {
       // position
         left: ($btn-float-size-sm / 2);
     }
+
     &.right {
       // position
         right: ($btn-float-size-sm / 2);
     }
+
     // active, focus, hover
       @include active-focus-hover {
         background-color: $btn-bg-active;
         color: $btn-color;
+
         @if ($link-decoration-active != "none") {
           text-decoration: none;
         }
       }
-      &:active,
-      &.active {
+
+      &:active {
         box-shadow: map-get($btn-elevation-shadow-active, shadow);
       }
+
       &:focus {
         outline: 0;
       }

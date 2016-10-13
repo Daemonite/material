@@ -13,6 +13,7 @@
     display: block;
     margin-top: $spacer-xs-y;
     @include typography-caption;
+
     &::before {
       content: "\2014 \00A0";
     }
@@ -51,53 +52,6 @@
 //
 // headings
 //
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5,
-  .h6 {
-    color: $headings-color;
-    font-family: $headings-font-family;
-    margin-bottom: $headings-margin-bottom;
-  }
-
-  h1,
-  .h1 {
-    @include typography-h1;
-  }
-
-  h2,
-  .h2 {
-    @include typography-h2;
-  }
-
-  h3,
-  .h3 {
-    @include typography-h3;
-  }
-
-  h4,
-  .h4 {
-    @include typography-h4;
-  }
-
-  h5,
-  .h5 {
-    @include typography-h5;
-  }
-
-  h6,
-  .h6 {
-    @include typography-h6;
-  }
-
   .typography-display-4 {
     @include typography-display-4;
   }
@@ -139,6 +93,53 @@
   }
 
   // bootstrap classes
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: $headings-color;
+      font-family: $headings-font-family;
+      margin-bottom: $headings-margin-bottom;
+    }
+
+    h1,
+    .h1 {
+      @extend .typography-display-2;
+    }
+
+    h2,
+    .h2 {
+      @extend .typography-display-1;
+    }
+
+    h3,
+    .h3 {
+      @extend .typography-headline;
+    }
+
+    h4,
+    .h4 {
+      @extend .typography-title;
+    }
+
+    h5,
+    .h5 {
+      @extend .typography-subheading;
+    }
+
+    h6,
+    .h6 {
+      @extend .typography-body-2;
+    }
+
     .display-1 {
       @extend .typography-display-4;
     }
@@ -178,6 +179,7 @@
 
   .list-inline-item {
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: $list-inline-item-spacer;
     }
@@ -190,6 +192,7 @@
   @if not $enable-flex {
     dl.row {
       margin-bottom: $spacer-sm-y;
+
       > dd + dt {
         clear: left;
       }

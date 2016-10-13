@@ -10,10 +10,12 @@
   color: $breadcrumb-item-color;
   float: left;
   @include transition-standard(color);
+
   // active, focus, hover
     @include active-focus-hover {
       color: $breadcrumb-item-color-active;
     }
+
     &.active {
       color: $breadcrumb-item-color-active;
       font-weight: bolder;
@@ -21,12 +23,10 @@
 
   a {
     color: inherit;
-    // active, focus, hover
-      @include active-focus-hover {
-        @if ($link-decoration-active != "none") {
-          text-decoration: none;
-        }
-      }
+
+    @if ($link-decoration-active != "none") {
+      text-decoration: none;
+    }
   }
 
   + .breadcrumb-item::before {

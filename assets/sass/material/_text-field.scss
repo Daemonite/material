@@ -14,20 +14,24 @@
   width: 100%;
   @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
   @include transition-standard(border-bottom-color);
+
   &::-ms-expand {
     background-color: transparent;
     border: 0;
   }
+
   &::placeholder {
     color: $textfield-hint-color;
     opacity: 1;
   }
+
   // active, focus, hover
     &:focus {
       border-bottom-color: $textfield-border-color-focus;
       border-bottom-width: ($textfield-border-width + 1);
       outline: 0;
     }
+
   // disbaled
     &:disabled,
     &[readonly] {
@@ -35,6 +39,7 @@
       color: $textfield-color-disabled;
       opacity: 1;
     }
+
     &:disabled {
       cursor: $cursor-disabled;
     }
@@ -53,12 +58,14 @@ select.form-control,
 select.textfield {
   -webkit-appearance: none;
      -moz-appearance: none;
+
   @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
     background-image: url($caret-bg);
     background-position: 100% ($textfield-padding-top + ($textfield-line-height - $material-icon-size / $font-size-root) / 2);
     background-repeat: no-repeat;
     background-size: $material-icon-size;
     padding-right: ($spacer-xs-x + $material-icon-size / $font-size-root);
+
     &[multiple],
     &[size] {
       background-image: none;
@@ -118,9 +125,11 @@ select.textfield {
     &.form-control {
       height: $textfield-height;
     }
+
     &.form-control-lg {
       height: $textfield-height-lg;
     }
+
     &.form-control-sm {
       height: $textfield-height-sm;
     }
@@ -130,9 +139,11 @@ select.textfield {
     &.form-control {
       min-width: $textfield-font-size;
     }
+
     &.form-control-lg {
       min-width: $textfield-font-size-lg;
     }
+
     &.form-control-sm {
       min-width: $textfield-font-size-sm;
     }
@@ -159,7 +170,6 @@ select.textfield {
   .form-control-static,
   .textfield-static {
     @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
-
 
     @include media-breakpoint-up(sm) {
       .form-inline & {

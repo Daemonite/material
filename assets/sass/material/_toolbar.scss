@@ -26,6 +26,7 @@
       right: 0;
       left: 0;
     z-index: map-get($toolbar-elevation-shadow, elevation);
+
     &::before {
       display: none;
     }
@@ -76,6 +77,7 @@
       left: 0;
     z-index: map-get($toolbar-elevation-shadow, elevation);
     @include transition-standard(background-color, box-shadow);
+
     &.waterfall {
       background-color: $toolbar-waterfall-bg;
       box-shadow: map-get($toolbar-elevation-shadow, shadow);
@@ -90,10 +92,12 @@
       margin-top: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
       margin-bottom: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
     }
+
     .btn-lg {
       margin-top: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
       margin-bottom: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
     }
+
     .btn-sm {
       margin-top: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
       margin-bottom: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
@@ -104,23 +108,28 @@
       margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height);
       margin-bottom: 0;
       opacity: 0.38;
+
       &::placeholder {
         color: inherit;
         opacity: 1;
       }
+
       // active, focus, hover
         &:focus {
           opacity: 1;
           transition-property: opacity;
+
           &::placeholder {
             opacity: 0.38;
           }
         }
     }
+
     // .form-control-lg cannot fit into .navbar/.toolbar
     // .form-control-lg {
     //   margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-lg);
     // }
+
     .form-control-sm {
       margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-sm);
     }
@@ -128,6 +137,7 @@
     .nav-tabs {
       margin-top: ($toolbar-padding-y * -1);
       margin-bottom: ($toolbar-padding-y * -1);
+
       .nav-link {
         height: $toolbar-height;
       }
@@ -152,6 +162,7 @@
     position: relative;
     z-index: 1;
     @include typography-title;
+
     &::before {
       background-color: currentColor;
       border-radius: $border-radius;
@@ -166,16 +177,20 @@
       z-index: -1;
       @include transition-standard(opacity);
     }
+
     // active, focus, hover
       @include active-focus-hover {
         color: inherit;
+
         @if ($link-decoration-active != "none") {
           text-decoration: none;
         }
+
         &::before {
           opacity: 0.12;
         }
       }
+
       &:focus {
         outline: 0;
       }
@@ -196,6 +211,7 @@
     padding-top: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
     padding-bottom: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
     width: 1px;
+
     &::before {
       content: "\00a0";
     }
@@ -219,6 +235,7 @@
     vertical-align: middle;
     width: $toolbar-link-height;
     z-index: 1;
+
     &::before {
       background-color: currentColor;
       border-radius: 50%;
@@ -233,30 +250,34 @@
       z-index: -1;
       @include transition-standard(opacity);
     }
+
     // active, focus, hover
       @include active-focus-hover {
         color: inherit;
+
         @if ($link-decoration-active != "none") {
           text-decoration: none;
         }
+
         &::before {
           opacity: 0.12;
         }
       }
+
       &:focus {
         outline: 0;
       }
+
     // disabled
       &.disabled {
+        cursor: $cursor-disabled;
         opacity: 0.38;
+
         &::before {
           display: none;
         }
-        // active, focus, hover
-          @include hover {
-            cursor: $cursor-disabled;
-          }
       }
+
     // open
       .open > & {
         &::before {
@@ -272,6 +293,7 @@
   .toolbar-nav {
     .nav-item {
       float: left;
+
       + .nav-item {
         margin-left: 1px;
       }
@@ -285,6 +307,7 @@
       line-height: 1;
       padding: $toolbar-link-padding-y $toolbar-link-padding-x;
       @include transition-standard(background-color);
+
       &::before {
         background-color: currentColor;
         border-radius: $border-radius;
@@ -298,24 +321,29 @@
           left: 0;
         @include transition-standard(opacity);
       }
+
       // active, focus, hover
         @include active-focus-hover {
           &::before {
             opacity: 0.12;
           }
         }
+
         &:focus {
           outline: 0;
         }
+
       // disabled
         &.disabled {
           color: inherit;
           opacity: 0.38;
+
           &::before {
             display: none;
           }
         }
     }
+
     .nav-link.active,
     .nav-link.open,
     .active > .nav-link,
@@ -332,33 +360,41 @@
   .navbar-toggleable {
     &-xs {
       @include clearfix;
+
       @include media-breakpoint-down(xs) {
         .navbar-nav .nav-item {
           float: none;
         }
       }
+
       @include media-breakpoint-up(sm) {
         display: block !important;
       }
     }
+
     &-sm {
       @include clearfix;
+
       @include media-breakpoint-down(sm) {
         .navbar-nav .nav-item {
           float: none;
         }
       }
+
       @include media-breakpoint-up(md) {
         display: block !important;
       }
     }
+
     &-md {
       @include clearfix;
+
       @include media-breakpoint-down(md) {
         .navbar-nav .nav-item {
           float: none;
         }
       }
+
       @include media-breakpoint-up(lg) {
         display: block !important;
       }

@@ -1,6 +1,5 @@
 //
 // material design guideline does not have specs for striped progress bars (or animated striped progress bars)
-// maybe striped progress bars can be treated as the buffered inear progress from material design guideline
 //
 
 .progress {
@@ -56,6 +55,7 @@
     .progress-#{$color} {
       background-color: transparent;
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
+
       &::-webkit-progress-bar {
         background-color: transparent;
         background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});

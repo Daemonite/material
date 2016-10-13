@@ -12,6 +12,7 @@
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   z-index: map-get($dialog-elevation-shadow, elevation);
+
   &::before {
     content: "";
     display: inline-block;
@@ -24,6 +25,7 @@
 
 .modal-open {
   overflow: hidden;
+
   .dialog,
   .modal {
     overflow-x: hidden;
@@ -42,6 +44,7 @@
       bottom: 0;
       left: 0;
     z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
+
     &.fade {
       transform: scale(1);
     }
@@ -100,6 +103,7 @@
     padding-left: $dialog-inner-padding;
     text-align: right;
     @include clearfix;
+
     .btn {
       margin-left: $dialog-footer-spacer-x;
       min-width: $dialog-footer-btn-min-width;
@@ -111,6 +115,7 @@
   .dialog-header,
   .modal-header {
     padding: $dialog-inner-padding;
+
     + .dialog-body,
     + .modal-body {
       padding-top: 0;
