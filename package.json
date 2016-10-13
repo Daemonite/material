@@ -1,9 +1,14 @@
 {
   "name": "daemonite-material",
+  "author": "Daemon Pty Ltd",
   "bugs": {
     "url": "https://github.com/Daemonite/material/issues"
   },
-  "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design.",
+  "dependencies": {
+    "jquery": "1.9.1 - 3",
+    "tether": "^1.1.1"
+  },
+  "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-preset-es2015": "^6.16.0",
@@ -20,28 +25,34 @@
     "load-grunt-tasks": "^3.5.0",
     "time-grunt": "^1.4.0"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "file": [
     "assets",
-    "css",
-    "images",
-    "js",
-    "templates",
-    "Gruntfile.js"
+    "css/**/*.css",
+    "Gruntfile.js",
+    "js/**/*.js",
+    "templates/**/*.html"
   ],
   "homepage": "http://daemonite.github.io/material/",
   "keywords": [
+    "bootstrap",
     "css",
-    "design",
+    "framework",
     "front-end",
     "html",
     "js",
-    "material"
+    "material",
+    "sass"
   ],
   "license": "MIT",
-  "main": "js/base.js",
+  "main": "js/material.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Daemonite/material.git"
   },
+  "sass": "assets/sass/material.scss",
+  "style": "css/material.css",
   "version": "2.0.0"
 }
