@@ -121,7 +121,7 @@ var Floatinglabel = function ($) {
 
 /*!
  * navigation drawer
- * based on bootstrap's (v4.0.0-alpha.3) modal.js
+ * based on bootstrap's (v4.0.0-alpha.4) modal.js
  */
 var NavDrawer = function ($) {
   // constants >>>
@@ -476,7 +476,7 @@ var NavDrawer = function ($) {
 
 /*!
  * tab indicator animation
- * requires bootstrap's (v4.0.0-alpha.3) tab.js
+ * requires bootstrap's (v4.0.0-alpha.4) tab.js
  */
 var TabSwitch = function ($) {
   // constants >>>
@@ -620,7 +620,7 @@ var TabSwitch = function ($) {
 
 /*!
  * global util js
- * based on bootstrap's (v4.0.0-alpha.3) util.js
+ * based on bootstrap's (v4.0.0-alpha.4) util.js
  */
 var Util = function ($) {
   var transition = false;
