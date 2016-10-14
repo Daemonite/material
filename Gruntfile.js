@@ -80,6 +80,7 @@ module.exports = function(grunt) {
 				dest: 'js/material.js',
 				src: [
 					'assets/js/addons/**/*.js',
+					'assets/js/addons-materialise/**/*.js',
 					'<%= concat.babelpost.dest %>',
 				]
 			},
