@@ -2,7 +2,7 @@
  * tab indicator animation
  * requires bootstrap's (v4.0.0-alpha.3) tab.js
  */
-const Tabswitch = (($) => {
+const TabSwitch = (($) => {
   // constants >>>
     const DATA_KEY            = 'md.tabswitch';
     const NAME                = 'tabswitch';
@@ -28,7 +28,7 @@ const Tabswitch = (($) => {
     };
   // <<< constants
 
-  class Tabswitch {
+  class TabSwitch {
     constructor(nav) {
       if (typeof $.fn.tab === 'undefined') {
         throw new Error('Material\'s JavaScript requires Bootstrap\'s tab.js');
@@ -112,7 +112,7 @@ const Tabswitch = (($) => {
         let data = $(nav).data(DATA_KEY);
 
         if (!data) {
-          data = new Tabswitch(nav);
+          data = new TabSwitch(nav);
           $(nav).data(DATA_KEY, data);
         }
 
@@ -122,15 +122,15 @@ const Tabswitch = (($) => {
   }
 
   $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
-    Tabswitch._jQueryInterface.call($(event.target), event.relatedTarget);
+    TabSwitch._jQueryInterface.call($(event.target), event.relatedTarget);
   });
 
-  $.fn[NAME]             = Tabswitch._jQueryInterface;
-  $.fn[NAME].Constructor = Tabswitch;
+  $.fn[NAME]             = TabSwitch._jQueryInterface;
+  $.fn[NAME].Constructor = TabSwitch;
   $.fn[NAME].noConflict  = function () {
     $.fn[NAME] = NO_CONFLICT;
-    return Tabswitch._jQueryInterface;
+    return TabSwitch._jQueryInterface;
   };
 
-  return Tabswitch;
+  return TabSwitch;
 })(jQuery);
