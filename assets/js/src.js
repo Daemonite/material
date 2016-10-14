@@ -15,157 +15,11 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/*!
- * customise pickadate js for material
- * requires pickadate.js
- */
-var Datepicker = function Datepicker(element, options) {
-  this._element = element;
-  this._options = options;
-};
-
-if (typeof $.fn.pickadate === 'undefined') {
-  throw new Error('Material\'s JavaScript requires pickadate.js');
-};
-
-Datepicker.DEFAULTS = {
-  cancel: 'Cancel',
-  closeOnCancel: true,
-  closeOnSelect: false,
-  container: 'body',
-  disable: [],
-  firstDay: 0,
-  format: 'd/m/yyyy',
-  formatSubmit: '',
-  max: false,
-  min: false,
-  monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-  monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  ok: 'OK',
-  onClose: false,
-  onOpen: false,
-  onRender: false,
-  onSet: false,
-  onStart: false,
-  onStop: false,
-  selectMonths: false,
-  selectYears: false,
-  today: 'Today',
-  weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-};
-
-Datepicker.prototype.display = function (datepickerApi, datepickerRoot, datepickerValue) {
-  $('.picker__date-display', datepickerRoot).remove();
-
-  $('.picker__wrap', datepickerRoot).prepend('<div class="picker__date-display">' + '<div class="picker__date-display-top">' + '<span class="picker__year-display">' + datepickerApi.get(datepickerValue, 'yyyy') + '</span>' + '</div>' + '<div class="picker__date-display-bottom">' + '<span class="picker__weekday-display">' + datepickerApi.get(datepickerValue, 'dddd') + '</span>' + '<span class="picker__day-display">' + datepickerApi.get(datepickerValue, 'd') + '</span>' + '<span class="picker__month-display">' + datepickerApi.get(datepickerValue, 'mmm') + '</span>' + '</div>' + '</div>');
-};
-
-Datepicker.prototype.show = function () {
-  var that = this;
-
-  $(this._element).pickadate({
-    clear: that._options.cancel,
-    close: that._options.ok,
-    closeOnClear: that._options.closeOnCancel,
-    closeOnSelect: that._options.closeOnSelect,
-    container: that._options.container,
-    disable: that._options.disable,
-    firstDay: that._options.firstDay,
-    format: that._options.format,
-    formatSubmit: that._options.formatSubmit,
-    klass: {
-      buttonClear: 'btn btn-flat btn-brand picker__button--clear',
-      buttonClose: 'btn btn-flat btn-brand picker__button--close',
-      buttonToday: 'btn btn-flat btn-brand picker__button--today',
-      navPrev: 'material-icons picker__nav--prev',
-      navNext: 'material-icons picker__nav--next'
-    },
-    max: that._options.max,
-    min: that._options.min,
-    monthsFull: that._options.monthsFull,
-    monthsShort: that._options.monthsShort,
-    onClose: that._options.onClose,
-    onOpen: that._options.onOpen,
-    onRender: that._options.onRender,
-    onSet: that._options.onSet,
-    onStart: that._options.onStart,
-    onStop: that._options.onStop,
-    selectMonths: that._options.selectMonths,
-    selectYears: that._options.selectYears,
-    today: that._options.today,
-    weekdaysFull: that._options.weekdaysFull,
-    weekdaysShort: that._options.weekdaysShort
-  });
-
-  var datepickerApi = $(this._element).pickadate('picker'),
-      datepickerNode = datepickerApi.$node,
-      datepickerRoot = datepickerApi.$root;
-
-  datepickerApi.on({
-    close: function close() {
-      $(document.activeElement).blur();
-    },
-    open: function open() {
-      if (!$('.picker__date-display', datepickerRoot).length) {
-        that.display(datepickerApi, datepickerRoot, 'highlight');
-      };
-    },
-    set: function set() {
-      if (datepickerApi.get('select') !== null) {
-        that.display(datepickerApi, datepickerRoot, 'select');
-      };
-    }
-  });
-};
-
-function Plugin(option) {
-  return this.each(function () {
-    var data = $(this).data('bs.pickdate');
-    var options = $.extend({}, Datepicker.DEFAULTS, $(this).data(), (typeof option === 'undefined' ? 'undefined' : _typeof(option)) == 'object' && option);
-
-    if (!data) {
-      $(this).data('bs.pickdate', data = new Datepicker(this, options));
-    };
-
-    data.show();
-  });
-};
-
-var old = $.fn.pickdate;
-
-$.fn.pickdate = Plugin;
-$.fn.pickdate.Constructor = Datepicker;
-
-$.fn.pickdate.noConflict = function () {
-  $.fn.pickdate = old;
-  return this;
-};
-
-/*!
- * activate textarea-autosize for material
- * requires textarea-autosize.js
- */
-if ($('.textarea-autosize').length && typeof $.fn.textareaAutoSize !== 'undefined') {
-  $('.textarea-autosize').textareaAutoSize();
-};
-
-/*!
- * activate waves for material
- * requires waves.js
- */
-if ($('.waves-attach').length && typeof Waves !== 'undefined') {
-  Waves.attach('.waves-attach');
-  Waves.init({
-    duration: 300
-  });
-};
 
 /*!
  * floating label:
@@ -624,7 +478,7 @@ var NavDrawer = function ($) {
  * tab indicator animation
  * requires bootstrap's (v4.0.0-alpha.3) tab.js
  */
-var Tabswitch = function ($) {
+var TabSwitch = function ($) {
   // constants >>>
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
@@ -650,9 +504,9 @@ var Tabswitch = function ($) {
   };
   // <<< constants
 
-  var Tabswitch = function () {
-    function Tabswitch(nav) {
-      _classCallCheck(this, Tabswitch);
+  var TabSwitch = function () {
+    function TabSwitch(nav) {
+      _classCallCheck(this, TabSwitch);
 
       if (typeof $.fn.tab === 'undefined') {
         throw new Error('Material\'s JavaScript requires Bootstrap\'s tab.js');
@@ -662,7 +516,7 @@ var Tabswitch = function ($) {
       this._navindicator = null;
     }
 
-    _createClass(Tabswitch, [{
+    _createClass(TabSwitch, [{
       key: 'switch',
       value: function _switch(element, relatedTarget) {
         var _this8 = this;
@@ -738,7 +592,7 @@ var Tabswitch = function ($) {
           var data = $(nav).data(DATA_KEY);
 
           if (!data) {
-            data = new Tabswitch(nav);
+            data = new TabSwitch(nav);
             $(nav).data(DATA_KEY, data);
           }
 
@@ -747,44 +601,22 @@ var Tabswitch = function ($) {
       }
     }]);
 
-    return Tabswitch;
+    return TabSwitch;
   }();
 
   $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
-    Tabswitch._jQueryInterface.call($(event.target), event.relatedTarget);
+    TabSwitch._jQueryInterface.call($(event.target), event.relatedTarget);
   });
 
-  $.fn[NAME] = Tabswitch._jQueryInterface;
-  $.fn[NAME].Constructor = Tabswitch;
+  $.fn[NAME] = TabSwitch._jQueryInterface;
+  $.fn[NAME].Constructor = TabSwitch;
   $.fn[NAME].noConflict = function () {
     $.fn[NAME] = NO_CONFLICT;
-    return Tabswitch._jQueryInterface;
+    return TabSwitch._jQueryInterface;
   };
 
-  return Tabswitch;
+  return TabSwitch;
 }(jQuery);
-
-/*!
- * waterfall header:
- * header is initially presented as seamed,
- * but then separates to form the step
- *
- * waterfall toggle binds to JavaScript's scroll event
- * since bootstrap (v4.0.0) removes affix.js
- */
-var $toolbarWaterfall = $('.toolbar-waterfall');
-
-if ($toolbarWaterfall.length) {
-  var toolbarWaterfallOffset = $toolbarWaterfall.offset().top;
-
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() > toolbarWaterfallOffset) {
-      $toolbarWaterfall.addClass('waterfall');
-    } else {
-      $toolbarWaterfall.removeClass('waterfall');
-    };
-  });
-};
 
 /*!
  * global util js
