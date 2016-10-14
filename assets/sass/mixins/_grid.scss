@@ -11,6 +11,11 @@
       @if $enable-flex {
         width: 100%;
       }
+
+      @include media-breakpoint-up(md) {
+        padding-right: ($grid-gutter-width-md-up / 2);
+        padding-left: ($grid-gutter-width-md-up / 2);
+      }
     }
 
     $breakpoint-counter: 0;
@@ -34,6 +39,11 @@
             padding-right: ($grid-gutter-width / 2);
             padding-left: ($grid-gutter-width / 2);
             position: relative;
+
+            @include media-breakpoint-up(md) {
+              padding-right: ($grid-gutter-width-md-up / 2);
+              padding-left: ($grid-gutter-width-md-up / 2);
+            }
           }
         }
 
@@ -82,6 +92,11 @@
       @if $enable-flex {
         width: 100%;
       }
+
+      @include media-breakpoint-up(md) {
+        padding-right: ($grid-gutter-width-md-up / 2);
+        padding-left: ($grid-gutter-width-md-up / 2);
+      }
     }
 
   // modifier
@@ -119,6 +134,11 @@
     @if not $enable-flex {
       @include clearfix;
     }
+
+    @include media-breakpoint-up(md) {
+      padding-right: ($grid-gutter-width-md-up / 2);
+      padding-left: ($grid-gutter-width-md-up / 2);
+    }
   }
 
   @mixin make-container-max-widths() {
@@ -141,5 +161,10 @@
       flex-wrap: wrap;
     } @else {
       @include clearfix;
+    }
+
+    @include media-breakpoint-up(md) {
+      padding-right: ($grid-gutter-width-md-up / -2);
+      padding-left: ($grid-gutter-width-md-up / -2);
     }
   }
