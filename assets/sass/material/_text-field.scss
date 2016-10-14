@@ -1,6 +1,5 @@
 .custom-select,
-.form-control,
-.textfield {
+.form-control {
   background-clip: padding-box;
   background-color: transparent;
   background-image: none;
@@ -54,8 +53,7 @@
 }
 
 .custom-select,
-select.form-control,
-select.textfield {
+select.form-control {
   -webkit-appearance: none;
      -moz-appearance: none;
 
@@ -78,8 +76,7 @@ select.textfield {
   @each $color in $palettes {
     $i: index($palettes, $color);
 
-    .form-control-#{$color},
-    .textfield-#{$color} {
+    .form-control-#{$color} {
       &,
       &:focus {
         border-bottom-color: nth($palettes-color, $i);
@@ -89,28 +86,24 @@ select.textfield {
 
 // size
   .custom-select-lg,
-  .form-control-lg,
-  .textfield-lg {
+  .form-control-lg {
     @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
   }
 
   .custom-select-lg,
-  select.form-control-lg,
-  select.textfield-lg {
+  select.form-control-lg {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
       background-position: 100% ($textfield-padding-top-lg + ($textfield-line-height-lg - $material-icon-size / $font-size-root) / 2);
     }
   }
 
   .custom-select-sm,
-  .form-control-sm,
-  .textfield-sm {
+  .form-control-sm {
     @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
   }
 
   .custom-select-sm,
-  select.form-control-sm,
-  select.textfield-sm {
+  select.form-control-sm {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
       background-position: 100% ($textfield-padding-top-sm + ($textfield-line-height-sm - $material-icon-size / $font-size-root) / 2);
     }
@@ -167,8 +160,7 @@ select.textfield {
 //
 // form control static
 //
-  .form-control-static,
-  .textfield-static {
+  .form-control-static {
     @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
 
     @include media-breakpoint-up(sm) {
@@ -177,13 +169,11 @@ select.textfield {
       }
     }
 
-    &.form-control-lg,
-    &.textfield-lg {
+    &.form-control-lg {
       @include form-control-size(0px, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
     }
 
-    &.form-control-sm,
-    &.textfield-sm {
+    &.form-control-sm {
       @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
     }
   }

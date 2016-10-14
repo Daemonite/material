@@ -1,5 +1,5 @@
 /*
- * includes normalize and bootstrap's (v4.0.0-alpha.3) reboot
+ * includes normalize and reboot from bootstrap's (v4.0.0-alpha.4)
  */
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
 body {
@@ -227,7 +227,7 @@ sup {
   top: -0.5em;
 }
 
-/*! bootstrap reboot */
+/*! reboot */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -7123,8 +7123,7 @@ a.tag-warning:hover {
 }
 
 .custom-select,
-.form-control,
-.textfield {
+.form-control {
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   background-color: transparent;
@@ -7153,14 +7152,12 @@ a.tag-warning:hover {
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .custom-select:focus,
-.form-control:focus,
-.textfield:focus {
+.form-control:focus {
   padding-bottom: 0.125rem;
 }
 @media (min-width: 600px) {
   .custom-select,
-  .form-control,
-  .textfield {
+  .form-control {
     -webkit-transition-duration: 0.39s;
          -o-transition-duration: 0.39s;
             transition-duration: 0.39s;
@@ -7168,68 +7165,57 @@ a.tag-warning:hover {
 }
 @media (min-width: 1280px) {
   .custom-select,
-  .form-control,
-  .textfield {
+  .form-control {
     -webkit-transition-duration: 0.2s;
          -o-transition-duration: 0.2s;
             transition-duration: 0.2s;
   }
 }
 .custom-select::-ms-expand,
-.form-control::-ms-expand,
-.textfield::-ms-expand {
+.form-control::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 .custom-select::-webkit-input-placeholder,
-.form-control::-webkit-input-placeholder,
-.textfield::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
 .custom-select::-moz-placeholder,
-.form-control::-moz-placeholder,
-.textfield::-moz-placeholder {
+.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
 .custom-select:-ms-input-placeholder,
-.form-control:-ms-input-placeholder,
-.textfield:-ms-input-placeholder {
+.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
 .custom-select::placeholder,
-.form-control::placeholder,
-.textfield::placeholder {
+.form-control::placeholder {
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
 .custom-select:focus,
-.form-control:focus,
-.textfield:focus {
+.form-control:focus {
   border-bottom-color: #9c27b0;
   border-bottom-width: 2px;
   outline: 0;
 }
 .custom-select:disabled, .custom-select[readonly],
 .form-control:disabled,
-.form-control[readonly],
-.textfield:disabled,
-.textfield[readonly] {
+.form-control[readonly] {
   border-bottom-style: dotted;
   color: rgba(0, 0, 0, 0.38);
   opacity: 1;
 }
 .custom-select:disabled,
-.form-control:disabled,
-.textfield:disabled {
+.form-control:disabled {
   cursor: not-allowed;
 }
 @media (min-width: 600px) {
   .form-inline .custom-select, .form-inline
-  .form-control, .form-inline
-  .textfield {
+  .form-control {
     display: inline-block;
     vertical-align: middle;
     width: auto;
@@ -7237,15 +7223,13 @@ a.tag-warning:hover {
 }
 
 .custom-select,
-select.form-control,
-select.textfield {
+select.form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
   .custom-select,
-  select.form-control,
-  select.textfield {
+  select.form-control {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
     background-position: 100% 0.75rem;
     background-repeat: no-repeat;
@@ -7255,55 +7239,40 @@ select.textfield {
   }
   .custom-select[multiple], .custom-select[size],
   select.form-control[multiple],
-  select.form-control[size],
-  select.textfield[multiple],
-  select.textfield[size] {
+  select.form-control[size] {
     background-image: none;
     padding-right: 0;
   }
 }
 
-.form-control-primary, .form-control-primary:focus,
-.textfield-primary,
-.textfield-primary:focus {
+.form-control-primary, .form-control-primary:focus {
   border-bottom-color: #9c27b0;
 }
 
-.form-control-secondary, .form-control-secondary:focus,
-.textfield-secondary,
-.textfield-secondary:focus {
+.form-control-secondary, .form-control-secondary:focus {
   border-bottom-color: #ff4081;
 }
 
-.form-control-danger, .form-control-danger:focus,
-.textfield-danger,
-.textfield-danger:focus {
+.form-control-danger, .form-control-danger:focus {
   border-bottom-color: #f44336;
 }
 
-.form-control-info, .form-control-info:focus,
-.textfield-info,
-.textfield-info:focus {
+.form-control-info, .form-control-info:focus {
   border-bottom-color: #2196f3;
 }
 
-.form-control-success, .form-control-success:focus,
-.textfield-success,
-.textfield-success:focus {
+.form-control-success, .form-control-success:focus {
   border-bottom-color: #4caf50;
 }
 
-.form-control-warning, .form-control-warning:focus,
-.textfield-warning,
-.textfield-warning:focus {
+.form-control-warning, .form-control-warning:focus {
   border-bottom-color: #ff9800;
 }
 
 .custom-select-lg,
 .form-control-lg,
 .floating-label-lg > .form-control,
-.input-group-lg > .form-control,
-.textfield-lg {
+.input-group-lg > .form-control {
   font-size: 2.125rem;
   line-height: 2.5rem;
   margin-bottom: 0.75rem;
@@ -7312,8 +7281,7 @@ select.textfield {
 .custom-select-lg:focus,
 .form-control-lg:focus,
 .floating-label-lg > .form-control:focus,
-.input-group-lg > .form-control:focus,
-.textfield-lg:focus {
+.input-group-lg > .form-control:focus {
   padding-bottom: 0.25rem;
 }
 
@@ -7321,8 +7289,7 @@ select.textfield {
   .custom-select-lg,
   select.form-control-lg,
   .floating-label-lg > select.form-control,
-  .input-group-lg > select.form-control,
-  select.textfield-lg {
+  .input-group-lg > select.form-control {
     background-position: 100% 1.375rem;
   }
 }
@@ -7330,8 +7297,7 @@ select.textfield {
 .custom-select-sm,
 .form-control-sm,
 .floating-label-sm > .form-control,
-.input-group-sm > .form-control,
-.textfield-sm {
+.input-group-sm > .form-control {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 0.25rem;
@@ -7340,8 +7306,7 @@ select.textfield {
 .custom-select-sm:focus,
 .form-control-sm:focus,
 .floating-label-sm > .form-control:focus,
-.input-group-sm > .form-control:focus,
-.textfield-sm:focus {
+.input-group-sm > .form-control:focus {
   padding-bottom: 0.375rem;
 }
 
@@ -7349,8 +7314,7 @@ select.textfield {
   .custom-select-sm,
   select.form-control-sm,
   .floating-label-sm > select.form-control,
-  .input-group-sm > select.form-control,
-  select.textfield-sm {
+  .input-group-sm > select.form-control {
     background-position: 100% 0.4375rem;
   }
 }
@@ -7440,34 +7404,24 @@ input[type="color"].form-control-sm, .floating-label-sm > input[type="color"].fo
   border-bottom-color: #ff9800;
 }
 
-.form-control-static,
-.textfield-static {
+.form-control-static {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 0.5rem;
   padding: 0.75rem 0 0.25rem;
 }
 @media (min-width: 600px) {
-  .form-inline .form-control-static, .form-inline
-  .textfield-static {
+  .form-inline .form-control-static {
     display: inline-block;
   }
 }
-.form-control-static.form-control-lg, .floating-label-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.form-control, .form-control-static.textfield-lg,
-.textfield-static.form-control-lg,
-.floating-label-lg > .textfield-static.form-control,
-.input-group-lg > .textfield-static.form-control,
-.textfield-static.textfield-lg {
+.form-control-static.form-control-lg, .floating-label-lg > .form-control-static.form-control, .input-group-lg > .form-control-static.form-control {
   font-size: 2.125rem;
   line-height: 2.5rem;
   margin-bottom: 0.75rem;
   padding: 0.875rem 0 0.375rem;
 }
-.form-control-static.form-control-sm, .floating-label-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.form-control, .form-control-static.textfield-sm,
-.textfield-static.form-control-sm,
-.floating-label-sm > .textfield-static.form-control,
-.input-group-sm > .textfield-static.form-control,
-.textfield-static.textfield-sm {
+.form-control-static.form-control-sm, .floating-label-sm > .form-control-static.form-control, .input-group-sm > .form-control-static.form-control {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 0.25rem;
