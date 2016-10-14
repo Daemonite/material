@@ -1,6 +1,5 @@
-+function ($) {
-  'use strict';
+$(function () {
 
   // project js
 
-}(jQuery);
+});
