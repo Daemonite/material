@@ -3,7 +3,7 @@
  * when a user engages with the text input field,
  * the floating inline labels move to float above the field
  */
-const Floatinglabel = (($) => {
+const FloatingLabel = (($) => {
   // constants >>>
     const DATA_API_KEY        = '.data-api';
     const DATA_KEY            = 'md.floatinglabel';
@@ -28,7 +28,7 @@ const Floatinglabel = (($) => {
     };
   // <<< constants
 
-  class Floatinglabel {
+  class FloatingLabel {
     constructor(element) {
       this._element = element;
     }
@@ -57,7 +57,7 @@ const Floatinglabel = (($) => {
         let _event         = event ? event : 'change';
 
         if (!data) {
-          data = new Floatinglabel(this);
+          data = new FloatingLabel(this);
           $(this).data(DATA_KEY, data);
         }
 
@@ -77,15 +77,15 @@ const Floatinglabel = (($) => {
     function (event) {
     let data          = $(this).data(DATA_KEY);
 
-    Floatinglabel._jQueryInterface.call($(this), event.type);
+    FloatingLabel._jQueryInterface.call($(this), event.type);
   });
 
-  $.fn[NAME]             = Floatinglabel._jQueryInterface;
-  $.fn[NAME].Constructor = Floatinglabel;
+  $.fn[NAME]             = FloatingLabel._jQueryInterface;
+  $.fn[NAME].Constructor = FloatingLabel;
   $.fn[NAME].noConflict  = function () {
     $.fn[NAME] = NO_CONFLICT;
-    return Floatinglabel._jQueryInterface;
+    return FloatingLabel._jQueryInterface;
   };
 
-  return Floatinglabel;
+  return FloatingLabel;
 })(jQuery);

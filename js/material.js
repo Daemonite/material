@@ -209,7 +209,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * when a user engages with the text input field,
  * the floating inline labels move to float above the field
  */
-var Floatinglabel = function ($) {
+var FloatingLabel = function ($) {
   // constants >>>
   var DATA_API_KEY = '.data-api';
   var DATA_KEY = 'md.floatinglabel';
@@ -234,14 +234,14 @@ var Floatinglabel = function ($) {
   };
   // <<< constants
 
-  var Floatinglabel = function () {
-    function Floatinglabel(element) {
-      _classCallCheck(this, Floatinglabel);
+  var FloatingLabel = function () {
+    function FloatingLabel(element) {
+      _classCallCheck(this, FloatingLabel);
 
       this._element = element;
     }
 
-    _createClass(Floatinglabel, [{
+    _createClass(FloatingLabel, [{
       key: 'change',
       value: function change(relatedTarget) {
         if ($(this._element).val() || $(this._element).is('select') && $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
@@ -268,7 +268,7 @@ var Floatinglabel = function ($) {
           var _event = event ? event : 'change';
 
           if (!data) {
-            data = new Floatinglabel(this);
+            data = new FloatingLabel(this);
             $(this).data(DATA_KEY, data);
           }
 
@@ -283,23 +283,23 @@ var Floatinglabel = function ($) {
       }
     }]);
 
-    return Floatinglabel;
+    return FloatingLabel;
   }();
 
   $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
     var data = $(this).data(DATA_KEY);
 
-    Floatinglabel._jQueryInterface.call($(this), event.type);
+    FloatingLabel._jQueryInterface.call($(this), event.type);
   });
 
-  $.fn[NAME] = Floatinglabel._jQueryInterface;
-  $.fn[NAME].Constructor = Floatinglabel;
+  $.fn[NAME] = FloatingLabel._jQueryInterface;
+  $.fn[NAME].Constructor = FloatingLabel;
   $.fn[NAME].noConflict = function () {
     $.fn[NAME] = NO_CONFLICT;
-    return Floatinglabel._jQueryInterface;
+    return FloatingLabel._jQueryInterface;
   };
 
-  return Floatinglabel;
+  return FloatingLabel;
 }(jQuery);
 
 /*!
