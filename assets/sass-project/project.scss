@@ -2,3 +2,28 @@
 @import "../sass/variables";
 
 // project css
+  .doc-jumbotron {
+    background-image: url(#{$css-path}/images/doc-jumbotron-bg.jpg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: ($toolbar-height * 2);
+
+    @include media-breakpoint-up(lg) {
+      margin-left: $navdrawer-width-mobile;
+    }
+  }
+
+  .doc-main {
+    @include media-breakpoint-up(lg) {
+      margin-left: $navdrawer-width-mobile;
+    }
+  }
+
+  .doc-toolbar {
+    position: fixed;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: $navdrawer-width-mobile;
+    }
+  }
