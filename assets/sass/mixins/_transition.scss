@@ -1,0 +1,55 @@
+@mixin transition-acceleration($property...) {
+  transition-duration: $transition-duration-sm;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-acceleration;
+
+  @include media-breakpoint-up(sm) {
+    transition-duration: $transition-duration-tablet-sm;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-duration: $transition-duration-desktop-sm;
+  }
+}
+
+@mixin transition-deceleration($property...) {
+  transition-duration: $transition-duration-lg;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-deceleration;
+
+  @include media-breakpoint-up(sm) {
+    transition-duration: $transition-duration-tablet-lg;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-duration: $transition-duration-desktop-lg;
+  }
+}
+
+@mixin transition-sharp($property...) {
+  transition-duration: $transition-duration-sm;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-sharp;
+
+  @include media-breakpoint-up(sm) {
+    transition-duration: $transition-duration-tablet-sm;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-duration: $transition-duration-desktop-sm;
+  }
+}
+
+@mixin transition-standard($property...) {
+  transition-duration: $transition-duration;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-standard;
+
+  @include media-breakpoint-up(sm) {
+    transition-duration: $transition-duration-tablet;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-duration: $transition-duration-desktop;
+  }
+}

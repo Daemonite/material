@@ -1,0 +1,68 @@
+.pagination {
+  background-color: $pagination-bg;
+  display: inline-block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  position: relative;
+  vertical-align: middle;
+}
+
+.page-item {
+  display: inline;
+}
+
+.page-link {
+  background-color: transparent;
+  border-radius: $border-radius;
+  color: $btn-color;
+  display: block;
+  float: left;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: 1;
+  margin-left: 1px;
+  padding: $btn-padding-y $btn-padding-x;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  @include transition-standard(background-color, color);
+
+  // active, focus, hover
+    @include active-focus-hover {
+      background-color: $btn-bg-active;
+      color: $btn-color;
+
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+  .page-item:first-child & {
+    margin-left: 0;
+  }
+
+  .page-item.active & {
+    background-color: $btn-bg-active;
+  }
+
+  .page-item.disabled & {
+    background-color: transparent;
+    color: $btn-color-disabled;
+    cursor: $cursor-disabled;
+  }
+}
+
+// size
+  .pagination-lg .page-link {
+    font-size: $btn-font-size-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+  }
+
+  .pagination-sm .page-link {
+    font-size: $btn-font-size-sm;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+  }

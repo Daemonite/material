@@ -1,0 +1,402 @@
+.navbar,
+.toolbar {
+  min-height: $toolbar-height;
+  padding: $toolbar-padding-y $toolbar-padding-x;
+  position: relative;
+  @include clearfix;
+}
+
+// color
+  .navbar-dark,
+  .toolbar-dark {
+    color: $toolbar-color-dark;
+  }
+
+  .navbar-light,
+  .toolbar-light {
+    color: $toolbar-color-light;
+  }
+
+// variation
+  .navbar-fixed-bottom,
+  .navbar-fixed-top,
+  .toolbar-clipped {
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    position: fixed;
+      right: 0;
+      left: 0;
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .navbar-fixed-bottom {
+    // position
+      bottom: 0;
+  }
+
+  .navbar-fixed-top,
+  .toolbar-clipped {
+    // position
+      top: 0;
+  }
+
+  .navbar-full {
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+  }
+
+  .navbar-sticky-top {
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    position: sticky;
+      top: 0;
+    width: 100%;
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+  }
+
+  .toolbar-bordered {
+    &::before {
+      background-color: $toolbar-border-color;
+      content: "";
+      display: block;
+      height: $toolbar-border-width;
+      position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      z-index: -1;
+    }
+  }
+
+  .toolbar-waterfall {
+    position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+    @include transition-standard(background-color, box-shadow);
+
+    &.waterfall {
+      background-color: $toolbar-waterfall-bg;
+      box-shadow: map-get($toolbar-elevation-shadow, shadow);
+      position: fixed;
+    }
+  }
+
+// vertical align some elements normally placed in `.navbar` or `.toolbar`
+  .navbar,
+  .toolbar {
+    .btn {
+      margin-top: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
+      margin-bottom: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
+    }
+
+    .btn-lg {
+      margin-top: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
+      margin-bottom: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
+    }
+
+    .btn-sm {
+      margin-top: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
+      margin-bottom: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
+    }
+
+    .form-control {
+      border-bottom-color: currentColor;
+      margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height);
+      margin-bottom: 0;
+      opacity: 0.38;
+
+      &::placeholder {
+        color: inherit;
+        opacity: 1;
+      }
+
+      // active, focus, hover
+        &:focus {
+          opacity: 1;
+          transition-property: opacity;
+
+          &::placeholder {
+            opacity: 0.38;
+          }
+        }
+    }
+
+    // .form-control-lg cannot fit into .navbar/.toolbar
+    // .form-control-lg {
+    //   margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-lg);
+    // }
+
+    .form-control-sm {
+      margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-sm);
+    }
+
+    .nav-tabs {
+      margin-top: ($toolbar-padding-y * -1);
+      margin-bottom: ($toolbar-padding-y * -1);
+
+      .nav-link {
+        height: $toolbar-height;
+      }
+    }
+  }
+
+//
+// misc
+//
+  .navbar-brand,
+  .toolbar-brand {
+    border-radius: $border-radius;
+    color: inherit;
+    display: block;
+    float: left;
+    height: $toolbar-link-height;
+    margin-top: 0;
+    margin-right: $toolbar-inner-spacer;
+    margin-bottom: 0;
+    padding-top: (($toolbar-link-height - $line-height-title) / 2);
+    padding-bottom: (($toolbar-link-height - $line-height-title) / 2);
+    position: relative;
+    z-index: 1;
+    @include typography-title;
+
+    &::before {
+      background-color: currentColor;
+      border-radius: $border-radius;
+      content: "";
+      display: block;
+      opacity: 0;
+      position: absolute;
+        top: 0;
+        right: ($toolbar-inner-spacer / -2);
+        bottom: 0;
+        left: ($toolbar-inner-spacer / -2);
+      z-index: -1;
+      @include transition-standard(opacity);
+    }
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: inherit;
+
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+
+        &::before {
+          opacity: 0.12;
+        }
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+    > img {
+      display: block;
+    }
+  }
+
+  .navbar-divider,
+  .toolbar-divider {
+    background-color: currentColor;
+    float: left;
+    margin-right: $toolbar-inner-spacer;
+    margin-left: $toolbar-inner-spacer;
+    opacity: 0.12;
+    overflow: hidden;
+    padding-top: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
+    padding-bottom: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
+    width: 1px;
+
+    &::before {
+      content: "\00a0";
+    }
+  }
+
+  .navbar-toggler,
+  .toolbar-toggler {
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    color: inherit;
+    display: block;
+    float: left;
+    height: $toolbar-link-height;
+    margin-right: $toolbar-inner-spacer;
+    overflow: hidden;
+    padding-top: (($toolbar-link-height - $material-icon-size / $font-size-root) / 2);
+    padding-bottom: (($toolbar-link-height - $material-icon-size / $font-size-root) / 2);
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: $toolbar-link-height;
+    z-index: 1;
+
+    &::before {
+      background-color: currentColor;
+      border-radius: 50%;
+      content: "";
+      display: block;
+      opacity: 0;
+      position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      z-index: -1;
+      @include transition-standard(opacity);
+    }
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: inherit;
+
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+
+        &::before {
+          opacity: 0.12;
+        }
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+    // disabled
+      &.disabled {
+        cursor: $cursor-disabled;
+        opacity: 0.38;
+
+        &::before {
+          display: none;
+        }
+      }
+
+    // open
+      .open > & {
+        &::before {
+          opacity: 0.12;
+        }
+      }
+  }
+
+//
+// nav
+//
+  .navbar-nav,
+  .toolbar-nav {
+    .nav-item {
+      float: left;
+
+      + .nav-item {
+        margin-left: 1px;
+      }
+    }
+
+    .nav-link {
+      border-radius: $border-radius;
+      color: inherit;
+      display: block;
+      font-size: $toolbar-link-font-size;
+      line-height: 1;
+      padding: $toolbar-link-padding-y $toolbar-link-padding-x;
+      @include transition-standard(background-color);
+
+      &::before {
+        background-color: currentColor;
+        border-radius: $border-radius;
+        content: "";
+        display: block;
+        opacity: 0;
+        position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        @include transition-standard(opacity);
+      }
+
+      // active, focus, hover
+        @include active-focus-hover {
+          &::before {
+            opacity: 0.12;
+          }
+        }
+
+        &:focus {
+          outline: 0;
+        }
+
+      // disabled
+        &.disabled {
+          color: inherit;
+          opacity: 0.38;
+
+          &::before {
+            display: none;
+          }
+        }
+    }
+
+    .nav-link.active,
+    .nav-link.open,
+    .active > .nav-link,
+    .open > .nav-link {
+      &::before {
+        opacity: 0.12;
+      }
+    }
+  }
+
+//
+// toggleable
+//
+  .navbar-toggleable {
+    &-xs {
+      @include clearfix;
+
+      @include media-breakpoint-down(xs) {
+        .navbar-nav .nav-item {
+          float: none;
+        }
+      }
+
+      @include media-breakpoint-up(sm) {
+        display: block !important;
+      }
+    }
+
+    &-sm {
+      @include clearfix;
+
+      @include media-breakpoint-down(sm) {
+        .navbar-nav .nav-item {
+          float: none;
+        }
+      }
+
+      @include media-breakpoint-up(md) {
+        display: block !important;
+      }
+    }
+
+    &-md {
+      @include clearfix;
+
+      @include media-breakpoint-down(md) {
+        .navbar-nav .nav-item {
+          float: none;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        display: block !important;
+      }
+    }
+  }

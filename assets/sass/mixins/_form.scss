@@ -1,0 +1,60 @@
+@mixin floating-label-size($floating-label-height, $floating-label-padding-top, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+  $form-control-padding-top: ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height));
+
+  margin-bottom: $margin-bottom;
+  padding-top: $floating-label-padding-top;
+
+  > label {
+    font-size: $font-size;
+    line-height: $line-height;
+    // position
+      top: ($floating-label-padding-top + $form-control-padding-top);
+  }
+
+  &.has-value > label,
+  &.is-focused > label {
+    // position
+      top: $floating-label-padding-top;
+    transform: scale($floating-label-font-size-focus / $font-size);
+  }
+
+  > .form-control {
+    padding-top: $form-control-padding-top;
+  }
+
+  > select.form-control {
+    background-position: 100% ($form-control-padding-top + ($line-height - $material-icon-size / $font-size-root) / 2);
+  }
+}
+
+@mixin form-control-size($border-width, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+  font-size: $font-size;
+  line-height: $line-height;
+  margin-bottom: $margin-bottom;
+  padding: $padding-top 0 ($height - $padding-top - $line-height - $border-width / $font-size-root);
+
+  @if $border-width != 0px {
+    &:focus {
+      padding-bottom: ($height - $padding-top - $line-height - ($border-width + 1) / $font-size-root);
+    }
+  }
+}
+
+@mixin form-control-validation($color) {
+  .custom-control,
+  .form-check,
+  .form-control-feedback,
+  .form-control-label,
+  // &.checkbox label,
+  // &.checkbox-inline label,
+  &.form-check label,
+  &.form-check-inline label {
+  // &.radio label,
+  // &.radio-inline label {
+    color: $color;
+  }
+
+  .form-control {
+    border-bottom-color: $color;
+  }
+}

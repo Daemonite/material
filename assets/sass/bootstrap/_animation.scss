@@ -1,0 +1,26 @@
+.collapse {
+  display: none;
+
+  &.in {
+    display: block;
+  }
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  @include transition-standard(height);
+}
+
+.fade {
+  opacity: 0;
+  transform: scale(0.87);
+  @include transition-acceleration(opacity, transform);
+
+  &.in {
+    opacity: 1;
+    transform: scale(1);
+    @include transition-deceleration(opacity, transform);
+  }
+}

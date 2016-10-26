@@ -1,0 +1,177 @@
+//
+// todo: material design guidelines do not have specs for striped progress bars
+// maybe striped progress bars should be the "buffer" variation of linear indicator
+// (https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators)
+//
+
+.progress {
+  appearance: none;
+  background-color: transparent;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
+  border: 0;
+  display: block;
+  height: $progress-height;
+  margin-bottom: $progress-margin-bottom;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.progress::-webkit-progress-bar {
+  background-color: transparent;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
+}
+
+// bar
+  .progress[value]::-ms-fill {
+    background-color: $progress-bar-color;
+    border: 0;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value]::-moz-progress-bar {
+    background-color: $progress-bar-color;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value]::-webkit-progress-value {
+    background-color: $progress-bar-color;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  .progress[value="100"]::-moz-progress-bar {
+    border-right-radius: 0;
+  }
+
+  .progress[value="100"]::-webkit-progress-value {
+    border-right-radius: 0;
+  }
+
+// colour
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .progress-#{$color} {
+      background-color: transparent;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
+
+      &::-webkit-progress-bar {
+        background-color: transparent;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
+      }
+    }
+
+    .progress-#{$color}[value] {
+      // filled-in portion of the bar
+        &::-ms-fill {
+          background-color: nth($palettes-color, $i);
+        }
+        &::-moz-progress-bar {
+          background-color: nth($palettes-color, $i);
+        }
+        &::-webkit-progress-value {
+          background-color: nth($palettes-color, $i);
+        }
+    }
+  }
+
+//
+// indeterminate
+//
+  .progress-animated,
+  .progress-indeterminate {
+    &::after,
+    &::before {
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      background-color: $progress-bar-color;
+      border-radius: $border-radius;
+      content: "";
+      display: block;
+      position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+      width: 0%;
+    }
+    &::after {
+      animation-name: progress-indeterminate-after;
+    }
+    &::before {
+      animation-name: progress-indeterminate-before;
+    }
+  }
+
+  @keyframes progress-indeterminate-after {
+    0% {
+      // position
+        left: 0%;
+      width: 0%;
+    }
+    50% {
+      // position
+        left: 25%;
+      width: 75%;
+    }
+    75% {
+      // position
+        left: 100%;
+      width: 0%;
+    }
+  }
+
+  @keyframes progress-indeterminate-before {
+    0%,
+    62.5% {
+      // position
+        left: 0%;
+      width: 0%;
+    }
+    71.875% {
+      // position
+        left: 0%;
+      width: 25%;
+    }
+    81.25% {
+      // position
+        left: 25%;
+      width: 50%;
+    }
+    100% {
+      // position
+        left: 100%;
+      width: 25%;
+    }
+  }
+
+  .progress-animated[value],
+  .progress-indeterminate[value] {
+    &::-ms-fill {
+      background-color: transparent;
+    }
+    &::-moz-progress-bar {
+      background-color: transparent;
+    }
+    &::-webkit-progress-value {
+      background-color: transparent;
+    }
+  }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      .progress-animated,
+      .progress-indeterminate {
+        &.progress-#{$color} {
+          &::after,
+          &::before {
+            background-color: nth($palettes-color, $i);
+          }
+        }
+      }
+    }

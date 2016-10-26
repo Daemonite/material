@@ -1,0 +1,33 @@
+.img-circle {
+  border-radius: 50%;
+}
+
+.img-fluid {
+  @include img-fluid;
+}
+
+.img-rounded {
+  border-radius: $border-radius;
+}
+
+.img-thumbnail {
+  box-shadow: $thumbnail-box-shadow;
+  @include img-fluid(inline-block);
+}
+
+//
+// figure
+//
+  .figure {
+    display: inline-block;
+  }
+
+  .figure-caption {
+    color: $figure-caption-color;
+    @include typography-caption;
+  }
+
+  .figure-img {
+    line-height: 1;
+    margin-bottom: $figure-img-margin-bottom;
+  }

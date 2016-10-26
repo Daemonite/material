@@ -1,0 +1,147 @@
+.dialog,
+.modal {
+  display: none;
+  overflow: hidden;
+  outline: 0;
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  z-index: map-get($dialog-elevation-shadow, elevation);
+
+  &::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    margin-right: -0.25em;
+    vertical-align: middle;
+    width: 1px;
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+
+  .dialog,
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+//
+// backdrop
+//
+  .modal-backdrop {
+    background-color: $dialog-backdrop-bg;
+    position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
+
+    &.fade {
+      transform: scale(1);
+    }
+  }
+
+//
+// dialog
+//
+  .dialog-dialog,
+  .modal-dialog {
+    display: inline-block;
+    margin: $dialog-margin-y $dialog-margin-x;
+    max-width: $dialog-width;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    white-space: normal;
+    width: calc(100% - #{$dialog-margin-x} * 2);
+  }
+
+  // size
+    .dialog-lg,
+    .modal-lg {
+      max-width: $dialog-width-lg;
+    }
+
+    .dialog-sm,
+    .modal-sm {
+      max-width: $dialog-width-sm;
+    }
+
+//
+// misc
+//
+  .dialog-body,
+  .modal-body {
+    padding: $dialog-inner-padding;
+    position: relative;
+  }
+
+  .dialog-content,
+  .modal-content {
+    background-clip: padding-box;
+    background-color: $dialog-content-bg;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    box-shadow: map-get($dialog-elevation-shadow, shadow);
+    outline: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  .dialog-footer,
+  .modal-footer {
+    padding: $dialog-footer-spacer-y $dialog-footer-spacer-x;
+    padding-left: $dialog-inner-padding;
+    text-align: right;
+    @include clearfix;
+
+    .btn {
+      margin-left: $dialog-footer-spacer-x;
+      min-width: $dialog-footer-btn-min-width;
+      padding-right: $dialog-footer-spacer-x;
+      padding-left: $dialog-footer-spacer-x;
+    }
+  }
+
+  .dialog-header,
+  .modal-header {
+    padding: $dialog-inner-padding;
+
+    + .dialog-body,
+    + .modal-body {
+      padding-top: 0;
+    }
+  }
+
+  .dialog-text,
+  .modal-text {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .dialog-title,
+  .modal-title {
+    margin: 0;
+    @include typography-title;
+  }
+
+//
+// scrollbar measure
+//
+  .modal-scrollbar-measure {
+    height: 50px;
+    overflow: scroll;
+    position: absolute;
+      top: -99999px;
+    width: 50px;
+  }

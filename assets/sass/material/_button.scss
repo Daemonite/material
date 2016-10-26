@@ -1,0 +1,241 @@
+.btn {
+  background-color: $btn-bg;
+  background-image: none;
+  border: 0;
+  border-radius: $border-radius;
+  box-shadow: map-get($btn-elevation-shadow, shadow);
+  color: $btn-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  line-height: 1;
+  margin: 0;
+  max-width: 100%;
+  min-width: $btn-min-width;
+  padding: $btn-padding-y $btn-padding-x;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  z-index: map-get($btn-elevation-shadow, elevation);
+  @include transition-standard(background-color, box-shadow, color);
+
+  &::before {
+    background-color: $btn-focus-overlay;
+    border-radius: $border-radius;
+    content: "";
+    display: block;
+    opacity: 0;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: -1;
+    @include transition-standard(opacity);
+  }
+
+  // active, focus, hover
+    @include active-focus-hover {
+      color: $btn-color;
+
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+
+    @include focus-hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:active,
+    &.active {
+      background-color: $btn-bg-active;
+      box-shadow: map-get($btn-elevation-shadow-active, shadow);
+      z-index: map-get($btn-elevation-shadow-active, elevation);
+
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+  // disabled
+    &:disabled,
+    &.disabled {
+      background-color: $btn-bg-disabled;
+      box-shadow: none;
+      color: $btn-color-disabled;
+      cursor: $cursor-disabled;
+      opacity: 1;
+      pointer-events: none;
+
+      &::before,
+      .waves-ripple {
+        display: none;
+      }
+    }
+
+  // open
+    .open > &,
+    .open > & {
+      &.dropdown-toggle::before {
+        opacity: 1;
+      }
+    }
+
+    .dropdown.open > & {
+      &.dropdown-toggle,
+      &.dropdown-toggle::before {
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
+
+    .dropup.open > & {
+      &.dropdown-toggle,
+      &.dropdown-toggle::before {
+        border-radius: 0 0 $border-radius $border-radius;
+      }
+    }
+}
+
+// colour
+  .btn-inverse {
+    color: $btn-color-inverse;
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: $btn-color-inverse;
+      }
+
+      &:active,
+      &.active {
+        background-color: $btn-bg-inverse-active;
+      }
+
+    // disabled
+      &:disabled,
+      &.disabled {
+        background-color: $btn-bg-inverse-disabled;
+        color: $btn-color-inverse-disabled;
+      }
+  }
+
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    .btn-#{$color} {
+      background-color: nth($palettes-color, $i);
+      color: nth($palettes-text-color, $i);
+
+      // active, focus, hover
+        @include active-focus-hover {
+          color: nth($palettes-text-color, $i);
+        }
+
+        &:active,
+        &.active {
+          background-color: nth($palettes-color-dark, $i);
+        }
+
+      // disabled
+        &:disabled,
+        &.disabled {
+          background-color: $btn-bg-disabled;
+          color: $btn-color-disabled;
+        }
+    }
+  }
+
+// size
+  .btn-lg {
+    font-size: $btn-font-size-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+  }
+
+  .btn-sm {
+    font-size: $btn-font-size-sm;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+  }
+
+//
+// block button
+//
+  .btn-block {
+    display: block;
+    width: 100%;
+
+    + .btn-block {
+      margin-top: $btn-block-spacer;
+    }
+  }
+
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    &.btn-block {
+      width: 100%;
+    }
+  }
+
+//
+// link button
+//
+  .btn-link {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    color: $link-color;
+    font-weight: normal;
+    text-decoration: $link-decoration;
+    text-transform: none;
+    z-index: initial;
+
+    &::before {
+      display: none;
+    }
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: $link-color-active;
+        text-decoration: $link-decoration-active;
+      }
+
+      &:active,
+      &.active {
+        background-color: transparent;
+        box-shadow: none;
+        z-index: initial;
+      }
+
+      &:focus {
+        @include tab-focus;
+      }
+
+    // disabled
+      &:disabled,
+      &.disabled {
+        background-color: transparent;
+        color: $btn-color-disabled;
+        outline: 0;
+
+        @if ($link-decoration-active != "none") {
+          text-decoration: none;
+        }
+      }
+  }
+
+//
+// no minimum width
+//
+  .btn-fluid {
+    min-width: 0;
+  }

@@ -1,45 +1,58 @@
 {
   "name": "daemonite-material",
+  "author": "Daemon Pty Ltd",
   "bugs": {
     "url": "https://github.com/Daemonite/material/issues"
   },
-  "description": "Daemonite's Material UI is a fully responsive, cross-platform, front-end interface based on Google Material Design.",
+  "dependencies": {
+    "jquery": "1.9.1 - 3",
+    "tether": "^1.1.1"
+  },
+  "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.5.1",
+    "babel-preset-es2015": "^6.16.0",
     "grunt": "^1.0.1",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-concat": "^1.0.0",
-    "grunt-contrib-connect": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-dev-update": "^2.0.0",
     "grunt-postcss": "^0.8.0",
-    "load-grunt-tasks": "^3.5.0"
+    "load-grunt-tasks": "^3.5.0",
+    "time-grunt": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=4"
   },
   "file": [
     "assets",
-    "css",
-    "images",
-    "js",
-    "templates",
-    "Gruntfile.js"
+    "css/**/*.css",
+    "Gruntfile.js",
+    "js/**/*.js",
+    "templates/**/*.html"
   ],
   "homepage": "http://daemonite.github.io/material/",
   "keywords": [
-    "material",
-    "design",
-    "front-end",
+    "bootstrap",
     "css",
+    "framework",
+    "front-end",
     "html",
-    "js"
+    "js",
+    "material",
+    "sass"
   ],
   "license": "MIT",
-  "main": "js/base.js",
+  "main": "js/material.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Daemonite/material.git"
   },
-  "version": "1.4.1"
+  "sass": "assets/sass/material.scss",
+  "style": "css/material.css",
+  "version": "4.0.0-alpha.1"
 }

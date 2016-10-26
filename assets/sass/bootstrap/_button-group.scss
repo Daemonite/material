@@ -1,0 +1,155 @@
+.btn-group,
+.btn-group-vertical {
+  background-color: $btn-group-bg;
+  display: inline-block;
+  padding: $btn-group-padding-y $btn-group-padding-x;
+  position: relative;
+  vertical-align: middle;
+
+  > .btn {
+    background-color: transparent;
+    box-shadow: none;
+    min-width: 0;
+
+    // active, focus, hover
+      &:active,
+      &.active {
+        background-color: $btn-bg-active;
+        box-shadow: none;
+      }
+
+    // disabled
+      &:disabled,
+      &.disabled {
+        background-color: transparent;
+      }
+  }
+
+  // colour
+    @each $color in $palettes {
+      $i: index($palettes, $color);
+
+      > .btn-#{$color} {
+        @include plain-active-focus-hover {
+          color: nth($palettes-color, $i);
+        }
+      }
+    }
+
+  > .btn-group {
+    padding: 0;
+  }
+}
+
+.btn-group {
+  > .btn,
+  > .btn-group {
+    float: left;
+  }
+
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group {
+    margin-left: $btn-group-padding-x;
+  }
+}
+
+.btn-group-vertical {
+  > .btn,
+  > .btn-group,
+  > .btn-group > .btn {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  > .btn-group > .btn {
+    float: none;
+  }
+
+  > .btn + .btn,
+  > .btn + .btn-group,
+  > .btn-group + .btn,
+  > .btn-group + .btn-group {
+    margin-top: $btn-group-padding-y;
+  }
+}
+
+// size
+  .btn-group-lg > .btn {
+    @extend .btn-lg;
+  }
+
+  .btn-group-sm > .btn {
+    @extend .btn-sm;
+  }
+
+//
+// checkbox and radio options
+//
+  [data-toggle="buttons"] {
+    > .btn,
+    > .btn-group > .btn {
+      input[type="checkbox"],
+      input[type="radio"] {
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+        position: absolute;
+      }
+    }
+  }
+
+//
+// split button dropdown
+//
+  .btn.dropdown-toggle-split {
+    padding-right: ($btn-padding-x * 0.75);
+    padding-left: ($btn-padding-x * 0.75);
+
+    &::after {
+      margin-left: 0;
+    }
+
+    .btn-group > & {
+      margin-left: 0;
+    }
+  }
+
+  // size
+    .btn-lg + .btn.dropdown-toggle-split {
+      padding-right: ($btn-padding-x-lg * 0.75);
+      padding-left: ($btn-padding-x-lg * 0.75);
+    }
+
+    .btn-sm + .btn.dropdown-toggle-split {
+      padding-right: ($btn-padding-x-sm * 0.75);
+      padding-left: ($btn-padding-x-sm * 0.75);
+    }
+
+//
+// toolbar
+//
+  .btn-toolbar {
+    @include clearfix;
+
+    .btn-group,
+    .input-group {
+      float: left;
+
+      &::before {
+        background-color: $btn-toolbar-divider-bg;
+        content: "";
+        display: block;
+        position: absolute;
+          top: $btn-group-padding-y;
+          bottom: $btn-group-padding-y;
+          left: 0;
+        width: 1px;
+      }
+
+      &:first-child::before {
+        display: none;
+      }
+    }
+  }
