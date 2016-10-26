@@ -1,13 +1,29 @@
 # Material
 
-Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__.
+Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__. The basic idea behind this project is to combine the visual language of Google Material Design with the front-end technology of the popular Bootstrap framework.
 
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > http://www.google.com/design/spec/material-design/introduction.html
 
-Let us know what you think at the [Daemon Labs](http://labs.daemon.com.au) forum.
+Detailed [documentation site](http://daemonite.github.io/material/) is work in progress. Let us know what you think at the [Daemon Labs](http://labs.daemon.com.au) forum.
+
+## Goals
+
+### Primary
+
+The primary goal of this project is to give all Bootstrap components and elements a Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents a final outcome that is in line with the principles and specifics of Google Material Design.
+
+Therefore, the Bootstrap's [documentation](https://v4-alpha.getbootstrap.com/getting-started/introduction/) can serve as a valid documentation for this project as well. Replacing `bootstrap.min.css` on the site with `material.min.css` from this project without any other changes will transform all components and elements into a materialised look.
+
+### Secondary
+
+A secondary goal of this project is to add support of some unique Material Design components such as floating action buttons, pickers and steppers to name a few, which cannot be achieved by transforming existing Bootstrap components or elements.
+
+Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation (work-in-progress).
 
 ## Supported Bootstrap 4 Components
+
+Currently based on __Bootstrap v4.0.0-alpha.4__.
 
 | Bootstrap 4 Components       | Equivalent Material Design Components                                                     |
 | ---                          | ---                                                                                       |
