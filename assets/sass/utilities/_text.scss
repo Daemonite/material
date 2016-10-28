@@ -59,8 +59,11 @@
     @include text-emphasis-variant('.text-white-hint', $white-hint);
     @include text-emphasis-variant('.text-white-divider', $white-divider);
 
+  // font colour
+    @include text-emphasis-variant('.text-gray-dark', $black-primary, $black);
+
   // offwhite
-    @include text-emphasis-variant('.text-muted', $text-muted);
+    @include text-emphasis-variant('.text-muted', $text-muted, $text-muted-active);
 
   // palette
     @each $color in $palettes {
@@ -69,7 +72,7 @@
       @include text-emphasis-variant('.text-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
     }
 
-    @include text-emphasis-variant('.text-inverse', $white-primary);
+    @include text-emphasis-variant('.text-inverse', $white-primary, $white);
 
 // italcs and weight
   .font-italic {

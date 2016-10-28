@@ -1,34 +1,23 @@
-// black and white
-  @include bg-variant-bw('.bg-black-primary', $black-primary, $white-primary);
-  @include bg-variant-bw('.bg-black-secondary', $black-secondary, $white-primary);
-  @include bg-variant-bw('.bg-black-hint', $black-hint);
-  @include bg-variant-bw('.bg-black-divider', $black-divider);
-
-  @include bg-variant-bw('.bg-white-primary', $white-primary, $black-primary);
-  @include bg-variant-bw('.bg-white-secondary', $white-secondary, $black-primary);
-  @include bg-variant-bw('.bg-white-hint', $white-hint);
-  @include bg-variant-bw('.bg-white-divider', $white-divider);
-
 // dark and light theme
 // based on https://material.google.com/style/color.html#color-themes
-  @include bg-variant-bw('.bg-dark-1', $dark-theme-1, $white-primary);
-  @include bg-variant-bw('.bg-dark-2', $dark-theme-2, $white-primary);
-  @include bg-variant-bw('.bg-dark-3', $dark-theme-3, $white-primary);
-  @include bg-variant-bw('.bg-dark-4', $dark-theme-4, $white-primary);
+  @include bg-variant('.bg-dark-1', $dark-theme-1);
+  @include bg-variant('.bg-dark-2', $dark-theme-2);
+  @include bg-variant('.bg-dark-3', $dark-theme-3);
+  @include bg-variant('.bg-dark-4', $dark-theme-4);
 
-  @include bg-variant-bw('.bg-light-1', $light-theme-1);
-  @include bg-variant-bw('.bg-light-2', $light-theme-2);
-  @include bg-variant-bw('.bg-light-3', $light-theme-3);
-  @include bg-variant-bw('.bg-light-4', $light-theme-4);
+  @include bg-variant('.bg-light-1', $light-theme-1);
+  @include bg-variant('.bg-light-2', $light-theme-2);
+  @include bg-variant('.bg-light-3', $light-theme-3);
+  @include bg-variant('.bg-light-4', $light-theme-4);
 
 // offwhite
-  @include bg-variant-bw('.bg-faded', $offwhite);
+  @include bg-variant('.bg-faded', $offwhite, $offwhite-dark);
 
 // palette
   @each $color in $palettes {
     $i: index($palettes, $color);
 
-    @include bg-variant('.bg-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i), nth($palettes-text-color, $i), nth($palettes-text-color-dark, $i));
+    @include bg-variant('.bg-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
   }
 
-  @include bg-variant('.bg-inverse', $dark-theme-4, $dark-theme-4, $white-primary, $white-primary);
+  @include bg-variant('.bg-inverse', $dark-theme-4, $dark-theme-3);
