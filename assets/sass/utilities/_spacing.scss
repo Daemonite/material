@@ -1,7 +1,18 @@
 //
+// height and width
+//
+  .h-100 {
+    height: 100% !important;
+  }
+
+  .w-100 {
+    width: 100% !important;
+  }
+
+//
 // margin and padding
 //
-  .m-x-auto {
+  .mx-auto {
     margin-right: auto !important;
     margin-left: auto !important;
   }
@@ -11,31 +22,31 @@
       $length-x: map-get($values, x);
       $length-y: map-get($values, y);
 
-      .#{$prop-abbr}-a-#{$size} {
+      .#{$prop-abbr}-#{$size} {
         #{$prop}: $length-y $length-x !important;
       }
 
-      .#{$prop-abbr}-t-#{$size} {
+      .#{$prop-abbr}t-#{$size} {
         #{$prop}-top: $length-y !important;
       }
 
-      .#{$prop-abbr}-r-#{$size} {
+      .#{$prop-abbr}r-#{$size} {
         #{$prop}-right: $length-x !important;
       }
 
-      .#{$prop-abbr}-b-#{$size} {
+      .#{$prop-abbr}b-#{$size} {
         #{$prop}-bottom: $length-y !important;
       }
 
-      .#{$prop-abbr}-l-#{$size} {
+      .#{$prop-abbr}l-#{$size} {
         #{$prop}-left: $length-x !important;
       }
 
-      .#{$prop-abbr}-x-#{$size} {
+      .#{$prop-abbr}x-#{$size} {
         #{$prop}-right: $length-x !important;
         #{$prop}-left: $length-x !important;
       }
-      .#{$prop-abbr}-y-#{$size} {
+      .#{$prop-abbr}y-#{$size} {
         #{$prop}-top: $length-y !important;
         #{$prop}-bottom: $length-y !important;
       }
@@ -51,11 +62,4 @@
       right: 0;
       left: 0;
     z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-//
-// width
-//
-  .w-100 {
-    width: 100% !important;
   }
