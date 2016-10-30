@@ -1,11 +1,11 @@
 .card {
   background-color: $card-bg;
   border: 0;
-  border-radius: $border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: block;
   margin-bottom: $card-margin-bottom;
   position: relative;
+  @include border-radius($border-radius);
   z-index: map-get($card-elevation-shadow, elevation);
 }
 
@@ -52,11 +52,11 @@
     @include clearfix;
 
     &:first-child {
-      border-radius: $border-radius $border-radius 0 0;
+      @include border-top-radius($border-radius);
     }
 
     &:last-child {
-      border-radius: 0 0 $border-radius $border-radius;
+      @include border-bottom-radius($border-radius);
     }
 
     .btn {
@@ -119,7 +119,7 @@
     padding: $card-spacer-inner-y $card-spacer-inner-x;
 
     &:last-child {
-      border-radius: 0 0 $border-radius $border-radius;
+      @include border-bottom-radius($border-radius);
     }
   }
 
@@ -134,7 +134,7 @@
     @include clearfix;
 
     &:first-child {
-      border-radius: $border-radius $border-radius 0 0;
+      @include border-top-radius($border-radius);
     }
 
     > :last-child {
@@ -146,15 +146,15 @@
 // image
 //
   .card-img {
-    border-radius: $border-radius;
+    @include border-radius($border-radius);
   }
 
   .card-img-bottom {
-    border-radius: 0 0 $border-radius $border-radius;
+    @include border-bottom-radius($border-radius);
   }
 
   .card-img-top {
-    border-radius: $border-radius $border-radius 0 0;
+    @include border-top-radius($border-radius);
   }
 
 //

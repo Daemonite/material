@@ -25,23 +25,22 @@
 }
 
 .dropdown-menu {
-  border-radius: 0 0 $border-radius $border-radius;
   // position
     top: 100%;
   transform-origin: 0 0;
+  @include border-bottom-radius($border-radius);
 }
 
 .menu {
-  border-radius: $border-radius;
   // position
     top: calc(50% - #{$menu-link-height / 2 + $menu-padding-y});
   transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
+  @include border-radius($border-radius);
 }
 
 .dropup {
   .dropdown-menu,
   .menu {
-    border-radius: $border-radius $border-radius 0 0;
     // position
       top: auto;
   }
@@ -50,6 +49,8 @@
     // position
       bottom: 100%;
     transform-origin:  0 100%;
+    @include border-top-radius($border-radius);
+    @include border-bottom-radius(0);
   }
 
   .menu {

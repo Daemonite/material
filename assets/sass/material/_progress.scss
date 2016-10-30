@@ -26,20 +26,17 @@
   .progress[value]::-ms-fill {
     background-color: $progress-bar-color;
     border: 0;
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    @include border-right-radius($border-radius);
   }
 
   .progress[value]::-moz-progress-bar {
     background-color: $progress-bar-color;
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    @include border-right-radius($border-radius);
   }
 
   .progress[value]::-webkit-progress-value {
     background-color: $progress-bar-color;
-    border-top-right-radius: $border-radius;
-    border-bottom-right-radius: $border-radius;
+    @include border-right-radius($border-radius);
   }
 
   .progress[value="100"]::-moz-progress-bar {
@@ -89,7 +86,6 @@
       animation-iteration-count: infinite;
       animation-timing-function: linear;
       background-color: $progress-bar-color;
-      border-radius: $border-radius;
       content: "";
       display: block;
       position: absolute;
@@ -97,6 +93,7 @@
         bottom: 0;
         left: 0;
       width: 0%;
+      @include border-radius($border-radius);
     }
     &::after {
       animation-name: progress-indeterminate-after;

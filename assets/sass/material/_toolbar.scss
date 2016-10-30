@@ -149,7 +149,6 @@
 //
   .navbar-brand,
   .toolbar-brand {
-    border-radius: $border-radius;
     color: inherit;
     display: block;
     float: left;
@@ -161,11 +160,11 @@
     padding-bottom: (($toolbar-link-height - $line-height-title) / 2);
     position: relative;
     z-index: 1;
+    @include border-radius($border-radius);
     @include typography-title;
 
     &::before {
       background-color: currentColor;
-      border-radius: $border-radius;
       content: "";
       display: block;
       opacity: 0;
@@ -175,6 +174,7 @@
         bottom: 0;
         left: ($toolbar-inner-spacer / -2);
       z-index: -1;
+      @include border-radius($border-radius);
       @include transition-standard(opacity);
     }
 
@@ -300,17 +300,16 @@
     }
 
     .nav-link {
-      border-radius: $border-radius;
       color: inherit;
       display: block;
       font-size: $toolbar-link-font-size;
       line-height: 1;
       padding: $toolbar-link-padding-y $toolbar-link-padding-x;
+      @include border-radius($border-radius);
       @include transition-standard(background-color);
 
       &::before {
         background-color: currentColor;
-        border-radius: $border-radius;
         content: "";
         display: block;
         opacity: 0;
@@ -319,6 +318,7 @@
           right: 0;
           bottom: 0;
           left: 0;
+        @include border-radius($border-radius);
         @include transition-standard(opacity);
       }
 
