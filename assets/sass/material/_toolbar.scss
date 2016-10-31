@@ -67,65 +67,6 @@
     }
   }
 
-// vertical align some elements normally placed in `.navbar` or `.toolbar`
-  .navbar,
-  .toolbar {
-    .btn {
-      margin-top: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
-      margin-bottom: (($toolbar-height - $btn-height) / 2 - $toolbar-padding-y);
-    }
-
-    .btn-lg {
-      margin-top: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
-      margin-bottom: (($toolbar-height - $btn-height-lg) / 2 - $toolbar-padding-y);
-    }
-
-    .btn-sm {
-      margin-top: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
-      margin-bottom: (($toolbar-height - $btn-height-sm) / 2 - $toolbar-padding-y);
-    }
-
-    .form-control {
-      border-bottom-color: currentColor;
-      margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height);
-      margin-bottom: 0;
-      opacity: 0.38;
-
-      &::placeholder {
-        color: inherit;
-        opacity: 1;
-      }
-
-      // active, focus, hover
-        &:focus {
-          opacity: 1;
-          transition-property: opacity;
-
-          &::placeholder {
-            opacity: 0.38;
-          }
-        }
-    }
-
-    // .form-control-lg cannot fit into .navbar/.toolbar
-    // .form-control-lg {
-    //   margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-lg);
-    // }
-
-    .form-control-sm {
-      margin-top: ($toolbar-height - $toolbar-padding-y * 2 - $textfield-height-sm);
-    }
-
-    .nav-tabs {
-      margin-top: ($toolbar-padding-y * -1);
-      margin-bottom: ($toolbar-padding-y * -1);
-
-      .nav-link {
-        height: $toolbar-height;
-      }
-    }
-  }
-
 //
 // misc
 //
@@ -495,3 +436,81 @@
         }
       }
     }
+
+//
+// vertical align some elements normally placed in `.navbar` or `.toolbar`
+//
+  .navbar,
+  .toolbar {
+    .btn {
+      margin-top: (($btn-height - $toolbar-link-height) / -2);
+      margin-bottom: (($btn-height - $toolbar-link-height) / -2);
+    }
+
+    .btn-lg {
+      margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
+      margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
+    }
+
+    .btn-sm {
+      margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
+      margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
+    }
+
+    .form-control {
+      margin-top: (($textfield-height - $toolbar-link-height) / -2);
+      @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-line-height, ($textfield-height - $toolbar-link-height) / -2, ($textfield-height - $textfield-line-height) / 2);
+    }
+
+    .form-control-lg {
+      margin-top: (($textfield-height-lg - $toolbar-link-height) / -2);
+      @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, ($textfield-height-lg - $toolbar-link-height) / -2, ($textfield-height-lg - $textfield-line-height-lg) / 2);
+    }
+
+    .form-control-sm {
+      margin-top: (($textfield-height-sm - $toolbar-link-height) / -2);
+      @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, ($textfield-height-sm - $toolbar-link-height) / -2, ($textfield-height-sm - $textfield-line-height-sm) / 2);
+    }
+
+    .input-group {
+      margin-bottom: 0;
+    }
+
+    .input-group-addon {
+      padding-top: 0;
+      vertical-align: middle;
+    }
+
+    .nav-tabs {
+      margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
+      margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
+
+      .nav-link {
+        height: $toolbar-height;
+      }
+    }
+  }
+
+  .navbar-dark,
+  .toolbar-dark {
+    .form-control {
+      border-bottom-color: $toolbar-color-dark;
+      color: $toolbar-color-dark;
+
+      &::placeholder {
+        color: $white-hint;
+      }
+    }
+  }
+
+  .navbar-light,
+  .toolbar-light {
+    .form-control {
+      border-bottom-color: $toolbar-color-light;
+      color: $toolbar-color-light;
+
+      &::placeholder {
+        color: $black-hint;
+      }
+    }
+  }
