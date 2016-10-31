@@ -26,10 +26,6 @@
       right: 0;
       left: 0;
     z-index: map-get($toolbar-elevation-shadow, elevation);
-
-    &::before {
-      display: none;
-    }
   }
 
   .navbar-fixed-bottom {
@@ -54,20 +50,6 @@
       top: 0;
     width: 100%;
     z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .toolbar-bordered {
-    &::before {
-      background-color: $toolbar-border-color;
-      content: "";
-      display: block;
-      height: $toolbar-border-width;
-      position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      z-index: -1;
-    }
   }
 
   .toolbar-waterfall {
@@ -149,7 +131,6 @@
 //
   .navbar-brand,
   .toolbar-brand {
-    color: inherit;
     display: block;
     float: left;
     height: $toolbar-link-height;
@@ -180,8 +161,6 @@
 
     // active, focus, hover
       @include active-focus-hover {
-        color: inherit;
-
         @if ($link-decoration-active != "none") {
           text-decoration: none;
         }
@@ -194,19 +173,34 @@
       &:focus {
         outline: 0;
       }
-
-    > img {
-      display: block;
-    }
   }
+
+  // colour
+    .navbar-dark,
+    .toolbar-dark {
+      .navbar-brand,
+      .toolbar-brand {
+        @include plain-active-focus-hover {
+          color: $toolbar-color-dark;
+        }
+      }
+    }
+
+    .navbar-light,
+    .toolbar-light {
+      .navbar-brand,
+      .toolbar-brand {
+        @include plain-active-focus-hover {
+          color: $toolbar-color-light;
+        }
+      }
+    }
 
   .navbar-divider,
   .toolbar-divider {
-    background-color: currentColor;
     float: left;
     margin-right: $toolbar-inner-spacer;
     margin-left: $toolbar-inner-spacer;
-    opacity: 0.12;
     overflow: hidden;
     padding-top: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
     padding-bottom: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
@@ -217,14 +211,207 @@
     }
   }
 
+  // colour
+    .navbar-dark,
+    .toolbar-dark {
+      .navbar-divider,
+      .toolbar-divider {
+        background-color: $white-divider;
+      }
+    }
+
+    .navbar-light,
+    .toolbar-light {
+      .navbar-divider,
+      .toolbar-divider {
+        background-color: $black-divider;
+      }
+    }
+
+  .navbar-text,
+  .toolbar-text {
+    display: inline-block;
+    padding-top: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
+    padding-bottom: (($toolbar-link-height - $font-size-base * $line-height-base) / 2);
+  }
+
+//
+// nav
+//
+  .navbar-nav,
+  .toolbar-nav {
+    .nav-item {
+      float: left;
+
+      + .nav-item {
+        margin-left: 1px;
+      }
+    }
+
+    .nav-link {
+      display: block;
+      font-size: $toolbar-link-font-size;
+      line-height: 1;
+      padding: $toolbar-link-padding-y $toolbar-link-padding-x;
+      @include border-radius($border-radius);
+      @include transition-standard(background-color);
+
+      &::before {
+        content: "";
+        display: block;
+        opacity: 0;
+        position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        @include border-radius($border-radius);
+        @include transition-standard(opacity);
+      }
+
+      // active, focus, hover
+        @include active-focus-hover {
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        &:focus {
+          outline: 0;
+        }
+
+      // disabled
+        &.disabled {
+          &::before {
+            display: none;
+          }
+        }
+    }
+
+    .nav-link.active,
+    .nav-link.open,
+    .active > .nav-link,
+    .open > .nav-link {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    .dropdown.open > .nav-link::before {
+      @include border-bottom-radius(0);
+    }
+
+    .dropup.open> .nav-link::before {
+      @include border-top-radius(0);
+    }
+  }
+
+  // colour
+    .navbar-dark,
+    .toolbar-dark {
+      .navbar-nav,
+      .toolbar-nav {
+        .nav-link {
+          @include plain-active-focus-hover {
+            color: $toolbar-color-dark;
+          }
+
+          &::before {
+            background-color: $white-divider;
+          }
+
+          // disabled
+            &.disabled {
+              color: $white-hint;
+            }
+        }
+      }
+    }
+
+    .navbar-light,
+    .toolbar-light {
+      .navbar-nav,
+      .toolbar-nav {
+        .nav-link {
+          @include plain-active-focus-hover {
+            color: $toolbar-color-light;
+          }
+
+          &::before {
+            background-color: $black-divider;
+          }
+
+          // disabled
+            &.disabled {
+              color: $black-hint;
+            }
+        }
+      }
+    }
+
+//
+// toggleable
+//
+  .navbar-toggleable {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+      $next: breakpoint-next($breakpoint);
+
+      &-#{$breakpoint} {
+        @include clearfix;
+
+        @include media-breakpoint-down($breakpoint) {
+          .navbar-brand,
+          .toolbar-brand {
+            float: none;
+            margin-top: $toolbar-padding-y;
+            margin-right: 0;
+            padding-right: $toolbar-link-padding-x;
+            padding-left: $toolbar-link-padding-x;
+
+            &::before {
+              // position
+                right: 0;
+                left: 0;
+            }
+          }
+
+          .navbar-nav,
+          .toolbar-nav {
+            margin-top: $toolbar-padding-y;
+            margin-bottom: $toolbar-padding-y;
+
+            .dropdown-menu {
+              float: none;
+              position: static;
+            }
+
+            .nav-item {
+              float: none;
+
+              + .nav-item {
+                margin-top: 1px;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+
+        @include media-breakpoint-up($next) {
+          display: block;
+        }
+      }
+    }
+  }
+
   .navbar-toggler,
   .toolbar-toggler {
     background-color: transparent;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: $material-icon-size;
     border: 0;
     border-radius: 50%;
-    color: inherit;
     display: block;
-    float: left;
     height: $toolbar-link-height;
     margin-right: $toolbar-inner-spacer;
     overflow: hidden;
@@ -237,7 +424,6 @@
     z-index: 1;
 
     &::before {
-      background-color: currentColor;
       border-radius: 50%;
       content: "";
       display: block;
@@ -260,7 +446,7 @@
         }
 
         &::before {
-          opacity: 0.12;
+          opacity: 1;
         }
       }
 
@@ -271,7 +457,6 @@
     // disabled
       &.disabled {
         cursor: $cursor-disabled;
-        opacity: 0.38;
 
         &::before {
           display: none;
@@ -281,122 +466,32 @@
     // open
       .open > & {
         &::before {
-          opacity: 0.12;
+          opacity: 1;
         }
       }
   }
 
-//
-// nav
-//
-  .navbar-nav,
-  .toolbar-nav {
-    .nav-item {
-      float: left;
+  // colour
+    .navbar-dark,
+    .toolbar-dark {
+      .navbar-toggler,
+      .toolbar-toggler {
+        background-image: $toolbar-toggler-bg-dark;
 
-      + .nav-item {
-        margin-left: 1px;
+        &::before {
+          background-color: $white-divider;
+        }
       }
     }
 
-    .nav-link {
-      color: inherit;
-      display: block;
-      font-size: $toolbar-link-font-size;
-      line-height: 1;
-      padding: $toolbar-link-padding-y $toolbar-link-padding-x;
-      @include border-radius($border-radius);
-      @include transition-standard(background-color);
+    .navbar-light,
+    .toolbar-light {
+      .navbar-toggler,
+      .toolbar-toggler {
+        background-image: $toolbar-toggler-bg-light;
 
-      &::before {
-        background-color: currentColor;
-        content: "";
-        display: block;
-        opacity: 0;
-        position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        @include border-radius($border-radius);
-        @include transition-standard(opacity);
-      }
-
-      // active, focus, hover
-        @include active-focus-hover {
-          &::before {
-            opacity: 0.12;
-          }
+        &::before {
+          background-color: $black-divider;
         }
-
-        &:focus {
-          outline: 0;
-        }
-
-      // disabled
-        &.disabled {
-          color: inherit;
-          opacity: 0.38;
-
-          &::before {
-            display: none;
-          }
-        }
-    }
-
-    .nav-link.active,
-    .nav-link.open,
-    .active > .nav-link,
-    .open > .nav-link {
-      &::before {
-        opacity: 0.12;
       }
     }
-  }
-
-//
-// toggleable
-//
-  .navbar-toggleable {
-    &-xs {
-      @include clearfix;
-
-      @include media-breakpoint-down(xs) {
-        .navbar-nav .nav-item {
-          float: none;
-        }
-      }
-
-      @include media-breakpoint-up(sm) {
-        display: block !important;
-      }
-    }
-
-    &-sm {
-      @include clearfix;
-
-      @include media-breakpoint-down(sm) {
-        .navbar-nav .nav-item {
-          float: none;
-        }
-      }
-
-      @include media-breakpoint-up(md) {
-        display: block !important;
-      }
-    }
-
-    &-md {
-      @include clearfix;
-
-      @include media-breakpoint-down(md) {
-        .navbar-nav .nav-item {
-          float: none;
-        }
-      }
-
-      @include media-breakpoint-up(lg) {
-        display: block !important;
-      }
-    }
-  }
