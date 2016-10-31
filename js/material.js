@@ -304,7 +304,7 @@ var FloatingLabel = function ($) {
 
 /*!
  * navigation drawer
- * based on bootstrap's (v4.0.0-alpha.4) modal.js
+ * based on bootstrap's (v4.0.0-alpha.5) modal.js
  */
 var NavDrawer = function ($) {
   // constants >>>
@@ -659,7 +659,7 @@ var NavDrawer = function ($) {
 
 /*!
  * tab indicator animation
- * requires bootstrap's (v4.0.0-alpha.4) tab.js
+ * requires bootstrap's (v4.0.0-alpha.5) tab.js
  */
 var TabSwitch = function ($) {
   // constants >>>
@@ -803,7 +803,7 @@ var TabSwitch = function ($) {
 
 /*!
  * global util js
- * based on bootstrap's (v4.0.0-alpha.4) util.js
+ * based on bootstrap's (v4.0.0-alpha.5) util.js
  */
 var Util = function ($) {
   var transition = false;
@@ -895,7 +895,7 @@ var Util = function ($) {
     },
     getUID: function getUID(prefix) {
       do {
-        prefix += ~~(Math.random() * 1000000);
+        prefix += ~ ~(Math.random() * 1000000);
       } while (document.getElementById(prefix));
       return prefix;
     },
