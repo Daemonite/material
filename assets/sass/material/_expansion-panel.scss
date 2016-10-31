@@ -23,13 +23,11 @@
 
     &:first-of-type {
       border-top-color: transparent;
-      border-top-left-radius: $border-radius;
-      border-top-right-radius: $border-radius;
+      @include border-top-radius($border-radius);
     }
 
     &:last-of-type {
-      border-bottom-left-radius: $border-radius;
-      border-bottom-right-radius: $border-radius;
+      @include border-bottom-radius($border-radius);
     }
 
     // active, focus, hover
@@ -103,9 +101,9 @@
 //
   .expansion-panel-collapse {
     background-color: $expansion-panel-bg;
-    border-radius: 0 0 $border-radius $border-radius;
     box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
     position: relative;
+    @include border-bottom-radius($border-radius);
 
     &.collapsing,
     &.in {
@@ -114,8 +112,7 @@
       + .expansion-panel-item,
       + .list-group-item {
         border-top-color: transparent;
-        border-top-left-radius: $border-radius;
-        border-top-right-radius: $border-radius;
+        @include border-top-radius($border-radius);
       }
     }
 
@@ -164,11 +161,11 @@
   .expansion-panel-item,
   .list-group-item {
     &[data-toggle="collapse"] {
-      border-radius: $border-radius $border-radius 0 0;
       border-top-color: transparent;
       cursor: pointer;
       margin-top: $expansion-panel-margin-between;
       transition-property: background-color, border-radius, border-top-color, color, margin-top;
+      @include border-top-radius($border-radius);
 
       &::before {
         background-color: inherit;

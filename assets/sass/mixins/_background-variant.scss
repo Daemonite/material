@@ -1,24 +1,14 @@
-@mixin bg-variant($class, $color, $color-focus-hover, $color-text, $color-text-focus-hover) {
+@mixin bg-variant($class, $color, $color-dark: "") {
   #{$class} {
     background-color: $color !important;
-    color: $color-text !important;
   }
 
-  a#{$class} {
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $color-focus-hover !important;
-        color: $color-text-focus-hover !important;
-      }
-  }
-}
-
-@mixin bg-variant-bw($class, $color, $color-text: "inherit") {
-  #{$class} {
-    background-color: $color !important;
-
-    @if ($color-text != "inherit") {
-      color: $color-text !important;
+  @if ($color-dark != "") {
+    a#{$class} {
+      // active, focus, hover
+        @include active-focus-hover {
+          background-color: $color-dark !important;
+        }
     }
   }
 }

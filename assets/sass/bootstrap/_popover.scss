@@ -7,7 +7,6 @@
   background-clip: padding-box;
   background-color: $dialog-content-bg;
   border: 1px solid transparent;
-  border-radius: $border-radius;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: block;
   font-size: $font-size-base;
@@ -16,6 +15,7 @@
     top: 0;
     left: 0;
   z-index: map-get($dialog-elevation-shadow, elevation);
+  @include border-radius($border-radius);
   @include reset-text;
 
   &.bs-tether-element-attached-bottom,

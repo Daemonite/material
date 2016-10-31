@@ -1,0 +1,23 @@
+// dark and light theme
+// based on https://material.google.com/style/color.html#color-themes
+  @include bg-variant('.bg-dark-1', $dark-theme-1);
+  @include bg-variant('.bg-dark-2', $dark-theme-2);
+  @include bg-variant('.bg-dark-3', $dark-theme-3);
+  @include bg-variant('.bg-dark-4', $dark-theme-4);
+
+  @include bg-variant('.bg-light-1', $light-theme-1);
+  @include bg-variant('.bg-light-2', $light-theme-2);
+  @include bg-variant('.bg-light-3', $light-theme-3);
+  @include bg-variant('.bg-light-4', $light-theme-4);
+
+// offwhite
+  @include bg-variant('.bg-faded', $offwhite, $offwhite-dark);
+
+// palette
+  @each $color in $palettes {
+    $i: index($palettes, $color);
+
+    @include bg-variant('.bg-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
+  }
+
+  @include bg-variant('.bg-inverse', $dark-theme-4, $dark-theme-3);

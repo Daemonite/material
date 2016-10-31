@@ -2,7 +2,6 @@
   background-color: $btn-bg;
   background-image: none;
   border: 0;
-  border-radius: $border-radius;
   box-shadow: map-get($btn-elevation-shadow, shadow);
   color: $btn-color;
   cursor: pointer;
@@ -21,11 +20,11 @@
   vertical-align: middle;
   white-space: nowrap;
   z-index: map-get($btn-elevation-shadow, elevation);
+  @include border-radius($border-radius);
   @include transition-standard(background-color, box-shadow, color);
 
   &::before {
     background-color: $btn-focus-overlay;
-    border-radius: $border-radius;
     content: "";
     display: block;
     opacity: 0;
@@ -35,6 +34,7 @@
       bottom: 0;
       left: 0;
     z-index: -1;
+    @include border-radius($border-radius);
     @include transition-standard(opacity);
   }
 
@@ -95,14 +95,14 @@
     .dropdown.open > & {
       &.dropdown-toggle,
       &.dropdown-toggle::before {
-        border-radius: $border-radius $border-radius 0 0;
+        @include border-bottom-radius(0);
       }
     }
 
     .dropup.open > & {
       &.dropdown-toggle,
       &.dropdown-toggle::before {
-        border-radius: 0 0 $border-radius $border-radius;
+        @include border-top-radius(0);
       }
     }
 }

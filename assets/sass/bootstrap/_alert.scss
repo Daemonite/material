@@ -1,13 +1,13 @@
 .alert {
   background-color: $card-bg;
   border: 0;
-  border-radius: $border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: block;
   margin-bottom: $card-margin-bottom;
   padding: $card-spacer-inner-y $card-spacer-inner-x;
   position: relative;
   z-index: map-get($card-elevation-shadow, elevation);
+  @include border-radius($border-radius);
 }
 
 // colour
