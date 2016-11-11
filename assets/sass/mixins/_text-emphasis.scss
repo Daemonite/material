@@ -1,0 +1,14 @@
+@mixin text-emphasis-variant($class, $color, $color-dark: "") {
+  #{$class} {
+    color: $color !important;
+  }
+
+  @if $color-dark != "" {
+    a#{$class} {
+      // active, focus, hover
+        @include active-focus-hover {
+          color: $color-dark !important;
+        }
+    }
+  }
+}

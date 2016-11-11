@@ -1,0 +1,38 @@
+@function breakpoint-max($name) {
+  $next: breakpoint-next($name);
+  @return if($next, breakpoint-min($next) - 1px, null);
+}
+
+@function breakpoint-min($name) {
+  $min: map-get($grid-breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+@function breakpoint-next($name, $names: map-keys($grid-breakpoints)) {
+  $n: index($names, $name);
+  @return if($n < length($names), nth($names, $n + 1), null);
+}
+
+@mixin media-breakpoint-down($name) {
+  $max: breakpoint-max($name);
+
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up($name) {
+  $min: breakpoint-min($name);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content
+  }
+}

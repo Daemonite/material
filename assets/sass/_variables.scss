@@ -1,0 +1,25 @@
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+
+  @each $key, $num in $map {
+    @if $prev-num == null {
+    } @else if not comparable($num, $prev-num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $num <= $prev-num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    }
+
+    $prev-key: $key;
+    $prev-num: $num;
+  }
+}
+
+@import "variables/animation";
+@import "variables/colour";
+@import "variables/elevation-shadow";
+@import "variables/grid";
+@import "variables/spacer";
+@import "variables/typography";
+@import "variables/variable-bootstrap";
+@import "variables/variable-material";

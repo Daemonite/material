@@ -1,0 +1,69 @@
+//
+// custom checkbox, radio button and select are defined in material design guidelines
+// (https://material.google.com/components/selection-controls.html)
+// therefore, these elements are styled in /assets/sass/material/_selection-control.scss
+//
+
+//
+// custom file
+//
+  .custom-file {
+    cursor: pointer;
+    display: block;
+    height: $textfield-height;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .custom-file-control {
+    border-bottom: $textfield-border-width solid $textfield-border-color;
+    color: $textfield-hint-color;
+    font-weight: $font-weight-regular;
+    position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    user-select: none;
+    z-index: 1;
+    @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
+    @include transition-standard(border-bottom-color);
+
+    @each $lang, $text in map-get($custom-file-text, placeholder) {
+      &:lang(#{$lang})::after {
+        content: $text;
+      }
+    }
+
+    &::before {
+      @include reset-to-material-icons($textfield-font-size);
+      color: $textfield-hint-color;
+      height: $textfield-height;
+      padding-top: $textfield-padding-top;
+      position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      z-index: 2;
+      @include transition-standard(color);
+    }
+
+    @each $lang, $text in map-get($custom-file-text, button-label) {
+      &:lang(#{$lang})::before {
+        content: $text;
+      }
+    }
+
+    // active, focus, hover
+      @include active-focus-hover {
+        &::before {
+          color: $textfield-color;
+        }
+      }
+  }
+
+  .custom-file-input {
+    margin: 0;
+    max-width: 100%;
+    min-width: $custom-file-width;
+    opacity: 0;
+  }

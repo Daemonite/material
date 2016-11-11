@@ -1,43 +1,31 @@
-/*!
- * bootstrap v3.3.5 (http://getbootstrap.com)
- * based on bootstrap's grid system
- */
+//
+// column
+//
+  @if $enable-grid-classes {
+    @include make-grid-columns;
+  }
 
-@include make-col();
-@include make-grid(xx);
-// 480
-	@include responsive(xs) {
-		@include make-grid(xs);
-	}
-// 768
-	@include responsive(sm) {
-		@include make-grid(sm);
-	}
-// 992
-	@include responsive(md) {
-		@include make-grid(md);
-	}
-// 1440
-	@include responsive(lg) {
-		@include make-grid(lg);
-	}
+//
+// container
+//
+  @if $enable-grid-classes {
+    .container {
+      @include make-container;
+      @include make-container-max-widths;
+    }
+  }
 
-.container {
-	@include make-container();
-	// 992
-		@include responsive(md) {
-			max-width: ($screen-md - $grid-gutter * 2);
-		}
-	// 1440
-		@include responsive(lg) {
-			max-width: ($screen-lg - $grid-gutter * 2);
-		}
-}
+  @if $enable-grid-classes {
+    .container-fluid {
+      @include make-container;
+    }
+  }
 
-.container-full {
-	max-width: none;
-}
-
-.row {
-	@include make-row();
-}
+//
+// row
+//
+  @if $enable-grid-classes {
+    .row {
+      @include make-row;
+    }
+  }

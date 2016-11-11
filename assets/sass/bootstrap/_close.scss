@@ -1,0 +1,31 @@
+.close {
+  color: $close-color;
+  cursor: pointer;
+  float: right;
+  font-size: $close-font-size;
+  font-weight: normal;
+  line-height: 1;
+  @include transition-standard(color);
+
+  // active, focus, hover
+    @include active-focus-hover {
+      color: $close-color-active;
+
+      @if ($link-decoration-active != "none") {
+        text-decoration: none;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+}
+
+button.close {
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
