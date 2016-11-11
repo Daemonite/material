@@ -1,4 +1,4 @@
-/*!
+/*
  * waves v0.7.4
  * http://fian.my.id/Waves
  */
@@ -35,7 +35,13 @@
   user-select: none;
   .waves-circle > & {
     border-radius: 50%;
-    mask: url();
+
+    // r='0' disables rendering of the element
+    // the fake mask fixes an issue in Firefox
+    // it replaces `mask: url()` in previous versions
+    // because `url()` may cause issues with some build tools
+    mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='none' r='0' stroke-width='0' /%3E%3C/svg%3E");
+
     transform: translateZ(0);
     -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
   }
