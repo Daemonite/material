@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+<body onmousedown="show_coords(event)">
+
+<canvas id="gField" width="800" height="800" style="background-color:rgb(192,192,192);">
+Your browser does not support the canvas element.
+</canvas>
+
+<script type="text/javascript">
+var c=document.getElementById("gField");
+var cxt=c.getContext("2d");
+var zz=0;
+var nM=0;
+var aroundMine=new Array;
+
+cxt.strokeStyle="#000000"
+for (var i=0;i<17;i++){
+    cxt.moveTo(0,800*i/16);
+    cxt.lineTo(800,800*i/16);
+    cxt.moveTo(800*i/16,0);
+    cxt.lineTo(800*i/16,800);
+}
+cxt.stroke();
+//document.write(fWidth);
+//document.write(fHeight);
+//console.log(090,c.clientWidth,090,c.offsetWidth,090,c.scrollWidth,090,c.offsetTop,090,c.clientTop,090,c.scrollTop);
+//完成画图
+function show_coords(event) {
+    x=event.clientX;
+    y=event.clientY;
+    butt=event.button;
+    //alert("X 坐标: " + x + ", Y 坐标: " + y);
+
+    xx=(x-x%50)/50+1;
+    yy=(y-y%50)/50+1;
+    //alert("第" + xx + "列" + "，第" + yy + "行");
+
+    //右键插旗子
+    if (butt==2) {
+    cxt.fillStyle="#D0104C"
+    cxt.fillRect(xx*50-50,yy*50-50,50,50)
+    }
+
+    //左键填坑
+    if (butt==0) {
+        cxt.fillStyle="#305A56"
+        cxt.fillRect(xx*50-49,yy*50-49,49,49)
+
+        //开始扫雷，棋盘是16*16: 1 2 3 4 5 6...
+        //第一次挖雷
+        if (zz==1) {;}
+            else {
+                //做雷
+                for (var i=0;i<256;i++) {aroundMine[i]=257;} //初始化坑
+                for (var nM=0;nM<40;) { //做40颗雷
+                    aroundMine[rand(246)+Math.floor((Math.random() * 10) + 1)]=258;
+                    aroundMine[xx+yy*16-16]=257; //第一个坑不为雷
+                    nM=0;
+                        for (var i=0; i<256; i++) {
+                            if (aroundMine[i]==258) {nM+=1;}
+                        }
+                }
+                //alert("地雷分布已计算完毕");
+                center=xx+yy*16-16; //第一坑
+                nM = 0;
+                if (aroundMine[center-16]==258) {nM+=1;}
+                if (aroundMine[center-15]==258) {nM+=1;}
+                if (aroundMine[center-14]==258) {nM+=1;}
+                if (aroundMine[center-1]==258) {nM+=1;}
+                if (aroundMine[center+1]==258) {nM+=1;}
+                if (aroundMine[center+14]==258) {nM+=1;}
+                if (aroundMine[center+15]==258) {nM+=1;}
+                if (aroundMine[center+16]==258) {nM+=1;}
+                cxt.font="20px Arial";
+                cxt.strokeText(nM,xx*50-25,yy*50-25,50);
+                if (nM==0) {show4(xx,yy);}
+                return zz=1;
+            }
+
+alert (zz);
+        //一般挖雷
+        //alert(aroundMine[xx+y*16-16]);
+        center=xx+yy*16-16; //被挖到的雷
+        nM = 0;
+        if (aroundMine[center-16]==258) {nM+=1;}
+        if (aroundMine[center-15]==258) {nM+=1;}
+        if (aroundMine[center-14]==258) {nM+=1;}
+        if (aroundMine[center-1]==258) {nM+=1;}
+        if (aroundMine[center+1]==258) {nM+=1;}
+        if (aroundMine[center+14]==258) {nM+=1;}
+        if (aroundMine[center+15]==258) {nM+=1;}
+        if (aroundMine[center+16]==258) {nM+=1;}
+        cxt.font="20px Arial";
+        cxt.strokeText(nM,xx*50-25,yy*50-25,50);
+        if (nM==0 && aroundMine[xx+yy*16-16]!=258) {show4(xx,yy);}
+        for (var i = 0; i < aroundMine.length; i++) {
+            if (aroundMine[i]==258) {nM+=1;}
+            return nM;
+        }
+        alert (nM);
+    } //挖雷结束
+} //点击event结束
+
+function showMineN(xx,yy) {
+    center=xx+yy*16-16; //被挖到的雷
+    nM = 0;
+    if (aroundMine[center-16]==258) {nM+=1;}
+    if (aroundMine[center-15]==258) {nM+=1;}
+    if (aroundMine[center-14]==258) {nM+=1;}
+    if (aroundMine[center-1]==258) {nM+=1;}
+    if (aroundMine[center+1]==258) {nM+=1;}
+    if (aroundMine[center+14]==258) {nM+=1;}
+    if (aroundMine[center+15]==258) {nM+=1;}
+    if (aroundMine[center+16]==258) {nM+=1;}
+    cxt.font="20px Arial";
+    cxt.strokeText(nM,xx*50-25,yy*50-25,50);
+    if (nM==0) {show44(xx,yy);}
+}
+
+function show4(xx,yy) {
+    cxt.fillRect(xx*50-49,yy*50-99,49,49) //上
+    showMineN(xx,yy-1);
+    cxt.fillRect(xx*50-49,yy*50+1,49,49) //下
+    showMineN(xx,yy+1);
+    cxt.fillRect(xx*50-99,yy*50-49,49,49) //左
+    showMineN(xx-1,yy);
+    cxt.fillRect(xx*50+1,yy*50-49,49,49) //右
+    showMineN(xx+1,yy);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//生成随机数
+function rnd( seed ){
+    seed = ( seed * 9301 + 49297 ) % 233280;
+    return seed / ( 233280.0 );
+}
+function rand(number){
+    today = new Date();
+    seed = today.getTime()*Math.floor((Math.random() * 10) + 1);
+    return Math.ceil( rnd( seed ) * number );
+}
+//阻止右键菜单
+function nocontextmenu(){return false;}
+document.oncontextmenu = nocontextmenu;
+</script>
+</body>
+</html>

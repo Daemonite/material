@@ -1,0 +1,36 @@
+function showAllNine(xx,yy) {
+    cxt.fillRect(xx*50-49,yy*50-49,49,49) //本体
+    showMineN(xx,yy-1);
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50-49,yy*50-99,49,49) //上
+        showMineN(xx,yy-1);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50-49,yy*50+1,49,49) //下
+        showMineN(xx,yy+1);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50-99,yy*50-49,49,49) //左
+        showMineN(xx-1,yy);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50+1,yy*50-49,49,49) //右
+        showMineN(xx+1,yy);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50-99,yy*50-99,49,49) //左上
+        showMineN(xx-1,yy-1);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50+1,yy*50-99,49,49) //右上
+        showMineN(xx+1,yy-1);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50-99,yy*50+1,49,49) //左下
+        showMineN(xx-1,yy+1);
+    }
+    if (aroundMine[xx+yy*16-16]!=258) {
+        cxt.fillRect(xx*50+1,yy*50+1,49,49) //右下
+        showMineN(xx+1,yy+1);
+    }
+}
