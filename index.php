@@ -11,9 +11,10 @@
 					name="viewport">
 
 	<title>KcalT Scheduler</title>
-	<!-- css -->
+	<!-- css & js -->
 	<link href="../css/base.min.css" rel="stylesheet">
     <link href="../css/mine.css" rel="stylesheet">
+	<script src="js/mine.js"></script>
 
 	<!-- color the browser elements :D https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/theme-color -->
 	<!-- Chrome, Firefox OS and Opera -->
@@ -194,7 +195,6 @@
     <!-- js -->
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 	<script src="js/base.min.js"></script>
-	<script src="js/mine.js"></script>
 </body>
 
 </html>
