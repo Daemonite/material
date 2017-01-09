@@ -18,6 +18,11 @@
   @include border-radius($border-radius);
   @include reset-text;
 
+  &,
+  &.fade {
+    transition-property: opacity;
+  }
+
   &.bs-tether-element-attached-bottom,
   &.popover-top {
     margin-top: ($tooltip-margin * -1);
@@ -36,11 +41,6 @@
   &.bs-tether-element-attached-top,
   &.popover-bottom {
     margin-top: $tooltip-margin;
-  }
-
-  &.fade,
-  &.fade.in {
-    transition-property: opacity;
   }
 }
 

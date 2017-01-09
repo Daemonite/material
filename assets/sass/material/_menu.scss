@@ -48,7 +48,7 @@
   .dropdown-menu {
     // position
       bottom: 100%;
-    transform-origin:  0 100%;
+    transform-origin: 0 100%;
     @include border-top-radius($border-radius);
     @include border-bottom-radius(0);
   }
@@ -61,7 +61,11 @@
 }
 
 // open
-  .open {
+  .show {
+    > a {
+      outline: 0;
+    }
+
     > .dropdown-menu,
     > .menu {
       animation-duration: $transition-duration-lg;
@@ -118,7 +122,7 @@
     }
   }
 
-  .dropup.open {
+  .dropup.show {
     > .dropdown-menu {
       animation-name: dropup-open;
     }
@@ -143,6 +147,13 @@
   }
 
 // positioning
+  .dropdown-menu-left,
+  .menu-left {
+    // position
+      right: auto;
+      left: 0;
+  }
+
   .dropdown-menu-right,
   .menu-right {
     // position

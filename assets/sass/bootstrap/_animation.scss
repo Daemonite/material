@@ -1,10 +1,19 @@
 .collapse {
   display: none;
 
-  &.in {
+  &.show {
     display: block;
   }
 }
+
+// specific cases for .collapse.show
+  tbody.collapse.show {
+    display: table-row-group;
+  }
+
+  tr.collapse.show {
+    display: table-row;
+  }
 
 .collapsing {
   height: 0;
@@ -18,7 +27,7 @@
   transform: scale(0.87);
   @include transition-acceleration(opacity, transform);
 
-  &.in {
+  &.show {
     opacity: 1;
     transform: scale(1);
     @include transition-deceleration(opacity, transform);

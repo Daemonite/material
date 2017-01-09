@@ -24,7 +24,7 @@
     z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
     @include transition-sharp(opacity);
 
-    &.in {
+    &.show {
       opacity: 1;
       @include transition-deceleration(opacity);
     }
@@ -57,7 +57,7 @@
       }
 
     // open
-      .navdrawer.in & {
+      .navdrawer.show & {
         transform: translate3d(0, 0, 0);
         @include transition-deceleration(transform);
       }

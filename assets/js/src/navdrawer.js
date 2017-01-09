@@ -14,8 +14,8 @@ const NavDrawer = (($) => {
 
     const ClassName = {
       BACKDROP : 'navdrawer-backdrop',
-      IN       : 'in',
-      OPEN     : 'navdrawer-open'
+      OPEN     : 'navdrawer-open',
+      SHOW     : 'show'
     };
 
     const Default = {
@@ -83,7 +83,7 @@ const NavDrawer = (($) => {
 
       $(this._element)
         .off(Event.CLICK_DISMISS)
-        .removeClass(ClassName.IN);
+        .removeClass(ClassName.SHOW);
 
       if (Util.supportsTransitionEnd()) {
         $(this._element)
@@ -204,7 +204,7 @@ const NavDrawer = (($) => {
           Util.reflow(this._backdrop);
         }
 
-        $(this._backdrop).addClass(ClassName.IN);
+        $(this._backdrop).addClass(ClassName.SHOW);
 
         if (!callback) {
           return;
@@ -219,7 +219,7 @@ const NavDrawer = (($) => {
           .one(Util.TRANSITION_END, callback)
           .emulateTransitionEnd(TRANSITION_DURATION_BACKDROP);
       } else if (this._backdrop && !this._isShown) {
-        $(this._backdrop).removeClass(ClassName.IN);
+        $(this._backdrop).removeClass(ClassName.SHOW);
 
         let callbackRemove = () => {
           this._removeBackdrop();
@@ -255,7 +255,7 @@ const NavDrawer = (($) => {
         Util.reflow(this._element);
       }
 
-      $(this._element).addClass(ClassName.IN);
+      $(this._element).addClass(ClassName.SHOW);
       this._enforceFocus();
 
       let shownEvent = $.Event(Event.SHOWN, {
