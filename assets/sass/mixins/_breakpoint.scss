@@ -1,16 +1,24 @@
+@function breakpoint-infix($name) {
+  @return if(breakpoint-min($name) == null, "", "-#{$name}");
+}
+
 @function breakpoint-max($name) {
   $next: breakpoint-next($name);
+
   @return if($next, breakpoint-min($next) - 1px, null);
 }
 
 @function breakpoint-min($name) {
   $min: map-get($grid-breakpoints, $name);
+
   @return if($min != 0, $min, null);
 }
 
-@function breakpoint-next($name, $names: map-keys($grid-breakpoints)) {
-  $n: index($names, $name);
-  @return if($n < length($names), nth($names, $n + 1), null);
+@function breakpoint-next($name) {
+  $map: map-keys($grid-breakpoints);
+  $n: index($map, $name);
+
+  @return if($n < length($map), nth($map, $n + 1), null);
 }
 
 @mixin media-breakpoint-down($name) {
