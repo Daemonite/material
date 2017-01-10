@@ -1,7 +1,7 @@
 .btn-group,
 .btn-group-vertical {
   background-color: $btn-group-bg;
-  display: inline-block;
+  display: inline-flex;
   padding: $btn-group-padding-y $btn-group-padding-x;
   position: relative;
   vertical-align: middle;
@@ -9,6 +9,7 @@
   > .btn {
     background-color: transparent;
     box-shadow: none;
+    flex: 0 1 auto;
     min-width: 0;
 
     // active, focus, hover
@@ -36,17 +37,13 @@
       }
     }
 
-  > .btn-group {
+  > .btn-group,
+  > .btn-group-vertical {
     padding: 0;
   }
 }
 
 .btn-group {
-  > .btn,
-  > .btn-group {
-    float: left;
-  }
-
   > .btn + .btn,
   > .btn + .btn-group,
   > .btn-group + .btn,
@@ -56,16 +53,13 @@
 }
 
 .btn-group-vertical {
-  > .btn,
-  > .btn-group,
-  > .btn-group > .btn {
-    display: block;
-    max-width: 100%;
-    width: 100%;
-  }
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 
-  > .btn-group > .btn {
-    float: none;
+  > .btn,
+  > .btn-group {
+    width: 100%;
   }
 
   > .btn + .btn,
@@ -103,9 +97,9 @@
 //
 // split button dropdown
 //
-  .btn.dropdown-toggle-split {
-    padding-right: ($btn-padding-x * 0.75);
-    padding-left: ($btn-padding-x * 0.75);
+  .btn + .dropdown-toggle-split {
+    padding-right: ($btn-padding-x * 0.5);
+    padding-left: ($btn-padding-x * 0.5);
 
     &::after {
       margin-left: 0;
@@ -117,39 +111,24 @@
   }
 
   // size
-    .btn-lg + .btn.dropdown-toggle-split {
-      padding-right: ($btn-padding-x-lg * 0.75);
-      padding-left: ($btn-padding-x-lg * 0.75);
+    .btn-lg + .dropdown-toggle-split {
+      padding-right: ($btn-padding-x-lg * 0.5);
+      padding-left: ($btn-padding-x-lg * 0.5);
     }
 
-    .btn-sm + .btn.dropdown-toggle-split {
-      padding-right: ($btn-padding-x-sm * 0.75);
-      padding-left: ($btn-padding-x-sm * 0.75);
+    .btn-sm + .dropdown-toggle-split {
+      padding-right: ($btn-padding-x-sm * 0.5);
+      padding-left: ($btn-padding-x-sm * 0.5);
     }
 
 //
 // toolbar
 //
   .btn-toolbar {
-    @include clearfix;
+    display: flex;
+    justify-content: flex-start;
 
-    .btn-group,
     .input-group {
-      float: left;
-
-      &::before {
-        background-color: $btn-toolbar-divider-bg;
-        content: "";
-        display: block;
-        position: absolute;
-          top: $btn-group-padding-y;
-          bottom: $btn-group-padding-y;
-          left: 0;
-        width: 1px;
-      }
-
-      &:first-child::before {
-        display: none;
-      }
+      width: auto;
     }
   }
