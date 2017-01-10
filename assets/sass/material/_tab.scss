@@ -3,32 +3,25 @@
 //
 
 .nav-tabs {
+  display: flex;
+  flex-wrap: none;
   line-height: 0;
   position: relative;
 
-  @if $enable-flex {
-    display: flex;
-    flex-wrap: none;
-  } @else {
-    letter-spacing: -0.25em;
-    white-space: nowrap;
-  }
-
   .nav-item {
     line-height: 0;
-
-    @if not $enable-flex {
-      display: inline-block;
-      letter-spacing: normal;
-      white-space: normal;
-    }
   }
 
   .nav-link {
+    align-items: center;
     color: inherit;
+    display: flex;
     font-size: $nav-tab-link-font-size;
     font-weight: $nav-tab-link-font-weight;
+    height: 100%;
+    justify-content: center;
     line-height: 1;
+    min-height: $nav-tab-link-height;
     opacity: $nav-tab-link-opacity;
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     text-transform: uppercase;
@@ -45,19 +38,6 @@
         bottom: 0;
         left: 0;
       @include transition-standard(opacity);
-    }
-
-    @if $enable-flex {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      min-height: $nav-tab-link-height;
-    } @else {
-      display: table-cell;
-      height: $nav-tab-link-height;
-      text-align: center;
-      vertical-align: middle;
     }
 
     @include media-breakpoint-up(lg) {
@@ -111,36 +91,16 @@
   }
 
   .nav-tabs-centered {
-    @if $enable-flex {
-      justify-content: center;
-    } @else {
-      text-align: center;
-    }
+    justify-content: center;
   }
 
   .nav-tabs-fixed {
-    @if $enable-flex {
-      .nav-item {
-        flex-basis: 0;
-        flex-grow: 1;
-        min-width: $nav-tab-link-min-width;
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
-      }
-    } @else {
-      letter-spacing: normal;
-      width: 100%;
-
-      .nav-item {
-        display: table-cell;
-        min-width: $nav-tab-link-min-width;
-        width: 1%;
-      }
-
-      .nav-link {
-        max-width: 100%;
-        width: 99999px;
+    .nav-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      min-width: $nav-tab-link-min-width;
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
       }
     }
 
@@ -156,18 +116,12 @@
 
     .nav-link {
       max-width: $nav-tab-link-max-width;
+      min-width: $nav-tab-link-min-width;
+
       @include text-truncate;
 
-      @if $enable-flex {
-        min-width: $nav-tab-link-min-width;
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
-      } @else {
-        width: $nav-tab-link-min-width;
-        @include media-breakpoint-up(lg) {
-          width: $nav-tab-link-min-width-lg;
-        }
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
       }
     }
   }

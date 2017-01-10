@@ -174,26 +174,9 @@
   }
 
   .card-img-overlay-bottom {
-    @if $enable-flex {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    } @else {
-      white-space: nowrap;
-
-      &::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 1px;
-      }
-
-      .card-img-overlay-body {
-        display: inline-block;
-        white-space: normal;
-        width: 100%;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
 //
@@ -232,33 +215,6 @@
 
     .card {
       margin-bottom: $card-spacer-outer-y;
-    }
-  }
-
-  @if $enable-flex {
-    @include media-breakpoint-up(sm) {
-    }
-  } @else {
-    @include media-breakpoint-up(sm) {
-      .card-deck,
-      .card-group {
-        border-spacing: $card-spacer-outer-x 0;
-        display: table;
-        table-layout: fixed;
-        width: 100%;
-
-        .card {
-          display: table-cell;
-          margin-bottom: 0;
-          vertical-align: top;
-        }
-      }
-
-      .card-deck-wrapper,
-      .card-group-wrapper {
-        margin-right: ($card-spacer-outer-x * -1);
-        margin-left: ($card-spacer-outer-x * -1);
-      }
     }
   }
 

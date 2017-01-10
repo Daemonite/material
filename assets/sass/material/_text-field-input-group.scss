@@ -1,25 +1,13 @@
 .input-group {
+  display: flex;
   margin-bottom: $textfield-margin-bottom;
   position: relative;
   width: 100%;
 
-  @if $enable-flex {
-    display: flex;
-  } @else {
-    border-collapse: separate;
-    display: table;
-  }
-
   .form-control {
+    flex-grow: 1;
     margin-bottom: 0;
     position: relative;
-
-    @if $enable-flex {
-      flex-grow: 1;
-    } @else {
-      display: table-cell;
-      width: 100%;
-    }
   }
 }
 
@@ -33,11 +21,6 @@
   text-align: center;
   vertical-align: top;
   white-space: nowrap;
-
-  @if not $enable-flex {
-    display: table-cell;
-    width: 1%;
-  }
 
   &:first-child {
     margin-left: 0;
