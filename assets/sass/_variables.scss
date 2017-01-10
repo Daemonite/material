@@ -4,14 +4,23 @@
 
   @each $key, $num in $map {
     @if $prev-num == null {
+      // do nothing
     } @else if not comparable($num, $prev-num) {
-      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}'!";
     } @else if $num <= $prev-num {
-      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}'!";
     }
 
     $prev-key: $key;
     $prev-num: $num;
+  }
+}
+
+@mixin _assert-starts-at-zero($map) {
+  $first-value: nth(map-values($map), 1);
+
+  @if $first-value != 0 {
+    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
   }
 }
 

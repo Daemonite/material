@@ -21,7 +21,9 @@ $grid-gutter-widths: (
     lg: 1280px,
     xl: 1920px
   ) !default;
+
   @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+  @include _assert-starts-at-zero($grid-breakpoints);
 
 //
 // container
@@ -32,4 +34,5 @@ $grid-gutter-widths: (
     lg: 1024px,
     xl: 1600px
   ) !default;
+
   @include _assert-ascending($container-max-widths, "$container-max-widths");
