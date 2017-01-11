@@ -1,4 +1,3 @@
-.custom-select,
 .form-control {
   background-clip: padding-box;
   background-color: transparent;
@@ -52,7 +51,6 @@
   }
 }
 
-.custom-select,
 select.form-control {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -85,24 +83,20 @@ select.form-control {
   }
 
 // size
-  .custom-select-lg,
   .form-control-lg {
     @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
   }
 
-  .custom-select-lg,
   select.form-control-lg {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
       background-position: 100% ($textfield-padding-top-lg + ($textfield-line-height-lg - $material-icon-size / $font-size-root) / 2);
     }
   }
 
-  .custom-select-sm,
   .form-control-sm {
     @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
   }
 
-  .custom-select-sm,
   select.form-control-sm {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
       background-position: 100% ($textfield-padding-top-sm + ($textfield-line-height-sm - $material-icon-size / $font-size-root) / 2);
@@ -176,4 +170,14 @@ select.form-control {
     &.form-control-sm {
       @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
     }
+  }
+
+//
+// style of material `select` should also be applied to `.custom-select`
+//
+  .custom-select {
+    @extend .form-control;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
   }
