@@ -7,13 +7,12 @@ const TabSwitch = (($) => {
     const DATA_KEY            = 'md.tabswitch';
     const NAME                = 'tabswitch';
     const NO_CONFLICT         = $.fn[NAME];
-    const TRANSITION_DURATION = 450;
+    const TRANSITION_DURATION = 300;
 
     const ClassName = {
       ANIMATE    : 'animate',
       INDICATOR  : 'nav-tabs-indicator',
       MATERIAL   : 'nav-tabs-material',
-      REVERSE    : 'reverse',
       SCROLLABLE : 'nav-tabs-scrollable',
       SHOW       : 'show'
     };
@@ -65,11 +64,7 @@ const TabSwitch = (($) => {
         Util.reflow(this._navindicator);
 
         if (supportsTransition) {
-          $(this._navindicator).addClass(ClassName.ANIMATE);
-
-          if (relatedLeft > elLeft) {
-            $(this._navindicator).addClass(ClassName.REVERSE);
-          }
+          $(this._nav).addClass(ClassName.ANIMATE);
         }
       }
 
@@ -79,7 +74,8 @@ const TabSwitch = (($) => {
       });
 
       let complete = () => {
-        $(this._navindicator).removeClass(ClassName.ANIMATE).removeClass(ClassName.SHOW).removeClass(ClassName.REVERSE);
+        $(this._nav).removeClass(ClassName.ANIMATE);
+        $(this._navindicator).removeClass(ClassName.SHOW);
       }
 
       if (!supportsTransition) {
