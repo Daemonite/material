@@ -1,65 +1,52 @@
-.expansion-panel,
+//
+// todo: bootstrap accordion (i.e. material expansion panel)
+// since bootstrap accordion now relies on `.card`
+// some tweaks are needed for the default accordion example to work correctly
+// we probably need a wrapper to add additional styles in line with material design guidelines
+//
+
 .list-group {
-  margin-bottom: $expansion-panel-margin-bottom;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
   padding-left: 0;
 }
 
 //
 // item
 //
-  .expansion-panel-item,
   .list-group-item {
+    align-items: center;
     background-color: $expansion-panel-bg;
     border: 0;
-    border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
+    border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
     box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
     color: $expansion-panel-color;
-    display: block;
+    display: flex;
+    flex-flow: row wrap;
     font-size: $expansion-panel-font-size;
     min-height: $expansion-panel-height;
-    padding: $expansion-panel-spacer-y $expansion-panel-spacer-x;
+    padding: $expansion-panel-inner-spacer-y $expansion-panel-inner-spacer-x;
     position: relative;
     @include transition-standard(background-color, color);
 
-    &:first-of-type {
-      border-top-color: transparent;
+    &:first-child {
       @include border-top-radius($border-radius);
     }
 
-    &:last-of-type {
+    &:last-child {
+      border-bottom: 0;
       @include border-bottom-radius($border-radius);
     }
 
     // active, focus, hover
+      @include active-focus-hover {
+        color: $expansion-panel-color;
+        text-decoration: none;
+      }
+
       &.active {
         background-color: $expansion-panel-bg-active;
-      }
-
-    // disabled
-      &.disabled {
-        background-color: $expansion-panel-bg-disabled;
-        color: $expansion-panel-color-disabled;
-      }
-  }
-
-  .expansion-panel-item-action,
-  .list-group-item-action {
-    color: $expansion-panel-color;
-    text-align: inherit;
-    width: 100%;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $expansion-panel-bg-active;
-        color: $expansion-panel-color;
-
-        @if ($link-decoration-active != "none") {
-          text-decoration: none;
-        }
-      }
-
-      &:focus {
-        outline: 0;
       }
 
     // disabled
@@ -70,22 +57,44 @@
       }
   }
 
+  .list-group-item-action {
+    color: $expansion-panel-color;
+    text-align: inherit;
+    width: 100%;
+
+    // active, focus, hover
+      @include active-focus-hover {
+        background-color: $expansion-panel-bg-active;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+    // disabled
+      &.disabled {
+        background-color: $expansion-panel-bg-disabled;
+      }
+  }
+
   // colour
     @each $color in $palettes {
       $i: index($palettes, $color);
 
-      .expansion-panel-item-#{$color},
       .list-group-item-#{$color} {
         background-color: nth($palettes-color, $i);
         color: nth($palettes-text-color, $i);
 
         // active, focus, hover
+          @include active-focus-hover {
+            color: nth($palettes-text-color, $i);
+          }
+
           &.active {
             background-color: nth($palettes-color-dark, $i);
             color: nth($palettes-text-color-dark, $i);
           }
 
-        &.expansion-panel-item-action,
         &.list-group-item-action {
           // active, focus, hover
             @include active-focus-hover {
@@ -97,144 +106,34 @@
     }
 
 //
-// expansion
+// flush
 //
-  .expansion-panel-collapse {
-    background-color: $expansion-panel-bg;
-    box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
-    position: relative;
-    @include border-bottom-radius($border-radius);
-
-    &.collapsing,
-    &.show {
-      margin-bottom: $expansion-panel-margin-between;
-
-      + .expansion-panel-item,
-      + .list-group-item {
-        border-top-color: transparent;
-        @include border-top-radius($border-radius);
-      }
-    }
-
-    &.collapsing {
-      transition-property: height, margin-bottom;
-    }
-
-    .collapsed + & {
-      &.collapsing {
-        margin-bottom: 0;
-
-        + .expansion-panel-item,
-        + .list-group-item {
-          border-top-color: $expansion-panel-border-color;
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
-        }
-      }
-    }
-
-  }
-
-  .expansion-panel-collapse-body {
-    padding: $expansion-panel-body-spacer-y $expansion-panel-spacer-x;
-
-    > :last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .expansion-panel-collapse-footer {
-    border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
-    padding: $expansion-panel-footer-spacer-y $expansion-panel-footer-spacer-x;
-    padding-left: $expansion-panel-spacer-y;
-    text-align: right;
-
-    .btn {
-      min-width: 0;
-
-      + .btn {
-        margin-left: $expansion-panel-footer-spacer-x;
-      }
-    }
-  }
-
-  .expansion-panel-item,
-  .list-group-item {
-    &[data-toggle="collapse"] {
-      border-top-color: transparent;
-      cursor: pointer;
-      margin-top: $expansion-panel-margin-between;
-      transition-property: background-color, border-radius, border-top-color, color, margin-top;
-      @include border-top-radius($border-radius);
-
-      &::before {
-        background-color: inherit;
-        content: "";
-        display: block;
-        height: 2px;
-        position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        z-index: 1;
-      }
+  .list-group-flush {
+    .list-group-item {
+      border-radius: 0;
+      box-shadow: none;
 
       &:first-child {
-        margin-top: 0;
+        border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
       }
 
-      // active, focus, hover
-        @include active-focus-hover {
-          background-color: $expansion-panel-bg-active;
-          color: $expansion-panel-color;
-
-          @if ($link-decoration-active != "none") {
-            text-decoration: none;
-          }
-        }
-
-        &:focus {
-          outline: 0;
-        }
-    }
-
-    &[data-toggle="collapse"].collapsed {
-      border-radius: 0;
-      border-top-color: $expansion-panel-border-color;
-      margin-top: 0;
-
-      &::before {
-        display: none;
+      &:last-child {
+        border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
       }
     }
 
-    &[data-toggle="collapse"].disabled {
-      background-color: $expansion-panel-bg-disabled;
-      color: $expansion-panel-color-disabled;
-      cursor: $cursor-disabled;
+    &:first-child .list-group-item:first-child {
+      border-top: 0;
+    }
+
+    &:last-child .list-group-item:last-child {
+      border-bottom: 0;
     }
   }
-
-  // colour
-    @each $color in $palettes {
-      $i: index($palettes, $color);
-
-      .expansion-panel-item-#{$color},
-      .list-group-item-#{$color} {
-        &[data-toggle="collapse"] {
-          // active, focus, hover
-            @include active-focus-hover {
-              background-color: nth($palettes-color-dark, $i);
-              color: nth($palettes-text-color-dark, $i);
-            }
-        }
-      }
-    }
 
 //
 // misc
 //
-  .expansion-panel-item-heading,
   .list-group-item-heading {
     color: inherit;
     font-size: $expansion-panel-font-size;
@@ -243,50 +142,10 @@
     margin-bottom: 0;
   }
 
-  .expansion-panel-item-icon {
-    color: $expansion-panel-icon-color;
-    font-size: $font-size-base;
-    line-height: $material-icon-size;
-    height: $material-icon-size;
-    margin-top: ($material-icon-size / -2);
-    position: absolute;
-      top: ($expansion-panel-height / 2);
-      right: $expansion-panel-spacer-x;
-    width: $material-icon-size;
-    @include transition-standard(color);
-  }
-
-  // active, focus, hover
-    .expansion-panel-item,
-    .list-group-item {
-      &[data-toggle="collapse"] {
-        @include active-focus-hover {
-          .expansion-panel-item-icon {
-            color: $expansion-panel-icon-color-active;
-          }
-        }
-      }
-    }
-
-  // variation
-    .expansion-panel-item-icon-rotate {
-      transition-property: color, transform;
-
-      .expansion-panel-item[data-toggle="collapse"] &,
-      .list-group-item[data-toggle="collapse"] & {
-        transform: rotate(180deg);
-      }
-
-      .expansion-panel-item.collapsed[data-toggle="collapse"] &,
-      .list-group-item.collapsed[data-toggle="collapse"] & {
-        transform: rotate(0);
-      }
-    }
-
-  .expansion-panel-item-text,
   .list-group-item-text {
     color: inherit;
     font-size: $expansion-panel-font-size-secondary;
     line-height: $line-height-base;
+    margin-top: 0;
     margin-bottom: 0;
   }
