@@ -16,7 +16,7 @@
   line-height: $menu-line-height;
   list-style: none;
   margin: 0;
-  min-width: 100%;
+  min-width: $menu-min-width;
   padding: $menu-padding-y 0;
   position: absolute;
     left: 0;
@@ -172,6 +172,10 @@
     font-size: $menu-font-size-cascading;
     line-height: $menu-line-height-cascading;
     padding: $menu-padding-y-cascading 0;
+
+    @include media-breakpoint-up(sm) {
+      min-width: $menu-min-width-cascading;
+    }
   }
 
 //
