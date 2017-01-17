@@ -1,5 +1,5 @@
-.chip,
-.tag {
+.badge,
+.chip {
   background-color: $chip-bg;
   border-radius: ($chip-height / 2);
   color: $chip-color;
@@ -17,8 +17,8 @@
   }
 }
 
-a.chip,
-a.tag {
+a.badge,
+a.chip {
   color: $chip-color;
   z-index: 1;
   @include transition-standard(box-shadow);
@@ -62,14 +62,14 @@ a.tag {
 }
 
 // colour
-  .chip-inverse,
-  .tag-inverse {
+  .badge-inverse,
+  .chip-inverse {
     background-color: $chip-bg-inverse;
     color: $chip-color-inverse;
   }
 
-  a.chip-inverse,
-  a.tag-inverse {
+  a.badge-inverse,
+  a.chip-inverse {
     @include plain-active-focus-hover {
       color: $chip-color-inverse;
     }
@@ -78,14 +78,14 @@ a.tag {
   @each $color in $palettes {
     $i: index($palettes, $color);
 
-    .chip-#{$color},
-    .tag-#{$color} {
+    .badge-#{$color},
+    .chip-#{$color} {
       background-color: nth($palettes-color, $i);
       color: nth($palettes-text-color, $i);
     }
 
-    a.chip-#{$color},
-    a.tag-#{$color} {
+    a.badge-#{$color},
+    a.chip-#{$color} {
       @include plain-active-focus-hover {
         color: nth($palettes-text-color, $i);
       }
