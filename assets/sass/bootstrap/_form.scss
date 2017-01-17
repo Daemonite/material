@@ -4,7 +4,6 @@
   .form-check {
     display: block;
     margin-bottom: $textfield-margin-bottom;
-    position: relative;
 
     // disabled
       &.disabled {
@@ -13,62 +12,27 @@
           cursor: $cursor-disabled;
         }
       }
-
-    @include media-breakpoint-up(sm) {
-      .form-inline & {
-        display: inline-block;
-        margin-top: 0;
-        margin-bottom: 0;
-        vertical-align: middle;
-      }
-    }
   }
 
   .form-check-input {
-    margin-top: 0.25rem;
-    margin-left: -1.25rem;
-    position: absolute;
-    // &:only-child {
-    //   position: static;
-    // }
-
-    @include media-breakpoint-up(sm) {
-      .form-inline & {
-        margin-left: 0;
-        position: relative;
-      }
-    }
+    margin-right: $form-check-input-margin-x;
   }
 
   .form-check-label {
+    align-items: center;
     cursor: pointer;
+    display: inline-flex;
     margin-bottom: 0;
-    min-height: $font-size-base;
-    padding-left: 1.25rem;
-
-    @include media-breakpoint-up(sm) {
-      .form-inline & {
-        padding-left: 0;
-      }
-    }
   }
 
   // inline
     .form-check-inline {
-      cursor: pointer;
       display: inline-block;
       margin-bottom: 0;
-      padding-left: 1.25rem;
-      position: relative;
       vertical-align: middle;
 
-      // disabled
-        &.disabled {
-          cursor: $cursor-disabled;
-        }
-
       + .form-check-inline {
-        margin-left: (1.25rem - 0.75rem);
+        margin-left: $form-check-inline-margin-x;
       }
     }
 
@@ -78,39 +42,118 @@
   .form-group {
     margin-bottom: $form-group-margin-bottom;
 
+    &:not(.floating-label) label:not(.form-check-label) {
+      font-size: $form-group-label-font-size;
+      margin-bottom: 0;
+    }
+  }
+
+//
+// inline
+//
+  .form-inline {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+
+    .form-check {
+      width: 100%;
+    }
+
     @include media-breakpoint-up(sm) {
-      .form-inline & {
-        display: inline-block;
+      label {
+        align-items: center;
+        display: flex;
+        justify-content: center;
         margin-bottom: 0;
-        vertical-align: middle;
       }
+
+      .form-check {
+        margin-bottom: 0;
+        width: auto;
+      }
+
+      .form-control {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+      }
+
+      .form-control-static {
+        display: inline-block;
+      }
+
+      .form-group {
+        align-items: center;
+        display: flex;
+        flex: 0 0 auto;
+        flex-flow: row wrap;
+        margin-bottom: 0;
+      }
+
+      .input-group {
+        width: auto;
+      }
+    }
+  }
+
+//
+// label
+//
+  .col-form-label {
+    line-height: ($textfield-height - $textfield-padding-top - $textfield-padding-bottom);
+    padding-top: $textfield-padding-top;
+    padding-bottom: $textfield-padding-bottom;
+  }
+
+  .col-form-label-lg {
+    line-height: ($textfield-height-lg - $textfield-padding-top-lg - $textfield-padding-bottom-lg);
+    padding-top: $textfield-padding-top-lg;
+    padding-bottom: $textfield-padding-bottom-lg;
+  }
+
+  .col-form-label-sm {
+    line-height: ($textfield-height-sm - $textfield-padding-top-sm - $textfield-padding-bottom-sm);
+    padding-top: $textfield-padding-top-sm;
+    padding-bottom: $textfield-padding-bottom-sm;
+  }
+
+  .col-form-legend {
+    font-size: $font-size-base;
+    margin-bottom: 0;
+    padding-top: $textfield-padding-top;
+    padding-bottom: $textfield-padding-bottom;
+
+    .form-group & {
+      font-size: $form-group-label-font-size;
     }
   }
 
 //
 // misc
 //
+  .form-control-feedback,
+  .form-text {
+    display: block;
+    margin-top: $textfield-margin-bottom;
+
+    .form-control-lg + &,
+    .form-control-static-lg + & {
+      margin-top: $textfield-margin-bottom-lg;
+    }
+
+    .form-control-sm + &,,
+    .form-control-static-sm + & {
+      margin-top: $textfield-margin-bottom-sm;
+    }
+  }
+
   .form-control-file,
   .form-control-range {
     display: block;
   }
 
   .form-control-file {
-    margin-top: $textfield-margin-bottom;
+    margin-top: $textfield-padding-top;
     margin-bottom: $textfield-margin-bottom;
-  }
-
-  .form-text {
-    display: block;
-    margin-top: $textfield-margin-bottom;
-
-    .form-control-lg + &,
-    .textfield-lg + & {
-      margin-top: $textfield-margin-bottom-lg;
-    }
-
-    .form-control-sm + &,
-    .textfield-sm + & {
-      margin-top: $textfield-margin-bottom-sm;
-    }
   }

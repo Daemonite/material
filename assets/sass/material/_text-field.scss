@@ -8,9 +8,8 @@
   box-shadow: none;
   color: inherit;
   display: block;
-  font-weight: $font-weight-regular;
   width: 100%;
-  @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
+  @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
   @include transition-standard(border-bottom-color);
 
   &::-ms-expand {
@@ -41,14 +40,6 @@
     &:disabled {
       cursor: $cursor-disabled;
     }
-
-  @include media-breakpoint-up(sm) {
-    .form-inline & {
-      display: inline-block;
-      vertical-align: middle;
-      width: auto;
-    }
-  }
 }
 
 select.form-control {
@@ -56,18 +47,25 @@ select.form-control {
      -moz-appearance: none;
 
   @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    $select-bg-size: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size);
+
     background-image: url($caret-bg);
-    background-position: 100% ($textfield-padding-top + ($textfield-line-height - $material-icon-size / $font-size-root) / 2);
+    background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
     background-repeat: no-repeat;
-    background-size: $material-icon-size;
-    padding-right: ($spacer-xs-x + $material-icon-size / $font-size-root);
+    background-size: $select-bg-size $select-bg-size;
+    padding-right: $select-bg-size;
 
     &[multiple],
     &[size] {
       background-image: none;
+      height: auto;
       padding-right: 0;
     }
   }
+}
+
+textarea.form-control {
+  height: auto;
 }
 
 // colour
@@ -79,27 +77,39 @@ select.form-control {
       &:focus {
         border-bottom-color: nth($palettes-color, $i);
       }
+
+      &::placeholder {
+        color: nth($palettes-color-light, $i);
+      }
     }
   }
 
 // size
   .form-control-lg {
-    @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
+    @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
   }
 
   select.form-control-lg {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-      background-position: 100% ($textfield-padding-top-lg + ($textfield-line-height-lg - $material-icon-size / $font-size-root) / 2);
+      $select-bg-size-lg: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-lg);
+
+      background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
+      background-size: $select-bg-size-lg $select-bg-size-lg;
+      padding-right: $select-bg-size-lg;
     }
   }
 
   .form-control-sm {
-    @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
+    @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
   }
 
   select.form-control-sm {
     @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-      background-position: 100% ($textfield-padding-top-sm + ($textfield-line-height-sm - $material-icon-size / $font-size-root) / 2);
+      $select-bg-size-sm: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-sm);
+
+      background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
+      background-size: $select-bg-size-sm $select-bg-size-sm;
+      padding-right: $select-bg-size-sm;
     }
   }
 
@@ -155,20 +165,15 @@ select.form-control {
 // form control static
 //
   .form-control-static {
-    @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
-
-    @include media-breakpoint-up(sm) {
-      .form-inline & {
-        display: inline-block;
-      }
-    }
+    margin-bottom: 0;
+    @include form-control-size(0px, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
 
     &.form-control-lg {
-      @include form-control-size(0px, $textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-margin-bottom-lg, $textfield-padding-top-lg);
+      @include form-control-size(0px, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
     }
 
     &.form-control-sm {
-      @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-margin-bottom-sm, $textfield-padding-top-sm);
+      @include form-control-size(0px, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
     }
   }
 
