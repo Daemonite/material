@@ -1,65 +1,75 @@
 //
-// height and width
-//
-  .h-100 {
-    height: 100% !important;
-  }
-
-  .w-100 {
-    width: 100% !important;
-  }
-
-//
 // margin and padding
 //
-  .mx-auto {
-    margin-right: auto !important;
-    margin-left: auto !important;
-  }
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint);
 
-  @each $prop, $prop-abbr in (margin: m, padding: p) {
-    @each $size, $values in $spacers {
-      $length-x: map-get($values, x);
-      $length-y: map-get($values, y);
-
-      .#{$prop-abbr}-#{$size} {
-        #{$prop}: $length-y $length-x !important;
+      .m#{$infix}-auto {
+        margin: auto !important;
       }
 
-      .#{$prop-abbr}t-#{$size} {
-        #{$prop}-top: $length-y !important;
+      .mt#{$infix}-auto {
+        margin-top: auto !important;
       }
 
-      .#{$prop-abbr}r-#{$size} {
-        #{$prop}-right: $length-x !important;
+      .mr#{$infix}-auto {
+        margin-right: auto !important;
       }
 
-      .#{$prop-abbr}b-#{$size} {
-        #{$prop}-bottom: $length-y !important;
+      .mb#{$infix}-auto {
+        margin-bottom: auto !important;
       }
 
-      .#{$prop-abbr}l-#{$size} {
-        #{$prop}-left: $length-x !important;
+      .ml#{$infix}-auto {
+        margin-left: auto !important;
       }
 
-      .#{$prop-abbr}x-#{$size} {
-        #{$prop}-right: $length-x !important;
-        #{$prop}-left: $length-x !important;
+      .mx#{$infix}-auto {
+        margin-right: auto !important;
+        margin-left: auto !important;
       }
-      .#{$prop-abbr}y-#{$size} {
-        #{$prop}-top: $length-y !important;
-        #{$prop}-bottom: $length-y !important;
+
+      .my#{$infix}-auto {
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+
+      @each $prop, $prop-abbr in (margin: m, padding: p) {
+        @each $size, $values in $spacers {
+          $length-x: map-get($values, x);
+          $length-y: map-get($values, y);
+
+          .#{$prop-abbr}#{$infix}-#{$size} {
+            #{$prop}: $length-y $length-x !important;
+          }
+
+          .#{$prop-abbr}t#{$infix}-#{$size} {
+            #{$prop}-top: $length-y !important;
+          }
+
+          .#{$prop-abbr}r#{$infix}-#{$size} {
+            #{$prop}-right: $length-x !important;
+          }
+
+          .#{$prop-abbr}b#{$infix}-#{$size} {
+            #{$prop}-bottom: $length-y !important;
+          }
+
+          .#{$prop-abbr}l#{$infix}-#{$size} {
+            #{$prop}-left: $length-x !important;
+          }
+
+          .#{$prop-abbr}x#{$infix}-#{$size} {
+            #{$prop}-right: $length-x !important;
+            #{$prop}-left: $length-x !important;
+          }
+
+          .#{$prop-abbr}y#{$infix}-#{$size} {
+            #{$prop}-top: $length-y !important;
+            #{$prop}-bottom: $length-y !important;
+          }
+        }
       }
     }
-  }
-
-//
-// positioning
-//
-  .pos-f-t {
-    position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
   }

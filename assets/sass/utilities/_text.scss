@@ -14,15 +14,17 @@
   // horizontal
     @each $breakpoint in map-keys($grid-breakpoints) {
       @include media-breakpoint-up($breakpoint) {
-        .text-#{$breakpoint}-center {
+        $infix: breakpoint-infix($breakpoint);
+
+        .text#{$infix}-center {
           text-align: center !important;
         }
 
-        .text-#{$breakpoint}-left {
+        .text#{$infix}-left {
           text-align: left !important;
         }
 
-        .text-#{$breakpoint}-right {
+        .text#{$infix}-right {
           text-align: right !important;
         }
       }
