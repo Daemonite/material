@@ -1,14 +1,19 @@
 .breadcrumb {
+  align-items: center;
   background-color: $breadcrumb-bg;
+  display: flex;
+  flex-wrap: wrap;
   list-style: none;
+  min-height: $breadcrumb-height;
   margin-bottom: $breadcrumb-margin-bottom;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
   @include clearfix;
 }
 
 .breadcrumb-item {
+  align-items: center;
   color: $breadcrumb-item-color;
-  float: left;
+  display: flex;
   @include transition-standard(color);
 
   // active, focus, hover
@@ -23,17 +28,17 @@
 
   a {
     color: inherit;
-
-    @if ($link-decoration-active != "none") {
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
 
   + .breadcrumb-item::before {
-    @include reset-to-material-icons;
-    color: $breadcrumb-item-color;
-    content: "#{$breadcrumb-divider}";
-    padding-right: $breadcrumb-item-padding;
-    padding-left: $breadcrumb-item-padding;
+    background-image: $breadcrumb-divider;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: ($material-icon-size / $font-size-root * 1rem) ($material-icon-size / $font-size-root * 1rem);
+    content: "";
+    display: inline-block;
+    height: ($material-icon-size / $font-size-root * 1rem);
+    width: ($breadcrumb-item-padding * 2 + $material-icon-size / $font-size-root * 1rem);
   }
 }
