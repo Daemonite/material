@@ -127,6 +127,15 @@ module.exports = function(grunt) {
         }
       },
 
+      jekyll: {
+        options: {
+          bundleExec: true,
+          config: '_config.yml',
+          incremental: false
+        },
+        material: {}
+      },
+
       postcss: {
         options: {
           map: false,
@@ -142,6 +151,19 @@ module.exports = function(grunt) {
         project: {
           dest: 'css/project.css',
           src: '<%= sass.project.dest %>'
+        }
+      },
+
+      prettify: {
+        options: {
+          indent_inner_html: false
+        },
+        material: {
+          cwd: 'gh-pages/',
+          dest: 'gh-pages/',
+          expand: true,
+          ext: '.html',
+          src: ['**/*.html']
         }
       },
 
@@ -219,6 +241,14 @@ module.exports = function(grunt) {
       [
         'material',
         'project'
+      ]
+    );
+
+    grunt.registerTask(
+      'doc',
+      [
+        'jekyll:material',
+        'prettify:material'
       ]
     );
 
