@@ -1,16 +1,11 @@
 $(function () {
 
   // project js
-    if ($('.doc-toolbar').length) {
-      var docToolbarHeight = $('.doc-toolbar').outerHeight();
-
-      $(window).on('scroll', function () {
-        if ($(this).scrollTop() > docToolbarHeight) {
-          $('.doc-toolbar').addClass('waterfall');
-        } else {
-          $('.doc-toolbar').removeClass('waterfall');
-        }
-      });
-    }
+  Holder.addTheme('gray', {
+    bg: '#757575',
+    fg: 'rgba(255,255,255,.7)',
+    font: 'Helvetica',
+    fontweight: 'normal'
+  });
 
 });
