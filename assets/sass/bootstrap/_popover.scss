@@ -18,6 +18,12 @@
   @include border-radius($border-radius);
   @include reset-text;
 
+  &,
+  &.fade,
+  &.fade.show {
+    transition-property: opacity;
+  }
+
   &.bs-tether-element-attached-bottom,
   &.popover-top {
     margin-top: ($tooltip-margin * -1);
@@ -37,11 +43,6 @@
   &.popover-bottom {
     margin-top: $tooltip-margin;
   }
-
-  &.fade,
-  &.fade.in {
-    transition-property: opacity;
-  }
 }
 
 .popover-content {
@@ -53,6 +54,7 @@
   padding: $dialog-inner-padding;
   padding-bottom: 0;
   @include typography-title;
+
   &:empty {
     display: none;
   }

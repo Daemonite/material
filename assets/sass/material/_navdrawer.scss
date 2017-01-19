@@ -22,11 +22,10 @@
       bottom: 0;
       left: 0;
     z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
-    @include transition-sharp(opacity);
+    @include transition-standard(opacity);
 
-    &.in {
+    &.show {
       opacity: 1;
-      @include transition-deceleration(opacity);
     }
   }
 
@@ -45,7 +44,6 @@
       left: 0;
     transform: translate3d(-100%, 0, 0);
     width: $navdrawer-width-mobile;
-    -webkit-overflow-scrolling: touch;
     @include transition-sharp(transform);
 
     // direction
@@ -57,7 +55,7 @@
       }
 
     // open
-      .navdrawer.in & {
+      .navdrawer.show & {
         transform: translate3d(0, 0, 0);
         @include transition-deceleration(transform);
       }
@@ -81,7 +79,7 @@
     border-bottom: $navdrawer-header-border-width solid $navdrawer-header-border-color;
     display: block;
     margin-bottom: $navdrawer-inner-spacer-y;
-    padding: ($navdrawer-inner-spacer-y * 2) $navdrawer-inner-spacer-x;
+    padding: $toolbar-padding-y $navdrawer-inner-spacer-x;
   }
 
   .navdrawer-subheader {
@@ -104,15 +102,14 @@
 // nav
 //
   .navdrawer-nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
     margin-bottom: $navdrawer-inner-spacer-y;
-
-    .nav-item + .nav-item {
-      margin-top: 1px;
-    }
+    padding-left: 0;
 
     .nav-link {
       color: $navdrawer-nav-link-color;
-      display: block;
       font-size: $navdrawer-nav-link-font-size;
       font-weight: $navdrawer-nav-link-font-weight;
       line-height: 1;
@@ -125,8 +122,7 @@
           background-color: $navdrawer-nav-link-bg-active;
         }
 
-        &:active,
-        &.active {
+        &:active {
           color: $navdrawer-nav-link-color-active;
         }
 
@@ -134,11 +130,19 @@
           outline: 0;
         }
 
+        &.active {
+          color: $navdrawer-nav-link-color-active;
+        }
+
       // disabled
         &.disabled {
           background-color: transparent;
           color: $navdrawer-nav-link-color-disabled;
         }
+    }
+
+    .active > .nav-link {
+      color: $navdrawer-nav-link-color-active;
     }
   }
 
@@ -150,6 +154,10 @@
     .nav-link.active & {
       color: $navdrawer-nav-link-color-active;
     }
+  }
+
+  .active > .nav-link .navdrawer-nav-icon {
+    color: $navdrawer-nav-link-color-active;
   }
 
 //

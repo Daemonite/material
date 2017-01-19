@@ -1,26 +1,23 @@
 .custom-control {
   cursor: pointer;
-  display: inline;
+  display: inline-flex;
   font-size: $font-size-base;
+  margin-right: ($selection-control-spacer-x * 2);
+  min-height: ($font-size-base * $line-height-base);
   padding-left: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
   position: relative;
-
-  + .custom-control {
-    margin-left: ($selection-control-spacer-x * 2);
-  }
 }
 
 .custom-control-indicator {
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: $selection-control-indicator-size;
+  background-size: $selection-control-indicator-size $selection-control-indicator-size;
   display: block;
   height: $selection-control-indicator-size;
-  line-height: $selection-control-indicator-size;
+  pointer-events: none;
   position: absolute;
-    top: (($font-size-base - $selection-control-indicator-size / $font-size-root) / 2);
+    top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
     left: 0;
-  text-align: center;
   user-select: none;
   width: $selection-control-indicator-size;
 
@@ -71,8 +68,6 @@
       }
 
       .custom-control-indicator {
-        pointer-events: none;
-
         &::before {
           display: none;
         }
@@ -82,24 +77,12 @@
 
 // stacked layout
   .custom-controls-stacked {
-    // .custom-control-indicator {
-    //   // position
-    //     top: (($font-size-base * $line-height-base - ($selection-control-indicator-size) / $font-size-root) / 2);
-    // }
+    display: flex;
+    flex-direction: column;
+
     .custom-control {
-      &::after {
-        content: "";
-        display: block;
-        margin-bottom: $selection-control-spacer-y;
-      }
-
-      &:last-child::after {
-        display: none;
-      }
-
-      + .custom-control {
-        margin-left: 0;
-      }
+      margin-right: 0;
+      margin-bottom: $selection-control-spacer-y;
     }
   }
 

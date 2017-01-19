@@ -1,21 +1,20 @@
 /*!
  * tab indicator animation
- * requires bootstrap's (v4.0.0-alpha.5) tab.js
+ * requires bootstrap's (v4.0.0-alpha.6) tab.js
  */
 const TabSwitch = (($) => {
   // constants >>>
     const DATA_KEY            = 'md.tabswitch';
     const NAME                = 'tabswitch';
     const NO_CONFLICT         = $.fn[NAME];
-    const TRANSITION_DURATION = 450;
+    const TRANSITION_DURATION = 300;
 
     const ClassName = {
       ANIMATE    : 'animate',
-      IN         : 'in',
       INDICATOR  : 'nav-tabs-indicator',
       MATERIAL   : 'nav-tabs-material',
-      REVERSE    : 'reverse',
-      SCROLLABLE : 'nav-tabs-scrollable'
+      SCROLLABLE : 'nav-tabs-scrollable',
+      SHOW       : 'show'
     };
 
     const Event = {
@@ -24,7 +23,8 @@ const TabSwitch = (($) => {
 
     const Selector = {
       DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
-      TAB_NAV     : '.nav-tabs'
+      NAV         : '.nav-tabs',
+      NAV_ITEM    : '.nav-item'
     };
   // <<< constants
 
@@ -45,30 +45,26 @@ const TabSwitch = (($) => {
         this._createIndicator();
       }
 
-      let elLeft        = $(element).offset().left;
-      let elWidth       = $(element).outerWidth();
+      let elLeft        = $(element).closest(Selector.NAV_ITEM).offset().left;
+      let elWidth       = $(element).closest(Selector.NAV_ITEM).outerWidth();
       let navLeft       = $(this._nav).offset().left;
       let navScrollLeft = $(this._nav).scrollLeft();
       let navWidth      = $(this._nav).outerWidth();
 
       if (relatedTarget !== undefined) {
-        let relatedLeft  = $(relatedTarget).offset().left;
-        let relatedWidth = $(relatedTarget).outerWidth();
+        let relatedLeft  = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
+        let relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
 
         $(this._navindicator).css({
           left  : ((relatedLeft + navScrollLeft) - navLeft),
           right : (navWidth - ((relatedLeft + navScrollLeft) - navLeft + relatedWidth))
         });
 
-        $(this._navindicator).addClass(ClassName.IN);
+        $(this._navindicator).addClass(ClassName.SHOW);
         Util.reflow(this._navindicator);
 
         if (supportsTransition) {
-          $(this._navindicator).addClass(ClassName.ANIMATE);
-
-          if (relatedLeft > elLeft) {
-            $(this._navindicator).addClass(ClassName.REVERSE);
-          }
+          $(this._nav).addClass(ClassName.ANIMATE);
         }
       }
 
@@ -78,7 +74,8 @@ const TabSwitch = (($) => {
       });
 
       let complete = () => {
-        $(this._navindicator).removeClass(ClassName.ANIMATE).removeClass(ClassName.IN).removeClass(ClassName.REVERSE);
+        $(this._nav).removeClass(ClassName.ANIMATE);
+        $(this._navindicator).removeClass(ClassName.SHOW);
       }
 
       if (!supportsTransition) {
@@ -103,7 +100,7 @@ const TabSwitch = (($) => {
 
     static _jQueryInterface(relatedTarget) {
       return this.each(function () {
-        let nav = $(this).closest(Selector.TAB_NAV)[0];
+        let nav = $(this).closest(Selector.NAV)[0];
 
         if (!nav) {
           return;

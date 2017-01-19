@@ -1,0 +1,9 @@
+@mixin if-supports-3d-transforms() {
+  @media (-webkit-transform-3d) {
+    @content;
+  }
+
+  @supports (transform: translate3d(0, 0, 0)) {
+    @content;
+  }
+}

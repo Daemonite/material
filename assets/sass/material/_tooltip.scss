@@ -1,9 +1,16 @@
 .tooltip {
   display: block;
   font-size: $tooltip-font-size;
+  opacity: 0;
   position: absolute;
   z-index: $tooltip-zindex;
   @include reset-text;
+
+  &,
+  &.fade,
+  &.fade.show {
+    transition-property: opacity;
+  }
 
   &.bs-tether-element-attached-bottom,
   &.tooltip-top {
@@ -24,26 +31,6 @@
   &.tooltip-bottom {
     margin-top: $tooltip-margin;
   }
-
-  &.fade {
-    opacity: 0;
-    transition-property: opacity;
-
-    .tooltip-inner {
-      transform: scale(0.87);
-      @include transition-acceleration(transform);
-    }
-  }
-
-  &.fade.in {
-    opacity: $tooltip-opacity;
-    transition-property: opacity;
-
-    .tooltip-inner {
-      transform: scale(1);
-      @include transition-deceleration(transform);
-    }
-  }
 }
 
 .tooltip-inner {
@@ -51,8 +38,20 @@
   color: $tooltip-color;
   padding: $tooltip-padding-y $tooltip-padding-x;
   text-align: center;
+  transform: scale(0.87);
   @include border-radius($border-radius);
+  @include transition-acceleration(transform);
 }
+
+// show
+  .tooltip.show {
+    opacity: $tooltip-opacity;
+
+    .tooltip-inner {
+      transform: scale(1);
+      @include transition-deceleration(transform);
+    }
+  }
 
 // desktop
   @include media-breakpoint-up(md) {

@@ -1,69 +1,8 @@
-@if $enable-flex {
-  .media {
-    display: flex;
-  }
-
-  .media-body {
-    flex: 1;
-  }
-
-  .media-bottom {
-    align-self: flex-end;
-  }
-
-  .media-middle {
-    align-self: center;
-  }
-} @else {
-  .media,
-  .media-body {
-    overflow: hidden;
-  }
-
-  .media-body {
-    width: 10000px;
-  }
-
-  .media-body,
-  .media-left,
-  .media-right {
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .media-bottom {
-    vertical-align: bottom;
-  }
-
-  .media-middle {
-    vertical-align: middle;
-  }
+.media {
+  align-items: flex-start;
+  display: flex;
 }
 
-//
-// alignment
-//
-  .media-right {
-    padding-left: $media-alignment-padding-x;
-  }
-
-  .media-left {
-    padding-right: $media-alignment-padding-x;
-  }
-
-//
-// misc
-//
-  .media-heading {
-    margin-top: 0;
-    margin-bottom: $media-heading-margin-bottom;
-  }
-
-  .media-list {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .media-object {
-    display: block;
-  }
+.media-body {
+  flex: 1;
+}

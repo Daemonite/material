@@ -5,105 +5,109 @@
 //
 
 .progress {
-  appearance: none;
-  background-color: transparent;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
-  border: 0;
-  display: block;
-  height: $progress-height;
-  margin-bottom: $progress-margin-bottom;
+  display: flex;
   overflow: hidden;
   position: relative;
-  width: 100%;
 }
 
-.progress::-webkit-progress-bar {
-  background-color: transparent;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{$progress-bar-color} ,#{$progress-bar-color});
+.progress-bar {
+  background-color: $progress-bar-bg;
+  height: $progress-height;
+
+  &::before {
+    background-color: inherit;
+    background-image: linear-gradient(to right, $progress-bar-mask, $progress-bar-mask);
+    content: "";
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: -1;
+  }
 }
 
-// bar
-  .progress[value]::-ms-fill {
-    background-color: $progress-bar-color;
-    border: 0;
-    @include border-right-radius($border-radius);
+//
+// animated & striped
+//
+  .progress-bar-animated {
+    &::before {
+      animation-direction: reverse;
+      animation-duration: $transition-duration;
+      animation-iteration-count: infinite;
+      animation-name: progress-bar-animation;
+      animation-timing-function: linear;
+    }
   }
 
-  .progress[value]::-moz-progress-bar {
-    background-color: $progress-bar-color;
-    @include border-right-radius($border-radius);
-  }
+  .progress-bar-animated,
+  .progress-bar-striped {
+    border-right: ($progress-height * 3) solid $progress-bar-mask;
+    box-sizing: content-box;
 
-  .progress[value]::-webkit-progress-value {
-    background-color: $progress-bar-color;
-    @include border-right-radius($border-radius);
-  }
-
-  .progress[value="100"]::-moz-progress-bar {
-    border-right-radius: 0;
-  }
-
-  .progress[value="100"]::-webkit-progress-value {
-    border-right-radius: 0;
-  }
-
-// colour
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
-    .progress-#{$color} {
-      background-color: transparent;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
-
-      &::-webkit-progress-bar {
-        background-color: transparent;
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), linear-gradient(to right, #{nth($palettes-color, $i)} ,#{nth($palettes-color, $i)});
-      }
+    &[style*="width:100%"],
+    &[style*="width: 100%"] {
+      border-right: 0;
     }
 
-    .progress-#{$color}[value] {
-      // filled-in portion of the bar
-        &::-ms-fill {
-          background-color: nth($palettes-color, $i);
-        }
-        &::-moz-progress-bar {
-          background-color: nth($palettes-color, $i);
-        }
-        &::-webkit-progress-value {
-          background-color: nth($palettes-color, $i);
-        }
+    &::before {
+      background-color: transparent;
+      background-image: repeating-radial-gradient(#{$progress-height / 2} #{$progress-height / 2}, #{$black-divider}, #{$black-divider} #{$progress-height / 2}, transparent #{$progress-height / 2}, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(#{$progress-height / 2} #{$progress-height / 2}, #{$black-divider}, #{$black-divider} #{$progress-height / 2}, transparent #{$progress-height / 2}, transparent 100%);
+      background-position: 0 0;
+      background-repeat: repeat-x;
+      background-size: ($progress-height * 3) ($progress-height * 3);
+    }
+  }
+
+  @keyframes progress-bar-animation {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: ($progress-height * 3) 0;
     }
   }
 
 //
 // indeterminate
 //
-  .progress-animated,
-  .progress-indeterminate {
+  .progress-bar-indeterminate {
+    background-image: linear-gradient(to right, $progress-bar-mask, $progress-bar-mask);
+    position: relative;
+    width: 100% !important;
+
     &::after,
     &::before {
       animation-duration: 2s;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      background-color: $progress-bar-color;
+      width: 0%;
+      @include border-radius($border-radius);
+    }
+
+    &::after {
+      animation-name: progress-bar-indeterminate-after;
+      background-color: inherit;
       content: "";
       display: block;
       position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
-      width: 0%;
-      @include border-radius($border-radius);
     }
-    &::after {
-      animation-name: progress-indeterminate-after;
-    }
+
     &::before {
-      animation-name: progress-indeterminate-before;
+      animation-name: progress-bar-indeterminate-before;
+      background-image: none;
+      // position
+        right: auto;
+      z-index: 0;
     }
   }
 
-  @keyframes progress-indeterminate-after {
+  @keyframes progress-bar-indeterminate-after {
     0% {
       // position
         left: 0%;
@@ -121,7 +125,7 @@
     }
   }
 
-  @keyframes progress-indeterminate-before {
+  @keyframes progress-bar-indeterminate-before {
     0%,
     62.5% {
       // position
@@ -144,31 +148,3 @@
       width: 25%;
     }
   }
-
-  .progress-animated[value],
-  .progress-indeterminate[value] {
-    &::-ms-fill {
-      background-color: transparent;
-    }
-    &::-moz-progress-bar {
-      background-color: transparent;
-    }
-    &::-webkit-progress-value {
-      background-color: transparent;
-    }
-  }
-
-  // colour
-    @each $color in $palettes {
-      $i: index($palettes, $color);
-
-      .progress-animated,
-      .progress-indeterminate {
-        &.progress-#{$color} {
-          &::after,
-          &::before {
-            background-color: nth($palettes-color, $i);
-          }
-        }
-      }
-    }

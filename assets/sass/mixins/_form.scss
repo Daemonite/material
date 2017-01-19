@@ -1,56 +1,41 @@
-@mixin floating-label-size($floating-label-height, $floating-label-padding-top, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
-  $form-control-padding-top: ($floating-label-height - $floating-label-padding-top - $line-height - ($height - $padding-top - $line-height));
+@mixin floating-label-size($font-size, $height, $padding-top, $padding-bottom) {
+  $floating-label-line-height:      ($height - $padding-top - $padding-bottom);
+  $floating-label-scale-percentage: ($floating-label-font-size-focus / $font-size);
 
-  margin-bottom: $margin-bottom;
-  padding-top: $floating-label-padding-top;
+  padding-top: ($floating-label-line-height * $floating-label-scale-percentage);
 
   > label {
     font-size: $font-size;
-    line-height: $line-height;
+    line-height: $floating-label-line-height;
     // position
-      top: ($floating-label-padding-top + $form-control-padding-top);
+      top: ($floating-label-line-height * $floating-label-scale-percentage + $padding-top);
   }
 
   &.has-value > label,
   &.is-focused > label {
-    // position
-      top: $floating-label-padding-top;
-    transform: scale($floating-label-font-size-focus / $font-size);
-  }
-
-  > .form-control {
-    padding-top: $form-control-padding-top;
-  }
-
-  > select.form-control {
-    background-position: 100% ($form-control-padding-top + ($line-height - $material-icon-size / $font-size-root) / 2);
+    transform: scale($floating-label-scale-percentage);
   }
 }
 
-@mixin form-control-size($border-width, $font-size, $height, $line-height, $margin-bottom, $padding-top) {
+@mixin form-control-size($border-width, $font-size, $height, $padding-top, $padding-bottom) {
   font-size: $font-size;
-  line-height: $line-height;
-  margin-bottom: $margin-bottom;
-  padding: $padding-top 0 ($height - $padding-top - $line-height - $border-width / $font-size-root);
+  height: $height;
+  line-height: ($height - $padding-top - $padding-bottom);
+  padding: $padding-top 0 ($padding-bottom - $border-width / $font-size-root * 1rem);
 
   @if $border-width != 0px {
     &:focus {
-      padding-bottom: ($height - $padding-top - $line-height - ($border-width + 1) / $font-size-root);
+      padding-bottom: ($padding-bottom - ($border-width + 1) / $font-size-root * 1rem);
     }
   }
 }
 
 @mixin form-control-validation($color) {
+  .col-form-label,
   .custom-control,
-  .form-check,
+  .form-check-label,
   .form-control-feedback,
-  .form-control-label,
-  // &.checkbox label,
-  // &.checkbox-inline label,
-  &.form-check label,
-  &.form-check-inline label {
-  // &.radio label,
-  // &.radio-inline label {
+  .form-control-label {
     color: $color;
   }
 

@@ -1,75 +1,10 @@
 //
 // make column
 //
-  @mixin make-grid-columns() {
-    %grid-column {
-      min-height: 1px;
-      position: relative;
-      @include make-gutters;
-
-      @if $enable-flex {
-        width: 100%;
-      }
-    }
-
-    $breakpoint-counter: 0;
-
-    @each $breakpoint in map-keys($grid-breakpoints) {
-      $breakpoint-counter: ($breakpoint-counter + 1);
-
-      .col-#{$breakpoint} {
-        @extend %grid-column;
-      }
-
-      @for $i from 1 through $grid-columns {
-        .col-#{$breakpoint}-#{$i} {
-          @extend %grid-column;
-        }
-      }
-
-      @include media-breakpoint-up($breakpoint) {
-        @if $enable-flex {
-          .col-#{$breakpoint} {
-            flex-basis: 0;
-            flex-grow: 1;
-            max-width: 100%;
-          }
-        }
-
-        @for $i from 1 through $grid-columns {
-          .col-#{$breakpoint}-#{$i} {
-            @include make-col($i);
-          }
-        }
-
-        @each $modifier in (pull, push) {
-          @for $i from 0 through $grid-columns {
-            .#{$modifier}-#{$breakpoint}-#{$i} {
-              @include make-col-modifier($i, $modifier);
-            }
-          }
-        }
-
-        @for $i from 0 through ($grid-columns - 1) {
-          @if $breakpoint-counter != 1 or $i != 0 {
-            .offset-#{$breakpoint}-#{$i} {
-              @include make-col-modifier($i, offset);
-            }
-          }
-        }
-      }
-    }
-  }
-
   // col
     @mixin make-col($size) {
-      @if $enable-flex {
-        flex: 0 0 percentage($size / $grid-columns);
-        max-width: percentage($size / $grid-columns);
-      } @else {
-        float: left;
-        width: percentage($size / $grid-columns);
-      }
+      flex: 0 0 percentage($size / $grid-columns);
+      max-width: percentage($size / $grid-columns);
     }
 
   // gutter
@@ -118,11 +53,8 @@
   @mixin make-container() {
     margin-right: auto;
     margin-left: auto;
-    @include make-gutters;
 
-    @if not $enable-flex {
-      @include clearfix;
-    }
+    @include make-gutters;
   }
 
   @mixin make-container-max-widths() {
@@ -138,12 +70,8 @@
 // make row
 //
   @mixin make-row() {
-    @include make-gutters(margin);
+    display: flex;
+    flex-wrap: wrap;
 
-    @if $enable-flex {
-      display: flex;
-      flex-wrap: wrap;
-    } @else {
-      @include clearfix;
-    }
+    @include make-gutters(margin);
   }

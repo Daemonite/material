@@ -2,23 +2,23 @@
 // appbar / toolbar (navbar)
 // based on https://material.google.com/components/toolbars.html#toolbars-usage
 //
-  $toolbar-border-color:     $border-color !default;
-  $toolbar-border-width:     $border-width !default;
-  $toolbar-color-dark:       $white-primary !default;
-  $toolbar-color-light:      $black-primary !default;
-  $toolbar-elevation-shadow: $elevation-shadow-4dp !default;
-  $toolbar-height:           3.5rem !default;
-  $toolbar-inner-spacer:     $spacer-md !default;
-  $toolbar-link-font-size:   1rem !default;
-  $toolbar-link-height:      2.25rem !default;
-  $toolbar-link-opacity:     0.7 !default;
-  $toolbar-link-padding-x:   $spacer-md-x !default;
-  $toolbar-link-padding-y:   (($toolbar-link-height - $toolbar-link-font-size) / 2) !default;
-  $toolbar-padding-x:        $spacer-md-x !default;
-  $toolbar-padding-y:        (($toolbar-height - $toolbar-link-height) / 2) !default;
-  $toolbar-toggler-bg-dark:  url("data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
-  $toolbar-toggler-bg-light: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.87' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
-  $toolbar-waterfall-bg:     $brand-color !default;
+  $toolbar-color-dark:          $black-primary !default;
+  $toolbar-color-light:         $white-primary !default;
+  $toolbar-element-bg-dark:     $black-divider !default;
+  $toolbar-element-bg-light:    $white-divider !default;
+  $toolbar-elevation-shadow:    $elevation-shadow-4dp !default;
+  $toolbar-height:              3.5rem !default;
+  $toolbar-link-font-size:      1rem !default;
+  $toolbar-link-height:         2.25rem !default;
+  $toolbar-link-opacity:        0.7 !default;
+  $toolbar-link-opacity-active: 1 !default;
+  $toolbar-link-padding-x:      $spacer-md-x !default;
+  $toolbar-link-padding-y:      (($toolbar-link-height - $toolbar-link-font-size) / 2) !default;
+  $toolbar-padding-x:           $spacer-md-x !default;
+  $toolbar-padding-y:           (($toolbar-height - $toolbar-link-height) / 2) !default;
+  $toolbar-toggler-bg-dark:     url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.87' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+  $toolbar-toggler-bg-light:    url("data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+  $toolbar-waterfall-bg:        $brand-color !default;
 
 //
 // button
@@ -96,7 +96,6 @@
   $card-spacer-inner-y:          $spacer-md-y !default;
   $card-spacer-outer-x:          $spacer-sm-x !default;
   $card-spacer-outer-y:          $spacer-sm-y !default;
-  $card-title-additonal-margin:  $spacer-sm-y !default;
 
 //
 // chip (label)
@@ -135,7 +134,7 @@
   $table-bg:                 $white-primary !default;
   $table-bg-accent:          $palette-grey-100 !default;
   $table-bg-hover:           $palette-grey-200 !default;
-  $table-border-color:       $border-color !default;
+  $table-border-color:       $border-color-solid !default;
   $table-border-width:       $border-width !default;
   $table-cell-padding-x:     1.75rem !default;
   $table-cell-padding-x-alt: $spacer-lg-x !default;
@@ -184,24 +183,17 @@
   $expansion-panel-bg:                  $white-primary !default;
   $expansion-panel-bg-active:           $palette-grey-200 !default;
   $expansion-panel-bg-disabled:         $expansion-panel-bg !default;
-  $expansion-panel-body-spacer-x:       $spacer-lg-x !default;
-  $expansion-panel-body-spacer-y:       $spacer-md-y !default;
   $expansion-panel-border-color:        $border-color !default;
   $expansion-panel-border-width:        $border-width !default;
   $expansion-panel-color:               $black-primary !default;
+  $expansion-panel-color-active:        $expansion-panel-color !default;
   $expansion-panel-color-disabled:      $black-hint !default;
   $expansion-panel-elevation-shadow:    $elevation-shadow-2dp !default;
   $expansion-panel-font-size:           0.9375rem !default;
   $expansion-panel-font-size-secondary: 0.75rem !default;
-  $expansion-panel-footer-spacer-x:     $spacer-sm-x !default;
-  $expansion-panel-footer-spacer-y:     $spacer-md-y !default;
   $expansion-panel-height:              3rem !default;
-  $expansion-panel-icon-color:          $black-hint !default;
-  $expansion-panel-icon-color-active:   $black-secondary !default;
-  $expansion-panel-margin-between:      1rem !default;
-  $expansion-panel-margin-bottom:       $spacer-md-y !default;
-  $expansion-panel-spacer-x:            $spacer-lg-x !default;
-  $expansion-panel-spacer-y:            (($expansion-panel-height - $expansion-panel-font-size * $line-height-base) / 2) !default;
+  $expansion-panel-inner-spacer-x:      $spacer-lg-x !default;
+  $expansion-panel-inner-spacer-y:      ($expansion-panel-inner-spacer-x / 2) !default;
 
 //
 // menu (dropdown)
@@ -222,6 +214,8 @@
   $menu-link-height-cascading:  2rem !default;
   $menu-link-padding:           (($menu-link-height - $menu-line-height) / 2) $spacer-md-x !default;
   $menu-link-padding-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) $spacer-lg-x !default;
+  $menu-min-width:              7rem !default;
+  $menu-min-width-cascading:    20rem !default;
   $menu-padding-y:              $spacer-sm-y !default;
   $menu-padding-y-cascading:    $spacer-md-y !default;
 
@@ -284,12 +278,12 @@
 // progress
 // based on https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators
 //
-  $progress-bar-color:              $palette-indigo-500 !default;
+  $progress-bar-bg:                 $palette-indigo-500 !default;
+  $progress-bar-mask:               $white-secondary !default;
   $progress-height:                 0.25rem !default;
-  $progress-margin-bottom:          $spacer-md-y !default;
 
   // circular
-  $progress-circular-color:         $progress-bar-color !default;
+  $progress-circular-bg:            $progress-bar-bg !default;
   $progress-circular-height:        2.5rem !default;
   $progress-circular-spinner-width: 0.25rem !default;
 
@@ -347,18 +341,19 @@
 // tab (nav-tab)
 // based on https://material.google.com/components/tabs.html#tabs-specs
 //
-  $nav-tab-border-color:      $black-divider !default;
-  $nav-tab-indicator-bg:      $brand-color-accent !default;
-  $nav-tab-indicator-height:  2px !default;
-  $nav-tab-link-font-size:    0.875rem !default;
-  $nav-tab-link-font-weight:  $font-weight-medium !default;
-  $nav-tab-link-height:       3rem !default;
-  $nav-tab-link-opacity:      0.7 !default;
-  $nav-tab-link-max-width:    16.5rem !default;
-  $nav-tab-link-min-width:    4.5rem !default;
-  $nav-tab-link-min-width-lg: 10rem !default;
-  $nav-tab-link-padding-x:    0.75rem !default;
-  $nav-tab-link-padding-x-lg: 1.5rem !default;
+  $nav-tab-border-color:         $black-divider !default;
+  $nav-tab-indicator-bg:         $brand-color-accent !default;
+  $nav-tab-indicator-height:     2px !default;
+  $nav-tab-link-font-size:       0.875rem !default;
+  $nav-tab-link-font-weight:     $font-weight-medium !default;
+  $nav-tab-link-height:          3rem !default;
+  $nav-tab-link-opacity:         0.7 !default;
+  $nav-tab-link-opacity-visible: 1 !default;
+  $nav-tab-link-max-width:       16.5rem !default;
+  $nav-tab-link-min-width:       4.5rem !default;
+  $nav-tab-link-min-width-lg:    10rem !default;
+  $nav-tab-link-padding-x:       0.75rem !default;
+  $nav-tab-link-padding-x-lg:    1.5rem !default;
 
 //
 // text field (form)
@@ -375,18 +370,18 @@
   $textfield-font-size:          1rem !default;
   $textfield-font-size-lg:       2.125rem !default;
   $textfield-font-size-sm:       0.8125rem !default;
-  $textfield-height:             2.5rem !default;
+  $textfield-height:             2.25rem !default;
   $textfield-height-lg:          3.75rem !default;
-  $textfield-height-sm:          2.25rem !default;
-  $textfield-line-height:        1.5rem !default;
-  $textfield-line-height-lg:     2.5rem !default;
-  $textfield-line-height-sm:     1.125rem !default;
+  $textfield-height-sm:          2rem !default;
   $textfield-margin-bottom:      0.5rem !default;
   $textfield-margin-bottom-lg:   0.75rem !default;
   $textfield-margin-bottom-sm:   0.25rem !default;
-  $textfield-padding-top:        0.75rem !default;
-  $textfield-padding-top-lg:     0.875rem !default;
-  $textfield-padding-top-sm:     0.625rem !default;
+  $textfield-padding-bottom:     0.5rem !default;
+  $textfield-padding-bottom-lg:  0.5rem !default;
+  $textfield-padding-bottom-sm:  0.5rem !default;
+  $textfield-padding-top:        0.5rem !default;
+  $textfield-padding-top-lg:     0.5rem !default;
+  $textfield-padding-top-sm:     0.25rem !default;
 
 //
 // text field: floating label (form: floating label)

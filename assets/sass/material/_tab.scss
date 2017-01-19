@@ -3,34 +3,21 @@
 //
 
 .nav-tabs {
-  line-height: 0;
-  position: relative;
-
-  @if $enable-flex {
-    display: flex;
-    flex-wrap: none;
-  } @else {
-    letter-spacing: -0.25em;
-    white-space: nowrap;
-  }
-
-  .nav-item {
-    line-height: 0;
-
-    @if not $enable-flex {
-      display: inline-block;
-      letter-spacing: normal;
-      white-space: normal;
-    }
-  }
+  box-shadow: inset 0 -1px 0 $nav-tab-border-color;
 
   .nav-link {
+    align-items: center;
     color: inherit;
+    display: flex;
     font-size: $nav-tab-link-font-size;
     font-weight: $nav-tab-link-font-weight;
+    height: 100%;
+    justify-content: center;
     line-height: 1;
+    min-height: $nav-tab-link-height;
     opacity: $nav-tab-link-opacity;
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
+    position: relative;
     text-transform: uppercase;
     @include transition-standard(background-color, opacity);
 
@@ -47,19 +34,6 @@
       @include transition-standard(opacity);
     }
 
-    @if $enable-flex {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      min-height: $nav-tab-link-height;
-    } @else {
-      display: table-cell;
-      height: $nav-tab-link-height;
-      text-align: center;
-      vertical-align: middle;
-    }
-
     @include media-breakpoint-up(lg) {
       padding-right: $nav-tab-link-padding-x-lg;
       padding-left: $nav-tab-link-padding-x-lg;
@@ -72,12 +46,12 @@
 
       &:active,
       &.active {
-        opacity: 1;
+        opacity: $nav-tab-link-opacity-visible;
       }
 
       &.active {
         &::before {
-          opacity: 1;
+          opacity: $nav-tab-link-opacity-visible;
         }
       }
 
@@ -85,112 +59,73 @@
       &.disabled {
         background-color: transparent;
         color: $nav-link-color-disabled;
-        opacity: 1;
-      }
-  }
-}
-
-.nav-tabs-material {
-  .nav-link {
-    &::before {
-      transition: none;
-    }
-
-    // active, focus, hover
-      &.active::before {
-        transition-delay: $transition-duration;
-        transition-duration: 0s;
-        transition-property: opacity;
+        opacity: $nav-tab-link-opacity-visible;
       }
   }
 }
 
 // variation
-  .nav-tabs-bordered {
-    box-shadow: 0 1px 0 $nav-tab-border-color;
-  }
-
-  .nav-tabs-centered {
-    @if $enable-flex {
-      justify-content: center;
-    } @else {
-      text-align: center;
+  .nav-tabs {
+    &.border-0,
+    &.border-bottom-0 {
+      box-shadow: none;
     }
-  }
 
-  .nav-tabs-fixed {
-    @if $enable-flex {
-      .nav-item {
-        flex-basis: 0;
-        flex-grow: 1;
+    &.nav-justified {
+      .nav-link {
         min-width: $nav-tab-link-min-width;
+
         @include media-breakpoint-up(lg) {
           min-width: $nav-tab-link-min-width-lg;
         }
       }
-    } @else {
-      letter-spacing: normal;
-      width: 100%;
+    }
 
-      .nav-item {
-        display: table-cell;
-        min-width: $nav-tab-link-min-width;
-        width: 1%;
-      }
+    &.nav-scrollable {
+      overflow-x: auto;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
 
       .nav-link {
-        max-width: 100%;
-        width: 99999px;
-      }
-    }
-
-    .nav-link {
-      @include text-truncate;
-    }
-  }
-
-  .nav-tabs-scrollable {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-
-    .nav-link {
-      max-width: $nav-tab-link-max-width;
-      @include text-truncate;
-
-      @if $enable-flex {
+        max-width: $nav-tab-link-max-width;
         min-width: $nav-tab-link-min-width;
+
         @include media-breakpoint-up(lg) {
           min-width: $nav-tab-link-min-width-lg;
         }
-      } @else {
-        width: $nav-tab-link-min-width;
-        @include media-breakpoint-up(lg) {
-          width: $nav-tab-link-min-width-lg;
-        }
       }
     }
   }
 
-//
-// indicator
-//
-  .nav-tabs-indicator {
-    background-color: $nav-tab-indicator-bg;
-    height: $nav-tab-indicator-height;
-    display: none;
-    position: absolute;
-      bottom: 0;
+  .nav-tabs-material {
+    position: relative;
 
-    &.animate {
-      transition: left ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2), right $transition-duration $transition-timing-function-standard;
+    .nav-link::before {
+      transition: none;
+    }
 
-      &.reverse {
-        transition: left $transition-duration $transition-timing-function-standard, right ($transition-duration / 2) $transition-timing-function-standard ($transition-duration / 2);
+    .nav-tabs-indicator {
+      background-color: $nav-tab-indicator-bg;
+      height: $nav-tab-indicator-height;
+      display: none;
+      position: absolute;
+        bottom: 0;
+
+      &.show {
+        display: block;
       }
     }
 
-    &.in {
-      display: block;
-    }
+    // animation
+      &.animate {
+        .nav-link::before {
+          opacity: 0;
+        }
+
+        .nav-tabs-indicator {
+          transition-duration: $transition-duration;
+          transition-property: left, right;
+          transition-timing-function: $transition-timing-function-standard;
+        }
+      }
   }

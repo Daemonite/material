@@ -1,43 +1,36 @@
 .input-group {
-  margin-bottom: $textfield-margin-bottom;
+  display: flex;
   position: relative;
   width: 100%;
 
-  @if $enable-flex {
-    display: flex;
-  } @else {
-    border-collapse: separate;
-    display: table;
-  }
-
   .form-control {
-    margin-bottom: 0;
-    position: relative;
-
-    @if $enable-flex {
-      flex-grow: 1;
-    } @else {
-      display: table-cell;
-      width: 100%;
-    }
+    align-self: center;
+    flex: 1 1 auto;
+    width: 1%;
   }
 }
 
 .input-group-addon {
+  align-items: center;
   color: inherit;
-  font-size: $textfield-font-size;
-  line-height: $textfield-line-height;
-  margin: 0 $spacer-md-x;
-  min-width: ($textfield-height + $textfield-margin-bottom);
-  padding-top: $textfield-padding-top;
-  text-align: center;
-  vertical-align: top;
+  display: flex;
+  font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size);
+  justify-content: center;
+  line-height: 1;
+  min-width: $textfield-height;
   white-space: nowrap;
 
-  @if not $enable-flex {
-    display: table-cell;
-    width: 1%;
+  + .form-control,
+  .form-control + & {
+    margin-left: $input-group-addon-margin-x;
   }
+}
+
+.input-group-btn {
+  display: flex;
+  justify-content: center;
+  margin-right: $input-group-addon-margin-x;
+  margin-left: $input-group-addon-margin-x;
 
   &:first-child {
     margin-left: 0;
@@ -46,24 +39,33 @@
   &:last-child {
     margin-right: 0;
   }
+
+  .btn {
+    min-width: 0;
+    @include border-radius(0);
+
+    &:first-child {
+      @include border-left-radius($border-radius);
+    }
+
+    &:last-child {
+      @include border-right-radius($border-radius);
+    }
+  }
 }
 
 // size
   .input-group-addon {
     &.form-control-lg,
     .input-group-lg > & {
-      font-size: $textfield-font-size-lg;
-      line-height: $textfield-line-height-lg;
-      min-width: ($textfield-height-lg + $textfield-margin-bottom-lg);
-      padding-top: $textfield-padding-top-lg;
+      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-lg);
+      min-width: $textfield-height-lg;
     }
 
     &.form-control-sm,
     .input-group-sm > & {
-      font-size: $textfield-font-size-sm;
-      line-height: $textfield-line-height-sm;
-      min-width: ($textfield-height-sm + $textfield-margin-bottom-sm);
-      padding-top: $textfield-padding-top-sm;
+      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-sm);
+      min-width: $textfield-height-sm;
     }
   }
 

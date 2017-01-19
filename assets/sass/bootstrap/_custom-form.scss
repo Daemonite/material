@@ -9,7 +9,7 @@
 //
   .custom-file {
     cursor: pointer;
-    display: block;
+    display: inline-block;
     height: $textfield-height;
     max-width: 100%;
     position: relative;
@@ -25,38 +25,36 @@
       left: 0;
     user-select: none;
     z-index: 1;
-    @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-line-height, $textfield-margin-bottom, $textfield-padding-top);
+    @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
     @include transition-standard(border-bottom-color);
 
-    @each $lang, $text in map-get($custom-file-text, placeholder) {
+    @each $lang, $text in $custom-file-text {
       &:lang(#{$lang})::after {
         content: $text;
       }
     }
 
     &::before {
-      @include reset-to-material-icons($textfield-font-size);
-      color: $textfield-hint-color;
-      height: $textfield-height;
-      padding-top: $textfield-padding-top;
+      background-color: transparent;
+      background-image: $custom-file-button-bg;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: $material-icon-size $material-icon-size;
+      content: "";
+      opacity: $custom-file-button-opacity;
       position: absolute;
-        top: 0;
+        top: $textfield-padding-top;
         right: 0;
         bottom: 0;
+      width: $material-icon-size;
       z-index: 2;
-      @include transition-standard(color);
-    }
-
-    @each $lang, $text in map-get($custom-file-text, button-label) {
-      &:lang(#{$lang})::before {
-        content: $text;
-      }
+      @include transition-standard(opacity);
     }
 
     // active, focus, hover
       @include active-focus-hover {
         &::before {
-          color: $textfield-color;
+          opacity: $custom-file-button-opacity-visible;
         }
       }
   }

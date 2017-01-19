@@ -5,11 +5,11 @@
  */
 const FloatingLabel = (($) => {
   // constants >>>
-    const DATA_API_KEY        = '.data-api';
-    const DATA_KEY            = 'md.floatinglabel';
-    const EVENT_KEY           = `.${DATA_KEY}`;
-    const NAME                = 'floatinglabel';
-    const NO_CONFLICT         = $.fn[NAME];
+    const DATA_API_KEY = '.data-api';
+    const DATA_KEY     = 'md.floatinglabel';
+    const EVENT_KEY    = `.${DATA_KEY}`;
+    const NAME         = 'floatinglabel';
+    const NO_CONFLICT  = $.fn[NAME];
 
     const ClassName = {
       IS_FOCUSED : 'is-focused',
