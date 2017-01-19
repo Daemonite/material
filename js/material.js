@@ -185,6 +185,7 @@ $(function () {
  * Material
  */
 if (typeof jQuery === 'undefined') {
+<<<<<<< HEAD
 	throw new Error('Material\'s JavaScript requires jQuery')
 }
 
@@ -193,6 +194,16 @@ if (typeof jQuery === 'undefined') {
 	if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {
 		throw new Error('Material\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
 	}
+=======
+  throw new Error('Material\'s JavaScript requires jQuery')
+}
+
++function ($) {
+  var version = $.fn.jquery.split(' ')[0].split('.')
+  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {
+    throw new Error('Material\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
+  }
+>>>>>>> master
 }(jQuery);
 
 +function ($) {
@@ -318,8 +329,13 @@ var NavDrawer = function ($) {
 
   var ClassName = {
     BACKDROP: 'navdrawer-backdrop',
+<<<<<<< HEAD
     IN: 'in',
     OPEN: 'navdrawer-open'
+=======
+    OPEN: 'navdrawer-open',
+    SHOW: 'show'
+>>>>>>> master
   };
 
   var Default = {
@@ -388,7 +404,11 @@ var NavDrawer = function ($) {
         $(document).off(Event.FOCUSIN);
         $(this._content).off(Event.MOUSEDOWN_DISMISS);
 
+<<<<<<< HEAD
         $(this._element).off(Event.CLICK_DISMISS).removeClass(ClassName.IN);
+=======
+        $(this._element).off(Event.CLICK_DISMISS).removeClass(ClassName.SHOW);
+>>>>>>> master
 
         if (Util.supportsTransitionEnd()) {
           $(this._element).one(Util.TRANSITION_END, $.proxy(this._hideNavdrawer, this, hideClassName)).emulateTransitionEnd(TRANSITION_DURATION);
@@ -516,7 +536,11 @@ var NavDrawer = function ($) {
             Util.reflow(this._backdrop);
           }
 
+<<<<<<< HEAD
           $(this._backdrop).addClass(ClassName.IN);
+=======
+          $(this._backdrop).addClass(ClassName.SHOW);
+>>>>>>> master
 
           if (!callback) {
             return;
@@ -529,7 +553,11 @@ var NavDrawer = function ($) {
 
           $(this._backdrop).one(Util.TRANSITION_END, callback).emulateTransitionEnd(TRANSITION_DURATION_BACKDROP);
         } else if (this._backdrop && !this._isShown) {
+<<<<<<< HEAD
           $(this._backdrop).removeClass(ClassName.IN);
+=======
+          $(this._backdrop).removeClass(ClassName.SHOW);
+>>>>>>> master
 
           var callbackRemove = function callbackRemove() {
             _this5._removeBackdrop();
@@ -565,7 +593,11 @@ var NavDrawer = function ($) {
           Util.reflow(this._element);
         }
 
+<<<<<<< HEAD
         $(this._element).addClass(ClassName.IN);
+=======
+        $(this._element).addClass(ClassName.SHOW);
+>>>>>>> master
         this._enforceFocus();
 
         var shownEvent = $.Event(Event.SHOWN, {
@@ -666,6 +698,7 @@ var TabSwitch = function ($) {
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
   var NO_CONFLICT = $.fn[NAME];
+<<<<<<< HEAD
   var TRANSITION_DURATION = 450;
 
   var ClassName = {
@@ -675,6 +708,16 @@ var TabSwitch = function ($) {
     MATERIAL: 'nav-tabs-material',
     REVERSE: 'reverse',
     SCROLLABLE: 'nav-tabs-scrollable'
+=======
+  var TRANSITION_DURATION = 300;
+
+  var ClassName = {
+    ANIMATE: 'animate',
+    INDICATOR: 'nav-tabs-indicator',
+    MATERIAL: 'nav-tabs-material',
+    SCROLLABLE: 'nav-tabs-scrollable',
+    SHOW: 'show'
+>>>>>>> master
   };
 
   var Event = {
@@ -683,7 +726,12 @@ var TabSwitch = function ($) {
 
   var Selector = {
     DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
+<<<<<<< HEAD
     TAB_NAV: '.nav-tabs'
+=======
+    NAV: '.nav-tabs',
+    NAV_ITEM: '.nav-item'
+>>>>>>> master
   };
   // <<< constants
 
@@ -710,21 +758,32 @@ var TabSwitch = function ($) {
           this._createIndicator();
         }
 
+<<<<<<< HEAD
         var elLeft = $(element).offset().left;
         var elWidth = $(element).outerWidth();
+=======
+        var elLeft = $(element).closest(Selector.NAV_ITEM).offset().left;
+        var elWidth = $(element).closest(Selector.NAV_ITEM).outerWidth();
+>>>>>>> master
         var navLeft = $(this._nav).offset().left;
         var navScrollLeft = $(this._nav).scrollLeft();
         var navWidth = $(this._nav).outerWidth();
 
         if (relatedTarget !== undefined) {
+<<<<<<< HEAD
           var relatedLeft = $(relatedTarget).offset().left;
           var relatedWidth = $(relatedTarget).outerWidth();
+=======
+          var relatedLeft = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
+          var relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
+>>>>>>> master
 
           $(this._navindicator).css({
             left: relatedLeft + navScrollLeft - navLeft,
             right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
           });
 
+<<<<<<< HEAD
           $(this._navindicator).addClass(ClassName.IN);
           Util.reflow(this._navindicator);
 
@@ -734,6 +793,13 @@ var TabSwitch = function ($) {
             if (relatedLeft > elLeft) {
               $(this._navindicator).addClass(ClassName.REVERSE);
             }
+=======
+          $(this._navindicator).addClass(ClassName.SHOW);
+          Util.reflow(this._navindicator);
+
+          if (supportsTransition) {
+            $(this._nav).addClass(ClassName.ANIMATE);
+>>>>>>> master
           }
         }
 
@@ -743,7 +809,12 @@ var TabSwitch = function ($) {
         });
 
         var complete = function complete() {
+<<<<<<< HEAD
           $(_this8._navindicator).removeClass(ClassName.ANIMATE).removeClass(ClassName.IN).removeClass(ClassName.REVERSE);
+=======
+          $(_this8._nav).removeClass(ClassName.ANIMATE);
+          $(_this8._navindicator).removeClass(ClassName.SHOW);
+>>>>>>> master
         };
 
         if (!supportsTransition) {
@@ -766,7 +837,11 @@ var TabSwitch = function ($) {
       key: '_jQueryInterface',
       value: function _jQueryInterface(relatedTarget) {
         return this.each(function () {
+<<<<<<< HEAD
           var nav = $(this).closest(Selector.TAB_NAV)[0];
+=======
+          var nav = $(this).closest(Selector.NAV)[0];
+>>>>>>> master
 
           if (!nav) {
             return;
