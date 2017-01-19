@@ -10,13 +10,17 @@
     padding-top: ($toolbar-height * 2);
 
     @include media-breakpoint-up(lg) {
-      margin-left: $navdrawer-width-mobile;
+      .navdrawer-permanent + {
+        margin-left: $navdrawer-width-mobile;
+      }
     }
   }
 
   .doc-main {
     @include media-breakpoint-up(lg) {
-      margin-left: $navdrawer-width-mobile;
+      .navdrawer-permanent + {
+        margin-left: $navdrawer-width-mobile;
+      }
     }
   }
 
@@ -24,6 +28,8 @@
     position: fixed;
 
     @include media-breakpoint-up(lg) {
-      margin-left: $navdrawer-width-mobile;
+      .navdrawer-permanent + {
+        margin-left: $navdrawer-width-mobile;
+      }
     }
   }
