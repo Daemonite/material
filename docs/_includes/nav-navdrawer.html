@@ -1,0 +1,43 @@
+<div class="navdrawer navdrawer-permanent doc-navdrawer" id="{{ site.id.navdrawer }}">
+  <div class="navdrawer-content">
+    <div class="navdrawer-header">
+      <a class="navbar-brand px-0" href="{{ site.url }}/index.html">{{ site.title }}</a>
+    </div>
+    <nav class="navdrawer-nav">
+
+    {% assign page_slug = page.title | slugify %}
+
+    {% for group in site.data.nav %}
+
+      {% assign class_collapsed = 'collapsed' %}
+      {% assign class_show = '' %}
+      {% assign group_slug = group.title | slugify %}
+
+      {% if group_slug == page.group %}
+        {% assign class_collapsed ='' %}
+        {% assign class_show = 'show' %}
+      {% endif %}
+
+        <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">{{ group.title }}</a>
+        <div class="collapse {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+
+          {% for doc in group.pages %}
+
+            {% assign class_active = '' %}
+            {% assign doc_slug = doc.title | slugify %}
+
+            {% if doc_slug == page_slug and group_slug == page.group %}
+              {% assign class_active = 'active' %}
+            {% endif %}
+
+            <a class="nav-item nav-link font-weight-normal pl-lg py-sm {{ class_active }}" href="{{ site.url }}/gh-pages/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html">{{ doc.title }}</a>
+
+          {% endfor %}
+
+        </div>
+
+    {% endfor %}
+
+    </nav>
+  </div>
+</div>
