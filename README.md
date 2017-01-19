@@ -11,13 +11,13 @@ Detailed [documentation site](http://daemonite.github.io/material/) is work in p
 
 ### Primary
 
-The primary goal of this project is to give all Bootstrap components and elements a Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents a final outcome that is in line with the principles and specifics of Google Material Design.
+The primary goal of this project is to give all Bootstrap components and elements a Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents them a final outcome that is in line with the principles and specifics of Google Material Design.
 
 Therefore, the Bootstrap's [documentation](https://v4-alpha.getbootstrap.com/getting-started/introduction/) can serve as a valid documentation for this project as well. Replacing `bootstrap.min.css` on the site with `material.min.css` from this project without any other changes will transform all components and elements into a materialised look.
 
 ### Secondary
 
-A secondary goal of this project is to add support of some unique Material Design components such as floating action buttons, pickers and steppers to name a few, which cannot be achieved by transforming existing Bootstrap components or elements.
+A secondary goal of this project is to add support of some unique Material Design components such as floating action buttons, pickers and steppers, to name a few, which cannot be achieved by transforming existing Bootstrap components or elements.
 
 Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation (work-in-progress).
 
