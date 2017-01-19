@@ -9,6 +9,12 @@
     background-size: cover;
     padding-top: ($toolbar-height * 2);
 
+    @include media-breakpoint-down(sm) {
+      h1 {
+        @include typography-display-3;
+      }
+    }
+
     @include media-breakpoint-up(lg) {
       .navdrawer-permanent ~ & {
         margin-left: $navdrawer-width-mobile;
