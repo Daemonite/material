@@ -1,6 +1,6 @@
 /*!
  * global util js
- * based on bootstrap's (v4.0.0-alpha.5) util.js
+ * based on bootstrap's (v4.0.0-alpha.6) util.js
  */
 const Util = (($) => {
   let transition = false;

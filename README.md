@@ -23,7 +23,7 @@ Because these components will require additional markup (some may require additi
 
 ## Supported Bootstrap 4 Components
 
-Currently based on __Bootstrap v4.0.0-alpha.5__.
+Currently based on __Bootstrap v4.0.0-alpha.6__.
 
 | Bootstrap 4 Components       | Equivalent Material Design Components                                                     |
 | ---                          | ---                                                                                       |
