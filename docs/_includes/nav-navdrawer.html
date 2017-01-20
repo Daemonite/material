@@ -30,7 +30,7 @@
               {% assign class_active = 'active' %}
             {% endif %}
 
-            <a class="nav-item nav-link font-weight-normal pl-lg py-sm {{ class_active }}" href="{{ site.url }}/gh-pages/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html">{{ doc.title }}</a>
+            <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.url }}/gh-pages/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html"><span class="font-weight-normal">{{ doc.title }}</span></a>
 
           {% endfor %}
 
