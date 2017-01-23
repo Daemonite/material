@@ -10,7 +10,9 @@ group: material
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Cicrcular progress
+## Circular progress
+
+Circular progress is built with a group of HTML elements, below is a detailed example.
 
 {% example html %}
 <div class="progress-circular">
