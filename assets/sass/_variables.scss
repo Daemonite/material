@@ -24,6 +24,17 @@
   }
 }
 
+// replace `$key` with `$replace` in `$content`
+@function str-replace($content, $key, $replace: "") {
+  $index: str-index($content, $key);
+
+  @if $index {
+    @return str-slice($content, 1, $index - 1) + $replace + str-replace(str-slice($content, $index + str-length($key)), $key, $replace);
+  }
+
+  @return $content;
+}
+
 // sass option
   $enable-grid-classes:      true !default;
   $enable-hover-media-query: false !default;
