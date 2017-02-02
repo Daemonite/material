@@ -4,7 +4,6 @@
   border: 0;
   box-shadow: map-get($btn-elevation-shadow, shadow);
   color: $btn-color;
-  cursor: pointer;
   display: inline-block;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
@@ -76,7 +75,6 @@
       color: $btn-color-disabled;
       cursor: $cursor-disabled;
       opacity: 1;
-      pointer-events: none;
 
       &::before,
       .waves-ripple {
@@ -105,6 +103,11 @@
         @include border-top-radius(0);
       }
     }
+}
+
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
 }
 
 // colour
