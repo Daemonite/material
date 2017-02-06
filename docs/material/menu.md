@@ -9,7 +9,7 @@ Menus appear upon interaction with a button, action, or other control. They disp
 
 Menu items may be disabled if not applicable to a certain context. Contextual menus dynamically change their available menu items based on the current state of the app.
 
-Most of the details about menu have been covered in Bootstrap dropdowns docuementation. Please refer to [this page]({{ site.url }}/gh-pages/components/dropdowns/index.html) for more details.
+Most of the details about menu have been covered in Bootstrap dropdowns docuementation. Please refer to [this page]({{ site.url }}/components/dropdowns/index.html) for more details.
 
 ## Contents
 

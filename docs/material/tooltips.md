@@ -14,4 +14,4 @@ Tooltips identify an element when they are activated. They may contain brief hel
 
 ## Usage
 
-Most of the details about Material tooltips have been covered in Bootstrap tooltips docuementation. Please refer to [this page]({{ site.url }}/gh-pages/components/tooltips/index.html) for more details.
+Most of the details about Material tooltips have been covered in Bootstrap tooltips docuementation. Please refer to [this page]({{ site.url }}/components/tooltips/index.html) for more details.

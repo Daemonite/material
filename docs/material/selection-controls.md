@@ -18,11 +18,11 @@ Three types of selection controls are covered in this guidance:
 
 ## Checkboxes
 
-Most of the details about Material checkboxes have been covered in Bootstrap custom form elements docuementation. Please refer to [this page]({{ site.url }}/gh-pages/components/forms/index.html#checkboxes) for more details.
+Most of the details about Material checkboxes have been covered in Bootstrap custom form elements docuementation. Please refer to [this page]({{ site.url }}/components/forms/index.html#checkboxes) for more details.
 
 ## Radio buttons
 
-Most of the details about Material radio buttons have been covered in Bootstrap custom form elements docuementation. Please refer to [this page]({{ site.url }}/gh-pages/components/forms/index.html#radios) for more details.
+Most of the details about Material radio buttons have been covered in Bootstrap custom form elements docuementation. Please refer to [this page]({{ site.url }}/components/forms/index.html#radios) for more details.
 
 ## Switches
 

@@ -19,7 +19,7 @@ Material buttons trigger an ink reaction on press. They may display text, imager
 
 Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.
 
-Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Bootstrap buttons documentation]({{ site.url}}/gh-pages/components/buttons/index.html#outline-buttons).
+Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Bootstrap buttons documentation]({{ site.url }}/components/buttons/index.html#outline-buttons).
 
 {% example html %}
 <button type="button" class="btn btn-outline">Flat</button>
@@ -29,7 +29,7 @@ Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat butt
 
 Raised buttons are rectangular-shaped buttons. They may be used inline. They lift and display ink reactions on press.
 
-Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Bootstrap buttons documentation]({{ site.url}}/gh-pages/components/buttons/index.html#examples).
+Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Bootstrap buttons documentation]({{ site.url }}/components/buttons/index.html#examples).
 
 {% example html %}
 <button type="button" class="btn">Raised</button>
