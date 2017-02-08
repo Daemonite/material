@@ -7,11 +7,16 @@
   padding-bottom: $toolbar-padding-y;
   position: relative;
 
-  & > .container {
+  > .container {
     align-items: center;
     display: flex;
     padding-right: 0;
     padding-left: 0;
+
+    @include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 }
 
@@ -191,12 +196,6 @@
 
       &#{$infix} {
         @include media-breakpoint-down($breakpoint) {
-          display: block;
-
-          > .container {
-            display: block;
-          }
-
           .navbar-collapse {
             clear: both;
 
@@ -218,6 +217,7 @@
           > .container {
             align-items: center;
             display: flex;
+            flex-wrap: nowrap;
           }
 
           .navbar-collapse {
