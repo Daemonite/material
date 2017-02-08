@@ -1,52 +1,54 @@
 <div class="navdrawer navdrawer-permanent doc-navdrawer" id="{{ site.id.navdrawer }}">
-  <div class="navdrawer-content d-flex flex-column">
-    <div class="navdrawer-header">
-      <a class="navbar-brand px-0" href="{{ site.urlbase }}/index.html">{{ site.title }}</a>
-    </div>
+  <div class="navdrawer-content">
+    <div class="d-flex flex-column doc-navdrawer-body">
+      <div class="navdrawer-header">
+        <a class="navbar-brand px-0" href="{{ site.urlbase }}/index.html">{{ site.title }}</a>
+      </div>
 
-    <nav class="navdrawer-nav">
+      <nav class="navdrawer-nav">
 
-    {% assign page_slug = page.title | slugify %}
+      {% assign page_slug = page.title | slugify %}
 
-    {% for group in site.data.nav %}
+      {% for group in site.data.nav %}
 
-      {% assign class_collapsed = 'collapsed' %}
-      {% assign class_show = '' %}
-      {% assign group_slug = group.title | slugify %}
+        {% assign class_collapsed = 'collapsed' %}
+        {% assign class_show = '' %}
+        {% assign group_slug = group.title | slugify %}
 
-      {% if group_slug == page.group %}
-        {% assign class_collapsed ='' %}
-        {% assign class_show = 'show' %}
-      {% endif %}
+        {% if group_slug == page.group %}
+          {% assign class_collapsed ='' %}
+          {% assign class_show = 'show' %}
+        {% endif %}
 
-        <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">{{ group.title }}</a>
-        <div class="collapse {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">{{ group.title }}</a>
+          <div class="collapse {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
 
-          {% for doc in group.pages %}
+            {% for doc in group.pages %}
 
-            {% assign class_active = '' %}
-            {% assign doc_slug = doc.title | slugify %}
+              {% assign class_active = '' %}
+              {% assign doc_slug = doc.title | slugify %}
 
-            {% if doc_slug == page_slug and group_slug == page.group %}
-              {% assign class_active = 'active' %}
-            {% endif %}
+              {% if doc_slug == page_slug and group_slug == page.group %}
+                {% assign class_active = 'active' %}
+              {% endif %}
 
-            <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.url }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html"><span class="font-weight-normal">{{ doc.title }}</span></a>
+              <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.url }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html"><span class="font-weight-normal">{{ doc.title }}</span></a>
 
-          {% endfor %}
+            {% endfor %}
 
+          </div>
+
+      {% endfor %}
+
+      </nav>
+
+      <div class="mt-auto">
+        <div class="navdrawer-divider"></div>
+        <div class="navdrawer-nav">
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank"><i class="material-icons mr-md">code</i>Fork me on GitHub</a>
+          <a class="nav-item nav-link text-black-secondary" href="http://labs.daemon.com.au/" target="_blank"><i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation</a>
+          <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-md text-danger">favorite</i>Made by Daemon</a>
         </div>
-
-    {% endfor %}
-
-    </nav>
-
-    <div class="mt-auto">
-      <div class="navdrawer-divider"></div>
-      <div class="navdrawer-nav">
-        <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank"><i class="material-icons mr-md">code</i>Fork me on GitHub</a>
-        <a class="nav-item nav-link text-black-secondary" href="http://labs.daemon.com.au/" target="_blank"><i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation</a>
-        <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-md text-danger">favorite</i>Made by Daemon</a>
       </div>
     </div>
   </div>
