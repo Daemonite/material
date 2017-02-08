@@ -1,5 +1,422 @@
 //
-// includes normalize and reboot from bootstrap's (v4.0.0-alpha.6)
+// reboot from bootstrap's (v4.0.0-beta)
 //
-  @import "_normalize.scss";
-  @import "_reboot.scss";
+
+// box-sizing
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+  @at-root {
+    @-ms-viewport { width: device-width; }
+  }
+
+// document
+  body {
+    background-color: $body-bg;
+    color: $body-color;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    margin: 0;
+  }
+
+  html {
+    font-family: sans-serif;
+    ine-height: 1.15;
+    -ms-overflow-style: scrollbar;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  [tabindex="-1"]:focus {
+    outline: 0 !important;
+  }
+
+// clickable element
+  a,
+  area,
+  button,
+  input,
+  label,
+  select,
+  summary,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+// code
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+  }
+
+// content grouping
+  figcaption,
+  figure,
+  main {
+    display: block;
+  }
+
+  figure {
+    margin: 1em 40px;
+  }
+
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+
+// embedded content
+  audio,
+  video {
+    display: inline-block;
+  }
+
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+
+// figure
+  figure {
+    margin: 0 0 1rem;
+  }
+
+// form
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+  }
+
+  button,
+  html [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+  }
+
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  button:-moz-focusring,
+  [type="button"]:-moz-focusring,
+  [type="reset"]:-moz-focusring,
+  [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  button,
+  input {
+    overflow: visible;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button {
+    // active, focus, hover
+      &:focus {
+        outline: 1px dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+      }
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+
+    // disabled
+      &:disabled {
+        cursor: $cursor-disabled;
+      }
+  }
+
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="time"] {
+    -webkit-appearance: listbox;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  legend {
+    color: inherit;
+    display: block;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+    width: 100%;
+    @include typography-headline;
+  }
+
+  output {
+    display: inline-block;
+  }
+
+  progress {
+    vertical-align: baseline;
+  }
+
+  select[multiple],
+  select[size] {
+    overflow: auto;
+  }
+
+  textarea {
+    overflow: auto;
+    resize: vertical;
+  }
+
+  [type="number"]::-webkit-inner-spin-button,
+  [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+
+  [type="search"] {
+    outline-offset: -2px;
+    -webkit-appearance: textfield;
+  }
+
+  [type="search"]::-webkit-search-cancel-button,
+  [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  ::-webkit-file-upload-button {
+    font: inherit;
+    -webkit-appearance: button;
+  }
+
+// hidden
+  [hidden] {
+    display: none !important;
+  }
+
+// images
+  img {
+    border-style: none;
+    vertical-align: middle;
+  }
+
+  svg:not(:root) {
+    overflow: hidden;
+  }
+
+// interactive
+  details,
+  menu {
+    display: block;
+  }
+
+  summary {
+    display: list-item;
+  }
+
+// link
+  a {
+    background-color: transparent;
+    color: $link-color;
+    text-decoration: $link-decoration;
+    -webkit-text-decoration-skip: objects;
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: $link-color-active;
+        text-decoration: $link-decoration-active;
+      }
+  }
+
+  a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+
+    // active, focus, hover
+      @include active-focus-hover {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+  }
+
+// section
+  article,
+  aside,
+  footer,
+  header,
+  nav,
+  section {
+    display: block;
+  }
+
+// scripting
+  canvas {
+    display: inline-block;
+  }
+
+  template {
+    display: none;
+  }
+
+// table
+  caption {
+    caption-side: bottom;
+    color: $table-caption-color;
+    min-height: $table-thead-cell-height;
+    padding: $table-thead-padding-y $table-cell-padding-x-alt;
+    text-align: left;
+    @include typography-caption;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+  }
+
+// typography
+  abbr[data-original-title],
+  abbr[title] {
+    border-bottom: 0;
+    cursor: help;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+
+  address {
+    font-style: normal;
+    line-height: inherit;
+    margin-bottom: 1rem;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+  }
+
+  blockquote {
+    margin: 0 0 1rem;
+  }
+
+  dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+  }
+
+  dfn {
+    font-style: italic;
+  }
+
+  dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  dt {
+    font-weight: $dt-font-weight;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  mark {
+    background-color: #ff0;
+    color: #000;
+  }
+
+  ol,
+  ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  ol ol,
+  ol ul,
+  ul ol,
+  ul ul {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  small {
+    font-size: 80%;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sub {
+    // position
+      bottom: -0.25em;
+  }
+
+  sup {
+    // position
+      top: -0.5em;
+  }
+
