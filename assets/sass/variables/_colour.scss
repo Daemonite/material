@@ -280,20 +280,33 @@
 // based on https://material.google.com/style/color.html#color-text-background-colors
 //
   $black:                         #000000 !default;
-  $black-primary:                 rgba(red($black), green($black), blue($black), 0.87) !default;
-  $black-secondary:               rgba(red($black), green($black), blue($black), 0.54) !default;
-  $black-hint:                    rgba(red($black), green($black), blue($black), 0.38) !default;
-  $black-divider:                 rgba(red($black), green($black), blue($black), 0.12) !default;
+
+  $black-primary-opacity:         0.87 !default;
+  $black-secondary-opacity:       0.54 !default;
+  $black-hint-opacity:            0.38 !default;
+  $black-divider-opacity:         0.12 !default;
+
   $black-primary-solid:           #212121 !default;
   $black-secondary-solid:         #757575 !default;
   $black-hint-solid:              #9e9e9e !default;
   $black-divider-solid:           #e1e1e1 !default;
 
+  $black-primary:                 rgba(red($black), green($black), blue($black), $black-primary-opacity) !default;
+  $black-secondary:               rgba(red($black), green($black), blue($black), $black-secondary-opacity) !default;
+  $black-hint:                    rgba(red($black), green($black), blue($black), $black-hint-opacity) !default;
+  $black-divider:                 rgba(red($black), green($black), blue($black), $black-divider-opacity) !default;
+
   $white:                         #ffffff !default;
-  $white-primary:                 rgba(red($white), green($white), blue($white), 1.00) !default;
-  $white-secondary:               rgba(red($white), green($white), blue($white), 0.70) !default;
-  $white-hint:                    rgba(red($white), green($white), blue($white), 0.50) !default;
-  $white-divider:                 rgba(red($white), green($white), blue($white), 0.12) !default;
+
+  $white-primary-opacity:         1.00 !default;
+  $white-secondary-opacity:       0.70 !default;
+  $white-hint-opacity:            0.50 !default;
+  $white-divider-opacity:         0.12 !default;
+
+  $white-primary:                 rgba(red($white), green($white), blue($white), $white-primary-opacity) !default;
+  $white-secondary:               rgba(red($white), green($white), blue($white), $white-secondary-opacity) !default;
+  $white-hint:                    rgba(red($white), green($white), blue($white), $white-hint-opacity) !default;
+  $white-divider:                 rgba(red($white), green($white), blue($white), $white-divider-opacity) !default;
 
 //
 // offwhite
