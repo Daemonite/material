@@ -13,6 +13,9 @@ $(function () {
         e.preventDefault();
       });
 
+    // form: indeterminate checkbox
+      $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true);
+
     // modal
       $('#exampleModal').on('show.bs.modal', function (event) {
         var $button   = $(event.relatedTarget);
