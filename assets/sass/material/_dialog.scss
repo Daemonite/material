@@ -20,6 +20,10 @@
     vertical-align: middle;
     width: 1px;
   }
+
+  &.fade {
+    @include transition-standard-complex(opacity, transform);
+  }
 }
 
 .modal-open {
@@ -44,8 +48,13 @@
       left: 0;
     z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
 
-    &.fade {
+    &.fade,
+    &.fade.show {
       transform: none;
+    }
+
+    &.fade {
+      @include transition-standard-complex(opacity);
     }
   }
 

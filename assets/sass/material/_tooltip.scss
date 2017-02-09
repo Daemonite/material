@@ -6,9 +6,12 @@
   z-index: $tooltip-zindex;
   @include reset-text;
 
-  &,
   &.fade,
   &.fade.show {
+    transform: none;
+  }
+
+  &.fade {
     transition-property: opacity;
   }
 
@@ -40,7 +43,7 @@
   text-align: center;
   transform: scale(0.87);
   @include border-radius($border-radius);
-  @include transition-acceleration(transform);
+  @include transition-standard(transform);
 }
 
 // show
@@ -49,11 +52,12 @@
 
     .tooltip-inner {
       transform: scale(1);
-      @include transition-deceleration(transform);
     }
   }
 
+//
 // desktop
+//
   @include media-breakpoint-up(md) {
     .tooltip {
       font-size: $tooltip-font-size-md-up;

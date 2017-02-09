@@ -25,11 +25,10 @@
 .fade {
   opacity: 0;
   transform: scale(0.87);
-  @include transition-acceleration(opacity, transform);
+  @include transition-standard(opacity, transform);
 
   &.show {
     opacity: 1;
     transform: scale(1);
-    @include transition-deceleration(opacity, transform);
   }
 }

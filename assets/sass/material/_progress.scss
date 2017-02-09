@@ -37,10 +37,18 @@
   .progress-bar-animated {
     &::before {
       animation-direction: reverse;
-      animation-duration: $transition-duration;
+      animation-duration: $transition-duration-mobile;
       animation-iteration-count: infinite;
       animation-name: progress-bar-animation;
       animation-timing-function: linear;
+
+      @include media-breakpoint-up(sm) {
+        animation-duration: $transition-duration-tablet;
+      }
+
+      @include media-breakpoint-up(lg) {
+        animation-duration: $transition-duration-desktop;
+      }
     }
   }
 
