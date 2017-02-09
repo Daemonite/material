@@ -24,6 +24,16 @@ $(function () {
         e.preventDefault();
       });
 
+    // modal
+      $('#exampleModal').on('show.bs.modal', function (event) {
+        var $button   = $(event.relatedTarget);
+        var $modal    = $(this);
+        var recipient = $button.data('whatever');
+
+        $modal.find('.modal-title').text('New message to ' + recipient);
+        $modal.find('.modal-body input').val(recipient);
+      });
+
     // progress
       $('.bd-toggle-animated-progress').on('click', function () {
         $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated');
