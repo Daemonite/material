@@ -19,9 +19,15 @@ $(function () {
       fontweight : 'normal'
     });
 
-    $('.bd-content [href="#"]').click(function (e) {
-      e.preventDefault();
-    });
+    // disable empty links in doc
+      $('.bd-content [href="#"]').click(function (e) {
+        e.preventDefault();
+      });
+
+    // progress
+      $('.bd-toggle-animated-progress').on('click', function () {
+        $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated');
+      });
 
   // material pickers
     $('#exampleInputDatePicker1').pickdate();
