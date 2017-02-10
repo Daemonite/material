@@ -31,6 +31,13 @@ $(function () {
         $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated');
       });
 
+    // tooltip
+      $('[data-toggle="popover"]').popover();
+      $('[data-toggle="tooltip"]').tooltip();
+
+      $('.popover-test').popover();
+      $('.tooltip-test').tooltip();
+
   // material pickers
     $('#exampleInputDatePicker1').pickdate();
 
