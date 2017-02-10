@@ -30,6 +30,10 @@ $(function () {
 
       $('.popover-test').popover();
       $('.tooltip-test').tooltip();
+
+    // vendor: anchor.js
+      anchors.options.placement = 'left';
+      anchors.add('.bd-content > h1, .bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5');
     
     // vendor: clipboard.js
       $('.highlight').each(function () {
