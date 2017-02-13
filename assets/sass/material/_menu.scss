@@ -5,10 +5,6 @@
 
 .dropdown-menu,
 .menu {
-  background-clip: padding-box;
-  background-color: $menu-bg;
-  border: 0;
-  box-shadow: map-get($menu-elevation-shadow, shadow);
   color: inherit;
   display: none;
   float: left;
@@ -22,20 +18,42 @@
     left: 0;
   text-align: left;
   z-index: map-get($menu-elevation-shadow, elevation);
+
+  &::before {
+    background-clip: padding-box;
+    background-color: $menu-bg;
+    box-shadow: map-get($menu-elevation-shadow, shadow);
+    content: "";
+    display: block;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    z-index: -1;
+  }
 }
 
 .dropdown-menu {
   // position
     top: 100%;
-  transform-origin: 0 0;
   @include border-bottom-radius($border-radius);
+
+  &,
+  &::before {
+    transform-origin: 0 0;
+  }
 }
 
 .menu {
   // position
     top: calc(50% - #{$menu-link-height / 2 + $menu-padding-y});
-  transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
   @include border-radius($border-radius);
+
+  &,
+  &::before {
+    transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
+  }
 }
 
 .dropup {
@@ -48,15 +66,23 @@
   .dropdown-menu {
     // position
       bottom: 100%;
-    transform-origin: 0 100%;
     @include border-top-radius($border-radius);
     @include border-bottom-radius(0);
+
+    &,
+    &::before {
+      transform-origin: 0 100%;
+    }
   }
 
   .menu {
     // position
       bottom: calc(50% - #{$menu-link-height / 2 + $menu-padding-y});
-    transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+
+    &,
+    &::before {
+      transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+    }
   }
 }
 
@@ -68,67 +94,86 @@
 
     > .dropdown-menu,
     > .menu {
-      animation-duration: $transition-duration-mobile;
-      animation-timing-function: $transition-timing-function-standard;
       display: block;
 
-      @include media-breakpoint-up(sm) {
-        animation-duration: $transition-duration-tablet;
+      &,
+      &::before,
+      .dropdown-item {
+        animation-duration: $transition-duration-mobile;
+        animation-timing-function: $transition-timing-function-standard;
+
+        @include media-breakpoint-up(sm) {
+          animation-duration: $transition-duration-tablet;
+        }
+
+        @include media-breakpoint-up(lg) {
+          animation-duration: $transition-duration-desktop;
+        }
       }
 
-      @include media-breakpoint-up(lg) {
-        animation-duration: $transition-duration-desktop;
+      &::before {
+        animation-name: dropdown-menu-show;
+      }
+
+      .dropdown-item {
+        animation-name: dropdown-item-show;
       }
     }
 
     > .dropdown-menu {
-      animation-name: dropdown-open;
-    }
-
-    > .menu {
-      animation-name: menu-open;
+      animation-name: dropdown-menu-animation;
     }
   }
 
-  @keyframes dropdown-open {
+  @keyframes dropdown-item-show {
     0% {
       opacity: 0;
-      // position
-        top: 50%;
-      transform: scale(0.87, 0.54);
     }
     50% {
-      opacity: 1;
+      opacity: 0;
     }
     100% {
       opacity: 1;
-      // position
-        top: 100%;
-      transform: scale(1, 1);
     }
   }
 
-  @keyframes menu-open {
+  @keyframes dropdown-menu-animation {
     0% {
-      opacity: 0;
-      transform: scale(0.87, 0.54);
-    }
-    50% {
-      opacity: 1;
+      top: 50%;
     }
     100% {
-      opacity: 1;
+      top: 100%;
+    }
+  }
+
+  @keyframes dropdown-menu-show {
+    0% {
+      transform: scale(0, 0);
+    }
+    20% {
+      transform: scale((1 / 3), 0);
+    }
+    40% {
+      transform: scale((2 / 3), 0.25);
+    }
+    60% {
+      transform: scale(1, 0.5);
+    }
+    80% {
+      transform: scale(1, 0.75);
+    }
+    100% {
       transform: scale(1, 1);
     }
   }
 
   .dropup.show {
     > .dropdown-menu {
-      animation-name: dropup-open;
+      animation-name: dropup-menu-animation;
     }
   }
 
-  @keyframes dropup-open {
+  @keyframes dropup-menu-animation {
     0% {
       opacity: 0;
       // position
@@ -204,6 +249,7 @@
     padding: $menu-link-padding;
     position: relative;
     text-align: inherit;
+    transform-origin: 0 0;
     white-space: nowrap;
     width: 100%;
     @include transition-standard(background-color, color);
