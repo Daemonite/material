@@ -5411,15 +5411,28 @@ a.chip-warning:hover {
 .menu-right {
   right: 0;
   left: auto;
+}
+
+.dropdown-menu-right, .dropdown-menu-right::before {
   -webkit-transform-origin: 100% 0;
        -o-transform-origin: 100% 0;
           transform-origin: 100% 0;
 }
-.dropup .dropdown-menu-right, .dropup
-.menu-right {
+.dropup .dropdown-menu-right, .dropup .dropdown-menu-right::before {
   -webkit-transform-origin: 100% 100%;
        -o-transform-origin: 100% 100%;
           transform-origin: 100% 100%;
+}
+
+.menu-right, .menu-right::before {
+  -webkit-transform-origin: 100% 2rem;
+       -o-transform-origin: 100% 2rem;
+          transform-origin: 100% 2rem;
+}
+.dropup .menu-right, .dropup .menu-right::before {
+  -webkit-transform-origin: 100% calc(100% - 2rem);
+       -o-transform-origin: 100% calc(100% - 2rem);
+          transform-origin: 100% calc(100% - 2rem);
 }
 
 .dropdown-menu-sm,

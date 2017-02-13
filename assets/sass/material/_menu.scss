@@ -204,10 +204,27 @@
     // position
       right: 0;
       left: auto;
-    transform-origin: 100% 0;
+  }
 
-    .dropup & {
-      transform-origin: 100% 100%;
+  .dropdown-menu-right {
+    &,
+    &::before {
+      transform-origin: 100% 0;
+
+      .dropup & {
+        transform-origin: 100% 100%;
+      }
+    }
+  }
+
+  .menu-right {
+    &,
+    &::before {
+      transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+
+      .dropup & {
+        transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+      }
     }
   }
 
