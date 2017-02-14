@@ -6825,6 +6825,7 @@ a.chip-warning:hover {
           background-size: 24px 24px;
   display: block;
   height: 24px;
+  pointer-events: none;
   position: absolute;
   top: -0.125rem;
   left: 0;
@@ -6846,6 +6847,8 @@ a.chip-warning:hover {
   position: absolute;
   top: 0;
   left: 0;
+  -webkit-transform: scale(0.87, 0.87) translateZ(0);
+          transform: scale(0.87, 0.87) translateZ(0);
   width: 48px;
   z-index: -1;
   -webkit-transition-duration: 0.3s;
@@ -6874,17 +6877,16 @@ a.chip-warning:hover {
             transition-duration: 0.2s;
   }
 }
-.custom-control-indicator:active::before {
-  opacity: 1;
-}
 
 .custom-control-input {
   opacity: 0;
   position: absolute;
   z-index: -1;
 }
-.custom-control-input:focus ~ .custom-control-indicator::before {
+.custom-control-input:active ~ .custom-control-indicator::before, .custom-control-input:focus ~ .custom-control-indicator::before {
   opacity: 1;
+  -webkit-transform: scale(1, 1) translateZ(0);
+          transform: scale(1, 1) translateZ(0);
 }
 .custom-control-input:checked ~ .custom-control-indicator::before {
   background-color: rgba(255, 64, 129, 0.12);
@@ -6893,6 +6895,9 @@ a.chip-warning:hover {
 .custom-control-input:disabled ~ .custom-control-description {
   color: rgba(0, 0, 0, 0.26);
   cursor: not-allowed;
+}
+.custom-control-input:disabled ~ .custom-control-indicator {
+  pointer-events: auto;
 }
 .custom-control-input:disabled ~ .custom-control-indicator::before {
   display: none;

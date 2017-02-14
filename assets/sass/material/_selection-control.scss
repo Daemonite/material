@@ -13,6 +13,7 @@
   background-size: $selection-control-indicator-size $selection-control-indicator-size;
   display: block;
   height: $selection-control-indicator-size;
+  pointer-events: none;
   position: absolute;
     top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
     left: 0;
@@ -31,15 +32,11 @@
     position: absolute;
       top: 0;
       left: 0;
+    transform: scale(0.87, 0.87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
     z-index: -1;
     @include transition-standard(background-color, opacity, transform);
   }
-
-  // active, focus, hover
-    &:active::before {
-      opacity: 1;
-    }
 }
 
 .custom-control-input {
@@ -48,8 +45,12 @@
   z-index: -1;
 
   // active, focus, hover
-    &:focus ~ .custom-control-indicator::before {
-      opacity: 1;
+    &:active,
+    &:focus {
+      ~ .custom-control-indicator::before {
+        opacity: 1;
+        transform: scale(1, 1) translateZ(0);
+      }
     }
 
   // checked
@@ -66,6 +67,8 @@
       }
 
       .custom-control-indicator {
+        pointer-events: auto;
+
         &::before {
           display: none;
         }
