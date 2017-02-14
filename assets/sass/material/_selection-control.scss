@@ -8,7 +8,7 @@
 }
 
 .custom-control-indicator {
-  background-position: 50% 50%;
+  background-position: 0 0;
   background-repeat: no-repeat;
   background-size: $selection-control-indicator-size $selection-control-indicator-size;
   display: block;
@@ -17,7 +17,7 @@
     top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
     left: 0;
   user-select: none;
-  width: $selection-control-indicator-size;
+  width: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
 
   &::before {
     background-color: $selection-control-radial-bg;
