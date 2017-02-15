@@ -5,10 +5,8 @@
  */
 const ControlFocus = (($) => {
   // constants >>>
-    const DATA_KEY     = 'md.controlfocus';
-    const EVENT_KEY    = `.${DATA_KEY}`;
-    const NAME         = 'controlfocus';
-    const NO_CONFLICT  = $.fn[NAME];
+    const DATA_KEY  = 'md.controlfocus';
+    const EVENT_KEY = `.${DATA_KEY}`;
 
     const ClassName = {
       FOCUS : 'focus'
@@ -26,20 +24,20 @@ const ControlFocus = (($) => {
     };
 
     const Selector = {
-      DATA_PARENT : '.custom-control',
-      DATA_TOGGLE : '.custom-control-input'
+      CONTROL : '.custom-control',
+      INPUT   : '.custom-control-input'
     };
   // <<< constants
 
   $(document)
     .on(`${Event.BLUR}`,
-      Selector.DATA_TOGGLE,
+      Selector.INPUT,
       function (event) {
         $(event.target).removeClass(ClassName.FOCUS);
       }
     )
     .on(`${Event.FOCUS}`,
-      Selector.DATA_TOGGLE,
+      Selector.INPUT,
       function (event) {
         if (LastInteraction.IS_MOUSEDOWN === false) {
           $(event.target).addClass(ClassName.FOCUS);
@@ -47,13 +45,13 @@ const ControlFocus = (($) => {
       }
     )
     .on(`${Event.MOUSEDOWN}`,
-      Selector.DATA_PARENT,
+      Selector.CONTROL,
       function (event) {
         LastInteraction.IS_MOUSEDOWN = true;
       }
     )
     .on(`${Event.MOUSEUP}`,
-      Selector.DATA_PARENT,
+      Selector.CONTROL,
       function (event) {
         setTimeout(function () {
           LastInteraction.IS_MOUSEDOWN = false;
