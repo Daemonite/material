@@ -53,8 +53,8 @@ const FloatingLabel = (($) => {
 
     static _jQueryInterface(event) {
       return this.each(function () {
-        let data           = $(this).data(DATA_KEY);
-        let _event         = event ? event : 'change';
+        let data   = $(this).data(DATA_KEY);
+        let _event = event ? event : 'change';
 
         if (!data) {
           data = new FloatingLabel(this);
@@ -75,7 +75,7 @@ const FloatingLabel = (($) => {
   $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`,
     Selector.DATA_TOGGLE,
     function (event) {
-    let data          = $(this).data(DATA_KEY);
+    let data = $(this).data(DATA_KEY);
 
     FloatingLabel._jQueryInterface.call($(this), event.type);
   });

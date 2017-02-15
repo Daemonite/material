@@ -658,6 +658,54 @@ var NavDrawer = function ($) {
 }(jQuery);
 
 /*!
+ * selection control focus:
+ * chrome persists the focus style on checkboxes/radio buttons
+ * after clicking with the mouse
+ */
+var ControlFocus = function ($) {
+  // constants >>>
+  var DATA_KEY = 'md.controlfocus';
+  var EVENT_KEY = '.' + DATA_KEY;
+  var NAME = 'controlfocus';
+  var NO_CONFLICT = $.fn[NAME];
+
+  var ClassName = {
+    FOCUS: 'focus'
+  };
+
+  var LastInteraction = {
+    IS_MOUSEDOWN: false
+  };
+
+  var Event = {
+    BLUR: 'blur' + EVENT_KEY,
+    FOCUS: 'focus' + EVENT_KEY,
+    MOUSEDOWN: 'mousedown' + EVENT_KEY,
+    MOUSEUP: 'mouseup' + EVENT_KEY
+  };
+
+  var Selector = {
+    DATA_PARENT: '.custom-control',
+    DATA_TOGGLE: '.custom-control-input'
+  };
+  // <<< constants
+
+  $(document).on('' + Event.BLUR, Selector.DATA_TOGGLE, function (event) {
+    $(event.target).removeClass(ClassName.FOCUS);
+  }).on('' + Event.FOCUS, Selector.DATA_TOGGLE, function (event) {
+    if (LastInteraction.IS_MOUSEDOWN === false) {
+      $(event.target).addClass(ClassName.FOCUS);
+    }
+  }).on('' + Event.MOUSEDOWN, Selector.DATA_PARENT, function (event) {
+    LastInteraction.IS_MOUSEDOWN = true;
+  }).on('' + Event.MOUSEUP, Selector.DATA_PARENT, function (event) {
+    setTimeout(function () {
+      LastInteraction.IS_MOUSEDOWN = false;
+    }, 1);
+  });
+}(jQuery);
+
+/*!
  * tab indicator animation
  * requires bootstrap's (v4.0.0-alpha.6) tab.js
  */
