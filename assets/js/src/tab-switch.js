@@ -7,7 +7,7 @@ const TabSwitch = (($) => {
     const DATA_KEY            = 'md.tabswitch';
     const NAME                = 'tabswitch';
     const NO_CONFLICT         = $.fn[NAME];
-    const TRANSITION_DURATION = 300;
+    const TRANSITION_DURATION = 390;
 
     const ClassName = {
       ANIMATE    : 'animate',

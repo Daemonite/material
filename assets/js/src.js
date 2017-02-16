@@ -529,7 +529,7 @@ var TabSwitch = function ($) {
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
   var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 300;
+  var TRANSITION_DURATION = 390;
 
   var ClassName = {
     ANIMATE: 'animate',
