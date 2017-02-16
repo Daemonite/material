@@ -313,8 +313,8 @@ var NavDrawer = function ($) {
   var EVENT_KEY = '.' + DATA_KEY;
   var NAME = 'navdrawer';
   var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 375;
-  var TRANSITION_DURATION_BACKDROP = 225;
+  var TRANSITION_DURATION = 292.5;
+  var TRANSITION_DURATION_BACKDROP = 487.5;
 
   var ClassName = {
     BACKDROP: 'navdrawer-backdrop',
@@ -390,11 +390,7 @@ var NavDrawer = function ($) {
 
         $(this._element).off(Event.CLICK_DISMISS).removeClass(ClassName.SHOW);
 
-        if (Util.supportsTransitionEnd()) {
-          $(this._element).one(Util.TRANSITION_END, $.proxy(this._hideNavdrawer, this, hideClassName)).emulateTransitionEnd(TRANSITION_DURATION);
-        } else {
-          this._hideNavdrawer();
-        }
+        this._hideNavdrawer(hideClassName);
       }
     }, {
       key: 'show',
@@ -425,7 +421,8 @@ var NavDrawer = function ($) {
           });
         });
 
-        this._showBackdrop($.proxy(this._showElement, this, relatedTarget));
+        this._showBackdrop();
+        this._showElement(relatedTarget);
       }
     }, {
       key: 'toggle',
@@ -457,10 +454,11 @@ var NavDrawer = function ($) {
       value: function _hideNavdrawer(className) {
         var _this3 = this;
 
-        this._element.style.display = 'none';
-
         this._showBackdrop(function () {
           $(document.body).removeClass(className);
+
+          _this3._element.style.display = 'none';
+
           $(_this3._element).trigger(Event.HIDDEN);
         });
       }
