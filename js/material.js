@@ -457,6 +457,7 @@ var NavDrawer = function ($) {
         this._showBackdrop(function () {
           $(document.body).removeClass(className);
 
+          _this3._element.setAttribute('aria-hidden', 'true');
           _this3._element.style.display = 'none';
 
           $(_this3._element).trigger(Event.HIDDEN);
@@ -557,6 +558,7 @@ var NavDrawer = function ($) {
           document.body.appendChild(this._element);
         }
 
+        this._element.removeAttribute('aria-hidden');
         this._element.style.display = 'block';
 
         if (supportsTransition) {
