@@ -39,21 +39,21 @@ const TabSwitch = (($) => {
     }
 
     switch(element, relatedTarget) {
-      let supportsTransition = Util.supportsTransitionEnd();
+      const supportsTransition = Util.supportsTransitionEnd();
 
       if (!this._navindicator) {
         this._createIndicator();
       }
 
-      let elLeft        = $(element).closest(Selector.NAV_ITEM).offset().left;
-      let elWidth       = $(element).closest(Selector.NAV_ITEM).outerWidth();
-      let navLeft       = $(this._nav).offset().left;
-      let navScrollLeft = $(this._nav).scrollLeft();
-      let navWidth      = $(this._nav).outerWidth();
+      const elLeft        = $(element).closest(Selector.NAV_ITEM).offset().left;
+      const elWidth       = $(element).closest(Selector.NAV_ITEM).outerWidth();
+      const navLeft       = $(this._nav).offset().left;
+      const navScrollLeft = $(this._nav).scrollLeft();
+      const navWidth      = $(this._nav).outerWidth();
 
       if (relatedTarget !== undefined) {
-        let relatedLeft  = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
-        let relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
+        const relatedLeft  = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
+        const relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
 
         $(this._navindicator).css({
           left  : ((relatedLeft + navScrollLeft) - navLeft),
@@ -73,7 +73,7 @@ const TabSwitch = (($) => {
         right : (navWidth - ((elLeft + navScrollLeft) - navLeft + elWidth))
       });
 
-      let complete = () => {
+      const complete = () => {
         $(this._nav).removeClass(ClassName.ANIMATE);
         $(this._navindicator).removeClass(ClassName.SHOW);
       }
@@ -100,7 +100,7 @@ const TabSwitch = (($) => {
 
     static _jQueryInterface(relatedTarget) {
       return this.each(function () {
-        let nav = $(this).closest(Selector.NAV)[0];
+        const nav = $(this).closest(Selector.NAV)[0];
 
         if (!nav) {
           return;

@@ -66,8 +66,8 @@ const NavDrawer = (($) => {
         event.preventDefault();
       }
 
-      let hideClassName = `${ClassName.OPEN}-${this._config.type}`;
-      let hideEvent     = $.Event(Event.HIDE);
+      const hideClassName = `${ClassName.OPEN}-${this._config.type}`;
+      const hideEvent     = $.Event(Event.HIDE);
 
       $(this._element).trigger(hideEvent);
 
@@ -89,7 +89,7 @@ const NavDrawer = (($) => {
     }
 
     show(relatedTarget) {
-      let showEvent = $.Event(Event.SHOW, {
+      const showEvent = $.Event(Event.SHOW, {
         relatedTarget
       });
 
@@ -174,7 +174,7 @@ const NavDrawer = (($) => {
     }
 
     _showBackdrop(callback) {
-      let supportsTransition = Util.supportsTransitionEnd();
+      const supportsTransition = Util.supportsTransitionEnd();
 
       if (this._isShown) {
         this._backdrop = document.createElement('div');
@@ -218,7 +218,7 @@ const NavDrawer = (($) => {
       } else if (this._backdrop && !this._isShown) {
         $(this._backdrop).removeClass(ClassName.SHOW);
 
-        let callbackRemove = () => {
+        const callbackRemove = () => {
           this._removeBackdrop();
 
           if (callback) {
@@ -239,7 +239,7 @@ const NavDrawer = (($) => {
     }
 
     _showElement(relatedTarget) {
-      let supportsTransition = Util.supportsTransitionEnd();
+      const supportsTransition = Util.supportsTransitionEnd();
 
       if (!this._element.parentNode ||
         (this._element.parentNode.nodeType !== Node.ELEMENT_NODE)) {
@@ -256,11 +256,11 @@ const NavDrawer = (($) => {
       $(this._element).addClass(ClassName.SHOW);
       this._enforceFocus();
 
-      let shownEvent = $.Event(Event.SHOWN, {
+      const shownEvent = $.Event(Event.SHOWN, {
         relatedTarget
       });
 
-      let transitionComplete = () => {
+      const transitionComplete = () => {
         this._element.focus();
         $(this._element).trigger(shownEvent);
       };
@@ -280,13 +280,14 @@ const NavDrawer = (($) => {
 
     static _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        let data    = $(this).data(DATA_KEY);
-        let _config = $.extend(
+        const _config = $.extend(
           {},
           NavDrawer.Default,
           $(this).data(),
           typeof config === 'object' && config
         );
+
+        let data = $(this).data(DATA_KEY);
 
         if (!data) {
           data = new NavDrawer(this, _config);
@@ -307,14 +308,14 @@ const NavDrawer = (($) => {
   }
 
   $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    let selector = Util.getSelectorFromElement(this);
+    const selector = Util.getSelectorFromElement(this);
     let target;
 
     if (selector) {
       target = $(selector)[0];
     }
 
-    let config = $(target).data(DATA_KEY) ? 'toggle' : $.extend(
+    const config = $(target).data(DATA_KEY) ? 'toggle' : $.extend(
       {},
       $(target).data(),
       $(this).data()
@@ -324,7 +325,7 @@ const NavDrawer = (($) => {
       event.preventDefault();
     }
 
-    let $target = $(target).one(Event.SHOW, (showEvent) => {
+    const $target = $(target).one(Event.SHOW, (showEvent) => {
       if (showEvent.isDefaultPrevented()) {
         return;
       }

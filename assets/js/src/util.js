@@ -40,7 +40,7 @@ const Util = (($) => {
   }
 
   function toType(obj) {
-    return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
   }
 
   function transitionEndEmulator(duration) {
@@ -64,9 +64,9 @@ const Util = (($) => {
       return false;
     }
 
-    let el = document.createElement('material');
+    const el = document.createElement('material');
 
-    for (let name in TransitionEndEvent) {
+    for (const name in TransitionEndEvent) {
       if (el.style[name] !== undefined) {
         return { end: TransitionEndEvent[name] };
       }
@@ -75,7 +75,7 @@ const Util = (($) => {
     return false;
   }
 
-  let Util = {
+  const Util = {
     TRANSITION_END: 'mdTransitionEnd',
 
     getSelectorFromElement(element) {
@@ -109,17 +109,11 @@ const Util = (($) => {
     },
 
     typeCheckConfig(componentName, config, configTypes) {
-      for (let property in configTypes) {
+      for (const property in configTypes) {
         if (configTypes.hasOwnProperty(property)) {
-          let expectedTypes = configTypes[property];
-          let value         = config[property];
-          let valueType;
-
-          if (value && isElement(value)) {
-            valueType = 'element';
-          } else {
-            valueType = toType(value);
-          }
+          const expectedTypes = configTypes[property];
+          const value         = config[property];
+          const valueType     = value && isElement(value) ? 'element' : toType(value);
 
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(

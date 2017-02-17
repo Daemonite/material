@@ -81,8 +81,8 @@ var FloatingLabel = function ($) {
       key: '_jQueryInterface',
       value: function _jQueryInterface(event) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
           var _event = event ? event : 'change';
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new FloatingLabel(this);
@@ -104,8 +104,6 @@ var FloatingLabel = function ($) {
   }();
 
   $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
-    var data = $(this).data(DATA_KEY);
-
     FloatingLabel._jQueryInterface.call($(this), event.type);
   });
 
@@ -404,8 +402,9 @@ var NavDrawer = function ($) {
       key: '_jQueryInterface',
       value: function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
           var _config = $.extend({}, NavDrawer.Default, $(this).data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
+
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new NavDrawer(this, _config);
@@ -773,13 +772,7 @@ var Util = function ($) {
         if (configTypes.hasOwnProperty(property)) {
           var expectedTypes = configTypes[property];
           var value = config[property];
-          var valueType = void 0;
-
-          if (value && isElement(value)) {
-            valueType = 'element';
-          } else {
-            valueType = toType(value);
-          }
+          var valueType = value && isElement(value) ? 'element' : toType(value);
 
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
