@@ -167,6 +167,13 @@ module.exports = function(grunt) {
         }
       },
 
+      qunit: {
+        options: {
+          inject: 'assets/js/tests/unit/phantom.js'
+        },
+        files: 'assets/js/tests/index.html'
+      },
+
       sass: {
         material: {
           options: sassOptions,
