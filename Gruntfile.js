@@ -190,6 +190,11 @@ module.exports = function(grunt) {
       }
     },
 
+    scsslint: {
+      material: ['assets/sass/**/*.scss'],
+      project: ['assets/sass-project/**/*.scss']
+    },
+
     uglify: {
       material: {
         dest: 'js/material.min.js',
