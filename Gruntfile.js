@@ -1,314 +1,314 @@
 module.exports = function(grunt) {
-  'use strict';
+  'use strict'
 
-  require('load-grunt-tasks')(grunt);
-  require('time-grunt')(grunt);
-
-  // config
-    var concatBanner = '/*!\n' +
-                       ' * Material\n' +
-                       ' */\n' +
-                       'if (typeof jQuery === \'undefined\') {\n' +
-                       '  throw new Error(\'Material\\\'s JavaScript requires jQuery\')\n' +
-                       '}\n\n' +
-                       '+function ($) {\n' +
-                       '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
-                       '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
-                       '    throw new Error(\'Material\\\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
-                       '  }\n' +
-                       '}(jQuery);\n\n' +
-                       '+function ($) {\n' +
-                       '\'use strict\';\n\n';
-
-    var concatFooter = '\n}(jQuery);';
-
-    var postcssOptions = {
-      browsers: [
-        'Android 2.3',
-        'Android >= 4',
-        'Chrome >= 35',
-        'Edge >= 12',
-        'Explorer >= 10',
-        'Firefox >= 38',
-        'iOS >= 8',
-        'Opera >= 12',
-        'Safari >= 8'
-      ]
-    };
-
-    var sassOptions = {
-      precision: 6,
-      sourcemap: 'auto',
-      style:     'expanded',
-      trace:     true
-    };
+  require('load-grunt-tasks')(grunt)
+  require('time-grunt')(grunt)
 
   // project configuration
-    grunt.initConfig({
-      pkg: grunt.file.readJSON('package.json'),
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-      babel: {
-        material: {
-          options: {
-            'babelrc': false,
-            'plugins': [
-              'transform-es2015-modules-strip'
-            ],
-            'presets': [
-              'es2015'
+    banner: '/*!\n' +
+            ' * Material v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)\n' +
+            ' */\n\n' +
+            'if (typeof jQuery === \'undefined\') {\n' +
+            '  throw new Error(\'Material\\\'s JavaScript requires jQuery\')\n' +
+            '}\n\n' +
+            '+function ($) {\n' +
+            '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
+            '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
+            '    throw new Error(\'Material\\\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
+            '  }\n' +
+            '}(jQuery);\n',
+
+    babel: {
+      material: {
+        options: {
+          'babelrc': false,
+          'plugins': [
+            'transform-es2015-modules-strip'
+          ],
+          'presets': [
+            [
+              'es2015',
+              {
+                'loose': true,
+                'modules': false
+              }
             ]
-          },
-          dest: '<%= concat.babelpre.dest %>',
-          src: '<%= concat.babelpre.dest %>'
-        }
-      },
-
-      concat: {
-        babelpost: {
-          options: {
-            banner: concatBanner,
-            footer: concatFooter,
-            process: function(file, filepath) {
-              return file.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
-            },
-            stripBanners: {
-              block: false,
-              line: true
-            }
-          },
-          dest: '<%= babel.material.dest %>',
-          src: '<%= babel.material.dest %>'
-        },
-        babelpre: {
-          dest: 'assets/js/src.js',
-          src: 'assets/js/src/**/*.js'
-        },
-        material: {
-          dest: 'js/material.js',
-          src: [
-            'assets/js/addons/**/*.js',
-            'assets/js/addons-materialise/**/*.js',
-            '<%= concat.babelpost.dest %>',
           ]
         },
-        project: {
-          dest: 'js/project.js',
-          src: 'assets/js-project/**/*.js'
-        }
-      },
+        dest: '<%= concat.init.dest %>',
+        src: '<%= concat.init.dest %>'
+      }
+    },
 
-      connect: {
-        live: {
-          options: {
-            base: '',
-            keepalive: true,
-            hostname: '0.0.0.0',
-            port: '9999'
+    concat: {
+      init: {
+        options: {
+          banner: '+function () {\n',
+          footer: '\n}();',
+          process: function (src) {
+            return src.replace(/^(export|import).*/gm, '')
           }
         },
-        once: {
-          options: {
-            base: '',
-            keepalive: false,
-            hostname: '0.0.0.0',
-            port: '9999'
+        dest: 'assets/js/src.js',
+        src: 'assets/js/src/**/*.js'
+      },
+      material: {
+        options: {
+          banner: '<%= banner %>\n',
+          stripBanners: {
+            block: false,
+            line: true
           }
-        }
-      },
-
-      cssmin: {
-        material: {
-          dest: 'css/material.min.css',
-          src: '<%= postcss.material.dest %>'
         },
-        project: {
-          dest: 'css/project.min.css',
-          src: '<%= postcss.project.dest %>'
-        }
+        dest: 'js/material.js',
+        src: [
+          'assets/js/addons/**/*.js',
+          'assets/js/addons-materialise/**/*.js',
+          '<%= babel.material.dest %>',
+        ]
       },
+      project: {
+        dest: 'js/project.js',
+        src: 'assets/js-project/**/*.js'
+      }
+    },
 
-      jekyll: {
+    connect: {
+      live: {
         options: {
-          bundleExec: true,
-          config: '_config.yml',
-          incremental: false
-        },
-        material: {}
+          base: '',
+          keepalive: true,
+          hostname: '0.0.0.0',
+          port: '9999'
+        }
       },
-
-      postcss: {
+      once: {
         options: {
-          map: false,
-          processors: [
-            require('autoprefixer') (postcssOptions)
-          ]
-        },
-
-        material: {
-          dest: 'css/material.css',
-          src: '<%= sass.material.dest %>'
-        },
-        project: {
-          dest: 'css/project.css',
-          src: '<%= sass.project.dest %>'
+          base: '',
+          keepalive: false,
+          hostname: '0.0.0.0',
+          port: '9999'
         }
-      },
+      }
+    },
 
-      prettify: {
+    cssmin: {
+      options: {
+        rebaseTo: 'css',
+        report: 'gzip',
+        sourceMap: true
+      },
+      material: {
+        dest: 'css/material.min.css',
+        src: '<%= postcss.material.dest %>'
+      },
+      project: {
+        dest: 'css/project.min.css',
+        src: '<%= postcss.project.dest %>'
+      }
+    },
+
+    jekyll: {
+      options: {
+        bundleExec: true,
+        config: '_config.yml',
+        incremental: false
+      },
+      material: {}
+    },
+
+    postcss: {
+      options: {
+        map: {
+          annotation: true,
+          inline: false,
+          sourcesContent: true
+        },
+        processors: [
+          require('autoprefixer')({
+            browsers: [
+              'Android 2.3',
+              'Android >= 4',
+              'Chrome >= 35',
+              'Edge >= 12',
+              'Explorer >= 10',
+              'Firefox >= 38',
+              'iOS >= 8',
+              'Opera >= 12',
+              'Safari >= 8'
+            ]
+          })
+        ]
+      },
+      material: {
+        dest: 'css/material.css',
+        src: '<%= sass.material.dest %>'
+      },
+      project: {
+        dest: 'css/project.css',
+        src: '<%= sass.project.dest %>'
+      }
+    },
+
+    prettify: {
+      options: {
+        indent_inner_html: false
+      },
+      material: {
+        cwd: 'gh-pages/',
+        dest: 'gh-pages/',
+        expand: true,
+        ext: '.html',
+        src: ['**/*.html']
+      }
+    },
+
+    qunit: {
+      options: {
+        inject: 'assets/js/tests/unit/phantom.js'
+      },
+      files: 'assets/js/tests/index.html'
+    },
+
+    sass: {
+      options: {
+        precision: 6,
+        style: 'expanded'
+      },
+      material: {
+        dest: 'css/material.css',
+        src: 'assets/sass/material.scss'
+      },
+      project: {
+        dest: 'css/project.css',
+        src: 'assets/sass-project/project.scss'
+      }
+    },
+
+    uglify: {
+      material: {
+        dest: 'js/material.min.js',
+        src: '<%= concat.material.dest %>'
+      },
+      project: {
+        dest: 'js/project.min.js',
+        src: '<%= concat.project.dest %>'
+      }
+
+    },
+
+    watch: {
+      default: {
+        files: [
+          'assets/**/*.js',
+          'assets/**/*.scss'
+        ],
+        tasks: [
+          'default'
+        ]
+      },
+      material: {
+        files: [
+          'assets/js/**/*.js',
+          'assets/sass/**/*.scss'
+        ],
+        tasks: [
+          'material'
+        ]
+      },
+      project: {
+        files: [
+          'assets/js-project/**/*.js',
+          'assets/sass-project/**/*.scss'
+        ],
+        tasks: [
+          'project'
+        ]
+      }
+    },
+
+    // update package.json packages
+    devUpdate: {
+      default: {
         options: {
-          indent_inner_html: false
-        },
-        material: {
-          cwd: 'gh-pages/',
-          dest: 'gh-pages/',
-          expand: true,
-          ext: '.html',
-          src: ['**/*.html']
+          semver: false,
+          updateType: 'prompt'
         }
-      },
-
-      qunit: {
-        options: {
-          inject: 'assets/js/tests/unit/phantom.js'
-        },
-        files: 'assets/js/tests/index.html'
-      },
-
-      sass: {
-        material: {
-          options: sassOptions,
-
-          dest: 'css/material.css',
-          src: 'assets/sass/material.scss'
-        },
-        project: {
-          options: sassOptions,
-
-          dest: 'css/project.css',
-          src: 'assets/sass-project/project.scss'
-        }
-      },
-
-      uglify: {
-        material: {
-          dest: 'js/material.min.js',
-          src: '<%= concat.material.dest %>'
-        },
-        project: {
-          dest: 'js/project.min.js',
-          src: '<%= concat.project.dest %>'
-        }
-
-      },
-
-      watch: {
-        default: {
-          files: [
-            'assets/**/*.js',
-            'assets/**/*.scss'
-          ],
-          tasks: [
-            'default'
-          ]
-        },
-        material: {
-          files: [
-            'assets/js/**/*.js',
-            'assets/sass/**/*.scss'
-          ],
-          tasks: [
-            'material'
-          ]
-        },
-        project: {
-          files: [
-            'assets/js-project/**/*.js',
-            'assets/sass-project/**/*.scss'
-          ],
-          tasks: [
-            'project'
-          ]
-        }
-      },
-
-      // update package.json packages
-        devUpdate: {
-          default: {
-            options: {
-              semver: false,
-              updateType: 'prompt'
-            }
-          }
-        }
-    });
+      }
+    }
+  })
 
   // task registration
-    grunt.registerTask(
-      'default',
-      [
-        'material',
-        'project'
-      ]
-    );
-
-    grunt.registerTask(
-      'doc',
-      [
-        'jekyll:material',
-        'prettify:material'
-      ]
-    );
-
-    grunt.registerTask(
+  grunt.registerTask(
+    'default',
+    [
       'material',
-      [
-        'material-css',
-        'material-js'
-      ]
-    );
+      'project'
+    ]
+  )
 
-    grunt.registerTask(
+  grunt.registerTask(
+    'doc',
+    [
+      'jekyll:material',
+      'prettify:material'
+    ]
+  )
+
+  grunt.registerTask(
+    'material',
+    [
       'material-css',
-      [
-        'sass:material',
-        'postcss:material',
-        'cssmin:material'
-      ]
-    );
+      'material-js'
+    ]
+  )
 
-    grunt.registerTask(
-      'material-js',
-      [
-        'concat:babelpre',
-        'babel:material',
-        'concat:babelpost',
-        'concat:material',
-        'uglify:material'
-      ]
-    );
+  grunt.registerTask(
+    'material-css',
+    [
+      'sass:material',
+      'postcss:material',
+      'cssmin:material'
+    ]
+  )
 
-    grunt.registerTask(
-      'project',
-      [
-        'project-css',
-        'project-js'
-      ]
-    );
+  grunt.registerTask(
+    'material-js',
+    [
+      'concat:init',
+      'babel:material',
+      'concat:material',
+      'uglify:material'
+    ]
+  )
 
-    grunt.registerTask(
+  grunt.registerTask(
+    'project',
+    [
       'project-css',
-      [
-        'sass:project',
-        'postcss:project',
-        'cssmin:project'
-      ]
-    );
+      'project-js'
+    ]
+  )
 
-    grunt.registerTask(
-      'project-js',
-      [
-        'concat:project',
-        'uglify:project'
-      ]
-    );
-};
+  grunt.registerTask(
+    'project-css',
+    [
+      'sass:project',
+      'postcss:project',
+      'cssmin:project'
+    ]
+  )
+
+  grunt.registerTask(
+    'project-js',
+    [
+      'concat:project',
+      'uglify:project'
+    ]
+  )
+}

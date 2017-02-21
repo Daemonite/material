@@ -1,153 +1,159 @@
 $(function () {
 
-  // bootstrap doc js
-    // disable empty links in doc
-      $('.bd-content [href="#"]').click(function (e) {
-        e.preventDefault();
-      });
+  /*
+   * bootstrap doc js
+   */
 
-    // form: indeterminate checkbox
-      $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true);
+  // disable empty links in doc
+  $('.bd-content [href="#"]').click(function (e) {
+    e.preventDefault()
+  })
 
-    // modal: related target demo
-      $('#exampleModal').on('show.bs.modal', function (event) {
-        var $button   = $(event.relatedTarget);
-        var $modal    = $(this);
-        var recipient = $button.data('whatever');
+  // form: indeterminate checkbox
+  $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
 
-        $modal.find('.modal-title').text('New message to ' + recipient);
-        $modal.find('.modal-body input').val(recipient);
-      });
+  // modal: related target demo
+  $('#exampleModal').on('show.bs.modal', function (event) {
+    var $button   = $(event.relatedTarget)
+    var $modal    = $(this)
+    var recipient = $button.data('whatever')
 
-    // progress: activate animated progress bar
-      $('.bd-toggle-animated-progress').on('click', function () {
-        $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated');
-      });
+    $modal.find('.modal-title').text('New message to ' + recipient)
+    $modal.find('.modal-body input').val(recipient)
+  })
 
-    // tooltip
-      $('[data-toggle="popover"]').popover();
-      $('[data-toggle="tooltip"]').tooltip();
+  // progress: activate animated progress bar
+  $('.bd-toggle-animated-progress').on('click', function () {
+    $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated')
+  })
 
-      $('.popover-test').popover();
-      $('.tooltip-test').tooltip();
+  // tooltip
+  $('[data-toggle="popover"]').popover()
+  $('[data-toggle="tooltip"]').tooltip()
 
-    // vendor: anchor.js
-      anchors.options.placement = 'left';
-      anchors.add('.bd-content > h1, .bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5');
-    
-    // vendor: clipboard.js
-      $('.highlight').each(function () {
-        var btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>';
+  $('.popover-test').popover()
+  $('.tooltip-test').tooltip()
 
-        $(this).before(btnHtml);
-        $('.btn-clipboard').tooltip();
-      });
+  // vendor: anchor.js
+  anchors.options.placement = 'left'
+  anchors.add('.bd-content > h1, .bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
+  
+  // vendor: clipboard.js
+  $('.highlight').each(function () {
+    var btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>'
 
-      var clipboard = new Clipboard('.btn-clipboard', {
-        target: function (trigger) {
-          return trigger.parentNode.nextElementSibling;
-        }
-      });
+    $(this).before(btnHtml)
+    $('.btn-clipboard').tooltip()
+  })
 
-      clipboard.on('success', function (e) {
-        $(e.trigger)
-          .attr('title', 'Copied!')
-          .tooltip('_fixTitle')
-          .tooltip('show')
-          .attr('title', 'Copy to clipboard')
-          .tooltip('_fixTitle');
+  var clipboard = new Clipboard('.btn-clipboard', {
+    target: function (trigger) {
+      return trigger.parentNode.nextElementSibling
+    }
+  })
 
-        e.clearSelection();
-      });
+  clipboard.on('success', function (e) {
+    $(e.trigger)
+      .attr('title', 'Copied!')
+      .tooltip('_fixTitle')
+      .tooltip('show')
+      .attr('title', 'Copy to clipboard')
+      .tooltip('_fixTitle')
 
-      clipboard.on('error', function (e) {
-        var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-';
-        var fallbackMsg = 'Press ' + modifierKey + 'C to copy';
+    e.clearSelection()
+  })
 
-        $(e.trigger)
-          .attr('title', fallbackMsg)
-          .tooltip('_fixTitle')
-          .tooltip('show')
-          .attr('title', 'Copy to clipboard')
-          .tooltip('_fixTitle');
-      });
+  clipboard.on('error', function (e) {
+    var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+    var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
 
-    // vendor: holder.js
-      Holder.addTheme('gray', {
-        bg         : '#757575',
-        fg         : 'rgba(255, 255, 255, 0.7)',
-        font       : 'Helvetica',
-        fontweight : 'normal'
-      });
+    $(e.trigger)
+      .attr('title', fallbackMsg)
+      .tooltip('_fixTitle')
+      .tooltip('show')
+      .attr('title', 'Copy to clipboard')
+      .tooltip('_fixTitle')
+  })
 
-  // material pickers
-    $('#exampleInputDatePicker1').pickdate();
+  // vendor: holder.js
+  Holder.addTheme('gray', {
+    bg         : '#757575',
+    fg         : 'rgba(255, 255, 255, 0.7)',
+    font       : 'Helvetica',
+    fontweight : 'normal'
+  })
 
-    $('#exampleInputDatePicker2').pickdate({
-      cancel        : 'Clear',
-      closeOnCancel : false,
-      closeOnSelect : true,
-      container     : '',
-      firstDay      : 1,
-      format        : 'You selecte!d: dddd, d mm, yy',
-      formatSubmit  : 'dd/mmmm/yyyy',
-      ok            : 'Close',
-      onClose       : function () {
-        console.log('Datepicker closes');
-      },
-      onOpen        : function () {
-        console.log('Datepicker opens');
-      },
-      selectMonths  : true,
-      selectYears   : 10,
-      today         : ''
-    });
+  /*
+   * material pickers
+   */
 
-    $('#exampleInputDatePicker3').pickdate({
-      max : true,
-      min : -10
-    });
+  $('#exampleInputDatePicker1').pickdate()
 
-    $('#exampleInputDatePicker4').pickdate({
-      max : new Date(2016,1,13),
-      min : new Date(2016,0,3)
-    });
+  $('#exampleInputDatePicker2').pickdate({
+    cancel        : 'Clear',
+    closeOnCancel : false,
+    closeOnSelect : true,
+    container     : '',
+    firstDay      : 1,
+    format        : 'You selecte!d: dddd, d mm, yy',
+    formatSubmit  : 'dd/mmmm/yyyy',
+    ok            : 'Close',
+    onClose       : function () {
+      console.log('Datepicker closes')
+    },
+    onOpen        : function () {
+      console.log('Datepicker opens')
+    },
+    selectMonths  : true,
+    selectYears   : 10,
+    today         : ''
+  })
 
-    $('#exampleInputDatePicker5').pickdate({
-      max : [2016,1,13],
-      min : [2016,0,3]
-    });
+  $('#exampleInputDatePicker3').pickdate({
+    max : true,
+    min : -10
+  })
 
-    $('#exampleInputDatePicker6').pickdate({
-      disable: [
-        new Date(2016,0,16),
-        new Date(2016,0,20),
-        [2016,0,24]
-      ]
-    });
+  $('#exampleInputDatePicker4').pickdate({
+    max : new Date(2016,1,13),
+    min : new Date(2016,0,3)
+  })
 
-    $('#exampleInputDatePicker7').pickdate({
-      disable: [
-        1, 2, 3
-      ]
-    });
+  $('#exampleInputDatePicker5').pickdate({
+    max : [2016,1,13],
+    min : [2016,0,3]
+  })
 
-    $('#exampleInputDatePicker8').pickdate({
-      disable: [
-        { from: new Date(2016,0,16), to: [2016,0,24] }
-      ]
-    });
+  $('#exampleInputDatePicker6').pickdate({
+    disable: [
+      new Date(2016,0,16),
+      new Date(2016,0,20),
+      [2016,0,24]
+    ]
+  })
 
-    $('#exampleInputDatePicker9').pickdate({
-      disable: [
-        { from: -10, to: true }
-      ]
-    });
+  $('#exampleInputDatePicker7').pickdate({
+    disable: [
+      1, 2, 3
+    ]
+  })
 
-    $('#exampleInputDatePicker10').pickdate({
-      disable: [
-        { from: [2016,0,16], to: 10 }
-      ]
-    });
+  $('#exampleInputDatePicker8').pickdate({
+    disable: [
+      { from: new Date(2016,0,16), to: [2016,0,24] }
+    ]
+  })
 
-});
+  $('#exampleInputDatePicker9').pickdate({
+    disable: [
+      { from: -10, to: true }
+    ]
+  })
+
+  $('#exampleInputDatePicker10').pickdate({
+    disable: [
+      { from: [2016,0,16], to: 10 }
+    ]
+  })
+
+})

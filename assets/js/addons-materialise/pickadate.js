@@ -1,18 +1,20 @@
-/*!
+/*
  * customise pickadate js for material
  * requires pickadate.js
  */
+
 +function ($) {
-  'use strict';
+
+  'use strict'
 
   var Datepicker = function (element, options) {
-    this._element = element;
-    this._options = options;
-  };
+    this._element = element
+    this._options = options
+  }
 
   if (typeof $.fn.pickadate === 'undefined') {
-    throw new Error('Material\'s JavaScript requires pickadate.js');
-  };
+    throw new Error('Material\'s JavaScript requires pickadate.js')
+  }
 
   Datepicker.DEFAULTS = {
     cancel        : 'Cancel',
@@ -39,10 +41,10 @@
     today         : 'Today',
     weekdaysFull  : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     weekdaysShort : ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-  };
+  }
 
   Datepicker.prototype.display = function (datepickerApi, datepickerRoot, datepickerValue) {
-    $('.picker__date-display', datepickerRoot).remove();
+    $('.picker__date-display', datepickerRoot).remove()
 
     $('.picker__wrap', datepickerRoot).prepend('<div class="picker__date-display">' +
       '<div class="picker__date-display-top">' +
@@ -53,11 +55,11 @@
         '<span class="picker__day-display">' + datepickerApi.get(datepickerValue, 'd') + '</span>' +
         '<span class="picker__month-display">' + datepickerApi.get(datepickerValue, 'mmm') + '</span>' +
       '</div>' +
-    '</div>');
-  };
+    '</div>')
+  }
 
   Datepicker.prototype.show = function () {
-    var that = this;
+    var that = this
 
     $(this._element).pickadate({
       clear         : that._options.cancel,
@@ -91,49 +93,50 @@
       today         : that._options.today,
       weekdaysFull  : that._options.weekdaysFull,
       weekdaysShort : that._options.weekdaysShort
-    });
+    })
 
     var datepickerApi  = $(this._element).pickadate('picker'),
         datepickerNode = datepickerApi.$node,
-        datepickerRoot = datepickerApi.$root;
+        datepickerRoot = datepickerApi.$root
 
     datepickerApi.on({
       close: function () {
-        $(document.activeElement).blur();
+        $(document.activeElement).blur()
       },
       open: function () {
         if (!$('.picker__date-display', datepickerRoot).length) {
-          that.display(datepickerApi, datepickerRoot, 'highlight');
-        };
+          that.display(datepickerApi, datepickerRoot, 'highlight')
+        }
       },
       set: function () {
         if (datepickerApi.get('select') !== null) {
-          that.display(datepickerApi, datepickerRoot, 'select');
-        };
+          that.display(datepickerApi, datepickerRoot, 'select')
+        }
       }
-    });
-  };
+    })
+  }
 
   function Plugin (option) {
     return this.each(function () {
-      var data    = $(this).data('bs.pickdate');
-      var options = $.extend({}, Datepicker.DEFAULTS, $(this).data(), typeof option == 'object' && option);
+      var data    = $(this).data('bs.pickdate')
+      var options = $.extend({}, Datepicker.DEFAULTS, $(this).data(), typeof option == 'object' && option)
 
       if (!data) {
-        $(this).data('bs.pickdate', (data = new Datepicker(this, options)));
-      };
+        $(this).data('bs.pickdate', (data = new Datepicker(this, options)))
+      }
 
-      data.show();
-    });
-  };
+      data.show()
+    })
+  }
 
-  var old = $.fn.pickdate;
+  var old = $.fn.pickdate
 
-  $.fn.pickdate             = Plugin;
-  $.fn.pickdate.Constructor = Datepicker;
+  $.fn.pickdate             = Plugin
+  $.fn.pickdate.Constructor = Datepicker
 
   $.fn.pickdate.noConflict = function () {
-    $.fn.pickdate = old;
-    return this;
-  };
-}(jQuery);
+    $.fn.pickdate = old
+    return this
+  }
+
+}(jQuery)
