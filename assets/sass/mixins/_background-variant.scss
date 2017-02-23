@@ -1,14 +1,14 @@
-@mixin bg-variant($class, $color, $color-dark: "") {
+@mixin bg-variant($class, $color, $color-dark: '') {
   #{$class} {
     background-color: $color !important;
   }
 
-  @if ($color-dark != "") {
+  @if ($color-dark != '') {
     a#{$class} {
-      // active, focus, hover
-        @include active-focus-hover {
-          background-color: $color-dark !important;
-        }
+      // Active, focus, hover
+      @include active-focus-hover {
+        background-color: $color-dark !important;
+      }
     }
   }
 }

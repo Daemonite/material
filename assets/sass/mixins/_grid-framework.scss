@@ -1,10 +1,10 @@
 @mixin make-grid-columns() {
   %grid-column {
+    @include make-gutters;
+
     min-height: 1px;
     position: relative;
     width: 100%;
-
-    @include make-gutters;
   }
 
   @each $breakpoint in map-keys($grid-breakpoints) {
@@ -47,7 +47,7 @@
       }
 
       @for $i from 0 through ($grid-columns - 1) {
-        @if not ($infix == "" and $i == 0) {
+        @if not ($infix == '' and $i == 0) {
           .offset#{$infix}-#{$i} {
             @include make-col-modifier($i, offset);
           }
