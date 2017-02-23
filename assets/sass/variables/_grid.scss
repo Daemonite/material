@@ -10,29 +10,32 @@ $grid-gutter-widths: (
   xl: $grid-gutter-width-desktop
 ) !default;
 
-//
-// breakpoint
-// based on https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
-//
-  $grid-breakpoints: (
-    xs: 0,
-    sm: 600px,
-    md: 960px,
-    lg: 1280px,
-    xl: 1920px
-  ) !default;
 
-  @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-  @include _assert-starts-at-zero($grid-breakpoints);
 
-//
-// container
-//
-  $container-max-widths: (
-    sm: 600px,
-    md: 840px,
-    lg: 1024px,
-    xl: 1600px
-  ) !default;
+// Breakpoint
+// Based on https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
 
-  @include _assert-ascending($container-max-widths, "$container-max-widths");
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+
+
+
+// Container width
+// Based on https://material.google.com/layout/responsive-ui.html#responsive-ui-breakpoints
+
+$container-max-widths: (
+  sm: 600px,
+  md: 840px,
+  lg: 1024px,
+  xl: 1600px
+) !default;
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
