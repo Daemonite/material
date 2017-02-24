@@ -103,7 +103,7 @@ module.exports = function(grunt) {
             base: '',
             keepalive: true,
             hostname: '0.0.0.0',
-            port: '9999'
+            port: '8888'
           }
         },
         once: {
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
             base: '',
             keepalive: false,
             hostname: '0.0.0.0',
-            port: '9999'
+            port: '8888'
           }
         }
       },
