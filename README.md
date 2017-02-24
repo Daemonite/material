@@ -1,11 +1,11 @@
-# Material
+# BMDL
 
-Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__. The basic idea behind this project is to combine the visual language of Google Material Design with the front-end technology of the popular Bootstrap framework.
+BMDL is a fork of [Daemonite's Material](http://daemonite.github.io/material/), a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__. The basic idea behind this project is to combine the visual language of Google Material Design with the front-end technology of the popular Bootstrap framework.
 
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > http://www.google.com/design/spec/material-design/introduction.html
 
-Detailed [documentation site](http://daemonite.github.io/material/) is work in progress. Let us know what you think at the [Daemon Labs](http://labs.daemon.com.au) forum.
+Detailed [documentation site](http://moconnor-bmj.github.io/) is work in progress. Please let us know what you think.
 
 ## Goals
 
