@@ -1,66 +1,65 @@
-//
-// custom checkbox, radio button and select are defined in material design guidelines
+// N.B. Custom checkbox, radio button and select are defined in Material design
 // (https://material.google.com/components/selection-controls.html)
 // therefore, these elements are styled in /assets/sass/material/_selection-control.scss
-//
 
-//
-// custom file
-//
-  .custom-file {
-    display: inline-block;
-    height: $textfield-height;
-    max-width: 100%;
-    position: relative;
+// Custom file
+
+.custom-file {
+  display: inline-block;
+  height: $textfield-height;
+  max-width: 100%;
+  position: relative;
+}
+
+.custom-file-control {
+  @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
+  @include transition-standard(border-bottom-color);
+
+  border-bottom: $textfield-border-width solid $textfield-border-color;
+  color: $textfield-hint-color;
+  font-weight: $font-weight-regular;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  user-select: none;
+  z-index: 1;
+
+  @each $lang, $text in $custom-file-text {
+    &:lang(#{$lang})::after {
+      content: $text;
+    }
   }
 
-  .custom-file-control {
-    border-bottom: $textfield-border-width solid $textfield-border-color;
-    color: $textfield-hint-color;
-    font-weight: $font-weight-regular;
-    position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-    user-select: none;
-    z-index: 1;
-    @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
-    @include transition-standard(border-bottom-color);
-
-    @each $lang, $text in $custom-file-text {
-      &:lang(#{$lang})::after {
-        content: $text;
-      }
-    }
-
+  // Active, focus, hover
+  @include active-focus-hover {
     &::before {
-      background-color: transparent;
-      background-image: $custom-file-button-bg;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: $material-icon-size $material-icon-size;
-      content: "";
-      opacity: $custom-file-button-opacity;
-      position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-      width: $material-icon-size;
-      z-index: 2;
-      @include transition-standard(opacity);
+      opacity: $custom-file-button-opacity-visible;
     }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        &::before {
-          opacity: $custom-file-button-opacity-visible;
-        }
-      }
   }
 
-  .custom-file-input {
-    margin: 0;
-    max-width: 100%;
-    min-width: $custom-file-width;
-    opacity: 0;
+  &::before {
+    @include transition-standard(opacity);
+
+    background-color: transparent;
+    background-image: $custom-file-button-bg;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: $material-icon-size $material-icon-size;
+    bottom: 0;
+    content: '';
+    opacity: $custom-file-button-opacity;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $material-icon-size;
+    z-index: 2;
   }
+}
+
+.custom-file-input {
+  margin: 0;
+  max-width: 100%;
+  min-width: $custom-file-width;
+  opacity: 0;
+}

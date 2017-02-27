@@ -1,30 +1,32 @@
 .breadcrumb {
+  @include clearfix;
+
   align-items: center;
   background-color: $breadcrumb-bg;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  min-height: $breadcrumb-height;
   margin-bottom: $breadcrumb-margin-bottom;
+  min-height: $breadcrumb-height;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
-  @include clearfix;
 }
 
 .breadcrumb-item {
+  @include transition-standard(color);
+
   align-items: center;
   color: $breadcrumb-item-color;
   display: flex;
-  @include transition-standard(color);
 
-  // active, focus, hover
-    @include active-focus-hover {
-      color: $breadcrumb-item-color-active;
-    }
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: $breadcrumb-item-color-active;
+  }
 
-    &.active {
-      color: $breadcrumb-item-color-active;
-      font-weight: bolder;
-    }
+  &.active {
+    color: $breadcrumb-item-color-active;
+    font-weight: bolder;
+  }
 
   a {
     color: inherit;
@@ -36,7 +38,7 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: ($material-icon-size / $font-size-root * 1rem) ($material-icon-size / $font-size-root * 1rem);
-    content: "";
+    content: '';
     display: inline-block;
     height: ($material-icon-size / $font-size-root * 1rem);
     width: ($breadcrumb-item-padding * 2 + $material-icon-size / $font-size-root * 1rem);

@@ -1,158 +1,160 @@
-//
-// checkbox and radio button
-//
-  .form-check {
-    display: block;
-    margin-bottom: $textfield-margin-bottom;
+// Checkbox and radio button
 
-    // disabled
-      &.disabled {
-        .form-check-label {
-          color: $textfield-color-disabled;
-          cursor: $cursor-disabled;
-        }
-      }
+.form-check {
+  display: block;
+  margin-bottom: $textfield-margin-bottom;
+
+  // Disabled
+  &.disabled {
+    .form-check-label {
+      color: $textfield-color-disabled;
+      cursor: $cursor-disabled;
+    }
   }
+}
 
-  .form-check-input {
-    margin-right: $form-check-input-margin-x;
+.form-check-inline {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: middle;
+
+  + .form-check-inline {
+    margin-left: $form-check-inline-margin-x;
   }
+}
 
-  .form-check-label {
-    align-items: center;
-    display: inline-flex;
+.form-check-input {
+  margin-right: $form-check-input-margin-x;
+}
+
+.form-check-label {
+  align-items: center;
+  display: inline-flex;
+  margin-bottom: 0;
+}
+
+
+
+// Form group
+
+.form-group {
+  margin-bottom: $form-group-margin-bottom;
+
+  &:not(.floating-label) label:not(.custom-control):not(.form-check-label) {
+    font-size: $form-group-label-font-size;
     margin-bottom: 0;
   }
+}
 
-  // inline
-    .form-check-inline {
-      display: inline-block;
-      margin-bottom: 0;
-      vertical-align: middle;
 
-      + .form-check-inline {
-        margin-left: $form-check-inline-margin-x;
-      }
-    }
 
-//
-// form group
-//
-  .form-group {
-    margin-bottom: $form-group-margin-bottom;
+// Inline
 
-    &:not(.floating-label) label:not(.custom-control):not(.form-check-label) {
-      font-size: $form-group-label-font-size;
+.form-inline {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+
+  @include media-breakpoint-up(sm) {
+    label {
+      align-items: center;
+      display: flex;
+      justify-content: center;
       margin-bottom: 0;
     }
-  }
-
-//
-// inline
-//
-  .form-inline {
-    align-items: center;
-    display: flex;
-    flex-flow: row wrap;
 
     .form-check {
-      width: 100%;
+      margin-bottom: 0;
+      width: auto;
     }
 
-    @include media-breakpoint-up(sm) {
-      label {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0;
-      }
+    .form-control {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+    }
 
-      .form-check {
-        margin-bottom: 0;
-        width: auto;
-      }
+    .form-control-static {
+      display: inline-block;
+    }
 
-      .form-control {
-        display: inline-block;
-        vertical-align: middle;
-        width: auto;
-      }
+    .form-group {
+      align-items: center;
+      display: flex;
+      flex: 0 0 auto;
+      flex-flow: row wrap;
+      margin-bottom: 0;
+    }
 
-      .form-control-static {
-        display: inline-block;
-      }
-
-      .form-group {
-        align-items: center;
-        display: flex;
-        flex: 0 0 auto;
-        flex-flow: row wrap;
-        margin-bottom: 0;
-      }
-
-      .input-group {
-        width: auto;
-      }
+    .input-group {
+      width: auto;
     }
   }
 
-//
-// label
-//
-  .col-form-label {
-    line-height: ($textfield-height - $textfield-padding-top - $textfield-padding-bottom);
-    padding-top: $textfield-padding-top;
-    padding-bottom: $textfield-padding-bottom;
+  .form-check {
+    width: 100%;
+  }
+}
+
+
+
+// Label
+
+.col-form-label {
+  line-height: ($textfield-height - $textfield-padding-top - $textfield-padding-bottom);
+  padding-bottom: $textfield-padding-bottom;
+  padding-top: $textfield-padding-top;
+}
+
+.col-form-label-lg {
+  line-height: ($textfield-height-lg - $textfield-padding-top-lg - $textfield-padding-bottom-lg);
+  padding-bottom: $textfield-padding-bottom-lg;
+  padding-top: $textfield-padding-top-lg;
+}
+
+.col-form-label-sm {
+  line-height: ($textfield-height-sm - $textfield-padding-top-sm - $textfield-padding-bottom-sm);
+  padding-bottom: $textfield-padding-bottom-sm;
+  padding-top: $textfield-padding-top-sm;
+}
+
+.col-form-legend {
+  font-size: $font-size-base;
+  margin-bottom: 0;
+  padding-bottom: $textfield-padding-bottom;
+  padding-top: $textfield-padding-top;
+
+  .form-group & {
+    font-size: $form-group-label-font-size;
+  }
+}
+
+
+
+// Misc
+
+.form-control-feedback,
+.form-text {
+  display: block;
+  margin-top: $textfield-margin-bottom;
+
+  .form-control-lg + &,
+  .form-control-static-lg + & {
+    margin-top: $textfield-margin-bottom-lg;
   }
 
-  .col-form-label-lg {
-    line-height: ($textfield-height-lg - $textfield-padding-top-lg - $textfield-padding-bottom-lg);
-    padding-top: $textfield-padding-top-lg;
-    padding-bottom: $textfield-padding-bottom-lg;
+  .form-control-sm + &,,
+  .form-control-static-sm + & {
+    margin-top: $textfield-margin-bottom-sm;
   }
+}
 
-  .col-form-label-sm {
-    line-height: ($textfield-height-sm - $textfield-padding-top-sm - $textfield-padding-bottom-sm);
-    padding-top: $textfield-padding-top-sm;
-    padding-bottom: $textfield-padding-bottom-sm;
-  }
+.form-control-file,
+.form-control-range {
+  display: block;
+}
 
-  .col-form-legend {
-    font-size: $font-size-base;
-    margin-bottom: 0;
-    padding-top: $textfield-padding-top;
-    padding-bottom: $textfield-padding-bottom;
-
-    .form-group & {
-      font-size: $form-group-label-font-size;
-    }
-  }
-
-//
-// misc
-//
-  .form-control-feedback,
-  .form-text {
-    display: block;
-    margin-top: $textfield-margin-bottom;
-
-    .form-control-lg + &,
-    .form-control-static-lg + & {
-      margin-top: $textfield-margin-bottom-lg;
-    }
-
-    .form-control-sm + &,,
-    .form-control-static-sm + & {
-      margin-top: $textfield-margin-bottom-sm;
-    }
-  }
-
-  .form-control-file,
-  .form-control-range {
-    display: block;
-  }
-
-  .form-control-file {
-    margin-top: $textfield-padding-top;
-    margin-bottom: $textfield-margin-bottom;
-  }
+.form-control-file {
+  margin-bottom: $textfield-margin-bottom;
+  margin-top: $textfield-padding-top;
+}

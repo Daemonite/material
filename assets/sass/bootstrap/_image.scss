@@ -3,23 +3,26 @@
 }
 
 .img-thumbnail {
-  box-shadow: $thumbnail-box-shadow;
   @include img-fluid;
+
+  box-shadow: $thumbnail-box-shadow;
 }
 
-//
+
+
 // figure
-//
-  .figure {
-    display: inline-block;
-  }
 
-  .figure-caption {
-    color: $figure-caption-color;
-    @include typography-caption;
-  }
+.figure {
+  display: inline-block;
+}
 
-  .figure-img {
-    line-height: 1;
-    margin-bottom: $figure-img-margin-bottom;
-  }
+.figure-caption {
+  @include typography-caption;
+
+  color: $figure-caption-color;
+}
+
+.figure-img {
+  line-height: 1;
+  margin-bottom: $figure-img-margin-bottom;
+}

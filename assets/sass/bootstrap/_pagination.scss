@@ -6,6 +6,9 @@
 }
 
 .page-link {
+  @include border-radius($border-radius);
+  @include transition-standard(background-color, color);
+
   color: $btn-color;
   display: block;
   font-size: $btn-font-size;
@@ -16,19 +19,17 @@
   position: relative;
   text-align: center;
   white-space: nowrap;
-  @include border-radius($border-radius);
-  @include transition-standard(background-color, color);
 
-  // active, focus, hover
-    @include active-focus-hover {
-      background-color: $btn-bg-active;
-      color: $btn-color;
-      text-decoration: none;
-    }
+  // Active, focus, hover
+  @include active-focus-hover {
+    background-color: $btn-bg-active;
+    color: $btn-color;
+    text-decoration: none;
+  }
 
-    &:focus {
-      outline: 0;
-    }
+  &:focus {
+    outline: 0;
+  }
 
   .page-item:first-child & {
     margin-left: 0;
@@ -45,13 +46,13 @@
   }
 }
 
-// size
-  .pagination-lg .page-link {
-    font-size: $btn-font-size-lg;
-    padding: $btn-padding-y-lg $btn-padding-x-lg;
-  }
+// Size
+.pagination-lg .page-link {
+  font-size: $btn-font-size-lg;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+}
 
-  .pagination-sm .page-link {
-    font-size: $btn-font-size-sm;
-    padding: $btn-padding-y-sm $btn-padding-x-sm;
-  }
+.pagination-sm .page-link {
+  font-size: $btn-font-size-sm;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+}

@@ -6,26 +6,27 @@
   }
 }
 
-// specific cases for .collapse.show
-  tbody.collapse.show {
-    display: table-row-group;
-  }
+tbody.collapse.show {
+  display: table-row-group;
+}
 
-  tr.collapse.show {
-    display: table-row;
-  }
+tr.collapse.show {
+  display: table-row;
+}
 
 .collapsing {
+  @include transition-standard(height);
+
   height: 0;
   overflow: hidden;
   position: relative;
-  @include transition-standard(height);
 }
 
 .fade {
-  opacity: 0;
-  transform: scale(0.87);
   @include transition-standard(opacity, transform);
+
+  opacity: 0;
+  transform: scale(.87);
 
   &.show {
     opacity: 1;

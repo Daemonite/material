@@ -1,5 +1,13 @@
 .carousel {
   position: relative;
+
+  // Active, focus, hover
+  @include hover {
+    .carousel-control-next,
+    .carousel-control-prev {
+      opacity: 1;
+    }
+  }
 }
 
 .carousel-inner {
@@ -14,9 +22,10 @@
   width: 100%;
 
   @include if-supports-3d-transforms() {
+    @include transition-standard(transform);
+
     backface-visibility: hidden;
     perspective: 1000px;
-    @include transition-standard(transform);
   }
 }
 
@@ -29,7 +38,7 @@
 .carousel-item-next,
 .carousel-item-prev {
   position: absolute;
-    top: 0;
+  top: 0;
 }
 
 @include if-supports-3d-transforms() {
@@ -49,128 +58,119 @@
   }
 }
 
-//
-// left/right controls
-//
-  .carousel-control-next,
-  .carousel-control-prev {
-    background-color: $btn-bg;
-    border-radius: 50%;
-    box-shadow: map-get($btn-float-elevation-shadow, shadow);
+
+
+// Left/right controls
+
+.carousel-control-next,
+.carousel-control-prev {
+  background-color: $btn-bg;
+  border-radius: 50%;
+  box-shadow: map-get($btn-float-elevation-shadow, shadow);
+  color: $btn-color;
+  display: block;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  height: $btn-float-size-sm;
+  line-height: $btn-float-size-sm;
+  margin-top: ($btn-float-size-sm / -2);
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 50%;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: $btn-float-size-sm;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    background-color: $btn-bg-active;
     color: $btn-color;
-    display: block;
-    font-size: $btn-font-size;
-    font-weight: $btn-font-weight;
-    height: $btn-float-size-sm;
-    line-height: $btn-float-size-sm;
-    margin-top: ($btn-float-size-sm / -2);
-    opacity: 0;
-    position: absolute;
-      top: 50%;
-    text-align: center;
-    text-transform: uppercase;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: $btn-float-size-sm;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $btn-bg-active;
-        color: $btn-color;
-        text-decoration: none;
-      }
-
-      &:active {
-        box-shadow: map-get($btn-elevation-shadow-active, shadow);
-      }
-
-      &:focus {
-        outline: 0;
-      }
+    text-decoration: none;
   }
 
-  // active, focus, hover
-    .carousel {
-      @include hover {
-        .carousel-control-next,
-        .carousel-control-prev {
-          opacity: 1;
-        }
-      }
-    }
-
-  .carousel-control-next {
-    // position
-      right: ($btn-float-size-sm / 2);
+  &:active {
+    box-shadow: map-get($btn-elevation-shadow-active, shadow);
   }
 
-  .carousel-control-prev {
-    // position
-      left: ($btn-float-size-sm / 2);
+  &:focus {
+    outline: 0;
   }
+}
 
-  .carousel-control-next-icon,
-  .carousel-control-prev-icon {
+.carousel-control-next {
+  right: ($btn-float-size-sm / 2);
+}
+
+.carousel-control-prev {
+  left: ($btn-float-size-sm / 2);
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: $material-icon-size $material-icon-size;
+  display: block;
+  height: $btn-float-size-sm;
+  width: $btn-float-size-sm;
+}
+
+.carousel-control-next-icon {
+  background-image: $carousel-control-next-icon-bg;
+}
+
+.carousel-control-prev-icon {
+  background-image: $carousel-control-prev-icon-bg;
+}
+
+
+
+// Optional captions
+
+.carousel-caption {
+  bottom: ($carousel-indicator-size * 3);
+  color: $carousel-caption-color;
+  left: ((100% - $carousel-caption-width) / 2);
+  position: absolute;
+  right: ((100% - $carousel-caption-width) / 2);
+  text-align: center;
+  z-index: 1;
+}
+
+
+
+// Optional indicators
+
+.carousel-indicators {
+  bottom: $carousel-indicator-size;
+  display: flex;
+  justify-content: center;
+  left: ($btn-float-size-sm * 2);
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  position: absolute;
+  right: ($btn-float-size-sm * 2);
+  z-index: 1;
+
+  li {
     background-color: transparent;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: $material-icon-size $material-icon-size;
-    display: block;
-    height: $btn-float-size-sm;
-    width: $btn-float-size-sm;
+    border: 1px solid $carousel-indicator-color;
+    border-radius: $carousel-indicator-size;
+    flex: 0 0 auto;
+    height: $carousel-indicator-size;
+    margin-left: 1px;
+    margin-right: 1px;
+    overflow: hidden;
+    text-indent: 100%;
+    width: $carousel-indicator-size;
   }
 
-  .carousel-control-next-icon {
-    background-image: $carousel-control-next-icon-bg;
+  .active {
+    background-color: $carousel-indicator-color;
   }
-
-  .carousel-control-prev-icon {
-    background-image: $carousel-control-prev-icon-bg;
-  }
-
-//
-// optional captions
-//
-  .carousel-caption {
-    color: $carousel-caption-color;
-    position: absolute;
-      right: ((100% - $carousel-caption-width) / 2);
-      bottom: ($carousel-indicator-size * 3);
-      left: ((100% - $carousel-caption-width) / 2);
-    text-align: center;
-    z-index: 1;
-  }
-
-//
-// optional indicators
-//
-  .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
-    position: absolute;
-      right: ($btn-float-size-sm * 2);
-      bottom: $carousel-indicator-size;
-      left: ($btn-float-size-sm * 2);
-    z-index: 1;
-
-    li {
-      background-color: rgba(0, 0, 0, 0);
-      border: 1px solid $carousel-indicator-color;
-      border-radius: $carousel-indicator-size;
-      flex: 0 0 auto;
-      height: $carousel-indicator-size;
-      margin-right: 1px;
-      margin-left: 1px;
-      overflow: hidden;
-      text-indent: 100%;
-      width: $carousel-indicator-size;
-    }
-
-    .active {
-      background-color: $carousel-indicator-color;
-    }
-  }
+}
