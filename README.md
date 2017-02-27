@@ -5,7 +5,7 @@ BMDL is a fork of [Daemonite's Material](http://daemonite.github.io/material/), 
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > http://www.google.com/design/spec/material-design/introduction.html
 
-Detailed [documentation site](http://moconnor-bmj.github.io/) is work in progress. Please let us know what you think.
+Detailed [documentation site](http://moconnor-bmj.github.io/BMDL/) is work in progress. Please let us know what you think.
 
 ## Goals
 
