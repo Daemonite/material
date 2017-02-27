@@ -1,422 +1,462 @@
-//
-// reboot from bootstrap's (v4.0.0-beta)
-//
+// Reboot from Bootstrap
 
-// box-sizing
-  html {
-    box-sizing: border-box;
+
+
+// Box sizing
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+@at-root {
+  @-ms-viewport {
+    width: device-width;
   }
+}
 
-  *,
-  *::after,
-  *::before {
-    box-sizing: inherit;
+
+
+// Document
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: $webkit-tap-highlight-color;
+  text-size-adjust: 100%;
+}
+
+[tabindex="-1"]:focus {
+  outline: 0 !important;
+}
+
+
+
+// Clickable element
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+
+
+// Code
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+pre {
+  margin-bottom: 1rem;
+  margin-top: 0;
+  overflow: auto;
+}
+
+
+
+// Content grouping
+
+figcaption,
+figure,
+main {
+  display: block;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+
+
+// Embedded content
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+
+
+// Form
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button {
+  // Active, focus, hover
+  &:focus {
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
   }
+}
 
-  @at-root {
-    @-ms-viewport { width: device-width; }
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+
+  // Disabled
+  &:disabled {
+    cursor: $cursor-disabled;
   }
+}
 
-// document
-  body {
-    background-color: $body-bg;
-    color: $body-color;
-    font-family: $font-family-base;
-    font-size: $font-size-base;
-    font-weight: $font-weight-base;
-    line-height: $line-height-base;
-    margin: 0;
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"] {
+  -webkit-appearance: listbox;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+legend {
+  @include typography-headline;
+
+  color: inherit;
+  display: block;
+  margin-bottom: .5rem;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+  width: 100%;
+}
+
+output {
+  display: inline-block;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+select[multiple],
+select[size] {
+  overflow: auto;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+
+
+// Hidden
+
+[hidden] {
+  display: none !important;
+}
+
+
+
+// Images
+
+img {
+  border-style: none;
+  vertical-align: middle;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+
+
+// Interactive
+
+details,
+menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+
+
+// Link
+
+a {
+  background-color: transparent;
+  color: $link-color;
+  text-decoration: $link-decoration;
+  -webkit-text-decoration-skip: objects;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: $link-color-active;
+    text-decoration: $link-decoration-active;
   }
+}
 
-  html {
-    font-family: sans-serif;
-    ine-height: 1.15;
-    -ms-overflow-style: scrollbar;
-    -ms-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-size-adjust: 100%;
-  }
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
 
-  [tabindex="-1"]:focus {
-    outline: 0 !important;
-  }
-
-// clickable element
-  a,
-  area,
-  button,
-  input,
-  label,
-  select,
-  summary,
-  textarea,
-  [role="button"] {
-    touch-action: manipulation;
-  }
-
-// code
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
-  }
-
-  pre {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    overflow: auto;
-  }
-
-// content grouping
-  figcaption,
-  figure,
-  main {
-    display: block;
-  }
-
-  figure {
-    margin: 1em 40px;
-  }
-
-  hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-  }
-
-// embedded content
-  audio,
-  video {
-    display: inline-block;
-  }
-
-  audio:not([controls]) {
-    display: none;
-    height: 0;
-  }
-
-// figure
-  figure {
-    margin: 0 0 1rem;
-  }
-
-// form
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    margin: 0;
-  }
-
-  button,
-  html [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-
-  button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
-
-  button,
-  input {
-    overflow: visible;
-  }
-
-  button,
-  select {
-    text-transform: none;
-  }
-
-  button {
-    // active, focus, hover
-      &:focus {
-        outline: 1px dotted;
-        outline: 5px auto -webkit-focus-ring-color;
-      }
-  }
-
-  fieldset {
-    border: 0;
-    margin: 0;
-    min-width: 0;
-    padding: 0;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-
-    // disabled
-      &:disabled {
-        cursor: $cursor-disabled;
-      }
-  }
-
-  input[type="date"],
-  input[type="datetime-local"],
-  input[type="month"],
-  input[type="time"] {
-    -webkit-appearance: listbox;
-  }
-
-  input[type="search"] {
-    -webkit-appearance: none;
-  }
-
-  label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
-
-  legend {
-    color: inherit;
-    display: block;
-    margin-bottom: 0.5rem;
-    max-width: 100%;
-    padding: 0;
-    white-space: normal;
-    width: 100%;
-    @include typography-headline;
-  }
-
-  output {
-    display: inline-block;
-  }
-
-  progress {
-    vertical-align: baseline;
-  }
-
-  select[multiple],
-  select[size] {
-    overflow: auto;
-  }
-
-  textarea {
-    overflow: auto;
-    resize: vertical;
-  }
-
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-
-  [type="search"] {
-    outline-offset: -2px;
-    -webkit-appearance: textfield;
-  }
-
-  [type="search"]::-webkit-search-cancel-button,
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  ::-webkit-file-upload-button {
-    font: inherit;
-    -webkit-appearance: button;
-  }
-
-// hidden
-  [hidden] {
-    display: none !important;
-  }
-
-// images
-  img {
-    border-style: none;
-    vertical-align: middle;
-  }
-
-  svg:not(:root) {
-    overflow: hidden;
-  }
-
-// interactive
-  details,
-  menu {
-    display: block;
-  }
-
-  summary {
-    display: list-item;
-  }
-
-// link
-  a {
-    background-color: transparent;
-    color: $link-color;
-    text-decoration: $link-decoration;
-    -webkit-text-decoration-skip: objects;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: $link-color-active;
-        text-decoration: $link-decoration-active;
-      }
-  }
-
-  a:not([href]):not([tabindex]) {
+  // Active, focus, hover
+  @include active-focus-hover {
     color: inherit;
     text-decoration: none;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      &:focus {
-        outline: 0;
-      }
   }
 
-// section
-  article,
-  aside,
-  footer,
-  header,
-  nav,
-  section {
-    display: block;
+  &:focus {
+    outline: 0;
   }
+}
 
-// scripting
-  canvas {
-    display: inline-block;
-  }
 
-  template {
-    display: none;
-  }
 
-// table
-  caption {
-    caption-side: bottom;
-    color: $table-caption-color;
-    min-height: $table-thead-cell-height;
-    padding: $table-thead-padding-y $table-cell-padding-x-alt;
-    text-align: left;
-    @include typography-caption;
-  }
+// Section
 
-  table {
-    border-collapse: collapse;
-  }
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
 
-  th {
-    text-align: left;
-  }
 
-// typography
-  abbr[data-original-title],
-  abbr[title] {
-    border-bottom: 0;
-    cursor: help;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-  }
 
-  address {
-    font-style: normal;
-    line-height: inherit;
-    margin-bottom: 1rem;
-  }
+// Scripting
 
-  b,
-  strong {
-    font-weight: bolder;
-  }
+canvas {
+  display: inline-block;
+}
 
-  blockquote {
-    margin: 0 0 1rem;
-  }
+template {
+  display: none;
+}
 
-  dd {
-    margin-bottom: 0.5rem;
-    margin-left: 0;
-  }
 
-  dfn {
-    font-style: italic;
-  }
 
-  dl {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
+// Table
 
-  dt {
-    font-weight: $dt-font-weight;
-  }
+caption {
+  @include typography-caption;
 
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
+  caption-side: bottom;
+  color: $table-caption-color;
+  min-height: $table-thead-cell-height;
+  padding: $table-thead-padding-y $table-cell-padding-x-alt;
+  text-align: left;
+}
 
-  mark {
-    background-color: #ff0;
-    color: #000;
-  }
+table {
+  border-collapse: collapse;
+}
 
-  ol,
-  ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
+th {
+  text-align: left;
+}
 
-  ol ol,
-  ol ul,
-  ul ol,
-  ul ul {
-    margin-bottom: 0;
-  }
 
-  p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
 
-  small {
-    font-size: 80%;
-  }
+// Typography
 
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
+abbr[data-original-title],
+abbr[title] {
+  border-bottom: 0;
+  cursor: help;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
 
-  sub {
-    // position
-      bottom: -0.25em;
-  }
+address {
+  font-style: normal;
+  line-height: inherit;
+  margin-bottom: 1rem;
+}
 
-  sup {
-    // position
-      top: -0.5em;
-  }
+b,
+strong {
+  font-weight: bolder;
+}
 
+blockquote {
+  margin: 0 0 1rem;
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0;
+}
+
+dfn {
+  font-style: italic;
+}
+
+dl {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+dt {
+  font-weight: $dt-font-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: .5rem;
+  margin-top: 0;
+}
+
+mark {
+  background-color: $mark-bg;
+  color: $mark-color;
+}
+
+ol,
+ul {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin-bottom: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
