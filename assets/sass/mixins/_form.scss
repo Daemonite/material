@@ -20,9 +20,12 @@
   font-size: $font-size;
   height: $height;
   line-height: ($height - $padding-top - $padding-bottom);
-  padding: $padding-top 0 ($padding-bottom - $border-width / $font-size-root * 1rem);
 
-  @if $border-width != 0 {
+  @if $border-width == 0 {
+    padding: $padding-top 0 $padding-bottom;
+  } @else {
+    padding: $padding-top 0 ($padding-bottom - $border-width / $font-size-root * 1rem);
+
     &:focus {
       padding-bottom: ($padding-bottom - ($border-width + 1) / $font-size-root * 1rem);
     }
