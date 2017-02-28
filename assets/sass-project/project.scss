@@ -1,63 +1,67 @@
-@import "../sass/mixins";
-@import "../sass/variables";
+@import '../sass/mixins';
+@import '../sass/variables';
 
-// bootstrap doc css override
-  .bd-example,
-  .highlight {
-    margin-right: 0;
-    margin-left: 0;
+// Bootstrap doc css override
+
+.bd-example,
+.highlight {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.bd-example {
+  border-width: .2rem;
+  margin-bottom: 0;
+
+  > .dropdown-menu:first-child {
+    left: auto;
+    position: relative;
+    top: auto;
   }
+}
 
-  .bd-example {
-    border-width: 0.2rem;
-    margin-bottom: 0;
 
-    > .dropdown-menu:first-child {
-      position: relative;
-        top: auto;
-        left: auto;
+
+// Project css
+
+.doc-jumbotron {
+  background-image: url('images/doc-jumbotron-bg.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: ($toolbar-height * 2);
+
+  @include media-breakpoint-down(sm) {
+    h1 {
+      @include typography-display-3;
     }
   }
 
-// project css
-  .doc-jumbotron {
-    background-image: url(images/doc-jumbotron-bg.jpg);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: ($toolbar-height * 2);
-
-    @include media-breakpoint-down(sm) {
-      h1 {
-        @include typography-display-3;
-      }
-    }
-
-    @include media-breakpoint-up(lg) {
-      .navdrawer-permanent ~ & {
-        margin-left: $navdrawer-width-mobile;
-      }
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width-mobile;
     }
   }
+}
 
-  .doc-main {
-    @include media-breakpoint-up(lg) {
-      .navdrawer-permanent ~ & {
-        margin-left: $navdrawer-width-mobile;
-      }
+.doc-main {
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width-mobile;
     }
   }
+}
 
-  .doc-navdrawer-body {
-    min-height: 100%;
-  }
+.doc-navdrawer-body {
+  min-height: 100%;
+}
 
-  .doc-toolbar {
-    position: fixed;
+.doc-toolbar {
+  position: fixed;
 
-    @include media-breakpoint-up(lg) {
-      .navdrawer-permanent ~ & {
-        margin-left: $navdrawer-width-mobile;
-      }
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width-mobile;
     }
   }
+}
