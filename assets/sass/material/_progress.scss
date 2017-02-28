@@ -1,8 +1,6 @@
-//
-// todo: material design guidelines do not have specs for striped progress bars
+// Todo: Material design does not have specs for striped progress bars
 // maybe striped progress bars should be the "buffer" variation of linear indicator
 // (https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators)
-//
 
 .progress {
   display: flex;
@@ -12,7 +10,7 @@
 
 .progress-bar {
   background-color: $progress-bar-bg;
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
   font-size: 0;
   height: $progress-height;
   line-height: 0;
@@ -20,142 +18,142 @@
   &::before {
     background-color: inherit;
     background-image: linear-gradient(to right, $progress-bar-mask, $progress-bar-mask);
-    content: "";
+    bottom: 0;
+    content: '';
     display: block;
+    left: 0;
     position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+    right: 0;
+    top: 0;
     z-index: -1;
   }
 }
 
-//
-// animated & striped
-//
-  .progress-bar-animated {
-    &::before {
-      animation-direction: reverse;
-      animation-duration: $transition-duration-mobile;
-      animation-iteration-count: infinite;
-      animation-name: progress-bar-animation;
-      animation-timing-function: linear;
 
-      @include media-breakpoint-up(sm) {
-        animation-duration: $transition-duration-tablet;
-      }
 
-      @include media-breakpoint-up(lg) {
-        animation-duration: $transition-duration-desktop;
-      }
+// Animated & striped
+
+.progress-bar-animated {
+  &::before {
+    animation-direction: reverse;
+    animation-duration: $transition-duration-mobile;
+    animation-iteration-count: infinite;
+    animation-name: progress-bar-animation;
+    animation-timing-function: linear;
+
+    @include media-breakpoint-up(sm) {
+      animation-duration: $transition-duration-tablet;
+    }
+
+    @include media-breakpoint-up(lg) {
+      animation-duration: $transition-duration-desktop;
     }
   }
+}
 
-  .progress-bar-animated,
-  .progress-bar-striped {
-    border-right: ($progress-height * 3) solid $progress-bar-mask;
-    box-sizing: content-box;
+.progress-bar-animated,
+.progress-bar-striped {
+  border-right: ($progress-height * 3) solid $progress-bar-mask;
+  box-sizing: content-box;
 
-    &[style*="width:100%"],
-    &[style*="width: 100%"] {
-      border-right: 0;
-    }
-
-    &::before {
-      background-color: transparent;
-      background-image: repeating-radial-gradient(#{$progress-height / 2} #{$progress-height / 2}, #{$black-divider}, #{$black-divider} #{$progress-height / 2}, transparent #{$progress-height / 2}, transparent 100%);
-      background-image: -webkit-repeating-radial-gradient(#{$progress-height / 2} #{$progress-height / 2}, #{$black-divider}, #{$black-divider} #{$progress-height / 2}, transparent #{$progress-height / 2}, transparent 100%);
-      background-position: 0 0;
-      background-repeat: repeat-x;
-      background-size: ($progress-height * 3) ($progress-height * 3);
-    }
+  &[style*="width:100%"],
+  &[style*="width: 100%"] {
+    border-right: 0;
   }
 
-  @keyframes progress-bar-animation {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: ($progress-height * 3) 0;
-    }
+  &::before {
+    background-color: transparent;
+    background-image: repeating-radial-gradient(#{$progress-height / 2} #{$progress-height / 2}, #{$black-divider}, #{$black-divider} #{$progress-height / 2}, transparent #{$progress-height / 2}, transparent 100%);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: ($progress-height * 3) ($progress-height * 3);
+  }
+}
+
+@keyframes progress-bar-animation {
+  from {
+    background-position: 0 0;
   }
 
-//
-// indeterminate
-//
-  .progress-bar-indeterminate {
-    background-image: linear-gradient(to right, $progress-bar-mask, $progress-bar-mask);
-    position: relative;
-    width: 100% !important;
+  to {
+    background-position: ($progress-height * 3) 0;
+  }
+}
 
-    &::after,
-    &::before {
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      width: 0%;
-      @include border-radius($border-radius);
-    }
 
-    &::after {
-      animation-name: progress-bar-indeterminate-after;
-      background-color: inherit;
-      content: "";
-      display: block;
-      position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-    }
 
-    &::before {
-      animation-name: progress-bar-indeterminate-before;
-      background-image: none;
-      // position
-        right: auto;
-      z-index: 0;
-    }
+// Indeterminate
+
+.progress-bar-indeterminate {
+  background-image: linear-gradient(to right, $progress-bar-mask, $progress-bar-mask);
+  position: relative;
+  width: 100% !important;
+
+  &::after,
+  &::before {
+    @include border-radius($border-radius);
+
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    width: 0%;
   }
 
-  @keyframes progress-bar-indeterminate-after {
-    0% {
-      // position
-        left: 0%;
-      width: 0%;
-    }
-    50% {
-      // position
-        left: 25%;
-      width: 75%;
-    }
-    75% {
-      // position
-        left: 100%;
-      width: 0%;
-    }
+  &::after {
+    animation-name: progress-bar-indeterminate-after;
+    background-color: inherit;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
   }
 
-  @keyframes progress-bar-indeterminate-before {
-    0%,
-    62.5% {
-      // position
-        left: 0%;
-      width: 0%;
-    }
-    71.875% {
-      // position
-        left: 0%;
-      width: 25%;
-    }
-    81.25% {
-      // position
-        left: 25%;
-      width: 50%;
-    }
-    100% {
-      // position
-        left: 100%;
-      width: 25%;
-    }
+  &::before {
+    animation-name: progress-bar-indeterminate-before;
+    background-image: none;
+    right: auto;
+    z-index: 0;
   }
+}
+
+@keyframes progress-bar-indeterminate-after {
+  0% {
+    left: 0%;
+    width: 0%;
+  }
+
+  50% {
+    left: 25%;
+    width: 75%;
+  }
+
+  75% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+@keyframes progress-bar-indeterminate-before {
+  0%,
+  62.5% {
+    left: 0%;
+    width: 0%;
+  }
+
+  71.875% {
+    left: 0%;
+    width: 25%;
+  }
+
+  81.25% {
+    left: 25%;
+    width: 50%;
+  }
+
+  100% {
+    left: 100%;
+    width: 25%;
+  }
+}

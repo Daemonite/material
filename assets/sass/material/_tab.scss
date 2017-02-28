@@ -1,11 +1,11 @@
-//
-// todo: tabs with icons
-//
+// Todo: tabs with icons
 
 .nav-tabs {
   box-shadow: inset 0 -1px 0 $nav-tab-border-color;
 
   .nav-link {
+    @include transition-standard(background-color, opacity);
+
     align-items: center;
     color: inherit;
     display: flex;
@@ -19,118 +19,116 @@
     padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
     position: relative;
     text-transform: uppercase;
-    @include transition-standard(background-color, opacity);
-
-    &::before {
-      background-color: $nav-tab-indicator-bg;
-      content: "";
-      display: block;
-      height: $nav-tab-indicator-height;
-      opacity: 0;
-      position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      @include transition-standard(opacity);
-    }
 
     @include media-breakpoint-up(lg) {
-      padding-right: $nav-tab-link-padding-x-lg;
       padding-left: $nav-tab-link-padding-x-lg;
+      padding-right: $nav-tab-link-padding-x-lg;
     }
 
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $nav-link-bg-active;
-      }
-
-      &:active,
-      &.active {
-        opacity: $nav-tab-link-opacity-visible;
-      }
-
-      &.active {
-        &::before {
-          opacity: $nav-tab-link-opacity-visible;
-        }
-      }
-
-    // disabled
-      &.disabled {
-        background-color: transparent;
-        color: $nav-link-color-disabled;
-        opacity: $nav-tab-link-opacity-visible;
-      }
-  }
-
-  // open
-    .nav-item.show .nav-link {
+    // Active, focus, hover
+    @include active-focus-hover {
       background-color: $nav-link-bg-active;
+    }
+
+    &:active,
+    &.active {
       opacity: $nav-tab-link-opacity-visible;
     }
-}
 
-// variation
-  .nav-tabs {
-    &.border-0,
-    &.border-bottom-0 {
-      box-shadow: none;
-    }
-
-    &.nav-justified {
-      .nav-link {
-        min-width: $nav-tab-link-min-width;
-
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
+    &.active {
+      &::before {
+        opacity: $nav-tab-link-opacity-visible;
       }
     }
 
-    &.nav-scrollable {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
+    // Disabled
+    &.disabled {
+      background-color: transparent;
+      color: $nav-link-color-disabled;
+      opacity: $nav-tab-link-opacity-visible;
+    }
 
-      .nav-link {
-        max-width: $nav-tab-link-max-width;
-        min-width: $nav-tab-link-min-width;
+    // Indicator
+    &::before {
+      @include transition-standard(opacity);
 
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
+      background-color: $nav-tab-indicator-bg;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: $nav-tab-indicator-height;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  // Open
+  .nav-item.show .nav-link {
+    background-color: $nav-link-bg-active;
+    opacity: $nav-tab-link-opacity-visible;
+  }
+
+  // Variation
+  &.border-0,
+  &.border-bottom-0 {
+    box-shadow: none;
+  }
+
+  &.nav-justified {
+    .nav-link {
+      min-width: $nav-tab-link-min-width;
+
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
       }
     }
   }
 
-  .nav-tabs-material {
-    position: relative;
+  &.nav-scrollable {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
 
+    .nav-link {
+      max-width: $nav-tab-link-max-width;
+      min-width: $nav-tab-link-min-width;
+
+      @include media-breakpoint-up(lg) {
+        min-width: $nav-tab-link-min-width-lg;
+      }
+    }
+  }
+}
+
+.nav-tabs-material {
+  position: relative;
+
+  .nav-link::before {
+    transition: none;
+  }
+
+  .nav-tabs-indicator {
+    background-color: $nav-tab-indicator-bg;
+    bottom: 0;
+    display: none;
+    height: $nav-tab-indicator-height;
+    position: absolute;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  // Animation
+  &.animate {
     .nav-link::before {
-      transition: none;
+      opacity: 0;
     }
 
     .nav-tabs-indicator {
-      background-color: $nav-tab-indicator-bg;
-      height: $nav-tab-indicator-height;
-      display: none;
-      position: absolute;
-        bottom: 0;
-
-      &.show {
-        display: block;
-      }
+      @include transition-standard(left, right);
     }
-
-    // animation
-      &.animate {
-        .nav-link::before {
-          opacity: 0;
-        }
-
-        .nav-tabs-indicator {
-          @include transition-standard(left, right);
-        }
-      }
   }
+}

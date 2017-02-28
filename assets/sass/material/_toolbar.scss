@@ -3,399 +3,390 @@
   color: $toolbar-color-dark;
   display: flex;
   min-height: $toolbar-height;
-  padding-top: $toolbar-padding-y;
   padding-bottom: $toolbar-padding-y;
+  padding-top: $toolbar-padding-y;
   position: relative;
 
   > .container {
     align-items: center;
     display: flex;
-    padding-right: 0;
     padding-left: 0;
+    padding-right: 0;
 
     @include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
-      margin-right: 0;
       margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  // Vertical align some elements normally placed in `.navbar` or `.toolbar`
+  .btn {
+    margin-bottom: (($btn-height - $toolbar-link-height) / -2);
+    margin-top: (($btn-height - $toolbar-link-height) / -2);
+  }
+
+  .btn-lg {
+    margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
+    margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
+  }
+
+  .btn-sm {
+    margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
+    margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
+  }
+
+  .form-control {
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg-dark;
+    border-bottom: 0;
+    color: inherit;
+    height: $toolbar-link-height;
+    line-height: 1;
+    margin-bottom: 0;
+    opacity: $toolbar-link-opacity;
+    padding: (($toolbar-link-height - $textfield-font-size) / 2) $toolbar-link-padding-x;
+
+    // Active, focus, hover
+    @include focus-hover {
+      opacity: $toolbar-link-opacity-active;
+    }
+  }
+
+  .form-inline {
+    flex-wrap: nowrap;
+    margin-left: $toolbar-link-padding-x;
+    margin-right: $toolbar-link-padding-x;
+  }
+
+  .input-group {
+    margin-bottom: 0;
+
+    .form-control {
+      margin-left: 0;
+      margin-right: 0;
+
+      &:first-child {
+        padding-right: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
+      }
+
+      &:not(:first-child) {
+        padding-left: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
+      }
+    }
+
+    .input-group-addon {
+      bottom: 0;
+      margin-left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: ($textfield-height + $textfield-margin-bottom);
+
+      &:first-child {
+        left: 0;
+      }
+
+      &:not(:first-child) {
+        right: 0;
+      }
+    }
+  }
+
+  .nav-tabs {
+    margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
+    margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
+
+    .nav-link {
+      height: $toolbar-height;
     }
   }
 }
 
-// colour
-  .navbar-inverse {
-    color: $toolbar-color-light;
-  }
+// Colour
+.navbar-inverse {
+  color: $toolbar-color-light;
 
-  .navbar-light {
-    color: $toolbar-color-dark;
-  }
+  .form-control {
+    background-color: $toolbar-element-bg-light;
 
-// variation
-  .navbar-fixed-bottom,
-  .navbar-fixed-top {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    position: fixed;
-      right: 0;
-      left: 0;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .navbar-fixed-bottom {
-    // position
-      bottom: 0;
-  }
-
-  .navbar-fixed-top {
-    // position
-      top: 0;
-  }
-
-  .navbar-full {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .navbar-sticky-top {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    position: sticky;
-      top: 0;
-    width: 100%;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .toolbar-waterfall {
-    position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-    @include transition-standard(background-color, box-shadow);
-
-    &.waterfall {
-      background-color: $toolbar-waterfall-bg;
-      box-shadow: map-get($toolbar-elevation-shadow, shadow);
-      position: fixed;
+    &::placeholder {
+      color: $white-hint;
     }
   }
 
-//
-// misc
-//
-  .navbar-brand {
-    align-items: center;
-    align-self: flex-start;
-    color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    padding-right: $toolbar-link-padding-x;
-    padding-left: $toolbar-link-padding-x;
-    vertical-align: middle;
-    white-space: nowrap;
-    @include typography-title;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      &:focus {
-        outline: 0;
-      }
-  }
-
-  .navbar-text {
-    align-items: center;
-    color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    padding-right: $toolbar-link-padding-x;
-    padding-left: $toolbar-link-padding-x;
-    vertical-align: middle;
-  }
-
-//
-// nav
-//
-  .navbar-nav {
-    display: flex;
-    list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
-
-    .nav-link {
-      align-items: center;
-      color: inherit;
-      display: flex;
-      font-size: $toolbar-link-font-size;
-      height: $toolbar-link-height;
-      line-height: 1;
-      opacity: $toolbar-link-opacity;
-      padding: 0 $toolbar-link-padding-x;
-      @include border-radius($border-radius);
-      @include transition-standard(background-color, opacity);
-
-      // active, focus, hover
-        @include active-focus-hover {
-          color: inherit;
-          opacity: $toolbar-link-opacity-active;
-        }
-
-        &:focus {
-          outline: 0;
-        }
-
-        &.active {
-          color: inherit;
-        }
-
-      // disabled
-        &.disabled {
-          opacity: $toolbar-link-opacity;
-        }
-
-      // open
-        &.show {
-          background-color: $toolbar-element-bg-dark;
-        }
-    }
-
-    .active > .nav-link,
-    .show > .nav-link {
-      opacity: $toolbar-link-opacity-active;
-    }
-
-    .show > .nav-link {
-      background-color: $toolbar-element-bg-dark;
-    }
-
-    // direction
-      .dropdown.show > .nav-link {
-        @include border-bottom-radius(0);
-      }
-
-      .dropup.show > .nav-link {
-        @include border-top-radius(0);
-      }
-  }
-
-  // colour
-    .navbar-inverse {
-      .navbar-nav .nav-link.show,
-      .navbar-nav .show > .nav-link {
-        background-color: $toolbar-element-bg-light;
-      }
-    }
-
-//
-// toggleable
-//
-  .navbar-toggleable {
-    @each $breakpoint in map-keys($grid-breakpoints) {
-      $infix: breakpoint-infix($breakpoint);
-      $next: breakpoint-next($breakpoint);
-
-      &#{$infix} {
-        @include media-breakpoint-down($breakpoint) {
-          .navbar-collapse {
-            clear: both;
-
-            > :first-child {
-              margin-top: $toolbar-padding-y;
-            }
-
-            > :not(:last-child) {
-              margin-bottom: $toolbar-padding-y;
-            }
-          }
-
-          .navbar-nav {
-            flex-wrap: wrap;
-          }
-        }
-
-        @include media-breakpoint-up($next) {
-          > .container {
-            align-items: center;
-            display: flex;
-            flex-wrap: nowrap;
-          }
-
-          .navbar-collapse {
-            display: flex !important;
-            width: 100%;
-          }
-
-          .navbar-toggler {
-            display: none;
-          }
-        }
-      }
-    }
+  .navbar-nav .nav-link.show,
+  .navbar-nav .show > .nav-link {
+    background-color: $toolbar-element-bg-light;
   }
 
   .navbar-toggler {
-    align-items: center;
-    background-color: transparent;
-    border: 0;
-    border-radius: 50%;
-    color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    margin-right: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
-    margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
-    position: relative;
-    vertical-align: middle;
-    width: $toolbar-link-height;
-
     &::before {
-      background-color: $toolbar-element-bg-dark;
-      border-radius: 50%;
-      content: "";
-      display: block;
-      height: $toolbar-height;
-      opacity: 0;
-      position: absolute;
-        top: (($toolbar-link-height - $toolbar-height) / 2);
-        left: (($toolbar-link-height - $toolbar-height) / 2);
-      width: $toolbar-height;
-      @include transition-standard(opacity);
+      background-color: $toolbar-element-bg-light;
     }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: inherit;
-        text-decoration: none;
-
-        &::before {
-          opacity: 1;
-        }
-      }
-
-      &:focus {
-        outline: 0;
-      }
   }
 
   .navbar-toggler-icon {
-    background-image: $toolbar-toggler-bg-dark;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: $material-icon-size $material-icon-size;
-    display: block;
-    height: $material-icon-size;
-    margin: auto;
-    width: $material-icon-size;
+    background-image: $toolbar-toggler-bg-light;
+  }
+}
+
+.navbar-light {
+  color: $toolbar-color-dark;
+}
+
+// Variation
+.navbar-fixed-bottom,
+.navbar-fixed-top {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.navbar-fixed-bottom {
+  bottom: 0;
+}
+
+.navbar-fixed-top {
+  top: 0;
+}
+
+.navbar-full {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.navbar-sticky-top {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.toolbar-waterfall {
+  @include transition-standard(background-color, box-shadow);
+
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+
+  &.waterfall {
+    background-color: $toolbar-waterfall-bg;
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    position: fixed;
+  }
+}
+
+
+
+// Misc
+
+.navbar-brand {
+  @include typography-title;
+
+  align-items: center;
+  align-self: flex-start;
+  color: inherit;
+  display: inline-flex;
+  height: $toolbar-link-height;
+  padding-left: $toolbar-link-padding-x;
+  padding-right: $toolbar-link-padding-x;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: inherit;
+    text-decoration: none;
   }
 
-  // colour
-    .navbar-inverse {
-      .navbar-toggler {
-        &::before {
-          background-color: $toolbar-element-bg-light;
-        }
-      }
+  &:focus {
+    outline: 0;
+  }
+}
 
-      .navbar-toggler-icon {
-        background-image: $toolbar-toggler-bg-light;
-      }
-    }
+.navbar-text {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  height: $toolbar-link-height;
+  padding-left: $toolbar-link-padding-x;
+  padding-right: $toolbar-link-padding-x;
+  vertical-align: middle;
+}
 
-//
-// vertical align some elements normally placed in `.navbar` or `.toolbar`
-//
-  .navbar {
-    .btn {
-      margin-top: (($btn-height - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height - $toolbar-link-height) / -2);
-    }
 
-    .btn-lg {
-      margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
-    }
 
-    .btn-sm {
-      margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
-    }
+// Nav
 
-    .form-control {
-      background-color: $toolbar-element-bg-dark;
-      border-bottom: 0;
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  .nav-link {
+    @include border-radius($border-radius);
+    @include transition-standard(background-color, opacity);
+
+    align-items: center;
+    color: inherit;
+    display: flex;
+    font-size: $toolbar-link-font-size;
+    height: $toolbar-link-height;
+    line-height: 1;
+    opacity: $toolbar-link-opacity;
+    padding: 0 $toolbar-link-padding-x;
+
+    // Active, focus, hover
+    @include active-focus-hover {
       color: inherit;
-      height: $toolbar-link-height;
-      line-height: 1;
-      margin-bottom: 0;
+      opacity: $toolbar-link-opacity-active;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.active {
+      color: inherit;
+    }
+
+    // Disabled
+    &.disabled {
       opacity: $toolbar-link-opacity;
-      padding: (($toolbar-link-height - $textfield-font-size) / 2) $toolbar-link-padding-x;
-      @include transition-standard(opacity);
-
-      // active, focus, hover
-        @include focus-hover {
-          opacity: $toolbar-link-opacity-active;
-        }
     }
 
-    .form-inline {
-      flex-wrap: nowrap;
-      margin-right: $toolbar-link-padding-x;
-      margin-left: $toolbar-link-padding-x;
-    }
-
-    .input-group {
-      margin-bottom: 0;
-
-      .form-control {
-        margin-right: 0;
-        margin-left: 0;
-
-        &:first-child {
-          padding-right: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-        }
-
-        &:not(:first-child) {
-          padding-left: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-        }
-      }
-
-      .input-group-addon {
-        margin-left: 0;
-        overflow: hidden;
-        position: absolute;
-          top: 0;
-          bottom: 0;
-        width: ($textfield-height + $textfield-margin-bottom);
-
-        &:first-child {
-          // position
-            left: 0;
-        }
-
-        &:not(:first-child) {
-          // position
-            right: 0;
-        }
-      }
-    }
-
-    .nav-tabs {
-      margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
-      margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
-
-      .nav-link {
-        height: $toolbar-height;
-      }
+    // Open
+    &.show {
+      background-color: $toolbar-element-bg-dark;
     }
   }
 
-  // colour
-    .navbar-inverse {
-      .form-control {
-        background-color: $toolbar-element-bg-light;
+  .active > .nav-link,
+  .show > .nav-link {
+    opacity: $toolbar-link-opacity-active;
+  }
 
-        &::placeholder {
-          color: $white-hint;
+  .show > .nav-link {
+    background-color: $toolbar-element-bg-dark;
+  }
+
+  // Direction
+  .dropdown.show > .nav-link {
+    @include border-bottom-radius(0);
+  }
+
+  .dropup.show > .nav-link {
+    @include border-top-radius(0);
+  }
+}
+
+
+
+// Toggleable
+
+.navbar-toggleable {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint);
+    $next: breakpoint-next($breakpoint);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        .navbar-collapse {
+          clear: both;
+
+          > :first-child {
+            margin-top: $toolbar-padding-y;
+          }
+
+          > :not(:last-child) {
+            margin-bottom: $toolbar-padding-y;
+          }
+        }
+
+        .navbar-nav {
+          flex-wrap: wrap;
+        }
+      }
+
+      @include media-breakpoint-up($next) {
+        > .container {
+          align-items: center;
+          display: flex;
+          flex-wrap: nowrap;
+        }
+
+        .navbar-collapse {
+          display: flex !important;
+          width: 100%;
+        }
+
+        .navbar-toggler {
+          display: none;
         }
       }
     }
+  }
+}
 
+.navbar-toggler {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  display: inline-flex;
+  height: $toolbar-link-height;
+  margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
+  margin-right: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
+  position: relative;
+  vertical-align: middle;
+  width: $toolbar-link-height;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: inherit;
+    text-decoration: none;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  // Focused 12% #000000 shade
+  &::before {
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg-dark;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: $toolbar-height;
+    left: (($toolbar-link-height - $toolbar-height) / 2);
+    opacity: 0;
+    position: absolute;
+    top: (($toolbar-link-height - $toolbar-height) / 2);
+    width: $toolbar-height;
+  }
+}
+
+.navbar-toggler-icon {
+  background-image: $toolbar-toggler-bg-dark;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: $material-icon-size $material-icon-size;
+  display: block;
+  height: $material-icon-size;
+  margin: auto;
+  width: $material-icon-size;
+}

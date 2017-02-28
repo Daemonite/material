@@ -1,9 +1,7 @@
-//
-// todo: bootstrap accordion (i.e. material expansion panel)
-// since bootstrap accordion now relies on `.card`
+// Todo: Bootstrap accordion (i.e. Material design expansion panel)
+// since Bootstrap accordion now relies on `.card`
 // some tweaks are needed for the default accordion example to work correctly
-// we probably need a wrapper to add additional styles in line with material design guidelines
-//
+// we probably need a wrapper to add additional styles in line with Material design
 
 .list-group {
   display: flex;
@@ -12,121 +10,122 @@
   padding-left: 0;
 }
 
-//
-// item
-//
-  .list-group-item {
-    align-items: center;
-    background-color: $expansion-panel-bg;
-    border: 0;
-    border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
-    box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
+.list-group-item {
+  @include transition-standard(background-color, color);
+
+  align-items: center;
+  background-color: $expansion-panel-bg;
+  border: 0;
+  border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
+  box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
+  color: $expansion-panel-color;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: $expansion-panel-font-size;
+  min-height: $expansion-panel-height;
+  padding: $expansion-panel-inner-spacer-y $expansion-panel-inner-spacer-x;
+  position: relative;
+
+  // Active, focus, hover
+  @include active-focus-hover {
     color: $expansion-panel-color;
-    display: flex;
-    flex-flow: row wrap;
-    font-size: $expansion-panel-font-size;
-    min-height: $expansion-panel-height;
-    padding: $expansion-panel-inner-spacer-y $expansion-panel-inner-spacer-x;
-    position: relative;
-    @include transition-standard(background-color, color);
+    text-decoration: none;
+  }
+
+  &.active {
+    background-color: $expansion-panel-bg-active;
+  }
+
+  // Disabled
+  &.disabled {
+    background-color: $expansion-panel-bg-disabled;
+    color: $expansion-panel-color-disabled;
+    cursor: $cursor-disabled;
+  }
+
+  // First and last child variations
+  &:first-child {
+    @include border-top-radius($border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($border-radius);
+
+    border-bottom: 0;
+  }
+}
+
+.list-group-item-action {
+  color: $expansion-panel-color;
+  text-align: inherit;
+  width: 100%;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    background-color: $expansion-panel-bg-active;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  // Disabled
+  &.disabled {
+    background-color: $expansion-panel-bg-disabled;
+  }
+}
+
+// Colour
+@each $color in $palettes {
+  $i: index($palettes, $color);
+
+  .list-group-item-#{$color} {
+    background-color: nth($palettes-color, $i);
+    color: nth($palettes-text-color, $i);
+
+    // Active, focus, hover
+    @include active-focus-hover {
+      color: nth($palettes-text-color, $i);
+    }
+
+    &.active {
+      background-color: nth($palettes-color-dark, $i);
+      color: nth($palettes-text-color-dark, $i);
+    }
+
+    &.list-group-item-action {
+      // Active, focus, hover
+      @include active-focus-hover {
+        background-color: nth($palettes-color-dark, $i);
+        color: nth($palettes-text-color-dark, $i);
+      }
+    }
+  }
+}
+
+
+
+// Flush
+
+.list-group-flush {
+  .list-group-item {
+    border-radius: 0;
+    box-shadow: none;
 
     &:first-child {
-      @include border-top-radius($border-radius);
+      border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
     }
 
     &:last-child {
-      border-bottom: 0;
-      @include border-bottom-radius($border-radius);
-    }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: $expansion-panel-color;
-        text-decoration: none;
-      }
-
-      &.active {
-        background-color: $expansion-panel-bg-active;
-      }
-
-    // disabled
-      &.disabled {
-        background-color: $expansion-panel-bg-disabled;
-        color: $expansion-panel-color-disabled;
-        cursor: $cursor-disabled;
-      }
-  }
-
-  .list-group-item-action {
-    color: $expansion-panel-color;
-    text-align: inherit;
-    width: 100%;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $expansion-panel-bg-active;
-      }
-
-      &:focus {
-        outline: 0;
-      }
-
-    // disabled
-      &.disabled {
-        background-color: $expansion-panel-bg-disabled;
-      }
-  }
-
-  // colour
-    @each $color in $palettes {
-      $i: index($palettes, $color);
-
-      .list-group-item-#{$color} {
-        background-color: nth($palettes-color, $i);
-        color: nth($palettes-text-color, $i);
-
-        // active, focus, hover
-          @include active-focus-hover {
-            color: nth($palettes-text-color, $i);
-          }
-
-          &.active {
-            background-color: nth($palettes-color-dark, $i);
-            color: nth($palettes-text-color-dark, $i);
-          }
-
-        &.list-group-item-action {
-          // active, focus, hover
-            @include active-focus-hover {
-              background-color: nth($palettes-color-dark, $i);
-              color: nth($palettes-text-color-dark, $i);
-            }
-        }
-      }
-    }
-
-//
-// flush
-//
-  .list-group-flush {
-    .list-group-item {
-      border-radius: 0;
-      box-shadow: none;
-
-      &:first-child {
-        border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
-      }
-
-      &:last-child {
-        border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
-      }
-    }
-
-    &:first-child .list-group-item:first-child {
-      border-top: 0;
-    }
-
-    &:last-child .list-group-item:last-child {
-      border-bottom: 0;
+      border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
     }
   }
+
+  &:first-child .list-group-item:first-child {
+    border-top: 0;
+  }
+
+  &:last-child .list-group-item:last-child {
+    border-bottom: 0;
+  }
+}

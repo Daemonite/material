@@ -10,6 +10,19 @@
   }
 }
 
+// Size
+.input-group-lg > .form-control {
+  @extend %form-control-lg;
+}
+
+.input-group-sm > .form-control {
+  @extend %form-control-sm;
+}
+
+
+
+// Addon and button
+
 .input-group-addon {
   align-items: center;
   color: inherit;
@@ -23,13 +36,26 @@
   .form-control + & {
     margin-left: $input-group-addon-margin-x;
   }
+
+  // Size
+  &.form-control-lg,
+  .input-group-lg > & {
+    font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-lg);
+    min-width: $textfield-height-lg;
+  }
+
+  &.form-control-sm,
+  .input-group-sm > & {
+    font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-sm);
+    min-width: $textfield-height-sm;
+  }
 }
 
 .input-group-btn {
   display: flex;
   justify-content: center;
-  margin-right: $input-group-addon-margin-x;
   margin-left: $input-group-addon-margin-x;
+  margin-right: $input-group-addon-margin-x;
 
   &:first-child {
     margin-left: 0;
@@ -40,8 +66,9 @@
   }
 
   .btn {
-    min-width: 0;
     @include border-radius(0);
+
+    min-width: 0;
 
     &:first-child {
       @include border-left-radius($border-radius);
@@ -52,26 +79,3 @@
     }
   }
 }
-
-// size
-  .input-group-addon {
-    &.form-control-lg,
-    .input-group-lg > & {
-      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-lg);
-      min-width: $textfield-height-lg;
-    }
-
-    &.form-control-sm,
-    .input-group-sm > & {
-      font-size: ($material-icon-size / $font-size-root * 1rem / $textfield-font-size * $textfield-font-size-sm);
-      min-width: $textfield-height-sm;
-    }
-  }
-
-  .input-group-lg > .form-control {
-    @extend .form-control-lg;
-  }
-
-  .input-group-sm > .form-control {
-    @extend .form-control-sm;
-  }

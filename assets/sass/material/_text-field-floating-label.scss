@@ -1,26 +1,27 @@
 .floating-label {
-  position: relative;
   @include floating-label-size($textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
 
+  position: relative;
+
   > label {
+    @include transition-standard(color, top, transform);
+
     color: $floating-label-color;
     display: block;
     font-weight: normal;
+    left: 0;
     margin: 0;
     overflow: hidden;
     padding: 0;
     position: absolute;
-      left: 0;
     text-overflow: ellipsis;
     transform-origin: 0 0;
     white-space: nowrap;
-    @include transition-standard(color, top, transform);
   }
 
   &.has-value > label,
   &.is-focused > label {
-    // position
-      top: 0;
+    top: 0;
   }
 
   &.is-focused > label {
@@ -37,19 +38,19 @@
   }
 }
 
-// size
-  .floating-label-lg {
-    @include floating-label-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+// Size
+.floating-label-lg {
+  @include floating-label-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
 
-    > .form-control {
-      @extend .form-control-lg;
-    }
+  > .form-control {
+    @extend %form-control-lg;
   }
+}
 
-  .floating-label-sm {
-    @include floating-label-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+.floating-label-sm {
+  @include floating-label-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
 
-    > .form-control {
-      @extend .form-control-sm;
-    }
+  > .form-control {
+    @extend %form-control-sm;
   }
+}

@@ -1,22 +1,22 @@
 .dialog,
 .modal {
+  bottom: 0;
   display: none;
-  overflow: hidden;
+  left: 0;
   outline: 0;
+  overflow: hidden;
   position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  right: 0;
   text-align: center;
+  top: 0;
   white-space: nowrap;
   z-index: map-get($dialog-elevation-shadow, elevation);
 
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     height: 100%;
-    margin-right: -0.25em;
+    margin-right: -.25em;
     vertical-align: middle;
     width: 1px;
   }
@@ -36,127 +36,133 @@
   }
 }
 
-//
-// backdrop
-//
-  .modal-backdrop {
-    background-color: $dialog-backdrop-bg;
-    position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
 
-    &.fade,
-    &.fade.show {
-      transform: none;
-    }
 
-    &.fade {
-      @include transition-standard-complex(opacity);
-    }
+// Backdrop
+
+.modal-backdrop {
+  background-color: $dialog-backdrop-bg;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
+
+  &.fade,
+  &.fade.show {
+    transform: none;
   }
 
-//
-// dialog
-//
-  .dialog-dialog,
-  .modal-dialog {
-    display: inline-block;
-    margin: $dialog-margin-y $dialog-margin-x;
-    max-width: $dialog-width;
-    position: relative;
-    text-align: left;
-    vertical-align: middle;
-    white-space: normal;
-    width: calc(100% - #{$dialog-margin-x} * 2);
+  &.fade {
+    @include transition-standard-complex(opacity);
+  }
+}
+
+
+
+// Dialog
+
+.dialog-dialog,
+.modal-dialog {
+  display: inline-block;
+  margin: $dialog-margin-y $dialog-margin-x;
+  max-width: $dialog-width;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+  white-space: normal;
+  width: calc(100% - #{$dialog-margin-x} * 2);
+}
+
+// Size
+.dialog-lg,
+.modal-lg {
+  max-width: $dialog-width-lg;
+}
+
+.dialog-sm,
+.modal-sm {
+  max-width: $dialog-width-sm;
+}
+
+
+
+// Misc
+
+.dialog-body,
+.modal-body {
+  flex: 1 1 auto;
+  padding: $dialog-inner-padding;
+  position: relative;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dialog-content,
+.modal-content {
+  @include border-radius($border-radius);
+
+  background-clip: padding-box;
+  background-color: $dialog-content-bg;
+  box-shadow: map-get($dialog-elevation-shadow, shadow);
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.dialog-footer,
+.modal-footer {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: $dialog-footer-spacer-y ($dialog-footer-spacer-x / 2);
+  padding-left: ($dialog-inner-padding - $dialog-footer-spacer-x / 2);
+
+  > * {
+    margin-left: ($dialog-footer-spacer-x / 2);
+    margin-right: ($dialog-footer-spacer-x / 2);
   }
 
-  // size
-    .dialog-lg,
-    .modal-lg {
-      max-width: $dialog-width-lg;
-    }
-
-    .dialog-sm,
-    .modal-sm {
-      max-width: $dialog-width-sm;
-    }
-
-//
-// misc
-//
-  .dialog-body,
-  .modal-body {
-    flex: 1 1 auto;
-    padding: $dialog-inner-padding;
-    position: relative;
-
-    > :last-child {
-      margin-bottom: 0;
-    }
+  .btn {
+    min-width: $dialog-footer-btn-min-width;
+    padding-left: $dialog-footer-spacer-x;
+    padding-right: $dialog-footer-spacer-x;
   }
+}
 
-  .dialog-content,
-  .modal-content {
-    background-clip: padding-box;
-    background-color: $dialog-content-bg;
-    box-shadow: map-get($dialog-elevation-shadow, shadow);
-    display: flex;
-    flex-direction: column;
-    outline: 0;
-    position: relative;
-    vertical-align: baseline;
-    @include border-radius($border-radius);
+.dialog-header,
+.modal-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: $dialog-inner-padding;
+  padding-bottom: 0;
+
+  &:last-child {
+    padding-bottom: $dialog-inner-padding;
   }
+}
 
-  .dialog-footer,
-  .modal-footer {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    padding: $dialog-footer-spacer-y ($dialog-footer-spacer-x / 2);
-    padding-left: ($dialog-inner-padding - $dialog-footer-spacer-x / 2);
+.dialog-title,
+.modal-title {
+  @include typography-title;
 
-    > * {
-      margin-right: ($dialog-footer-spacer-x / 2);
-      margin-left: ($dialog-footer-spacer-x / 2);
-    }
+  margin: 0;
+}
 
-    .btn {
-      min-width: $dialog-footer-btn-min-width;
-      padding-right: $dialog-footer-spacer-x;
-      padding-left: $dialog-footer-spacer-x;
-    }
-  }
 
-  .dialog-header,
-  .modal-header {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: $dialog-inner-padding;
-    padding-bottom: 0;
 
-    &:last-child {
-      padding-bottom: $dialog-inner-padding;
-    }
-  }
+// Scrollbar measure
 
-  .dialog-title,
-  .modal-title {
-    margin: 0;
-    @include typography-title;
-  }
-
-//
-// scrollbar measure
-//
-  .modal-scrollbar-measure {
-    height: 50px;
-    overflow: scroll;
-    position: absolute;
-      top: -99999px;
-    width: 50px;
-  }
+.modal-scrollbar-measure {
+  height: 50px;
+  overflow: scroll;
+  position: absolute;
+  top: -99999px;
+  width: 50px;
+}

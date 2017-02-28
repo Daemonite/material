@@ -1,4 +1,7 @@
 .btn {
+  @include border-radius($border-radius);
+  @include transition-standard(background-color, box-shadow, color);
+
   background-color: $btn-bg;
   background-image: none;
   border: 0;
@@ -19,90 +22,87 @@
   vertical-align: middle;
   white-space: nowrap;
   z-index: map-get($btn-elevation-shadow, elevation);
-  @include border-radius($border-radius);
-  @include transition-standard(background-color, box-shadow, color);
 
-  &::before {
-    background-color: $btn-focus-overlay;
-    content: "";
-    display: block;
-    opacity: 0;
-    position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    z-index: -1;
-    @include border-radius($border-radius);
-    @include transition-standard(opacity);
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: $btn-color;
+    text-decoration: none;
   }
 
-  // active, focus, hover
-    @include active-focus-hover {
-      color: $btn-color;
-
-      @if ($link-decoration-active != "none") {
-        text-decoration: none;
-      }
-    }
-
-    @include focus-hover {
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    &:active,
-    &.active {
-      background-color: $btn-bg-active;
-      box-shadow: map-get($btn-elevation-shadow-active, shadow);
-      z-index: map-get($btn-elevation-shadow-active, elevation);
-
-      &::before {
-        opacity: 0;
-      }
-    }
-
-    &:focus {
-      outline: 0;
-    }
-
-  // disabled
-    &:disabled,
-    &.disabled {
-      background-color: $btn-bg-disabled;
-      box-shadow: none;
-      color: $btn-color-disabled;
-      cursor: $cursor-disabled;
+  @include focus-hover {
+    &::before {
       opacity: 1;
-
-      &::before,
-      .waves-ripple {
-        display: none;
-      }
     }
+  }
 
-  // open
-    .open > &,
-    .open > & {
-      &.dropdown-toggle::before {
-        opacity: 1;
-      }
-    }
+  &:active,
+  &.active {
+    background-color: $btn-bg-active;
+    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+    z-index: map-get($btn-elevation-shadow-active, elevation);
 
-    .dropdown.open > & {
-      &.dropdown-toggle,
-      &.dropdown-toggle::before {
-        @include border-bottom-radius(0);
-      }
+    &::before {
+      opacity: 0;
     }
+  }
 
-    .dropup.open > & {
-      &.dropdown-toggle,
-      &.dropdown-toggle::before {
-        @include border-top-radius(0);
-      }
+  &:focus {
+    outline: 0;
+  }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background-color: $btn-bg-disabled;
+    box-shadow: none;
+    color: $btn-color-disabled;
+    cursor: $cursor-disabled;
+    opacity: 1;
+
+    &::before,
+    .waves-ripple {
+      display: none;
     }
+  }
+
+  // Focused 12% #000000 shade
+  &::before {
+    @include border-radius($border-radius);
+    @include transition-standard(opacity);
+
+    background-color: $btn-focus-overlay;
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  // Open
+  .open > &,
+  .open > & {
+    &.dropdown-toggle::before {
+      opacity: 1;
+    }
+  }
+
+  .dropdown.open > & {
+    &.dropdown-toggle,
+    &.dropdown-toggle::before {
+      @include border-bottom-radius(0);
+    }
+  }
+
+  .dropup.open > & {
+    &.dropdown-toggle,
+    &.dropdown-toggle::before {
+      @include border-top-radius(0);
+    }
+  }
 }
 
 a.btn.disabled,
@@ -110,137 +110,138 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 
-// colour
-  .btn-inverse {
+// Colour
+.btn-inverse {
+  color: $btn-color-inverse;
+
+  // Active, focus, hover
+  @include active-focus-hover {
     color: $btn-color-inverse;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: $btn-color-inverse;
-      }
-
-      &:active,
-      &.active {
-        background-color: $btn-bg-inverse-active;
-      }
-
-    // disabled
-      &:disabled,
-      &.disabled {
-        background-color: $btn-bg-inverse-disabled;
-        color: $btn-color-inverse-disabled;
-      }
   }
 
-  @each $color in $palettes {
-    $i: index($palettes, $color);
+  &:active,
+  &.active {
+    background-color: $btn-bg-inverse-active;
+  }
 
-    .btn-#{$color} {
-      background-color: nth($palettes-color, $i);
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background-color: $btn-bg-inverse-disabled;
+    color: $btn-color-inverse-disabled;
+  }
+}
+
+@each $color in $palettes {
+  $i: index($palettes, $color);
+
+  .btn-#{$color} {
+    background-color: nth($palettes-color, $i);
+    color: nth($palettes-text-color, $i);
+
+    // Active, focus, hover
+    @include active-focus-hover {
       color: nth($palettes-text-color, $i);
+    }
 
-      // active, focus, hover
-        @include active-focus-hover {
-          color: nth($palettes-text-color, $i);
-        }
+    &:active,
+    &.active {
+      background-color: nth($palettes-color-dark, $i);
+    }
 
-        &:active,
-        &.active {
-          background-color: nth($palettes-color-dark, $i);
-        }
-
-      // disabled
-        &:disabled,
-        &.disabled {
-          background-color: $btn-bg-disabled;
-          color: $btn-color-disabled;
-        }
+    // Disabled
+    &:disabled,
+    &.disabled {
+      background-color: $btn-bg-disabled;
+      color: $btn-color-disabled;
     }
   }
+}
 
-// size
-  .btn-lg,
-  %btn-lg {
-    font-size: $btn-font-size-lg;
-    padding: $btn-padding-y-lg $btn-padding-x-lg;
+// Size
+.btn-lg,
+%btn-lg {
+  font-size: $btn-font-size-lg;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+}
+
+.btn-sm,
+%btn-sm {
+  font-size: $btn-font-size-sm;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+}
+
+
+
+// Block button
+
+.btn-block {
+  display: block;
+  width: 100%;
+
+  + .btn-block {
+    margin-top: $btn-block-spacer;
   }
+}
 
-  .btn-sm,
-  %btn-sm {
-    font-size: $btn-font-size-sm;
-    padding: $btn-padding-y-sm $btn-padding-x-sm;
-  }
-
-//
-// block button
-//
-  .btn-block {
-    display: block;
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  &.btn-block {
     width: 100%;
+  }
+}
 
-    + .btn-block {
-      margin-top: $btn-block-spacer;
-    }
+
+
+// Link button
+
+.btn-link {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: $link-color;
+  font-weight: normal;
+  text-decoration: $link-decoration;
+  text-transform: none;
+  z-index: initial;
+
+  // Active, focus, hover
+  @include active-focus-hover {
+    color: $link-color-active;
+    text-decoration: $link-decoration-active;
   }
 
-  input[type="button"],
-  input[type="reset"],
-  input[type="submit"] {
-    &.btn-block {
-      width: 100%;
-    }
-  }
-
-//
-// link button
-//
-  .btn-link {
+  &:active,
+  &.active {
     background-color: transparent;
-    border-radius: 0;
     box-shadow: none;
-    color: $link-color;
-    font-weight: normal;
-    text-decoration: $link-decoration;
-    text-transform: none;
     z-index: initial;
-
-    &::before {
-      display: none;
-    }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: $link-color-active;
-        text-decoration: $link-decoration-active;
-      }
-
-      &:active,
-      &.active {
-        background-color: transparent;
-        box-shadow: none;
-        z-index: initial;
-      }
-
-      &:focus {
-        @include tab-focus;
-      }
-
-    // disabled
-      &:disabled,
-      &.disabled {
-        background-color: transparent;
-        color: $btn-color-disabled;
-        outline: 0;
-
-        @if ($link-decoration-active != "none") {
-          text-decoration: none;
-        }
-      }
   }
 
-//
-// no minimum width
-//
-  .btn-fluid {
-    min-width: 0;
+  &:focus {
+    @include tab-focus;
   }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background-color: transparent;
+    color: $btn-color-disabled;
+    outline: 0;
+    text-decoration: none;
+  }
+
+  // Focused 12% #000000 share over the colour
+  &::before {
+    display: none;
+  }
+}
+
+
+
+// No minimum width
+
+.btn-fluid {
+  min-width: 0;
+}
