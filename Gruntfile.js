@@ -191,6 +191,9 @@ module.exports = function(grunt) {
     },
 
     scsslint: {
+      options: {
+        config: 'assets/sass/.scss-lint.yml'
+      },
       material: ['assets/sass/**/*.scss'],
       project: ['assets/sass-project/**/*.scss']
     },
