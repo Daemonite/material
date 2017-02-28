@@ -25,6 +25,49 @@
     firstDay      : 0,
     format        : 'd/m/yyyy',
     formatSubmit  : '',
+    klass         : {
+      // button
+      buttonClear : 'btn btn-flat btn-brand picker-button-clear',
+      buttonClose : 'btn btn-flat btn-brand picker-button-close',
+      buttonToday : 'btn btn-flat btn-brand picker-button-today',
+
+      // day
+      day         : 'picker-day',
+      disabled    : 'picker-day-disabled',
+      highlighted : 'picker-day-highlighted',
+      infocus     : 'picker-day-infocus',
+      now         : 'picker-day-today',
+      outfocus    : 'picker-day-outfocus',
+      selected    : 'picker-day-selected',
+      weekdays    : 'picker-weekday',
+
+      // element
+      box         : 'picker-box',
+      footer      : 'picker-footer',
+      frame       : 'picker-frame',
+      header      : 'picker-header',
+      holder      : 'picker-holder',
+      table       : 'picker-table',
+      wrap        : 'picker-wrap',
+
+      // input element
+      active      : 'picker-input-active',
+      input       : 'picker-input',
+
+      // month and year nav
+      month       : 'picker-month',
+      navDisabled : 'picker-nav-disabled',
+      navNext     : 'material-icons picker-nav-next',
+      navPrev     : 'material-icons picker-nav-prev',
+      selectMonth : 'picker-select-month',
+      selectYear  : 'picker-select-year',
+      year        : 'picker-year',
+
+      // root picker
+      focused     : 'picker-focused',
+      opened      : 'picker-opened',
+      picker      : 'picker'
+    },
     max           : false,
     min           : false,
     monthsFull    : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -44,16 +87,16 @@
   }
 
   Datepicker.prototype.display = function (datepickerApi, datepickerRoot, datepickerValue) {
-    $('.picker__date-display', datepickerRoot).remove()
+    $('.picker-date-display', datepickerRoot).remove()
 
-    $('.picker__wrap', datepickerRoot).prepend('<div class="picker__date-display">' +
-      '<div class="picker__date-display-top">' +
-        '<span class="picker__year-display">' + datepickerApi.get(datepickerValue, 'yyyy') + '</span>' +
+    $('.picker-wrap', datepickerRoot).prepend('<div class="picker-date-display">' +
+      '<div class="picker-date-display-top">' +
+        '<span class="picker-year-display">' + datepickerApi.get(datepickerValue, 'yyyy') + '</span>' +
       '</div>' +
-      '<div class="picker__date-display-bottom">' +
-        '<span class="picker__weekday-display">' + datepickerApi.get(datepickerValue, 'dddd') + '</span>' +
-        '<span class="picker__day-display">' + datepickerApi.get(datepickerValue, 'd') + '</span>' +
-        '<span class="picker__month-display">' + datepickerApi.get(datepickerValue, 'mmm') + '</span>' +
+      '<div class="picker-date-display-bottom">' +
+        '<span class="picker-weekday-display">' + datepickerApi.get(datepickerValue, 'dddd') + '</span>' +
+        '<span class="picker-day-display">' + datepickerApi.get(datepickerValue, 'd') + '</span>' +
+        '<span class="picker-month-display">' + datepickerApi.get(datepickerValue, 'mmm') + '</span>' +
       '</div>' +
     '</div>')
   }
@@ -71,13 +114,7 @@
       firstDay      : that._options.firstDay,
       format        : that._options.format,
       formatSubmit  : that._options.formatSubmit,
-      klass         : {
-        buttonClear : 'btn btn-flat btn-brand picker__button--clear',
-        buttonClose : 'btn btn-flat btn-brand picker__button--close',
-        buttonToday : 'btn btn-flat btn-brand picker__button--today',
-        navPrev     : 'material-icons picker__nav--prev',
-        navNext     : 'material-icons picker__nav--next',
-      },
+      klass         : that._options.klass,
       max           : that._options.max,
       min           : that._options.min,
       monthsFull    : that._options.monthsFull,

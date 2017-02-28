@@ -5831,14 +5831,14 @@ fieldset[disabled] a.btn {
   z-index: 240;
 }
 
-.picker__box {
+.picker-box {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
   background-color: white;
   overflow: hidden;
 }
 
-.picker__frame {
+.picker-frame {
   -webkit-transition-duration: 0.375s;
        -o-transition-duration: 0.375s;
           transition-duration: 0.375s;
@@ -5860,31 +5860,31 @@ fieldset[disabled] a.btn {
   white-space: nowrap;
 }
 @media (min-width: 600px) {
-  .picker__frame {
+  .picker-frame {
     -webkit-transition-duration: 0.4875s;
          -o-transition-duration: 0.4875s;
             transition-duration: 0.4875s;
   }
 }
 @media (min-width: 1280px) {
-  .picker__frame {
+  .picker-frame {
     -webkit-transition-duration: 0.25s;
          -o-transition-duration: 0.25s;
             transition-duration: 0.25s;
   }
 }
-.picker__frame::after {
+.picker-frame::after {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
   width: 1px;
 }
-.picker--opened .picker__frame {
+.picker-opened .picker-frame {
   opacity: 1;
 }
 
-.picker__holder {
+.picker-holder {
   bottom: 0;
   left: 0;
   outline: 0;
@@ -5908,20 +5908,20 @@ fieldset[disabled] a.btn {
   transition-property: transform, -webkit-transform, -o-transform;
 }
 @media (min-width: 600px) {
-  .picker__holder {
+  .picker-holder {
     -webkit-transition-delay: 0.4875s;
          -o-transition-delay: 0.4875s;
             transition-delay: 0.4875s;
   }
 }
 @media (min-width: 1280px) {
-  .picker__holder {
+  .picker-holder {
     -webkit-transition-delay: 0.25s;
          -o-transition-delay: 0.25s;
             transition-delay: 0.25s;
   }
 }
-.picker--opened .picker__holder {
+.picker-opened .picker-holder {
   opacity: 1;
   overflow-x: hidden;
   overflow-y: auto;
@@ -5931,19 +5931,20 @@ fieldset[disabled] a.btn {
   -o-transition: none;
   transition: none;
 }
-.picker--opened .picker__holder::before {
+.picker-opened .picker-holder::before {
   opacity: 1;
 }
 
-.picker__input.form-control[readonly] {
+.picker-input.form-control[readonly] {
   border-bottom-style: solid;
   color: inherit;
+  cursor: text;
 }
-.picker__input.picker__input--active {
+.picker-input.picker-input-active {
   border-bottom-color: #9c27b0;
 }
 
-.picker__wrap {
+.picker-wrap {
   border-radius: 2px;
   -webkit-transition-duration: 0.375s;
        -o-transition-duration: 0.375s;
@@ -5969,38 +5970,38 @@ fieldset[disabled] a.btn {
   vertical-align: middle;
 }
 @media (min-width: 600px) {
-  .picker__wrap {
+  .picker-wrap {
     -webkit-transition-duration: 0.4875s;
          -o-transition-duration: 0.4875s;
             transition-duration: 0.4875s;
   }
 }
 @media (min-width: 1280px) {
-  .picker__wrap {
+  .picker-wrap {
     -webkit-transition-duration: 0.25s;
          -o-transition-duration: 0.25s;
             transition-duration: 0.25s;
   }
 }
-.picker--opened .picker__wrap {
+.picker-opened .picker-wrap {
   -webkit-transform: scale(1);
        -o-transform: scale(1);
           transform: scale(1);
 }
 
-.picker__footer {
+.picker-footer {
   padding: 0.5rem 0.5rem;
   text-align: right;
 }
-.picker__footer button {
+.picker-footer button {
   margin-left: 0.5rem;
   min-width: 0;
 }
-.picker__footer button:first-child {
+.picker-footer button:first-child {
   margin-left: 0;
 }
 
-.picker__header {
+.picker-header {
   height: 2.5rem;
   line-height: 2.5rem;
   margin-left: 0.5rem;
@@ -6009,45 +6010,45 @@ fieldset[disabled] a.btn {
   vertical-align: middle;
 }
 
-.picker__month,
-.picker__year {
+.picker-month,
+.picker-year {
   display: inline;
   margin-left: 0.5rem;
 }
-.picker__month:first-child,
-.picker__year:first-child {
+.picker-month:first-child,
+.picker-year:first-child {
   margin-left: 0;
 }
 
-.picker__nav--next,
-.picker__nav--prev {
+.picker-nav-next,
+.picker-nav-prev {
   height: 2.5rem;
   margin-top: -1.25rem;
   position: absolute;
   top: 50%;
   width: 2.5rem;
 }
-.picker__nav--next, .picker__nav--next.material-icons,
-.picker__nav--prev,
-.picker__nav--prev.material-icons {
+.picker-nav-next, .picker-nav-next.material-icons,
+.picker-nav-prev,
+.picker-nav-prev.material-icons {
   line-height: 2.5rem;
 }
 
-.picker__nav--next {
+.picker-nav-next {
   right: 0;
 }
-.picker__nav--next::before {
+.picker-nav-next::before {
   content: "keyboard_arrow_right";
 }
 
-.picker__nav--prev {
+.picker-nav-prev {
   left: 0;
 }
-.picker__nav--prev::before {
+.picker-nav-prev::before {
   content: "keyboard_arrow_left";
 }
 
-.picker__date-display {
+.picker-date-display {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   background-color: #9c27b0;
@@ -6056,7 +6057,7 @@ fieldset[disabled] a.btn {
   text-align: left;
 }
 
-.picker__date-display-bottom {
+.picker-date-display-bottom {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -6066,52 +6067,53 @@ fieldset[disabled] a.btn {
   line-height: 2.5rem;
 }
 
-.picker__day-display {
+.picker-day-display {
   margin-right: 0.5rem;
 }
 
-.picker__weekday-display {
+.picker-weekday-display {
   margin-right: 0.5rem;
 }
-.picker__weekday-display::after {
+.picker-weekday-display::after {
   content: ',';
 }
 
-.picker__day {
+.picker-day {
   border-radius: 50%;
+  cursor: default;
   height: 2.5rem;
   line-height: 2.5rem;
   margin: auto;
   vertical-align: middle;
   width: 2.5rem;
 }
-.picker__day.picker__day--selected {
+.picker-day.picker-day-selected {
   background-color: #9c27b0;
   color: white;
 }
 
-.picker__day--disabled {
+.picker-day-disabled {
   color: rgba(0, 0, 0, 0.38);
   cursor: not-allowed;
 }
 
-.picker__day--outfocus {
+.picker-day-outfocus {
   display: none;
 }
 
-.picker__day--today {
+.picker-day-today {
   color: #9c27b0;
   font-weight: bolder;
 }
 
-.picker__table {
+.picker-table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 0 0.5rem;
   table-layout: fixed;
 }
-.picker__table td,
-.picker__table th {
+.picker-table td,
+.picker-table th {
   border: 0;
   font-weight: normal;
   padding: 0;
@@ -6119,7 +6121,7 @@ fieldset[disabled] a.btn {
   vertical-align: middle;
 }
 
-.picker__weekday {
+.picker-weekday {
   color: rgba(0, 0, 0, 0.38);
   height: 2.5rem;
   vertical-align: middle;

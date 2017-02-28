@@ -6,14 +6,14 @@
   z-index: map-get($picker-elevation-shadow, elevation);
 }
 
-.picker__box {
+.picker-box {
   @include border-bottom-radius($border-radius);
 
   background-color: $picker-content-bg;
   overflow: hidden;
 }
 
-.picker__frame {
+.picker-frame {
   @include transition-standard-complex(opacity);
 
   background-color: $picker-holder-bg;
@@ -35,12 +35,12 @@
     width: 1px;
   }
 
-  .picker--opened & {
+  .picker-opened & {
     opacity: 1;
   }
 }
 
-.picker__holder {
+.picker-holder {
   bottom: 0;
   left: 0;
   outline: 0;
@@ -62,7 +62,7 @@
     transition-delay: $transition-duration-desktop-complex;
   }
 
-  .picker--opened & {
+  .picker-opened & {
     opacity: 1;
     overflow-x: hidden;
     overflow-y: auto;
@@ -75,18 +75,19 @@
   }
 }
 
-.picker__input {
+.picker-input {
   &.form-control[readonly] {
     border-bottom-style: solid;
     color: inherit;
+    cursor: text;
   }
 
-  &.picker__input--active {
+  &.picker-input-active {
     border-bottom-color: $textfield-border-color-focus;
   }
 }
 
-.picker__wrap {
+.picker-wrap {
   @include border-radius($border-radius);
   @include transition-standard-complex(transform);
 
@@ -99,7 +100,7 @@
   transform: scale(.87);
   vertical-align: middle;
 
-  .picker--opened & {
+  .picker-opened & {
     transform: scale(1);
   }
 }
@@ -108,7 +109,7 @@
 
 // Footer
 
-.picker__footer {
+.picker-footer {
   padding: $picker-inner-spacer-y $picker-inner-spacer-x;
   text-align: right;
 
@@ -126,7 +127,7 @@
 
 // Header
 
-.picker__header {
+.picker-header {
   height: $picker-cell-size;
   line-height: $picker-cell-size;
   margin-left: $picker-inner-spacer-x;
@@ -135,8 +136,8 @@
   vertical-align: middle;
 }
 
-.picker__month,
-.picker__year {
+.picker-month,
+.picker-year {
   display: inline;
   margin-left: $picker-inner-spacer-x;
 
@@ -145,8 +146,8 @@
   }
 }
 
-.picker__nav--next,
-.picker__nav--prev {
+.picker-nav-next,
+.picker-nav-prev {
   height: $picker-cell-size;
   margin-top: ($picker-cell-size / -2);
   position: absolute;
@@ -159,7 +160,7 @@
   }
 }
 
-.picker__nav--next {
+.picker-nav-next {
   right: 0;
 
   &::before {
@@ -167,7 +168,7 @@
   }
 }
 
-.picker__nav--prev {
+.picker-nav-prev {
   left: 0;
 
   &::before {
@@ -179,7 +180,7 @@
 
 // Material date display
 
-.picker__date-display {
+.picker-date-display {
   @include border-top-radius($border-radius);
 
   background-color: $picker-header-bg;
@@ -188,16 +189,16 @@
   text-align: left;
 }
 
-.picker__date-display-bottom {
+.picker-date-display-bottom {
   @include text-truncate;
   @include typography-display-1;
 }
 
-.picker__day-display {
+.picker-day-display {
   margin-right: $picker-inner-spacer-x;
 }
 
-.picker__weekday-display {
+.picker-weekday-display {
   margin-right: $picker-inner-spacer-x;
 
   &::after {
@@ -209,35 +210,36 @@
 
 // Table
 
-.picker__day {
+.picker-day {
   border-radius: 50%;
+  cursor: default;
   height: $picker-cell-size;
   line-height: $picker-cell-size;
   margin: auto;
   vertical-align: middle;
   width: $picker-cell-size;
 
-  &.picker__day--selected {
+  &.picker-day-selected {
     background-color: $picker-day-bg-selected;
     color: $picker-day-color-selected;
   }
 }
 
-.picker__day--disabled {
+.picker-day-disabled {
   color: $picker-day-color-disabled;
   cursor: $cursor-disabled;
 }
 
-.picker__day--outfocus {
+.picker-day-outfocus {
   display: none;
 }
 
-.picker__day--today {
+.picker-day-today {
   color: $picker-day-color-today;
   font-weight: bolder;
 }
 
-.picker__table {
+.picker-table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 0 $picker-inner-spacer-x;
@@ -253,15 +255,15 @@
   }
 }
 
-.picker__weekday {
+.picker-weekday {
   color: $picker-weekday-color;
   height: $picker-cell-size;
   vertical-align: middle;
   width: $picker-cell-size;
 }
 
-// .picker__select--month,
-// .picker__select--year {
+// .picker-select-month,
+// .picker-select-year {
 //   // @extend .form-control;
 //   // @extend .form-control-sm;
 //   display: inline-block !important;
