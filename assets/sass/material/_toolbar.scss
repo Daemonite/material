@@ -3,36 +3,36 @@
   color: $toolbar-color-dark;
   display: flex;
   min-height: $toolbar-height;
-  padding-bottom: $toolbar-padding-y;
   padding-top: $toolbar-padding-y;
+  padding-bottom: $toolbar-padding-y;
   position: relative;
 
   > .container {
     align-items: center;
     display: flex;
-    padding-left: 0;
     padding-right: 0;
+    padding-left: 0;
 
     @include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
     }
   }
 
   // Vertical align some elements normally placed in `.navbar` or `.toolbar`
   .btn {
-    margin-bottom: (($btn-height - $toolbar-link-height) / -2);
     margin-top: (($btn-height - $toolbar-link-height) / -2);
+    margin-bottom: (($btn-height - $toolbar-link-height) / -2);
   }
 
   .btn-lg {
-    margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
     margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
+    margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
   }
 
   .btn-sm {
-    margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
     margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
+    margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
   }
 
   .form-control {
@@ -55,16 +55,16 @@
 
   .form-inline {
     flex-wrap: nowrap;
-    margin-left: $toolbar-link-padding-x;
     margin-right: $toolbar-link-padding-x;
+    margin-left: $toolbar-link-padding-x;
   }
 
   .input-group {
     margin-bottom: 0;
 
     .form-control {
-      margin-left: 0;
       margin-right: 0;
+      margin-left: 0;
 
       &:first-child {
         padding-right: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
@@ -76,11 +76,11 @@
     }
 
     .input-group-addon {
-      bottom: 0;
       margin-left: 0;
       overflow: hidden;
       position: absolute;
       top: 0;
+      bottom: 0;
       width: ($textfield-height + $textfield-margin-bottom);
 
       &:first-child {
@@ -94,8 +94,8 @@
   }
 
   .nav-tabs {
-    margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
     margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
+    margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
 
     .nav-link {
       height: $toolbar-height;
@@ -139,9 +139,9 @@
 .navbar-fixed-bottom,
 .navbar-fixed-top {
   box-shadow: map-get($toolbar-elevation-shadow, shadow);
-  left: 0;
   position: fixed;
   right: 0;
+  left: 0;
   z-index: map-get($toolbar-elevation-shadow, elevation);
 }
 
@@ -169,10 +169,10 @@
 .toolbar-waterfall {
   @include transition-standard(background-color, box-shadow);
 
-  left: 0;
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: map-get($toolbar-elevation-shadow, elevation);
 
   &.waterfall {
@@ -194,8 +194,8 @@
   color: inherit;
   display: inline-flex;
   height: $toolbar-link-height;
-  padding-left: $toolbar-link-padding-x;
   padding-right: $toolbar-link-padding-x;
+  padding-left: $toolbar-link-padding-x;
   vertical-align: middle;
   white-space: nowrap;
 
@@ -215,8 +215,8 @@
   color: inherit;
   display: inline-flex;
   height: $toolbar-link-height;
-  padding-left: $toolbar-link-padding-x;
   padding-right: $toolbar-link-padding-x;
+  padding-left: $toolbar-link-padding-x;
   vertical-align: middle;
 }
 
@@ -343,8 +343,8 @@
   color: inherit;
   display: inline-flex;
   height: $toolbar-link-height;
-  margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
   margin-right: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
+  margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
   position: relative;
   vertical-align: middle;
   width: $toolbar-link-height;
@@ -372,10 +372,10 @@
     content: '';
     display: block;
     height: $toolbar-height;
-    left: (($toolbar-link-height - $toolbar-height) / 2);
     opacity: 0;
     position: absolute;
     top: (($toolbar-link-height - $toolbar-height) / 2);
+    left: (($toolbar-link-height - $toolbar-height) / 2);
     width: $toolbar-height;
   }
 }

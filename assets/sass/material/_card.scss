@@ -55,12 +55,12 @@
   }
 
   .btn {
-    margin-left: ($card-action-spacer-x / 2);
     margin-right: ($card-action-spacer-x / 2);
+    margin-left: ($card-action-spacer-x / 2);
     min-width: 0;
     overflow-x: hidden;
-    padding-left: $card-action-spacer-x;
     padding-right: $card-action-spacer-x;
+    padding-left: $card-action-spacer-x;
     text-overflow: ellipsis;
   }
 
@@ -71,8 +71,8 @@
 
     .btn {
       display: table;
-      margin-bottom: ($card-action-spacer-y / 4);
       margin-top: ($card-action-spacer-y / 4);
+      margin-bottom: ($card-action-spacer-y / 4);
     }
   }
 }
@@ -149,10 +149,10 @@
 }
 
 .card-header-pills {
+  margin-top: ($card-action-spacer-y - $card-spacer-inner-y);
+  margin-right: ($card-action-spacer-x - $card-spacer-inner-x);
   margin-bottom: $card-action-spacer-y;
   margin-left: ($card-action-spacer-x - $card-spacer-inner-x);
-  margin-right: ($card-action-spacer-x - $card-spacer-inner-x);
-  margin-top: ($card-action-spacer-y - $card-spacer-inner-y);
 
   .card-header:first-child &,
   .card-img-top + .card-header & {
@@ -165,8 +165,8 @@
   }
 
   .nav-link {
-    padding-left: $card-action-spacer-x;
     padding-right: $card-action-spacer-x;
+    padding-left: $card-action-spacer-x;
   }
 
   // Vertical
@@ -179,16 +179,16 @@
 
     .nav-item + .nav-item,
     .nav-link + .nav-link {
-      margin-left: 0;
       margin-top: ($card-action-spacer-y / 2);
+      margin-left: 0;
     }
   }
 }
 
 .card-header-tabs {
-  margin-left: ($card-spacer-inner-x * -1);
-  margin-right: ($card-spacer-inner-x * -1);
   margin-top: ($card-spacer-inner-y * -1);
+  margin-right: ($card-spacer-inner-x * -1);
+  margin-left: ($card-spacer-inner-x * -1);
 
   .card-header:first-child &,
   .card-img-top + .card-header & {
@@ -221,12 +221,12 @@
 // Image overlay
 
 .card-img-overlay {
-  bottom: 0;
-  left: 0;
   max-height: 100%;
   padding: ($card-spacer-inner-y * 1.5) $card-spacer-inner-x;
   position: absolute;
   right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 
@@ -236,8 +236,8 @@
 .card-columns {
   column-count: 2;
   column-gap: 0;
-  margin-left: ($card-spacer-outer-x / -2);
   margin-right: ($card-spacer-outer-x / -2);
+  margin-left: ($card-spacer-outer-x / -2);
 
   @include media-breakpoint-up(sm) {
     column-count: 3;
@@ -245,9 +245,9 @@
 
   .card {
     display: inline-block;
+    margin-right: ($card-spacer-outer-x / 2);
     margin-bottom: $card-spacer-outer-y;
     margin-left: ($card-spacer-outer-x / 2);
-    margin-right: ($card-spacer-outer-x / 2);
     width: calc(100% - #{$card-spacer-outer-x});
   }
 }
@@ -256,14 +256,14 @@
   @include media-breakpoint-up(sm) {
     display: flex;
     flex-flow: row wrap;
-    margin-left: ($card-spacer-outer-x / -2);
     margin-right: ($card-spacer-outer-x / -2);
+    margin-left: ($card-spacer-outer-x / -2);
 
     .card {
       flex: 1 0 0;
+      margin-right: ($card-spacer-outer-x / 2);
       margin-bottom: $card-spacer-outer-y;
       margin-left: ($card-spacer-outer-x / 2);
-      margin-right: ($card-spacer-outer-x / 2);
     }
   }
 }
@@ -331,8 +331,8 @@
 .card-subtitle {
   @include typography-body-1;
 
-  margin-bottom: 0;
   margin-top: ($card-spacer-inner-y * -1);
+  margin-bottom: 0;
 }
 
 .card-text {

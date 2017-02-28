@@ -1,14 +1,14 @@
 .dialog,
 .modal {
-  bottom: 0;
   display: none;
-  left: 0;
   outline: 0;
   overflow: hidden;
   position: fixed;
-  right: 0;
-  text-align: center;
   top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
   white-space: nowrap;
   z-index: map-get($dialog-elevation-shadow, elevation);
 
@@ -42,11 +42,11 @@
 
 .modal-backdrop {
   background-color: $dialog-backdrop-bg;
+  position: fixed;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
   z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
 
   &.fade,
@@ -124,14 +124,14 @@
   padding-left: ($dialog-inner-padding - $dialog-footer-spacer-x / 2);
 
   > * {
-    margin-left: ($dialog-footer-spacer-x / 2);
     margin-right: ($dialog-footer-spacer-x / 2);
+    margin-left: ($dialog-footer-spacer-x / 2);
   }
 
   .btn {
     min-width: $dialog-footer-btn-min-width;
-    padding-left: $dialog-footer-spacer-x;
     padding-right: $dialog-footer-spacer-x;
+    padding-left: $dialog-footer-spacer-x;
   }
 }
 

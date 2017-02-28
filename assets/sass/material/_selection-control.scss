@@ -13,10 +13,10 @@
   background-size: $selection-control-indicator-size $selection-control-indicator-size;
   display: block;
   height: $selection-control-indicator-size;
-  left: 0;
   pointer-events: none;
   position: absolute;
   top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
+  left: 0;
   user-select: none;
   width: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
 
@@ -28,12 +28,12 @@
     content: '';
     display: block;
     height: ($selection-control-indicator-size * 2);
-    left: 0;
-    margin-left: ($selection-control-indicator-size / -2);
     margin-top: ($selection-control-indicator-size / -2);
+    margin-left: ($selection-control-indicator-size / -2);
     opacity: 0;
     position: absolute;
     top: 0;
+    left: 0;
     transform: scale(.87, .87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
     z-index: -1;
@@ -85,8 +85,8 @@
   flex-direction: column;
 
   .custom-control {
-    margin-bottom: $selection-control-spacer-y;
     margin-right: 0;
+    margin-bottom: $selection-control-spacer-y;
   }
 }
 
@@ -169,8 +169,8 @@
 
     &::after,
     &::before {
-      left: (($selection-control-indicator-size - $selection-control-track-height) / -2);
       top: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+      left: (($selection-control-indicator-size - $selection-control-track-height) / -2);
     }
 
     &::after {

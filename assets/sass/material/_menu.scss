@@ -9,27 +9,27 @@
   display: none;
   float: left;
   font-size: $menu-font-size;
-  left: 0;
   line-height: $menu-line-height;
   list-style: none;
   margin: 0;
   min-width: $menu-min-width;
   padding: $menu-padding-y 0;
   position: absolute;
+  left: 0;
   text-align: left;
   z-index: map-get($menu-elevation-shadow, elevation);
 
   &::before {
     background-clip: padding-box;
     background-color: $menu-bg;
-    bottom: 0;
     box-shadow: map-get($menu-elevation-shadow, shadow);
     content: '';
     display: block;
-    left: 0;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: -1;
   }
 }
@@ -148,14 +148,14 @@
 // Positioning
 .dropdown-menu-left,
 .menu-left {
-  left: 0;
   right: auto;
+  left: 0;
 }
 
 .dropdown-menu-right,
 .menu-right {
-  left: auto;
   right: 0;
+  left: auto;
 }
 
 .dropdown-menu-right {
@@ -197,11 +197,11 @@
 // Backdrop to catch body clicks on mobile
 
 .dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
   z-index: (map-get($menu-elevation-shadow, elevation) - 1);
 }
 
@@ -284,9 +284,9 @@
 .dropdown-toggle,
 .menu-toggle {
   &::after {
-    border-left: $caret-width solid transparent;
-    border-right: $caret-width solid transparent;
     border-top: $caret-width solid;
+    border-right: $caret-width solid transparent;
+    border-left: $caret-width solid transparent;
     content: '';
     display: inline-block;
     height: 0;
@@ -340,16 +340,16 @@
   .dropdown-toggle,
   .menu-toggle {
     &::after {
-      border-bottom: $caret-width solid;
       border-top: 0;
+      border-bottom: $caret-width solid;
     }
   }
 }
 
 @keyframes dropup-menu-animation {
   0% {
-    bottom: 50%;
     opacity: 0;
+    bottom: 50%;
     transform: scale(.87, .54);
   }
 
@@ -358,8 +358,8 @@
   }
 
   100% {
-    bottom: 100%;
     opacity: 1;
+    bottom: 100%;
     transform: scale(1, 1);
   }
 }

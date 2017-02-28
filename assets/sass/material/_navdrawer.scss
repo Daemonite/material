@@ -1,12 +1,12 @@
 .navdrawer {
-  bottom: 0;
   display: none;
-  left: 0;
   outline: 0;
   overflow: hidden;
   position: fixed;
-  right: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: map-get($navdrawer-elevation-shadow, elevation);
 }
 
@@ -18,12 +18,12 @@
   @include transition-standard-complex(opacity);
 
   background-color: $navdrawer-backdrop-bg;
-  bottom: 0;
-  left: 0;
   opacity: 0;
   position: fixed;
-  right: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
 
   &.show {
@@ -39,21 +39,21 @@
   @include transition-sharp(transform);
 
   background-color: $navdrawer-content-bg;
-  bottom: 0;
   box-shadow: map-get($navdrawer-elevation-shadow, shadow);
-  left: 0;
   max-width: calc(100% - #{$navdrawer-gutter-width});
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
   top: 0;
+  bottom: 0;
+  left: 0;
   transform: translate3d(-100%, 0, 0);
   width: $navdrawer-width-mobile;
 
   // Direction
   .navdrawer-right & {
-    left: auto;
     right: 0;
+    left: auto;
     transform: translate3d(100%, 0, 0);
   }
 
@@ -71,8 +71,8 @@
 
 .navdrawer-body {
   margin-bottom: $navdrawer-inner-spacer-y;
-  padding-left: $navdrawer-inner-spacer-x;
   padding-right: $navdrawer-inner-spacer-x;
+  padding-left: $navdrawer-inner-spacer-x;
 }
 
 .navdrawer-divider {
@@ -95,8 +95,8 @@
   font-weight: $navdrawer-subheader-font-weight;
   height: $navdrawer-subheader-height;
   line-height: 1;
-  margin-bottom: 0;
   margin-top: 0;
+  margin-bottom: 0;
   padding: (($navdrawer-subheader-height - $navdrawer-subheader-font-size) / 2) $navdrawer-inner-spacer-x;
 
   .navdrawer-divider + & {
@@ -189,10 +189,10 @@
 
     // Direction
     &.navdrawer-right {
-      border-left: $navdrawer-border-width solid $navdrawer-border-color;
       border-right: 0;
-      left: auto;
+      border-left: $navdrawer-border-width solid $navdrawer-border-color;
       right: 0;
+      left: auto;
     }
   }
 
@@ -245,12 +245,12 @@
 
     // Direction
     &.navdrawer-right {
-      left: auto;
       right: 0;
+      left: auto;
 
       .navdrawer-content {
-        border-left: $navdrawer-border-width solid $navdrawer-border-color;
         border-right: 0;
+        border-left: $navdrawer-border-width solid $navdrawer-border-color;
       }
     }
   }
@@ -287,8 +287,8 @@
 
     // Direction
     &.navdrawer-right {
-      left: auto;
       right: 0;
+      left: auto;
     }
   }
 

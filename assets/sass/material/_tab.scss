@@ -21,8 +21,8 @@
     text-transform: uppercase;
 
     @include media-breakpoint-up(lg) {
-      padding-left: $nav-tab-link-padding-x-lg;
       padding-right: $nav-tab-link-padding-x-lg;
+      padding-left: $nav-tab-link-padding-x-lg;
     }
 
     // Active, focus, hover
@@ -53,14 +53,14 @@
       @include transition-standard(opacity);
 
       background-color: $nav-tab-indicator-bg;
-      bottom: 0;
       content: '';
       display: block;
       height: $nav-tab-indicator-height;
-      left: 0;
       opacity: 0;
       position: absolute;
       right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 
@@ -111,10 +111,10 @@
 
   .nav-tabs-indicator {
     background-color: $nav-tab-indicator-bg;
-    bottom: 0;
     display: none;
     height: $nav-tab-indicator-height;
     position: absolute;
+    bottom: 0;
 
     &.show {
       display: block;
