@@ -97,6 +97,22 @@ module.exports = function(grunt) {
       }
     },
 
+    copy: {
+      doc: {
+        files: [
+          {
+            dest: 'docs/',
+            expand: true,
+            src: [
+              'index.html',
+              'css/**',
+              'js/**'
+            ]
+          }
+        ]
+      }
+    },
+
     cssmin: {
       options: {
         rebaseTo: 'css',
@@ -119,7 +135,7 @@ module.exports = function(grunt) {
         config: '_config.yml',
         incremental: false
       },
-      material: {}
+      doc: {}
     },
 
     postcss: {
@@ -159,7 +175,7 @@ module.exports = function(grunt) {
       options: {
         indent_inner_html: false
       },
-      material: {
+      doc: {
         cwd: 'gh-pages/',
         dest: 'gh-pages/',
         expand: true,
@@ -207,7 +223,6 @@ module.exports = function(grunt) {
         dest: 'js/project.min.js',
         src: '<%= concat.project.dest %>'
       }
-
     },
 
     watch: {
@@ -263,8 +278,9 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'doc',
     [
-      'jekyll:material',
-      'prettify:material'
+      'copy:doc',
+      'jekyll:doc',
+      'prettify:doc'
     ]
   )
 
