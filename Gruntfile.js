@@ -81,7 +81,7 @@ module.exports = function(grunt) {
     connect: {
       live: {
         options: {
-          base: '',
+          base: 'gh-pages/',
           keepalive: true,
           hostname: '0.0.0.0',
           port: '9999'
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
       },
       once: {
         options: {
-          base: '',
+          base: 'gh-pages/',
           keepalive: false,
           hostname: '0.0.0.0',
           port: '9999'
@@ -104,7 +104,6 @@ module.exports = function(grunt) {
             dest: 'docs/',
             expand: true,
             src: [
-              'index.html',
               'css/**',
               'js/**'
             ]
@@ -280,7 +279,8 @@ module.exports = function(grunt) {
     [
       'copy:doc',
       'jekyll:doc',
-      'prettify:doc'
+      'prettify:doc',
+      'connect:live'
     ]
   )
 
