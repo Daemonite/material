@@ -16,7 +16,7 @@ Users may enter text, numbers, or mixed-format types of input.
 
 ## Basic text fields
 
-Most of the details about basic text fields have been covered in Bootstrap forms docuementation. Please refer to [this page]({{ site.url }}/components/forms/index.html) for more details.
+Most of the details about basic text fields have been covered in Bootstrap forms docuementation. Please refer to [this page]({{ site.baseurl }}/components/forms/index.html) for more details.
 
 ## Floating label text fields
 

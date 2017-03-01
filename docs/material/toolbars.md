@@ -12,4 +12,4 @@ group: material
 
 ## Usage
 
-Most of the details about Material toolbars have been covered in Bootstrap navbar docuementation. Please refer to [this page]({{ site.url }}/components/navbar/index.html) for more details.
+Most of the details about Material toolbars have been covered in Bootstrap navbar docuementation. Please refer to [this page]({{ site.baseurl }}/components/navbar/index.html) for more details.

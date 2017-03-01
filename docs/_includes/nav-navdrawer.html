@@ -2,7 +2,7 @@
   <div class="navdrawer-content">
     <div class="d-flex flex-column doc-navdrawer-body">
       <div class="navdrawer-header">
-        <a class="navbar-brand px-0" href="{{ site.url }}/index.html">{{ site.title }}</a>
+        <a class="navbar-brand px-0" href="{{ site.baseurl }}/index.html">{{ site.title }}</a>
       </div>
 
       <nav class="navdrawer-nav">
@@ -32,7 +32,7 @@
                 {% assign class_active = 'active' %}
               {% endif %}
 
-              <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.url }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html"><span class="font-weight-normal">{{ doc.title }}</span></a>
+              <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.baseurl }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/index.html"><span class="font-weight-normal">{{ doc.title }}</span></a>
 
             {% endfor %}
 

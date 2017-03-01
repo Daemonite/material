@@ -50,4 +50,4 @@ Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>
 
 ## Linear progress
 
-Most of the details about linear progress have been covered in Bootstrap progress docuementation. Please refer to [this page]({{ site.url }}/components/progress/index.html) for more details.
+Most of the details about linear progress have been covered in Bootstrap progress docuementation. Please refer to [this page]({{ site.baseurl }}/components/progress/index.html) for more details.

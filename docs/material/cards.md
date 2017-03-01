@@ -7,7 +7,7 @@ group: material
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
-Most of the details about cards have been covered in Bootstrap cards docuementation. Please refer to [this page]({{ site.url }}/components/cards/index.html) for more details.
+Most of the details about cards have been covered in Bootstrap cards docuementation. Please refer to [this page]({{ site.baseurl }}/components/cards/index.html) for more details.
 
 ## Contents
 

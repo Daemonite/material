@@ -16,7 +16,7 @@ Present tabs as a single row above their associated content. Tab labels should s
 
 ## Default tabs
 
-Most of the details about a basic tab have been covered in Bootstrap navs docuementation. Please refer to [this page]({{ site.url }}/components/navs/index.html#tabs) for more details.
+Most of the details about a basic tab have been covered in Bootstrap navs docuementation. Please refer to [this page]({{ site.baseurl }}/components/navs/index.html#tabs) for more details.
 
 ## Fixed tabs
 
