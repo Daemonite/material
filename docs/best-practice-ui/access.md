@@ -27,7 +27,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-            <div class="modal-body">
+      <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
             <form id="regformModal" action="#" novalidate="novalidate">
@@ -84,22 +84,21 @@ Toggle a working Registration modal demo by clicking the button below. It will s
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-            <div class="modal-body">
+      <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <form action="#">
+            <form id="regformModal" action="#" novalidate="novalidate">
               <div class="form-group floating-label">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
               <div class="form-group floating-label">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                <small id="passwordHelp" class="form-text text-muted">6 characters or more, including 1 number</small>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
               </div>
               <div class="form-group floating-label">
-                <label for="exampleInputPassword1">Repeat password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="exampleInputPassword2">Repeat password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create account</button>
@@ -117,7 +116,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
               <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
               <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
-            <p>Already have a personal account? <a href="#">Log in</a>.</p>
+            <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
       </div>
