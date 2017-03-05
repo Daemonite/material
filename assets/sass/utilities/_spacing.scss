@@ -33,38 +33,36 @@
     }
 
     @each $prop, $prop-abbr in (margin: m, padding: p) {
-      @each $size, $values in $spacers {
-        $length-x: map-get($values, x);
-        $length-y: map-get($values, y);
+      @each $size, $value in $spacers {
 
         .#{$prop-abbr}#{$infix}-#{$size} {
-          #{$prop}: $length-y $length-x !important;
+          #{$prop}: $value !important;
         }
 
         .#{$prop-abbr}t#{$infix}-#{$size} {
-          #{$prop}-top: $length-y !important;
+          #{$prop}-top: $value !important;
         }
 
         .#{$prop-abbr}r#{$infix}-#{$size} {
-          #{$prop}-right: $length-x !important;
+          #{$prop}-right: $value !important;
         }
 
         .#{$prop-abbr}b#{$infix}-#{$size} {
-          #{$prop}-bottom: $length-y !important;
+          #{$prop}-bottom: $value !important;
         }
 
         .#{$prop-abbr}l#{$infix}-#{$size} {
-          #{$prop}-left: $length-x !important;
+          #{$prop}-left: $value !important;
         }
 
         .#{$prop-abbr}x#{$infix}-#{$size} {
-          #{$prop}-right: $length-x !important;
-          #{$prop}-left: $length-x !important;
+          #{$prop}-right: $value !important;
+          #{$prop}-left: $value !important;
         }
 
         .#{$prop-abbr}y#{$infix}-#{$size} {
-          #{$prop}-top: $length-y !important;
-          #{$prop}-bottom: $length-y !important;
+          #{$prop}-top: $value !important;
+          #{$prop}-bottom: $value !important;
         }
       }
     }
