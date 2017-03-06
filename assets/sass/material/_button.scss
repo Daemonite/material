@@ -220,7 +220,10 @@ fieldset[disabled] a.btn {
   }
 
   &:focus {
-    @include tab-focus;
+    // scss-lint:disable DuplicateProperty
+    outline: 1px dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    // scss-lint:enable DuplicateProperty
   }
 
   // Disabled
