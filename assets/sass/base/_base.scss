@@ -161,8 +161,10 @@ select {
 button {
   // Active, focus, hover
   &:focus {
+    // scss-lint:disable DuplicateProperty
     outline: 1px dotted;
     outline: 5px auto -webkit-focus-ring-color;
+    // scss-lint:enable DuplicateProperty
   }
 }
 
@@ -173,26 +175,24 @@ fieldset {
   padding: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
 
-  // Disabled
-  &:disabled {
-    cursor: $cursor-disabled;
+    // Disabled
+    &:disabled {
+      cursor: $cursor-disabled;
+    }
   }
-}
 
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"] {
-  -webkit-appearance: listbox;
-}
-
-input[type="search"] {
-  -webkit-appearance: none;
+  &[type="date"],
+  &[type="datetime-local"],
+  &[type="month"],
+  &[type="time"] {
+    -webkit-appearance: listbox;
+  }
 }
 
 label {
@@ -220,9 +220,11 @@ progress {
   vertical-align: baseline;
 }
 
-select[multiple],
-select[size] {
-  overflow: auto;
+select {
+  &[multiple],
+  &[size] {
+    overflow: auto;
+  }
 }
 
 textarea {
@@ -236,7 +238,7 @@ textarea {
 }
 
 [type="search"] {
-  -webkit-appearance: textfield;
+  -webkit-appearance: none;
   outline-offset: -2px;
 }
 
@@ -367,12 +369,13 @@ th {
 
 // Typography
 
-abbr[data-original-title],
-abbr[title] {
-  border-bottom: 0;
-  cursor: help;
-  text-decoration: underline;
-  text-decoration: underline dotted;
+abbr {
+  &[data-original-title],
+  &[title] {
+    border-bottom: 0;
+    cursor: help;
+    text-decoration: underline dotted;
+  }
 }
 
 address {

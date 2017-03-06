@@ -44,32 +44,6 @@
   }
 }
 
-select.form-control,
-select%form-control {
-  appearance: none;
-
-  @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-    $select-bg-size: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size);
-
-    background-image: $caret-bg;
-    background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
-    background-repeat: no-repeat;
-    background-size: $select-bg-size $select-bg-size;
-    padding-right: $select-bg-size;
-
-    &[multiple],
-    &[size] {
-      background-image: none;
-      height: auto;
-      padding-right: 0;
-    }
-  }
-}
-
-textarea.form-control {
-  height: auto;
-}
-
 // Colour
 @each $color in $palettes {
   $i: index($palettes, $color);
@@ -92,67 +66,100 @@ textarea.form-control {
   @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
 }
 
-select.form-control-lg,
-select%form-control-lg {
-  @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-    $select-bg-size-lg: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-lg);
-
-    background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
-    background-size: $select-bg-size-lg $select-bg-size-lg;
-    padding-right: $select-bg-size-lg;
-  }
-}
-
 .form-control-sm,
 %form-control-sm {
   @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
 }
 
-select.form-control-sm,
-select%form-control-sm {
-  @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
-    $select-bg-size-sm: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-sm);
+// Special treatment for some elements
+input {
+  &[type="color"],
+  &[type="date"],
+  &[type="datetime-local"],
+  &[type="month"],
+  &[type="time"],
+  &[type="week"] {
+    &.form-control {
+      height: $textfield-height;
+    }
 
-    background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
-    background-size: $select-bg-size-sm $select-bg-size-sm;
-    padding-right: $select-bg-size-sm;
+    &.form-control-lg,
+    &%form-control-lg {
+      height: $textfield-height-lg;
+    }
+
+    &.form-control-sm,
+    &%form-control-sm {
+      height: $textfield-height-sm;
+    }
+  }
+
+  &[type="color"] {
+    &.form-control {
+      min-width: $textfield-font-size;
+    }
+
+    &.form-control-lg,
+    &%form-control-lg {
+      min-width: $textfield-font-size-lg;
+    }
+
+    &.form-control-sm,
+    &%form-control-sm {
+      min-width: $textfield-font-size-sm;
+    }
   }
 }
 
-input[type="color"],
-input[type="date"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="time"],
-input[type="week"] {
-  &.form-control {
-    height: $textfield-height;
+select {
+  &.form-control,
+  &%form-control {
+    appearance: none;
+
+    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+      $select-bg-size: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size);
+
+      background-image: $caret-bg;
+      background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
+      background-repeat: no-repeat;
+      background-size: $select-bg-size $select-bg-size;
+      padding-right: $select-bg-size;
+
+      &[multiple],
+      &[size] {
+        background-image: none;
+        height: auto;
+        padding-right: 0;
+      }
+    }
   }
 
   &.form-control-lg,
   &%form-control-lg {
-    height: $textfield-height-lg;
+    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+      $select-bg-size-lg: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-lg);
+
+      background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
+      background-size: $select-bg-size-lg $select-bg-size-lg;
+      padding-right: $select-bg-size-lg;
+    }
   }
 
   &.form-control-sm,
   &%form-control-sm {
-    height: $textfield-height-sm;
+    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+      $select-bg-size-sm: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-sm);
+
+      background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
+      background-size: $select-bg-size-sm $select-bg-size-sm;
+      padding-right: $select-bg-size-sm;
+    }
   }
 }
 
-input[type="color"] {
+textarea {
   &.form-control {
-    min-width: $textfield-font-size;
-  }
-
-  &.form-control-lg,
-  &%form-control-lg {
-    min-width: $textfield-font-size-lg;
-  }
-
-  &.form-control-sm,
-  &%form-control-sm {
-    min-width: $textfield-font-size-sm;
+    height: auto;
   }
 }
 
