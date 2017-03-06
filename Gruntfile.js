@@ -277,6 +277,7 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'doc',
     [
+      'material',
       'copy:doc',
       'jekyll:doc',
       'prettify:doc',
