@@ -264,4 +264,3 @@ window.setTimeout(function(){
 </script>
 
 ### Validation (front end)
-
