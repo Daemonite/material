@@ -26,7 +26,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div><!--- / modal-header -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
@@ -43,15 +43,15 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <label for="exampleInputPassword2">Repeat password</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
               </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create account</button>
-              </div>
               <label class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
               </label>
               <p style="padding-left: 2.2rem;">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create account</button>
+              </div>
             </form>
           </div>
           <div class="col-md-6">
@@ -62,10 +62,24 @@ Toggle a working Registration modal demo by clicking the button below. It will s
             <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </div><!--- / modal-body -->
+      <div class="modal-footer">
+        <div class="col-md-8">
+          <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
+            </label>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <button type="button" class="btn btn-default float-right" data-dismiss="modal" aria-label="Close">Close</button>
+          </div>
+        </div>
+    </div><!--- / modal-footer -->
+    </div><!--- / modal-content -->
+  </div><!--- / modal-dialog -->
+</div><!--- / exampleModalRegister -->
 
 <div class="bd-example">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalRegister">
@@ -83,7 +97,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
+      </div><!--- / modal-header -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
@@ -100,15 +114,15 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <label for="exampleInputPassword2">Repeat password</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
               </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create account</button>
-              </div>
               <label class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
               </label>
               <p style="padding-left: 2.2rem;">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create account</button>
+              </div>
             </form>
           </div>
           <div class="col-md-6">
@@ -119,10 +133,24 @@ Toggle a working Registration modal demo by clicking the button below. It will s
             <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </div><!--- / modal-body -->
+      <div class="modal-footer">
+        <div class="col-md-8">
+          <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
+            </label>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <button type="button" class="btn btn-default float-right" data-dismiss="modal" aria-label="Close">Close</button>
+          </div>
+        </div>
+    </div><!--- / modal-footer -->
+    </div><!--- / modal-content -->
+  </div><!--- / modal-dialog -->
+</div><!--- / exampleModalRegister -->
 {% endhighlight %}
 
 
@@ -228,6 +256,12 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
   </div>
 </div>
 {% endhighlight %}
+
+<script>
+window.setTimeout(function(){
+            $('#exampleModalRegister').modal('show');
+        }, 5000)
+</script>
 
 ### Validation (front end)
 
