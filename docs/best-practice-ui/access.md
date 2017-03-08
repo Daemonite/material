@@ -48,32 +48,34 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
               </label>
-              <p style="padding-left: 2.2rem;">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+              <p style="padding-left: 2.2rem; font-size: .875rem">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create account</button>
               </div>
             </form>
           </div>
           <div class="col-md-6">
-            <h4>With a Best Practice personal account, you can:</h4>
-              <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
-              <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
-              <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
+            <div class="modalMessages">
+              <h4>With a Best Practice personal account, you can:</h4>
+                <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
+                <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
+                <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
+            </div>
             <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
       </div><!--- / modal-body -->
       <div class="modal-footer">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <label class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
             </label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
-            <button type="button" class="btn btn-default float-right" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-default btn-block float-right" data-dismiss="modal" aria-label="Close">Close</button>
           </div>
         </div>
     </div><!--- / modal-footer -->
@@ -119,32 +121,34 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
               </label>
-              <p style="padding-left: 2.2rem;">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+              <p style="padding-left: 2.2rem; font-size: .875rem">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create account</button>
               </div>
             </form>
           </div>
           <div class="col-md-6">
-            <h4>With a Best Practice personal account, you can:</h4>
-              <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
-              <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
-              <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
+            <div class="modalMessages">
+              <h4>With a Best Practice personal account, you can:</h4>
+                <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
+                <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
+                <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
+            </div>
             <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
       </div><!--- / modal-body -->
       <div class="modal-footer">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <label class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
             </label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
-            <button type="button" class="btn btn-default float-right" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-default btn-block float-right" data-dismiss="modal" aria-label="Close">Close</button>
           </div>
         </div>
     </div><!--- / modal-footer -->
@@ -328,7 +332,4 @@ jQuery(document).ready(function () {
     FormValidationMd.init()
 });
 
-{% endhighlight html %}
-
-
-                            
+{% endhighlight html %}                           
