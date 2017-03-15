@@ -1,7 +1,57 @@
-//SRP: Cards
-
-.cards {
-    .card-header-tabs {
-        margin: 0;
+    //SRP: Cards
+    .search-tabs {
+        margin-bottom: 1rem;
+        .nav-tabs {
+            background-color: #fff;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
         }
-}
+    }
+    
+    .serp {
+        margin-bottom: 2rem;
+        .card {
+            border-radius: 0;
+            &:hover {
+                background-color: $palette-blue-050;
+            }
+            .card-title a {
+                color: $black-primary;
+                &:hover {
+                    color: $palette-pink-a200;
+                    // border-bottom: 1px solid $palette-pink-a200;
+                }
+            }
+            .list-group-item {
+                border-bottom: 1px solid $palette-blue-grey-050;
+                &:hover {
+                    background-color: $palette-blue-050;
+                }
+                .card-text {
+                    a {
+                        color: $palette-blue-500;
+                        &:hover {
+                            border-bottom: 1px solid $palette-blue-500;
+                        }
+                    }
+                }
+            }
+            a.card-link {
+                display: inline-block;
+                margin-left: 0;
+                &:before {
+                    content: '\00a0\2022\00a0\00a0';
+                    color: $black-hint-solid;
+                    color: $black-primary;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+
+    .search-pagination {
+        margin-bottom: 100px;
+        .pagination {
+            background-color: #fff;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+        }
+    }
