@@ -1,63 +1,90 @@
     //SRP: Cards
-    .search-tabs {
-        margin-bottom: 1rem;
+    .serp {
+        margin-bottom: 2rem;
         .nav-tabs .nav-link {
-            color: #fff;
+            background-color: #fff;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
             &.active::before {
                 background-color: #fff;
                 height: 6px;
             }
         }
-    }
-    
-    .serp {
-        margin-bottom: 2rem;
+        .card-group {
+            display: block;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+        }
         .card {
             border-radius: 0;
+            border-bottom: 1px solid $palette-grey-300;
+            box-shadow: none;
             &:hover {
-                background-color: $palette-blue-050;
+                background-color: $palette-grey-050;
             }
-            .card-title a {
-                color: $black-primary;
-                &:hover {
-                    color: $palette-pink-a200;
-                    // border-bottom: 1px solid $palette-pink-a200;
-                }
-            }
-            .list-group-item {
-                border-bottom: 1px solid $palette-blue-grey-050;
-                &:hover {
-                    background-color: $palette-blue-050;
-                }
-                .material-icons {
-                    color: $palette-pink-a200;
-                }
-                .card-text {
-                    a {
-                        color: $palette-blue-500;
-                        &:hover {
-                            border-bottom: 1px solid $palette-blue-500;
-                        }
+            .card-title {
+                font-size: 1rem;
+                margin-bottom: .75rem;
+                margin-top: -5px; // ok this is a fudge
+                a {
+                    color: $black-primary;
+                    &:hover {
+                        color: $palette-pink-a200;
+                        // border-bottom: 1px solid $palette-pink-a200;
                     }
                 }
             }
             a.card-link {
                 display: inline-block;
                 margin-left: 0;
-                &:before {
+                &:not(:first-of-type):before {
                     content: '\00a0\2022\00a0\00a0';
-                    color: $black-hint-solid;
-                    color: $black-primary;
+                    color: $black-secondary-solid;
                     font-size: 11px;
                 }
             }
         }
     }
-
+    
+    .serp_detail {
+        margin-bottom: 2rem;
+        .card {
+            border-radius: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+            &:hover {
+                background-color: #fff;
+            }
+            .card-title {
+                font-size: 1.5rem;
+                a {
+                    color: $palette-pink-a200;
+                    &:hover {
+                        border-bottom: 1px solid $palette-pink-a200;
+                        // border-bottom: 1px solid $palette-pink-a200;
+                    }
+                }
+            }
+            .list-group-item {
+                &:hover {
+                    background-color: $palette-grey-050;
+                }
+                h4 a {
+                    font-size: 1.1875rem;
+                    color: $black-primary;
+                    .material-icons {
+                        font-size: 1.5rem;
+                        margin-top: -3px; // hack :-(
+                    }
+                    &:hover {
+                        color: $palette-pink-a200
+                    }
+                }
+            }
+        }
+    }
+    
     .search-pagination {
         margin-bottom: 100px;
         .pagination {
             background-color: #fff;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
         }
     }
