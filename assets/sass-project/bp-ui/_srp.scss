@@ -1,11 +1,12 @@
     //SRP: Cards
     .serp {
-        margin-bottom: 2rem;
-        .nav-tabs .nav-link {
+        margin-bottom: 1rem;
+        .nav-tabs {
             background-color: #fff;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-            &.active::before {
-                background-color: #fff;
+            margin-bottom: 1rem;
+            .nav-link::before {
+                background-color: $palette-pink-a200;
                 height: 6px;
             }
         }
@@ -17,9 +18,6 @@
             border-radius: 0;
             border-bottom: 1px solid $palette-grey-300;
             box-shadow: none;
-            &:hover {
-                background-color: $palette-grey-050;
-            }
             .card-title {
                 font-size: 1rem;
                 margin-bottom: .75rem;
@@ -45,14 +43,12 @@
     }
     
     .serp_detail {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         .card {
             border-radius: 0;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-            &:hover {
-                background-color: #fff;
-            }
             .card-title {
+                color: $palette-pink-a200;
                 font-size: 1.5rem;
                 a {
                     color: $palette-pink-a200;
@@ -63,11 +59,8 @@
                 }
             }
             .list-group-item {
-                &:hover {
-                    background-color: $palette-grey-050;
-                }
                 h4 a {
-                    font-size: 1.1875rem;
+                    font-size: 1.125rem;
                     color: $black-primary;
                     .material-icons {
                         font-size: 1.5rem;
@@ -77,12 +70,14 @@
                         color: $palette-pink-a200
                     }
                 }
+                &.bgImage {
+                    background-color:#F8E0F0;
+                }
             }
         }
     }
     
     .search-pagination {
-        margin-bottom: 100px;
         .pagination {
             background-color: #fff;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
