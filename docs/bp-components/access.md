@@ -70,7 +70,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
           <label for="stop_show" class="custom-control custom-checkbox">
               <input type="checkbox" name="stop_show" class="custom-control-input">
               <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
+              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page)</span>
             </label>
         </div>
         <div class="col-md-2">
