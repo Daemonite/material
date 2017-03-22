@@ -165,7 +165,7 @@
                   <!--- / modal-body -->
                   <div class="modal-footer">
                     <div class="col-md-9">
-                      <label class="custom-control custom-checkbox" style="display: none;">
+                      <label class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" />
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
@@ -354,67 +354,9 @@
             window.setTimeout(function()
             {
               $('#exampleModalRegister').modal('show');
-            }, 5000)
+            }, 3000)
             </script>
             <h3 id="validation-front-end">Validation (front end)</h3>
-            <p>Form validation is handled on the client side with the <a href="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js">JQuery Validation Plugin here</a>.</p>
-            <p>This jQuery plugin makes simple clientside form validation easy, whilst still offering plenty of customisation options. For more info please check out <a href="http://jqueryvalidation.org/">the official documentation</a>.</p>
-            <p>The JS file form-validation-md.min.js does the custom work:</p>
-            <figure class="highlight"><pre><code class="language-html" data-lang="html">var FormValidationMd = function () {
-        r = function () {
-            var e = $("#regformModal"),
-                r = $(".alert-danger", e),
-                i = $(".alert-success", e);
-            e.validate({
-                errorElement: "div",
-                errorClass: "form-control-feedback",
-                focusInvalid: !1,
-                ignore: "",
-                messages: {
-                    "exampleInputPassword1": {
-                        minlength: jQuery.validator.format("{0} characters or more, including 1 number required")
-                    }
-                },
-                rules: {
-                    "exampleInputEmail1": {
-                        required: true,
-                        email: !0
-                    },
-                    "exampleInputPassword1": {
-                        required: true,
-                        minlength: 6,
-                    },
-                    "exampleInputPassword2": {
-                        required: true,
-                        equalTo: "#exampleInputPassword1email"
-                    }
-                },
-                errorPlacement: function (e, r) {
-                    r.is(":checkbox") ? e.insertAfter(r.closest(".md-checkbox-list, .md-checkbox-inline, .checkbox-list, .checkbox-inline")) : r.is(":radio") ? e.insertAfter(r.closest(".md-radio-list, .md-radio-inline, .radio-list,.radio-inline")) : e.insertAfter(r)
-                },
-                highlight: function (e) {
-                    $(e).closest(".form-group").addClass("has-danger")
-                },
-                unhighlight: function (e) {
-                    $(e).closest(".form-group").removeClass("has-danger")
-                },
-                success: function (e) {
-                    e.closest(".form-group").removeClass("has-danger")
-                },
-                submitHandler: function (e) {
-                    i.show(), r.hide()
-                }
-            })
-        };
-    return {
-        init: function () {
-            r()
-        }
-    }
-}();
-jQuery(document).ready(function () {
-    FormValidationMd.init()
-});</code></pre></figure>
           </div>
         </div>
       </div>
