@@ -2,7 +2,7 @@
 layout: docs
 title: Search Results Page
 description: Encourage users to create a personal account or log in, with Registration &amp; Log in Form in Modal
-group: best practice ui
+group: bp components
 ---
 
 Cards are used for our search results. A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options. 

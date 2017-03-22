@@ -2,7 +2,7 @@
 layout: docs
 title: Access - Within IP
 description: Encourage users to create a personal account or log in, with Registration &amp; Log in Form in Modal
-group: best practice ui
+group: bp components
 ---
 
 Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user notification to completely custom content and feature a handful of helpful subcomponents, sizes, and more.
