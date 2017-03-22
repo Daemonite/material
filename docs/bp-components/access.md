@@ -50,7 +50,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               </label>
               <p style="padding-left: 2.2rem; font-size: .875rem">By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary" style="float: right;">Create account</button>
+                <button type="submit" class="btn btn-primary">Create account</button>
               </div>
             </form>
           </div>
@@ -66,14 +66,14 @@ Toggle a working Registration modal demo by clicking the button below. It will s
         </div>
       </div><!--- / modal-body -->
       <div class="modal-footer">
-        <div class="col-md-10">
-          <label for="stop_show" class="custom-control custom-checkbox">
-              <input type="checkbox" name="stop_show" class="custom-control-input">
+        <div class="col-md-9">
+          <label class="custom-control custom-checkbox" style="display: none;">
+              <input type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator"></span>
-              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page)</span>
+              <span class="custom-control-description">Don't ask me this again<br />(you can always create an account via the home page</span>
             </label>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <div class="form-group">
             <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" aria-label="Close">Close</button>
           </div>
@@ -133,8 +133,8 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <p><i class="material-icons">&#xE0D4;</i> Use the highly rated Best Practice app, even offline</p>
                 <p><i class="material-icons">&#xE8AE;</i> Get CPD certificates for time spent on Best Practice</p>
                 <p><i class="material-icons">&#xE0C8;</i> Access Best Practice anywhere</p>
+                <h5 class="text-center mt-5 font-weight-bold">Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</h5>
             </div>
-            <p>Already have a personal account? <a href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a>.</p>
           </div>
         </div>
       </div><!--- / modal-body -->
@@ -148,7 +148,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <button type="button" class="btn btn-default btn-block float-right" data-dismiss="modal" aria-label="Close">Close</button>
+            <button type="button" class="btn btn-secondary float-right" data-dismiss="modal" aria-label="Close">Close</button>
           </div>
         </div>
     </div><!--- / modal-footer -->
