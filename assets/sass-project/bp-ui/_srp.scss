@@ -10,18 +10,16 @@
                 height: 6px;
             }
         }
-        .card-group {
-            display: block;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-        }
         .card {
             border-radius: 0;
             border-bottom: 1px solid $palette-grey-300;
             box-shadow: none;
+            .card-block {
+                padding: .75rem;
+            }
             .card-title {
                 font-size: 1rem;
-                margin-bottom: .75rem;
-                margin-top: -5px; // ok this is a fudge
+                margin: 0;
                 a {
                     color: $black-primary;
                     &:hover {
@@ -31,13 +29,9 @@
                 }
             }
             a.card-link {
-                display: inline-block;
+                display: block;
+                line-height: 3.5;
                 margin-left: 0;
-                &:not(:first-of-type):before {
-                    content: '\00a0\2022\00a0\00a0';
-                    color: $black-secondary-solid;
-                    font-size: 11px;
-                }
             }
         }
     }
@@ -71,7 +65,7 @@
                     }
                 }
                 &.bgImage {
-                    background-color:#F8E0F0;
+                    background-color: #F8E0F0;
                 }
             }
         }
@@ -81,5 +75,50 @@
         .pagination {
             background-color: #fff;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+        }
+    }
+    
+    // Mdeia Queries
+    @include media-breakpoint-up(sm) {
+        .serp {
+            margin-bottom: 1rem;
+            .nav-tabs {
+                background-color: #fff;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+                margin-bottom: 1rem;
+                .nav-link::before {
+                    background-color: $palette-pink-500;
+                    height: 6px;
+                }
+            }
+            .card-group {
+                display: block;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+            }
+            .card {
+                .card-block {
+                    padding: 1.5rem 1rem;
+                }
+                .card-title {
+                    font-size: 1rem;
+                    margin-bottom: .75rem;
+                    margin-top: -5px; // ok this is a fudge
+                    a {
+                        color: $black-primary;
+                        &:hover {
+                            color: $palette-pink-500;
+                            // border-bottom: 1px solid $palette-pink-500;
+                        }
+                    }
+                }
+                a.card-link {
+                    display: inline-block;
+                    &:not(:first-of-type):before {
+                        content: '\00a0\2022\00a0\00a0';
+                        color: $black-secondary-solid;
+                        font-size: 11px;
+                    }
+                }
+            }
         }
     }
