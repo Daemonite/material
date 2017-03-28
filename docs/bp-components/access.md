@@ -14,24 +14,6 @@ Modals are streamlined but flexible dialog prompts powered by JavaScript. They s
 
 ## Registration Form (in Modal)
 
-<div class="row">
-  <div class="col-md-4">
-    <div class="alert alert-danger" role="alert">
-      <h4>Not signed offed (UX / UI) as of 23/03/2017. Do not use.</h4>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="alert alert-warning" role="alert">
-      <h4 style="color: #fff;">To Do: FE Form validation fix (the '.' in email address can be omitted)</h4>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="alert alert-success" role="alert">
-      <h4 style="color: #fff;">Accessible Code: Checked &amp; Compliant at WCAG 2.0 (AA)</h4>
-    </div>
-  </div>
-</div>
-
 Toggle a working Registration modal demo by clicking the button below. It will slide down and fade in from the top of the page.
 
 <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
@@ -279,10 +261,10 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
 </div>
 {% endhighlight %}
 
-<script>
+<!--<script>
 window.setTimeout(function(){
             $('#exampleModalRegister').modal('show');
         }, 3000)
-</script>
+</script>-->
 
 ### Validation (front end)
