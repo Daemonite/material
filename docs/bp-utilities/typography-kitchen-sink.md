@@ -88,7 +88,7 @@ commodo consequat.</dd>
    <li>Aliquam tincidunt mauris eu risus.</li>
 </ul>
 
-<pre><code>
+<!--<pre><code>
 #header h1 a {
   display: block;
   width: 300px;
@@ -167,7 +167,7 @@ commodo consequat.</dd>
       <td></td>
     </tr>
   </tbody>
-</table>
+</table>-->
 
 ## Standard List Navigation
 <nav>
@@ -178,3 +178,21 @@ commodo consequat.</dd>
     <li><a href="#">Contact Us</a></li>
   </ul>
 </nav>
+
+<script>
+  // Grid toggle
+  function changeClass() {
+    if ( document.getElementById("baseline").className.match(/(?:^|\s)show-grid(?!\S)/) ) {
+      document.getElementById("baseline").className = document.getElementById("baseline").className.replace( /(?:^|\s)show-grid(?!\S)/g , '' )
+    } else { document.getElementById("baseline").className += " show-grid"; }
+  }
+  window.onload = function() {
+    document.getElementById("gridtoggle").addEventListener( 'click' , changeClass );
+  }
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>

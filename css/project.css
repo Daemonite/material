@@ -6,15 +6,6 @@
   max-width: 60rem;
 }
 
-.modal-header {
-  background-color: #c50084;
-  color: #ffffff;
-  padding-bottom: 1.25rem;
-}
-.modal-header button span {
-  color: #ffffff;
-}
-
 .modal-title {
   font-size: 1.5rem;
 }
@@ -22,36 +13,73 @@
 .modal-body {
   padding: 1.25rem 1.5rem 0;
 }
+.modal-body p:first-of-type {
+  font-size: .875rem;
+  padding-left: 2.2rem;
+}
 
+.floating-label {
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  border-radius: 2px;
+  height: 3.125rem;
+}
 .floating-label > label {
-  color: #1e1e1e;
+  color: #757575;
+  padding-left: .25rem;
+  top: .875rem;
+}
+.floating-label.has-value, .floating-label.is-focused {
+  border: 1px solid #2a6ebb;
+  border-bottom: 3px solid #2a6ebb;
+}
+.floating-label.has-value > label, .floating-label.is-focused > label {
+  top: 5px;
 }
 
-.modalMessages {
-  background-color: #eceff1;
-  margin-top: -1.25rem;
-  margin-right: -1.5rem;
-  padding: 2rem .5rem 0 .5rem;
-  height: 109.75%;
-}
-.modalMessages h4 {
-  padding: 0 2rem;
-  text-align: center;
-}
-.modalMessages .material-icons {
-  color: #c50084;
-}
-.modalMessages P {
-  margin: 0 2rem 2rem 1rem;
-}
-.modalMessages P:first-of-type {
-  margin-top: 2rem;
+.form-control {
+  border-bottom: none;
+  padding-left: .25rem;
 }
 
-.modal-footer {
-  border-top: 1px solid #e0e0e0;
-  padding-top: 1rem;
-  margin-top: 1rem;
+.card .material-icons {
+  padding-right: .5rem;
+}
+
+.form-group.floating-label.has-danger {
+  margin-bottom: 2.5rem;
+  border: 1px solid #f44336;
+  border-bottom: 3px solid #f44336;
+}
+.form-group.floating-label.has-danger.is-focused > label {
+  color: #f44336;
+}
+
+.regRHS {
+  border: 1px solid #bdbdbd;
+}
+.regRHS .regMessageHeader {
+  background-color: #4a84c5;
+  padding: .35rem;
+}
+.regRHS .regMessageHeader h3 {
+  color: #ffffff;
+}
+.regRHS .list-group-item {
+  background-color: #eeeeee;
+  border: none;
+  font-size: 1.125rem;
+  position: relative;
+  /* Helps us control overlap */
+  padding-left: 3.875rem;
+}
+.regRHS .list-group-item:before {
+  color: #4a84c5;
+  content: '\e876';
+  font-family: 'Material Icons';
+  position: absolute;
+  left: 18px;
+  top: 1px;
+  font-size: 2.125rem;
 }
 
 .serp {
@@ -182,12 +210,20 @@
   border-top: 10px solid #c50084;
 }
 
+body {
+  font-family: Arial;
+}
+
+h1, h2 {
+  font-family: InterFace;
+}
+
 .doc-jumbotron {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
           background-size: cover;
-  padding-top: 7rem;
+  padding-top: 5rem;
 }
 @media (max-width: 767px) {
   .doc-jumbotron h1 {

@@ -1,5 +1,4 @@
 //Access: Modal with Reg form
-
 .modal {
     font-size: 1rem;
 }
@@ -7,50 +6,84 @@
 .modal-lg {
     max-width: 60rem;
 }
-.modal-header {
-    background-color: $palette-pink-500;
-    color: $white;
-    //border-bottom: 1px solid #f5f5f5; //#$palette-grey-100 
-    padding-bottom: 1.25rem;
-    button span {
-        color: $white;
-    }
 
-}
 .modal-title {
     font-size: 1.5rem;
 }
+
 .modal-body {
     padding: 1.25rem 1.5rem 0;
-}
-.floating-label {
-  > label {
-    color: #1e1e1e;
-  }
+    p:first-of-type {
+        font-size: .875rem;
+        padding-left: 2.2rem;
+    }
 }
 
-.modalMessages {
-    background-color: $palette-blue-grey-050;
-    margin-top: -1.25rem;
-    margin-right: -1.5rem;
-    padding: 2rem .5rem 0 .5rem;
-    height: 109.75%;
-    h4 {
-        padding: 0 2rem;
-        text-align: center;
+.floating-label {
+    border: 1px solid $black-primary;
+    border-radius: 2px;
+    height: 3.125rem;
+    >label {
+        color: $palette-grey-600;
+        padding-left: .25rem;
+        top: .875rem;
+        // padding-left: .5rem;
     }
-    .material-icons {
-        color: $palette-pink-500;
-    }
-    P {
-        margin: 0 2rem 2rem 1rem;
-        &:first-of-type {
-            margin-top: 2rem;
+    &.has-value,
+    &.is-focused {
+        border: 1px solid #2a6ebb;
+        border-bottom: 3px solid #2a6ebb;
+        >label {
+            // position
+            top: 5px;
         }
     }
 }
-.modal-footer {
-    border-top: 1px solid $palette-grey-300;   
-    padding-top: 1rem;
-    margin-top: 1rem;
+
+.form-control {
+    border-bottom: none;
+    padding-left: .25rem;
+}
+
+.card .material-icons {
+    padding-right: .5rem;
+}
+
+.form-group.floating-label.has-danger {
+    margin-bottom: 2.5rem;
+    border: 1px solid $palette-red-500;
+    border-bottom: 3px solid $palette-red-500;
+    &.is-focused {
+        >label {
+            color: $palette-red-500;
+        }
+    }
+}
+
+.regRHS {
+    border: 1px solid $palette-grey-400;
+    .regMessageHeader {
+        background-color: $palette-blue-400;
+        padding: .35rem;
+        h3 {
+            color: $white;
+        }
+    }
+    .list-group-item {
+        background-color: $palette-grey-200;
+        border: none;
+        font-size: $font-size-bmj;
+        position: relative;
+        /* Helps us control overlap */
+        padding-left: 3.875rem;
+        &:before {
+            color: $palette-blue-400;
+            content: '\e876';
+            font-family: 'Material Icons';
+            position: absolute;
+            left: 18px;
+            top: 1px;
+            font-size: 2.125rem;
+        }
+    }
 }
