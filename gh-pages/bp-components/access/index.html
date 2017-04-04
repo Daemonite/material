@@ -124,7 +124,7 @@
             <p>Toggle a working Registration modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
             <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
+                <div class="modal-content pb-2">
                   <div class="modal-header">
                     <h2>Create your FREE personal account in just one step</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -140,11 +140,11 @@
                             <label for="exampleInputEmail1">Email</label>
                             <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                           </div>
-                          <div class="form-group floating-label w-75">
+                          <div class="form-group floating-label">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password" />
                           </div>
-                          <div class="form-group floating-label w-75">
+                          <div class="form-group floating-label">
                             <label for="exampleInputPassword2">Repeat password</label>
                             <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password" />
                           </div>
@@ -157,10 +157,11 @@
                           <div class="form-group">
                             <button type="submit" class="btn btn-secondary">Create account</button>
                           </div>
+                          <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
                         </form>
                       </div>
                       <div class="col-md-6">
-                        <div class="regRHS">
+                        <div class="regMessaging">
                           <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" />
                           <div class="regMessageHeader">
                             <h3 class="text-center">With a personal account, you can:</h3>
@@ -171,24 +172,16 @@
                             <li class="list-group-item">Access Best Practice anywhere</li>
                           </ul>
                         </div>
+                        <label for="modalDismiss" class="custom-control custom-checkbox">
+                          <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input" />
+                          <span class="custom-control-indicator mt-3"></span>
+                          <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+                        </label>
+                        <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
                       </div>
                     </div>
                   </div>
                   <!--- / modal-body -->
-                  <div class="modal-footer">
-                    <div class="col-md-6">
-                      <p class="font-weight-bold pt-3 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></p>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="modalDismiss" class="custom-control custom-checkbox">
-                        <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input" />
-                        <span class="custom-control-indicator mt-3"></span>
-                        <p class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</p>
-                      </label>
-                      <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
-                    </div>
-                  </div>
-                  <!--- / modal-footer -->
                 </div>
                 <!--- / modal-content -->
               </div>
@@ -205,7 +198,7 @@
             <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Register Form in Modal --&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"exampleModalRegister"</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"exampleModalRegisterLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog modal-lg"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content pb-2"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;h2&gt;</span>Create your FREE personal account in just one step<span class="nt">&lt;/h2&gt;</span>
         <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
@@ -220,11 +213,11 @@
                 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail1"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
                 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">class=</span><span class="s">"form-control mw-100"</span> <span class="na">id=</span><span class="s">"exampleInputEmail1"</span> <span class="na">name=</span><span class="s">"exampleInputEmail1"</span> <span class="na">aria-describedby=</span><span class="s">"emailHelp"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
-              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label w-75"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword1"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
                 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword1"</span> <span class="na">name=</span><span class="s">"exampleInputPassword1"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
-              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label w-75"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword2"</span><span class="nt">&gt;</span>Repeat password<span class="nt">&lt;/label&gt;</span>
                 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword2"</span> <span class="na">name=</span><span class="s">"exampleInputPassword2"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
@@ -237,10 +230,11 @@
               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Create account<span class="nt">&lt;/button&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control pt-3 pl-0 mt-35 d-inline-block"</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #000"</span><span class="nt">&gt;</span>Already have a personal account? <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"text-uppercase"</span> <span class="na">href=</span><span class="s">"#exampleModalLogIn"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Log in<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
             <span class="nt">&lt;/form&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"regRHS"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"regMessaging"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"w-100"</span> <span class="na">src=</span><span class="s">"../../../css/images/1.jpg"</span> <span class="na">alt=</span><span class="s">"image temporary"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"regMessageHeader"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>With a personal account, you can:<span class="nt">&lt;/h3&gt;</span>
@@ -251,22 +245,15 @@
                 <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Access Best Practice anywhere<span class="nt">&lt;/li&gt;</span>
               <span class="nt">&lt;/ul&gt;</span>
             <span class="nt">&lt;/div&gt;</span>
-          <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"modalDismiss"</span> <span class="na">class=</span><span class="s">"custom-control custom-checkbox"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"modalDismiss"</span> <span class="na">id=</span><span class="s">"modalDismiss"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-indicator mt-3"</span><span class="nt">&gt;&lt;/span&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"font-weight-bold pt-3 custom-control-description"</span><span class="nt">&gt;</span>Don't ask me this again<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-primary float-right mt-2"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
       <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / modal-body --&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-footer"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"font-weight-bold pt-3 mt-35 d-inline-block"</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #000"</span><span class="nt">&gt;</span>Already have a personal account? <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"text-uppercase"</span> <span class="na">href=</span><span class="s">"#exampleModalLogIn"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Log in<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"modalDismiss"</span> <span class="na">class=</span><span class="s">"custom-control custom-checkbox"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"modalDismiss"</span> <span class="na">id=</span><span class="s">"modalDismiss"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-indicator mt-3"</span><span class="nt">&gt;&lt;/span&gt;</span>
-            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"font-weight-bold pt-3 custom-control-description"</span><span class="nt">&gt;</span>Don't ask me this again<span class="nt">&lt;/p&gt;</span>
-          <span class="nt">&lt;/label&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-primary float-right mt-2"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / modal-footer --&gt;</span>
     <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / modal-content --&gt;</span>
   <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / modal-dialog --&gt;</span>
 <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / exampleModalRegister --&gt;</span></code></pre></figure>

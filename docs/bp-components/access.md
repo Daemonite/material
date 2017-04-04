@@ -18,7 +18,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
 
 <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content pb-2">
       <div class="modal-header">
         <h2>Create your FREE personal account in just one step</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -33,11 +33,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
-              <div class="form-group floating-label w-75">
+              <div class="form-group floating-label">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
               </div>
-              <div class="form-group floating-label w-75">
+              <div class="form-group floating-label">
                 <label for="exampleInputPassword2">Repeat password</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
               </div>
@@ -50,10 +50,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               <div class="form-group">
                 <button type="submit" class="btn btn-secondary">Create account</button>
               </div>
+              <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
-            <div class="regRHS">
+            <div class="regMessaging">
               <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
               <div class="regMessageHeader">
                 <h3 class="text-center">With a personal account, you can:</h3>
@@ -64,22 +65,15 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <li class="list-group-item">Access Best Practice anywhere</li>
               </ul>
             </div>
-          </div>
+            <label for="modalDismiss" class="custom-control custom-checkbox">
+              <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator mt-3"></span>
+              <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+            </label>
+            <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
         </div>
       </div><!--- / modal-body -->
-      <div class="modal-footer">
-        <div class="col-md-6">
-         <p class="font-weight-bold pt-3 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></p>
-        </div>
-        <div class="col-md-6">
-          <label for="modalDismiss" class="custom-control custom-checkbox">
-            <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
-            <span class="custom-control-indicator mt-3"></span>
-            <p class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</p>
-          </label>
-          <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
-        </div>
-    </div><!--- / modal-footer -->
     </div><!--- / modal-content -->
   </div><!--- / modal-dialog -->
 </div><!--- / exampleModalRegister -->
@@ -96,7 +90,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
 <!-- Register Form in Modal -->
 <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content pb-2">
       <div class="modal-header">
         <h2>Create your FREE personal account in just one step</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -111,11 +105,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
-              <div class="form-group floating-label w-75">
+              <div class="form-group floating-label">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
               </div>
-              <div class="form-group floating-label w-75">
+              <div class="form-group floating-label">
                 <label for="exampleInputPassword2">Repeat password</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
               </div>
@@ -128,10 +122,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               <div class="form-group">
                 <button type="submit" class="btn btn-secondary">Create account</button>
               </div>
+              <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
-            <div class="regRHS">
+            <div class="regMessaging">
               <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
               <div class="regMessageHeader">
                 <h3 class="text-center">With a personal account, you can:</h3>
@@ -142,22 +137,15 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <li class="list-group-item">Access Best Practice anywhere</li>
               </ul>
             </div>
-          </div>
+            <label for="modalDismiss" class="custom-control custom-checkbox">
+              <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator mt-3"></span>
+              <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+            </label>
+            <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
+            </div>
         </div>
       </div><!--- / modal-body -->
-      <div class="modal-footer">
-        <div class="col-md-6">
-         <p class="font-weight-bold pt-3 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></p>
-        </div>
-        <div class="col-md-6">
-          <label for="modalDismiss" class="custom-control custom-checkbox">
-            <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
-            <span class="custom-control-indicator mt-3"></span>
-            <p class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</p>
-          </label>
-          <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
-        </div>
-    </div><!--- / modal-footer -->
     </div><!--- / modal-content -->
   </div><!--- / modal-dialog -->
 </div><!--- / exampleModalRegister -->

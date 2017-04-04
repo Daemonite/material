@@ -1,6 +1,8 @@
 //Access: Modal with Reg form
-.modal {
+.modal-dialog {
     font-size: 1rem;
+    margin: 0;
+    width: 100%;
 }
 
 .modal-lg {
@@ -64,8 +66,9 @@
         font-size: $font-size-body-1;
     }
 }
-.regRHS {
+.regMessaging {
     border: 1px solid $palette-grey-400;
+    margin-top: 1rem;
     .regMessageHeader {
         background-color: $palette-blue-400;
         padding: .35rem;
@@ -91,3 +94,14 @@
         }
     }
 }
+
+// Media Queris for form inputwidths (sigh!)
+@include media-breakpoint-up(md) { 
+    .form-group:nth-child(2),
+    .form-group:nth-child(3) {
+        width: 75%;
+    }
+    .regMessaging {
+        margin-top: 0;
+    }
+ }

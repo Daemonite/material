@@ -1,5 +1,7 @@
-.modal {
+.modal-dialog {
   font-size: 1rem;
+  margin: 0;
+  width: 100%;
 }
 
 .modal-lg {
@@ -58,17 +60,18 @@
   font-size: 0.875rem;
 }
 
-.regRHS {
+.regMessaging {
   border: 1px solid #bdbdbd;
+  margin-top: 1rem;
 }
-.regRHS .regMessageHeader {
+.regMessaging .regMessageHeader {
   background-color: #4a84c5;
   padding: .35rem;
 }
-.regRHS .regMessageHeader h3 {
+.regMessaging .regMessageHeader h3 {
   color: #ffffff;
 }
-.regRHS .list-group-item {
+.regMessaging .list-group-item {
   background-color: #eeeeee;
   border: none;
   font-size: 1.125rem;
@@ -76,7 +79,7 @@
   /* Helps us control overlap */
   padding-left: 3.875rem;
 }
-.regRHS .list-group-item:before {
+.regMessaging .list-group-item:before {
   color: #4a84c5;
   content: '\e876';
   font-family: 'Material Icons';
@@ -86,6 +89,16 @@
   font-size: 2.125rem;
 }
 
+@media (min-width: 768px) {
+  .form-group:nth-child(2),
+  .form-group:nth-child(3) {
+    width: 75%;
+  }
+
+  .regMessaging {
+    margin-top: 0;
+  }
+}
 .serp {
   margin-bottom: 1rem;
 }
