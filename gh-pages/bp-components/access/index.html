@@ -31,6 +31,10 @@
         <div class="collapse " id="doc_navdrawer_bp-components">
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/access/index.html">Access</a>
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/serp/index.html">SERP</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/create-account-modal/index.html">Create Account Modal</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/log-in-modal/index.html">Log In Modal</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/create-account-inline/index.html">Create Account Inline</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/log-in-inline/index.html">Log In Inline</a>
         </div>
         <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_bp-utilities">BP Utilities</a>
         <div class="collapse " id="doc_navdrawer_bp-utilities">
@@ -114,11 +118,8 @@
                   <li><a href="#grab-the-code" id="markdown-toc-grab-the-code">Grab the code</a></li>
                 </ul>
               </li>
-              <li><a href="#log-in-form-in-modal" id="markdown-toc-log-in-form-in-modal">Log in Form (in Modal)</a>
-                <ul>
-                  <li><a href="#validation-front-end" id="markdown-toc-validation-front-end">Validation (front end)</a></li>
-                </ul>
-              </li>
+              <li><a href="#log-in-form-in-modal" id="markdown-toc-log-in-form-in-modal">Log in Form (in Modal)</a></li>
+              <li><a href="#registration-form-inline" id="markdown-toc-registration-form-inline">Registration Form (inline)</a></li>
             </ul>
             <h2 id="registration-form-in-modal">Registration Form (in Modal)</h2>
             <p>Toggle a working Registration modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
@@ -135,7 +136,7 @@
                   <div class="modal-body">
                     <div class="row">
                       <div class="col-md-6">
-                        <form id="regformModal" action="#">
+                        <form id="regForm" action="#">
                           <div class="form-group floating-label">
                             <label for="exampleInputEmail1">Email</label>
                             <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
@@ -155,9 +156,9 @@
                           </label>
                           <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
                           <div class="form-group">
-                            <button type="submit" class="btn btn-secondary">Create account</button>
+                            <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
                           </div>
-                          <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+                          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
                         </form>
                       </div>
                       <div class="col-md-6">
@@ -261,9 +262,9 @@
             <p>Toggle a working Log in modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
             <div id="exampleModalLogIn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLogInLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
+                <div class="modal-content pb-3">
                   <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLogInLabel">Create your FREE personal account in just one step</h3>
+                    <h3 class="modal-title" id="exampleModalLogInLabel">Log in to your Best Practice personal account</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -271,24 +272,25 @@
                   <div class="modal-body">
                     <div class="row">
                       <div class="col-md-6">
-                        <form>
+                        <form id="loginForm" action="#">
                           <div class="form-group floating-label">
                             <label for="exampleInputEmail2">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email" />
+                            <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email" />
                           </div>
                           <div class="form-group floating-label">
-                            <label for="exampleInputPassword2">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" />
-                            <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot Password?</a></small>
+                            <label for="exampleInputPassword3">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password" />
                           </div>
+                          <p class="pl-0"><a href="#">Forgot password?</a></p>
                           <div class="form-group">
-                            <button type="button" class="btn btn-primary">Log in</button>
+                            <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
                           </div>
-                          &lt;label for="rememberMe"class="custom-control custom-checkbox"&gt;
-                          <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input" />
-                          <span class="custom-control-indicator"></span>
-                          <span class="custom-control-description">Remember me</span> &lt;/label&gt;
-                          <p>Don't have a personal account? <a href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create your account</a>.</p>
+                          <label for="marketingOptIn" class="custom-control custom-checkbox">
+                            <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input" />
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Remember me</span>
+                          </label>
+                          <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
                         </form>
                       </div>
                       <div class="col-md-6">
@@ -305,59 +307,147 @@
               </button>
             </div>
             <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Modal --&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">id=</span><span class="s">"myModal"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"exampleModalLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"exampleModalLogIn"</span> <span class="na">class=</span><span class="s">"modal fade"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">role=</span><span class="s">"dialog"</span> <span class="na">aria-labelledby=</span><span class="s">"exampleModalLogInLabel"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-dialog modal-lg"</span> <span class="na">role=</span><span class="s">"document"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-content pb-3"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-header"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"modal-title"</span> <span class="na">id=</span><span class="s">"exampleModalLogInLabel"</span><span class="nt">&gt;</span>Create your FREE personal account in just one step<span class="nt">&lt;/h3&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"modal-title"</span> <span class="na">id=</span><span class="s">"exampleModalLogInLabel"</span><span class="nt">&gt;</span>Log in to your Best Practice personal account<span class="nt">&lt;/h3&gt;</span>
         <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;span</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;</span><span class="ni">&amp;times;</span><span class="nt">&lt;/span&gt;</span>
         <span class="nt">&lt;/button&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"modal-body"</span><span class="nt">&gt;</span>
         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;form&gt;</span>
+            <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"loginForm"</span> <span class="na">action=</span><span class="s">"#"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail1"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail1"</span> <span class="na">aria-describedby=</span><span class="s">"emailHelp"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;small</span> <span class="na">id=</span><span class="s">"emailHelp"</span> <span class="na">class=</span><span class="s">"form-text text-muted"</span><span class="nt">&gt;</span>We'll never share your email with anyone else.<span class="nt">&lt;/small&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail2"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail2"</span> <span class="na">name=</span><span class="s">"exampleInputEmail2"</span> <span class="na">aria-describedby=</span><span class="s">"emailHelp"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
               <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword1"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword1"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword3"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword3"</span> <span class="na">name=</span><span class="s">"exampleInputPassword3"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
-              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword1"</span><span class="nt">&gt;</span>Repeat password<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword1"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"pl-0"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Forgot password?<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+              <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"loginSubmit"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Log in<span class="nt">&lt;/button&gt;</span>
               <span class="nt">&lt;/div&gt;</span>
               <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"marketingOptIn"</span> <span class="na">class=</span><span class="s">"custom-control custom-checkbox"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"marketingOptIn"</span> <span class="na">id=</span><span class="s">"marketingOptIn"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-indicator"</span><span class="nt">&gt;&lt;/span&gt;</span>
-                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-description"</span><span class="nt">&gt;</span>Tick to receive information and special offfers about BMJ's products and services.<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-description"</span><span class="nt">&gt;</span>Remember me<span class="nt">&lt;/span&gt;</span>
               <span class="nt">&lt;/label&gt;</span>
-              <span class="nt">&lt;p&gt;</span>By registering with BMJ Best Practice you are agreeing to BMJ's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>terms and conditions<span class="nt">&lt;/a&gt;</span> and it's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>privacy policy<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
-              <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Create account<span class="nt">&lt;/button&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control pt-3 pl-0 mt-3 d-inline-block"</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #000"</span><span class="nt">&gt;</span>Don't have a personal account? <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"text-uppercase"</span> <span class="na">href=</span><span class="s">"#exampleModalRegister"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Create account<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
             <span class="nt">&lt;/form&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
           <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h4&gt;</span>With a Best Practice personal account, you can:<span class="nt">&lt;/h4&gt;</span>
-              <span class="nt">&lt;p&gt;&lt;span</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span><span class="ni">&amp;#xE0D4;</span><span class="nt">&lt;/span&gt;</span> Use the highly rated Best Practice app, even offline<span class="nt">&lt;/p&gt;</span>
-              <span class="nt">&lt;p&gt;&lt;span</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span><span class="ni">&amp;#xE8AE;</span><span class="nt">&lt;/span&gt;</span> Get CPD certificates for time spent on Best Practice<span class="nt">&lt;/p&gt;</span>
-              <span class="nt">&lt;p&gt;&lt;span</span> <span class="na">class=</span><span class="s">"material-icons"</span><span class="nt">&gt;</span><span class="ni">&amp;#xE0C8;</span><span class="nt">&lt;/span&gt;</span> Access Best Practice anywhere<span class="nt">&lt;/p&gt;</span>
-            <span class="nt">&lt;p&gt;</span>Already have a personal account? <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Log in<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+            <span class="c">&lt;!--- Empty for now --&gt;</span>
           <span class="nt">&lt;/div&gt;</span>
         <span class="nt">&lt;/div&gt;</span>
       <span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
-            <!--<script>
-window.setTimeout(function(){
-            $('#exampleModalRegister').modal('show');
-        }, 3000)
-</script>-->
-            <h3 id="validation-front-end">Validation (front end)</h3>
+            <h2 id="registration-form-inline">Registration Form (inline)</h2>
+            <p>Inline registration form. Slightly different design on $palette-grey-100 background.</p>
+            <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
+              <div class="row">
+                <h1 class="pb-3 mb-3">Create your FREE personal account in just one step</h1>
+                <div class="col-md-6">
+                  <form id="regFormInline" action="#">
+                    <div class="form-group floating-label">
+                      <label for="exampleInputEmail1">Email</label>
+                      <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                    </div>
+                    <div class="form-group floating-label">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password" />
+                    </div>
+                    <div class="form-group floating-label">
+                      <label for="exampleInputPassword2">Repeat password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password" />
+                    </div>
+                    <label for="marketingOptIn" class="custom-control custom-checkbox">
+                      <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input" />
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+                    </label>
+                    <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+                    <div class="form-group">
+                      <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+                    </div>
+                    <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+                  </form>
+                </div>
+                <div class="col-md-6">
+                  <div class="regMessaging">
+                    <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" style="height: 186px;" />
+                    <div class="regMessageHeader">
+                      <h2 class="text-center">With a personal account, you can:</h2>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+                      <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+                      <li class="list-group-item">Access Best Practice anywhere</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--- / container -->
+            <div class="bd-example">
+              <h3>Grab the 'Inline Registration Form' code here</h3>
+            </div>
+            <figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"inlineReg"</span> <span class="na">class=</span><span class="s">"container"</span> <span class="na">style=</span><span class="s">"background-color: #f5f5f5;"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Create your FREE personal account in just one step<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"regFormInline"</span> <span class="na">action=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail1"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">class=</span><span class="s">"form-control mw-100"</span> <span class="na">id=</span><span class="s">"exampleInputEmail1"</span> <span class="na">name=</span><span class="s">"exampleInputEmail1"</span> <span class="na">aria-describedby=</span><span class="s">"emailHelp"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword1"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword1"</span> <span class="na">name=</span><span class="s">"exampleInputPassword1"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword2"</span><span class="nt">&gt;</span>Repeat password<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword2"</span> <span class="na">name=</span><span class="s">"exampleInputPassword2"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"marketingOptIn"</span> <span class="na">class=</span><span class="s">"custom-control custom-checkbox"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"marketingOptIn"</span> <span class="na">id=</span><span class="s">"marketingOptIn"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-indicator"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-description"</span><span class="nt">&gt;</span>Tick to receive information and special offfers about BMJ's products and services.<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/label&gt;</span>
+          <span class="nt">&lt;p&gt;</span>By registering with BMJ Best Practice you are agreeing to BMJ's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>terms and conditions<span class="nt">&lt;/a&gt;</span> and it's <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>privacy policy<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"createAccount"</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Create account<span class="nt">&lt;/button&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control pt-3 pl-0 d-inline-block"</span> <span class="na">style=</span><span class="s">"border-top: 1px solid #000"</span><span class="nt">&gt;</span>Already have a personal account? <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"text-uppercase"</span> <span class="na">href=</span><span class="s">"#exampleModalLogIn"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span><span class="nt">&gt;</span>Log in<span class="nt">&lt;/a&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"regMessaging"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"w-100"</span> <span class="na">src=</span><span class="s">"../../../css/images/1.jpg"</span> <span class="na">alt=</span><span class="s">"image temporary"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"regMessageHeader"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>With a personal account, you can:<span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group list-group-flush"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Use the highly rated Best Practice app, even offline.<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Get CPD certificates for time spent on Best Practice<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>Access Best Practice anywhere<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"modalDismiss"</span> <span class="na">class=</span><span class="s">"custom-control custom-checkbox"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"modalDismiss"</span> <span class="na">id=</span><span class="s">"modalDismiss"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">class=</span><span class="s">"custom-control-input"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"custom-control-indicator mt-3"</span><span class="nt">&gt;&lt;/span&gt;</span>
+          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"font-weight-bold pt-3 custom-control-description"</span><span class="nt">&gt;</span>Don't ask me this again<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-primary float-right mt-2"</span> <span class="na">data-dismiss=</span><span class="s">"modal"</span> <span class="na">aria-label=</span><span class="s">"Close"</span><span class="nt">&gt;</span>Close<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span><span class="c">&lt;!--- / #inlineReg --&gt;</span></code></pre></figure>
           </div>
         </div>
       </div>

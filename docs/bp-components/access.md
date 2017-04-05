@@ -28,7 +28,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <form id="regformModal" action="#">
+            <form id="regForm" action="#">
               <div class="form-group floating-label">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -48,9 +48,9 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               </label>
               <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary">Create account</button>
+                <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
               </div>
-              <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+              <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -158,35 +158,35 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
 
 <div id="exampleModalLogIn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLogInLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content pb-3">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLogInLabel">Create your FREE personal account in just one step</h3>
+        <h3 class="modal-title" id="exampleModalLogInLabel">Log in to your Best Practice personal account</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-            <div class="modal-body">
+      <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <form>
+            <form id="loginForm" action="#">
               <div class="form-group floating-label">
                 <label for="exampleInputEmail2">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
               <div class="form-group floating-label">
-                <label for="exampleInputPassword2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                <small id="emailHelp" class="form-text text-muted"><a href="#">Forgot Password?</a></small>
+                <label for="exampleInputPassword3">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
               </div>
+              <p class="pl-0"><a href="#">Forgot password?</a></p>
               <div class="form-group">
-                <button type="button" class="btn btn-primary">Log in</button>
+                <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
               </div>
-              <label for="rememberMe"class="custom-control custom-checkbox">
-                <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input">
+              <label for="marketingOptIn" class="custom-control custom-checkbox">
+                <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Remember me</span>
               </label>
-              <p>Don't have a personal account? <a href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create your account</a>.</p>
+              <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -206,47 +206,41 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
 
 {% highlight html %}
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<div id="exampleModalLogIn" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLogInLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content pb-3">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLogInLabel">Create your FREE personal account in just one step</h3>
+        <h3 class="modal-title" id="exampleModalLogInLabel">Log in to your Best Practice personal account</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-            <div class="modal-body">
+      <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <form>
+            <form id="loginForm" action="#">
               <div class="form-group floating-label">
-                <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="exampleInputEmail2">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
               <div class="form-group floating-label">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="exampleInputPassword3">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
               </div>
-              <div class="form-group floating-label">
-                <label for="exampleInputPassword1">Repeat password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <p class="pl-0"><a href="#">Forgot password?</a></p>
+              <div class="form-group">
+                <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
               </div>
               <label for="marketingOptIn" class="custom-control custom-checkbox">
                 <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+                <span class="custom-control-description">Remember me</span>
               </label>
-              <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
-              <button type="button" class="btn btn-primary">Create account</button>
+              <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
             </form>
           </div>
           <div class="col-md-6">
-            <h4>With a Best Practice personal account, you can:</h4>
-              <p><span class="material-icons">&#xE0D4;</span> Use the highly rated Best Practice app, even offline</p>
-              <p><span class="material-icons">&#xE8AE;</span> Get CPD certificates for time spent on Best Practice</p>
-              <p><span class="material-icons">&#xE0C8;</span> Access Best Practice anywhere</p>
-            <p>Already have a personal account? <a href="#">Log in</a>.</p>
+            <!--- Empty for now -->
           </div>
         </div>
       </div>
@@ -255,10 +249,107 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
 </div>
 {% endhighlight %}
 
-<!--<script>
-window.setTimeout(function(){
-            $('#exampleModalRegister').modal('show');
-        }, 3000)
-</script>-->
+## Registration Form (inline)
 
-### Validation (front end)
+Inline registration form. Slightly different design on $palette-grey-100 background.
+
+  <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
+    <div class="row">
+    <h1 class="pb-3 mb-3">Create your FREE personal account in just one step</h1>
+      <div class="col-md-6">
+        <form id="regFormInline" action="#">
+          <div class="form-group floating-label">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword2">Repeat password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
+          </div>
+          <label for="marketingOptIn" class="custom-control custom-checkbox">
+            <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+          </label>
+          <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+          <div class="form-group">
+            <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+          </div>
+          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="regMessaging">
+          <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" style="height: 186px;">
+          <div class="regMessageHeader">
+            <h2 class="text-center">With a personal account, you can:</h2>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+            <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+            <li class="list-group-item">Access Best Practice anywhere</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div><!--- / container -->
+
+<div class="bd-example">
+  <h3>Grab the 'Inline Registration Form' code here</h3>
+</div>
+{% highlight html %}
+  <div id="inlineReg" class="container" style="background-color: #f5f5f5;">
+    <div class="row">
+    <h1>Create your FREE personal account in just one step</h1>
+      <div class="col-md-6">
+        <form id="regFormInline" action="#">
+          <div class="form-group floating-label">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword2">Repeat password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
+          </div>
+          <label for="marketingOptIn" class="custom-control custom-checkbox">
+            <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+          </label>
+          <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+          <div class="form-group">
+            <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+          </div>
+          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="regMessaging">
+          <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
+          <div class="regMessageHeader">
+            <h3 class="text-center">With a personal account, you can:</h3>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+            <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+            <li class="list-group-item">Access Best Practice anywhere</li>
+          </ul>
+        </div>
+        <label for="modalDismiss" class="custom-control custom-checkbox">
+          <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator mt-3"></span>
+          <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+        </label>
+        <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+    </div>
+  </div><!--- / #inlineReg -->
+{% endhighlight %}
