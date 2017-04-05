@@ -160,7 +160,7 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content pb-3">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLogInLabel">Log in to your Best Practice personal account</h3>
+        <h2>Log in to your Best Practice personal account</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -181,8 +181,8 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
               <div class="form-group">
                 <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
               </div>
-              <label for="marketingOptIn" class="custom-control custom-checkbox">
-                <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+              <label for="rememberMe" class="custom-control custom-checkbox">
+                <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Remember me</span>
               </label>
@@ -210,7 +210,7 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content pb-3">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLogInLabel">Log in to your Best Practice personal account</h3>
+        <h2>Log in to your Best Practice personal account</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -231,8 +231,8 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
               <div class="form-group">
                 <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
               </div>
-              <label for="marketingOptIn" class="custom-control custom-checkbox">
-                <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+              <label for="rememberMe" class="custom-control custom-checkbox">
+                <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Remember me</span>
               </label>
@@ -255,7 +255,7 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
 
   <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
     <div class="row">
-    <h1 class="pb-3 mb-3">Create your FREE personal account in just one step</h1>
+    <h1 class="col-md-12 pb-3 mb-3">Create your FREE personal account in just one step</h1>
       <div class="col-md-6">
         <form id="regFormInline" action="#">
           <div class="form-group floating-label">
@@ -270,8 +270,8 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
             <label for="exampleInputPassword2">Repeat password</label>
             <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
           </div>
-          <label for="marketingOptIn" class="custom-control custom-checkbox">
-            <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+          <label for="marketingOptIn2" class="custom-control custom-checkbox">
+            <input name="marketingOptIn2" id="marketingOptIn2" type="checkbox" class="custom-control-input">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
           </label>
@@ -302,9 +302,9 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
   <h3>Grab the 'Inline Registration Form' code here</h3>
 </div>
 {% highlight html %}
-  <div id="inlineReg" class="container" style="background-color: #f5f5f5;">
+  <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
     <div class="row">
-    <h1>Create your FREE personal account in just one step</h1>
+    <h1 class="col-md-12 pb-3 mb-3">Create your FREE personal account in just one step</h1>
       <div class="col-md-6">
         <form id="regFormInline" action="#">
           <div class="form-group floating-label">
@@ -319,8 +319,8 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
             <label for="exampleInputPassword2">Repeat password</label>
             <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
           </div>
-          <label for="marketingOptIn" class="custom-control custom-checkbox">
-            <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+          <label for="marketingOptIn2" class="custom-control custom-checkbox">
+            <input name="marketingOptIn2" id="marketingOptIn2" type="checkbox" class="custom-control-input">
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
           </label>
@@ -333,9 +333,9 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
       </div>
       <div class="col-md-6">
         <div class="regMessaging">
-          <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
+          <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" style="height: 186px;">
           <div class="regMessageHeader">
-            <h3 class="text-center">With a personal account, you can:</h3>
+            <h2 class="text-center">With a personal account, you can:</h2>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
@@ -343,13 +343,173 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
             <li class="list-group-item">Access Best Practice anywhere</li>
           </ul>
         </div>
-        <label for="modalDismiss" class="custom-control custom-checkbox">
-          <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
-          <span class="custom-control-indicator mt-3"></span>
-          <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
-        </label>
-        <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
+      </div>
+    </div>
+  </div><!--- / container -->
+{% endhighlight %}
+
+## Log In Form (inline)
+
+Inline Log in  form. Slightly different design on $palette-grey-100 background.
+<div id="inlineLogin" class="container pb-3" style="background-color: #f5f5f5;">
+  <div class="row">
+  <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
+    <div class="col-md-6">
+      <form id="loginForm" action="#">
+        <div class="form-group floating-label">
+          <label for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group floating-label">
+          <label for="exampleInputPassword3">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
+        </div>
+        <p class="pl-0"><a href="#">Forgot password?</a></p>
+        <div class="form-group">
+          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+        </div>
+        <div class="d-block">
+          <label for="rememberMe2" class="custom-control custom-checkbox">
+            <input name="rememberMe2" id="rememberMe2" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+          </label>
+        </div>
+        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <!--- Empty for now -->
+    </div>
+  </div>
+</div>
+
+<div class="bd-example">
+  <h3>Grab the 'Inline Log In Form' code here</h3>
+</div>
+{% highlight html %}
+  <div id="inlineLogin" class="container pb-3" style="background-color: #f5f5f5;">
+  <div class="row">
+  <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
+    <div class="col-md-6">
+      <form id="loginForm" action="#">
+        <div class="form-group floating-label">
+          <label for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group floating-label">
+          <label for="exampleInputPassword3">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
+        </div>
+        <p class="pl-0"><a href="#">Forgot password?</a></p>
+        <div class="form-group">
+          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+        </div>
+        <div class="d-block">
+          <label for="rememberMe2" class="custom-control custom-checkbox">
+            <input name="rememberMe2" id="rememberMe2" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+          </label>
+        </div>
+        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <!--- Empty for now -->
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+## Log In Form Outside IP
+
+Inline Log in  form. Slightly different design on $palette-grey-100 background.
+<div id="inlineLoginNoIp" class="container pb-3" style="background-color: #f5f5f5;">
+  <div class="row">
+  <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
+    <div class="col-md-6">
+      <p>If you have a Best Practice personal acount, your own subscription or have registered for a free trial, log in here:</p>
+      <form id="loginForm" action="#">
+        <div class="form-group floating-label">
+          <label for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group floating-label">
+          <label for="exampleInputPassword3">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
+        </div>
+        <p class="pl-0"><a href="#">Forgot password?</a></p>
+        <div class="form-group">
+          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+        </div>
+        <div class="d-block">
+          <label for="rememberMe3" class="custom-control custom-checkbox">
+            <input name="rememberMe3" id="rememberMe3" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+          </label>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <p>If your Hospital, University, Trust or other institution provides access to Best Practice, log in via the appropiate link:</p>
+        <div class="col-md-6 offset-md-3">
+          <a href="#" id="btnOpenAthens" class="btn btn-secondary btn-block mb-3" style="background-color: #fff; border: 3px solid #7a487f; color: #7a487f; font-weight: bold;">OPEN ATHENS <span class="material-icons material-icons-inline">open_in_new</span></a>
+          <a href="#" id="btnShibboleth" class="btn btn-secondary btn-block mb-3" style="background-color: #fff; border: 3px solid #ff0000; color: #ff0000; font-weight: bold;">SHIBBOLETH <span class="material-icons material-icons-inline">open_in_new</span></a>
+          <a href="#" id="btnAccessCode" class="btn btn-secondary btn-block mb-3" style="background-color: #fff; border: 3px solid #2a6ebb; color: #2a6ebb; font-weight: bold;">ACCESS CODE <span class="material-icons material-icons-inline">open_in_new</span></a>
         </div>
     </div>
-  </div><!--- / #inlineReg -->
+    <div class="col-md-12">
+      <h2>Don't have a subscription to BMJ Best Practice?</h2>
+      <p>Take a look at our <a href="#">subscription options</a></p>
+      <p>Sign up for a <a href="#">FREE trial</a></p>
+      <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="bd-example">
+  <h3>Grab the 'Inline Log In Form' code here</h3>
+</div>
+{% highlight html %}
+  <div id="inlineLoginNoIp" class="container pb-3" style="background-color: #f5f5f5;">
+  <div class="row">
+  <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
+    <div class="col-md-6">
+    <p>If you have a Best Practice personal acount, your own subscription or have registered for a free trial, log in here:</p>
+      <form id="loginForm" action="#">
+        <div class="form-group floating-label">
+          <label for="exampleInputEmail2">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group floating-label">
+          <label for="exampleInputPassword3">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword3" name="exampleInputPassword3" placeholder="Password">
+        </div>
+        <p class="pl-0"><a href="#">Forgot password?</a></p>
+        <div class="form-group">
+          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+        </div>
+        <div class="d-block">
+          <label for="rememberMe3" class="custom-control custom-checkbox">
+            <input name="rememberMe3" id="rememberMe3" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Remember me</span>
+          </label>
+          <h2>Don't have a subscription to BMJ Best Practice?</h2>
+          <p>Take a look at our <a href="#">subscription options</a></p>
+          <p>Sign up for a <a href="#">FREE trial</a></p>
+        </div>
+        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <p>If your Hospital, University, Trust or other institution provides access to Best Practice, log in via the appropiate link:</p>
+      <button id="loginSubmit" type="submit" class="btn btn-secondary">OPEN ATHENS</button>
+      <button id="loginSubmit" type="submit" class="btn btn-secondary">SHIBBOLETH</button>
+      <button id="loginSubmit" type="submit" class="btn btn-secondary">ACCESS CODE</button>
+    </div>
+  </div>
+</div>
 {% endhighlight %}
