@@ -20,7 +20,7 @@ Modals are streamlined but flexible dialog prompts powered by JavaScript. They s
 
 Toggle a working Registration modal demo by clicking the button below. It will slide down and fade in from the top of the page.
 
-<div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
+<div id="ModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content pb-3">
       <div class="modal-header">
@@ -79,17 +79,17 @@ Toggle a working Registration modal demo by clicking the button below. It will s
       </div><!--- / modal-body -->
     </div><!--- / modal-content -->
   </div><!--- / modal-dialog -->
-</div><!--- / exampleModalRegister -->
+</div><!--- / ModalRegister -->
 
 <div class="bd-example text-center">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalRegister">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalRegister">
     Launch Modal with Registration Form
   </button>
 </div>
 
 {% highlight html %}
 <!-- Register Form in Modal -->
-<div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
+<div id="ModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content pb-2">
       <div class="modal-header">
@@ -149,7 +149,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
       </div><!--- / modal-body -->
     </div><!--- / modal-content -->
   </div><!--- / modal-dialog -->
-</div><!--- / exampleModalRegister -->
+</div><!--- / ModalRegister -->
 {% endhighlight %}
 
 
