@@ -7,10 +7,14 @@ group: bp components
 
 Modals are streamlined but flexible dialog prompts powered by JavaScript. They support a number of use cases from user notification to completely custom content and feature a handful of helpful subcomponents, sizes, and more.
 
-## Components
+## Snippets
 
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
+
+
+{% capture callout-include %}{% include callout-coding-standards.md %}{% endcapture %}
+{{ callout-include | markdownify }}
 
 ## Registration Form (in Modal)
 
@@ -18,7 +22,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
 
 <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content pb-2">
+    <div class="modal-content pb-3">
       <div class="modal-header">
         <h2>Create your FREE personal account in just one step</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -48,16 +52,16 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               </label>
               <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
-                <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+                <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
               </div>
-              <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+              <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
-            <div class="regMessaging">
+            <div class="regMessaging rounded">
               <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
               <div class="regMessageHeader">
-                <h3 class="text-center">With a personal account, you can:</h3>
+                <h3 class="pl-3">With a personal account, you can:</h3>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
@@ -65,12 +69,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <li class="list-group-item">Access Best Practice anywhere</li>
               </ul>
             </div>
-            <label for="modalDismiss" class="custom-control custom-checkbox">
+            <label for="modalDismiss" class="custom-control custom-checkbox float-right mr-0">
               <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator mt-3"></span>
-              <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+              <span class="font-weight-bold custom-control-description mt-2">Don't show me this again <button type="button" class="btn btn-outline-primary" data-dismiss="modal" aria-label="Close">Close</button></span>
             </label>
-            <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
             </div>
         </div>
       </div><!--- / modal-body -->
@@ -78,14 +81,12 @@ Toggle a working Registration modal demo by clicking the button below. It will s
   </div><!--- / modal-dialog -->
 </div><!--- / exampleModalRegister -->
 
-### Test it
 <div class="bd-example text-center">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalRegister">
     Launch Modal with Registration Form
   </button>
 </div>
 
-### Grab the code
 {% highlight html %}
 <!-- Register Form in Modal -->
 <div id="exampleModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalRegisterLabel" aria-hidden="true">
@@ -120,16 +121,16 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               </label>
               <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary">Create account</button>
+                <button type="submit" class="btn btn-secondary btn-lg">Create account</button>
               </div>
-              <span class="custom-control pt-3 pl-0 mt-35 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+              <span class="pt-3 pl-0 mt-35 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
-            <div class="regMessaging">
+            <div class="regMessaging rounded">
               <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
               <div class="regMessageHeader">
-                <h3 class="text-center">With a personal account, you can:</h3>
+                <h3 class="pl-3">With a personal account, you can:</h3>
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
@@ -140,7 +141,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
             <label for="modalDismiss" class="custom-control custom-checkbox">
               <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator mt-3"></span>
-              <span class="font-weight-bold pt-3 custom-control-description">Don't ask me this again</span>
+              <span class="font-weight-bold pt-3 custom-control-description">Don't show me this again.</span>
             </label>
             <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
             </div>
@@ -179,14 +180,14 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
               </div>
               <p class="pl-0"><a href="#">Forgot password?</a></p>
               <div class="form-group">
-                <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+                <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
               </div>
               <label for="rememberMe" class="custom-control custom-checkbox">
                 <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Remember me</span>
               </label>
-              <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+              <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#">Create account</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -198,7 +199,7 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
   </div>
 </div>
 
-<div class="bd-example">
+<div class="bd-example text-center">
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLogIn">
     Launch Modal with Log In Form
   </button>
@@ -229,14 +230,14 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
               </div>
               <p class="pl-0"><a href="#">Forgot password?</a></p>
               <div class="form-group">
-                <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+                <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
               </div>
               <label for="rememberMe" class="custom-control custom-checkbox">
                 <input name="rememberMe" id="rememberMe" type="checkbox" class="custom-control-input">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Remember me</span>
               </label>
-              <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+              <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Create account</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -253,7 +254,7 @@ Toggle a working Log in modal demo by clicking the button below. It will slide d
 
 Inline registration form. Slightly different design on $palette-grey-100 background.
 
-  <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
+  <div id="inlineReg" class="container p-3" style="background-color: #f5f5f5;">
     <div class="row">
     <h1 class="col-md-12 pb-3 mb-3">Create your FREE personal account in just one step</h1>
       <div class="col-md-6">
@@ -277,16 +278,16 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
           </label>
           <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
           <div class="form-group">
-            <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+            <button id="createAccount" type="submit" class="btn btn-secondary  btn-lg">Create account</button>
           </div>
-          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+          <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
         </form>
       </div>
       <div class="col-md-6">
-        <div class="regMessaging">
+        <div class="regMessaging rounded">
           <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" style="height: 186px;">
           <div class="regMessageHeader">
-            <h2 class="text-center">With a personal account, you can:</h2>
+            <h2 class="pl-3">With a personal account, you can:</h2>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
@@ -302,7 +303,7 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
   <h3>Grab the 'Inline Registration Form' code here</h3>
 </div>
 {% highlight html %}
-  <div id="inlineReg" class="container pb-3" style="background-color: #f5f5f5;">
+  <div id="inlineReg" class="container p-3" style="background-color: #f5f5f5;">
     <div class="row">
     <h1 class="col-md-12 pb-3 mb-3">Create your FREE personal account in just one step</h1>
       <div class="col-md-6">
@@ -326,16 +327,16 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
           </label>
           <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
           <div class="form-group">
-            <button id="createAccount" type="submit" class="btn btn-secondary">Create account</button>
+            <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
           </div>
-          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #000">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+          <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
         </form>
       </div>
       <div class="col-md-6">
-        <div class="regMessaging">
+        <div class="regMessaging rounded">
           <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary" style="height: 186px;">
           <div class="regMessageHeader">
-            <h2 class="text-center">With a personal account, you can:</h2>
+            <h2 class="pl-3">With a personal account, you can:</h2>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
@@ -350,8 +351,8 @@ Inline registration form. Slightly different design on $palette-grey-100 backgro
 
 ## Log In Form (inline)
 
-Inline Log in  form. Slightly different design on $palette-grey-100 background.
-<div id="inlineLogin" class="container pb-3" style="background-color: #f5f5f5;">
+Inline Log in  form. Slightly different design (on body color $palette-grey-100 background for illustration).
+<div id="inlineLogin" class="container p-3" style="background-color: #f5f5f5; border: 1px solid #eee;">
   <div class="row">
   <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
     <div class="col-md-6">
@@ -366,7 +367,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
         </div>
         <p class="pl-0"><a href="#">Forgot password?</a></p>
         <div class="form-group">
-          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+          <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
         </div>
         <div class="d-block">
           <label for="rememberMe2" class="custom-control custom-checkbox">
@@ -375,7 +376,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
             <span class="custom-control-description">Remember me</span>
           </label>
         </div>
-        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+        <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#">Create account</a></span>
       </form>
     </div>
     <div class="col-md-6">
@@ -388,7 +389,6 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
   <h3>Grab the 'Inline Log In Form' code here</h3>
 </div>
 {% highlight html %}
-  <div id="inlineLogin" class="container pb-3" style="background-color: #f5f5f5;">
   <div class="row">
   <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
     <div class="col-md-6">
@@ -403,7 +403,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
         </div>
         <p class="pl-0"><a href="#">Forgot password?</a></p>
         <div class="form-group">
-          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+          <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
         </div>
         <div class="d-block">
           <label for="rememberMe2" class="custom-control custom-checkbox">
@@ -412,20 +412,19 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
             <span class="custom-control-description">Remember me</span>
           </label>
         </div>
-        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+        <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#">Create account</a></span>
       </form>
     </div>
     <div class="col-md-6">
       <!--- Empty for now -->
     </div>
   </div>
-</div>
 {% endhighlight %}
 
 ## Log In Form Outside IP
 
-Inline Log in  form. Slightly different design on $palette-grey-100 background.
-<div id="inlineLoginNoIp" class="container pb-3" style="background-color: #f5f5f5;">
+Inline Log in  form. Slightly different design (on body color $palette-grey-100 background for illustration).
+<div id="inlineLoginNoIp" class="container p-3" style="background-color: #f5f5f5; border: 1px solid #eee;">
   <div class="row">
   <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
     <div class="col-md-6">
@@ -441,7 +440,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
         </div>
         <p class="pl-0"><a href="#">Forgot password?</a></p>
         <div class="form-group">
-          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+          <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
         </div>
         <div class="d-block">
           <label for="rememberMe3" class="custom-control custom-checkbox">
@@ -464,7 +463,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
       <h2>Don't have a subscription to BMJ Best Practice?</h2>
       <p>Take a look at our <a href="#">subscription options</a></p>
       <p>Sign up for a <a href="#">FREE trial</a></p>
-      <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+      <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#">Create account</a></span>
     </div>
   </div>
 </div>
@@ -473,7 +472,6 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
   <h3>Grab the 'Inline Log In Form' code here</h3>
 </div>
 {% highlight html %}
-  <div id="inlineLoginNoIp" class="container pb-3" style="background-color: #f5f5f5;">
   <div class="row">
   <h1 class="col-md-12 pb-3 mb-3">Log in to your Best Practice personal account</h1>
     <div class="col-md-6">
@@ -489,7 +487,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
         </div>
         <p class="pl-0"><a href="#">Forgot password?</a></p>
         <div class="form-group">
-          <button id="loginSubmit" type="submit" class="btn btn-secondary">Log in</button>
+          <button id="loginSubmit" type="submit" class="btn btn-secondary btn-lg">Log in</button>
         </div>
         <div class="d-block">
           <label for="rememberMe3" class="custom-control custom-checkbox">
@@ -501,7 +499,7 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
           <p>Take a look at our <a href="#">subscription options</a></p>
           <p>Sign up for a <a href="#">FREE trial</a></p>
         </div>
-        <span class="custom-control pt-3 pl-0 mt-3 d-inline-block" style="border-top: 1px solid #000">Don't have a personal account? <a class="text-uppercase" href="#exampleModalRegister" data-toggle="modal" data-dismiss="modal">Create account</a></span>
+        <span class="pt-3 pl-0 mt-3 d-inline-block bt-1">Don't have a personal account? <a class="text-uppercase" href="#">Create account</a></span>
       </form>
     </div>
     <div class="col-md-6">
@@ -511,5 +509,4 @@ Inline Log in  form. Slightly different design on $palette-grey-100 background.
       <button id="loginSubmit" type="submit" class="btn btn-secondary">ACCESS CODE</button>
     </div>
   </div>
-</div>
 {% endhighlight %}

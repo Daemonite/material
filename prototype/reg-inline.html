@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+
+  <title>BMJ</title>
+
+  <!-- css -->
+  <!-- add material font (roboto) and material icon as needed -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- add material css | replace bootstrap.css -->
+  <link href="../css/material.min.css" rel="stylesheet">
+
+  <!-- additional css for documentation -->
+  <link href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+  <link href="../css/project.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f5f5f5;">
+  <div class="status" style="background-color: #1f5189; color: #fff; height: 30px; ">
+    <div class="container">
+      <div class="row">
+        <ul class="nav justify-content-center pb-2">
+        <ul class="nav justify-content-center pb-2">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="serp.html">Serp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="reg-modal.html">Registration (Modal)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="reg-inline.html">Registration (Inline)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white disabled" href="#">Browse</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid doc-jumbotron p-0" id="doc_index_jumbotron" style="-webkit-box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);
+-moz-box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);">
+    <div class="container p-4">
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand pl-0" href="#"><img src="../css/images/logo_temp.png" class="img-fluid"></a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+      </nav>
+    </div>
+  </div>
+
+  <div class="modal fade" id="doc_modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Download</h2>
+        </div>
+        <div class="modal-body">
+          <p>Material v4.0.0-alpha.6 is available for download in several ways, including some of the favourite package managers.</p>
+          <h3 class="mt-lg typography-subheading">Material CSS and JS</h3>
+          <p><a href="https://github.com/moconnor-bmj/material/releases" target="_blank"><small class="align-text-top"><i class="material-icons">cloud_download</i></small> Download</a> Material's ready-to-use code to easily drop into any project. Includes compiled and minified versions of CSS and JS plugins.</p>
+          <h3 class="mt-lg typography-subheading">Package Managers</h3>
+          <p>Pull in Material's source files into nearly any project with some of the most popular package managers.</p>
+            <pre class="p-md">
+            <code>bower install daemonite-material#4.0.0-alpha.6</code>
+            </pre>
+            <pre class="p-md">
+            <code>npm install daemonite-material@4.0.0-alpha.6</code>
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>    
+    
+  <div id="inlineReg" class="container pb-3 mt-5" style="background-color: #f5f5f5;">
+    <div class="row">
+    <h1 class="col-md-12 pb-3 mb-3">Create your FREE personal account in just one step</h1>
+      <div class="col-md-6">
+        <form id="regFormInline" action="#">
+          <div class="form-group floating-label">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group floating-label">
+            <label for="exampleInputPassword2">Repeat password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
+          </div>
+          <label for="marketingOptIn2" class="custom-control custom-checkbox">
+            <input name="marketingOptIn2" id="marketingOptIn2" type="checkbox" class="custom-control-input">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+          </label>
+          <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+          <div class="form-group">
+            <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
+          </div>
+          <span class="custom-control pt-3 pl-0 d-inline-block" style="border-top: 1px solid #757575">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="regMessaging rounded">
+          <img class="w-100" src="../css/images/1.jpg" alt="image temporary">
+          <div class="regMessageHeader">
+            <h2 class="pl-3">With a personal account, you can:</h2>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+            <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+            <li class="list-group-item">Access Best Practice anywhere</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div><!--- / container -->
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <!-- add material js on top of bootstrap.js -->
+    <script src="../js/material.min.js"></script>
+
+    <!-- additional js for documentation -->
+    <script src="../js/project.min.js"></script>
+</body>
+<script>
+            window.setTimeout(function () {
+                $('#exampleModalRegister').modal('show');
+            }, 3000)
+        </script>
+</html>
