@@ -116,7 +116,7 @@ select {
   &%form-control {
     appearance: none;
 
-    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    @include media-moz-webkit {
       $select-bg-size: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size);
 
       background-image: $caret-bg;
@@ -136,7 +136,7 @@ select {
 
   &.form-control-lg,
   &%form-control-lg {
-    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    @include media-moz-webkit {
       $select-bg-size-lg: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-lg);
 
       background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
@@ -147,7 +147,7 @@ select {
 
   &.form-control-sm,
   &%form-control-sm {
-    @media screen and (-webkit-min-device-pixel-ratio: 0), (min--moz-device-pixel-ratio: 0) {
+    @include media-moz-webkit {
       $select-bg-size-sm: (($material-icon-size / $font-size-root * 1rem / $textfield-font-size) * $textfield-font-size-sm);
 
       background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
