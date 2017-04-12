@@ -17,14 +17,14 @@
 }
 
 .carousel-item {
+  @include transition-standard-complex(transform);
+
   align-items: center;
   backface-visibility: hidden;
   display: none;
   perspective: 1000px;
   position: relative;
   width: 100%;
-
-  @include transition-standard-complex(transform);
 }
 
 .carousel-item.active,
