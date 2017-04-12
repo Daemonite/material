@@ -1,55 +1,9 @@
+// Utilities for common `visibility` values
+
 .invisible {
   visibility: hidden !important;
 }
 
-
-
-// Print utility
-
-.hidden-print {
-  @media print {
-    display: none !important;
-  }
-}
-
-.visible-print-block {
-  display: none !important;
-
-  @media print {
-    display: block !important;
-  }
-}
-
-.visible-print-inline {
-  display: none !important;
-
-  @media print {
-    display: inline !important;
-  }
-}
-
-.visible-print-inline-block {
-  display: none !important;
-
-  @media print {
-    display: inline-block !important;
-  }
-}
-
-
-
-// Responsive visibility utility
-
-@each $breakpoint in map-keys($grid-breakpoints) {
-  .hidden-#{$breakpoint}-up {
-    @include media-breakpoint-up($breakpoint) {
-      display: none !important;
-    }
-  }
-
-  .hidden-#{$breakpoint}-down {
-    @include media-breakpoint-down($breakpoint) {
-      display: none !important;
-    }
-  }
+.visible {
+  visibility: visible !important;
 }
