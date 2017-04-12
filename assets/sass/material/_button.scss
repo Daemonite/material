@@ -56,7 +56,6 @@
     background-color: $btn-bg-disabled;
     box-shadow: none;
     color: $btn-color-disabled;
-    cursor: $cursor-disabled;
     opacity: 1;
 
     &::before,
@@ -108,6 +107,14 @@
 a {
   &.btn.disabled {
     pointer-events: none;
+  }
+}
+
+fieldset {
+  &[disabled] a {
+    &.btn {
+      pointer-events: none;
+    }
   }
 }
 
