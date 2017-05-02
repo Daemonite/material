@@ -2,6 +2,8 @@
   align-items: center;
   color: $toolbar-color-dark;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   min-height: $toolbar-height;
   padding-top: $toolbar-padding-y;
   padding-bottom: $toolbar-padding-y;
@@ -10,12 +12,13 @@
   > .container {
     align-items: center;
     display: flex;
-    padding-right: 0;
-    padding-left: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     @include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
       margin-right: 0;
       margin-left: 0;
+      width: 100%;
     }
   }
 
@@ -226,6 +229,7 @@
 
 .navbar-nav {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
@@ -291,16 +295,24 @@
 
 // Toggleable
 
-.navbar-toggleable {
+.navbar-collapse {
+  flex-basis: 100%;
+}
+
+.navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
-    $infix: breakpoint-infix($breakpoint);
     $next: breakpoint-next($breakpoint);
+    $infix: breakpoint-infix($next);
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
-        .navbar-collapse {
-          clear: both;
+        > .container,
+        > .container-fluid {
+          padding-right: 0;
+          padding-left: 0;
+        }
 
+        .navbar-collapse {
           > :first-child {
             margin-top: $toolbar-padding-y;
           }
@@ -309,22 +321,24 @@
             margin-bottom: $toolbar-padding-y;
           }
         }
-
-        .navbar-nav {
-          flex-wrap: wrap;
-        }
       }
 
       @include media-breakpoint-up($next) {
-        > .container {
-          align-items: center;
-          display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        > .container,
+        > .container-fluid {
           flex-wrap: nowrap;
         }
 
         .navbar-collapse {
           display: flex !important;
-          width: 100%;
+        }
+
+        .navbar-nav {
+          flex-wrap: nowrap;
         }
 
         .navbar-toggler {
