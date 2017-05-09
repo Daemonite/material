@@ -5,9 +5,14 @@
             background-color: #fff;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
             margin-bottom: 1rem;
-            .nav-link::before {
-                background-color: $palette-pink-500;
-                height: 6px;
+            .nav-link {
+                &::before {
+                    background-color: $palette-pink-500;
+                    height: 6px;
+                }
+                &.active {
+                    font-weight: bold;
+                }
             }
         }
         .card {
@@ -53,25 +58,35 @@
                 }
             }
             .list-group-item {
-                h4 a {
-                    font-size: 1.125rem;
-                    color: $black-primary;
-                    .material-icons {
-                        font-size: 1.5rem;
-                        margin-top: -3px; // hack :-(
-                    }
-                    &:hover {
-                        color: $palette-pink-500
-                    }
+                font-size: $font-size-subheading;
+                h4 {
+                    margin-top: .5rem;
+                    a {
+                        font-size: $font-size-bmj;
+                        color: $palette-pink-500;
+                        .material-icons {
+                            font-size: $font-size-headline;
+                            margin-top: -3px; // hack :-(
+                            }
+                        &:hover {
+                            border-bottom: 1px solid $palette-pink-500;
+                            }
+                        }
                 }
-                &.bgImage {
-                    background-color: #F8E0F0;
+                p {
+                        margin-bottom: .5rem;
                 }
+            }
+            .card-block {
+                    padding: .75rem;
             }
         }
     }
     
     .search-pagination {
+        p {
+            color: $black-secondary;
+        }
         .pagination {
             background-color: #fff;
             box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
@@ -100,7 +115,6 @@
                     padding: 1.5rem 1rem;
                 }
                 .card-title {
-                    font-size: 1rem;
                     margin-bottom: .75rem;
                     margin-top: -5px; // ok this is a fudge
                     a {

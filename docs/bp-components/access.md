@@ -54,7 +54,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               <div class="form-group">
                 <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
               </div>
-              <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+              <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#exampleModalLogIn" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -91,7 +91,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
 <!-- Register Form in Modal -->
 <div id="ModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content pb-2">
+    <div class="modal-content pb-3">
       <div class="modal-header">
         <h2>Create your FREE personal account in just one step</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -101,7 +101,7 @@ Toggle a working Registration modal demo by clicking the button below. It will s
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <form id="regformModal" action="#">
+            <form id="regForm" action="#">
               <div class="form-group floating-label">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -121,9 +121,9 @@ Toggle a working Registration modal demo by clicking the button below. It will s
               </label>
               <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
               <div class="form-group">
-                <button type="submit" class="btn btn-secondary btn-lg">Create account</button>
+                <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
               </div>
-              <span class="pt-3 pl-0 mt-35 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+              <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
             </form>
           </div>
           <div class="col-md-6">
@@ -138,12 +138,11 @@ Toggle a working Registration modal demo by clicking the button below. It will s
                 <li class="list-group-item">Access Best Practice anywhere</li>
               </ul>
             </div>
-            <label for="modalDismiss" class="custom-control custom-checkbox">
+            <label for="modalDismiss" class="custom-control custom-checkbox float-right mr-0">
               <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
               <span class="custom-control-indicator mt-3"></span>
-              <span class="font-weight-bold pt-3 custom-control-description">Don't show me this again.</span>
+              <span class="font-weight-bold custom-control-description mt-2">Don't show me this again <button type="button" class="btn btn-outline-primary" data-dismiss="modal" aria-label="Close">Close</button></span>
             </label>
-            <button type="button" class="btn btn-outline-primary float-right mt-2" data-dismiss="modal" aria-label="Close">Close</button>
             </div>
         </div>
       </div><!--- / modal-body -->
@@ -152,6 +151,130 @@ Toggle a working Registration modal demo by clicking the button below. It will s
 </div><!--- / ModalRegister -->
 {% endhighlight %}
 
+## Registration Form (in Modal): Successful Account Creation
+
+Toggle a working 'Successful Registration' modal demo by clicking the button below. It will slide down and fade in from the top of the page.
+
+<div id="ModalRegisterSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content pb-3">
+      <div class="modal-header">
+        <h2>Create your FREE personal account in just one step</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div><!--- / modal-header -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="regSuccess alert-success text-center">
+              <div class="text-success">
+                <span class="material-icons" style="font-size: 5rem;">&#xE815;</span>
+                <h2 class="text-success pt3 pb-3">Success!!</h2>
+              </div>
+              <div class="regSuccessHeader bg-success text-white">
+                <h3>Your personal account has been created</h3>
+              </div>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">We've just sent you a confirmation email. Check it out so that we can start getting to know each other.</li>
+                <li class="list-group-item">We've also logged you in, so you can now browse Best Practice as a personal user.</li>
+              </ul>
+              <button class="btn btn-success btn-lg text-white">Continue ...</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="regMessaging rounded">
+              <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
+              <div class="regMessageHeader">
+                <h3 class="pl-3">With a personal account, you can:</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+                <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+                <li class="list-group-item">Access Best Practice anywhere</li>
+              </ul>
+            </div>
+            <label for="modalDismiss" class="custom-control custom-checkbox float-right mr-0">
+              <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator mt-3"></span>
+              <span class="font-weight-bold custom-control-description mt-2">Don't show me this again <button type="button" class="btn btn-outline-primary" data-dismiss="modal" aria-label="Close">Close</button></span>
+            </label>
+            </div>
+        </div>
+      </div><!--- / modal-body -->
+    </div><!--- / modal-content -->
+  </div><!--- / modal-dialog -->
+</div><!--- / ModalRegister -->
+
+<div class="bd-example text-center">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalRegisterSuccess">
+    Launch Modal with Registration Form
+  </button>
+</div>
+
+{% highlight html %}
+<!-- Register Form in Modal -->
+<div id="ModalRegisterSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content pb-3">
+      <div class="modal-header">
+        <h2>Create your FREE personal account in just one step</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div><!--- / modal-header -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <form id="regForm" action="#">
+              <div class="form-group floating-label">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control mw-100" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group floating-label">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group floating-label">
+                <label for="exampleInputPassword2">Repeat password</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="exampleInputPassword2" placeholder="Password">
+              </div>
+              <label for="marketingOptIn" class="custom-control custom-checkbox">
+                <input name="marketingOptIn" id="marketingOptIn" type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Tick to receive information and special offfers about BMJ's products and services.</span>
+              </label>
+              <p>By registering with BMJ Best Practice you are agreeing to BMJ's <a href="#">terms and conditions</a> and it's <a href="#">privacy policy</a>.</p>
+              <div class="form-group">
+                <button id="createAccount" type="submit" class="btn btn-secondary btn-lg">Create account</button>
+              </div>
+              <span class="pt-3 pl-0 d-inline-block bt-1">Already have a personal account? <a class="text-uppercase" href="#" data-toggle="modal" data-dismiss="modal">Log in</a></span>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="regMessaging rounded">
+              <img class="w-100" src="../../../css/images/1.jpg" alt="image temporary">
+              <div class="regMessageHeader">
+                <h3 class="pl-3">With a personal account, you can:</h3>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Use the highly rated Best Practice app, even offline.</li>
+                <li class="list-group-item">Get CPD certificates for time spent on Best Practice</li>
+                <li class="list-group-item">Access Best Practice anywhere</li>
+              </ul>
+            </div>
+            <label for="modalDismiss" class="custom-control custom-checkbox float-right mr-0">
+              <input name="modalDismiss" id="modalDismiss" type="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator mt-3"></span>
+              <span class="font-weight-bold custom-control-description mt-2">Don't show me this again <button type="button" class="btn btn-outline-primary" data-dismiss="modal" aria-label="Close">Close</button></span>
+            </label>
+            </div>
+        </div>
+      </div><!--- / modal-body -->
+    </div><!--- / modal-content -->
+  </div><!--- / modal-dialog -->
+</div><!--- / ModalRegister -->
+{% endhighlight %}
 
 ## Log in Form (in Modal)
 
@@ -510,3 +633,4 @@ Inline Log in  form. Slightly different design (on body color $palette-grey-100 
     </div>
   </div>
 {% endhighlight %}
+
