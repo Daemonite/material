@@ -1,6 +1,6 @@
 /*
  * activate waves for material
- * requires waves.js
+ * requires addons/waves.js
  */
 
 $(function () {

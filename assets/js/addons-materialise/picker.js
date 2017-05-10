@@ -1,6 +1,6 @@
 /*
  * customise pickadate js for material
- * requires pickadate.js
+ * requires addons/picker.js and addons/picker.date.js
  */
 
 +function ($) {

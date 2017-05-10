@@ -1,6 +1,6 @@
 /*
  * activate textarea-autosize for material
- * requires textarea-autosize.js
+ * requires addons/textarea-autosize.js
  */
 
 $(function () {
