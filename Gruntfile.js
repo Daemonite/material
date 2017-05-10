@@ -67,8 +67,13 @@ module.exports = function(grunt) {
         },
         dest: 'js/material.js',
         src: [
-          'assets/js/addons/**/*.js',
-          'assets/js/addons-materialise/**/*.js',
+          'assets/js/addons/picker.js',
+          'assets/js/addons/picker.date.js',
+          'assets/js/addons/textarea-autosize.js',
+          'assets/js/addons/waves.js',
+          'assets/js/addons-materialise/picker.js',
+          'assets/js/addons-materialise/textarea-autosize.js',
+          'assets/js/addons-materialise/waves.js',
           '<%= babel.material.dest %>',
         ]
       },
