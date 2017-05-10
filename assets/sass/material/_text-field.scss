@@ -163,16 +163,12 @@ textarea {
 
 // Form control state
 
-.has-danger {
-  @include form-control-validation($palette-red-500);
-}
+@each $color in $palettes {
+  $i: index($palettes, $color);
 
-.has-success {
-  @include form-control-validation($palette-green-500);
-}
-
-.has-warning {
-  @include form-control-validation($palette-orange-500);
+  .has-#{$color} {
+    @include form-control-validation(nth($palettes-color, $i));
+  }
 }
 
 
