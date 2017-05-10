@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       doc: {
         files: [
           {
-            dest: 'docs/',
+            dest: 'gh-pages/',
             expand: true,
             src: [
               'css/**',
@@ -285,10 +285,10 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'doc',
     [
-      'material',
-      'copy:doc',
+      'default',
       'jekyll:doc',
       'prettify:doc',
+      'copy:doc',
       'connect:live'
     ]
   )
