@@ -60,6 +60,9 @@ module.exports = function(grunt) {
       material: {
         options: {
           banner: '<%= banner %>\n',
+          process: function (src) {
+            return src.replace('"function"==typeof define&&define.amd?define("picker",["jquery"],a):"object"==typeof exports?module.exports=a(require("jquery")):', '').replace('"function"==typeof define&&define.amd?define(["picker","jquery"],a):"object"==typeof exports?module.exports=a(require("./picker.js"),require("jquery")):', '')
+          },
           stripBanners: {
             block: false,
             line: true
