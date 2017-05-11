@@ -28,9 +28,17 @@
 
     // Active, focus, hover
     @include focus-hover {
-      border-bottom-width: ($border-width * 2);
       padding-bottom: ($padding-bottom - $border-width * 2 / $font-size-root * 1rem);
     }
+  }
+}
+
+@mixin textarea-size($border-width, $padding-x, $padding-y) {
+  padding: ($padding-y - $border-width / $font-size-root * 1rem) ($padding-x - $border-width / $font-size-root * 1rem);
+
+  // Active, focus, hover
+  @include focus-hover {
+    padding: ($padding-y - $border-width * 2 / $font-size-root * 1rem) ($padding-x - $border-width * 2 / $font-size-root * 1rem);
   }
 }
 
@@ -44,6 +52,6 @@
   }
 
   .form-control {
-    border-bottom-color: $color;
+    border-color: $color;
   }
 }

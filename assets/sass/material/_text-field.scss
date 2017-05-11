@@ -1,14 +1,15 @@
 .form-control,
 %form-control {
   @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
-  @include transition-standard(border-bottom-color);
+  @include transition-standard(border-color);
 
   background-clip: padding-box;
   background-color: transparent;
   background-image: none;
-  border: 0;
-  border-bottom: $textfield-border-width solid $textfield-border-color;
+  border-color: $textfield-border-color;
   border-radius: 0;
+  border-style: solid;
+  border-width: 0 0 $textfield-border-width;
   box-shadow: none;
   color: inherit;
   display: block;
@@ -16,11 +17,13 @@
 
   // Active, focus, hover
   @include hover {
-    border-bottom-color: $textfield-border-color-hover;
+    border-color: $textfield-border-color-hover;
+    border-bottom-width: ($border-width * 2);
   }
 
   &:focus {
-    border-bottom-color: $textfield-border-color-focus;
+    border-color: $textfield-border-color-focus;
+    border-bottom-width: ($border-width * 2);
     outline: 0;
   }
 
@@ -28,8 +31,8 @@
   &:disabled,
   &[readonly] {
     @include plain-active-focus-hover {
-      border-bottom-color: $textfield-border-color;
-      border-bottom-style: dotted;
+      border-color: $textfield-border-color;
+      border-style: dotted;
       color: $textfield-color-disabled;
       opacity: 1;
     }
@@ -52,7 +55,7 @@
 
   .form-control-#{$color} {
     @include plain-active-focus-hover {
-      border-bottom-color: nth($palettes-color, $i);
+      border-color: nth($palettes-color, $i);
     }
   }
 }
@@ -68,43 +71,25 @@
   @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
 }
 
-// Special treatment for some elements
-input {
-  &[type="color"],
-  &[type="date"],
-  &[type="datetime-local"],
-  &[type="month"],
-  &[type="time"],
-  &[type="week"] {
-    &.form-control {
-      height: $textfield-height;
-    }
+// Special treatment for select and textarea
+%textfield-box {
+  @include textarea-size($textfield-border-width, $textfield-box-padding-x, $textfield-box-padding-y);
 
-    &.form-control-lg,
-    &%form-control-lg {
-      height: $textfield-height-lg;
-    }
+  border-radius: $textfield-box-border-radius;
+  border-width: $textfield-border-width;
+  height: auto;
 
-    &.form-control-sm,
-    &%form-control-sm {
-      height: $textfield-height-sm;
-    }
+  // Active, focus, hover
+  @include focus-hover {
+    border-width: ($textfield-border-width * 2);
   }
 
-  &[type="color"] {
-    &.form-control {
-      min-width: $textfield-font-size;
-    }
+  &.form-control-lg {
+    @include textarea-size($textfield-border-width, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
+  }
 
-    &.form-control-lg,
-    &%form-control-lg {
-      min-width: $textfield-font-size-lg;
-    }
-
-    &.form-control-sm,
-    &%form-control-sm {
-      min-width: $textfield-font-size-sm;
-    }
+  &.form-control-sm {
+    @include textarea-size($textfield-border-width, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
   }
 }
 
@@ -125,8 +110,6 @@ select {
       &[multiple],
       &[size] {
         background-image: none;
-        height: auto;
-        padding-right: 0;
       }
     }
   }
@@ -152,11 +135,18 @@ select {
       padding-right: $select-bg-size-sm;
     }
   }
+
+  &.form-control {
+    &[multiple],
+    &[size] {
+      @extend %textfield-box;
+    }
+  }
 }
 
 textarea {
-  &.form-control {
-    height: auto;
+  &.form-control:not(.textarea-autosize) {
+    @extend %textfield-box;
   }
 }
 
