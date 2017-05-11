@@ -26,8 +26,10 @@
   } @else {
     padding: $padding-top 0 ($padding-bottom - $border-width / $font-size-root * 1rem);
 
-    &:focus {
-      padding-bottom: ($padding-bottom - ($border-width + 1) / $font-size-root * 1rem);
+    // Active, focus, hover
+    @include focus-hover {
+      border-bottom-width: ($border-width * 2);
+      padding-bottom: ($padding-bottom - $border-width * 2 / $font-size-root * 1rem);
     }
   }
 }

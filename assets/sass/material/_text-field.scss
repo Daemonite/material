@@ -14,6 +14,27 @@
   display: block;
   width: 100%;
 
+  // Active, focus, hover
+  @include hover {
+    border-bottom-color: $textfield-border-color-hover;
+  }
+
+  &:focus {
+    border-bottom-color: $textfield-border-color-focus;
+    outline: 0;
+  }
+
+  // Disbaled
+  &:disabled,
+  &[readonly] {
+    @include plain-active-focus-hover {
+      border-bottom-color: $textfield-border-color;
+      border-bottom-style: dotted;
+      color: $textfield-color-disabled;
+      opacity: 1;
+    }
+  }
+
   &::-ms-expand {
     background-color: transparent;
     border: 0;
@@ -23,21 +44,6 @@
     color: $textfield-hint-color;
     opacity: 1;
   }
-
-  // Active, focus, hover
-  &:focus {
-    border-bottom-color: $textfield-border-color-focus;
-    border-bottom-width: ($textfield-border-width + 1);
-    outline: 0;
-  }
-
-  // Disbaled
-  &:disabled,
-  &[readonly] {
-    border-bottom-style: dotted;
-    color: $textfield-color-disabled;
-    opacity: 1;
-  }
 }
 
 // Colour
@@ -45,13 +51,8 @@
   $i: index($palettes, $color);
 
   .form-control-#{$color} {
-    &,
-    &:focus {
+    @include plain-active-focus-hover {
       border-bottom-color: nth($palettes-color, $i);
-    }
-
-    &::placeholder {
-      color: nth($palettes-color-light, $i);
     }
   }
 }
