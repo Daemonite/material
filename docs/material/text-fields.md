@@ -25,7 +25,7 @@ When the user engages with the text input field, the floating inline labels move
 {% example html %}
 <div class="form-group floating-label">
   <label for="exampleInputFloatingLabel1">Floating label</label>
-  <input class="form-control" id="exampleInputFloatingLabel1" type="text">
+  <input class="form-control" id="exampleInputFloatingLabel1" placeholder="Placeholder" type="text">
 </div>
 {% endexample %}
 

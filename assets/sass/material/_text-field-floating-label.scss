@@ -31,7 +31,17 @@
   > .form-control {
     position: relative;
 
+    // Active, focus, hover
+    &:focus {
+      &::placeholder {
+        color: $textfield-hint-color;
+        opacity: 1;
+      }
+    }
+
     &::placeholder {
+      @include transition-standard(opacity);
+
       color: transparent;
       opacity: 0;
     }
