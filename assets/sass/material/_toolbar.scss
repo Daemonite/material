@@ -128,10 +128,6 @@
       background-color: $toolbar-element-bg-light;
     }
   }
-
-  .navbar-toggler-icon {
-    background-image: $toolbar-toggler-bg-light;
-  }
 }
 
 .navbar-light {
@@ -357,6 +353,7 @@
   color: inherit;
   display: inline-flex;
   height: $toolbar-link-height;
+  line-height: 1;
   margin-right: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
   margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
   position: relative;
@@ -395,12 +392,12 @@
 }
 
 .navbar-toggler-icon {
-  background-image: $toolbar-toggler-bg-dark;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: $material-icon-size $material-icon-size;
   display: block;
-  height: $material-icon-size;
   margin: auto;
-  width: $material-icon-size;
+
+  &::before {
+    @include set-material-icons;
+
+    content: $toolbar-toggler-icon;
+  }
 }
