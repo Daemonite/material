@@ -15,9 +15,13 @@
   @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
   @include transition-standard(border-bottom-color);
 
+  align-items: flex-start;
   border-bottom: $textfield-border-width solid $textfield-border-color;
   color: $textfield-hint-color;
+  display: flex;
   font-weight: $font-weight-regular;
+  justify-content: space-between;
+  padding-bottom: 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -26,34 +30,21 @@
   z-index: 1;
 
   @each $lang, $text in $custom-file-text {
-    &:lang(#{$lang})::after {
+    &:lang(#{$lang})::before {
       content: $text;
     }
   }
 
   // Active, focus, hover
-  @include active-focus-hover {
-    &::before {
-      opacity: $custom-file-button-opacity-visible;
-    }
+  @include hover {
+    border-bottom-color: $textfield-border-color-hover;
+    border-bottom-width: ($textfield-border-width * 2);
   }
 
-  &::before {
-    @include transition-standard(opacity);
+  &::after {
+    @include set-material-icons;
 
-    background-color: transparent;
-    background-image: $custom-file-button-bg;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: $material-icon-size $material-icon-size;
-    content: '';
-    opacity: $custom-file-button-opacity;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: $material-icon-size;
-    z-index: 2;
+    content: $custom-file-button-icon;
   }
 }
 
@@ -62,4 +53,10 @@
   max-width: 100%;
   min-width: $custom-file-width;
   opacity: 0;
+
+  // Active, focus, hover
+  &:focus ~ .custom-file-control {
+    border-bottom-color: $textfield-border-color-focus;
+    border-bottom-width: ($textfield-border-width * 2);
+  }
 }
