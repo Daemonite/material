@@ -3,7 +3,7 @@
   font-size: $font-size-base;
   margin-right: ($selection-control-spacer-x * 2);
   min-height: ($font-size-base * $line-height-base);
-  padding-left: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
+  padding-left: ($selection-control-indicator-size + $selection-control-spacer-x);
   position: relative;
 }
 
@@ -14,10 +14,10 @@
   height: $selection-control-indicator-size;
   pointer-events: none;
   position: absolute;
-  top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
+  top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
   left: 0;
   user-select: none;
-  width: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
+  width: ($selection-control-indicator-size + $selection-control-spacer-x);
 
   &::before {
     @include transition-standard(background-color, opacity, transform);
@@ -137,7 +137,7 @@
 // Switch
 
 .custom-switch {
-  padding-left: ($selection-control-track-width / $font-size-root + $selection-control-spacer-x);
+  padding-left: ($selection-control-track-width + $selection-control-spacer-x);
 
   .custom-control-indicator {
     @include transition-standard(background-color);
