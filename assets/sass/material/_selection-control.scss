@@ -8,10 +8,9 @@
 }
 
 .custom-control-indicator {
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: $selection-control-indicator-size $selection-control-indicator-size;
-  display: block;
+  align-items: center;
+  color: $selection-control-color;
+  display: flex;
   height: $selection-control-indicator-size;
   pointer-events: none;
   position: absolute;
@@ -54,8 +53,14 @@
   }
 
   // Checked
-  &:checked ~ .custom-control-indicator::before {
-    background-color: hex-to-rgba($selection-control-color-active, .12);
+  &:checked ~ {
+    .custom-control-indicator {
+      color: $selection-control-color-active;
+
+      &::before {
+        background-color: hex-to-rgba($selection-control-color-active, .12);
+      }
+    }
   }
 
   // Disabled
@@ -65,12 +70,8 @@
       color: $selection-control-color-disabled;
     }
 
-    .custom-control-indicator {
-      pointer-events: auto;
-
-      &::before {
-        display: none;
-      }
+    .custom-control-indicator::before {
+      display: none;
     }
   }
 }
@@ -93,30 +94,21 @@
 // Checkbox
 
 .custom-checkbox {
-  .custom-control-indicator {
-    background-image: $selection-control-checkbox-bg;
+  .custom-control-indicator::after {
+    @include set-material-icons;
+
+    content: $selection-control-checkbox-icon;
   }
 
   .custom-control-input {
     // Checked
-    &:checked ~ .custom-control-indicator {
-      background-image: $selection-control-checkbox-bg-checked;
-    }
-
-    // Disabled
-    &:disabled {
-      ~ .custom-control-indicator {
-        background-image: $selection-control-checkbox-bg-disabled;
-      }
-
-      &:checked ~ .custom-control-indicator {
-        background-image: $selection-control-checkbox-bg-disabled-checked;
-      }
+    &:checked ~ .custom-control-indicator::after {
+      content: $selection-control-checkbox-icon-checked;
     }
 
     // Indeterminate
-    &:indeterminate ~ .custom-control-indicator {
-      background-image: $selection-control-checkbox-bg-indeterminate;
+    &:indeterminate ~ .custom-control-indicator::after {
+      content: $selection-control-checkbox-icon-indeterminate;
     }
   }
 }
@@ -126,25 +118,16 @@
 // Radio button
 
 .custom-radio {
-  .custom-control-indicator {
-    background-image: $selection-control-radio-bg;
+  .custom-control-indicator::after {
+    @include set-material-icons;
+
+    content: $selection-control-radio-icon;
   }
 
   .custom-control-input {
     // Checked
-    &:checked ~ .custom-control-indicator {
-      background-image: $selection-control-radio-bg-checked;
-    }
-
-    // Disabled
-    &:disabled {
-      ~ .custom-control-indicator {
-        background-image: $selection-control-radio-bg-disabled;
-      }
-
-      &:checked ~ .custom-control-indicator {
-        background-image: $selection-control-radio-bg-disabled-checked;
-      }
+    &:checked ~ .custom-control-indicator::after {
+      content: $selection-control-radio-icon-checked;
     }
   }
 }
