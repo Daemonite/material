@@ -1,6 +1,4 @@
 .breadcrumb {
-  @include clearfix;
-
   align-items: center;
   background-color: $breadcrumb-bg;
   display: flex;
@@ -34,13 +32,12 @@
   }
 
   + .breadcrumb-item::before {
-    background-image: $breadcrumb-divider;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: ($material-icon-size / $font-size-root * 1rem) ($material-icon-size / $font-size-root * 1rem);
-    content: '';
+    @include set-material-icons;
+
+    color: $breadcrumb-item-color;
+    content: $breadcrumb-item-icon;
     display: inline-block;
-    height: ($material-icon-size / $font-size-root * 1rem);
-    width: ($breadcrumb-item-padding * 2 + $material-icon-size / $font-size-root * 1rem);
+    margin-right: $breadcrumb-item-padding;
+    margin-left: $breadcrumb-item-padding;
   }
 }
