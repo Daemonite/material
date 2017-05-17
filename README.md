@@ -90,11 +90,12 @@ Currently based on __Bootstrap v4.0.0-alpha.6__.
 
 ### Install & build project
 
+- Clone or download as usual. CD into root...
 - Install the project's gem bundle in your local environment
 	- install ruby if required
 	- `gem install bundler`
 	- `bundle install`
-- Compile all Css to /css folder, compile all JS to the /js folder
+- Compile all CSS from SCSS to /css folder, compile all JS to the /js folder
 	- `grunt`
 - Build HTML (from Jekyll markdown) which is used when running the documentation locally
 	- `grunt doc`
