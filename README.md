@@ -88,3 +88,15 @@ Currently based on __Bootstrap v4.0.0-alpha.6__.
 | Widgets                         | _None_                                                                              | This component is not really relevant to web development, so we probably will not actively look into adding support in this framework.                                                                                                                                        |
 
 
+### Install & build project
+
+- Install the project's gem bundle in your local environment
+	- install ruby if required
+	- `gem install bundler`
+	- `bundle install`
+- Compile all Css to /css folder, compile all JS to the /js folder
+	- `grunt`
+- Build HTML (from Jekyll markdown) which is used when running the documentation locally
+	- `grunt doc`
+- get the working documentation site running locally on http://localhost:9999 or http://0.0.0.0:9999 or your http://your-local-ip-address:9999
+	- `grunt connect`
