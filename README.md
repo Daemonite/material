@@ -96,8 +96,9 @@ Currently based on __Bootstrap v4.0.0-alpha.6__.
 	- `gem install bundler`
 	- `bundle install`
 - Compile all CSS from SCSS to /css folder, compile all JS to the /js folder
-	- `grunt`
-- Build HTML (from Jekyll markdown) which is used when running the documentation locally
+	- `grunt` 
+    - `grunt watch` to compile automagically
+- Build HTML (from Jekyll markdown), used when running the documentation locally
 	- `grunt doc`
 - get the working documentation site running locally on http://localhost:9999 or http://0.0.0.0:9999 or your http://your-local-ip-address:9999
 	- `grunt connect`
