@@ -38,26 +38,27 @@ You can use a link with the `href` attribute, or a button with the `data-target`
 </div>
 {% endexample %}
 
-## Accordion example
+## Treatment table headers example
 
 Extend the default collapse behavior to create an accordion.
 
 {% example html %}
+
+<div class="container treatment-table">
 <p class="text-uppercase d-block text-white pl-2 mb-0" style="background-color: #1f5189; height: 24px; padding-top: 2px;">Initial</p>
-<div class="container">
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title"><a class="" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo" aria-expanded="true">non-pregnant: at initial diagnosis  </a></h4>
+          <h4 class="panel-title"><a class="" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" aria-expanded="true">non-pregnant: at initial diagnosis  <span class="viewAll">View all <span class="chevron bottom pl-4"></span></span></a></h4>
         </div>
         <!--/.panel-heading -->
-        <div class="panel-collapse collapse show" id="collapseTwo" aria-expanded="true">
+        <div class="panel-collapse collapse show" id="collapseOne" aria-expanded="true">
           <div class="panel-body">
             <!-- nested -->
             <div class="panel-group" id="nested">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseOne" class="collapsed" aria-expanded="false">Collapsible Group Item #1</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseOne" class="collapsed" aria-expanded="false"><span class="txLine" >1st line</span> <span class="chevron bottom"></span>BP control</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse in" id="nested-collapseOne" aria-expanded="false">
@@ -71,7 +72,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a class="collapsed" data-parent="#nested" data-toggle="collapse" href="#nested-collapseTwo" aria-expanded="false">Collapsible Group Item #2</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseTwo" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>lipid control</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseTwo" aria-expanded="false">
@@ -85,10 +86,52 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a class="collapsed" data-parent="#nested" data-toggle="collapse" href="#nested-collapseThree" aria-expanded="false">Collapsible Group Item #3</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseThree" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>lifestyle changes</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseThree" aria-expanded="false">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                  <!--/.panel-body -->
+                </div>
+                <!--/.panel-collapse -->
+              </div>
+              <!-- /.panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFour" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>smoking cessation changes</a></h4>
+                </div>
+                <!--/.panel-heading -->
+                <div class="panel-collapse collapse" id="nested-collapseFour" aria-expanded="false">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                  <!--/.panel-body -->
+                </div>
+                <!--/.panel-collapse -->
+              </div>
+              <!-- /.panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFive" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>stratified glycaemic management</a></h4>
+                </div>
+                <!--/.panel-heading -->
+                <div class="panel-collapse collapse" id="nested-collapseFive" aria-expanded="false">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                  <!--/.panel-body -->
+                </div>
+                <!--/.panel-collapse -->
+              </div>
+              <!-- /.panel -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseSix" class="collapsed" aria-expanded="false"><span class="txLine" >adjunct</span> <span class="chevron bottom"></span>antiplatelet therapy</a></h4>
+                </div>
+                <!--/.panel-heading -->
+                <div class="panel-collapse collapse" id="nested-collapseSix" aria-expanded="false">
                   <div class="panel-body">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                   </div>
