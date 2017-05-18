@@ -12,6 +12,19 @@ A card is a flexible and extensible content container. It includes options for h
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
+## Search input
+
+{% example html %}
+<div class="search-input">
+  <input type="text">
+  <span class="searchHighlight"></span>
+  <span class="bar"></span>
+  <label>Search here</label>
+  <span class="material-icons">&#xE8B6;</span>
+  <span class="material-icons">&#xE14C;</span>
+</div>
+{% endexample %}
+
 ## Tabbed Nav
 
 Card titles are used by adding `.card-title` to a `<h*>` tag. In the same way, links are added and placed next to each other by adding `.card-link` to  a `<a>` tag.
@@ -247,8 +260,7 @@ Number of results on left hand side, with load more card on right
     </div>
 {% endhighlight %}
 
-<!--## Results List RHS Block
-Number of results on left hand side, with load more card on right-->
+## Results List Footer
 
 <div class="container"><!--- container -->
   <div class="row"><!--- row -->
