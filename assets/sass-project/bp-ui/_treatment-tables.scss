@@ -1,4 +1,14 @@
 .treatment-table {
+  p.heading {
+    background-color: #1f5189; 
+    color: $white;
+    display: block;
+    height: 24px; 
+    padding-top: 2px;
+    padding-left: .5rem;
+    margin-bottom:0;
+    text-transform: uppercase;
+  }
   .panel-group {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
     .panel-body, .panel-group .panel-heading + .panel-collapse > .panel-body {
@@ -13,10 +23,9 @@
         line-height: inherit;
         margin-bottom: 0;
         span.txLine {
-          width: 17%;
-          display: inline-block;
-          text-align: right;
-          padding-right: 3rem;
+          display: block;
+          padding-right: 2.5rem;
+          margin-right: .25rem;
           color: $palette-pink-800;
           }
         span.viewAll {
@@ -29,39 +38,75 @@
         display: block;
         background: $palette-blue-050;
         color: $black;
-        padding: 25px 15px;
+        padding: 1rem;
         text-decoration: none;
         position: relative;
         &.collapsed {
           background: $palette-grey-200;
           color: inherit;
         }
-        // &:after {
-        //   content: '-';
-        //   position: absolute;
-        //   right: 20px;
-        //   top: 5px;
-        //   font-size: 30px;
-        // }
-        // &.collapsed:after {
-        //   content: '+';
-        // }
       }
     }
     .panel-collapse {
         margin-top: 5px !important;
     }
-    .panel-body {
-      // background: #ffffff;
-      // padding: 15px;
-    }
     .panel {
-      background-color: transparent;
+      background-color: $white;
       border-bottom: 1px solid $palette-grey-200;
     }
     .panel-body {
       p:last-child, ul:last-child, ol:last-child {
         margin-bottom: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li {
+          padding: 0 0 1rem 0;
+          &:before {
+            color: $palette-pink-500;
+            content: "\25CF";
+            padding-right: .8725rem;
+            vertical-align: top;
+            }
+        }
+      }
+      a {
+        font-weight: bold;
+          &.refLink {
+          color: $palette-pink-500;
+          &:hover {
+            color: $palette-blue-500;
+          }
+        }
+      }
+      .badge {
+        border-radius: 0;
+      }
+      .treatment-wrap {
+        background: $palette-grey-100;
+        padding: .5rem;
+        .treatment-box {
+          background: $white;
+          padding: .5rem;
+        }
+        p {
+          margin-bottom: .5rem;
+        }
+        .small-or {
+          color: $palette-grey-700;
+          font-style: italic;
+          font-weight: 700;
+        }
+        .and-or {
+          display: block;
+          background-color: $palette-grey-100;
+          font-weight: bold;
+          padding: .25rem 0 .25rem 1rem;
+          margin-left: -1rem;
+          margin-right: -1rem;
+        }
       }
     }
   }
@@ -73,25 +118,41 @@
     margin-top: -4px;
     .panel-heading a {
       background-color: $white;
+      font-size: $font-size-body-1;
       &.collapsed {
         background-color: #fff;
-        font-size: $font-size-body-1;
-        padding: 15px;
         }
     }
     .panel-body {
-      margin: 0 1rem 1rem 11rem;
+      margin: 0 1rem 2rem 1rem;
       }
   }
 }
 
-// Custom chevrons
-// <p>Chevron (top) <span class="chevron top"></span>
-// <p>Chevron (right) <span class="chevron right"></span>
-// <p>Chevron (bottom) <span class="chevron bottom"></span>
-// <p>Chevron (left) <span class="chevron left"></span>
+// Media Queries for form inputwidths (sigh!)
+@include media-breakpoint-up(md) { 
+ .panel-heading {
+      h4 {
+        span.txLine {
+          display: inline-block !important;
+          text-align: right;
+          width: 17%;
+        }
+      }
+  }
+  .treatment-table .panel-group#nested .panel-body {
+    margin: 0 4rem 2rem 10.75rem;
+  }
+}
+
+// Custom chevrons - for example...
+// Chevron (top) - <span class="chevron top"></span>
+// Chevron (right) - <span class="chevron right"></span>
+// Chevron (bottom) - <span class="chevron bottom"></span>
+// Chevron (left) - <span class="chevron left"></span>
 
 .chevron {
+  float: right;
   &::before {
     border-style: solid;
     border-width: .15em .15em 0 0;
@@ -99,7 +160,7 @@
     color: $palette-pink-800;
     display: inline-block;
     height: 0.5em;
-    left: -1rem;
+    left: 2rem;
     position: relative;
     top: 4px !important;
     transform: rotate(-45deg);
@@ -117,5 +178,12 @@
   &.left:before {
     left: 0.25em;
     transform: rotate(-135deg);
+  }
+}
+
+// Fix for 'view all' chevron
+span.viewAll span.chevron.bottom {
+  &::before {
+    left: 0;
   }
 }

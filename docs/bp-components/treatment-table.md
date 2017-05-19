@@ -45,11 +45,11 @@ Extend the default collapse behavior to create an accordion.
 {% example html %}
 
 <div class="container treatment-table">
-<p class="text-uppercase d-block text-white pl-2 mb-0" style="background-color: #1f5189; height: 24px; padding-top: 2px;">Initial</p>
+<p class="heading">Initial</p>
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title"><a class="" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" aria-expanded="true">non-pregnant: at initial diagnosis  <span class="viewAll">View all <span class="chevron bottom pl-4"></span></span></a></h4>
+          <h4 class="panel-title"><a class="" data-parent="#accordion" data-toggle="collapse" href="#collapseOne" aria-expanded="true">non-pregnant: at initial diagnosis  <span class="viewAll hidden-sm-down">View all <span class="chevron bottom pl-3 pr-3"></span></span></a></h4>
         </div>
         <!--/.panel-heading -->
         <div class="panel-collapse collapse show" id="collapseOne" aria-expanded="true">
@@ -58,12 +58,47 @@ Extend the default collapse behavior to create an accordion.
             <div class="panel-group" id="nested">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseOne" class="collapsed" aria-expanded="false"><span class="txLine" >1st line</span> <span class="chevron bottom"></span>BP control</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseOne" class="collapsed" aria-expanded="false"><span class="txLine" >1st line<span class="chevron bottom"></span></span>BP control</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse in" id="nested-collapseOne" aria-expanded="false">
                   <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <ul>
+                      <li>Adults with type 2 diabetes are twice as likely to die of stroke or myocardial infarction (MI) compared with those without diabetes, and they are more than 40 times more likely to die of macrovascular than microvascular complications of diabetes. <a href="#" class="refLink">[25]</a> <a href="#" class="refLink">[26]</a> A primary goal of care is treatment of blood pressure. Joint National Commission (JNC 8) and American Diabetes Association (ADA) guidelines recommend a treatment goal of <140/90 mmHg. <a href="#" class="refLink">[2]</a> <a href="#" class="refLink">[40]</a></li>
+                      <li>Combination therapy is often required to reach BP goals. Antihypertensive therapy may be initiated with a thiazide diuretic, a calcium-channel blocker, an ACE inhibitor, or an angiotensin-II receptor antagonist. Antihypertensive drugs for black people may be initiated with a thiazide diuretic or a calcium-channel blocker. <a href="#" class="refLink">[40]</a> ACE inhibitors may reduce mortality and cardiovascular events more than angiotensin-II receptor antagonists. <a href="#" class="refLink">[28]</a> Combining an ACE inhibitor and an angiotensin-II receptor antagonist is not recommended due to increased risk of adverse events. <a href="#" class="refLink">[41]</a> However, all people with chronic kidney disease (CKD) should receive an ACE inhibitor or an angiotensin-II receptor antagonist as part of their regimen. <a href="#" class="refLink">[40]</a> <a href="#" class="refLink">[A Evidence]</a>  CKD is defined as (a) age <70 years with GFR <60 mL/minute/1.73 m^2, or (b) people of any age with albuminuria >30 mg albumin/g of creatinine at any level of GFR.</li>
+                      <li>Beta-blockers are not contraindicated in people with diabetes but are less-preferred antihypertensive agents <a href="#" class="refLink">[40]</a> and may mask symptoms of hypoglycaemia.</li>
+                      <li>ACE inhibitors may increase risk for hypoglycaemia in conjunction with insulin or insulin secretagogue (sulfonylurea or meglitinide). <a href="#" class="refLink">[42]</a></li>
+                    </ul>
+                    <div class="treatment-wrap">
+                      <div class="treatment-box">
+                        <h4>Primary options</h4>
+                        <p><a href="#">hydrochlorothiazide</a>: 12.5 to 25 mg/day orally once daily initially, increase gradually according to response, maximum 50 mg/day as a single dose or in 2 divided doses</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">chlortalidone</a>: 12.5 mg orally once daily initially, increase gradually according to response, maximum 50 mg/day</p>
+                        <p class="and-or">-- AND/OR --</p>
+                        <p><a href="#">lisinopril</a>: 10 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">enalapril</a>: 5 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day as a single dose or in 2 divided doses</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">captopril</a>: 25 mg orally twice daily initially, increase gradually according to response, maximum 200 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">candesartan</a>: 4 mg orally once daily initially, increase gradually according to response, maximum 32 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">irbesartan</a>: 75 mg orally once daily initially, increase gradually according to response, maximum 300 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">losartan</a>: 50 mg orally once daily initially, increase gradually according to response, maximum 100 mg/day as a single dose or in 2 divided doses</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">valsartan</a>: 40-80 mg orally once daily initially, increase gradually according to response, maximum 320 mg/day</p>
+                        <p class="and-or">-- AND/OR --</p>
+                        <p><a href="#">amlodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">felodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">nifedipine</a>: 30-60 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 90 mg/day</p>
+                        <p class="small-or">or</p>
+                        <p><a href="#">diltiazem</a>: 120-180 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 480 mg/day</p>
+                      </div>
+                    </div>
                   </div>
                   <!--/.panel-body -->
                 </div>
@@ -72,7 +107,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseTwo" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>lipid control</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseTwo" class="collapsed" aria-expanded="false"><span class="txLine" >plus<span class="chevron bottom"></span></span>lipid control</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseTwo" aria-expanded="false">
@@ -86,7 +121,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseThree" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>lifestyle changes</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseThree" class="collapsed" aria-expanded="false"><span class="txLine" >plus<span class="chevron bottom"></span></span>lifestyle changes</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseThree" aria-expanded="false">
@@ -100,7 +135,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFour" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>smoking cessation changes</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFour" class="collapsed" aria-expanded="false"><span class="txLine" >plus<span class="chevron bottom"></span></span>smoking cessation changes</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseFour" aria-expanded="false">
@@ -114,7 +149,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFive" class="collapsed" aria-expanded="false"><span class="txLine" >plus</span> <span class="chevron bottom"></span>stratified glycaemic management</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseFive" class="collapsed" aria-expanded="false"><span class="txLine" >plus<span class="chevron bottom"></span></span>stratified glycaemic management</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseFive" aria-expanded="false">
@@ -128,7 +163,7 @@ Extend the default collapse behavior to create an accordion.
               <!-- /.panel -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseSix" class="collapsed" aria-expanded="false"><span class="txLine" >adjunct</span> <span class="chevron bottom"></span>antiplatelet therapy</a></h4>
+                  <h4 class="panel-title"><a data-parent="#nested" data-toggle="collapse" href="#nested-collapseSix" class="collapsed" aria-expanded="false"><span class="txLine" >adjunct<span class="chevron bottom"></span></span>antiplatelet therapy</a></h4>
                 </div>
                 <!--/.panel-heading -->
                 <div class="panel-collapse collapse" id="nested-collapseSix" aria-expanded="false">
