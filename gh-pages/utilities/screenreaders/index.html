@@ -32,6 +32,7 @@
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/access/index.html">Access</a>
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/serp/index.html">SERP</a>
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/treatment-table/index.html">Treatment table</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/bp-popovers-tooltips/index.html">BP Popovers Tooltips</a>
         </div>
         <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_bp-utilities">BP Utilities</a>
         <div class="collapse " id="doc_navdrawer_bp-utilities">
@@ -128,5 +129,16 @@
   <script src="../../../js/project.min.js"></script>
   <!-- additional js for form validation *******(Make page sepcific) -->
   <script src="../../../js/form-validation-md.min.js"></script>
+  <!-- Required for tooltip initialisation -->
+  <script>
+  $(function()
+  {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover(
+    {
+      html: true
+    });
+  })
+  </script>
 </body>
 </html>
