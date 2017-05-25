@@ -89,39 +89,27 @@ Four options are available: top, right, bottom, and left aligned.
 </div>
 
 ## Demo: Drug Database
-<!--Escaped HTML in data-content is:
-<ul><li><a href="#">AHFS DI Essentials<a/></li><li><a href="#">BNF</a></li> <li><a href="#">Martindale</a></li><li><a href="#">Micromedex<a/></li></ul><p class="text-right"><a href="#" class="text-uppercase">Set a default formulary</a></p>-->
 
 {% example html %}
-<button type="button" class="btn btn-lg btn-danger" data-trigger="focus" data-toggle="popover" title="Choose your drug database" data-html="true" data-content="&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;AHFS DI Essentials&lt;a/&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;BNF&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Martindale&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Micromedex&lt;a/&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p class=&quot;text-right&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-uppercase&quot;&gt;Set a default formulary&lt;/a&gt;&lt;/p&gt;">Click to toggle drug database popover</button>
+<button id="drugDBPop" type="button" class="btn btn-link" data-trigger="focus" data-toggle="popover">Click to toggle drug database popover</button>
 {% endexample %}
 
 ## Demo: Evidence score
-<!--Escaped HTML in data-content is:
-<p>Glycaemic control: there is good-quality evidence that insulin plus metformin reduces HbA1c levels at 4 to 6 months more effectively than insulin alone, but with more gastrointestinal side effects.</p>
-<div class="evidence-level">
-  <h4>Evidence level A</h4>
-  <p>Systematic reviews (SRs) or randomized controlled trials (RCTs) of >200 participants.</p>
-</div>
-<p class="text-right"><a href="#" class="text-uppercase">more from bmj clinical evidence</a></p>--->
 
 {% example html %}
-<button type="button" class="btn btn-lg btn-danger" data-trigger="focus" data-toggle="popover" title="Evidence score" data-html="true" data-content="&lt;p&gt;Glycaemic control: there is good-quality evidence that insulin plus metformin reduces HbA1c levels at 4 to 6 months more effectively than insulin alone, but with more gastrointestinal side effects.&lt;/p&gt;
-&lt;div class=&quot;evidence-level&quot;&gt;
-  &lt;h4&gt;Evidence level A&lt;/h4&gt;
-  &lt;p&gt;Systematic reviews (SRs) or randomized controlled trials (RCTs) of &gt;200 participants.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p class=&quot;text-right&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-uppercase&quot;&gt;more from bmj clinical evidence&lt;/a&gt;&lt;/p&gt;">Click to toggle drug database popover</button>
+<button type="button" id="evidencePop" class="btn btn-link" data-trigger="focus" data-toggle="popover">Click to toggle drug database popover</button>
+{% endexample %}
+
+## Demo: References popovers
+
+{% example html %}
+<button type="button" id="referencePop" class="btn btn-link" data-trigger="focus" data-toggle="popover">Click to toggle reference link popover</button>
 {% endexample %}
 
 ## Demo: Cochrane answers
-<!--Escaped HTML in data-content is:
-<img src="../../../css/images/cca-cochrane-logo-normal.png" />
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.</p>
-<p class="text-right"><a href="#" class="text-uppercase">Show me the answer <span class="material-icons material-icons-inline">open_in_new</span></a></p>-->
 
 {% example html %}
-<button type="button" class="btn btn-lg btn-danger" data-trigger="focus" data-toggle="popover" title="" data-html="true" data-content="&lt;img src=&quot;../../../css/images/cca-cochrane-logo-normal.png&quot; /&gt;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.&lt;/p&gt;&lt;p class=&quot;text-right&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;text-uppercase&quot;&gt;Show me the answer &lt;span class=&quot;material-icons material-icons-inline&quot;&gt;open_in_new&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;">Click to toggle drug database popover</button>
+<button type="button" id="CochranePop" class="btn btn-link" data-trigger="focus" data-toggle="popover">Click to toggle drug Cochrane popover</button>
 {% endexample %}
 
 ### Four directions

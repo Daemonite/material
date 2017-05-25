@@ -417,6 +417,9 @@ h1, h2, h3 {
   padding: 1rem;
 }
 
+.treatment-table {
+  font-size: 1rem;
+}
 .treatment-table p.heading {
   background-color: #1f5189;
   color: #ffffff;
@@ -439,8 +442,7 @@ h1, h2, h3 {
   padding: 0;
 }
 .treatment-table .panel-group .panel-heading h4 {
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.125rem;
   line-height: inherit;
   margin-bottom: 0;
 }
@@ -452,6 +454,7 @@ h1, h2, h3 {
 }
 .treatment-table .panel-group .panel-heading h4 span.viewAll {
   color: #b00067;
+  font-size: 1rem;
   text-transform: uppercase;
   float: right;
 }
@@ -464,7 +467,6 @@ h1, h2, h3 {
   position: relative;
 }
 .treatment-table .panel-group .panel-heading a.collapsed {
-  background: #eeeeee;
   color: inherit;
 }
 .treatment-table .panel-group .panel-collapse {
@@ -487,45 +489,55 @@ h1, h2, h3 {
 }
 .treatment-table .panel-group .panel-body ul li:before {
   color: #c50084;
-  content: "\25CF";
+  content: "\2022";
   padding-right: .8725rem;
   vertical-align: top;
 }
-.treatment-table .panel-group .panel-body a {
-  font-weight: bold;
+.treatment-table .panel-group .panel-body a, .treatment-table .panel-group .panel-body button {
+  font-size: 1rem;
 }
-.treatment-table .panel-group .panel-body a.refLink {
+.treatment-table .panel-group .panel-body a.refLink, .treatment-table .panel-group .panel-body button.refLink {
   color: #c50084;
 }
-.treatment-table .panel-group .panel-body a.refLink:hover {
+.treatment-table .panel-group .panel-body a.refLink:hover, .treatment-table .panel-group .panel-body button.refLink:hover {
   color: #2a6ebb;
 }
 .treatment-table .panel-group .panel-body .badge {
   border-radius: 0;
 }
-.treatment-table .panel-group .panel-body .treatment-wrap {
-  background: #f5f5f5;
-  padding: .5rem;
+.treatment-table .panel-group .panel-body .treatment-wrap h5 {
+  color: #c50084;
+  font-weight: bold;
 }
 .treatment-table .panel-group .panel-body .treatment-wrap .treatment-box {
-  background: #ffffff;
-  padding: .5rem;
+  background: #e5eef7;
+  border: 1px solid #2a6ebb;
+  padding: 1rem;
 }
 .treatment-table .panel-group .panel-body .treatment-wrap p {
   margin-bottom: .5rem;
 }
 .treatment-table .panel-group .panel-body .treatment-wrap .small-or {
-  color: #616161;
+  color: #c50084;
   font-style: italic;
   font-weight: 700;
 }
 .treatment-table .panel-group .panel-body .treatment-wrap .and-or {
   display: block;
-  background-color: #f5f5f5;
+  background-color: #416b9b;
+  color: #ffffff;
   font-weight: bold;
   padding: .25rem 0 .25rem 1rem;
   margin-left: -1rem;
   margin-right: -1rem;
+}
+.treatment-table .panel-group .panel-body img.cochraneInline {
+  padding: 0 .1rem;
+  width: 5.5rem;
+}
+.treatment-table .panel-group .panel-body .btn.btn-link {
+  padding: 0 0 0 0;
+  min-width: initial;
 }
 
 .treatment-table .panel-group#nested {
@@ -533,11 +545,14 @@ h1, h2, h3 {
           box-shadow: none;
   margin-top: -4px;
 }
-.treatment-table .panel-group#nested .panel-heading a {
-  background-color: #ffffff;
-  font-size: 0.875rem;
+.treatment-table .panel-group#nested .panel-heading h4 {
+  font-size: 1rem;
 }
-.treatment-table .panel-group#nested .panel-heading a.collapsed {
+.treatment-table .panel-group#nested .panel-heading h4 a {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+.treatment-table .panel-group#nested .panel-heading h4 a.collapsed {
   background-color: #fff;
 }
 .treatment-table .panel-group#nested .panel-body {
@@ -552,7 +567,7 @@ h1, h2, h3 {
   }
 
   .treatment-table .panel-group#nested .panel-body {
-    margin: 0 4rem 2rem 10.75rem;
+    margin: 0 4rem 2rem 11.6rem;
   }
 }
 .chevron {
@@ -608,12 +623,16 @@ span.viewAll span.chevron.bottom::before {
   max-width: none;
   width: 420px;
 }
+.popover P {
+  font-size: 1rem;
+}
 .popover ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 .popover ul li {
+  font-size: 1rem;
   padding: 0 0 1rem 0;
 }
 .popover ul li:before {
@@ -630,10 +649,11 @@ span.viewAll span.chevron.bottom::before {
 }
 .popover .evidence-level h4 {
   color: #c50084;
+  font-size: 1rem;
 }
-.popover img {
+.popover img.cca-logo {
   width: 55%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .doc-jumbotron {

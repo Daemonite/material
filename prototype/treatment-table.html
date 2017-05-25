@@ -1,50 +1,82 @@
----
-layout: docs
-title: Treatment table
-description: Toggle the visibility of content across your project with a few classes and our JavaScript plugins.
-group: bp components
----
 
-The Bootstrap collapse plugin allows you to toggle content on your pages with a few classes thanks to some helpful JavaScript.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 
-## Contents
+  <title>BMJ</title>
 
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
+  <!-- css -->
+  <!-- add material font (roboto) and material icon as needed -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-## Example
+  <!-- add material css | replace bootstrap.css -->
+  <link href="../css/material.min.css" rel="stylesheet">
 
-Click the buttons below to show and hide another element via class changes:
-
-- `.collapse` hides content
-- `.collapsing` is applied during transitions
-- `.collapse.show` shows content
-
-You can use a link with the `href` attribute, or a button with the `data-target` attribute. In both cases, the `data-toggle="collapse"` is required.
-
-{% example html %}
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
-  </a>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-target
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-block">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  <!-- additional css for documentation -->
+  <link href="https://v4-alpha.getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+  <link href="../css/project.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #f5f5f5;">
+  <div class="status" style="background-color: #1f5189; color: #fff; height: 30px; ">
+    <div class="container">
+      <div class="row">
+        <ul class="nav justify-content-center pb-2">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="serp.html">Serp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-white" href="reg-modal.html">Registration (Modal)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="reg-inline.html">Registration (Inline)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white disabled" href="#">Browse</a>
+          </li>
+      </div>
+    </div>
   </div>
-</div>
-{% endexample %}
 
-## Treatment table headers example
+    <div class="jumbotron jumbotron-fluid doc-jumbotron p-0" id="doc_index_jumbotron" style="-webkit-box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);
+-moz-box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);box-shadow: 5px 5px 5px 0px rgba(221,221,221,1);">
+    <div class="container p-4">
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand pl-0" href="#"><img src="../css/images/logo_temp.png" class="img-fluid"></a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+      </nav>
+    </div>
+  </div>
 
-Extend the default collapse behavior to create an accordion.
-
-{% example html %}
-
-<div class="container treatment-table">
+  <div class="modal fade" id="doc_modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Download</h2>
+        </div>
+        <div class="modal-body">
+          <p>Material v4.0.0-alpha.6 is available for download in several ways, including some of the favourite package managers.</p>
+          <h3 class="mt-lg typography-subheading">Material CSS and JS</h3>
+          <p><a href="https://github.com/moconnor-bmj/material/releases" target="_blank"><small class="align-text-top"><i class="material-icons">cloud_download</i></small> Download</a> Material's ready-to-use code to easily drop into any project. Includes compiled and minified versions of CSS and JS plugins.</p>
+          <h3 class="mt-lg typography-subheading">Package Managers</h3>
+          <p>Pull in Material's source files into nearly any project with some of the most popular package managers.</p>
+<pre class="p-md">
+<code>bower install daemonite-material#4.0.0-alpha.6</code>
+</pre>
+<pre class="p-md">
+<code>npm install daemonite-material@4.0.0-alpha.6</code>
+</pre>
+        </div>
+      </div>
+    </div>
+  </div>    
+    <div class="container treatment-table" style="margin-top:2rem;">
+      
 <p class="heading">Initial</p>
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
@@ -64,9 +96,9 @@ Extend the default collapse behavior to create an accordion.
                 <div class="panel-collapse collapse in" id="nested-collapseOne" aria-expanded="false">
                   <div class="panel-body">
                     <ul>
-                      <li>Adults with type 2 diabetes are twice as likely to die of stroke or myocardial infarction (MI) compared with those without diabetes, and they are more than 40 times more likely to die of macrovascular than microvascular complications of diabetes. [25] <button type="button" id="CochranePop" class="btn btn-link refLink" data-trigger="focus" data-toggle="popover">[ <img class="cochraneInline" src="../../../css/images/cochrane-logo.svg" /> ]</button> [26] A primary goal of care is treatment of blood pressure. Joint National Commission (JNC 8) and American Diabetes Association (ADA) guidelines recommend a treatment goal of <140/90 mmHg. [2] [40]</a></li>
+                      <li>Adults with type 2 diabetes are twice as likely to die of stroke or myocardial infarction (MI) compared with those without diabetes, and they are more than 40 times more likely to die of macrovascular than microvascular complications of diabetes. [25] <button type="button" id="CochranePop" class="btn btn-link refLink" data-trigger="focus" data-toggle="popover">[ <img class="cochraneInline" src="../css/images/cochrane-logo.svg" /> ]</button> [26] A primary goal of care is treatment of blood pressure. Joint National Commission (JNC 8) and American Diabetes Association (ADA) guidelines recommend a treatment goal of <140/90 mmHg. [2] [40]</a></li>
                       <li>Combination therapy is often required to reach BP goals. Antihypertensive therapy may be initiated with a thiazide diuretic, a calcium-channel blocker, an ACE inhibitor, or an angiotensin-II receptor antagonist. Antihypertensive drugs for black people may be initiated with a thiazide diuretic or a calcium-channel blocker. [40] ACE inhibitors may reduce mortality and cardiovascular events more than angiotensin-II receptor antagonists. [28] Combining an ACE inhibitor and an angiotensin-II receptor antagonist is not recommended due to increased risk of adverse events. [41] However, all people with chronic kidney disease (CKD) should receive an ACE inhibitor or an angiotensin-II receptor antagonist as part of their regimen. [40] <button type="button" id="evidencePop" class="btn btn-link refLink" data-trigger="focus" data-toggle="popover">[A Evidence]</button> CKD is defined as (a) age <70 years with GFR <60 mL/minute/1.73 m^2, or (b) people of any age with albuminuria >30 mg albumin/g of creatinine at any level of GFR.</li>
-                      <li>Beta-blockers are not contraindicated in people with diabetes but are less-preferred antihypertensive agents [40]</a> and may mask symptoms of hypoglycaemia.</li>
+                      <li>Beta-blockers are not contraindicated in people with diabetes but are less-preferred antihypertensive agents [40] and may mask symptoms of hypoglycaemia.</li>
                       <li>ACE inhibitors may increase risk for hypoglycaemia in conjunction with insulin or insulin secretagogue (sulfonylurea or meglitinide). <button type="button" id="referencePop" class="btn btn-link refLink" data-trigger="focus" data-toggle="popover">[42]</button></li>
                     </ul>
                     <div class="treatment-wrap">
@@ -74,29 +106,29 @@ Extend the default collapse behavior to create an accordion.
                       <div class="treatment-box">
                         <p><button id="drugDBPop" type="button" class="btn btn-link" data-trigger="focus" data-toggle="popover">hydrochlorothiazide</button>: 12.5 to 25 mg/day orally once daily initially, increase gradually according to response, maximum 50 mg/day as a single dose or in 2 divided doses</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">chlortalidone</a>: 12.5 mg orally once daily initially, increase gradually according to response, maximum 50 mg/day</p>
+                        <p><a href="#">chlortalidone</a>: 12.5 mg orally once daily initially, increase gradually according to response, maximum 50 mg/day</p>
                         <p class="and-or">-- AND / OR --</p>
-                        <p><a href="#" class="disabled">lisinopril</a>: 10 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day</p>
+                        <p><a href="#">lisinopril</a>: 10 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">enalapril</a>: 5 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day as a single dose or in 2 divided doses</p>
+                        <p><a href="#">enalapril</a>: 5 mg orally once daily initially, increase gradually according to response, maximum 40 mg/day as a single dose or in 2 divided doses</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">captopril</a>: 25 mg orally twice daily initially, increase gradually according to response, maximum 200 mg/day</p>
+                        <p><a href="#">captopril</a>: 25 mg orally twice daily initially, increase gradually according to response, maximum 200 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">candesartan</a>: 4 mg orally once daily initially, increase gradually according to response, maximum 32 mg/day</p>
+                        <p><a href="#">candesartan</a>: 4 mg orally once daily initially, increase gradually according to response, maximum 32 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">irbesartan</a>: 75 mg orally once daily initially, increase gradually according to response, maximum 300 mg/day</p>
+                        <p><a href="#">irbesartan</a>: 75 mg orally once daily initially, increase gradually according to response, maximum 300 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">losartan</a>: 50 mg orally once daily initially, increase gradually according to response, maximum 100 mg/day as a single dose or in 2 divided doses</p>
+                        <p><a href="#">losartan</a>: 50 mg orally once daily initially, increase gradually according to response, maximum 100 mg/day as a single dose or in 2 divided doses</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">valsartan</a>: 40-80 mg orally once daily initially, increase gradually according to response, maximum 320 mg/day</p>
+                        <p><a href="#">valsartan</a>: 40-80 mg orally once daily initially, increase gradually according to response, maximum 320 mg/day</p>
                         <p class="and-or">-- AND / OR --</p>
-                        <p><a href="#" class="disabled">amlodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
+                        <p><a href="#">amlodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">felodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
+                        <p><a href="#">felodipine</a>: 2.5 mg orally once daily initially, increase gradually according to response, maximum 10 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">nifedipine</a>: 30-60 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 90 mg/day</p>
+                        <p><a href="#">nifedipine</a>: 30-60 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 90 mg/day</p>
                         <p class="small-or">or</p>
-                        <p><a href="#" class="disabled">diltiazem</a>: 120-180 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 480 mg/day</p>
+                        <p><a href="#">diltiazem</a>: 120-180 mg orally (extended-release) once daily initially, increase gradually according to response, maximum 480 mg/day</p>
                       </div>
                     </div>
                   </div>
@@ -184,127 +216,87 @@ Extend the default collapse behavior to create an accordion.
         <!--/.panel-collapse -->
       </div>
 		</div><!-- /.panel-group -->
+    <div style="padding:1rem; margin: 1rem; font-size:.8725rem;">
+        <p>Notes:</p>
+        <ul>
+          <li>Dummy content to view UI elements and interactions (real content will be added when made available)</li>
+          <li>Click on active links (Cochrane; [A-Evidence]; [42]; drug database (hydrochlorothiazide) to view popovers</li>
+          <li>Up / Down (collapse / expand icon) not active yet</li>
+          <li>Grab the code from the Components Library: Popovers :: Treatment Table</li>
+        </ul>
+      </div>
 	</div><!-- /.container -->
-{% endexample %}
 
-## Accessibility
+  
 
-Be sure to add `aria-expanded` to the control element. This attribute explicitly defines the current state of the collapsible element to screen readers and similar assistive technologies. If the collapsible element is closed by default, it should have a value of `aria-expanded="false"`. If you've set the collapsible element to be open by default using the `show` class, set `aria-expanded="true"` on the control instead. The plugin will automatically toggle this attribute based on whether or not the collapsible element has been opened or closed.
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 
-Additionally, if your control element is targeting a single collapsible element – i.e. the `data-target` attribute is pointing to an `id` selector – you may add an additional `aria-controls` attribute to the control element, containing the `id` of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 
-## Usage
+    <!-- add material js on top of bootstrap.js -->
+    <script src="../js/material.min.js"></script>
 
-The collapse plugin utilizes a few classes to handle the heavy lifting:
+    <!-- additional js for documentation -->
+    <script src="../js/project.min.js"></script>
 
-- `.collapse` hides the content
-- `.collapse.show` shows the content
-- `.collapsing` is added when the transition starts, and removed when it finishes
+<!-- Popover initialisation, Setting & Content - so no XSS attacks!!-->
 
-These classes can be found in `_transitions.scss`.
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button#drugDBPop").popover({
+      placement : 'top',
+      html : true,
+      title : 'Drug database <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content : '<ul><li><a href="#">AHFS DI Essentials<a/></li><li><a href="#">BNF</a></li> <li><a href="#">Martindale</a></li><li><a href="#">Micromedex<a/></li></ul><p class="text-right"><a href="#" class="text-uppercase">Set a default formulary</a></p>'
+  });
+  $(document).on("click", ".popover .close" , function(){
+      $(this).parents(".popover").popover('hide');
+  });
+});
+</script>
 
-### Via data attributes
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button#evidencePop").popover({
+      placement : 'top',
+      html : true,
+      title : 'Evidence score <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content : '<p>Glycaemic control: there is good-quality evidence that insulin plus metformin reduces HbA1c levels at 4 to 6 months more effectively than insulin alone, but with more gastrointestinal side effects.</p><div class="evidence-level"><h4>Evidence level A</h4><p>Systematic reviews (SRs) or randomized controlled trials (RCTs) of >200 participants.</p></div><p class="text-right"><a href="#" class="text-uppercase">more from bmj clinical evidence</a></p>'
+  });
+  $(document).on("click", ".popover .close" , function(){
+      $(this).parents(".popover").popover('hide');
+  });
+});
+</script>
 
-Just add `data-toggle="collapse"` and a `data-target` to the element to automatically assign control of a collapsible element. The `data-target` attribute accepts a CSS selector to apply the collapse to. Be sure to add the class `collapse` to the collapsible element. If you'd like it to default open, add the additional class `show`.
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button#referencePop").popover({
+      placement : 'top',
+      html : true,
+      title : 'Reference <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content : '<p><strong>44. </strong>Koegelenberg CF, Noor F, Bateman ED, et al. Efficacy of varenicline combined with nicotine replacement therapy vs varenicline alone for smoking cessation: a randomized clinical trial. JAMA. 2014;312:155-161.</p><p><a rel="external" class="web-link" target="_blank" href="#">Abstract <span class="material-icons material-icons-inline">open_in_new</span></a></p><p><a href="#">View all references</a></p>'
+  });
+  $(document).on("click", ".popover .close" , function(){
+      $(this).parents(".popover").popover('hide');
+  });
+});
+</script>
 
-To add accordion-like group management to a collapsible control, add the data attribute `data-parent="#selector"`. Refer to the demo to see this in action.
-
-### Via JavaScript
-
-Enable manually with:
-
-{% highlight js %}
-$('.collapse').collapse()
-{% endhighlight %}
-
-### Options
-
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-parent=""`.
-
-<table class="table table-bordered table-striped table-responsive">
-  <thead>
-   <tr>
-     <th style="width: 100px;">Name</th>
-     <th style="width: 50px;">Type</th>
-     <th style="width: 50px;">Default</th>
-     <th>Description</th>
-   </tr>
-  </thead>
-  <tbody>
-   <tr>
-     <td>parent</td>
-     <td>selector</td>
-     <td>false</td>
-     <td>If a selector is provided, then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this is dependent on the <code>panel</code> class)</td>
-   </tr>
-   <tr>
-     <td>toggle</td>
-     <td>boolean</td>
-     <td>true</td>
-     <td>Toggles the collapsible element on invocation</td>
-   </tr>
-  </tbody>
-</table>
-
-### Methods
-
-#### `.collapse(options)`
-
-Activates your content as a collapsible element. Accepts an optional options `object`.
-
-{% highlight js %}
-$('#myCollapsible').collapse({
-  toggle: false
-})
-{% endhighlight %}
-
-#### `.collapse('toggle')`
-
-Toggles a collapsible element to shown or hidden.
-
-#### `.collapse('show')`
-
-Shows a collapsible element.
-
-#### `.collapse('hide')`
-
-Hides a collapsible element.
-
-### Events
-
-Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
-
-<table class="table table-bordered table-striped table-responsive">
-  <thead>
-   <tr>
-     <th style="width: 150px;">Event Type</th>
-     <th>Description</th>
-   </tr>
-  </thead>
-  <tbody>
-   <tr>
-     <td>show.bs.collapse</td>
-     <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-   </tr>
-   <tr>
-     <td>shown.bs.collapse</td>
-     <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
-   </tr>
-   <tr>
-     <td>hide.bs.collapse</td>
-     <td>
-      This event is fired immediately when the <code>hide</code> method has been called.
-     </td>
-   </tr>
-   <tr>
-     <td>hidden.bs.collapse</td>
-     <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
-   </tr>
-  </tbody>
-</table>
-
-{% highlight js %}
-$('#myCollapsible').on('hidden.bs.collapse', function () {
-  // do something…
-})
-{% endhighlight %}
+<script type="text/javascript">
+$(document).ready(function(){
+  $("button#CochranePop").popover({
+      placement : 'top',
+      html : true,
+      title : ' <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content : '<img src="../css/images/cca-cochrane-logo-normal.png" class="cca-logo" /><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.</p><p class="text-right"><a href="#" class="text-uppercase">Show me the answer <span class="material-icons material-icons-inline">open_in_new</span></a></p>'
+  });
+  $(document).on("click", ".popover .close" , function(){
+      $(this).parents(".popover").popover('hide');
+  });
+});
+</script>
+</body>
+</html>

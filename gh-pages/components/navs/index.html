@@ -33,6 +33,7 @@
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/serp/index.html">SERP</a>
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/treatment-table/index.html">Treatment table</a>
           <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/bp-popovers-tooltips/index.html">BP Popovers Tooltips</a>
+          <a class="nav-item nav-link font-weight-normal pl-lg py-sm " href="../../../gh-pages/bp-components/bp-collapse/index.html">BP Collapse</a>
         </div>
         <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_bp-utilities">BP Utilities</a>
         <div class="collapse " id="doc_navdrawer_bp-utilities">
@@ -706,16 +707,78 @@
   <script src="../../../js/project.min.js"></script>
   <!-- additional js for form validation *******(Make page sepcific) -->
   <script src="../../../js/form-validation-md.min.js"></script>
-  <!-- Required for tooltip initialisation -->
-  <script>
-  $(function()
+  <!-- Popover initialisation, Setting & Content - so no XSS attacks!!-->
+  <script type="text/javascript">
+  $(document).ready(function()
   {
-    $('[data-toggle="tooltip"]').tooltip();
-    $('[data-toggle="popover"]').popover(
+    $("button#drugDBPop").popover(
     {
-      html: true
+      placement: 'top',
+      html: true,
+      title: 'Drug database <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content: '<ul><li><a href="#">AHFS DI Essentials<a/></li><li><a href="#">BNF</a></li> <li><a href="#">Martindale</a></li><li><a href="#">Micromedex<a/></li></ul><p class="text-right"><a href="#" class="text-uppercase">Set a default formulary</a></p>'
     });
-  })
+    $(document).on("click", ".popover .close", function()
+    {
+      $(this).parents(".popover").popover('hide');
+    });
+  });
   </script>
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("button#evidencePop").popover(
+    {
+      placement: 'top',
+      html: true,
+      title: 'Evidence score <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content: '<p>Glycaemic control: there is good-quality evidence that insulin plus metformin reduces HbA1c levels at 4 to 6 months more effectively than insulin alone, but with more gastrointestinal side effects.</p><div class="evidence-level"><h4>Evidence level A</h4><p>Systematic reviews (SRs) or randomized controlled trials (RCTs) of >200 participants.</p></div><p class="text-right"><a href="#" class="text-uppercase">more from bmj clinical evidence</a></p>'
+    });
+    $(document).on("click", ".popover .close", function()
+    {
+      $(this).parents(".popover").popover('hide');
+    });
+  });
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("button#referencePop").popover(
+    {
+      placement: 'top',
+      html: true,
+      title: 'Reference <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content: '<p><strong>44. </strong>Koegelenberg CF, Noor F, Bateman ED, et al. Efficacy of varenicline combined with nicotine replacement therapy vs varenicline alone for smoking cessation: a randomized clinical trial. JAMA. 2014;312:155-161.</p><p><a rel="external" class="web-link" target="_blank" href="#">Abstract <span class="material-icons material-icons-inline">open_in_new</span></a></p><p><a href="#">View all references</a></p>'
+    });
+    $(document).on("click", ".popover .close", function()
+    {
+      $(this).parents(".popover").popover('hide');
+    });
+  });
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("button#CochranePop").popover(
+    {
+      placement: 'top',
+      html: true,
+      title: ' <a href="#" class="close" data-dismiss="alert">&times;</a>',
+      content: '<img src="../../../css/images/cca-cochrane-logo-normal.png" class="cca-logo" /><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisinuli.</p><p class="text-right"><a href="#" class="text-uppercase">Show me the answer <span class="material-icons material-icons-inline">open_in_new</span></a></p>'
+    });
+    $(document).on("click", ".popover .close", function()
+    {
+      $(this).parents(".popover").popover('hide');
+    });
+  });
+  </script>
+  <!--Prevent default behaviour - jumps on anchor click
+<script>
+$("a.popLink")
+    .popover()
+    .click(function(e) {
+        e.preventDefault();
+     });
+ </script>-->
 </body>
 </html>

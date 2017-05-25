@@ -1,4 +1,5 @@
 .treatment-table {
+  font-size: 1rem;
   p.heading {
     background-color: #1f5189; 
     color: $white;
@@ -18,8 +19,7 @@
     .panel-heading {
       padding: 0;
       h4 {
-        font-size: 1rem;
-        font-weight: bold;
+        font-size: $font-size-bmj;
         line-height: inherit;
         margin-bottom: 0;
         span.txLine {
@@ -30,22 +30,39 @@
           }
         span.viewAll {
           color: $palette-pink-800;
+          font-size: $font-size-subheading;
           text-transform: uppercase;
           float: right;
           }
         }
       a {
-        display: block;
-        background: $palette-blue-050;
-        color: $black;
-        padding: 1rem;
-        text-decoration: none;
-        position: relative;
-        &.collapsed {
-          background: $palette-grey-200;
-          color: inherit;
+          display: block;
+          background: $palette-blue-050;
+          color: $black;
+          padding: 1rem;
+          text-decoration: none;
+          position: relative;
+          // &:before {
+          //   font-family: 'Material Icons';
+          //   content: "\E15B";
+          //   color: $palette-pink-800;
+          //   font-size: 1.25rem;
+          //   float: right;
+          //   margin-top: -.25rem;
+          // }
         }
-      }
+      a.collapsed {
+          //background: $palette-grey-200;
+          color: inherit;
+          // &:before {
+          //   font-family: 'Material Icons';
+          //   content: "\E145";
+          //   color: $palette-pink-800;
+          //   font-size: 1.25rem;
+          //   float: right;
+          //   margin-top: -.25rem;
+          // }
+        }
     }
     .panel-collapse {
         margin-top: 5px !important;
@@ -66,14 +83,14 @@
           padding: 0 0 1rem 0;
           &:before {
             color: $palette-pink-500;
-            content: "\25CF";
+            content: "\2022";
             padding-right: .8725rem;
             vertical-align: top;
             }
         }
       }
-      a {
-        font-weight: bold;
+      a, button {
+        font-size: 1rem;
           &.refLink {
           color: $palette-pink-500;
           &:hover {
@@ -85,28 +102,40 @@
         border-radius: 0;
       }
       .treatment-wrap {
-        background: $palette-grey-100;
-        padding: .5rem;
+        h5 {
+          color: $palette-pink-500;
+          font-weight: bold;
+        }
         .treatment-box {
-          background: $white;
-          padding: .5rem;
+          background: #e5eef7;
+          border: 1px solid #2a6ebb;
+          padding: 1rem;
         }
         p {
           margin-bottom: .5rem;
         }
         .small-or {
-          color: $palette-grey-700;
+          color: $palette-pink-500;
           font-style: italic;
           font-weight: 700;
         }
         .and-or {
           display: block;
-          background-color: $palette-grey-100;
+          background-color: #416b9b;
+          color: $white;
           font-weight: bold;
           padding: .25rem 0 .25rem 1rem;
           margin-left: -1rem;
           margin-right: -1rem;
         }
+      }
+      img.cochraneInline {
+        padding: 0 .1rem;
+        width: 5.5rem;
+      }
+      .btn.btn-link {
+        padding: 0 0 0 0;
+        min-width: initial;
       }
     }
   }
@@ -117,11 +146,14 @@
   .panel-group#nested {
     box-shadow: none;
     margin-top: -4px;
-    .panel-heading a {
-      background-color: $white;
-      font-size: $font-size-body-1;
-      &.collapsed {
-        background-color: #fff;
+    .panel-heading h4 {
+      font-size: $font-size-subheading;
+        a {
+          background-color: $white;
+          font-weight: bold;
+          &.collapsed {
+            background-color: #fff;
+          }
         }
     }
     .panel-body {
@@ -142,7 +174,7 @@
       }
   }
   .treatment-table .panel-group#nested .panel-body {
-    margin: 0 4rem 2rem 10.75rem;
+    margin: 0 4rem 2rem 11.6rem;
   }
 }
 
