@@ -7,6 +7,10 @@ group: layout
 
 Bootstrap includes a powerful mobile-first flexbox grid system for building layouts of all shapes and sizes. It's based on a 12 column layout and has multiple tiers, one for each [media query range]({{ site.baseurl }}/layout/overview/#responsive-breakpoints). You can use it with Sass mixins or our predefined classes.
 
+<div class="alert alert-warning" role="alert">
+  <strong>Warning!</strong> We do not <em>have</em> to use the flexbox grid system!! We need to support IE8. Simply use Bootstrap 3 grid classes as usual.
+</div>
+
 ## Contents
 
 * Will be replaced with the ToC, excluding the "Contents" header

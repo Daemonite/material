@@ -1,13 +1,21 @@
 @import "../sass/mixins";
 @import "../sass/variables";
 
+@import "bp-ui/access";
+@import "bp-ui/srp";
+@import "bp-ui/utilities";
+@import "bp-ui/treatment-tables";
+@import "bp-ui/popover-tooltip";
+@import "bp-ui/_messaging";
+
 // project css
+
   .doc-jumbotron {
-    background-image: url(images/doc-jumbotron-bg.jpg);
+    //background-image: url(images/doc-jumbotron-bg.jpg);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: ($toolbar-height * 2);
+    padding-top: ($toolbar-height + 1.5rem); // For Prototype only
 
     @include media-breakpoint-down(sm) {
       h1 {

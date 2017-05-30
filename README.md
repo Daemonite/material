@@ -1,11 +1,11 @@
-# Material
+# BMDL
 
-Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__. The basic idea behind this project is to combine the visual language of Google Material Design with the front-end technology of the popular Bootstrap framework.
+BMDL is a fork of [Daemonite's Material](http://daemonite.github.io/material/), a cross-platform and fully responsive front-end interface based on __Google Material Design__. This lightweight framework is built using __Bootstrap 4__. The basic idea behind this project is to combine the visual language of Google Material Design with the front-end technology of the popular Bootstrap framework to allow for rapid prototyping and serve as a library for our components.
 
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > http://www.google.com/design/spec/material-design/introduction.html
 
-Detailed [documentation site](http://daemonite.github.io/material/) is work in progress. Let us know what you think at the [Daemon Labs](http://labs.daemon.com.au) forum.
+The [documentation site](http://moconnor-bmj.github.io/BMDL/), including our components library and - eventually - a working prototype, is work in progress. Please let us know what you think.
 
 ## Goals
 
@@ -88,3 +88,17 @@ Currently based on __Bootstrap v4.0.0-alpha.6__.
 | Widgets                         | _None_                                                                              | This component is not really relevant to web development, so we probably will not actively look into adding support in this framework.                                                                                                                                        |
 
 
+### Install & build project
+
+- Clone or download as usual. CD into root...
+- Install the project's gem bundle in your local environment
+	- install ruby if required
+	- `gem install bundler`
+	- `bundle install`
+- Compile all CSS from SCSS to /css folder, compile all JS to the /js folder
+	- `grunt` 
+    - `grunt watch` to compile automagically
+- Build HTML (from Jekyll markdown), used when running the documentation locally
+	- `grunt doc`
+- get the working documentation site running locally on http://localhost:9999 or http://0.0.0.0:9999 or your http://your-local-ip-address:9999
+	- `grunt connect`

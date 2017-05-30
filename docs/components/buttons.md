@@ -38,6 +38,10 @@ Bootstrap includes six predefined button styles, each serving its own semantic p
 
 <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
 <button type="button" class="btn btn-link">Link</button>
+
+<!-- Flat buttons (text-only). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press/hover. -->
+<button type="button" class="btn btn-flat">Flat</button>
+
 {% endexample %}
 
 {% capture callout-include %}{% include callout-warning-color-assistive-technologies.md %}{% endcapture %}

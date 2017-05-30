@@ -1,0 +1,239 @@
+    // Search Input Box
+.search-input {
+  position: relative;
+  padding: 1rem 0 0.5rem 0;
+  height: 4.5rem;
+    input {
+        border: none;
+        border-bottom: 1px solid $palette-blue-500;
+        display: block;
+        font-size: 1rem;
+        line-height: 1rem;
+        margin: 0;
+        padding: 0.5rem 0;
+        width: 100%;
+        text-align: left; 
+        background-color: transparent;
+        color: $palette-blue-500;
+        &:focus {
+            outline: none;
+            }
+        }
+    label {
+        position: absolute;
+        left: 0;
+        top: 1.625rem;
+        width: 100%;
+        color: $palette-blue-500;
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: normal;
+        pointer-events: none;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        } 
+    input:focus ~ label {
+        top: 0;
+        font-size: 0.75rem;
+        color: $palette-blue-500;
+        }
+    label.not-empty {
+        top: 0;
+        font-size: 0.75rem;
+        }
+    span:nth-of-type(3) {
+        position: absolute;
+        color: $palette-blue-500;
+        left: 100%;
+        top: 1.625rem;
+        font-size: 1rem;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        }
+    input:focus ~ span:nth-of-type(3) {
+        left: -1.625rem;
+        top: 1.625rem;
+        color: $palette-blue-500;
+        }
+    span:nth-of-type(3).not-empty {
+        left: -1.625rem !important;
+        top: 1.625rem !important;
+        }
+    span:nth-of-type(4) {
+        position: absolute;
+        color: $palette-blue-500;
+        right: 0;
+        top: 1.625rem;
+        font-size: 1rem;
+        opacity: 0;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        }
+    input:focus ~ span:nth-of-type(4) {
+        color: $palette-blue-500;
+        opacity: 1;
+        cursor: pointer;
+        }
+    span:nth-of-type(4).not-empty {
+        opacity: 1 !important;
+        }
+    .bar {
+        display: block;
+        width: 0;
+        margin-left: 50%;
+        height: 1px;
+        background: $palette-blue-500;
+        opacity: 0;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+        }
+    input:focus ~ .bar {
+        opacity: 1;
+        width: 100%;
+        margin-left: 0;
+        }
+}
+    
+    //SRP: Cards
+    .serp {
+        margin-bottom: 1rem;
+        .nav-tabs {
+            background-color: #fff;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+            margin-bottom: 1rem;
+            .nav-link {
+                &::before {
+                    background-color: $palette-pink-500;
+                    height: 6px;
+                }
+                &.active {
+                    font-weight: bold;
+                }
+            }
+        }
+        .card {
+            border-radius: 0;
+            border-bottom: 1px solid $palette-grey-300;
+            box-shadow: none;
+            .card-block {
+                padding: .75rem;
+            }
+            .card-title {
+                font-size: 1rem;
+                margin: 0;
+                a {
+                    color: $black-primary;
+                    &:hover {
+                        color: $palette-pink-500;
+                        // border-bottom: 1px solid $palette-pink-500;
+                    }
+                }
+            }
+            a.card-link {
+                display: block;
+                line-height: 3.5;
+                margin-left: 0;
+            }
+        }
+    }
+    
+    .serp_detail {
+        margin-bottom: 1rem;
+        .card {
+            border-radius: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+            .card-title {
+                color: $palette-pink-500;
+                font-size: 1.5rem;
+                a {
+                    color: $palette-pink-500;
+                    &:hover {
+                        border-bottom: 1px solid $palette-pink-500;
+                        // border-bottom: 1px solid $palette-pink-500;
+                    }
+                }
+            }
+            .list-group-item {
+                font-size: $font-size-subheading;
+                h4 {
+                    margin-top: .5rem;
+                    a {
+                        font-size: $font-size-bmj;
+                        color: $palette-pink-500;
+                        .material-icons {
+                            font-size: $font-size-headline;
+                            margin-top: -3px; // hack :-(
+                            }
+                        &:hover {
+                            border-bottom: 1px solid $palette-pink-500;
+                            }
+                        }
+                }
+                p {
+                        margin-bottom: .5rem;
+                }
+            }
+            .card-block {
+                    padding: .75rem;
+            }
+        }
+    }
+    
+    .search-pagination {
+        p {
+            color: $black-secondary;
+        }
+        .pagination {
+            background-color: #fff;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+        }
+    }
+    
+    // Mdeia Queries
+    @include media-breakpoint-up(sm) {
+        .serp {
+            margin-bottom: 1rem;
+            .nav-tabs {
+                background-color: #fff;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+                margin-bottom: 1rem;
+                .nav-link::before {
+                    background-color: $palette-pink-500;
+                    height: 6px;
+                }
+            }
+            .card-group {
+                display: block;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+            }
+            .card {
+                .card-block {
+                    padding: 1.5rem 1rem;
+                }
+                .card-title {
+                    margin-bottom: .75rem;
+                    margin-top: -5px; // ok this is a fudge
+                    a {
+                        color: $black-primary;
+                        &:hover {
+                            color: $palette-pink-500;
+                            // border-bottom: 1px solid $palette-pink-500;
+                        }
+                    }
+                }
+                a.card-link {
+                    display: inline-block;
+                    line-height: 0;
+                    &:not(:first-of-type):before {
+                        content: '\00a0\2022\00a0\00a0';
+                        color: $black-secondary-solid;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }

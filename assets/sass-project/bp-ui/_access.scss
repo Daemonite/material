@@ -1,0 +1,164 @@
+//Access: Modal with Reg form
+.modal-dialog {
+    font-size: 1rem;
+    margin: 0;
+    width: 100%;
+}
+
+.modal-lg {
+    max-width: 60rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 1.25rem 1.5rem 0;
+    p:first-of-type {
+        font-size: .875rem;
+        padding-left: 2.2rem;
+    }
+}
+
+.floating-label {
+    border: 1px solid $black-primary;
+    border-radius: 2px;
+    height: 3.125rem;
+    >label {
+        color: $palette-grey-600;
+        padding-left: .25rem;
+        top: .875rem;
+        // padding-left: .5rem;
+    }
+    &.has-value,
+    &.is-focused {
+        border: 1px solid #2a6ebb;
+        border-bottom: 3px solid #2a6ebb;
+        >label {
+            // position
+            top: 5px;
+        }
+    }
+}
+
+.form-control {
+    border-bottom: none;
+    padding-left: .25rem;
+}
+
+.form-control-feedback, .form-text {
+    font-size: .875rem;
+    margin-top: .1rem;
+}
+
+.card .material-icons {
+    padding-right: .5rem;
+}
+
+.form-group.floating-label.has-danger {
+    margin-bottom: 2.5rem;
+    border: 1px solid $palette-red-500;
+    border-bottom: 3px solid $palette-red-500;
+    &.is-focused {
+        >label {
+            color: $palette-red-500;
+        }
+    }
+}
+.modal-footer {
+    p:first-of-type {
+        font-size: $font-size-body-1;
+    }
+}
+.regMessaging {
+    border: 1px solid $palette-grey-400;
+    margin-top: 1rem;
+    .regMessageHeader {
+        background-color: $palette-blue-400;
+        padding: .35rem;
+        h3 {
+            color: $white;
+        }
+    }
+    .list-group-item {
+        background-color: $palette-grey-200;
+        border: none;
+        font-size: $font-size-subheading;
+        position: relative;
+        /* Helps us control overlap */
+        padding-left: 3.875rem;
+        &:before {
+            color: $palette-blue-400;
+            content: '\e876';
+            font-family: 'Material Icons';
+            position: absolute;
+            left: 18px;
+            top: 1px;
+            font-size: 2.125rem;
+        }
+    }
+}
+
+// Reg Success Message
+
+.regSuccess {
+    background-color: $white;
+    padding: 2rem 0;
+    .regSuccessHeader {
+        padding: .35rem;
+    }
+    .list-group-item {
+        background-color: inherit;
+        border: none;
+        font-size: $font-size-subheading;
+    }
+}
+
+// Media Queries for form inputwidths (sigh!)
+@include media-breakpoint-up(md) { 
+    .form-group:nth-child(2),
+    .form-group:nth-child(3) {
+        width: 75%;
+    }
+    .regMessaging {
+        margin-top: 0;
+    }
+ }
+
+
+//Access: Inline with Reg form
+#inlineReg {
+    .floating-label {
+        background-color: $white;
+    }
+    .list-group-item {
+        background-color: $white;
+    }
+    p:first-of-type {
+        padding-left: 2.2rem;
+    }
+    h2 {
+        color: $white;
+        font-size: $font-size-headline;
+    }
+}
+
+#inlineLogin {
+    .floating-label {
+        background-color: $white;
+    }
+    p:first-of-type {
+        padding-left: 2.2rem;
+    }
+    h2 {
+        color: $white;
+        font-size: $font-size-headline;
+    }
+}
+
+#inlineLoginNoIp {
+    .floating-label {
+        background-color: $white;
+    }
+}

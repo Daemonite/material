@@ -1,0 +1,235 @@
+.treatment-table {
+  font-size: 1rem;
+  p.heading {
+    background-color: #1f5189; 
+    color: $white;
+    display: block;
+    height: 24px; 
+    padding-top: 2px;
+    padding-left: .5rem;
+    margin-bottom:0;
+    text-transform: uppercase;
+  }
+  .panel-group {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    .panel-body, .panel-group .panel-heading + .panel-collapse > .panel-body {
+      border-radius: 0;
+      border: 0;
+    }
+    .panel-heading {
+      padding: 0;
+      h4 {
+        font-size: $font-size-bmj;
+        line-height: inherit;
+        margin-bottom: 0;
+        span.txLine {
+          display: block;
+          padding-right: 2.5rem;
+          margin-right: .25rem;
+          color: $palette-pink-800;
+          }
+        span.viewAll {
+          color: $palette-pink-800;
+          font-size: $font-size-subheading;
+          text-transform: uppercase;
+          float: right;
+          }
+        }
+      a {
+          display: block;
+          background: $palette-blue-050;
+          color: $black;
+          padding: 1rem;
+          text-decoration: none;
+          position: relative;
+          // &:before {
+          //   font-family: 'Material Icons';
+          //   content: "\E15B";
+          //   color: $palette-pink-800;
+          //   font-size: 1.25rem;
+          //   float: right;
+          //   margin-top: -.25rem;
+          // }
+        }
+      a.collapsed {
+          //background: $palette-grey-200;
+          color: inherit;
+          // &:before {
+          //   font-family: 'Material Icons';
+          //   content: "\E145";
+          //   color: $palette-pink-800;
+          //   font-size: 1.25rem;
+          //   float: right;
+          //   margin-top: -.25rem;
+          // }
+        }
+    }
+    .panel-collapse {
+        margin-top: 5px !important;
+    }
+    .panel {
+      background-color: $white;
+      border-bottom: 1px solid $palette-grey-200;
+    }
+    .panel-body {
+      p:last-child, ul:last-child, ol:last-child {
+        margin-bottom: 0;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        li {
+          padding: 0 0 1rem 0;
+          &:before {
+            color: $palette-pink-500;
+            content: "\2022";
+            padding-right: .8725rem;
+            vertical-align: top;
+            }
+        }
+      }
+      a, button {
+        font-size: 1rem;
+          &.refLink {
+          color: $palette-pink-500;
+          &:hover {
+            color: $palette-blue-500;
+          }
+        }
+      }
+      .badge {
+        border-radius: 0;
+      }
+      .treatment-wrap {
+        h5 {
+          color: $palette-pink-500;
+          font-weight: bold;
+        }
+        .treatment-box {
+          background: #e5eef7;
+          border: 1px solid #2a6ebb;
+          padding: 1rem;
+        }
+        p {
+          margin-bottom: .5rem;
+        }
+        .small-or {
+          color: $palette-pink-500;
+          font-style: italic;
+          font-weight: 700;
+        }
+        .and-or {
+          display: block;
+          background-color: #416b9b;
+          color: $white;
+          font-weight: bold;
+          padding: .25rem 0 .25rem 1rem;
+          margin-left: -1rem;
+          margin-right: -1rem;
+        }
+      }
+      img.cochraneInline {
+        padding: 0 .1rem;
+        width: 5.5rem;
+      }
+      .btn.btn-link {
+        padding: 0 0 0 0;
+        min-width: initial;
+      }
+    }
+  }
+}
+
+// Nested
+.treatment-table {
+  .panel-group#nested {
+    box-shadow: none;
+    margin-top: -4px;
+    .panel-heading h4 {
+      font-size: $font-size-subheading;
+        a {
+          background-color: $white;
+          font-weight: bold;
+          &.collapsed {
+            background-color: #fff;
+          }
+        }
+    }
+    .panel-body {
+      margin: 0 1rem 2rem 1rem;
+      }
+  }
+}
+
+// Media Queries for form inputwidths (sigh!)
+@include media-breakpoint-up(md) { 
+ .panel-heading {
+      h4 {
+        span.txLine {
+          display: inline-block !important;
+          text-align: right;
+          width: 17%;
+        }
+      }
+  }
+  .treatment-table .panel-group#nested .panel-body {
+    margin: 0 4rem 2rem 11.6rem;
+  }
+}
+
+// Custom chevrons - for example...
+// Chevron (top) - <span class="chevron top"></span>
+// Chevron (right) - <span class="chevron right"></span>
+// Chevron (bottom) - <span class="chevron bottom"></span>
+// Chevron (left) - <span class="chevron left"></span>
+
+.chevron {
+  float: right;
+  &::before {
+    border-style: solid;
+    border-width: .15em .15em 0 0;
+    content: '';
+    color: $palette-pink-800;
+    display: inline-block;
+    height: 0.5em;
+    left: 2rem;
+    position: relative;
+    top: 4px !important;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.5em;
+  }
+  &.right:before {
+    left: 0;
+    transform: rotate(45deg);
+  }
+  &.bottom:before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &.left:before {
+    left: 0.25em;
+    transform: rotate(-135deg);
+  }
+}
+
+// Fix for 'view all' chevron
+span.viewAll span.chevron.bottom {
+  &::before {
+    left: 0;
+  }
+}
+
+// Treatment Table Popover types
+
+.a-evidence {
+  &.dropup {
+    display: inline;
+    }
+  .dropdown-toggle {
+    &:after {
+      content: none;
+    }
+  }
+}
