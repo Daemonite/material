@@ -17,6 +17,40 @@
   left: 0;
   z-index: map-get($dialog-elevation-shadow, elevation);
 
+  &.bs-popover-auto {
+    &[x-placement^="top"] {
+      @extend .bs-popover-top;
+    }
+
+    &[x-placement^="right"] {
+      @extend .bs-popover-right;
+    }
+
+    &[x-placement^="bottom"] {
+      @extend .bs-popover-bottom;
+    }
+
+    &[x-placement^="left"] {
+      @extend .bs-popover-left;
+    }
+  }
+
+  &.bs-popover-top {
+    margin-bottom: $tooltip-margin;
+  }
+
+  &.bs-popover-right {
+    margin-left: $tooltip-margin;
+  }
+
+  &.bs-popover-left {
+    margin-right: $tooltip-margin;
+  }
+
+  &.bs-popover-bottom {
+    margin-top: $tooltip-margin;
+  }
+
   &.fade,
   &.fade.show {
     transform: none;
@@ -24,26 +58,6 @@
 
   &.fade {
     transition-property: opacity;
-  }
-
-  &.bs-tether-element-attached-bottom,
-  &.popover-top {
-    margin-top: ($tooltip-margin * -1);
-  }
-
-  &.bs-tether-element-attached-left,
-  &.popover-right {
-    margin-left: $tooltip-margin;
-  }
-
-  &.bs-tether-element-attached-right,
-  &.popover-left {
-    margin-left: ($tooltip-margin * -1);
-  }
-
-  &.bs-tether-element-attached-top,
-  &.popover-bottom {
-    margin-top: $tooltip-margin;
   }
 }
 
@@ -69,23 +83,19 @@
 
 @include media-breakpoint-up(md) {
   .popover {
-    &.bs-tether-element-attached-bottom,
-    &.popover-top {
-      margin-top: ($tooltip-margin-md-up * -1);
+    &.bs-popover-top {
+      margin-bottom: $tooltip-margin-md-up;
     }
 
-    &.bs-tether-element-attached-left,
-    &.popover-right {
+    &.bs-popover-right {
       margin-left: $tooltip-margin-md-up;
     }
 
-    &.bs-tether-element-attached-right,
-    &.popover-left {
-      margin-left: ($tooltip-margin-md-up * -1);
+    &.bs-popover-left {
+      margin-right: $tooltip-margin-md-up;
     }
 
-    &.bs-tether-element-attached-top,
-    &.popover-bottom {
+    &.bs-popover-bottom {
       margin-top: $tooltip-margin-md-up;
     }
   }
