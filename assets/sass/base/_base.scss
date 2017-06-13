@@ -20,6 +20,20 @@
 
 // Document
 
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
 body {
   background-color: $body-bg;
   color: $body-color;
@@ -34,9 +48,10 @@ html {
   box-sizing: border-box;
   font-family: sans-serif;
   line-height: 1.15;
+  -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: $webkit-tap-highlight-color;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 [tabindex="-1"]:focus {
@@ -121,13 +136,6 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
 button,
 input {
   overflow: visible;
@@ -138,14 +146,11 @@ select {
   text-transform: none;
 }
 
-button {
-  // Active, focus, hover
-  &:focus {
-    // scss-lint:disable DuplicateProperty
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    // scss-lint:enable DuplicateProperty
-  }
+button:focus {
+  // scss-lint:disable DuplicateProperty
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  // scss-lint:enable DuplicateProperty
 }
 
 fieldset {
@@ -355,7 +360,9 @@ dfn {
   font-style: italic;
 }
 
-dl {
+dl,
+ol,
+ul {
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -377,12 +384,6 @@ h6 {
 mark {
   background-color: $mark-bg;
   color: $mark-color;
-}
-
-ol,
-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 ol ol,
