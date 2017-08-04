@@ -3,40 +3,18 @@ layout: docs
 title: Buttons
 description: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 group: components
-redirect_from: "/components/"
+redirect_from: "/docs/4.0/components/"
+toc: true
 ---
-
-Use Bootstrap's custom button styles for actions in forms, dialogs, and more. Includes support for a handful of contextual variations, sizes, states, and more.
-
-## Contents
-
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
 
 ## Examples
 
-Bootstrap includes six predefined button styles, each serving its own semantic purpose.
+Bootstrap includes several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control.
 
 {% example html %}
-<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<button type="button" class="btn btn-primary">Primary</button>
+{% for color in site.data.theme-colors %}
+<button type="button" class="btn btn-{{ color.name }}">{{ color.name | capitalize }}</button>{% endfor %}
 
-<!-- Secondary, outline button -->
-<button type="button" class="btn btn-secondary">Secondary</button>
-
-<!-- Indicates a successful or positive action -->
-<button type="button" class="btn btn-success">Success</button>
-
-<!-- Contextual button for informational alert messages -->
-<button type="button" class="btn btn-info">Info</button>
-
-<!-- Indicates caution should be taken with this action -->
-<button type="button" class="btn btn-warning">Warning</button>
-
-<!-- Indicates a dangerous or potentially negative action -->
-<button type="button" class="btn btn-danger">Danger</button>
-
-<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
 <button type="button" class="btn btn-link">Link</button>
 {% endexample %}
 
@@ -62,14 +40,9 @@ When using button classes on `<a>` elements that are used to trigger in-page fun
 In need of a button, but not the hefty background colors they bring? Replace the default modifier classes with the `.btn-outline-*` ones to remove all background images and colors on any button.
 
 {% example html %}
-<button type="button" class="btn btn-outline-primary">Primary</button>
-<button type="button" class="btn btn-outline-secondary">Secondary</button>
-<button type="button" class="btn btn-outline-success">Success</button>
-<button type="button" class="btn btn-outline-info">Info</button>
-<button type="button" class="btn btn-outline-warning">Warning</button>
-<button type="button" class="btn btn-outline-danger">Danger</button>
+{% for color in site.data.theme-colors %}
+<button type="button" class="btn btn-outline-{{ color.name }}">{{ color.name | capitalize }}</button>{% endfor %}
 {% endexample %}
-
 
 ## Sizes
 
@@ -151,13 +124,13 @@ Note that pre-checked buttons require you to manually add the `.active` class to
 
 {% example html %}
 <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
+  <label class="btn btn-secondary active">
     <input type="checkbox" checked autocomplete="off"> Checkbox 1 (pre-checked)
   </label>
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="checkbox" autocomplete="off"> Checkbox 2
   </label>
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="checkbox" autocomplete="off"> Checkbox 3
   </label>
 </div>
@@ -165,13 +138,13 @@ Note that pre-checked buttons require you to manually add the `.active` class to
 
 {% example html %}
 <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
+  <label class="btn btn-secondary active">
     <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
   </label>
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
   </label>
-  <label class="btn btn-primary">
+  <label class="btn btn-secondary">
     <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
   </label>
 </div>

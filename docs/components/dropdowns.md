@@ -3,14 +3,22 @@ layout: docs
 title: Dropdowns
 description: Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.
 group: components
+toc: true
 ---
+
+## Overview
 
 Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision.](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/)
 
-## Contents
+Dropdowns are built on a third party library, [Popper.js](https://popper.js.org), which provides dynamic positioning and viewport detection. Be sure to include [popper.min.js](https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js) before Bootstrap's JavaScript.
 
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
+## Accessibility
+
+The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/TR/wai-aria/roles#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
+
+Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
+
+However, Bootstrap does add built-in support for most standard keyboard menu interactions, such as the ability to move through individual `.dropdown-item` elements using the cursor keys and close the menu with the <kbd>ESC</kbd> key.
 
 ## Examples
 
@@ -37,7 +45,7 @@ And with `<a>` elements:
 
 {% example html %}
 <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown link
   </a>
 
@@ -478,11 +486,11 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 
 ## Usage
 
-Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show` class on the parent list item.
+Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show` class on the parent list item. The `data-toggle="dropdown"` attribute is relied on for closing dropdown menus at an application level, so it's a good idea to always use it.
 
-On mobile devices, opening a dropdown adds a `.dropdown-backdrop` as a tap area for closing dropdown menus when tapping outside the menu, a requirement for proper iOS support. **This means that switching from an open dropdown menu to a different dropdown menu requires an extra tap on mobile.**
-
-Note: The `data-toggle="dropdown"` attribute is relied on for closing dropdown menus at an application level, so it's a good idea to always use it.
+{% callout info %}
+On touch-enabled devices, opening a dropdown adds empty (`$.noop`) `mouseover` handlers to the immediate children of the `<body>` element. This admittedly ugly hack is necessary to work around a [quirk in iOS' event delegation](https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html), which would otherwise prevent a tap anywhere outside of the dropdown from triggering the code that closes the dropdown. Once the dropdown is closed, these additional empty `mouseover` handlers are removed.
+{% endcallout %}
 
 ### Via data attributes
 
@@ -515,13 +523,47 @@ Regardless of whether you call your dropdown via JavaScript or instead use the d
 
 ### Options
 
-*None.*
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-placement=""`.
+
+<table class="table table-bordered table-striped table-responsive">
+  <thead>
+    <tr>
+      <th style="width: 100px;">Name</th>
+      <th style="width: 100px;">Type</th>
+      <th style="width: 50px;">Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>placement</td>
+      <td>string</td>
+      <td>'bottom'</td>
+      <td>
+        <p>How to position the popover - top | bottom.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>offset</td>
+      <td>number | string</td>
+      <td>0</td>
+      <td>Offset of the dropdown relative to its target. For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..offset.offset">offset docs</a>.</td>
+    </tr>
+    <tr>
+      <td>flip</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Allow Dropdown to flip in case of an overlapping on the reference element. For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..flip.enabled">flip docs</a>.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Methods
 
 | Method | Description |
 | --- | --- |
 | `$().dropdown('toggle')` | Toggles the dropdown menu of a given navbar or tabbed navigation. |
+| `$().dropdown('update')` | Updates the position of an element's dropdown. |
 
 ### Events
 

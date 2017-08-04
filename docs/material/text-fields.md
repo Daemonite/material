@@ -46,3 +46,14 @@ It is recommended to run the following JavaScript code until the document is rea
 {% highlight js %}
 $('.floating-label').floatinglabel();
 {% endhighlight %}
+
+## Multi-line fields
+
+Multi-line text fields wrap text onto a new line by expanding the bottom of the field, shifting screen elements downward. Multi-line text fields allow users to see everything they input at once. Implementations of this requires `material.js`.
+
+{% example html %}
+<div class="form-group floating-label">
+  <label for="exampleTextarea1">Floating label</label>
+  <textarea class="form-control textarea-autosize" id="exampleTextarea1" rows="1"></textarea>
+</div>
+{% endexample %}

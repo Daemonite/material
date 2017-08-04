@@ -1,16 +1,10 @@
 ---
 layout: docs
 title: Modal
-description: Learn how to use Bootstrap's modals to add dialog prompts to your site.
+description: Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
 group: components
+toc: true
 ---
-
-Modals are streamlined, but flexible dialog prompts powered by JavaScript. They support a number of use cases from user notification to completely custom content and feature a handful of helpful subcomponents, sizes, and more.
-
-## Contents
-
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
 
 ## How it works
 
@@ -20,8 +14,8 @@ Before getting started with Bootstrap's modal component, be sure to read the fol
 - Clicking on the modal "backdrop" will automatically close the modal.
 - Bootstrap only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor user experiences.
 - Modals use `position: fixed`, which can sometimes be a bit particular about its rendering. Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements. You'll likely run into issues when nesting a `.modal` within another fixed element.
-- One again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs]({{ site.baseurl }}/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile) for details.
-- Lastly, the `autofocus` HTML attribute has no affect in modals. Here's how you can achieve the same effect with custom JavaScript.
+- Once again, due to `position: fixed`, there are some caveats with using modals on mobile devices. [See our browser support docs]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile) for details.
+- Lastly, the `autofocus` HTML attribute has no effect in modals. Here's how you can achieve the same effect with custom JavaScript.
 
 Keep reading for demos and usage guidelines.
 
@@ -63,7 +57,7 @@ Below is a _static_ modal example (meaning its `position` and `display` have bee
 </div>
 
 {% highlight html %}
-<div class="modal fade">
+<div class="modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -121,7 +115,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -219,7 +213,7 @@ When modals become too long for the user's viewport or device, they scroll indep
 
 ### Tooltips and popovers
 
-[Tooltips]({{ site.baseurl }}/components/tooltips/) and [popovers]({{ site.baseurl }}/components/popovers/) can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.
+[Tooltips]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/tooltips/) and [popovers]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/popovers/) can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.
 
 <div id="exampleModalPopovers" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -232,10 +226,10 @@ When modals become too long for the user's viewport or device, they scroll indep
       </div>
       <div class="modal-body">
         <h5>Popover in a modal</h5>
-        <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+        <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute." data-container="#exampleModalPopovers">button</a> triggers a popover on click.</p>
         <hr>
         <h5>Tooltips in a modal</h5>
-        <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
+        <p><a href="#" class="tooltip-test" title="Tooltip" data-container="#exampleModalPopovers">This link</a> and <a href="#" class="tooltip-test" title="Tooltip" data-container="#exampleModalPopovers">that link</a> have tooltips on hover.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -276,14 +270,14 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
         <div class="container-fluid bd-example-row">
           <div class="row">
             <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+            <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
           </div>
           <div class="row">
-            <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-            <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+            <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+            <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
           </div>
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+            <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
           </div>
           <div class="row">
             <div class="col-sm-9">
@@ -319,14 +313,14 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">.col-md-4</div>
-      <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+      <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
     </div>
     <div class="row">
-      <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-      <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
+      <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+      <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+      <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
     </div>
     <div class="row">
       <div class="col-sm-9">
@@ -347,7 +341,7 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
 
 ### Varying modal content
 
-Have a bunch of buttons that all trigger the same modal with slightly different contents? Use `event.relatedTarget` and [HTML `data-*` attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes) (possibly [via jQuery](https://api.jquery.com/data/)) to vary the contents of the modal depending on which button was clicked.
+Have a bunch of buttons that all trigger the same modal with slightly different contents? Use `event.relatedTarget` and [HTML `data-*` attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) (possibly [via jQuery](https://api.jquery.com/data/)) to vary the contents of the modal depending on which button was clicked.
 
 Below is a live demo followed by example HTML and JavaScript. For more information, [read the modal events docs](#events) for details on `relatedTarget`.
 
@@ -410,7 +404,7 @@ For modals that simply appear rather than fade in to view, remove the `.fade` cl
 
 ### Dynamic heights
 
-If the height of a modal changes while it is open, you should call `$('#myModal').data('bs.modal').handleUpdate()` to readjust the modal's position in case a scrollbar appears.
+If the height of a modal changes while it is open, you should call `$('#myModal').data('bs.modal').handleUpdate()` or `$('#myModal').modal('handleUpdate')` to readjust the modal's position in case a scrollbar appears.
 
 ### Accessibility
 
@@ -510,42 +504,45 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 
 <table class="table table-bordered table-striped table-responsive">
   <thead>
-   <tr>
-     <th style="width: 100px;">Name</th>
-     <th style="width: 50px;">Type</th>
-     <th style="width: 50px;">Default</th>
-     <th>Description</th>
-   </tr>
+    <tr>
+      <th style="width: 100px;">Name</th>
+      <th style="width: 50px;">Type</th>
+      <th style="width: 50px;">Default</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-   <tr>
-     <td>backdrop</td>
-     <td>boolean or the string <code>'static'</code></td>
-     <td>true</td>
-     <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
-   </tr>
-   <tr>
-     <td>keyboard</td>
-     <td>boolean</td>
-     <td>true</td>
-     <td>Closes the modal when escape key is pressed</td>
-   </tr>
-   <tr>
-     <td>focus</td>
-     <td>boolean</td>
-     <td>true</td>
-     <td>Puts the focus on the modal when initialized.</td>
-   </tr>
-   <tr>
-     <td>show</td>
-     <td>boolean</td>
-     <td>true</td>
-     <td>Shows the modal when initialized.</td>
-   </tr>
+    <tr>
+      <td>backdrop</td>
+      <td>boolean or the string <code>'static'</code></td>
+      <td>true</td>
+      <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
+    </tr>
+    <tr>
+      <td>keyboard</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Closes the modal when escape key is pressed</td>
+    </tr>
+    <tr>
+      <td>focus</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Puts the focus on the modal when initialized.</td>
+    </tr>
+    <tr>
+      <td>show</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Shows the modal when initialized.</td>
+    </tr>
   </tbody>
 </table>
 
 ### Methods
+
+{% capture callout-include %}{% include callout-danger-async-methods.md %}{% endcapture %}
+{{ callout-include | markdownify }}
 
 #### `.modal(options)`
 
@@ -575,34 +572,40 @@ Manually hides a modal. **Returns to the caller before the modal has actually be
 
 {% highlight js %}$('#myModal').modal('hide'){% endhighlight %}
 
+#### `.modal('handleUpdate')`
+
+Manually readjust the modal's position if the height of a modal changes while it is open (i.e. in case a scrollbar appears).
+
+{% highlight js %}$('#myModal').modal('handleUpdate'){% endhighlight %}
+
 ### Events
 
 Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
 
 <table class="table table-bordered table-striped table-responsive">
   <thead>
-   <tr>
-     <th style="width: 150px;">Event Type</th>
-     <th>Description</th>
-   </tr>
+    <tr>
+      <th style="width: 150px;">Event Type</th>
+      <th>Description</th>
+    </tr>
   </thead>
   <tbody>
-   <tr>
-     <td>show.bs.modal</td>
-     <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-   </tr>
-   <tr>
-     <td>shown.bs.modal</td>
-     <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-   </tr>
-   <tr>
-     <td>hide.bs.modal</td>
-     <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-   </tr>
-   <tr>
-     <td>hidden.bs.modal</td>
-     <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
-   </tr>
+    <tr>
+      <td>show.bs.modal</td>
+      <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+    </tr>
+    <tr>
+      <td>shown.bs.modal</td>
+      <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+    </tr>
+    <tr>
+      <td>hide.bs.modal</td>
+      <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+    </tr>
+    <tr>
+      <td>hidden.bs.modal</td>
+      <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+    </tr>
   </tbody>
 </table>
 

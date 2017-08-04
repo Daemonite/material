@@ -3,15 +3,9 @@ layout: docs
 title: Overview
 description: Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.
 group: layout
-redirect_from: "/layout/"
+redirect_from: "/docs/4.0/layout/"
+toc: true
 ---
-
-Bootstrap includes several components and options for laying out your project, including wrapping containers, a powerful flexbox grid system, a flexible media object, and responsive utility classes.
-
-## Contents
-
-* Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
 
 ## Containers
 
@@ -169,7 +163,6 @@ We don't encourage customization of these values; should you change one, you lik
 
 ```scss
 $zindex-dropdown-backdrop:  990 !default;
-$zindex-navbar:            1000 !default;
 $zindex-dropdown:          1000 !default;
 $zindex-fixed:             1030 !default;
 $zindex-sticky:            1030 !default;
