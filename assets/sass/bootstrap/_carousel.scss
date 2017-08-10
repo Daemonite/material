@@ -1,7 +1,6 @@
 .carousel {
   position: relative;
 
-  // Active, focus, hover
   @include hover {
     .carousel-control-next,
     .carousel-control-prev {
@@ -33,25 +32,37 @@
   display: flex;
 }
 
-.carousel-item-next,
+.carousel-item-left.active,
 .carousel-item-prev {
-  position: absolute;
-  top: 0;
+  transform: translateX(-100%);
+
+  @supports (transform-style: preserve-3d) {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
 
-.carousel-item-next.carousel-item-left,
+.carousel-item-left.carousel-item-next,
 .carousel-item-prev.carousel-item-right {
-  transform: translate3d(0, 0, 0);
+  transform: translateX(0);
+
+  @supports (transform-style: preserve-3d) {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .carousel-item-next,
 .carousel-item-right.active {
-  transform: translate3d(100%, 0, 0);
+  transform: translateX(100%);
+
+  @supports (transform-style: preserve-3d) {
+    transform: translate3d(100%, 0, 0);
+  }
 }
 
-.carousel-item-prev,
-.carousel-item-left.active {
-  transform: translate3d(-100%, 0, 0);
+.carousel-item-next,
+.carousel-item-prev {
+  position: absolute;
+  top: 0;
 }
 
 
@@ -61,31 +72,29 @@
 .carousel-control-next,
 .carousel-control-prev {
   align-items: center;
-  background-color: $btn-bg;
+  background-color: $carousel-control-bg;
   border-radius: 50%;
-  box-shadow: map-get($btn-float-elevation-shadow, shadow);
-  color: $btn-color;
+  box-shadow: map-get($carousel-control-elevation-shadow, shadow);
+  color: $carousel-control-color;
   display: flex;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  height: $btn-float-size-sm;
+  font-size: $carousel-control-font-size;
+  height: $carousel-control-size;
   justify-content: center;
-  margin-top: ($btn-float-size-sm / -2);
+  margin-top: ($carousel-control-size / -2);
   opacity: 0;
   position: absolute;
   top: 50%;
   user-select: none;
-  width: $btn-float-size-sm;
+  width: $carousel-control-size;
 
-  // Active, focus, hover
   @include active-focus-hover {
-    background-color: $btn-bg-active;
-    color: $btn-color;
+    background-color: $carousel-control-bg-active;
+    color: $carousel-control-color-active;
     text-decoration: none;
   }
 
   &:active {
-    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+    box-shadow: map-get($carousel-control-elevation-shadow-active, shadow);
   }
 
   &:focus {
@@ -94,11 +103,11 @@
 }
 
 .carousel-control-next {
-  right: ($btn-float-size-sm / 2);
+  right: ($carousel-control-size / 2);
 }
 
 .carousel-control-prev {
-  left: ($btn-float-size-sm / 2);
+  left: ($carousel-control-size / 2);
 }
 
 .carousel-control-next-icon,
@@ -139,25 +148,26 @@
   margin-bottom: 0;
   padding-left: 0;
   position: absolute;
-  right: ($btn-float-size-sm * 2);
+  right: ($carousel-control-size * 2);
   bottom: $carousel-indicator-size;
-  left: ($btn-float-size-sm * 2);
+  left: ($carousel-control-size * 2);
   z-index: 1;
 
   li {
     background-color: transparent;
-    border: 1px solid $carousel-indicator-color;
+    border: $carousel-indicator-border-width solid $carousel-indicator-border-color;
     border-radius: $carousel-indicator-size;
     flex: 0 0 auto;
     height: $carousel-indicator-size;
-    margin-right: 1px;
-    margin-left: 1px;
+    margin-right: $carousel-indicator-border-width;
+    margin-left: $carousel-indicator-border-width;
     overflow: hidden;
     text-indent: 100%;
+    white-space: nowrap;
     width: $carousel-indicator-size;
   }
 
   .active {
-    background-color: $carousel-indicator-color;
+    background-color: $carousel-indicator-bg;
   }
 }
