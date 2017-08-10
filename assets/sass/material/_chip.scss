@@ -6,24 +6,27 @@
   display: inline-block;
   font-size: $chip-font-size;
   font-weight: $chip-font-weight;
-  line-height: 1;
+  line-height: $chip-line-height;
   padding: $chip-padding-y $chip-padding-x;
   position: relative;
+  text-align: center;
   vertical-align: middle;
   white-space: nowrap;
 
   &:empty {
     display: none;
   }
+
+  .btn & {
+    border-radius: (($btn-padding-y + $chip-font-size * $chip-line-height) / 2);
+    margin-top: ($btn-padding-y / -2);
+    margin-bottom: ($btn-padding-y / -2);
+    padding: ($btn-padding-y / 2) ($btn-padding-x / 2);
+    vertical-align: baseline;
+  }
 }
 
 // Colour
-.badge-inverse,
-.chip-inverse {
-  background-color: $chip-bg-inverse;
-  color: $chip-color-inverse;
-}
-
 @each $color, $values in $theme-colors {
   .badge-#{$color},
   .chip-#{$color} {
