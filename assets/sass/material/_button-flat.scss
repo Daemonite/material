@@ -3,14 +3,11 @@
   background-color: transparent;
   box-shadow: none;
 
-  // Active, focus, hover
   &:active,
   &.active {
-    background-color: $btn-bg-active;
     box-shadow: none;
   }
 
-  // Disabled
   &:disabled,
   &.disabled {
     background-color: transparent;
@@ -23,6 +20,11 @@
   .btn-outline-#{$color} {
     @include plain-active-focus-hover {
       color: map-get(theme-color($color), color);
+    }
+
+    &:disabled,
+    &.disabled {
+      color: $btn-color-disabled;
     }
   }
 }
