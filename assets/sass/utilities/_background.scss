@@ -11,16 +11,13 @@
 @include bg-variant('.bg-light-3', $light-theme-3);
 @include bg-variant('.bg-light-4', $light-theme-4);
 
+@include bg-variant('.bg-transparent', transparent);
+@include bg-variant('.bg-white', $white);
+
 
 
 // Palette
 
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
-  @include bg-variant('.bg-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
+@each $color, $values in $theme-colors {
+  @include bg-variant('.bg-#{$color}', map-get(theme-color($color), color), map-get(theme-color($color), darker));
 }
-
-@include bg-variant('.bg-faded', $offwhite, $offwhite-dark);
-
-@include bg-variant('.bg-inverse', $dark-theme-4, $dark-theme-3);

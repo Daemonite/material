@@ -50,12 +50,10 @@
 }
 
 // Colour
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .form-control-#{$color} {
     @include plain-active-focus-hover {
-      border-color: nth($palettes-color, $i);
+      border-color: map-get(theme-color($color), color);
     }
   }
 }
@@ -154,11 +152,9 @@ textarea {
 
 // Form control state
 
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .has-#{$color} {
-    @include form-control-validation(nth($palettes-color, $i));
+    @include form-control-validation(map-get(theme-color($color), color));
   }
 }
 

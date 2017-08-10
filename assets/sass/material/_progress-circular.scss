@@ -126,21 +126,19 @@
 }
 
 // Colour
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .progress-circular-#{$color} {
     .progress-circular-gap,
     .progress-circular-spinner {
-      border-top-color: nth($palettes-color, $i);
+      border-top-color: map-get(theme-color($color), color);
     }
 
     .progress-circular-left .progress-circular-spinner {
-      border-left-color: nth($palettes-color, $i);
+      border-left-color: map-get(theme-color($color), color);
     }
 
     .progress-circular-right .progress-circular-spinner {
-      border-right-color: nth($palettes-color, $i);
+      border-right-color: map-get(theme-color($color), color);
     }
   }
 }

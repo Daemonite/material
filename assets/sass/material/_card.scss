@@ -26,27 +26,21 @@
 }
 
 // Colour
-.card-inverse {
-  background-color: $card-bg-inverse;
-  color: $card-color-inverse;
-}
-
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .card-#{$color} {
-    background-color: nth($palettes-color, $i);
-    color: nth($palettes-text-color, $i);
+    @include color-yiq(map-get(theme-color($color), color));
+
+    background-color: map-get(theme-color($color), color);
   }
 
-  .card-outline-#{$color} {
-    box-shadow: map-get($card-elevation-shadow, shadow), inset 0 0 1px 0 nth($palettes-color, $i);
+  .card.border-#{$color} {
+    box-shadow: map-get($card-elevation-shadow, shadow), inset 0 0 0 1px map-get(theme-color($color), color);
   }
 
-  .card-outline-#{$color}[href],
-  .card-outline-#{$color}[tabindex] {
+  .card.border-#{$color}[href],
+  .card.border-#{$color}[tabindex] {
     @include active-focus-hover {
-      box-shadow: map-get($card-elevation-shadow-active, shadow), inset 0 0 1px 0 nth($palettes-color, $i);
+      box-shadow: map-get($card-elevation-shadow-active, shadow), inset 0 0 0 1px map-get(theme-color($color), color);
     }
   }
 }

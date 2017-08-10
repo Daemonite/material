@@ -24,12 +24,11 @@
   color: $chip-color-inverse;
 }
 
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .badge-#{$color},
   .chip-#{$color} {
-    background-color: nth($palettes-color, $i);
-    color: nth($palettes-text-color, $i);
+    @include color-yiq(map-get(theme-color($color), color));
+
+    background-color: map-get(theme-color($color), color)
   }
 }

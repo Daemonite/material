@@ -12,17 +12,11 @@
 }
 
 // Colour
-.alert-inverse {
-  background-color: $card-bg-inverse;
-  color: $card-color-inverse;
-}
-
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .alert-#{$color} {
-    background-color: nth($palettes-color, $i);
-    color: nth($palettes-text-color, $i);
+    @include color-yiq(map-get(theme-color($color), color));
+
+    background-color: map-get(theme-color($color), color);
   }
 }
 

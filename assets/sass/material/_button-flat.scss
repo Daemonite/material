@@ -18,36 +18,11 @@
 }
 
 // Colour
-.btn-flat-inverse,
-.btn-outline-inverse {
-  @include plain-active-focus-hover {
-    color: $btn-color-inverse;
-  }
-
-  &::before {
-    background-color: $btn-flat-focus-overlay-inverse;
-  }
-
-  // Active, focus, hover
-  &:active,
-  &.active {
-    background-color: $btn-bg-inverse-active;
-  }
-
-  // Disabled
-  &:disabled,
-  &.disabled {
-    color: $btn-color-inverse-disabled;
-  }
-}
-
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .btn-flat-#{$color},
   .btn-outline-#{$color} {
     @include plain-active-focus-hover {
-      color: nth($palettes-color, $i);
+      color: map-get(theme-color($color), color);
     }
   }
 }

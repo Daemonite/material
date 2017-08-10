@@ -74,28 +74,29 @@
 }
 
 // Colour
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
+@each $color, $values in $theme-colors {
   .list-group-item-#{$color} {
-    background-color: nth($palettes-color, $i);
-    color: nth($palettes-text-color, $i);
+    @include color-yiq(map-get(theme-color($color), color));
+
+    background-color: map-get(theme-color($color), color);
 
     // Active, focus, hover
     @include active-focus-hover {
-      color: nth($palettes-text-color, $i);
+      @include color-yiq(map-get(theme-color($color), color));
     }
 
     &.active {
-      background-color: nth($palettes-color-dark, $i);
-      color: nth($palettes-text-color-dark, $i);
+      @include color-yiq(map-get(theme-color($color), darker));
+
+      background-color: map-get(theme-color($color), darker);
     }
 
     &.list-group-item-action {
       // Active, focus, hover
       @include active-focus-hover {
-        background-color: nth($palettes-color-dark, $i);
-        color: nth($palettes-text-color-dark, $i);
+        @include color-yiq(map-get(theme-color($color), darker));
+
+        background-color: map-get(theme-color($color), darkerr);
       }
     }
   }

@@ -24,6 +24,21 @@
   }
 }
 
+// Colour contrast
+@mixin color-yiq($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 150) {
+    color: $black-primary;
+  } @else {
+    color: $white-primary;
+  }
+}
+
 // Replace `$key` with `$replace` in `$content`
 @function str-replace($content, $key, $replace: '') {
   $index: str-index($content, $key);
@@ -33,6 +48,11 @@
   }
 
   @return $content;
+}
+
+// Return a theme colour palette
+@function theme-color($key: 'primary') {
+  @return map-get($theme-colors , $key);
 }
 
 

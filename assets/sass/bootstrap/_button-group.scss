@@ -27,12 +27,10 @@
   }
 
   // Colour
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
+  @each $color, $values in $theme-colors {
     > .btn-#{$color} {
       @include plain-active-focus-hover {
-        color: nth($palettes-color, $i);
+        color: map-get(theme-color($color), color);
       }
     }
   }

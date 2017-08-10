@@ -12,7 +12,7 @@
   @include text-truncate;
 }
 
-// horizontal
+// Responsive alignment
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint);
@@ -48,20 +48,12 @@
 @include text-emphasis-variant('.text-white-hint', $white-hint);
 @include text-emphasis-variant('.text-white-divider', $white-divider);
 
-// Default font colour
-@include text-emphasis-variant('.text-gray-dark', $black-primary, $black);
-
+@include text-emphasis-variant('.text-muted', $text-muted);
 
 // Palette
-@each $color in $palettes {
-  $i: index($palettes, $color);
-
-  @include text-emphasis-variant('.text-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
+@each $color, $values in $theme-colors {
+  @include text-emphasis-variant('.text-#{$color}', map-get(theme-color($color), color), map-get(theme-color($color), darker));
 }
-
-@include text-emphasis-variant('.text-muted', $text-muted, $text-muted-active);
-
-@include text-emphasis-variant('.text-inverse', $white-primary, $white);
 
 
 
