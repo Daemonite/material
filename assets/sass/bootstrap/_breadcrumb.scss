@@ -1,10 +1,12 @@
 .breadcrumb {
+  @include border-radius($breadcrumb-border-radius);
+
   align-items: center;
   background-color: $breadcrumb-bg;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-bottom: $breadcrumb-margin-bottom;
+  margin-bottom: $breadcrumb-margin-y;
   min-height: $breadcrumb-height;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
@@ -16,7 +18,6 @@
   color: $breadcrumb-item-color;
   display: flex;
 
-  // Active, focus, hover
   @include active-focus-hover {
     color: $breadcrumb-item-color-active;
   }
@@ -37,7 +38,7 @@
     color: $breadcrumb-item-color;
     content: $breadcrumb-item-icon;
     display: inline-block;
-    margin-right: $breadcrumb-item-padding;
-    margin-left: $breadcrumb-item-padding;
+    margin-right: $breadcrumb-inner-spacer-x;
+    margin-left: $breadcrumb-inner-spacer-x;
   }
 }
