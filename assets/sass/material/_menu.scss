@@ -5,6 +5,8 @@
 }
 
 .dropdown-menu {
+  @include border-bottom-radius($border-radius);
+
   color: inherit;
   display: none;
   float: left;
@@ -16,9 +18,12 @@
   padding: $menu-padding-y 0;
   position: absolute;
   text-align: left;
+  transform-origin: 0 0;
   z-index: map-get($menu-elevation-shadow, elevation);
 
   &::before {
+    @include border-bottom-radius($border-radius);
+
     background-clip: padding-box;
     background-color: $menu-bg;
     box-shadow: map-get($menu-elevation-shadow, shadow);
@@ -57,40 +62,28 @@
       animation-name: dropdown-item-show;
     }
 
-    > *:first-child {
+    > :nth-child(1) {
       animation-name: dropdown-item-show-1;
+    }
 
-      + * {
-        animation-name: dropdown-item-show-2;
+    > :nth-child(2) {
+      animation-name: dropdown-item-show-2;
+    }
 
-        + * {
-          animation-name: dropdown-item-show-3;
-        }
-      }
+    > :nth-child(3) {
+      animation-name: dropdown-item-show-3;
     }
   }
 }
 
-.dropdown-menu {
-  &,
-  &::before {
-    @include border-bottom-radius($border-radius);
-  }
-
-  &::before {
-    transform-origin: 0 0;
-  }
-}
-
 .menu {
+  @include border-radius($border-radius);
+
   margin-top: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
 
-  &,
   &::before {
     @include border-radius($border-radius);
-  }
 
-  &::before {
     transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
   }
 }
@@ -192,79 +185,63 @@
 }
 
 // Positioning
-.dropdown-menu {
-  &[x-placement="bottom-end"] {
-    &::before {
-      transform-origin: 100% 0;
-    }
+.dropdown-menu[x-placement="bottom-end"]::before {
+  transform-origin: 100% 0;
+}
+
+.dropdown-menu[x-placement="top-end"],
+.dropdown-menu[x-placement="top-start"] {
+  &,
+  &::before {
+    @include border-top-radius($border-radius);
+    @include border-bottom-radius(0);
   }
 
-  &[x-placement="top-end"],
-  &[x-placement="top-start"] {
-    &,
-    &::before {
-      @include border-top-radius($border-radius);
-      @include border-bottom-radius(0);
+  &.show {
+    > :nth-child(1),
+    > :nth-child(2),
+    > :nth-child(3) {
+      animation-name: dropdown-item-show;
     }
 
-    &.show {
-      > .dropdown-item:nth-child(1),
-      > .dropdown-item:nth-child(2),
-      > .dropdown-item:nth-child(3) {
-        animation-name: dropdown-item-show;
-      }
-
-      > .dropdown-item:nth-last-child(1) {
-        animation-name: dropdown-item-show-1;
-      }
-
-      > .dropdown-item:nth-last-child(2) {
-        animation-name: dropdown-item-show-2;
-      }
-
-      > .dropdown-item:nth-last-child(3) {
-        animation-name: dropdown-item-show-3;
-      }
+    > :nth-last-child(1) {
+      animation-name: dropdown-item-show-1;
     }
-  }
 
-  &[x-placement="top-end"] {
-    &::before {
-      transform-origin: 100% 100%;
+    > :nth-last-child(2) {
+      animation-name: dropdown-item-show-2;
     }
-  }
 
-  &[x-placement="top-start"] {
-    &::before {
-      transform-origin: 0 100%;
+    > :nth-last-child(3) {
+      animation-name: dropdown-item-show-3;
     }
   }
 }
 
-.menu {
-  &[x-placement="bottom-end"] {
-    &::before {
-      transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
-    }
-  }
+.dropdown-menu[x-placement="top-end"]::before {
+  transform-origin: 100% 100%;
+}
 
-  &[x-placement="top-end"],
-  &[x-placement="top-start"] {
-    margin-top: 0;
-    margin-bottom: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
-  }
+.dropdown-menu[x-placement="top-start"]::before {
+  transform-origin: 0 100%;
+}
 
-  &[x-placement="top-end"] {
-    &::before {
-      transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
-    }
-  }
+.menu[x-placement="bottom-end"]::before {
+  transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+}
 
-  &[x-placement="top-start"] {
-    &::before {
-      transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
-    }
-  }
+.menu[x-placement="top-end"],
+.menu[x-placement="top-start"] {
+  margin-top: 0;
+  margin-bottom: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
+}
+
+.menu[x-placement="top-end"]::before {
+  transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+}
+
+.menu[x-placement="top-start"]::before {
+  transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
 }
 
 // Size
