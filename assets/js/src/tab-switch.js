@@ -27,8 +27,7 @@ const TabSwitch = (($) => {
 
   const Selector = {
     DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
-    NAV         : '.nav-tabs',
-    NAV_ITEM    : '.nav-item'
+    NAV         : '.nav-tabs'
   }
   // <<< constants
 
@@ -49,15 +48,15 @@ const TabSwitch = (($) => {
         this._createIndicator()
       }
 
-      const elLeft        = $(element).closest(Selector.NAV_ITEM).offset().left
-      const elWidth       = $(element).closest(Selector.NAV_ITEM).outerWidth()
+      const elLeft        = $(element).offset().left
+      const elWidth       = $(element).outerWidth()
       const navLeft       = $(this._nav).offset().left
       const navScrollLeft = $(this._nav).scrollLeft()
       const navWidth      = $(this._nav).outerWidth()
 
       if (relatedTarget !== undefined) {
-        const relatedLeft  = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left
-        const relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth()
+        const relatedLeft  = $(relatedTarget).offset().left
+        const relatedWidth = $(relatedTarget).outerWidth()
 
         $(this._navindicator).css({
           left  : relatedLeft + navScrollLeft - navLeft,
