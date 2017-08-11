@@ -1,12 +1,12 @@
 .dropdown,
 .dropup {
   position: relative;
-  transform-style: preserve-3d;
 }
 
 .dropdown-menu {
-  @include border-bottom-radius($border-radius);
+  @include border-bottom-radius($menu-border-radius);
 
+  background-color: transparent;
   color: inherit;
   display: none;
   float: left;
@@ -18,11 +18,10 @@
   padding: $menu-padding-y 0;
   position: absolute;
   text-align: left;
-  transform-origin: 0 0;
   z-index: map-get($menu-elevation-shadow, elevation);
 
   &::before {
-    @include border-bottom-radius($border-radius);
+    @include border-bottom-radius($menu-border-radius);
 
     background-clip: padding-box;
     background-color: $menu-bg;
@@ -34,6 +33,7 @@
     right: 0;
     bottom: 0;
     left: 0;
+    transform-origin: 0 0;
     z-index: -1;
   }
 
@@ -74,15 +74,19 @@
       animation-name: dropdown-item-show-3;
     }
   }
+
+  .nav:not(.flex-column):not(.flex-column-reverse) & {
+    min-width: 100%;
+  }
 }
 
 .menu {
-  @include border-radius($border-radius);
+  @include border-radius($menu-border-radius);
 
   margin-top: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
 
   &::before {
-    @include border-radius($border-radius);
+    @include border-radius($menu-border-radius);
 
     transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
   }
@@ -193,7 +197,7 @@
 .dropdown-menu[x-placement="top-start"] {
   &,
   &::before {
-    @include border-top-radius($border-radius);
+    @include border-top-radius($menu-border-radius);
     @include border-bottom-radius(0);
   }
 
@@ -249,7 +253,8 @@
 .menu-cascading {
   font-size: $menu-font-size-cascading;
   line-height: $menu-line-height-cascading;
-  padding: $menu-padding-y-cascading 0;
+  padding-top: $menu-padding-y-cascading;
+  padding-bottom: $menu-padding-y-cascading;
 
   @include media-breakpoint-up(sm) {
     min-width: $menu-min-width-cascading;
@@ -263,6 +268,14 @@
   &[x-placement="top-start"] {
     margin-top: 0;
     margin-bottom: (($menu-link-height-cascading - ($menu-link-height-cascading - $menu-line-height-cascading) / 2) * -1 + $menu-padding-y-cascading * -1);
+  }
+
+  &[x-placement="top-end"]::before {
+    transform-origion: 100% calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
+  }
+
+  &[x-placement="top-start"]::before {
+    transform-origin: 0 calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
   }
 }
 
@@ -279,31 +292,34 @@
   color: $menu-link-color;
   display: block;
   font-weight: normal;
-  padding: $menu-link-padding;
+  padding: $menu-link-padding-y $menu-link-padding-x;
   position: relative;
   text-align: inherit;
   transform-origin: 0 0;
   white-space: nowrap;
   width: 100%;
 
-  // Active, focus, hover
   @include active-focus-hover {
     background-color: $menu-link-bg-active;
-    color: $menu-link-color;
+    color: $menu-link-color-active;
     text-decoration: none;
   }
 
-  // Disabled
+  &.active {
+    background-color: $menu-link-bg-active;
+    color: $menu-link-color-active;
+  }
+
+  &:disabled,
   &.disabled {
-    background-color: transparent;
+    background-color: $menu-link-bg-disabled;
     color: $menu-link-color-disabled;
     pointer-events: none;
   }
 
-  // Size
   .dropdown-menu-sm &,
   .menu-cascading & {
-    padding: $menu-link-padding-cascading;
+    padding: $menu-link-padding-y-cascading $menu-link-padding-x-cascading;
   }
 }
 
@@ -320,18 +336,20 @@
 // Header
 
 .dropdown-header {
-  color: $menu-link-color;
+  color: $menu-header-color;
   display: block;
   font-size: $menu-font-size;
   font-weight: bolder;
   line-height: $menu-line-height;
   margin: 0;
-  padding: $menu-link-padding;
+  padding: $menu-link-padding-y $menu-link-padding-x;
   white-space: nowrap;
 
   .dropdown-menu-sm &,
   .menu-cascading & {
-    padding: $menu-link-padding-cascading;
+    fong-size: $menu-font-size-cascading;
+    line-height: $menu-line-height-cascading;
+    padding: $menu-link-padding-y-cascading $menu-link-padding-x-cascading;
   }
 }
 
