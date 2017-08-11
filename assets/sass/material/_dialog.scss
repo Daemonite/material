@@ -22,7 +22,17 @@
   }
 
   &.fade {
-    @include transition-standard-complex(opacity, transform);
+    @include transition-standard-complex(opacity);
+
+    .modal-dialog {
+      @include transition-standard-complex(transform);
+
+      transform: scale($dialog-scale);
+    }
+  }
+
+  &.show .modal-dialog {
+    transform: scale(1);
   }
 }
 
@@ -48,15 +58,6 @@
   bottom: 0;
   left: 0;
   z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
-
-  &.fade,
-  &.fade.show {
-    transform: none;
-  }
-
-  &.fade {
-    @include transition-standard-complex(opacity);
-  }
 }
 
 
