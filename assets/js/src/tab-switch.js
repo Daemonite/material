@@ -14,11 +14,12 @@ const TabSwitch = (($) => {
   const TRANSITION_DURATION = 390
 
   const ClassName = {
-    ANIMATE    : 'animate',
-    INDICATOR  : 'nav-tabs-indicator',
-    MATERIAL   : 'nav-tabs-material',
-    SCROLLABLE : 'nav-tabs-scrollable',
-    SHOW       : 'show'
+    ANIMATE       : 'animate',
+    DROPDOWN_ITEM : 'dropdown-item',
+    INDICATOR     : 'nav-tabs-indicator',
+    MATERIAL      : 'nav-tabs-material',
+    SCROLLABLE    : 'nav-tabs-scrollable',
+    SHOW          : 'show'
   }
 
   const Event = {
@@ -26,8 +27,9 @@ const TabSwitch = (($) => {
   }
 
   const Selector = {
-    DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
-    NAV         : '.nav-tabs'
+    DATA_TOGGLE   : '.nav-tabs [data-toggle="tab"]',
+    DROPDOWN      : '.dropdown',
+    NAV           : '.nav-tabs'
   }
   // <<< constants
 
@@ -42,33 +44,27 @@ const TabSwitch = (($) => {
     }
 
     switch(element, relatedTarget) {
+      const navLeft            = $(this._nav).offset().left
+      const navScrollLeft      = $(this._nav).scrollLeft()
+      const navWidth           = $(this._nav).outerWidth()
       const supportsTransition = Util.supportsTransitionEnd()
 
       if (!this._navindicator) {
-        this._createIndicator()
+        this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget)
       }
 
-      const elLeft        = $(element).offset().left
-      const elWidth       = $(element).outerWidth()
-      const navLeft       = $(this._nav).offset().left
-      const navScrollLeft = $(this._nav).scrollLeft()
-      const navWidth      = $(this._nav).outerWidth()
+      if ($(element).hasClass(ClassName.DROPDOWN_ITEM)) {
+        element = $(element).closest(Selector.DROPDOWN)
+      }
 
-      if (relatedTarget !== undefined) {
-        const relatedLeft  = $(relatedTarget).offset().left
-        const relatedWidth = $(relatedTarget).outerWidth()
+      const elLeft  = $(element).offset().left
+      const elWidth = $(element).outerWidth()
 
-        $(this._navindicator).css({
-          left  : relatedLeft + navScrollLeft - navLeft,
-          right : navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
-        })
+      $(this._navindicator).addClass(ClassName.SHOW)
+      Util.reflow(this._navindicator)
 
-        $(this._navindicator).addClass(ClassName.SHOW)
-        Util.reflow(this._navindicator)
-
-        if (supportsTransition) {
-          $(this._nav).addClass(ClassName.ANIMATE)
-        }
+      if (supportsTransition) {
+        $(this._nav).addClass(ClassName.ANIMATE)
       }
 
       $(this._navindicator).css({
@@ -91,12 +87,26 @@ const TabSwitch = (($) => {
       .emulateTransitionEnd(TRANSITION_DURATION)
     }
 
-    _createIndicator() {
+    _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
       this._navindicator = document.createElement('div')
 
       $(this._navindicator)
       .addClass(ClassName.INDICATOR)
       .appendTo(this._nav)
+
+      if (relatedTarget !== undefined) {
+        if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
+          relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN)
+        }
+
+        const relatedLeft  = $(relatedTarget).offset().left
+        const relatedWidth = $(relatedTarget).outerWidth()
+
+        $(this._navindicator).css({
+          left  : relatedLeft + navScrollLeft - navLeft,
+          right : navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
+        })
+      }
 
       $(this._nav).addClass(ClassName.MATERIAL)
     }
