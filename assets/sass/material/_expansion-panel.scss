@@ -15,40 +15,42 @@
 
   background-color: $expansion-panel-bg;
   border: 0;
-  border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
   box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
   color: $expansion-panel-color;
   display: block;
   font-size: $expansion-panel-font-size;
+  line-height: $expansion-panel-line-height;
   min-height: $expansion-panel-height;
-  padding: $expansion-panel-inner-spacer-y $expansion-panel-inner-spacer-x;
+  padding: $expansion-panel-padding-y $expansion-panel-padding-x;
   position: relative;
 
-  // Active, focus, hover
   @include active-focus-hover {
     color: $expansion-panel-color;
     text-decoration: none;
   }
 
-  &.active {
-    background-color: $expansion-panel-bg-active;
-  }
-
-  // Disabled
+  &:disabled,
   &.disabled {
     background-color: $expansion-panel-bg-disabled;
     color: $expansion-panel-color-disabled;
   }
 
-  // First and last child variations
   &:first-child {
     @include border-top-radius($border-radius);
   }
 
   &:last-child {
     @include border-bottom-radius($border-radius);
+  }
 
-    border-bottom: 0;
+  &.active {
+    background-color: $expansion-panel-bg-active;
+    color: $expansion-panel-color-active;
+  }
+
+  .card & {
+    padding-right: $card-padding-x;
+    padding-left: $card-padding-x;
   }
 }
 
@@ -57,46 +59,40 @@
   text-align: inherit;
   width: 100%;
 
-  // Active, focus, hover
   @include active-focus-hover {
     background-color: $expansion-panel-bg-active;
+    color: $expansion-panel-color-active;
+  }
+
+  &:disabled,
+  &.disabled {
+    background-color: $expansion-panel-bg-disabled;
+    color: $expansion-panel-color-disabled;
   }
 
   &:focus {
     outline: 0;
-  }
-
-  // Disabled
-  &.disabled {
-    background-color: $expansion-panel-bg-disabled;
-    pointer-events: none;
   }
 }
 
 // Colour
 @each $color, $values in $theme-colors {
   .list-group-item-#{$color} {
-    @include color-yiq(map-get(theme-color($color), color));
+    @include color-yiq(map-get(theme-color($color), lighter));
 
-    background-color: map-get(theme-color($color), color);
-
-    // Active, focus, hover
-    @include active-focus-hover {
-      @include color-yiq(map-get(theme-color($color), color));
-    }
+    background-color: map-get(theme-color($color), lighter);
 
     &.active {
-      @include color-yiq(map-get(theme-color($color), darker));
+      @include color-yiq(map-get(theme-color($color), color));
 
-      background-color: map-get(theme-color($color), darker);
+      background-color: map-get(theme-color($color), color);
     }
 
     &.list-group-item-action {
-      // Active, focus, hover
       @include active-focus-hover {
-        @include color-yiq(map-get(theme-color($color), darker));
+        @include color-yiq(map-get(theme-color($color), color));
 
-        background-color: map-get(theme-color($color), darkerr);
+        background-color: map-get(theme-color($color), color);
       }
     }
   }
@@ -108,12 +104,9 @@
 
 .list-group-flush {
   .list-group-item {
+    border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
     border-radius: 0;
     box-shadow: none;
-
-    &:first-child {
-      border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
-    }
 
     &:last-child {
       border-bottom: $expansion-panel-border-width solid $expansion-panel-border-color;
