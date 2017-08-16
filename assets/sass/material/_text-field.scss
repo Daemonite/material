@@ -1,7 +1,7 @@
 .form-control,
 %form-control {
-  @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
-  @include transition-standard(border-color);
+  @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
+  @include transition-standard(border-color, box-shadow);
 
   background-clip: padding-box;
   background-color: transparent;
@@ -11,31 +11,36 @@
   border-style: solid;
   border-width: 0 0 $textfield-border-width;
   box-shadow: none;
-  color: inherit;
+  color: $textfield-color;
   display: block;
   width: 100%;
 
-  // Active, focus, hover
   @include hover {
     border-color: $textfield-border-color-hover;
-    border-bottom-width: ($border-width * 2);
+    box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
+  }
+
+  &:disabled,
+  &[readonly] {
+    border-style: dotted;
+    color: $textfield-color-disabled;
+    opacity: 1;
+
+    @include hover {
+      border-color: $textfield-border-color;
+      box-shadow: none;
+    }
+
+    &:focus {
+      border-color: $textfield-border-color;
+      box-shadow: none;
+    }
   }
 
   &:focus {
     border-color: $textfield-border-color-focus;
-    border-bottom-width: ($border-width * 2);
+    box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
     outline: 0;
-  }
-
-  // Disbaled
-  &:disabled,
-  &[readonly] {
-    @include plain-active-focus-hover {
-      border-color: $textfield-border-color;
-      border-style: dotted;
-      color: $textfield-color-disabled;
-      opacity: 1;
-    }
   }
 
   &::-ms-expand {
@@ -52,8 +57,11 @@
 // Colour
 @each $color, $values in $theme-colors {
   .form-control-#{$color} {
-    @include plain-active-focus-hover {
+    border-color: map-get(theme-color($color), color);
+
+    @include focus-hover {
       border-color: map-get(theme-color($color), color);
+      box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) map-get(theme-color($color), color);
     }
   }
 }
@@ -61,59 +69,29 @@
 // Size
 .form-control-lg,
 %form-control-lg {
-  @include form-control-size($textfield-border-width, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+  @include form-control-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-x-lg, $textfield-padding-y-lg);
 }
 
 .form-control-sm,
 %form-control-sm {
-  @include form-control-size($textfield-border-width, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+  @include form-control-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-x-sm, $textfield-padding-y-sm);
 }
 
 // Special treatment for select and textarea
-%textfield-box {
-  @include textarea-size($textfield-border-width, $textfield-box-padding-x, $textfield-box-padding-y);
+%form-control-select {
+  appearance: none;
 
-  border-radius: $textfield-box-border-radius;
-  border-width: $textfield-border-width;
-  height: auto;
+  @include media-moz-webkit {
+    $select-bg-size: (($material-icon-size / $textfield-font-size) * $textfield-font-size);
 
-  // Active, focus, hover
-  @include focus-hover {
-    border-width: ($textfield-border-width * 2);
+    background-image: $caret-bg;
+    background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
+    background-repeat: no-repeat;
+    background-size: $select-bg-size $select-bg-size;
+    padding-right: $select-bg-size;
   }
 
   &.form-control-lg {
-    @include textarea-size($textfield-border-width, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
-  }
-
-  &.form-control-sm {
-    @include textarea-size($textfield-border-width, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
-  }
-}
-
-select {
-  &.form-control,
-  &%form-control {
-    appearance: none;
-
-    @include media-moz-webkit {
-      $select-bg-size: (($material-icon-size / $textfield-font-size) * $textfield-font-size);
-
-      background-image: $caret-bg;
-      background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
-      background-repeat: no-repeat;
-      background-size: $select-bg-size $select-bg-size;
-      padding-right: $select-bg-size;
-
-      &[multiple],
-      &[size] {
-        background-image: none;
-      }
-    }
-  }
-
-  &.form-control-lg,
-  &%form-control-lg {
     @include media-moz-webkit {
       $select-bg-size-lg: (($material-icon-size / $textfield-font-size) * $textfield-font-size-lg);
 
@@ -123,8 +101,7 @@ select {
     }
   }
 
-  &.form-control-sm,
-  &%form-control-sm {
+  &.form-control-sm {
     @include media-moz-webkit {
       $select-bg-size-sm: (($material-icon-size / $textfield-font-size) * $textfield-font-size-sm);
 
@@ -133,8 +110,41 @@ select {
       padding-right: $select-bg-size-sm;
     }
   }
+}
 
+%textfield-box {
+  border-radius: $textfield-box-border-radius;
+  border-width: $textfield-border-width;
+  height: auto;
+  padding: $textfield-box-padding-y $textfield-box-padding-x;
+
+  @include hover {
+    box-shadow: 
+      inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover,
+      inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
+  }
+
+  &:focus {
+    box-shadow: 
+      inset $textfield-border-width-focus $textfield-border-width-focus 0 ($textfield-border-width * -1) $textfield-border-color-focus,
+      inset ($textfield-border-width-focus * -1) ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+  }
+
+  &.form-control-lg {
+    padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg;
+  }
+
+  &.form-control-sm {
+    padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm;
+  }
+}
+
+select {
   &.form-control {
+    &:not([multiple]):not([size]) {
+      @extend %form-control-select;
+    }
+
     &[multiple],
     &[size] {
       @extend %textfield-box;
@@ -150,32 +160,28 @@ textarea {
 
 
 
-// Form control state
-
-@each $color, $values in $theme-colors {
-  .has-#{$color} {
-    @include form-control-validation(map-get(theme-color($color), color));
-  }
-}
-
-
-
 // Form control static
 
-.form-control-static {
-  @include form-control-size(0, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
+.form-control-plaintext {
+  @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
 
-  border: 0;
-  margin-bottom: 0;
+  border-color: transparent;
 
   &.form-control-lg {
-    @include form-control-size(0, $textfield-font-size-lg, $textfield-height-lg, $textfield-padding-top-lg, $textfield-padding-bottom-lg);
+    @include form-control-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-x-lg, $textfield-padding-y-lg);
   }
 
   &.form-control-sm {
-    @include form-control-size(0, $textfield-font-size-sm, $textfield-height-sm, $textfield-padding-top-sm, $textfield-padding-bottom-sm);
+    @include form-control-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-x-sm, $textfield-padding-y-sm);
   }
 }
+
+
+
+// Form validation
+
+@include form-control-validation($form-feedback-invalid-color, 'invalid');
+@include form-control-validation($form-feedback-valid-color, 'valid');
 
 
 
@@ -183,6 +189,7 @@ textarea {
 
 .custom-select {
   @extend %form-control;
+  @extend %form-control-select;
 
   display: inline-block;
   vertical-align: middle;

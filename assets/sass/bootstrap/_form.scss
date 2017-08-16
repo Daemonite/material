@@ -2,7 +2,7 @@
 
 .form-check {
   display: block;
-  margin-bottom: $textfield-margin-bottom;
+  margin-bottom: $textfield-margin-y;
 
   // Disabled
   &.disabled {
@@ -25,11 +25,16 @@
 .form-check-input {
   flex-shrink: 0;
   margin-right: $form-check-input-margin-x;
+  position: relative;
+  top: (($font-size-base * $line-height-base - $font-size-base) / 2);
 }
 
 .form-check-label {
-  align-items: baseline;
+  align-items: flex-start;
+  color: inherit;
   display: inline-flex;
+  font-size: inherit;
+  line-height: inherit;
   margin-bottom: 0;
 }
 
@@ -38,11 +43,19 @@
 // Form group
 
 .form-group {
-  margin-bottom: $form-group-margin-bottom;
+  margin-bottom: $form-group-margin-y;
+}
 
-  &:not(.floating-label) label:not(.custom-control):not(.form-check-label) {
-    font-size: $form-group-label-font-size;
-    margin-bottom: 0;
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: ($textfield-margin-x / -2);
+  margin-left: ($textfield-margin-x / -2);
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: ($textfield-margin-x / 2);
+    padding-left: ($textfield-margin-x / 2);
   }
 }
 
@@ -95,51 +108,53 @@
 // Label
 
 .col-form-label {
-  line-height: ($textfield-height - $textfield-padding-top - $textfield-padding-bottom);
-  padding-top: $textfield-padding-top;
-  padding-bottom: $textfield-padding-bottom;
+  color: inherit;
+  font-size: $font-size-base;
+  line-height: ($textfield-font-size * $textfield-line-height / $font-size-base);
+  margin-bottom: 0;
+  padding-top: $textfield-padding-y;
+  padding-bottom: $textfield-padding-y;
 }
 
 .col-form-label-lg {
-  line-height: ($textfield-height-lg - $textfield-padding-top-lg - $textfield-padding-bottom-lg);
-  padding-top: $textfield-padding-top-lg;
-  padding-bottom: $textfield-padding-bottom-lg;
+  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-lg);
+  line-height: ($textfield-line-height-lg / ($font-size-base / $textfield-font-size));
+  padding-top: $textfield-padding-y-lg;
+  padding-bottom: $textfield-padding-y-lg;
 }
 
 .col-form-label-sm {
-  line-height: ($textfield-height-sm - $textfield-padding-top-sm - $textfield-padding-bottom-sm);
-  padding-top: $textfield-padding-top-sm;
-  padding-bottom: $textfield-padding-bottom-sm;
+  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-sm);
+  line-height: ($textfield-line-height-sm / ($font-size-base / $textfield-font-size));
+  padding-top: $textfield-padding-y-sm;
+  padding-bottom: $textfield-padding-y-sm;
 }
 
 .col-form-legend {
   font-size: $font-size-base;
+  line-height: ($textfield-font-size * $textfield-line-height / $font-size-base);
   margin-bottom: 0;
-  padding-top: $textfield-padding-top;
-  padding-bottom: $textfield-padding-bottom;
-
-  .form-group & {
-    font-size: $form-group-label-font-size;
-  }
+  padding-top: $textfield-padding-y;
+  padding-bottom: $textfield-padding-y;
 }
 
 
 
 // Misc
 
-.form-control-feedback,
 .form-text {
-  display: block;
-  margin-top: $textfield-margin-bottom;
+  @include typography-caption;
 
-  .form-control-lg + &,
-  .form-control-static-lg + & {
-    margin-top: $textfield-margin-bottom-lg;
+  color: $textfield-hint-color;
+  display: block;
+  margin-top: $textfield-margin-y;
+
+  .form-control-lg + & {
+    margin-top: $textfield-margin-y-lg;
   }
 
-  .form-control-sm + &,,
-  .form-control-static-sm + & {
-    margin-top: $textfield-margin-bottom-sm;
+  .form-control-sm + & {
+    margin-top: $textfield-margin-y-sm;
   }
 }
 
@@ -148,7 +163,28 @@
   display: block;
 }
 
-.form-control-file {
-  margin-top: $textfield-padding-top;
-  margin-bottom: $textfield-margin-bottom;
+
+
+// Validation
+
+.invalid-feedback {
+  @include typography-caption;
+
+  color: $form-feedback-invalid-color;
+  display: none;
+  margin-top: $textfield-margin-y;
+
+  .form-control-lg + & {
+    margin-top: $textfield-margin-y-lg;
+  }
+
+  .form-control-sm + & {
+    margin-top: $textfield-margin-y-sm;
+  }
+}
+
+.invalid-tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;
 }

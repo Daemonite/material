@@ -39,19 +39,18 @@
   }
 
   .form-control {
+    @include border-radius($toolbar-link-border-radius);
     @include transition-standard(opacity);
 
     background-color: $toolbar-element-bg-dark;
-    border-bottom: 0;
+    border: 0;
     color: inherit;
     height: $toolbar-link-height;
-    line-height: 1;
-    margin-bottom: 0;
     opacity: $toolbar-link-opacity;
-    padding: (($toolbar-link-height - $textfield-font-size) / 2) $toolbar-link-padding-x;
+    padding: (($toolbar-link-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-link-padding-x;
 
-    // Active, focus, hover
     @include focus-hover {
+      box-shadow: none;
       opacity: $toolbar-link-opacity-active;
     }
   }
@@ -63,36 +62,26 @@
   }
 
   .input-group {
-    margin-bottom: 0;
+    @include border-radius($toolbar-link-border-radius);
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg-dark;
+    opacity: $toolbar-link-opacity;
+
+    @include focus-hover {
+      opacity: $toolbar-link-opacity-active;
+    }
 
     .form-control {
-      margin-right: 0;
+      @include border-radius(0);
+
+      background-color: transparent;
       margin-left: 0;
-
-      &:first-child {
-        padding-right: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-      }
-
-      &:not(:first-child) {
-        padding-left: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-      }
+      opacity: 1;
     }
 
     .input-group-addon {
       margin-left: 0;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: ($textfield-height + $textfield-margin-bottom);
-
-      &:first-child {
-        left: 0;
-      }
-
-      &:not(:first-child) {
-        right: 0;
-      }
     }
   }
 
