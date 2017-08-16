@@ -53,15 +53,18 @@
 }
 
 .popover-body {
-  padding: $dialog-inner-padding;
+  padding: $dialog-padding-y $dialog-padding-x;
+
+  .popover-header + & {
+    padding-top: 0;
+  }
 }
 
 .popover-header {
   @include typography-title;
 
   margin: 0;
-  padding: $dialog-inner-padding;
-  padding-bottom: 0;
+  padding: $dialog-padding-y $dialog-padding-x;
 
   &:empty {
     display: none;

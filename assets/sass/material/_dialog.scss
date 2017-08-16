@@ -1,4 +1,3 @@
-.dialog,
 .modal {
   display: none;
   outline: 0;
@@ -39,7 +38,6 @@
 .modal-open {
   overflow: hidden;
 
-  .dialog,
   .modal {
     overflow-x: hidden;
     overflow-y: auto;
@@ -64,7 +62,6 @@
 
 // Dialog
 
-.dialog-dialog,
 .modal-dialog {
   display: inline-block;
   margin: $dialog-margin-y $dialog-margin-x;
@@ -76,13 +73,10 @@
   width: calc(100% - #{$dialog-margin-x} * 2);
 }
 
-// Size
-.dialog-lg,
 .modal-lg {
   max-width: $dialog-width-lg;
 }
 
-.dialog-sm,
 .modal-sm {
   max-width: $dialog-width-sm;
 }
@@ -91,18 +85,20 @@
 
 // Misc
 
-.dialog-body,
 .modal-body {
   flex: 1 1 auto;
-  padding: $dialog-inner-padding;
+  padding: $dialog-padding-y $dialog-padding-x;
   position: relative;
+
+  .modal-header + & {
+    padding-top: 0;
+  }
 
   > :last-child {
     margin-bottom: 0;
   }
 }
 
-.dialog-content,
 .modal-content {
   @include border-radius($border-radius);
 
@@ -116,13 +112,11 @@
   vertical-align: baseline;
 }
 
-.dialog-footer,
 .modal-footer {
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  padding: $dialog-footer-spacer-y ($dialog-footer-spacer-x / 2);
-  padding-left: ($dialog-inner-padding - $dialog-footer-spacer-x / 2);
+  padding: $dialog-footer-padding-y ($dialog-footer-padding-x - $dialog-footer-spacer-x / 2);
 
   > * {
     margin-right: ($dialog-footer-spacer-x / 2);
@@ -136,20 +130,13 @@
   }
 }
 
-.dialog-header,
 .modal-header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: $dialog-inner-padding;
-  padding-bottom: 0;
-
-  &:last-child {
-    padding-bottom: $dialog-inner-padding;
-  }
+  padding: $dialog-padding-y $dialog-padding-x;
 }
 
-.dialog-title,
 .modal-title {
   @include typography-title;
 
