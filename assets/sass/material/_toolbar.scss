@@ -1,12 +1,11 @@
 .navbar {
   align-items: center;
-  color: $toolbar-color-dark;
+  color: $toolbar-color;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   min-height: $toolbar-height;
-  padding-top: $toolbar-padding-y;
-  padding-bottom: $toolbar-padding-y;
+  padding: $toolbar-padding-y $toolbar-padding-x;
   position: relative;
 
   > .container {
@@ -14,62 +13,58 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
-    @include media-breakpoint-down(nth(map-keys($grid-breakpoints), 1)) {
-      margin-right: 0;
-      margin-left: 0;
-      width: 100%;
-    }
   }
 
   // Vertical align some elements normally placed in `.navbar` or `.toolbar`
   .btn {
-    margin-top: (($btn-height - $toolbar-link-height) / -2);
-    margin-bottom: (($btn-height - $toolbar-link-height) / -2);
+    margin-top: (($btn-height - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height - $toolbar-element-height) / -2);
   }
 
   .btn-lg {
-    margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
-    margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
+    margin-top: (($btn-height-lg - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height-lg - $toolbar-element-height) / -2);
   }
 
   .btn-sm {
-    margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
-    margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
+    margin-top: (($btn-height-sm - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height-sm - $toolbar-element-height) / -2);
   }
 
   .form-control {
-    @include border-radius($toolbar-link-border-radius);
+    @include border-radius($toolbar-element-border-radius);
     @include transition-standard(opacity);
 
-    background-color: $toolbar-element-bg-dark;
+    background-color: $toolbar-element-bg;
     border: 0;
     color: inherit;
-    height: $toolbar-link-height;
-    opacity: $toolbar-link-opacity;
-    padding: (($toolbar-link-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-link-padding-x;
+    height: $toolbar-element-height;
+    opacity: $toolbar-element-opacity;
+    padding: (($toolbar-element-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-inner-spacer-x;
 
     @include focus-hover {
       box-shadow: none;
-      opacity: $toolbar-link-opacity-active;
+      opacity: 1;
     }
   }
 
   .form-inline {
-    flex-wrap: nowrap;
-    margin-right: $toolbar-link-padding-x;
-    margin-left: $toolbar-link-padding-x;
+    margin-left: $toolbar-inner-spacer-x;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
   .input-group {
-    @include border-radius($toolbar-link-border-radius);
+    @include border-radius($toolbar-element-border-radius);
     @include transition-standard(opacity);
 
-    background-color: $toolbar-element-bg-dark;
-    opacity: $toolbar-link-opacity;
+    background-color: $toolbar-element-bg;
+    opacity: $toolbar-element-opacity;
 
     @include focus-hover {
-      opacity: $toolbar-link-opacity-active;
+      opacity: 1;
     }
 
     .form-control {
@@ -86,41 +81,33 @@
   }
 
   .nav-tabs {
-    margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
-    margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
+    margin-top: ($toolbar-padding-y * -1);
+    margin-bottom: ($toolbar-padding-y * -1);
 
     .nav-link {
-      height: $toolbar-height;
+      min-height: $toolbar-height;
+      padding-top: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
+      padding-bottom: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
     }
   }
 }
 
 // Colour
-.navbar-inverse {
-  color: $toolbar-color-light;
+.navbar-dark {
+  color: $toolbar-dark-color;
 
-  .form-control {
-    background-color: $toolbar-element-bg-light;
-
-    &::placeholder {
-      color: $white-hint;
-    }
+  .form-control,
+  .input-group,
+  .navbar-brand::before,
+  .navbar-nav .show > .nav-link,
+  .navbar-toggler::before {
+    background-color: $toolbar-dark-element-bg;
   }
 
-  .navbar-nav .nav-link.show,
-  .navbar-nav .show > .nav-link {
-    background-color: $toolbar-element-bg-light;
+  .form-control::placeholder,
+  .navbar-nav .nav-link.disabled {
+    color: $toolbar-dark-color-lighter;
   }
-
-  .navbar-toggler {
-    &::before {
-      background-color: $toolbar-element-bg-light;
-    }
-  }
-}
-
-.navbar-light {
-  color: $toolbar-color-dark;
 }
 
 // Variation
@@ -178,23 +165,42 @@
   @include typography-title;
 
   align-items: center;
-  align-self: flex-start;
   color: inherit;
   display: inline-flex;
-  height: $toolbar-link-height;
-  padding-right: $toolbar-link-padding-x;
-  padding-left: $toolbar-link-padding-x;
-  vertical-align: middle;
+  height: $toolbar-element-height;
+  margin-left: $toolbar-inner-spacer-x;
+  position: relative;
   white-space: nowrap;
 
-  // Active, focus, hover
   @include active-focus-hover {
     color: inherit;
     text-decoration: none;
   }
 
+  &::before {
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg;
+    content: '';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: ($toolbar-inner-spacer-x / -2);
+    bottom: 0;
+    left: ($toolbar-inner-spacer-x / -2);
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
   &:focus {
     outline: 0;
+
+    &::before {
+      opacity: 1;
+    }
   }
 }
 
@@ -202,10 +208,13 @@
   align-items: center;
   color: inherit;
   display: inline-flex;
-  height: $toolbar-link-height;
-  padding-right: $toolbar-link-padding-x;
-  padding-left: $toolbar-link-padding-x;
-  vertical-align: middle;
+  flex-wrap: wrap;
+  height: $toolbar-element-height;
+  margin-left: $toolbar-inner-spacer-x;
+
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 
@@ -220,59 +229,41 @@
   padding-left: 0;
 
   .nav-link {
-    @include border-radius($border-radius);
+    @include border-radius($toolbar-element-border-radius);
     @include transition-standard(background-color, opacity);
 
-    align-items: center;
     color: inherit;
-    display: flex;
     font-size: $toolbar-link-font-size;
     height: $toolbar-link-height;
-    line-height: 1;
-    opacity: $toolbar-link-opacity;
-    padding: 0 $toolbar-link-padding-x;
+    line-height: $toolbar-link-line-height;
+    opacity: $toolbar-element-opacity;
+    padding: $toolbar-link-padding-y $toolbar-link-padding-x;
 
-    // Active, focus, hover
     @include active-focus-hover {
-      color: inherit;
-      opacity: $toolbar-link-opacity-active;
+      opacity: 1;
     }
 
     &:focus {
       outline: 0;
     }
 
-    &.active {
-      color: inherit;
-    }
-
-    // Disabled
+    &.active,
     &.disabled {
-      opacity: $toolbar-link-opacity;
+      opacity: 1;
     }
 
-    // Open
-    &.show {
-      background-color: $toolbar-element-bg-dark;
+    &.disabled {
+      color: $toolbar-color-lighter;
     }
   }
 
   .active > .nav-link,
   .show > .nav-link {
-    opacity: $toolbar-link-opacity-active;
+    opacity: 1;
   }
 
   .show > .nav-link {
-    background-color: $toolbar-element-bg-dark;
-  }
-
-  // Direction
-  .dropdown.show > .nav-link {
-    @include border-bottom-radius(0);
-  }
-
-  .dropup.show > .nav-link {
-    @include border-top-radius(0);
+    background-color: $toolbar-element-bg;
   }
 }
 
@@ -281,6 +272,7 @@
 // Toggleable
 
 .navbar-collapse {
+  align-items: center;
   flex-basis: 100%;
 }
 
@@ -299,11 +291,17 @@
 
         .navbar-collapse {
           > :first-child {
-            margin-top: $toolbar-padding-y;
+            margin-top: $toolbar-inner-spacer-y;
           }
 
           > :not(:last-child) {
-            margin-bottom: $toolbar-padding-y;
+            margin-bottom: $toolbar-inner-spacer-y;
+          }
+
+          .form-inline,
+          .navbar-brand,
+          .navbar-text {
+            margin-left: 0;
           }
         }
       }
@@ -328,6 +326,12 @@
 
         .navbar-toggler {
           display: none;
+
+          + .form-inline,
+          + .navbar-brand,
+          + .navbar-text {
+            margin-left: 0;
+          }
         }
       }
     }
@@ -341,17 +345,13 @@
   border-radius: 50%;
   color: inherit;
   display: inline-flex;
-  height: $toolbar-link-height;
+  height: $toolbar-element-height;
   line-height: 1;
-  margin-right: ($toolbar-link-padding-x - ($toolbar-link-height - $material-icon-size) / 2);
-  margin-left: ($toolbar-link-padding-x - ($toolbar-link-height - $material-icon-size) / 2);
+  margin-left: $toolbar-inner-spacer-x;
   position: relative;
-  vertical-align: middle;
-  width: $toolbar-link-height;
+  width: $toolbar-element-height;
 
-  // Active, focus, hover
   @include active-focus-hover {
-    color: inherit;
     text-decoration: none;
 
     &::before {
@@ -359,24 +359,27 @@
     }
   }
 
-  &:focus {
-    outline: 0;
-  }
-
-  // Focused 12% #000000 shade
   &::before {
     @include transition-standard(opacity);
 
-    background-color: $toolbar-element-bg-dark;
+    background-color: $toolbar-element-bg;
     border-radius: 50%;
     content: '';
     display: block;
-    height: $toolbar-height;
     opacity: 0;
     position: absolute;
-    top: (($toolbar-link-height - $toolbar-height) / 2);
-    left: (($toolbar-link-height - $toolbar-height) / 2);
-    width: $toolbar-height;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:focus {
+    outline: 0;
   }
 }
 

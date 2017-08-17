@@ -1,20 +1,30 @@
 // Appbar / toolbar (Bootstrap navbar)
 // Based on https://material.google.com/components/toolbars.html#toolbars-usage
 
-$toolbar-color-dark:          $black-primary !default;
-$toolbar-color-light:         $white-primary !default;
-$toolbar-element-bg-dark:     $black-divider !default;
-$toolbar-element-bg-light:    $white-divider !default;
-$toolbar-elevation-shadow:    $elevation-shadow-4dp !default;
-$toolbar-height:              3.5rem !default;
-$toolbar-link-font-size:      1rem !default;
-$toolbar-link-height:         2.25rem !default;
-$toolbar-link-opacity:        .7 !default;
-$toolbar-link-opacity-active: 1 !default;
-$toolbar-link-padding-x:      $spacer !default;
-$toolbar-padding-y:           (($toolbar-height - $toolbar-link-height) / 2) !default;
-$toolbar-toggler-icon:        'menu' !default;
-$toolbar-waterfall-bg:        map-get(theme-color(primary), color) !default;
+$toolbar-color:                 $black-primary !default;
+$toolbar-color-lighter:         $black-hint !default;
+$toolbar-element-bg:            $black-divider !default;
+$toolbar-element-border-radius: $border-radius !default;
+$toolbar-element-height:        2.25rem !default;
+$toolbar-element-opacity:       .7 !default;
+$toolbar-elevation-shadow:      $elevation-shadow-4dp !default;
+$toolbar-height:                3.5rem !default;
+$toolbar-inner-spacer-x:        1rem !default;
+$toolbar-inner-spacer-y:        1rem !default;
+$toolbar-link-font-size:        1rem !default;
+$toolbar-link-height:           $toolbar-element-height !default;
+$toolbar-link-line-height:      1 !default;
+$toolbar-link-padding-x:        1rem !default;
+$toolbar-link-padding-y:        (($toolbar-link-height - $toolbar-link-font-size * $toolbar-link-line-height) / 2) !default;
+$toolbar-padding-x:             1rem !default;
+$toolbar-padding-y:             (($toolbar-height - $toolbar-element-height) / 2) !default;
+$toolbar-toggler-icon:          'menu' !default;
+$toolbar-waterfall-bg:          map-get(theme-color(primary), color) !default;
+
+// Theme
+$toolbar-dark-color:            $white-primary !default;
+$toolbar-dark-color-lighter:    $white-hint !default;
+$toolbar-dark-element-bg:       $white-divider !default;
 
 
 
