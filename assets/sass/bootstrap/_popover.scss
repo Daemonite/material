@@ -11,45 +11,12 @@
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: block;
   font-size: $font-size-base;
+  margin: $tooltip-margin;
   max-width: $dialog-width-sm;
   position: absolute;
   top: 0;
   left: 0;
   z-index: map-get($dialog-elevation-shadow, elevation);
-
-  &.bs-popover-auto {
-    &[x-placement^="top"] {
-      @extend .bs-popover-top;
-    }
-
-    &[x-placement^="right"] {
-      @extend .bs-popover-right;
-    }
-
-    &[x-placement^="bottom"] {
-      @extend .bs-popover-bottom;
-    }
-
-    &[x-placement^="left"] {
-      @extend .bs-popover-left;
-    }
-  }
-
-  &.bs-popover-top {
-    margin-bottom: $tooltip-margin;
-  }
-
-  &.bs-popover-right {
-    margin-left: $tooltip-margin;
-  }
-
-  &.bs-popover-left {
-    margin-right: $tooltip-margin;
-  }
-
-  &.bs-popover-bottom {
-    margin-top: $tooltip-margin;
-  }
 }
 
 .popover-body {
@@ -81,20 +48,6 @@
 
 @include media-breakpoint-up(md) {
   .popover {
-    &.bs-popover-top {
-      margin-bottom: $tooltip-margin-md-up;
-    }
-
-    &.bs-popover-right {
-      margin-left: $tooltip-margin-md-up;
-    }
-
-    &.bs-popover-left {
-      margin-right: $tooltip-margin-md-up;
-    }
-
-    &.bs-popover-bottom {
-      margin-top: $tooltip-margin-md-up;
-    }
+    margin: $tooltip-margin-desktop;
   }
 }
