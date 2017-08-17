@@ -6,25 +6,33 @@
 }
 
 .page-link {
-  @include border-radius($border-radius);
-  @include transition-standard(background-color, color);
+  @include border-radius($pagination-border-radius);
+  @include transition-standard(color);
 
-  color: $btn-color;
+  color: $pagination-color;
   display: block;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
-  line-height: 1;
-  margin-left: 1px;
+  line-height: $btn-line-height;
+  margin-left: $pagination-inner-spacer-x;
   padding: $btn-padding-y $btn-padding-x;
   position: relative;
   text-align: center;
   white-space: nowrap;
 
-  // Active, focus, hover
   @include active-focus-hover {
-    background-color: $btn-bg-active;
-    color: $btn-color;
+    color: $pagination-color;
     text-decoration: none;
+  }
+
+  @include focus-hover {
+    background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
+  }
+
+  &:active,
+  &.active {
+    background-color: $btn-bg-active;
+    background-image: none;
   }
 
   &:focus {
@@ -41,7 +49,7 @@
 
   .page-item.disabled & {
     background-color: transparent;
-    color: $btn-color-disabled;
+    color: $pagination-color-disabled;
     pointer-events: none;
   }
 }
