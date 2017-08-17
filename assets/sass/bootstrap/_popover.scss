@@ -1,5 +1,6 @@
 // N.B. Material design specifically discouragaes the usage of tooltips with rich information
 // (https://material.google.com/components/tooltips.html#tooltips-usage)
+// Therefore, popovers are styled as Material design's dialogs
 
 .popover {
   @include reset-text;
@@ -7,7 +8,6 @@
 
   background-clip: padding-box;
   background-color: $dialog-content-bg;
-  border: 1px solid transparent;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: block;
   font-size: $font-size-base;
@@ -55,19 +55,23 @@
 .popover-body {
   padding: $dialog-padding-y $dialog-padding-x;
 
-  .popover-header + & {
-    padding-top: 0;
+  > :last-child {
+    margin-bottom: 0;
   }
 }
 
 .popover-header {
   @include typography-title;
 
-  margin: 0;
-  padding: $dialog-padding-y $dialog-padding-x;
+  margin-bottom: 0;
+  padding: $dialog-padding-y $dialog-padding-x 0;
 
   &:empty {
     display: none;
+  }
+
+  &:last-child {
+    padding-bottom: $dialog-padding-y;
   }
 }
 
