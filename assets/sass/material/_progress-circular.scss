@@ -14,7 +14,7 @@
 }
 
 .progress-circular-inner {
-  animation: progress-circular-inner-rotate 5.332s $transition-timing-function-standard infinite;
+  animation: progress-circular-inner-rotate $progress-circular-animation-duration $transition-timing-function-standard infinite;
   height: $progress-circular-height;
   position: relative;
   width: $progress-circular-height;
@@ -47,20 +47,20 @@
   width: $progress-circular-height;
 
   .progress-circular-left & {
-    animation: progress-circular-spinner-left 1.333s $transition-timing-function-standard infinite;
+    animation: progress-circular-spinner-left ($progress-circular-animation-duration / 4) $transition-timing-function-standard infinite;
     border-right-color: transparent;
     left: 0;
   }
 
   .progress-circular-right & {
-    animation: progress-circular-spinner-right 1.333s $transition-timing-function-standard infinite;
+    animation: progress-circular-spinner-right ($progress-circular-animation-duration / 4) $transition-timing-function-standard infinite;
     border-left-color: transparent;
     right: 0;
   }
 }
 
 .progress-circular-wrapper {
-  animation: progress-circular-wrapper-rotate 2.666s linear infinite;
+  animation: progress-circular-wrapper-rotate ($progress-circular-animation-duration / 2) linear infinite;
 }
 
 @keyframes progress-circular-inner-rotate {
