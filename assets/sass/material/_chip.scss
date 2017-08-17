@@ -1,4 +1,3 @@
-.badge,
 .chip {
   background-color: $chip-bg;
   border-radius: ($chip-height / 2);
@@ -16,19 +15,10 @@
   &:empty {
     display: none;
   }
-
-  .btn & {
-    border-radius: (($btn-padding-y + $chip-font-size * $chip-line-height) / 2);
-    margin-top: ($btn-padding-y / -2);
-    margin-bottom: ($btn-padding-y / -2);
-    padding: ($btn-padding-y / 2) ($btn-padding-x / 2);
-    vertical-align: baseline;
-  }
 }
 
 // Colour
 @each $color, $values in $theme-colors {
-  .badge-#{$color},
   .chip-#{$color} {
     @include color-yiq(map-get(theme-color($color), color));
 
