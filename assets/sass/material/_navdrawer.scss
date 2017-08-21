@@ -48,7 +48,7 @@
   bottom: 0;
   left: 0;
   transform: translate3d(-100%, 0, 0);
-  width: $navdrawer-width-mobile;
+  width: $navdrawer-width;
 
   // Direction
   .navdrawer-right & {
@@ -125,9 +125,8 @@
     line-height: 1;
     padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
 
-    // Active, focus, hover
     @include active-focus-hover {
-      background-color: $navdrawer-nav-link-bg-active;
+      background-color: $navdrawer-nav-link-bg-hover;
     }
 
     &:active {
@@ -177,7 +176,7 @@
     border-right: $navdrawer-border-width solid $navdrawer-border-color;
     display: block !important;
     right: auto;
-    width: $navdrawer-width-mobile;
+    width: $navdrawer-width;
 
     .navdrawer-content {
       box-shadow: none;
@@ -233,7 +232,7 @@
 @include media-breakpoint-up(lg) {
   .navdrawer-persistent {
     right: auto;
-    width: $navdrawer-width-mobile;
+    width: $navdrawer-width;
 
     .navdrawer-content {
       border-right: $navdrawer-border-width solid $navdrawer-border-color;
@@ -277,7 +276,7 @@
   .navdrawer-temporary {
     overflow: visible;
     right: auto;
-    width: $navdrawer-width-mobile;
+    width: $navdrawer-width;
 
     .navdrawer-content {
       max-width: none;

@@ -7,7 +7,7 @@
 *,
 *::after,
 *::before {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 @at-root {
@@ -42,19 +42,18 @@ body {
   font-weight: $font-weight-base;
   line-height: $line-height-base;
   margin: 0;
+  text-align: left;
 }
 
 html {
-  box-sizing: border-box;
   font-family: sans-serif;
   line-height: 1.15;
-  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: $webkit-tap-highlight-color;
-  -webkit-text-size-adjust: 100%;
 }
 
-[tabindex="-1"]:focus {
+[tabindex='-1']:focus {
   outline: 0 !important;
 }
 
@@ -88,7 +87,7 @@ samp {
 
 pre {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $paragraph-margin-y;
   overflow: auto;
 }
 
@@ -97,7 +96,7 @@ pre {
 // Content grouping
 
 figure {
-  margin: 0 0 1rem;
+  margin: 0 0 $paragraph-margin-y;
 }
 
 hr {
@@ -187,7 +186,7 @@ legend {
 
   color: inherit;
   display: block;
-  margin-bottom: .5rem;
+  margin-bottom: $headings-margin-y;
   max-width: 100%;
   padding: 0;
   white-space: normal;
@@ -274,8 +273,8 @@ a {
   -webkit-text-decoration-skip: objects;
 
   @include active-focus-hover {
-    color: $link-color-active;
-    text-decoration: $link-decoration-active;
+    color: $link-color-hover;
+    text-decoration: $link-decoration-hover;
   }
 }
 
@@ -320,7 +319,7 @@ table {
 }
 
 th {
-  text-align: left;
+  text-align: inherit;
 }
 
 
@@ -339,7 +338,7 @@ abbr {
 address {
   font-style: normal;
   line-height: inherit;
-  margin-bottom: 1rem;
+  margin-bottom: $paragraph-margin-y;
 }
 
 b,
@@ -348,11 +347,11 @@ strong {
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  margin: 0 0 $paragraph-margin-y;
 }
 
 dd {
-  margin-bottom: .5rem;
+  margin-bottom: $headings-margin-y;
   margin-left: 0;
 }
 
@@ -364,7 +363,7 @@ dl,
 ol,
 ul {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $paragraph-margin-y;
 }
 
 dt {
@@ -378,7 +377,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: .5rem;
+  margin-bottom: $headings-margin-y;
 }
 
 mark {
@@ -395,7 +394,7 @@ ul ul {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $paragraph-margin-y;
 }
 
 small {

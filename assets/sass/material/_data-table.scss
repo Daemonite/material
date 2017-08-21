@@ -3,13 +3,14 @@
 .table {
   background-color: $table-bg;
   border: 0;
-  margin-bottom: $table-margin-bottom;
+  margin-bottom: $table-margin-y;
   max-width: 100%;
   width: 100%;
 
   td,
   th {
     border-top: $table-border-width solid $table-border-color;
+    line-height: $table-line-height;
     padding-right: $table-cell-padding-x;
     padding-left: $table-cell-padding-x;
     vertical-align: top;
@@ -73,10 +74,6 @@
   }
 }
 
-
-
-// Additional versions
-
 .table-bordered {
   box-shadow: map-get($table-elevation-shadow, shadow);
 }
@@ -133,7 +130,7 @@
 
 .table-responsive {
   display: block;
-  min-height: .01%;
   overflow-x: auto;
   width: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }

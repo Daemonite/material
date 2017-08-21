@@ -2,7 +2,7 @@
   @include border-radius($btn-border-radius);
   @include transition-standard(box-shadow);
 
-  background-color: $btn-bg;
+  background-color: transparent;
   background-image: none;
   border: 0;
   box-shadow: map-get($btn-elevation-shadow, shadow);
@@ -23,7 +23,7 @@
   white-space: nowrap;
 
   @include active-focus-hover {
-    color: $btn-color-active;
+    color: $btn-color;
     text-decoration: none;
   }
 
@@ -53,25 +53,6 @@
 
   &:focus {
     outline: 0;
-  }
-
-  .open > &,
-  .open > & {
-    &.dropdown-toggle {
-      background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
-    }
-  }
-
-  .dropdown.open > & {
-    &.dropdown-toggle {
-      @include border-bottom-radius(0);
-    }
-  }
-
-  .dropup.open > & {
-    &.dropdown-toggle {
-      @include border-top-radius(0);
-    }
   }
 }
 
@@ -161,8 +142,8 @@ fieldset {
   text-transform: none;
 
   @include active-focus-hover {
-    color: $link-color-active;
-    text-decoration: $link-decoration-active;
+    color: $link-color-hover;
+    text-decoration: $link-decoration-hover;
   }
 
   @include focus-hover {
@@ -180,13 +161,6 @@ fieldset {
     background-color: transparent;
     color: $btn-color-disabled;
     text-decoration: none;
-  }
-
-  &:focus {
-    // scss-lint:disable DuplicateProperty
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    // scss-lint:enable DuplicateProperty
   }
 }
 

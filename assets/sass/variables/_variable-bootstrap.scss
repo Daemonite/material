@@ -29,22 +29,22 @@ $body-color: $black-primary !default;
 
 // Breadcrumb
 
-$breadcrumb-bg:                $offwhite !default;
-$breadcrumb-border-radius:     $border-radius !default;
-$breadcrumb-height:            3.5rem !default;
-$breadcrumb-inner-spacer-x:    .5rem !default;
-$breadcrumb-item-color:        $black-secondary !default;
-$breadcrumb-item-color-active: $black-primary !default;
-$breadcrumb-item-icon:         'chevron_right' !default;
-$breadcrumb-margin-y:          $spacer !default;
-$breadcrumb-padding-x:         1rem !default;
-$breadcrumb-padding-y:         .625rem !default;
+$breadcrumb-bg:               $material-color-grey-100 !default;
+$breadcrumb-border-radius:    $border-radius !default;
+$breadcrumb-height:           3.5rem !default;
+$breadcrumb-inner-spacer-x:   .5rem !default;
+$breadcrumb-item-color:       $black-secondary !default;
+$breadcrumb-item-color-hover: $black-primary !default;
+$breadcrumb-item-icon:        'chevron_right' !default;
+$breadcrumb-margin-y:         $spacer !default;
+$breadcrumb-padding-x:        1rem !default;
+$breadcrumb-padding-y:        .625rem !default;
 
 
 
 // Button group
 
-$btn-group-bg:             $offwhite !default;
+$btn-group-bg:             $material-color-grey-100 !default;
 $btn-group-inner-spacer-x: 1px !default;
 $btn-group-inner-spacer-y: 1px !default;
 $btn-group-padding-x:      .5rem !default;
@@ -65,10 +65,9 @@ $caret-spacer-x:    .2em !default;
 
 $carousel-caption-color:                   $white-primary !default;
 $carousel-caption-width:                   50% !default;
-$carousel-control-bg:                      rgba(255, 255, 255, .12) !default;
-$carousel-control-bg-active:               rgba(204, 204, 204, .25) !default;
+$carousel-control-bg:                      $white-divider !default;
+$carousel-control-bg-hover:                rgba(204, 204, 204, .25) !default;
 $carousel-control-color:                   $white-primary !default;
-$carousel-control-color-active:            $white-primary !default;
 $carousel-control-elevation-shadow:        $elevation-shadow-6dp !default;
 $carousel-control-elevation-shadow-active: $elevation-shadow-12dp !default;
 $carousel-control-font-size:               .8125rem !default;
@@ -76,7 +75,7 @@ $carousel-control-next-icon:               'chevron_right' !default;
 $carousel-control-prev-icon:               'chevron_left' !default;
 $carousel-control-size:                    2.5rem !default;
 $carousel-indicator-bg:                    rgba(204, 204, 204, .25) !default;
-$carousel-indicator-border-color:          rgba(255, 255, 255, .12) !default;
+$carousel-indicator-border-color:          $white-divider !default;
 $carousel-indicator-border-width:          $border-width !default;
 $carousel-indicator-size:                  .5rem !default;
 
@@ -84,91 +83,100 @@ $carousel-indicator-size:                  .5rem !default;
 
 // Close
 
-$close-color:        $black-hint !default;
-$close-color-active: $black-primary !default;
-$close-font-size:    $material-icon-size !default;
+$close-color:       $black-hint !default;
+$close-color-hover: $black-primary !default;
+$close-font-size:   $material-icon-size !default;
+$close-font-weight: $font-weight-light !default;
 
 
 
 // Code
 
-$code-bg:                   #f7f7f9 !default;
+$code-bg:                   $material-color-grey-100 !default;
+$code-border-radius:        $border-radius !default;
 $code-color:                #bd4147 !default;
 $code-font-size:            87.5% !default;
-$code-padding:              .2rem .4rem !default;
+$code-padding-x:            .4rem !default;
+$code-padding-y:            .2rem !default;
 
-$kbd-bg:                    #333333 !default;
-$kbd-color:                 #ffffff !default;
+$kbd-bg:                    $black-primary !default;
+$kbd-color:                 $white-primary !default;
 
-$pre-bg:                    #f7f7f9 !default;
-$pre-color:                 #373a3c !default;
-$pre-margin-bottom:         $spacer !default;
+$pre-color:                 $black-primary !default;
+$pre-margin-y:              $spacer !default;
 $pre-scrollable-max-height: 340px !default;
 
 
 
 // Form
 
-$custom-file-button-icon:            'attachment' !default;
-$custom-file-button-opacity:         $black-hint-opacity !default;
-$custom-file-button-opacity-visible: $black-secondary-opacity !default;
-$custom-file-width:                  14rem !default;
-$custom-file-text:                   (en: 'Choose file...') !default;
+$custom-file-button-icon:     'attachment' !default;
+$custom-file-width:           14rem !default;
+$custom-file-text:            (en: 'Choose file...') !default;
 
-$form-check-inline-margin-x:         $spacer-sm !default;
-$form-check-input-margin-x:          $spacer-xs !default;
+$form-check-inline-margin-x:  $spacer-sm !default;
+$form-check-input-margin-x:   $spacer-xs !default;
 
-$form-feedback-invalid-color:        map-get(theme-color(danger), color) !default;
-$form-feedback-valid-color:          map-get(theme-color(success), color) !default;
+$form-feedback-invalid-color: map-get(theme-color(danger), color) !default;
+$form-feedback-valid-color:   map-get(theme-color(success), color) !default;
 
-$form-group-margin-y:                $spacer-lg !default;
+$form-group-margin-y:         $spacer !default;
 
-$input-group-addon-margin-x:         $spacer !default;
+$input-group-addon-margin-x:  1rem !default;
 
 
 
 // Jumbotron
 
-$jumbotron-bg:            $white-primary !default;
-$jumbotron-border-radius: $border-radius !default;
-$jumbotron-color:         $black-primary !default;
-$jumbotron-padding-x:     2rem !default;
-$jumbotron-padding-y:     3rem !default;
+$jumbotron-bg:               $white-primary !default;
+$jumbotron-border-radius:    $border-radius !default;
+$jumbotron-color:            $black-primary !default;
+$jumbotron-elevation-shadow: $elevation-shadow-2dp !default;
+$jumbotron-padding-x:        2rem !default;
+$jumbotron-padding-y:        3rem !default;
 
 
 
 // Link
 
-$link-color:             map-get(theme-color(primary), color) !default;
-$link-color-active:      map-get(theme-color(primary), darker) !default;
-$link-decoration:        none !default;
-$link-decoration-active: none !default;
+$link-color:            map-get(theme-color(primary), color) !default;
+$link-color-hover:      map-get(theme-color(primary), darker) !default;
+$link-decoration:       none !default;
+$link-decoration-hover: none !default;
 
 
 
 // Misc
 
+$blockquote-border-color:    map-get(theme-color(primary), color) !default;
+$blockquote-border-width:    .3125rem !default;
+$blockquote-small-color:     $black-hint !default;
+
 $dt-font-weight:             $font-weight-medium !default;
 
 $figure-caption-color:       $black-hint !default;
-$figure-img-margin-bottom:   $spacer-sm !default;
+$figure-img-margin-y:        $spacer-sm !default;
 
 $headings-color:             inherit !default;
 $headings-font-family:       inherit !default;
-$headings-margin-bottom:     $spacer-sm !default;
+$headings-margin-y:          $spacer-sm !default;
 
-$hr-border-color:            $black-divider !default;
-$hr-border-width:            1px !default;
+$hr-border-color:            $border-color !default;
+$hr-border-width:            $border-width !default;
 
-$list-inline-item-spacer:    $spacer-sm !default;
+$list-inline-inner-spacer-x: $spacer-sm !default;
 
 $mark-bg:                    $material-color-yellow-500 !default;
 $mark-color:                 $black-primary !default;
 $mark-padding:               .2em !default;
 
+$paragraph-margin-y:         $spacer !default;
+
 $small-font-size:            80% !default;
 
 $table-caption-color:        $black-hint !default;
+
+$text-muted:                 $black-hint !default;
 
 $thumbnail-box-shadow:       $shadow-2dp !default;
 
@@ -192,20 +200,10 @@ $nav-pills-link-opacity:  .7 !default;
 
 // Pagination
 
-$pagination-bg:             $offwhite !default;
+$pagination-bg:             $material-color-grey-100 !default;
 $pagination-border-radius:  $border-radius !default;
 $pagination-color:          $black-primary !default;
 $pagination-color-disabled: $black-hint !default;
 $pagination-inner-spacer-x: 1px !default;
 $pagination-padding-x:      .5rem !default;
 $pagination-padding-y:      .625rem !default;
-
-
-
-// Typography
-
-$blockquote-border-color: map-get(theme-color(primary), color) !default;
-$blockquote-border-width: .3125rem !default;
-$blockquote-small-color:  $black-hint !default;
-
-$text-muted:              $black-hint !default;

@@ -35,7 +35,9 @@
 
       &::before {
         background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+        // scss-lint:disable VendorPrefix
         background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+        // scss-lint:enable VendorPrefix
       }
     }
   }
@@ -82,7 +84,9 @@
 
   &::before {
     background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    // scss-lint:disable VendorPrefix
     background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    // scss-lint:enable VendorPrefix
     background-position: 0 0;
     background-repeat: repeat-x;
     background-size: ($progress-bar-height * 3) ($progress-bar-height * 3);
@@ -100,7 +104,9 @@
   @each $color, $values in $theme-colors {
     &.bg-#{$color}::before {
       background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      // scss-lint:disable VendorPrefix
       background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      // scss-lint:enable VendorPrefix
     }
   }
 }

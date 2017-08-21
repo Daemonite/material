@@ -271,7 +271,7 @@
   }
 
   &[x-placement="top-end"]::before {
-    transform-origion: 100% calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
+    transform-origin: 100% calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
   }
 
   &[x-placement="top-start"]::before {
@@ -300,19 +300,18 @@
   width: 100%;
 
   @include active-focus-hover {
-    background-color: $menu-link-bg-active;
-    color: $menu-link-color-active;
+    background-color: $menu-link-bg-hover;
+    color: $menu-link-color;
     text-decoration: none;
   }
 
   &.active {
-    background-color: $menu-link-bg-active;
-    color: $menu-link-color-active;
+    background-color: $menu-link-bg-hover;
   }
 
   &:disabled,
   &.disabled {
-    background-color: $menu-link-bg-disabled;
+    background-color: transparent;
     color: $menu-link-color-disabled;
     pointer-events: none;
   }
@@ -347,7 +346,7 @@
 
   .dropdown-menu-sm &,
   .menu-cascading & {
-    fong-size: $menu-font-size-cascading;
+    font-size: $menu-font-size-cascading;
     line-height: $menu-line-height-cascading;
     padding: $menu-link-padding-y-cascading $menu-link-padding-x-cascading;
   }

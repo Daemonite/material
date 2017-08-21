@@ -4,7 +4,7 @@
   @include typography-title;
 
   border-left: $blockquote-border-width solid $blockquote-border-color;
-  margin-bottom: $spacer;
+  margin-bottom: $paragraph-margin-y;
   padding: 0 $spacer;
 }
 
@@ -17,22 +17,6 @@
 
   &::before {
     content: '\2014 \00A0';
-  }
-}
-
-.blockquote-reverse {
-  border-right: $blockquote-border-width solid $blockquote-border-color;
-  border-left: 0;
-  text-align: right;
-
-  .blockquote-footer {
-    &::after {
-      content: '\00A0 \2014';
-    }
-
-    &::before {
-      content: '';
-    }
   }
 }
 
@@ -120,7 +104,7 @@ h6,
 .h6 {
   color: $headings-color;
   font-family: $headings-font-family;
-  margin-bottom: $headings-margin-bottom;
+  margin-bottom: $headings-margin-y;
 }
 
 h1,
@@ -180,8 +164,8 @@ h6,
 hr {
   border: 0;
   border-top: $hr-border-width solid $hr-border-color;
-  margin-top: $spacer;
-  margin-bottom: $spacer;
+  margin-top: $paragraph-margin-y;
+  margin-bottom: $paragraph-margin-y;
 }
 
 
@@ -196,7 +180,7 @@ hr {
   display: inline-block;
 
   &:not(:last-child) {
-    margin-right: $list-inline-item-spacer;
+    margin-right: $list-inline-inner-spacer-x;
   }
 }
 
