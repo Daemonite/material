@@ -75,7 +75,9 @@
   padding: $card-inner-spacer-y $card-padding-x;
 
   &:first-child,
-  .card-img-top + & {
+  .card-header[class*='border-'] + &,
+  .card-img-top + &,
+  .list-group + & {
     padding-top: $card-padding-y;
   }
 
@@ -89,7 +91,16 @@
     padding-bottom: $card-padding-y;
   }
 
-  + .card-img-bottom {
+  .card-header:not([class*='border-']) + & {
+    padding-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  + .card-img-bottom,
+  + .list-group {
     margin-top: ($card-padding-y - $card-inner-spacer-y);
   }
 }
@@ -99,22 +110,43 @@
 // Footer
 
 .card-footer {
-  padding: 0 $card-padding-x $card-inner-spacer-y;
+  padding: $card-inner-spacer-y $card-padding-x;
+
+  @each $color, $values in $theme-colors {
+    &.border-#{$color} {
+      border-top: $card-border-width solid map-get(theme-color($color), color);
+    }
+  }
 
   &:first-child {
     @include border-top-radius($card-border-radius);
 
-    padding-top: $card-padding-y;
+    border-top: 0;
   }
 
   &:last-child {
     @include border-bottom-radius($card-border-radius);
-
-    padding-bottom: $card-padding-y;
   }
 
-  + .card-img-bottom {
-    margin-top: ($card-padding-y - $card-inner-spacer-y);
+  .card-body + &,
+  .card-header + & {
+    &:not[class*='border-'] {
+      padding-top: 0;
+    }
+
+    &[class*='border-'] {
+      margin-top: ($card-padding-y - $card-inner-spacer-y);
+    }
+  }
+
+  .card-header[class*='border-'] + & {
+    &[class*='border-'] {
+      margin-top: ($card-border-width * -1);
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -124,10 +156,17 @@
 
 .card-header {
   margin-bottom: 0;
-  padding: $card-inner-spacer-y $card-padding-x 0;
+  padding: $card-inner-spacer-y $card-padding-x;
+
+  @each $color, $values in $theme-colors {
+    &.border-#{$color} {
+      border-bottom: $card-border-width solid map-get(theme-color($color), color);
+    }
+  }
 
   &:first-child,
-  .card-img-top + & {
+  .card-img-top + &,
+  .list-group + & {
     padding-top: $card-padding-y;
   }
 
@@ -138,26 +177,35 @@
   &:last-child {
     @include border-bottom-radius($card-border-radius);
 
+    border-bottom: 0;
     padding-bottom: $card-padding-y;
   }
 
-  + .card-img-bottom {
-    margin-top: ($card-padding-y - $card-inner-spacer-y);
+  &:not([class*='border-']) {
+    + .card-img-bottom,
+    + .list-group {
+      margin-top: ($card-padding-y - $card-inner-spacer-y);
+    }
+  }
+
+  &[class*='border-'] {
+    padding-top: $card-padding-y;
+    padding-bottom: $card-padding-y;
   }
 }
 
 .card-header-pills {
-  margin-top: ($card-inner-spacer-y * -1);
-  margin-right: ($card-inner-spacer-x * -1);
-  margin-left: ($card-inner-spacer-x * -1);
+  margin: ($card-inner-spacer-y * -1) ($card-inner-spacer-x * -1) 0;
   padding: ($card-action-padding-y - $card-action-inner-spacer-y / 2) ($card-action-padding-x - $card-action-inner-spacer-x / 2);
 
   .card-header:first-child &,
+  .card-header[class*='border-'] &,
   .card-img-top + .card-header & {
     margin-top: ($card-padding-y * -1);
   }
 
-  .card-header:last-child & {
+  .card-header:last-child &,
+  .card-header[class*='border-'] & {
     margin-bottom: ($card-padding-y * -1);
   }
 
@@ -175,10 +223,13 @@
   margin-left: ($card-inner-spacer-x * -1);
 
   .card-header:first-child &,
-  .card-img-top + .card-header & {
+  .card-header[class*='border-'] &,
+  .card-img-top + .card-header &,
+  .list-group + .card-header & {
     margin-top: ($card-padding-y * -1);
   }
 
+  .card-header[class*='border-'] &,
   .card-header:last-child & {
     margin-bottom: ($card-padding-y * -1);
   }
