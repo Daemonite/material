@@ -23,32 +23,6 @@
 
 
 
-// Make column modifier
-
-@mixin make-col-modifier($size, $type) {
-  @if ($type == offset) {
-    @include make-col-offset($size);
-  } @else if ($type == pull) {
-    @include make-col-pull($size);
-  } @else if ($type == push){
-    @include make-col-push($size);
-  }
-}
-
-@mixin make-col-offset($size) {
-  margin-left: percentage($size / $grid-columns);
-}
-
-@mixin make-col-pull($size) {
-  right: if($size > 0, percentage($size / $grid-columns), auto);
-}
-
-@mixin make-col-push($size) {
-  left: if($size > 0, percentage($size / $grid-columns), auto);
-}
-
-
-
 // Make container
 
 @mixin make-container() {

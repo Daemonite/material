@@ -40,19 +40,9 @@
         }
       }
 
-      @each $modifier in (pull, push) {
-        @for $i from 0 through $grid-columns {
-          .#{$modifier}#{$infix}-#{$i} {
-            @include make-col-modifier($i, $modifier);
-          }
-        }
-      }
-
-      @for $i from 0 through ($grid-columns - 1) {
-        @if not ($infix == '' and $i == 0) {
-          .offset#{$infix}-#{$i} {
-            @include make-col-modifier($i, offset);
-          }
+      @for $i from 1 through $grid-columns {
+        .order#{$infix}-#{$i} {
+          order: $i;
         }
       }
     }
