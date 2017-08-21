@@ -720,6 +720,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ClassName = {
       ANIMATE: 'animate',
+      DROPDOWN_ITEM: 'dropdown-item',
       INDICATOR: 'nav-tabs-indicator',
       MATERIAL: 'nav-tabs-material',
       SCROLLABLE: 'nav-tabs-scrollable',
@@ -732,8 +733,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var Selector = {
       DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
-      NAV: '.nav-tabs',
-      NAV_ITEM: '.nav-item'
+      DROPDOWN: '.dropdown',
+      NAV: '.nav-tabs'
     };
     // <<< constants
 
@@ -752,33 +753,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       TabSwitch.prototype.switch = function _switch(element, relatedTarget) {
         var _this8 = this;
 
-        var supportsTransition = Util.supportsTransitionEnd();
-
-        if (!this._navindicator) {
-          this._createIndicator();
-        }
-
-        var elLeft = $(element).closest(Selector.NAV_ITEM).offset().left;
-        var elWidth = $(element).closest(Selector.NAV_ITEM).outerWidth();
         var navLeft = $(this._nav).offset().left;
         var navScrollLeft = $(this._nav).scrollLeft();
         var navWidth = $(this._nav).outerWidth();
+        var supportsTransition = Util.supportsTransitionEnd();
 
-        if (relatedTarget !== undefined) {
-          var relatedLeft = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
-          var relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
+        if (!this._navindicator) {
+          this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
+        }
 
-          $(this._navindicator).css({
-            left: relatedLeft + navScrollLeft - navLeft,
-            right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
-          });
+        if ($(element).hasClass(ClassName.DROPDOWN_ITEM)) {
+          element = $(element).closest(Selector.DROPDOWN);
+        }
 
-          $(this._navindicator).addClass(ClassName.SHOW);
-          Util.reflow(this._navindicator);
+        var elLeft = $(element).offset().left;
+        var elWidth = $(element).outerWidth();
 
-          if (supportsTransition) {
-            $(this._nav).addClass(ClassName.ANIMATE);
-          }
+        $(this._navindicator).addClass(ClassName.SHOW);
+        Util.reflow(this._navindicator);
+
+        if (supportsTransition) {
+          $(this._nav).addClass(ClassName.ANIMATE);
         }
 
         $(this._navindicator).css({
@@ -799,10 +794,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         $(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
       };
 
-      TabSwitch.prototype._createIndicator = function _createIndicator() {
+      TabSwitch.prototype._createIndicator = function _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
         this._navindicator = document.createElement('div');
 
         $(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
+
+        if (relatedTarget !== undefined) {
+          if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
+            relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN);
+          }
+
+          var relatedLeft = $(relatedTarget).offset().left;
+          var relatedWidth = $(relatedTarget).outerWidth();
+
+          $(this._navindicator).css({
+            left: relatedLeft + navScrollLeft - navLeft,
+            right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
+          });
+        }
 
         $(this._nav).addClass(ClassName.MATERIAL);
       };
