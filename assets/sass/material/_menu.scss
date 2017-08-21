@@ -359,25 +359,19 @@
 
 .dropdown-toggle {
   &::after {
-    border-top: $caret-width solid;
-    border-right: $caret-width solid transparent;
-    border-left: $caret-width solid transparent;
-    content: '';
+    @include set-material-icons;
+
+    content: $caret-icon;
     display: inline-block;
-    height: 0;
-    margin-left: $caret-width;
-    position: relative;
-    top: -1px;
-    vertical-align: middle;
-    width: 0;
+    margin-right: ($caret-spacer-x * -1);
+    margin-left: $caret-spacer-x;
 
     .dropup & {
-      border-top: 0;
-      border-bottom: $caret-width solid;
+      content: $caret-icon-dropup;
     }
   }
 
   &:empty::after {
-    margin-left: 0;
+    margin-left: ($caret-spacer-x * -1);
   }
 }
