@@ -260,16 +260,6 @@ module.exports = function(grunt) {
           'project'
         ]
       }
-    },
-
-    // update package.json packages
-    devUpdate: {
-      default: {
-        options: {
-          semver: false,
-          updateType: 'prompt'
-        }
-      }
     }
   })
 
