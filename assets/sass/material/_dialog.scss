@@ -124,9 +124,36 @@
   }
 
   .btn {
+    background-color: transparent;
+    box-shadow: none;
     min-width: $dialog-footer-btn-min-width;
     padding-right: $dialog-footer-inner-spacer-x;
     padding-left: $dialog-footer-inner-spacer-x;
+
+    &:active,
+    &.active {
+      background-color: $btn-bg-active;
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &.disabled {
+      background-color: transparent;
+    }
+  }
+
+  // Colour
+  @each $color, $values in $theme-colors {
+    .btn-#{$color} {
+      @include plain-active-focus-hover {
+        color: map-get(theme-color($color), color);
+      }
+
+      &:disabled,
+      &.disabled {
+        color: $btn-color-disabled;
+      }
+    }
   }
 }
 
