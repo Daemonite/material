@@ -1,4 +1,4 @@
-// Todo: `.table-inverse`, `.table-reflow` and `.table-sm`
+// Todo: `.table-reflow` and `.table-sm`
 
 .table {
   background-color: $table-bg;
@@ -119,6 +119,57 @@
         @include color-yiq(map-get(theme-color($color), darker));
 
         background-color: map-get(theme-color($color), darker);
+      }
+    }
+  }
+}
+
+.table {
+  .thead-dark {
+    td,
+    th {
+      background-color: $table-dark-bg;
+      color: $table-dark-color;
+    }
+  }
+
+  .thead-light {
+    td,
+    th {
+      background-color: $table-thead-bg;
+      color: $table-thead-color;
+    }
+  }
+}
+
+.table-dark {
+  background-color: $table-dark-bg;
+  color: $table-dark-color;
+
+  tbody,
+  tfoot,
+  thead {
+    td,
+    th {
+      color: inherit;
+    }
+  }
+
+  td,
+  th {
+    border-color: $table-dark-border-color;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-bg-accent;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
+      @include hover {
+        background-color: $table-dark-bg-hover;
       }
     }
   }
