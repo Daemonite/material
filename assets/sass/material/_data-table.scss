@@ -1,4 +1,4 @@
-// Todo: `.table-reflow` and `.table-sm`
+// Todo: `.table-reflow`
 
 .table {
   background-color: $table-bg;
@@ -84,14 +84,53 @@
   }
 }
 
-
-
-// Hover
-
 .table-hover {
   tbody tr {
     @include hover {
       background-color: $table-bg-hover;
+    }
+  }
+}
+
+// Size
+.table-sm {
+  td,
+  th {
+    padding-right: $table-sm-cell-padding-x;
+    padding-left: $table-sm-cell-padding-x;
+
+    &:first-child {
+      padding-left: $table-sm-cell-padding-x-alt;
+    }
+
+    &:last-child {
+      padding-right: $table-sm-cell-padding-x-alt;
+    }
+  }
+
+  tbody {
+    td,
+    th {
+      height: $table-sm-tbody-cell-height;
+      padding-top: $table-sm-tbody-padding-y;
+      padding-bottom: $table-sm-tbody-padding-y;
+    }
+  }
+
+  tfoot {
+    td,
+    th {
+      padding-top: $table-sm-tfoot-padding-y;
+      padding-bottom: $table-sm-tfoot-padding-y;
+    }
+  }
+
+  thead {
+    td,
+    th {
+      height: $table-sm-thead-cell-height;
+      padding-top: $table-sm-thead-padding-y;
+      padding-bottom: $table-sm-thead-padding-y;
     }
   }
 }
