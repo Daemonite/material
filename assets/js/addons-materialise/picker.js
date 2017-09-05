@@ -81,7 +81,7 @@
     onStop        : false,
     selectMonths  : false,
     selectYears   : false,
-    today         : 'Today',
+    today         : '',
     weekdaysFull  : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     weekdaysShort : ['S', 'M', 'T', 'W', 'T', 'F', 'S']
   }
