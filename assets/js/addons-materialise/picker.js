@@ -27,9 +27,9 @@
     formatSubmit  : '',
     klass         : {
       // button
-      buttonClear : 'btn btn-flat btn-brand picker-button-clear',
-      buttonClose : 'btn btn-flat btn-brand picker-button-close',
-      buttonToday : 'btn btn-flat btn-brand picker-button-today',
+      buttonClear : 'btn btn-outline-primary picker-button-clear',
+      buttonClose : 'btn btn-outline-primary picker-button-close',
+      buttonToday : 'btn btn-outline-primary picker-button-today',
 
       // day
       day         : 'picker-day',
