@@ -109,9 +109,10 @@ module.exports = function(grunt) {
       doc: {
         files: [
           {
-            dest: 'gh-pages/',
+            dest: 'gh-pages/material/', // workaround for our GitHub Pages hosting
             expand: true,
             src: [
+              'bs/**',
               'css/**',
               'js/**'
             ]
@@ -278,7 +279,6 @@ module.exports = function(grunt) {
       'default',
       'jekyll:doc',
       'prettify:doc',
-      'copy:doc',
       'connect:live'
     ]
   )
