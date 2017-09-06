@@ -62,6 +62,27 @@
   }
 }
 
+.chip-icon {
+  @include color-yiq($chip-icon-bg);
+  @include text-truncate;
+
+  align-items: center;
+  background-color: $chip-icon-bg;
+  border-radius: ($chip-height / 2);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: $chip-icon-font-size;
+  font-style: normal;
+  font-weight: normal;
+  height: $chip-height;
+  justify-content: center;
+  margin-right: ($chip-inner-spacer-x * 2);
+  margin-left: ($chip-padding-x * -1);
+  order: -1;
+  text-align: center;
+  width: $chip-height;
+}
+
 .chip-img {
   border-radius: ($chip-height / 2);
   flex-shrink: 0;
