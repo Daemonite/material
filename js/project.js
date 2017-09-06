@@ -23,7 +23,7 @@ $(function () {
     },
     selectMonths  : true,
     selectYears   : 10,
-    today         : ''
+    today         : 'Today'
   })
 
   $('#exampleInputDatePicker3').pickdate({

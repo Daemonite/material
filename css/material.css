@@ -1,8 +1,8 @@
 *,
 *::after,
 *::before {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 @-ms-viewport {
@@ -34,6 +34,8 @@ body {
 }
 
 html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -3848,7 +3850,7 @@ fieldset[disabled] a.btn {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+  padding: 0.25rem 0.25rem;
 }
 .card-actions:first-child {
   border-top-left-radius: 2px;
@@ -4695,9 +4697,68 @@ fieldset[disabled] a.btn {
   margin-left: 0.25rem;
 }
 .modal-footer .btn {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   min-width: 4rem;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+}
+.modal-footer .btn:active, .modal-footer .btn.active {
+  background-color: rgba(153, 153, 153, 0.4);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.modal-footer .btn:disabled, .modal-footer .btn.disabled {
+  background-color: transparent;
+}
+.modal-footer .btn-primary, .modal-footer .btn-primary:active, .modal-footer .btn-primary:focus, .modal-footer .btn-primary:hover {
+  color: #9c27b0;
+}
+.modal-footer .btn-primary:disabled, .modal-footer .btn-primary.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-secondary, .modal-footer .btn-secondary:active, .modal-footer .btn-secondary:focus, .modal-footer .btn-secondary:hover {
+  color: #ff4081;
+}
+.modal-footer .btn-secondary:disabled, .modal-footer .btn-secondary.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-danger, .modal-footer .btn-danger:active, .modal-footer .btn-danger:focus, .modal-footer .btn-danger:hover {
+  color: #f44336;
+}
+.modal-footer .btn-danger:disabled, .modal-footer .btn-danger.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-info, .modal-footer .btn-info:active, .modal-footer .btn-info:focus, .modal-footer .btn-info:hover {
+  color: #2196f3;
+}
+.modal-footer .btn-info:disabled, .modal-footer .btn-info.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-success, .modal-footer .btn-success:active, .modal-footer .btn-success:focus, .modal-footer .btn-success:hover {
+  color: #4caf50;
+}
+.modal-footer .btn-success:disabled, .modal-footer .btn-success.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-warning, .modal-footer .btn-warning:active, .modal-footer .btn-warning:focus, .modal-footer .btn-warning:hover {
+  color: #ff9800;
+}
+.modal-footer .btn-warning:disabled, .modal-footer .btn-warning.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-dark, .modal-footer .btn-dark:active, .modal-footer .btn-dark:focus, .modal-footer .btn-dark:hover {
+  color: #424242;
+}
+.modal-footer .btn-dark:disabled, .modal-footer .btn-dark.disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.modal-footer .btn-light, .modal-footer .btn-light:active, .modal-footer .btn-light:focus, .modal-footer .btn-light:hover {
+  color: #f5f5f5;
+}
+.modal-footer .btn-light:disabled, .modal-footer .btn-light.disabled {
+  color: rgba(0, 0, 0, 0.26);
 }
 
 .modal-header {
