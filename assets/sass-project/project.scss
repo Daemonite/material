@@ -55,53 +55,55 @@
 // CSS to flatten buttons in card examples
 
 .bd-example .card {
-  &:not(.text-center):not(.text-right) .btn {
+  &:not(.text-center):not(.text-right) .card-body .btn {
     margin-left: ($card-action-padding-x - $card-padding-x);
   }
 
-  &.text-right .btn {
+  &.text-right .card-body .btn {
     margin-right: ($card-action-padding-x - $card-padding-x);
   }
 
-  .btn {
-    background-color: transparent;
-    box-shadow: none;
-    min-width: $dialog-footer-btn-min-width;
-    padding-right: $dialog-footer-inner-spacer-x;
-    padding-left: $dialog-footer-inner-spacer-x;
-
-    &:active,
-    &.active {
-      background-color: $btn-bg-active;
-      box-shadow: none;
+  .card-body {
+    &:last-child .btn:last-child {
+      margin-bottom: ($card-action-padding-y - $card-padding-y);
     }
 
-    &:disabled,
-    &.disabled {
+    &:not(:last-child) .btn:last-child {
+      margin-bottom: ($card-action-padding-y - $card-inner-spacer-y);
+    }
+
+    .btn {
       background-color: transparent;
-    }
-  }
+      box-shadow: none;
+      min-width: $dialog-footer-btn-min-width;
+      padding-right: $dialog-footer-inner-spacer-x;
+      padding-left: $dialog-footer-inner-spacer-x;
 
-  // Colour
-  @each $color, $values in $theme-colors {
-    .btn-#{$color} {
-      @include plain-active-focus-hover {
-        color: map-get(theme-color($color), color);
+      &:active,
+      &.active {
+        background-color: $btn-bg-active;
+        box-shadow: none;
       }
 
       &:disabled,
       &.disabled {
-        color: $btn-color-disabled;
+        background-color: transparent;
       }
     }
-  }
 
-  .card-body:last-child .btn:last-child {
-    margin-bottom: ($card-action-padding-y - $card-padding-y);
-  }
+    // Colour
+    @each $color, $values in $theme-colors {
+      .btn-#{$color} {
+        @include plain-active-focus-hover {
+          color: map-get(theme-color($color), color);
+        }
 
-  .card-body:not(:last-child) .btn:last-child {
-    margin-bottom: ($card-action-padding-y - $card-inner-spacer-y);
+        &:disabled,
+        &.disabled {
+          color: $btn-color-disabled;
+        }
+      }
+    }
   }
 }
 
