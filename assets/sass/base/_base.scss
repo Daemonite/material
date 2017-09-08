@@ -35,6 +35,8 @@ section {
 }
 
 body {
+  @include text-align(left);
+
   background-color: $body-bg;
   color: $body-color;
   font-family: $font-family-base;
@@ -42,7 +44,6 @@ body {
   font-weight: $font-weight-base;
   line-height: $line-height-base;
   margin: 0;
-  text-align: left;
 }
 
 html {
@@ -306,13 +307,13 @@ template {
 // Table
 
 caption {
+  @include text-align(left);
   @include typography-caption;
 
   caption-side: bottom;
   color: $table-caption-color;
   min-height: $table-thead-cell-height;
   padding: $table-thead-padding-y $table-cell-padding-x-alt;
-  text-align: left;
 }
 
 table {
