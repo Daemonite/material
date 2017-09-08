@@ -23,6 +23,8 @@ section {
 }
 
 body {
+  text-align: left;
+  text-align: start;
   background-color: white;
   color: rgba(0, 0, 0, 0.87);
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -30,7 +32,10 @@ body {
   font-weight: 400;
   line-height: 1.428572;
   margin: 0;
-  text-align: left;
+}
+[dir='rtl'] body {
+  text-align: right;
+  text-align: start;
 }
 
 html {
@@ -248,6 +253,8 @@ template {
 }
 
 caption {
+  text-align: left;
+  text-align: start;
   font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0;
@@ -256,7 +263,10 @@ caption {
   color: rgba(0, 0, 0, 0.38);
   min-height: 3.5rem;
   padding: 1.214286rem 1.5rem;
-  text-align: left;
+}
+[dir='rtl'] caption {
+  text-align: right;
+  text-align: start;
 }
 
 table {
@@ -2920,13 +2930,14 @@ pre code {
 }
 
 .popover {
+  text-align: left;
+  text-align: start;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
   line-break: auto;
   line-height: 1.428572;
-  text-align: initial;
   text-decoration: none;
   text-shadow: none;
   text-transform: none;
@@ -2947,6 +2958,10 @@ pre code {
   top: 0;
   left: 0;
   z-index: 240;
+}
+[dir='rtl'] .popover {
+  text-align: right;
+  text-align: start;
 }
 
 .popover-body {
@@ -3904,6 +3919,10 @@ fieldset[disabled] a.btn {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   margin: 0.25rem 0.25rem;
   min-width: 0;
   padding-right: 0.5rem;
@@ -4279,13 +4298,13 @@ fieldset[disabled] a.btn {
 .chip .close {
   font-size: inherit;
   line-height: inherit;
+  margin-right: -0.5rem;
+  margin-left: 0.25rem;
+  min-width: 1.5rem;
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
       -ms-flex-order: 1;
           order: 1;
-  margin-right: -0.5rem;
-  margin-left: 0.25rem;
-  min-width: 1.5rem;
 }
 
 .chip-primary {
@@ -4779,14 +4798,19 @@ fieldset[disabled] a.btn {
 }
 
 .modal-dialog {
+  text-align: left;
+  text-align: start;
   display: inline-block;
   margin: 1.5rem 1.5rem;
   max-width: 35rem;
   position: relative;
-  text-align: left;
   vertical-align: middle;
   white-space: normal;
   width: calc(100% - 1.5rem * 2);
+}
+[dir='rtl'] .modal-dialog {
+  text-align: right;
+  text-align: start;
 }
 
 .modal-lg {
@@ -5169,6 +5193,8 @@ fieldset[disabled] a.btn {
 .dropdown-menu {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
+  text-align: left;
+  text-align: start;
   background-color: transparent;
   color: inherit;
   display: none;
@@ -5180,8 +5206,11 @@ fieldset[disabled] a.btn {
   min-width: 7rem;
   padding: 0.5rem 0;
   position: absolute;
-  text-align: left;
   z-index: 80;
+}
+[dir='rtl'] .dropdown-menu {
+  text-align: right;
+  text-align: start;
 }
 .dropdown-menu::before {
   border-bottom-right-radius: 2px;
@@ -6246,10 +6275,21 @@ fieldset[disabled] a.btn {
 }
 
 .picker-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   padding: 0.5rem 0.5rem;
-  text-align: right;
 }
 .picker-footer button {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   margin-left: 0.5rem;
   min-width: 0;
 }
@@ -6308,9 +6348,14 @@ fieldset[disabled] a.btn {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   color: white;
+  text-align: left;
+  text-align: start;
   background-color: #9c27b0;
   padding: 1rem 1.5rem;
-  text-align: left;
+}
+[dir='rtl'] .picker-date-display {
+  text-align: right;
+  text-align: start;
 }
 
 .picker-date-display-bottom {
@@ -9286,13 +9331,14 @@ textarea.textarea-autosize.form-control-sm {
 }
 
 .tooltip {
+  text-align: left;
+  text-align: start;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
   line-break: auto;
   line-height: 1.428572;
-  text-align: initial;
   text-decoration: none;
   text-shadow: none;
   text-transform: none;
@@ -9307,6 +9353,10 @@ textarea.textarea-autosize.form-control-sm {
   position: absolute;
   word-break: break-word;
   z-index: 240;
+}
+[dir='rtl'] .tooltip {
+  text-align: right;
+  text-align: start;
 }
 .tooltip.show {
   opacity: 0.9;
