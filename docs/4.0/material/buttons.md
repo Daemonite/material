@@ -58,6 +58,130 @@ A smaller sized, i.e. mini floating action button, is also available.
 <button type="button" class="btn btn-float btn-sm"><i class="material-icons">add</i></button>
 {% endexample %}
 
+## Toggle buttons
+
+Toggle buttons may be used to group related options, similar to [Components/Button group]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/button-group/). Use flat buttons (i.e. `.btn-outline`s or `.btn-outline-*`s) instead of raised buttons to achieve a look that is more in line with the specifications laid out in Material Design Guidelines.
+
+{% example html %}
+<div class="btn-group" data-toggle="buttons" role="group">
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options1" type="radio">
+    <i class="material-icons">format_align_left</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options1" type="radio">
+    <i class="material-icons">format_align_center</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options1" type="radio">
+    <i class="material-icons">format_align_right</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options1" type="radio">
+    <i class="material-icons">format_align_justify</i>
+  </label>
+</div>
+{% endexample %}
+
+Logically-grouped options, like Bold, Italic, and Underline, allow multiple options to be selected.
+
+{% example html %}
+<div class="btn-group" data-toggle="buttons" role="group">
+  <button class="btn btn-outline btn-sm" disabled>
+    <i class="material-icons">attach_file</i>
+  </button>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options2" type="checkbox">
+    <i class="material-icons">format_bold</i>
+  </label>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options2" type="checkbox">
+    <i class="material-icons">format_italic</i>
+  </label>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options2" type="checkbox">
+    <i class="material-icons">format_underlined</i>
+  </label>
+  <div class="btn-group" role="group">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
+    <div aria-labelledby="toggleBtnDrop1" class="dropdown-menu dropdown-menu-sm">
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
+    </div>
+  </div>
+  <div class="btn-group" role="group">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
+    <div aria-labelledby="toggleBtnDrop2" class="dropdown-menu dropdown-menu-sm">
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
+    </div>
+  </div>
+</div>
+{% endexample %}
+
+Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
+
+{% example html %}
+<div class="btn-group btn-group-fluid" data-toggle="buttons" role="group">
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options3" type="radio">
+    <i class="material-icons">format_align_left</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options3" type="radio">
+    <i class="material-icons">format_align_center</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options3" type="radio">
+    <i class="material-icons">format_align_right</i>
+  </label>
+  <label class="btn btn-outline btn-sm">
+    <input autocomplete="off" name="options3" type="radio">
+    <i class="material-icons">format_align_justify</i>
+  </label>
+</div>
+{% endexample %}
+
+Vertical variation is also supported
+
+{% example html %}
+<div class="btn-group-vertical" data-toggle="buttons" role="group">
+  <button class="btn btn-outline btn-sm" disabled>
+    <i class="material-icons">attach_file</i>
+  </button>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options4" type="checkbox">
+    <i class="material-icons">format_bold</i>
+  </label>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options4" type="checkbox">
+    <i class="material-icons">format_italic</i>
+  </label>
+  <label class="btn btn-outline btn-sm active">
+    <input autocomplete="off" checked name="options4" type="checkbox">
+    <i class="material-icons">format_underlined</i>
+  </label>
+  <div class="btn-group" role="group">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
+    <div aria-labelledby="toggleBtnDrop1" class="dropdown-menu dropdown-menu-sm">
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
+    </div>
+  </div>
+  <div class="btn-group" role="group">
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
+    <div aria-labelledby="toggleBtnDrop2" class="dropdown-menu dropdown-menu-sm">
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
+    </div>
+  </div>
+</div>
+{% endexample %}
+
 ## Usage
 
 The type of button used should be suited to the context in which it appears.
