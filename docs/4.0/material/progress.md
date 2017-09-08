@@ -46,3 +46,15 @@ Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>
 ## Linear progress
 
 Most of the details about linear progress have been covered in Components/Progress docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/) for more details.
+
+### Indeterminate linear progress
+
+When indicators are indeterminate they request that the user wait while something finishes when it’s not necessary to indicate how long it will take.
+
+Create an indeterminate linear progress by adding `.progress-bar-indeterminate` class.
+
+{% example html %}
+<div class="progress">
+  <div class="progress-bar progress-bar-indeterminate" role="progressbar"></div>
+</div>
+{% endexample %}
