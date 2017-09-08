@@ -31,7 +31,11 @@
 }
 
 .input-group-btn {
+  @include border-radius($btn-border-radius);
+
   align-items: center;
+  background-color: $btn-group-bg;
+  box-shadow: map-get($btn-elevation-shadow, shadow);
   display: flex;
   justify-content: center;
   margin-right: $input-group-addon-margin-x;
@@ -45,18 +49,59 @@
     margin-right: 0;
   }
 
-  .btn {
-    @include border-radius(0);
-
+  > .btn {
+    border-left: $btn-group-inner-spacer-x solid transparent;
+    box-shadow: none;
+    flex: 0 1 auto;
     min-width: 0;
 
-    &:first-child {
-      @include border-left-radius($border-radius);
+    &:active,
+    &.active {
+      box-shadow: none;
     }
 
-    &:last-child {
-      @include border-right-radius($border-radius);
+    &:disabled,
+    &.disabled {
+      + .btn:disabled,
+      + .btn.disabled {
+        border-left-color: $btn-group-divider-bg;
+      }
     }
+
+    &.active {
+      + .btn.active {
+        border-left-color: $btn-group-divider-bg;
+      }
+    }
+  }
+
+  // Colour
+  @each $color, $values in $theme-colors {
+    > .btn-#{$color} {
+      &:disabled,
+      &.disabled {
+        @include color-yiq(map-get(theme-color($color), lighter));
+
+        background-color: map-get(theme-color($color), lighter);
+      }
+    }
+  }
+
+  > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    @include border-right-radius(0);
+  }
+
+  > .btn:last-child:not(:first-child),
+  > .dropdown-toggle:not(:first-child) {
+    @include border-left-radius(0);
+  }
+
+  > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+  }
+
+  > .dropdown-toggle:not(:last-child):not(:nth-last-child(2)) {
+    @include border-right-radius(0);
   }
 }
 
