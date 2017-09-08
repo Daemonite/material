@@ -32,13 +32,19 @@
   padding-top: 1rem;
 }
 
-.bd-example .card:not(.text-center):not(.text-right) .btn {
+.bd-example .card:not(.text-center):not(.text-right) .card-body .btn {
   margin-left: -0.5rem;
 }
-.bd-example .card.text-right .btn {
+.bd-example .card.text-right .card-body .btn {
   margin-right: -0.5rem;
 }
-.bd-example .card .btn {
+.bd-example .card .card-body:last-child .btn:last-child {
+  margin-bottom: -1rem;
+}
+.bd-example .card .card-body:not(:last-child) .btn:last-child {
+  margin-bottom: -0.5rem;
+}
+.bd-example .card .card-body .btn {
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -46,67 +52,61 @@
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
-.bd-example .card .btn:active, .bd-example .card .btn.active {
+.bd-example .card .card-body .btn:active, .bd-example .card .card-body .btn.active {
   background-color: rgba(153, 153, 153, 0.4);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
-.bd-example .card .btn:disabled, .bd-example .card .btn.disabled {
+.bd-example .card .card-body .btn:disabled, .bd-example .card .card-body .btn.disabled {
   background-color: transparent;
 }
-.bd-example .card .btn-primary, .bd-example .card .btn-primary:active, .bd-example .card .btn-primary:focus, .bd-example .card .btn-primary:hover {
+.bd-example .card .card-body .btn-primary, .bd-example .card .card-body .btn-primary:active, .bd-example .card .card-body .btn-primary:focus, .bd-example .card .card-body .btn-primary:hover {
   color: #9c27b0;
 }
-.bd-example .card .btn-primary:disabled, .bd-example .card .btn-primary.disabled {
+.bd-example .card .card-body .btn-primary:disabled, .bd-example .card .card-body .btn-primary.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-secondary, .bd-example .card .btn-secondary:active, .bd-example .card .btn-secondary:focus, .bd-example .card .btn-secondary:hover {
+.bd-example .card .card-body .btn-secondary, .bd-example .card .card-body .btn-secondary:active, .bd-example .card .card-body .btn-secondary:focus, .bd-example .card .card-body .btn-secondary:hover {
   color: #ff4081;
 }
-.bd-example .card .btn-secondary:disabled, .bd-example .card .btn-secondary.disabled {
+.bd-example .card .card-body .btn-secondary:disabled, .bd-example .card .card-body .btn-secondary.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-danger, .bd-example .card .btn-danger:active, .bd-example .card .btn-danger:focus, .bd-example .card .btn-danger:hover {
+.bd-example .card .card-body .btn-danger, .bd-example .card .card-body .btn-danger:active, .bd-example .card .card-body .btn-danger:focus, .bd-example .card .card-body .btn-danger:hover {
   color: #f44336;
 }
-.bd-example .card .btn-danger:disabled, .bd-example .card .btn-danger.disabled {
+.bd-example .card .card-body .btn-danger:disabled, .bd-example .card .card-body .btn-danger.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-info, .bd-example .card .btn-info:active, .bd-example .card .btn-info:focus, .bd-example .card .btn-info:hover {
+.bd-example .card .card-body .btn-info, .bd-example .card .card-body .btn-info:active, .bd-example .card .card-body .btn-info:focus, .bd-example .card .card-body .btn-info:hover {
   color: #2196f3;
 }
-.bd-example .card .btn-info:disabled, .bd-example .card .btn-info.disabled {
+.bd-example .card .card-body .btn-info:disabled, .bd-example .card .card-body .btn-info.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-success, .bd-example .card .btn-success:active, .bd-example .card .btn-success:focus, .bd-example .card .btn-success:hover {
+.bd-example .card .card-body .btn-success, .bd-example .card .card-body .btn-success:active, .bd-example .card .card-body .btn-success:focus, .bd-example .card .card-body .btn-success:hover {
   color: #4caf50;
 }
-.bd-example .card .btn-success:disabled, .bd-example .card .btn-success.disabled {
+.bd-example .card .card-body .btn-success:disabled, .bd-example .card .card-body .btn-success.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-warning, .bd-example .card .btn-warning:active, .bd-example .card .btn-warning:focus, .bd-example .card .btn-warning:hover {
+.bd-example .card .card-body .btn-warning, .bd-example .card .card-body .btn-warning:active, .bd-example .card .card-body .btn-warning:focus, .bd-example .card .card-body .btn-warning:hover {
   color: #ff9800;
 }
-.bd-example .card .btn-warning:disabled, .bd-example .card .btn-warning.disabled {
+.bd-example .card .card-body .btn-warning:disabled, .bd-example .card .card-body .btn-warning.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-dark, .bd-example .card .btn-dark:active, .bd-example .card .btn-dark:focus, .bd-example .card .btn-dark:hover {
+.bd-example .card .card-body .btn-dark, .bd-example .card .card-body .btn-dark:active, .bd-example .card .card-body .btn-dark:focus, .bd-example .card .card-body .btn-dark:hover {
   color: #424242;
 }
-.bd-example .card .btn-dark:disabled, .bd-example .card .btn-dark.disabled {
+.bd-example .card .card-body .btn-dark:disabled, .bd-example .card .card-body .btn-dark.disabled {
   color: rgba(0, 0, 0, 0.26);
 }
-.bd-example .card .btn-light, .bd-example .card .btn-light:active, .bd-example .card .btn-light:focus, .bd-example .card .btn-light:hover {
+.bd-example .card .card-body .btn-light, .bd-example .card .card-body .btn-light:active, .bd-example .card .card-body .btn-light:focus, .bd-example .card .card-body .btn-light:hover {
   color: #f5f5f5;
 }
-.bd-example .card .btn-light:disabled, .bd-example .card .btn-light.disabled {
+.bd-example .card .card-body .btn-light:disabled, .bd-example .card .card-body .btn-light.disabled {
   color: rgba(0, 0, 0, 0.26);
-}
-.bd-example .card .card-body:last-child .btn:last-child {
-  margin-bottom: -1rem;
-}
-.bd-example .card .card-body:not(:last-child) .btn:last-child {
-  margin-bottom: -0.5rem;
 }
 
 .doc-jumbotron {
