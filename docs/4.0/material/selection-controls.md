@@ -3,6 +3,7 @@ layout: docs
 title: Selection controls
 description: Selection controls allow the user to select options.
 group: material
+toc: true
 ---
 
 Three types of selection controls are covered in this guidance:
@@ -13,11 +14,11 @@ Three types of selection controls are covered in this guidance:
 
 ## Checkboxes
 
-Most of the details about Material checkboxes have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#checkboxes) for more details.
+**Most of the details about Material checkboxes have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#checkboxes) for more details.**
 
 ## Radio buttons
 
-Most of the details about Material radio buttons have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#radios) for more details.
+**Most of the details about Material radio buttons have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#radios) for more details.**
 
 ## Switches
 
@@ -25,7 +26,7 @@ Switches toggle the state of a single settings option. The option that the switc
 
 {% example html %}
 <label class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" tabindex="1">
+  <input class="custom-control-input" tabindex="1" type="checkbox">
   <span class="custom-control-indicator"></span>
   <span class="custom-control-description">Toggle this custom switch</span>
 </label>

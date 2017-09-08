@@ -3,11 +3,12 @@ layout: docs
 title: Cards
 description: A card is a sheet of material that serves as an entry point to more detailed information.
 group: material
+toc: true
 ---
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
-Most of the details about cards have been covered in Components/Cards docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/cards/) for more details.
+**Most of the details about cards have been covered in Components/Cards docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/cards/) for more details.**
 
 **N.B.** According to Material Design, flat buttons should be used in cards.
 
@@ -21,7 +22,7 @@ Supplemental actions within the card are explicitly called out using icons, text
 
 {% example html %}
 <div class="card" style="width: 20rem;">
-  <img class="card-img-top" data-src="holder.js/100px180/" alt="Card image cap">
+  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
     <h4 class="card-title">Card title</h4>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -37,7 +38,7 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
 
 {% example html %}
 <div class="card" style="width: 20rem;">
-  <img class="card-img-top" data-src="holder.js/100px180/" alt="Card image cap">
+  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
     <h4 class="card-title">Card title</h4>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

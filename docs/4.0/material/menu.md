@@ -3,13 +3,12 @@ layout: docs
 title: Menu
 description: Menus display a list of choices on a transient sheet of material.
 group: material
+toc: true
 ---
 
-Menus appear upon interaction with a button, action, or other control. They display a list of choices, with one choice per line.
+Menus appear upon interaction with a action, button, or other control. They display a list of choices, with one choice per line.
 
-Menu items may be disabled if not applicable to a certain context. Contextual menus dynamically change their available menu items based on the current state of the app.
-
-Most of the details about menu have been covered in Bootstrap dropdowns docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/) for more details.
+**Most of the details about menu have been covered in Bootstrap dropdowns docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/) for more details.**
 
 ## Behaviour
 
@@ -17,7 +16,7 @@ Add `.menu` to default `.dropdown-menu` to have the menu appear above its toggle
 
 {% example html %}
 <div class="dropdown">
-  <button aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
     Dropdown
   </button>
   <div aria-labelledby="dropdownMenuButton" class="dropdown-menu menu">
@@ -34,7 +33,7 @@ Add an additional class `.dropdown-menu-sm` to an existing `.dropdown-menu` to a
 
 {% example html %}
 <div class="dropdown">
-  <button aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
     Dropdown
   </button>
   <div aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-sm">
@@ -49,7 +48,7 @@ Add an additional class `.menu-cascading` to an existing `.dropdown-menu` to hav
 
 {% example html %}
 <div class="dropdown">
-  <button aria-haspopup="true" aria-expanded="false" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
     Dropdown
   </button>
   <div aria-labelledby="dropdownMenuButton" class="dropdown-menu menu-cascading">

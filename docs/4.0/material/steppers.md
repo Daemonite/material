@@ -3,6 +3,7 @@ layout: docs
 title: Steppers
 description: Steppers convey progress through numbered steps.
 group: material
+toc: true
 ---
 
 Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.

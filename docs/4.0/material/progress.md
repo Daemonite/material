@@ -3,6 +3,7 @@ layout: docs
 title: Progress
 description: Progress indicators are visual indications of an app loading content.
 group: material
+toc: true
 ---
 
 ## Circular progress
@@ -45,7 +46,7 @@ Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>
 
 ## Linear progress
 
-Most of the details about linear progress have been covered in Components/Progress docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/) for more details.
+**Most of the details about linear progress have been covered in Components/Progress docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/) for more details.**
 
 ### Indeterminate linear progress
 

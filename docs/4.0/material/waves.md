@@ -3,6 +3,7 @@ layout: docs
 title: Waves
 description: Implementation of click/touch target ripple animation.
 group: material
+toc: true
 ---
 
 ## Attach "waves" effect

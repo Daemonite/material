@@ -3,6 +3,7 @@ layout: docs
 title: Pickers
 description: Pickers provide a simple way to select a single value from a pre-determined set.
 group: material
+toc: true
 ---
 
 ## Date pickers
@@ -10,6 +11,8 @@ group: material
 Date pickers use a dialog window to select a single date on mobile.
 
 A date picker has to be activated via JavaScript.
+
+**N.B.** Date picker requires `material.js` or `material.min.js`.
 
 {% example html %}
 <label for="exampleInputDatePicker1">A basic example:</label>
