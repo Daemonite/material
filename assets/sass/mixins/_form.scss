@@ -1,45 +1,82 @@
-@mixin floating-label-size($font-size, $height, $padding-top, $padding-bottom) {
-  $floating-label-line-height:      ($height - $padding-top - $padding-bottom);
-  $floating-label-scale-percentage: ($floating-label-font-size-focus / $font-size);
-
-  padding-top: ($floating-label-line-height * $floating-label-scale-percentage);
-
+@mixin floating-label-size($font-size, $height, $line-height, $padding-y) {
   > label {
     font-size: $font-size;
-    line-height: $floating-label-line-height;
-    // position
-      top: ($floating-label-line-height * $floating-label-scale-percentage + $padding-top);
+    line-height: $line-height;
+    top: ($floating-label-font-size-focus + $padding-y);
   }
 
   &.has-value > label,
   &.is-focused > label {
-    transform: scale($floating-label-scale-percentage);
+    transform: scale($floating-label-font-size-focus / $font-size);
   }
 }
 
-@mixin form-control-size($border-width, $font-size, $height, $padding-top, $padding-bottom) {
+@mixin form-control-size($font-size, $height, $line-height, $padding-x, $padding-y) {
   font-size: $font-size;
   height: $height;
-  line-height: ($height - $padding-top - $padding-bottom);
-  padding: $padding-top 0 ($padding-bottom - $border-width / $font-size-root * 1rem);
-
-  @if $border-width != 0px {
-    &:focus {
-      padding-bottom: ($padding-bottom - ($border-width + 1) / $font-size-root * 1rem);
-    }
-  }
+  line-height: $line-height;
+  padding: $padding-y $padding-x ($padding-y - $textfield-border-width / $font-size-root * 1rem);
 }
 
-@mixin form-control-validation($color) {
-  .col-form-label,
-  .custom-control,
-  .form-check-label,
-  .form-control-feedback,
-  .form-control-label {
-    color: $color;
+@mixin form-control-validation($color, $state) {
+  .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .custom-control-indicator,
+      ~ .custom-control-description {
+        color: $color;
+      }
+    }
   }
 
+  .custom-file-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      &:focus ~ .custom-file-control {
+        border-bottom-color: $color;
+        box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $color;
+      }
+
+      ~ .custom-file-control {
+        border-color: $color;
+
+        @include hover {
+          border-bottom-color: $color;
+          box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $color;
+        }
+      }
+
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .custom-select,
   .form-control {
-    border-bottom-color: $color;
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      border-color: $color;
+
+      @include focus-hover {
+        border-color: $color;
+        box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $color;
+      }
+
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
+        display: block;
+      }
+    }
+  }
+
+  .form-check-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      + .form-check-label {
+        color: $color;
+      }
+    }
   }
 }

@@ -1,53 +1,40 @@
-[class*="btn-flat"],
-[class*="btn-outline"] {
+[class*='btn-outline'] {
   background-color: transparent;
   box-shadow: none;
 
-  // active, focus, hover
-    &:active,
-    &.active {
-      background-color: $btn-bg-active;
-      box-shadow: none;
-    }
+  &:active,
+  &.active {
+    box-shadow: none;
+  }
 
-  // disabled
-    &:disabled,
-    &.disabled {
-      background-color: transparent;
-    }
+  &:disabled,
+  &.disabled {
+    background-color: transparent;
+  }
 }
 
-// colour
-  .btn-flat-inverse,
-  .btn-outline-inverse {
+// Colour
+@each $color, $values in $theme-colors {
+  .btn-outline-#{$color} {
     @include plain-active-focus-hover {
-      color: $btn-color-inverse;
+      color: map-get(theme-color($color), color);
     }
 
-    &::before {
-      background-color: $btn-flat-focus-overlay-inverse;
-    }
-
-    // active, focus, hover
-      &:active,
-      &.active {
-        background-color: $btn-bg-inverse-active;
-      }
-
-    // disabled
-      &:disabled,
-      &.disabled {
-        color: $btn-color-inverse-disabled;
-      }
-  }
-
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
-    .btn-flat-#{$color},
-    .btn-outline-#{$color} {
-      @include plain-active-focus-hover {
-        color: nth($palettes-color, $i);
-      }
+    &:disabled,
+    &.disabled {
+      color: $btn-color-disabled;
     }
   }
+}
+
+[class*='bg-dark'] [class*='btn-outline'],
+.btn-outline-light {
+  @include focus-hover {
+    background-image: linear-gradient(to bottom, $btn-overlay-inverse, $btn-overlay-inverse);
+  }
+
+  &:active,
+  &.active {
+    background-color: $btn-bg-active-inverse;
+  }
+}

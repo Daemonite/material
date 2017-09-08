@@ -1,47 +1,61 @@
+// Acceleration curve: permanently leaving the screen
+
 @mixin transition-acceleration($property...) {
-  transition-duration: $transition-duration-sm;
+  transition-duration: $transition-duration-mobile-leaving;
   transition-property: $property;
   transition-timing-function: $transition-timing-function-acceleration;
 
   @include media-breakpoint-up(sm) {
-    transition-duration: $transition-duration-tablet-sm;
+    transition-duration: $transition-duration-tablet-leaving;
   }
 
   @include media-breakpoint-up(lg) {
-    transition-duration: $transition-duration-desktop-sm;
+    transition-duration: $transition-duration-desktop-leaving;
   }
 }
 
+
+
+// Deceleration curve: entering the screen
+
 @mixin transition-deceleration($property...) {
-  transition-duration: $transition-duration-lg;
+  transition-duration: $transition-duration-mobile-entering;
   transition-property: $property;
   transition-timing-function: $transition-timing-function-deceleration;
 
   @include media-breakpoint-up(sm) {
-    transition-duration: $transition-duration-tablet-lg;
+    transition-duration: $transition-duration-tablet-entering;
   }
 
   @include media-breakpoint-up(lg) {
-    transition-duration: $transition-duration-desktop-lg;
+    transition-duration: $transition-duration-desktop-entering;
   }
 }
 
+
+
+// Sharp curve: temporarily leaving the screen
+
 @mixin transition-sharp($property...) {
-  transition-duration: $transition-duration-sm;
+  transition-duration: $transition-duration-mobile-leaving;
   transition-property: $property;
   transition-timing-function: $transition-timing-function-sharp;
 
   @include media-breakpoint-up(sm) {
-    transition-duration: $transition-duration-tablet-sm;
+    transition-duration: $transition-duration-tablet-leaving;
   }
 
   @include media-breakpoint-up(lg) {
-    transition-duration: $transition-duration-desktop-sm;
+    transition-duration: $transition-duration-desktop-leaving;
   }
 }
 
+
+
+// Standard curve: relative movement
+
 @mixin transition-standard($property...) {
-  transition-duration: $transition-duration;
+  transition-duration: $transition-duration-mobile;
   transition-property: $property;
   transition-timing-function: $transition-timing-function-standard;
 
@@ -51,5 +65,23 @@
 
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop;
+  }
+}
+
+
+
+// Standard curve: relative movement - complex, full-screen, large transitions
+
+@mixin transition-standard-complex($property...) {
+  transition-duration: $transition-duration-mobile-complex;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-standard;
+
+  @include media-breakpoint-up(sm) {
+    transition-duration: $transition-duration-tablet-complex;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-duration: $transition-duration-desktop-complex;
   }
 }

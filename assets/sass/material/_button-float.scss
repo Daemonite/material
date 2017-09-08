@@ -3,27 +3,23 @@
   box-shadow: map-get($btn-float-elevation-shadow, shadow);
   height: $btn-float-size;
   line-height: $btn-float-size;
-  padding: 0;
-  position: relative;
   min-width: 0;
+  padding: 0;
   width: $btn-float-size;
-  z-index: map-get($btn-float-elevation-shadow, elevation);
 
-  &::before {
-    border-radius: 50%;
+  &:active,
+  &.active {
+    box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
   }
 
-  // active, focus, hover
-    &:active,
-    &.active {
-      box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
-      z-index: map-get($btn-float-elevation-shadow-active, elevation);
-    }
-}
+  &:disabled,
+  &.disabled {
+    box-shadow: none;
+  }
 
-// size
-  .btn-float.btn-sm {
+  &.btn-sm {
     height: $btn-float-size-sm;
     line-height: $btn-float-size-sm;
     width: $btn-float-size-sm;
   }
+}

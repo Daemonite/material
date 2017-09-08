@@ -1,97 +1,102 @@
-// alignment
-  .text-justify {
-    text-align: justify !important;
-  }
+// Alignment
 
-  .text-nowrap {
-    white-space: nowrap !important;
-  }
+.text-justify {
+  text-align: justify !important;
+}
 
-  .text-truncate {
-    @include text-truncate;
-  }
+.text-nowrap {
+  white-space: nowrap !important;
+}
 
-  // horizontal
-    @each $breakpoint in map-keys($grid-breakpoints) {
-      @include media-breakpoint-up($breakpoint) {
-        $infix: breakpoint-infix($breakpoint);
+.text-truncate {
+  @include text-truncate;
+}
 
-        .text#{$infix}-center {
-          text-align: center !important;
-        }
+// Responsive alignment
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint);
 
-        .text#{$infix}-left {
-          text-align: left !important;
-        }
-
-        .text#{$infix}-right {
-          text-align: right !important;
-        }
-      }
+    .text#{$infix}-center {
+      text-align: center !important;
     }
 
-// color
-  // black and white
-    @include text-emphasis-variant('.text-black', $black);
-    @include text-emphasis-variant('.text-black-primary', $black-primary);
-    @include text-emphasis-variant('.text-black-secondary', $black-secondary);
-    @include text-emphasis-variant('.text-black-hint', $black-hint);
-    @include text-emphasis-variant('.text-black-divider', $black-divider);
-
-    @include text-emphasis-variant('.text-white', $white);
-    @include text-emphasis-variant('.text-white-primary', $white-primary);
-    @include text-emphasis-variant('.text-white-secondary', $white-secondary);
-    @include text-emphasis-variant('.text-white-hint', $white-hint);
-    @include text-emphasis-variant('.text-white-divider', $white-divider);
-
-  // font colour
-    @include text-emphasis-variant('.text-gray-dark', $black-primary, $black);
-
-  // offwhite
-    @include text-emphasis-variant('.text-muted', $text-muted, $text-muted-active);
-
-  // palette
-    @each $color in $palettes {
-      $i: index($palettes, $color);
-
-      @include text-emphasis-variant('.text-#{$color}', nth($palettes-color, $i), nth($palettes-color-dark, $i));
+    .text#{$infix}-left {
+      text-align: left !important;
     }
 
-    @include text-emphasis-variant('.text-inverse', $white-primary, $white);
-
-// italcs and weight
-  .font-italic {
-    font-style: italic;
+    .text#{$infix}-right {
+      text-align: right !important;
+    }
   }
+}
 
-  .font-weight-bold,
-  .font-weight-medium {
-    font-weight: $font-weight-medium;
-  }
 
-  .font-weight-light {
-    font-weight: $font-weight-light;
-  }
 
-  .font-weight-normal,
-  .font-weight-regular {
-    font-weight: $font-weight-regular;
-  }
+// Color
 
-// misc
-  .text-hide {
-    @include text-hide;
-  }
+// Black and white
+@include text-emphasis-variant('.text-black', $black);
+@include text-emphasis-variant('.text-black-primary', $black-primary);
+@include text-emphasis-variant('.text-black-secondary', $black-secondary);
+@include text-emphasis-variant('.text-black-hint', $black-hint);
+@include text-emphasis-variant('.text-black-divider', $black-divider);
 
-// transformation
-  .text-capitalize {
-    text-transform: capitalize !important;
-  }
+@include text-emphasis-variant('.text-white', $white);
+@include text-emphasis-variant('.text-white-primary', $white-primary);
+@include text-emphasis-variant('.text-white-secondary', $white-secondary);
+@include text-emphasis-variant('.text-white-hint', $white-hint);
+@include text-emphasis-variant('.text-white-divider', $white-divider);
 
-  .text-lowercase {
-    text-transform: lowercase !important;
-  }
+@include text-emphasis-variant('.text-muted', $text-muted);
 
-  .text-uppercase {
-    text-transform: uppercase !important;
-  }
+// Palette
+@each $color, $values in $theme-colors {
+  @include text-emphasis-variant('.text-#{$color}', map-get(theme-color($color), color), map-get(theme-color($color), darker));
+}
+
+
+
+// Italcs and weight
+
+.font-italic {
+  font-style: italic;
+}
+
+.font-weight-bold,
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-weight-light {
+  font-weight: $font-weight-light;
+}
+
+.font-weight-normal,
+.font-weight-regular {
+  font-weight: $font-weight-regular;
+}
+
+
+
+// Misc
+
+.text-hide {
+  @include text-hide;
+}
+
+
+
+// Transformation
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}

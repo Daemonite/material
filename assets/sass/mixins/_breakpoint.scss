@@ -1,5 +1,5 @@
 @function breakpoint-infix($name) {
-  @return if(breakpoint-min($name) == null, "", "-#{$name}");
+  @return if(breakpoint-min($name) == null, '', '-#{$name}');
 }
 
 @function breakpoint-max($name) {
@@ -42,5 +42,35 @@
     }
   } @else {
     @content
+  }
+}
+
+
+
+// Additional mixins
+
+@mixin media-breakpoint-between($lower, $upper) {
+  $max: breakpoint-max($upper);
+  $min: breakpoint-min($lower);
+
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-only($name) {
+  $max: breakpoint-max($name);
+  $min: breakpoint-min($name);
+
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin media-moz-webkit {
+  @media
+  screen and (-webkit-min-device-pixel-ratio: 0),
+  screen and (min--moz-device-pixel-ratio: 0) {
+    @content;
   }
 }

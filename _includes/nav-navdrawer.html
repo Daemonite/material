@@ -1,0 +1,64 @@
+<div aria-hidden="true" class="navdrawer navdrawer-permanent doc-navdrawer" id="{{ site.id.navdrawer }}" tabindex="-1">
+  <div class="navdrawer-content">
+    <div class="d-flex flex-column doc-navdrawer-body">
+      <div class="navdrawer-header">
+        <a class="navbar-brand px-0" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      </div>
+
+      <nav class="navdrawer-nav">
+
+      {%- assign page_slug = page.url | split: '/' | last -%}
+
+      {%- for group in site.data.nav -%}
+
+        {%- assign class_collapsed = 'collapsed' -%}
+        {%- assign class_show = '' -%}
+        {%- assign group_slug = group.title | slugify -%}
+
+        {%- if group_slug == page.group -%}
+          {%- assign class_collapsed = '' -%}
+          {%- assign class_show = 'show' -%}
+        {%- endif -%}
+
+        {%- if group.title == 'Material' -%}
+          <div class="navdrawer-divider"></div>
+        {%- endif -%}
+
+          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+            <strong>{{ group.title }}</strong>
+          </a>
+          <div class="collapse pb-sm {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+
+            {%- for doc in group.pages -%}
+
+              {%- assign class_active = 'text-black-secondary' -%}
+              {%- assign doc_slug = doc.title | slugify -%}
+
+              {%- if doc_slug == page_slug and group_slug == page.group -%}
+                {%- assign class_active = 'active' -%}
+              {%- endif -%}
+
+              <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/"><span class="font-weight-normal">{{ doc.title }}</span></a>
+
+            {%- endfor -%}
+
+          </div>
+
+      {%- endfor -%}
+
+      </nav>
+
+      <div class="mt-auto">
+        <div class="navdrawer-divider mt-no"></div>
+        <div class="navdrawer-nav">
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

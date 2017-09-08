@@ -1,86 +1,53 @@
-//
-// material design guidelines specifically discouragae the usage of tooltips with rich information
+// N.B. Material design specifically discouragaes the usage of tooltips with rich information
 // (https://material.google.com/components/tooltips.html#tooltips-usage)
-//
+// Therefore, popovers are styled as Material design's dialogs
 
 .popover {
+  @include reset-text;
+  @include border-radius($border-radius);
+
   background-clip: padding-box;
   background-color: $dialog-content-bg;
-  border: 1px solid transparent;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: block;
   font-size: $font-size-base;
+  margin: $tooltip-margin;
   max-width: $dialog-width-sm;
   position: absolute;
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
   z-index: map-get($dialog-elevation-shadow, elevation);
-  @include border-radius($border-radius);
-  @include reset-text;
+}
 
-  &,
-  &.fade,
-  &.fade.show {
-    transition-property: opacity;
-  }
+.popover-body {
+  padding: $dialog-padding-y $dialog-padding-x;
 
-  &.bs-tether-element-attached-bottom,
-  &.popover-top {
-    margin-top: ($tooltip-margin * -1);
-  }
-
-  &.bs-tether-element-attached-left,
-  &.popover-right {
-    margin-left: $tooltip-margin;
-  }
-
-  &.bs-tether-element-attached-right,
-  &.popover-left {
-    margin-left: ($tooltip-margin * -1);
-  }
-
-  &.bs-tether-element-attached-top,
-  &.popover-bottom {
-    margin-top: $tooltip-margin;
+  > :last-child {
+    margin-bottom: 0;
   }
 }
 
-.popover-content {
-  padding: $dialog-inner-padding;
-}
-
-.popover-title {
-  margin: 0;
-  padding: $dialog-inner-padding;
-  padding-bottom: 0;
+.popover-header {
   @include typography-title;
+
+  margin-bottom: 0;
+  padding: $dialog-padding-y $dialog-padding-x 0;
 
   &:empty {
     display: none;
   }
+
+  &:last-child {
+    padding-bottom: $dialog-padding-y;
+  }
 }
 
-// desktop
-  @include media-breakpoint-up(md) {
-    .popover {
-      &.bs-tether-element-attached-bottom,
-      &.popover-top {
-        margin-top: ($tooltip-margin-md-up * -1);
-      }
 
-      &.bs-tether-element-attached-left,
-      &.popover-right {
-        margin-left: $tooltip-margin-md-up;
-      }
 
-      &.bs-tether-element-attached-right,
-      &.popover-left {
-        margin-left: ($tooltip-margin-md-up * -1);
-      }
+// Desktop
 
-      &.bs-tether-element-attached-top,
-      &.popover-bottom {
-        margin-top: $tooltip-margin-md-up;
-      }
-    }
+@include media-breakpoint-up(md) {
+  .popover {
+    margin: $tooltip-margin-desktop;
   }
+}

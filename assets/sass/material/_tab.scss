@@ -1,131 +1,112 @@
-//
-// todo: tabs with icons
-//
-
 .nav-tabs {
-  box-shadow: inset 0 -1px 0 $nav-tab-border-color;
+  box-shadow: inset 0 ($nav-tab-border-width * -2) 0 ($nav-tab-border-width * -1) $nav-tab-border-color;
+
+  &.border-0,
+  &.border-bottom-0 {
+    box-shadow: none;
+  }
 
   .nav-link {
-    align-items: center;
-    color: inherit;
-    display: flex;
-    font-size: $nav-tab-link-font-size;
-    font-weight: $nav-tab-link-font-weight;
-    height: 100%;
-    justify-content: center;
-    line-height: 1;
-    min-height: $nav-tab-link-height;
+    @include transition-standard(background-color, color, opacity);
+
+    color: $nav-tab-color;
+    font-size: $nav-tab-font-size;
+    font-weight: $nav-tab-font-weight;
+    line-height: $nav-tab-line-height;
+    min-height: $nav-tab-height;
     opacity: $nav-tab-link-opacity;
-    padding: (($nav-tab-link-height - $nav-tab-link-font-size * 2) / 2) $nav-tab-link-padding-x;
+    padding: $nav-tab-link-padding-y $nav-tab-link-padding-x;
     position: relative;
     text-transform: uppercase;
-    @include transition-standard(background-color, opacity);
+
+    @include active-focus-hover {
+      background-color: $nav-tab-bg-hover;
+    }
 
     &::before {
+      @include transition-standard(opacity);
+
       background-color: $nav-tab-indicator-bg;
-      content: "";
+      content: '';
       display: block;
       height: $nav-tab-indicator-height;
       opacity: 0;
       position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      @include transition-standard(opacity);
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
-    @include media-breakpoint-up(lg) {
-      padding-right: $nav-tab-link-padding-x-lg;
-      padding-left: $nav-tab-link-padding-x-lg;
+    &:active,
+    &.active {
+      opacity: 1;
     }
 
-    // active, focus, hover
-      @include active-focus-hover {
-        background-color: $nav-link-bg-active;
-      }
+    &.active {
+      color: $nav-tab-color-active;
 
-      &:active,
-      &.active {
-        opacity: $nav-tab-link-opacity-visible;
+      &::before {
+        opacity: 1;
       }
+    }
 
-      &.active {
-        &::before {
-          opacity: $nav-tab-link-opacity-visible;
-        }
-      }
+    &.disabled {
+      background-color: transparent;
+      color: $nav-tab-color-disabled;
+      opacity: 1;
+    }
+  }
 
-    // disabled
-      &.disabled {
-        background-color: transparent;
-        color: $nav-link-color-disabled;
-        opacity: $nav-tab-link-opacity-visible;
-      }
+  .nav-item.show .nav-link {
+    background-color: $nav-tab-bg-hover;
+    opacity: 1;
   }
 }
 
-// variation
-  .nav-tabs {
-    &.border-0,
-    &.border-bottom-0 {
-      box-shadow: none;
-    }
+.nav-tabs-material {
+  position: relative;
 
-    &.nav-justified {
-      .nav-link {
-        min-width: $nav-tab-link-min-width;
-
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
-      }
-    }
-
-    &.nav-scrollable {
-      overflow-x: auto;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
-
-      .nav-link {
-        max-width: $nav-tab-link-max-width;
-        min-width: $nav-tab-link-min-width;
-
-        @include media-breakpoint-up(lg) {
-          min-width: $nav-tab-link-min-width-lg;
-        }
-      }
-    }
-  }
-
-  .nav-tabs-material {
-    position: relative;
-
+  &.animate {
     .nav-link::before {
-      transition: none;
+      opacity: 0;
     }
 
     .nav-tabs-indicator {
-      background-color: $nav-tab-indicator-bg;
-      height: $nav-tab-indicator-height;
-      display: none;
-      position: absolute;
-        bottom: 0;
-
-      &.show {
-        display: block;
-      }
+      @include transition-standard(left, right);
     }
-
-    // animation
-      &.animate {
-        .nav-link::before {
-          opacity: 0;
-        }
-
-        .nav-tabs-indicator {
-          transition-duration: $transition-duration;
-          transition-property: left, right;
-          transition-timing-function: $transition-timing-function-standard;
-        }
-      }
   }
+
+  .nav-link::before {
+    transition: none;
+  }
+
+  .nav-tabs-indicator {
+    background-color: $nav-tab-indicator-bg;
+    display: none;
+    height: $nav-tab-indicator-height;
+    position: absolute;
+    bottom: 0;
+
+    &.show {
+      display: block;
+    }
+  }
+}
+
+.nav-tabs-scrollable {
+  box-shadow: inset 0 ($nav-tab-border-width * -2) 0 ($nav-tab-border-width * -1) $nav-tab-border-color;
+  height: $nav-tab-height;
+  overflow: hidden;
+
+  .nav-tabs {
+    box-shadow: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: $nav-tab-height;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

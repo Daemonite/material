@@ -1,10 +1,10 @@
 @mixin make-grid-columns() {
   %grid-column {
+    @include make-gutters;
+
     min-height: 1px;
     position: relative;
     width: 100%;
-
-    @include make-gutters;
   }
 
   @each $breakpoint in map-keys($grid-breakpoints) {
@@ -16,7 +16,8 @@
       }
     }
 
-    .col#{$infix} {
+    .col#{$infix},
+    .col#{$infix}-auto {
       @extend %grid-column;
     }
 
@@ -29,6 +30,7 @@
 
       .col#{$infix}-auto {
         flex: 0 0 auto;
+        max-width: none;
         width: auto;
       }
 
@@ -38,19 +40,9 @@
         }
       }
 
-      @each $modifier in (pull, push) {
-        @for $i from 0 through $grid-columns {
-          .#{$modifier}#{$infix}-#{$i} {
-            @include make-col-modifier($i, $modifier);
-          }
-        }
-      }
-
-      @for $i from 0 through ($grid-columns - 1) {
-        @if not ($infix == "" and $i == 0) {
-          .offset#{$infix}-#{$i} {
-            @include make-col-modifier($i, offset);
-          }
+      @for $i from 1 through $grid-columns {
+        .order#{$infix}-#{$i} {
+          order: $i;
         }
       }
     }

@@ -1,0 +1,34 @@
+.badge {
+  @include border-radius($badge-border-radius);
+
+  background-color: $badge-bg;
+  color: $badge-color;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: $badge-font-weight;
+  line-height: inherit;
+  padding: $badge-padding-y $badge-padding-x;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  &:empty {
+    display: none;
+  }
+
+  .btn & {
+    margin-top: -1px;
+    margin-bottom: -1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+}
+
+// Colour
+@each $color, $values in $theme-colors {
+  .badge-#{$color} {
+    @include color-yiq(map-get(theme-color($color), color));
+
+    background-color: map-get(theme-color($color), color);
+  }
+}

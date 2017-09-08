@@ -1,47 +1,18 @@
-@mixin _assert-ascending($map, $map-name) {
-  $prev-key: null;
-  $prev-num: null;
+// Sass option
 
-  @each $key, $num in $map {
-    @if $prev-num == null {
-      // do nothing
-    } @else if not comparable($num, $prev-num) {
-      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}'!";
-    } @else if $num <= $prev-num {
-      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}'!";
-    }
+$enable-grid-classes:      true !default;
+$enable-hover-media-query: false !default;
+$enable-print-styles:      true !default;
 
-    $prev-key: $key;
-    $prev-num: $num;
-  }
-}
 
-@mixin _assert-starts-at-zero($map) {
-  $first-value: nth(map-values($map), 1);
 
-  @if $first-value != 0 {
-    @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
-  }
-}
+// Variables
 
-// sass option
-  $enable-grid-classes:      true !default;
-  $enable-hover-media-query: false !default;
-  $enable-print-styles:      true !default;
-
-  // the following bootstrap options are not supported in material
-  // this is because these features are required by material design guidelines
-
-  // $enable-gradients:         true !default;
-  // $enable-rounded:           true !default;
-  // $enable-shadows:           true !default;
-  // $enable-transitions:       true !default;
-
-@import "variables/animation";
-@import "variables/colour";
-@import "variables/elevation-shadow";
-@import "variables/grid";
-@import "variables/spacer";
-@import "variables/typography";
-@import "variables/variable-bootstrap";
-@import "variables/variable-material";
+@import 'variables/elevation-shadow';
+@import 'variables/grid';
+@import 'variables/palette';
+@import 'variables/spacer';
+@import 'variables/transition';
+@import 'variables/typography';
+@import 'variables/variable-bootstrap';
+@import 'variables/variable-material';

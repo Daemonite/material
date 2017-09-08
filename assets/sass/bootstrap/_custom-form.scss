@@ -1,67 +1,61 @@
-//
-// custom checkbox, radio button and select are defined in material design guidelines
+// N.B. Custom checkbox, radio button and select are defined in Material design
 // (https://material.google.com/components/selection-controls.html)
 // therefore, these elements are styled in /assets/sass/material/_selection-control.scss
-//
 
-//
-// custom file
-//
-  .custom-file {
-    cursor: pointer;
-    display: inline-block;
-    height: $textfield-height;
-    max-width: 100%;
-    position: relative;
-  }
+// Custom file
 
-  .custom-file-control {
-    border-bottom: $textfield-border-width solid $textfield-border-color;
-    color: $textfield-hint-color;
-    font-weight: $font-weight-regular;
-    position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-    user-select: none;
-    z-index: 1;
-    @include form-control-size($textfield-border-width, $textfield-font-size, $textfield-height, $textfield-padding-top, $textfield-padding-bottom);
-    @include transition-standard(border-bottom-color);
+.custom-file {
+  display: inline-block;
+  height: $textfield-height;
+  max-width: 100%;
+  position: relative;
+}
 
-    @each $lang, $text in $custom-file-text {
-      &:lang(#{$lang})::after {
-        content: $text;
-      }
+.custom-file-control {
+  @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
+  @include transition-standard(border-color, box-shadow);
+
+  align-items: center;
+  border-bottom: $textfield-border-width solid $textfield-border-color;
+  color: $textfield-hint-color;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @each $lang, $text in $custom-file-text {
+    &:lang(#{$lang})::before {
+      content: $text;
     }
-
-    &::before {
-      background-color: transparent;
-      background-image: $custom-file-button-bg;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: $material-icon-size $material-icon-size;
-      content: "";
-      opacity: $custom-file-button-opacity;
-      position: absolute;
-        top: $textfield-padding-top;
-        right: 0;
-        bottom: 0;
-      width: $material-icon-size;
-      z-index: 2;
-      @include transition-standard(opacity);
-    }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        &::before {
-          opacity: $custom-file-button-opacity-visible;
-        }
-      }
   }
 
-  .custom-file-input {
-    margin: 0;
-    max-width: 100%;
-    min-width: $custom-file-width;
-    opacity: 0;
+  @include hover {
+    border-bottom-color: $textfield-border-color-hover;
+    box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
+
+  &::after {
+    @include set-material-icons;
+
+    content: $custom-file-button-icon;
+  }
+
+  &::before {
+    @include text-truncate;
+  }
+}
+
+.custom-file-input {
+  margin: 0;
+  max-width: 100%;
+  min-width: $custom-file-width;
+  opacity: 0;
+
+  &:focus ~ .custom-file-control {
+    border-bottom-color: $textfield-border-color-focus;
+    box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+  }
+}

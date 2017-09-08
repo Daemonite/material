@@ -1,54 +1,47 @@
 .alert {
-  background-color: $card-bg;
+  @include border-radius($alert-border-radius);
+
   border: 0;
-  box-shadow: map-get($card-elevation-shadow, shadow);
+  box-shadow: map-get($alert-elevation-shadow, shadow);
   display: block;
-  margin-bottom: $card-margin-bottom;
-  padding: $card-spacer-inner-y $card-spacer-inner-x;
-  position: relative;
-  z-index: map-get($card-elevation-shadow, elevation);
-  @include border-radius($border-radius);
+  margin-bottom: $alert-margin-y;
+  padding: $alert-padding-y $alert-padding-x;
 }
 
-// colour
-  .alert-inverse {
-    background-color: $card-bg-inverse;
-    color: $card-color-inverse;
-  }
+// Colour
+@each $color, $values in $theme-colors {
+  .alert-#{$color} {
+    @include color-yiq(map-get(theme-color($color), lighter));
 
-  @each $color in $palettes {
-    $i: index($palettes, $color);
+    background-color: map-get(theme-color($color), lighter);
 
-    .alert-#{$color} {
-      background-color: nth($palettes-color, $i);
-      color: nth($palettes-text-color, $i);
+    .alert-link {
+      color: map-get(theme-color($color), darker);
     }
   }
+}
 
-//
-// dismissible
-//
-  .alert-dismissible {
-    padding-right: ($card-spacer-inner-x * 2);
 
-    .close {
-      position: relative;
-        top: -0.125rem;
-        right: ($card-spacer-inner-x * -1);
-    }
+
+// Dismissible
+
+.alert-dismissible {
+  .close {
+    padding: $btn-padding-y $btn-padding-x;
+    position: relative;
+    top: (($close-font-size - $font-size-base * $line-height-base) / -2 - $btn-padding-y);
+    right: ($btn-padding-x * -1);
   }
+}
 
-//
-// misc
-//
-  .alert-heading {
-    color: inherit;
-  }
 
-  .alert-link {
-    font-weight: $alert-link-font-weight;
 
-    @include plain-active-focus-hover {
-      color: inherit;
-    }
-  }
+// Misc
+
+.alert-heading {
+  color: inherit;
+}
+
+.alert-link {
+  font-weight: $alert-link-font-weight;
+}

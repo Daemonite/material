@@ -1,5 +1,6 @@
 .nav {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
@@ -7,90 +8,91 @@
 
 .nav-link {
   display: block;
-  padding: $nav-link-padding;
+  padding: $nav-link-padding-y $nav-link-padding-x;
 
-  // active, focus, hover
-    @include active-focus-hover {
-      text-decoration: none;
-    }
+  @include active-focus-hover {
+    text-decoration: none;
+  }
 
-  // disabled
-    &.disabled {
-      color: $nav-link-color-disabled;
-      cursor: $cursor-disabled;
-    }
+  &.disabled {
+    color: $nav-link-color-disabled;
+    cursor: default;
+  }
 }
 
-//
-// justified
-//
-  .nav-fill {
-    .nav-item {
-      flex: 1 1 auto;
-      text-align: center;
+
+
+// Justified
+
+.nav-fill {
+  .nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.nav-justified {
+  .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+
+
+// Pills
+
+.nav-pills {
+  .nav-link {
+    @include border-radius($nav-pills-border-radius);
+    @include transition-standard(background-color, color, opacity);
+
+    color: $nav-pills-color;
+    opacity: $nav-pills-link-opacity;
+
+    @include active-focus-hover {
+      background-color: $nav-pills-bg-hover;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+
+    &.active {
+      color: $nav-pills-color-active;
+      opacity: 1;
+    }
+
+    &.disabled {
+      background-color: transparent;
+      color: $nav-link-color-disabled;
+      opacity: 1;
     }
   }
 
-  .nav-justified {
-    .nav-item {
-      flex: 1 1 100%;
-      text-align: center;
-    }
+  .show > .nav-link {
+    background-color: $nav-pills-bg-hover;
+    opacity: 1;
   }
+}
 
-//
-// pills
-//
-  .nav-pills {
-    .nav-link {
-      color: $nav-link-color;
-      @include border-radius($border-radius);
-      @include transition-standard(background-color, color);
 
-      // active, focus, hover
-        @include active-focus-hover {
-          color: $nav-link-color-active;
-        }
 
-        &.active {
-          background-color: $nav-link-bg-active;
-          color: $nav-link-color-active;
-          cursor: default;
-        }
-
-      // disabled
-        &.disabled {
-          color: $nav-link-color-disabled;
-        }
-    }
-
-    // open
-      .nav-item.show .nav-link {
-        background-color: $nav-link-bg-active;
-        color: $nav-link-color-active;
-        cursor: default;
-      }
-  }
-
-//
-// tabs are defined in material design guidelines
+// N.B. Tabs are defined in Material design
 // (https://material.google.com/components/tabs.html)
 // therefore, tabs are styled in /assets/sass/material/_tab.scss
-//
-  .tab-content {
-    // hide to start
-      > .tab-pane {
-        display: none;
-      }
 
-    // show when activated
-      > .active {
-        display: block;
-      }
+// Tabs (helper classes to work with tabs JavaScript)
+
+.tab-content {
+  // Hide to start
+  > .tab-pane {
+    display: none;
   }
 
-  .tab-pane {
-    &.fade {
-      transform: none;
-    }
+  // Show when activated
+  > .active {
+    display: block;
   }
+}

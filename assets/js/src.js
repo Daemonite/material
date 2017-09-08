@@ -1,88 +1,68 @@
-/*!
- * Material
- */
-if (typeof jQuery === 'undefined') {
-  throw new Error('Material\'s JavaScript requires jQuery')
-}
-
-+function ($) {
-  var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {
-    throw new Error('Material\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
-  }
-}(jQuery);
-
-+function ($) {
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/*!
- * floating label:
- * when a user engages with the text input field,
- * the floating inline labels move to float above the field
- */
-var FloatingLabel = function ($) {
-  // constants >>>
-  var DATA_API_KEY = '.data-api';
-  var DATA_KEY = 'md.floatinglabel';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var NAME = 'floatinglabel';
-  var NO_CONFLICT = $.fn[NAME];
++function () {
+  /*
+   * floating label:
+   * when a user engages with the text input field,
+   * the floating inline labels move to float above the field
+   */
 
-  var ClassName = {
-    IS_FOCUSED: 'is-focused',
-    HAS_VALUE: 'has-value'
-  };
+  var FloatingLabel = function ($) {
 
-  var Event = {
-    CHANGE: 'change' + EVENT_KEY,
-    FOCUSIN: 'focusin' + EVENT_KEY,
-    FOCUSOUT: 'focusout' + EVENT_KEY
-  };
+    // constants >>>
+    var DATA_KEY = 'md.floatinglabel';
+    var EVENT_KEY = '.' + DATA_KEY;
+    var NAME = 'floatinglabel';
+    var NO_CONFLICT = $.fn[NAME];
 
-  var Selector = {
-    DATA_PARENT: '.floating-label',
-    DATA_TOGGLE: '.floating-label .form-control'
-  };
-  // <<< constants
+    var ClassName = {
+      IS_FOCUSED: 'is-focused',
+      HAS_VALUE: 'has-value'
+    };
 
-  var FloatingLabel = function () {
-    function FloatingLabel(element) {
-      _classCallCheck(this, FloatingLabel);
+    var Event = {
+      CHANGE: 'change' + EVENT_KEY,
+      FOCUSIN: 'focusin' + EVENT_KEY,
+      FOCUSOUT: 'focusout' + EVENT_KEY
+    };
 
-      this._element = element;
-    }
+    var Selector = {
+      DATA_PARENT: '.floating-label',
+      DATA_TOGGLE: '.floating-label .form-control'
+    };
+    // <<< constants
 
-    _createClass(FloatingLabel, [{
-      key: 'change',
-      value: function change(relatedTarget) {
+    var FloatingLabel = function () {
+      function FloatingLabel(element) {
+        _classCallCheck(this, FloatingLabel);
+
+        this._element = element;
+      }
+
+      FloatingLabel.prototype.change = function change(relatedTarget) {
         if ($(this._element).val() || $(this._element).is('select') && $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
           $(relatedTarget).addClass(ClassName.HAS_VALUE);
         } else {
           $(relatedTarget).removeClass(ClassName.HAS_VALUE);
         }
-      }
-    }, {
-      key: 'focusin',
-      value: function focusin(relatedTarget) {
+      };
+
+      FloatingLabel.prototype.focusin = function focusin(relatedTarget) {
         $(relatedTarget).addClass(ClassName.IS_FOCUSED);
-      }
-    }, {
-      key: 'focusout',
-      value: function focusout(relatedTarget) {
+      };
+
+      FloatingLabel.prototype.focusout = function focusout(relatedTarget) {
         $(relatedTarget).removeClass(ClassName.IS_FOCUSED);
-      }
-    }], [{
-      key: '_jQueryInterface',
-      value: function _jQueryInterface(event) {
+      };
+
+      FloatingLabel._jQueryInterface = function _jQueryInterface(event) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
           var _event = event ? event : 'change';
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new FloatingLabel(this);
@@ -97,96 +77,94 @@ var FloatingLabel = function ($) {
             data[_event]($(this).closest(Selector.DATA_PARENT));
           }
         });
-      }
-    }]);
+      };
+
+      return FloatingLabel;
+    }();
+
+    $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
+      FloatingLabel._jQueryInterface.call($(this), event.type);
+    });
+
+    $.fn[NAME] = FloatingLabel._jQueryInterface;
+    $.fn[NAME].Constructor = FloatingLabel;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
+      return FloatingLabel._jQueryInterface;
+    };
 
     return FloatingLabel;
-  }();
+  }(jQuery);
 
-  $(document).on(Event.CHANGE + ' ' + Event.FOCUSIN + ' ' + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
-    var data = $(this).data(DATA_KEY);
+  /*
+   * navigation drawer
+   * based on bootstrap's (v4.0.0-beta) modal.js
+   */
 
-    FloatingLabel._jQueryInterface.call($(this), event.type);
-  });
+  var NavDrawer = function ($) {
 
-  $.fn[NAME] = FloatingLabel._jQueryInterface;
-  $.fn[NAME].Constructor = FloatingLabel;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = NO_CONFLICT;
-    return FloatingLabel._jQueryInterface;
-  };
+    // constants >>>
+    var DATA_API_KEY = '.data-api';
+    var DATA_KEY = 'md.navdrawer';
+    var ESCAPE_KEYCODE = 27;
+    var EVENT_KEY = '.' + DATA_KEY;
+    var NAME = 'navdrawer';
+    var NO_CONFLICT = $.fn[NAME];
+    var TRANSITION_DURATION = 292.5;
+    var TRANSITION_DURATION_BACKDROP = 487.5;
 
-  return FloatingLabel;
-}(jQuery);
+    var ClassName = {
+      BACKDROP: 'navdrawer-backdrop',
+      OPEN: 'navdrawer-open',
+      SHOW: 'show'
+    };
 
-/*!
- * navigation drawer
- * based on bootstrap's (v4.0.0-alpha.6) modal.js
- */
-var NavDrawer = function ($) {
-  // constants >>>
-  var DATA_API_KEY = '.data-api';
-  var DATA_KEY = 'md.navdrawer';
-  var EVENT_KEY = '.' + DATA_KEY;
-  var NAME = 'navdrawer';
-  var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 375;
-  var TRANSITION_DURATION_BACKDROP = 225;
+    var Default = {
+      breakpoint: 1280,
+      keyboard: true,
+      show: true,
+      type: 'default'
+    };
 
-  var ClassName = {
-    BACKDROP: 'navdrawer-backdrop',
-    OPEN: 'navdrawer-open',
-    SHOW: 'show'
-  };
+    var DefaultType = {
+      keyboard: 'boolean',
+      show: 'boolean',
+      type: 'string'
+    };
 
-  var Default = {
-    breakpoint: 1280,
-    keyboard: true,
-    show: true,
-    type: 'default'
-  };
+    var Event = {
+      CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
+      CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
+      FOCUSIN: 'focusin' + EVENT_KEY,
+      HIDDEN: 'hidden' + EVENT_KEY,
+      HIDE: 'hide' + EVENT_KEY,
+      KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
+      MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
+      MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
+      SHOW: 'show' + EVENT_KEY,
+      SHOWN: 'shown' + EVENT_KEY
+    };
 
-  var DefaultType = {
-    keyboard: 'boolean',
-    show: 'boolean',
-    type: 'string'
-  };
+    var Selector = {
+      CONTENT: '.navdrawer-content',
+      DATA_DISMISS: '[data-dismiss="navdrawer"]',
+      DATA_TOGGLE: '[data-toggle="navdrawer"]'
+    };
+    // <<< constants
 
-  var Event = {
-    CLICK_DATA_API: 'click' + EVENT_KEY + DATA_API_KEY,
-    CLICK_DISMISS: 'click.dismiss' + EVENT_KEY,
-    FOCUSIN: 'focusin' + EVENT_KEY,
-    HIDDEN: 'hidden' + EVENT_KEY,
-    HIDE: 'hide' + EVENT_KEY,
-    KEYDOWN_DISMISS: 'keydown.dismiss' + EVENT_KEY,
-    MOUSEDOWN_DISMISS: 'mousedown.dismiss' + EVENT_KEY,
-    MOUSEUP_DISMISS: 'mouseup.dismiss' + EVENT_KEY,
-    SHOW: 'show' + EVENT_KEY,
-    SHOWN: 'shown' + EVENT_KEY
-  };
+    var NavDrawer = function () {
+      function NavDrawer(element, config) {
+        _classCallCheck(this, NavDrawer);
 
-  var Selector = {
-    CONTENT: '.navdrawer-content',
-    DATA_DISMISS: '[data-dismiss="navdrawer"]',
-    DATA_TOGGLE: '[data-toggle="navdrawer"]'
-  };
-  // <<< constants
+        this._backdrop = null;
+        this._config = this._getConfig(config);
+        this._content = $(element).find(Selector.CONTENT)[0];
+        this._element = element;
+        this._ignoreBackdropClick = false;
+        this._isShown = false;
+      }
 
-  var NavDrawer = function () {
-    function NavDrawer(element, config) {
-      _classCallCheck(this, NavDrawer);
-
-      this._backdrop = null;
-      this._config = this._getConfig(config);
-      this._content = $(element).find(Selector.CONTENT)[0];
-      this._element = element;
-      this._ignoreBackdropClick = false;
-      this._isShown = false;
-    }
-
-    _createClass(NavDrawer, [{
-      key: 'hide',
-      value: function hide(event) {
+      NavDrawer.prototype.hide = function hide(event) {
         if (event) {
           event.preventDefault();
         }
@@ -207,15 +185,10 @@ var NavDrawer = function ($) {
 
         $(this._element).off(Event.CLICK_DISMISS).removeClass(ClassName.SHOW);
 
-        if (Util.supportsTransitionEnd()) {
-          $(this._element).one(Util.TRANSITION_END, $.proxy(this._hideNavdrawer, this, hideClassName)).emulateTransitionEnd(TRANSITION_DURATION);
-        } else {
-          this._hideNavdrawer();
-        }
-      }
-    }, {
-      key: 'show',
-      value: function show(relatedTarget) {
+        this._hideNavdrawer(hideClassName);
+      };
+
+      NavDrawer.prototype.show = function show(relatedTarget) {
         var _this = this;
 
         var showEvent = $.Event(Event.SHOW, {
@@ -242,16 +215,15 @@ var NavDrawer = function ($) {
           });
         });
 
-        this._showBackdrop($.proxy(this._showElement, this, relatedTarget));
-      }
-    }, {
-      key: 'toggle',
-      value: function toggle(relatedTarget) {
+        this._showBackdrop();
+        this._showElement(relatedTarget);
+      };
+
+      NavDrawer.prototype.toggle = function toggle(relatedTarget) {
         return this._isShown ? this.hide() : this.show(relatedTarget);
-      }
-    }, {
-      key: '_enforceFocus',
-      value: function _enforceFocus() {
+      };
+
+      NavDrawer.prototype._enforceFocus = function _enforceFocus() {
         var _this2 = this;
 
         $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
@@ -261,52 +233,49 @@ var NavDrawer = function ($) {
             }
           }
         });
-      }
-    }, {
-      key: '_getConfig',
-      value: function _getConfig(config) {
+      };
+
+      NavDrawer.prototype._getConfig = function _getConfig(config) {
         config = $.extend({}, Default, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
-      }
-    }, {
-      key: '_hideNavdrawer',
-      value: function _hideNavdrawer(className) {
-        var _this3 = this;
+      };
 
-        this._element.style.display = 'none';
+      NavDrawer.prototype._hideNavdrawer = function _hideNavdrawer(className) {
+        var _this3 = this;
 
         this._showBackdrop(function () {
           $(document.body).removeClass(className);
+
+          _this3._element.setAttribute('aria-hidden', 'true');
+          _this3._element.style.display = 'none';
+
           $(_this3._element).trigger(Event.HIDDEN);
         });
-      }
-    }, {
-      key: '_removeBackdrop',
-      value: function _removeBackdrop() {
+      };
+
+      NavDrawer.prototype._removeBackdrop = function _removeBackdrop() {
         if (this._backdrop) {
           $(this._backdrop).remove();
           this._backdrop = null;
         }
-      }
-    }, {
-      key: '_setEscapeEvent',
-      value: function _setEscapeEvent() {
+      };
+
+      NavDrawer.prototype._setEscapeEvent = function _setEscapeEvent() {
         var _this4 = this;
 
         if (this._isShown && this._config.keyboard) {
           $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
-            if (event.which === 27) {
+            if (event.which === ESCAPE_KEYCODE) {
               _this4.hide();
             }
           });
         } else if (!this._isShown) {
           $(this._element).off(Event.KEYDOWN_DISMISS);
         }
-      }
-    }, {
-      key: '_showBackdrop',
-      value: function _showBackdrop(callback) {
+      };
+
+      NavDrawer.prototype._showBackdrop = function _showBackdrop(callback) {
         var _this5 = this;
 
         var supportsTransition = Util.supportsTransitionEnd();
@@ -364,10 +333,9 @@ var NavDrawer = function ($) {
         } else if (callback) {
           callback();
         }
-      }
-    }, {
-      key: '_showElement',
-      value: function _showElement(relatedTarget) {
+      };
+
+      NavDrawer.prototype._showElement = function _showElement(relatedTarget) {
         var _this6 = this;
 
         var supportsTransition = Util.supportsTransitionEnd();
@@ -376,6 +344,7 @@ var NavDrawer = function ($) {
           document.body.appendChild(this._element);
         }
 
+        this._element.removeAttribute('aria-hidden');
         this._element.style.display = 'block';
 
         if (supportsTransition) {
@@ -399,13 +368,13 @@ var NavDrawer = function ($) {
         } else {
           transitionComplete();
         }
-      }
-    }], [{
-      key: '_jQueryInterface',
-      value: function _jQueryInterface(config, relatedTarget) {
+      };
+
+      NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var data = $(this).data(DATA_KEY);
           var _config = $.extend({}, NavDrawer.Default, $(this).data(), (typeof config === 'undefined' ? 'undefined' : _typeof(config)) === 'object' && config);
+
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new NavDrawer(this, _config);
@@ -422,132 +391,176 @@ var NavDrawer = function ($) {
             data.show(relatedTarget);
           }
         });
-      }
-    }, {
-      key: 'Default',
-      get: function get() {
-        return Default;
-      }
-    }]);
-
-    return NavDrawer;
-  }();
-
-  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-    var _this7 = this;
-
-    var selector = Util.getSelectorFromElement(this);
-    var target = void 0;
-
-    if (selector) {
-      target = $(selector)[0];
-    }
-
-    var config = $(target).data(DATA_KEY) ? 'toggle' : $.extend({}, $(target).data(), $(this).data());
-
-    if (this.tagName === 'A') {
-      event.preventDefault();
-    }
-
-    var $target = $(target).one(Event.SHOW, function (showEvent) {
-      if (showEvent.isDefaultPrevented()) {
-        return;
-      }
-
-      $target.one(Event.HIDDEN, function () {
-        if ($(_this7).is(':visible')) {
-          _this7.focus();
-        }
-      });
-    });
-
-    NavDrawer._jQueryInterface.call($(target), config, this);
-  });
-
-  $.fn[NAME] = NavDrawer._jQueryInterface;
-  $.fn[NAME].Constructor = NavDrawer;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = NO_CONFLICT;
-    return NavDrawer._jQueryInterface;
-  };
-
-  return NavDrawer;
-}(jQuery);
-
-/*!
- * tab indicator animation
- * requires bootstrap's (v4.0.0-alpha.6) tab.js
- */
-var TabSwitch = function ($) {
-  // constants >>>
-  var DATA_KEY = 'md.tabswitch';
-  var NAME = 'tabswitch';
-  var NO_CONFLICT = $.fn[NAME];
-  var TRANSITION_DURATION = 300;
-
-  var ClassName = {
-    ANIMATE: 'animate',
-    INDICATOR: 'nav-tabs-indicator',
-    MATERIAL: 'nav-tabs-material',
-    SCROLLABLE: 'nav-tabs-scrollable',
-    SHOW: 'show'
-  };
-
-  var Event = {
-    SHOW_BS_TAB: 'show.bs.tab'
-  };
-
-  var Selector = {
-    DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
-    NAV: '.nav-tabs',
-    NAV_ITEM: '.nav-item'
-  };
-  // <<< constants
-
-  var TabSwitch = function () {
-    function TabSwitch(nav) {
-      _classCallCheck(this, TabSwitch);
-
-      if (typeof $.fn.tab === 'undefined') {
-        throw new Error('Material\'s JavaScript requires Bootstrap\'s tab.js');
       };
 
-      this._nav = nav;
-      this._navindicator = null;
-    }
+      _createClass(NavDrawer, null, [{
+        key: 'Default',
+        get: function get() {
+          return Default;
+        }
+      }]);
 
-    _createClass(TabSwitch, [{
-      key: 'switch',
-      value: function _switch(element, relatedTarget) {
-        var _this8 = this;
+      return NavDrawer;
+    }();
 
-        var supportsTransition = Util.supportsTransitionEnd();
+    $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+      var _this7 = this;
 
-        if (!this._navindicator) {
-          this._createIndicator();
+      var selector = Util.getSelectorFromElement(this);
+      var target = void 0;
+
+      if (selector) {
+        target = $(selector)[0];
+      }
+
+      var config = $(target).data(DATA_KEY) ? 'toggle' : $.extend({}, $(target).data(), $(this).data());
+
+      if (this.tagName === 'A') {
+        event.preventDefault();
+      }
+
+      var $target = $(target).one(Event.SHOW, function (showEvent) {
+        if (showEvent.isDefaultPrevented()) {
+          return;
         }
 
-        var elLeft = $(element).closest(Selector.NAV_ITEM).offset().left;
-        var elWidth = $(element).closest(Selector.NAV_ITEM).outerWidth();
+        $target.one(Event.HIDDEN, function () {
+          if ($(_this7).is(':visible')) {
+            _this7.focus();
+          }
+        });
+      });
+
+      NavDrawer._jQueryInterface.call($(target), config, this);
+    });
+
+    $.fn[NAME] = NavDrawer._jQueryInterface;
+    $.fn[NAME].Constructor = NavDrawer;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
+      return NavDrawer._jQueryInterface;
+    };
+
+    return NavDrawer;
+  }(jQuery);
+
+  /*
+   * selection control focus:
+   * chrome persists the focus style on checkboxes/radio buttons
+   * after clicking with the mouse
+   */
+
+  var ControlFocus = function ($) {
+
+    // constants >>>
+    var DATA_KEY = 'md.controlfocus';
+    var EVENT_KEY = '.' + DATA_KEY;
+
+    var ClassName = {
+      FOCUS: 'focus'
+    };
+
+    var LastInteraction = {
+      IS_MOUSEDOWN: false
+    };
+
+    var Event = {
+      BLUR: 'blur' + EVENT_KEY,
+      FOCUS: 'focus' + EVENT_KEY,
+      MOUSEDOWN: 'mousedown' + EVENT_KEY,
+      MOUSEUP: 'mouseup' + EVENT_KEY
+    };
+
+    var Selector = {
+      CONTROL: '.custom-control',
+      INPUT: '.custom-control-input'
+    };
+    // <<< constants
+
+    $(document).on('' + Event.BLUR, Selector.INPUT, function (event) {
+      $(event.target).removeClass(ClassName.FOCUS);
+    }).on('' + Event.FOCUS, Selector.INPUT, function (event) {
+      if (LastInteraction.IS_MOUSEDOWN === false) {
+        $(event.target).addClass(ClassName.FOCUS);
+      }
+    }).on('' + Event.MOUSEDOWN, Selector.CONTROL, function () {
+      LastInteraction.IS_MOUSEDOWN = true;
+    }).on('' + Event.MOUSEUP, Selector.CONTROL, function () {
+      setTimeout(function () {
+        LastInteraction.IS_MOUSEDOWN = false;
+      }, 1);
+    });
+  }(jQuery);
+
+  /*
+   * tab indicator animation
+   * requires bootstrap's (v4.0.0-beta) tab.js
+   */
+
+  var TabSwitch = function ($) {
+
+    // constants >>>
+    var DATA_KEY = 'md.tabswitch';
+    var NAME = 'tabswitch';
+    var NO_CONFLICT = $.fn[NAME];
+    var TRANSITION_DURATION = 390;
+
+    var ClassName = {
+      ANIMATE: 'animate',
+      DROPDOWN_ITEM: 'dropdown-item',
+      INDICATOR: 'nav-tabs-indicator',
+      MATERIAL: 'nav-tabs-material',
+      SCROLLABLE: 'nav-tabs-scrollable',
+      SHOW: 'show'
+    };
+
+    var Event = {
+      SHOW_BS_TAB: 'show.bs.tab'
+    };
+
+    var Selector = {
+      DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
+      DROPDOWN: '.dropdown',
+      NAV: '.nav-tabs'
+    };
+    // <<< constants
+
+    var TabSwitch = function () {
+      function TabSwitch(nav) {
+        _classCallCheck(this, TabSwitch);
+
+        if (typeof $.fn.tab === 'undefined') {
+          throw new Error('Material\'s JavaScript requires Bootstrap\'s tab.js');
+        }
+
+        this._nav = nav;
+        this._navindicator = null;
+      }
+
+      TabSwitch.prototype.switch = function _switch(element, relatedTarget) {
+        var _this8 = this;
+
         var navLeft = $(this._nav).offset().left;
         var navScrollLeft = $(this._nav).scrollLeft();
         var navWidth = $(this._nav).outerWidth();
+        var supportsTransition = Util.supportsTransitionEnd();
 
-        if (relatedTarget !== undefined) {
-          var relatedLeft = $(relatedTarget).closest(Selector.NAV_ITEM).offset().left;
-          var relatedWidth = $(relatedTarget).closest(Selector.NAV_ITEM).outerWidth();
+        if (!this._navindicator) {
+          this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
+        }
 
-          $(this._navindicator).css({
-            left: relatedLeft + navScrollLeft - navLeft,
-            right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
-          });
+        if ($(element).hasClass(ClassName.DROPDOWN_ITEM)) {
+          element = $(element).closest(Selector.DROPDOWN);
+        }
 
-          $(this._navindicator).addClass(ClassName.SHOW);
-          Util.reflow(this._navindicator);
+        var elLeft = $(element).offset().left;
+        var elWidth = $(element).outerWidth();
 
-          if (supportsTransition) {
-            $(this._nav).addClass(ClassName.ANIMATE);
-          }
+        $(this._navindicator).addClass(ClassName.SHOW);
+        Util.reflow(this._navindicator);
+
+        if (supportsTransition) {
+          $(this._nav).addClass(ClassName.ANIMATE);
         }
 
         $(this._navindicator).css({
@@ -566,19 +579,31 @@ var TabSwitch = function ($) {
         }
 
         $(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(TRANSITION_DURATION);
-      }
-    }, {
-      key: '_createIndicator',
-      value: function _createIndicator() {
+      };
+
+      TabSwitch.prototype._createIndicator = function _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
         this._navindicator = document.createElement('div');
 
         $(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
 
+        if (relatedTarget !== undefined) {
+          if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
+            relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN);
+          }
+
+          var relatedLeft = $(relatedTarget).offset().left;
+          var relatedWidth = $(relatedTarget).outerWidth();
+
+          $(this._navindicator).css({
+            left: relatedLeft + navScrollLeft - navLeft,
+            right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
+          });
+        }
+
         $(this._nav).addClass(ClassName.MATERIAL);
-      }
-    }], [{
-      key: '_jQueryInterface',
-      value: function _jQueryInterface(relatedTarget) {
+      };
+
+      TabSwitch._jQueryInterface = function _jQueryInterface(relatedTarget) {
         return this.each(function () {
           var nav = $(this).closest(Selector.NAV)[0];
 
@@ -595,157 +620,156 @@ var TabSwitch = function ($) {
 
           data.switch(this, relatedTarget);
         });
-      }
-    }]);
+      };
 
-    return TabSwitch;
-  }();
+      return TabSwitch;
+    }();
 
-  $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
-    TabSwitch._jQueryInterface.call($(event.target), event.relatedTarget);
-  });
-
-  $.fn[NAME] = TabSwitch._jQueryInterface;
-  $.fn[NAME].Constructor = TabSwitch;
-  $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = NO_CONFLICT;
-    return TabSwitch._jQueryInterface;
-  };
-
-  return TabSwitch;
-}(jQuery);
-
-/*!
- * global util js
- * based on bootstrap's (v4.0.0-alpha.6) util.js
- */
-var Util = function ($) {
-  var transition = false;
-
-  var TransitionEndEvent = {
-    WebkitTransition: 'webkitTransitionEnd',
-    MozTransition: 'transitionend',
-    OTransition: 'oTransitionEnd otransitionend',
-    transition: 'transitionend'
-  };
-
-  function getSpecialTransitionEndEvent() {
-    return {
-      bindType: transition.end,
-      delegateType: transition.end,
-      handle: function handle(event) {
-        if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments);
-        }
-        return undefined;
-      }
-    };
-  }
-
-  function isElement(obj) {
-    return (obj[0] || obj).nodeType;
-  }
-
-  function setTransitionEndSupport() {
-    transition = transitionEndTest();
-
-    $.fn.emulateTransitionEnd = transitionEndEmulator;
-
-    if (Util.supportsTransitionEnd()) {
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
-  }
-
-  function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
-  }
-
-  function transitionEndEmulator(duration) {
-    var _this9 = this;
-
-    var called = false;
-
-    $(this).one(Util.TRANSITION_END, function () {
-      called = true;
+    $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
+      TabSwitch._jQueryInterface.call($(event.target), event.relatedTarget);
     });
 
-    setTimeout(function () {
-      if (!called) {
-        Util.triggerTransitionEnd(_this9);
-      }
-    }, duration);
-
-    return this;
-  }
-
-  function transitionEndTest() {
-    if (window.QUnit) {
-      return false;
-    }
-
-    var el = document.createElement('material');
-
-    for (var name in TransitionEndEvent) {
-      if (el.style[name] !== undefined) {
-        return { end: TransitionEndEvent[name] };
-      }
+    $.fn[NAME] = TabSwitch._jQueryInterface;
+    $.fn[NAME].Constructor = TabSwitch;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
+      return TabSwitch._jQueryInterface;
     };
 
-    return false;
-  }
+    return TabSwitch;
+  }(jQuery);
 
-  var Util = {
-    TRANSITION_END: 'mdTransitionEnd',
+  /*
+   * global util js
+   * based on bootstrap's (v4.0.0-beta) util.js
+   */
 
-    getSelectorFromElement: function getSelectorFromElement(element) {
-      var selector = element.getAttribute('data-target');
+  var Util = function ($) {
 
-      if (!selector) {
-        selector = element.getAttribute('href') || '';
-        selector = /^#[a-z]/i.test(selector) ? selector : null;
-      }
+    var MAX_UID = 1000000;
+    var transition = false;
 
-      return selector;
-    },
-    getUID: function getUID(prefix) {
-      do {
-        prefix += ~ ~(Math.random() * 1000000);
-      } while (document.getElementById(prefix));
-      return prefix;
-    },
-    reflow: function reflow(element) {
-      new Function('md', 'return md')(element.offsetHeight);
-    },
-    supportsTransitionEnd: function supportsTransitionEnd() {
-      return Boolean(transition);
-    },
-    triggerTransitionEnd: function triggerTransitionEnd(element) {
-      $(element).trigger(transition.end);
-    },
-    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-      for (var property in configTypes) {
-        if (configTypes.hasOwnProperty(property)) {
-          var expectedTypes = configTypes[property];
-          var value = config[property];
-          var valueType = void 0;
+    var TransitionEndEvent = {
+      WebkitTransition: 'webkitTransitionEnd',
+      MozTransition: 'transitionend',
+      OTransition: 'oTransitionEnd otransitionend',
+      transition: 'transitionend'
+    };
 
-          if (value && isElement(value)) {
-            valueType = 'element';
-          } else {
-            valueType = toType(value);
+    function getSpecialTransitionEndEvent() {
+      return {
+        bindType: transition.end,
+        delegateType: transition.end,
+        handle: function handle(event) {
+          if ($(event.target).is(this)) {
+            // eslint-disable-next-line prefer-rest-params
+            return event.handleObj.handler.apply(this, arguments);
           }
-
-          if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
-          }
+          return undefined;
         }
       };
     }
-  };
 
-  setTransitionEndSupport();
+    function isElement(obj) {
+      return (obj[0] || obj).nodeType;
+    }
 
-  return Util;
-}(jQuery);
+    function setTransitionEndSupport() {
+      transition = transitionEndTest();
 
-}(jQuery);
+      $.fn.emulateTransitionEnd = transitionEndEmulator;
+
+      if (Util.supportsTransitionEnd()) {
+        $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+      }
+    }
+
+    function toType(obj) {
+      return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    }
+
+    function transitionEndEmulator(duration) {
+      var _this9 = this;
+
+      var called = false;
+
+      $(this).one(Util.TRANSITION_END, function () {
+        called = true;
+      });
+
+      setTimeout(function () {
+        if (!called) {
+          Util.triggerTransitionEnd(_this9);
+        }
+      }, duration);
+
+      return this;
+    }
+
+    function transitionEndTest() {
+      if (window.QUnit) {
+        return false;
+      }
+
+      var el = document.createElement('material');
+
+      for (var name in TransitionEndEvent) {
+        if (el.style[name] !== undefined) {
+          return {
+            end: TransitionEndEvent[name]
+          };
+        }
+      }
+
+      return false;
+    }
+
+    var Util = {
+      TRANSITION_END: 'mdTransitionEnd',
+
+      getSelectorFromElement: function getSelectorFromElement(element) {
+        var selector = element.getAttribute('data-target');
+
+        if (!selector) {
+          selector = element.getAttribute('href') || '';
+          selector = /^#[a-z]/i.test(selector) ? selector : null;
+        }
+
+        return selector;
+      },
+      getUID: function getUID(prefix) {
+        do {
+          // eslint-disable-next-line no-bitwise
+          prefix += ~~(Math.random() * MAX_UID);
+        } while (document.getElementById(prefix));
+        return prefix;
+      },
+      reflow: function reflow(element) {
+        new Function('md', 'return md')(element.offsetHeight);
+      },
+      supportsTransitionEnd: function supportsTransitionEnd() {
+        return Boolean(transition);
+      },
+      triggerTransitionEnd: function triggerTransitionEnd(element) {
+        $(element).trigger(transition.end);
+      },
+      typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+        for (var property in configTypes) {
+          if (configTypes.hasOwnProperty(property)) {
+            var expectedTypes = configTypes[property];
+            var value = config[property];
+            var valueType = value && isElement(value) ? 'element' : toType(value);
+
+            if (!new RegExp(expectedTypes).test(valueType)) {
+              throw new Error(componentName.toUpperCase() + ': ' + ('Option "' + property + '" provided type "' + valueType + '" ') + ('but expected type "' + expectedTypes + '".'));
+            }
+          }
+        }
+      }
+    };
+
+    setTransitionEndSupport();
+
+    return Util;
+  }(jQuery);
+}();

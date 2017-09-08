@@ -1,12 +1,10 @@
-/*
- * waves v0.7.4
- * http://fian.my.id/Waves
- */
-
 .waves-effect {
   position: relative;
   -webkit-tap-highlight-color: transparent;
+
   .waves-ripple {
+    @include transition-standard(opacity, transform);
+
     background-clip: content-box;
     background-color: $waves-bg;
     border-radius: 50%;
@@ -17,8 +15,8 @@
     position: absolute;
     transform: scale(0) translate(0, 0);
     width: $waves-size;
-    @include transition-standard(opacity, transform);
   }
+
   &.waves-light .waves-ripple {
     background-color: $waves-bg-light;
   }
@@ -28,21 +26,16 @@
   overflow: hidden;
   pointer-events: none;
   position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   user-select: none;
+
   .waves-circle > & {
     border-radius: 50%;
-
-    // r='0' disables rendering of the element
-    // the fake mask fixes an issue in Firefox
-    // it replaces `mask: url()` in previous versions
-    // because `url()` may cause issues with some build tools
-    mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='none' r='0' stroke-width='0' /%3E%3C/svg%3E");
-
+    mask: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle fill="none" r="0" stroke-width="0" /%3E%3C/svg%3E');
+    mask-image: radial-gradient(circle, $white 100%, $black 100%);
     transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
   }
 }

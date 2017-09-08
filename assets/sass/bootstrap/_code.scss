@@ -6,34 +6,37 @@ samp {
 }
 
 code {
+  @include border-radius($code-border-radius);
+
   background-color: $code-bg;
   color: $code-color;
   font-size: $code-font-size;
-  padding: $code-padding;
-  @include border-radius($border-radius);
+  padding: $code-padding-y $code-padding-x;
 }
 
 kbd {
+  @include border-radius($code-border-radius);
+
   background-color: $kbd-bg;
   color: $kbd-color;
   font-size: $code-font-size;
-  padding: $code-padding;
-  @include border-radius($border-radius);
+  padding: $code-padding-y $code-padding-x;
 
   kbd {
     font-size: 100%;
+    font-weight: bolder;
     padding: 0;
   }
 }
 
 pre {
-  background-color: $pre-bg;
+  @include border-radius($code-border-radius);
+
   color: $pre-color;
   display: block;
   font-size: $code-font-size;
   margin-top: 0;
-  margin-bottom: $pre-margin-bottom;
-  @include border-radius($border-radius);
+  margin-bottom: $pre-margin-y;
 
   code {
     background-color: transparent;

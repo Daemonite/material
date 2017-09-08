@@ -1,429 +1,481 @@
-//
-// appbar / toolbar (navbar)
-// based on https://material.google.com/components/toolbars.html#toolbars-usage
-//
-  $toolbar-color-dark:          $black-primary !default;
-  $toolbar-color-light:         $white-primary !default;
-  $toolbar-element-bg-dark:     $black-divider !default;
-  $toolbar-element-bg-light:    $white-divider !default;
-  $toolbar-elevation-shadow:    $elevation-shadow-4dp !default;
-  $toolbar-height:              3.5rem !default;
-  $toolbar-link-font-size:      1rem !default;
-  $toolbar-link-height:         2.25rem !default;
-  $toolbar-link-opacity:        0.7 !default;
-  $toolbar-link-opacity-active: 1 !default;
-  $toolbar-link-padding-x:      $spacer-md-x !default;
-  $toolbar-link-padding-y:      (($toolbar-link-height - $toolbar-link-font-size) / 2) !default;
-  $toolbar-padding-x:           $spacer-md-x !default;
-  $toolbar-padding-y:           (($toolbar-height - $toolbar-link-height) / 2) !default;
-  $toolbar-toggler-bg-dark:     url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.87' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
-  $toolbar-toggler-bg-light:    url("data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
-  $toolbar-waterfall-bg:        $brand-color !default;
+// Button (Bootstrap button)
+// Based on https://material.google.com/components/buttons.html#buttons-style
 
-//
-// button
-// based on https://material.google.com/components/buttons.html#buttons-style
-// n.b. material design guideline only specifies specs for default button (.btn) and dense button (.btn-sm)
-//
-  $btn-bg:                      transparent !default;
-  $btn-bg-active:               rgba(153, 153, 153, 0.40) !default;
-  $btn-bg-disabled:             $black-divider !default;
-  $btn-block-spacer:            $spacer-xs-y !default;
-  $btn-color:                   $black-primary !default;
-  $btn-color-disabled:          rgba(0, 0, 0, 0.26) !default;
-  $btn-elevation-shadow:        $elevation-shadow-2dp !default;
-  $btn-elevation-shadow-active: $elevation-shadow-8dp !default;
-  $btn-focus-overlay:           $black-divider !default;
-  $btn-font-weight:             $font-weight-medium !default;
-  $btn-min-width:               5.5rem !default;
+// N.B. Material design only specifies specs for default button (.btn) and dense button (.btn-sm)
 
-  // inverse
-  $btn-bg-inverse-disabled:     $white-divider !default;
-  $btn-bg-inverse-active:       rgba(204, 204, 204, 0.25) !default;
-  $btn-color-inverse:           $white-primary !default;
-  $btn-color-inverse-disabled:  rgba(255, 255, 255, 0.30) !default;
+$btn-bg-active:               rgba(153, 153, 153, .4) !default;
+$btn-bg-active-inverse:       rgba(204, 204, 204, .25) !default;
+$btn-bg-disabled:             $black-divider !default;
+$btn-bg-disabled-inverse:     $white-divider !default;
+$btn-border-radius:           $border-radius !default;
+$btn-block-margin-y:          $spacer-xs !default;
+$btn-color:                   $black-primary !default;
+$btn-color-disabled:          rgba(0, 0, 0, .26) !default;
+$btn-color-disabled-inverse:  rgba(255, 255, 255, .3) !default;
+$btn-elevation-shadow:        $elevation-shadow-2dp !default;
+$btn-elevation-shadow-active: $elevation-shadow-8dp !default;
+$btn-font-weight:             $font-weight-medium !default;
+$btn-line-height:             1 !default;
+$btn-min-width:               5.5rem !default;
+$btn-overlay:                 $black-divider !default;
+$btn-overlay-inverse:         $white-divider !default;
 
-  // size
-  $btn-font-size:               0.875rem !default;
-  $btn-font-size-lg:            0.9375rem !default;
-  $btn-font-size-sm:            0.8125rem !default;
-  $btn-height:                  2.25rem !default;
-  $btn-height-lg:               2.5rem !default;
-  $btn-height-sm:               2rem !default;
-  $btn-padding-x:               $spacer-md-x !default;
-  $btn-padding-x-lg:            $btn-padding-x !default;
-  $btn-padding-x-sm:            $btn-padding-x !default;
-  $btn-padding-y:               (($btn-height - $btn-font-size) / 2) !default;
-  $btn-padding-y-lg:            (($btn-height-lg - $btn-font-size-lg) / 2) !default;
-  $btn-padding-y-sm:            (($btn-height-sm - $btn-font-size-sm) / 2) !default;
+// Size
+$btn-font-size:               .875rem !default;
+$btn-font-size-lg:            .9375rem !default;
+$btn-font-size-sm:            .8125rem !default;
+$btn-height:                  2.25rem !default;
+$btn-height-lg:               2.5rem !default;
+$btn-height-sm:               2rem !default;
+$btn-padding-x:               1rem !default;
+$btn-padding-x-lg:            $btn-padding-x !default;
+$btn-padding-x-sm:            $btn-padding-x !default;
+$btn-padding-y:               (($btn-height - $btn-font-size * $btn-line-height) / 2) !default;
+$btn-padding-y-lg:            (($btn-height-lg - $btn-font-size-lg * $btn-line-height) / 2) !default;
+$btn-padding-y-sm:            (($btn-height-sm - $btn-font-size-sm * $btn-line-height) / 2) !default;
 
-//
-// button: flat button
-// based on https://material.google.com/components/buttons.html#buttons-flat-buttons
-//
-  $btn-flat-bg-opacity:            0.4 !default;
-  $btn-flat-focus-overlay-inverse: rgba(204, 204, 204, 0.12) !default;
-  $btn-flat-focus-overlay-opacity: 0.12 !default;
 
-//
-// button: floating action button
-// based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
-//
-  $btn-float-elevation-shadow:        $elevation-shadow-6dp !default;
-  $btn-float-elevation-shadow-active: $elevation-shadow-12dp !default;
-  $btn-float-font-size:               ($material-icon-size / $font-size-root * 1rem) !default;
 
-  // size
-  $btn-float-size:                    3.5rem !default;
-  $btn-float-size-sm:                 2.5rem !default;
+// Button: floating action button
+// Based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
 
-//
-// card
-// based on https://material.google.com/components/cards.html#cards-usage
-//
-  $card-action-spacer-x:         $spacer-sm-x !default;
-  $card-action-spacer-y:         $spacer-sm-y !default;
-  $card-bg:                      $white-primary !default;
-  $card-bg-inverse:              $palette-grey-800 !default;
-  $card-border-color:            $border-color !default;
-  $card-border-width:            $border-width !default;
-  $card-color:                   $black-primary !default;
-  $card-color-inverse:           $white-primary !default;
-  $card-elevation-shadow:        $elevation-shadow-2dp !default;
-  $card-elevation-shadow-active: $elevation-shadow-8dp !default;
-  $card-margin-bottom:           $spacer-md-y !default;
-  $card-spacer-inner-x:          $spacer-md-x !default;
-  $card-spacer-inner-y:          $spacer-md-y !default;
-  $card-spacer-outer-x:          $spacer-sm-x !default;
-  $card-spacer-outer-y:          $spacer-sm-y !default;
+$btn-float-elevation-shadow:        $elevation-shadow-6dp !default;
+$btn-float-elevation-shadow-active: $elevation-shadow-12dp !default;
+$btn-float-size:                    3.5rem !default;
+$btn-float-size-sm:                 2.5rem !default;
 
-//
-// chip (label)
-// based on https://material.google.com/components/chips.html#chips-specs
-//
-  $chip-active-overlay:          $black-divider !default;
-  $chip-bg:                      $black-divider !default;
-  $chip-bg-inverse:              $white-divider !default;
-  $chip-color:                   $black-primary !default;
-  $chip-color-inverse:           $white-primary !default;
-  $chip-elevation-shadow-active: $elevation-shadow-2dp !default;
-  $chip-font-size:               0.8125rem !default;
-  $chip-font-weight:             $font-weight-regular !default;
-  $chip-height:                  2rem !default;
-  $chip-padding-x:               0.75rem !default;
-  $chip-padding-y:               (($chip-height - $chip-font-size) / 2) !default;
 
-//
-// colour theme
-// based on https://material.google.com/style/color.html#color-themes
-//
-  $dark-theme-1:  $black !default;
-  $dark-theme-2:  $palette-grey-900 !default;
-  $dark-theme-3:  #303030 !default;
-  $dark-theme-4:  $palette-grey-800 !default;
 
-  $light-theme-1: $palette-grey-300 !default;
-  $light-theme-2: $palette-grey-100 !default;
-  $light-theme-3: $palette-grey-050 !default;
-  $light-theme-4: $white !default;
+// Button: toggle buttons (Boostrap button group)
+// Based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons
 
-//
-// data table (table)
-// based on https://material.google.com/components/data-tables.html#data-tables-structure
-//
-  $table-bg:                 $white-primary !default;
-  $table-bg-accent:          $palette-grey-100 !default;
-  $table-bg-hover:           $palette-grey-200 !default;
-  $table-border-color:       $border-color-solid !default;
-  $table-border-width:       $border-width !default;
-  $table-cell-padding-x:     1.75rem !default;
-  $table-cell-padding-x-alt: $spacer-lg-x !default;
-  $table-elevation-shadow:   $elevation-shadow-2dp !default;
-  $table-margin-bottom:      $spacer-md-y !default;
+$btn-group-bg:             $white-primary !default;
+$btn-group-divider-bg:     $border-color !default;
+$btn-group-inner-spacer-x: 1px !default;
+$btn-group-inner-spacer-y: 1px !default;
+$btn-group-toggle-opacity: .7 !default;
 
-  $table-tbody-cell-height:  3rem !default;
-  $table-tbody-color:        $black-primary !default;
-  $table-tbody-font-size:    0.8125rem !default;
-  $table-tbody-font-weight:  $font-weight-regular !default;
-  $table-tbody-padding-y:    (($table-tbody-cell-height - $table-tbody-font-size * $line-height-base) / 2) !default;
 
-  $table-tfoot-cell-height:  3.5rem !default;
-  $table-tfoot-color:        $black-secondary !default;
-  $table-tfoot-font-size:    0.75rem !default;
-  $table-tfoot-font-weight:  $font-weight-regular !default;
-  $table-tfoot-padding-y:    (($table-tfoot-cell-height - $table-tfoot-font-size * $line-height-base) / 2) !default;
 
-  $table-thead-cell-height:  $table-tfoot-cell-height !default;
-  $table-thead-color:        $table-tfoot-color !default;
-  $table-thead-font-size:    $table-tfoot-font-size !default;
-  $table-thead-font-weight:  $font-weight-medium !default;
-  $table-thead-padding-y:    (($table-thead-cell-height - $table-thead-font-size * $line-height-base) / 2) !default;
+// Card (Bootstrap card)
+// Based on https://material.google.com/components/cards.html#cards-usage
 
-//
-// dialog (modal)
-// based on https://material.google.com/components/dialogs.html#dialogs-specs
-//
-  $dialog-backdrop-bg:          $black-hint !default;
-  $dialog-content-bg:           $white-primary !default;
-  $dialog-elevation-shadow:     $elevation-shadow-24dp !default;
-  $dialog-footer-btn-min-width: 4rem !default;
-  $dialog-footer-spacer-x:      $spacer-sm-x !default;
-  $dialog-footer-spacer-y:      $spacer-sm-y !default;
-  $dialog-inner-padding:        1.25rem $spacer-lg-x !default;
-  $dialog-margin-x:             $spacer-lg-x !default;
-  $dialog-margin-y:             $spacer-lg-y !default;
-  $dialog-width:                35rem !default;
-  $dialog-width-lg:             52.5rem !default;
-  $dialog-width-sm:             17.5rem !default;
+$card-action-inner-spacer-x:  .5rem !default;
+$card-action-inner-spacer-y:  .5rem !default;
+$card-action-padding-x:       $card-action-inner-spacer-x !default;
+$card-action-padding-y:       $card-action-inner-spacer-y !default;
+$card-bg:                     $white !default;
+$card-border-radius:          $border-radius !default;
+$card-border-width:           $border-width !default;
+$card-columns-count:          2 !default;
+$card-columns-count-desktop:  3 !default;
+$card-elevation-shadow:       $elevation-shadow-2dp !default;
+$card-elevation-shadow-hover: $elevation-shadow-8dp !default;
+$card-inner-spacer-x:         1rem !default;
+$card-inner-spacer-y:         1rem !default;
+$card-margin-x:               $spacer-sm !default;
+$card-margin-y:               $spacer-sm !default;
+$card-padding-x:              1rem !default;
+$card-padding-y:              1.5rem !default;
 
-//
-// expansion panel (list group)
-// based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
-//
-  $expansion-panel-bg:                  $white-primary !default;
-  $expansion-panel-bg-active:           $palette-grey-200 !default;
-  $expansion-panel-bg-disabled:         $expansion-panel-bg !default;
-  $expansion-panel-border-color:        $border-color !default;
-  $expansion-panel-border-width:        $border-width !default;
-  $expansion-panel-color:               $black-primary !default;
-  $expansion-panel-color-active:        $expansion-panel-color !default;
-  $expansion-panel-color-disabled:      $black-hint !default;
-  $expansion-panel-elevation-shadow:    $elevation-shadow-2dp !default;
-  $expansion-panel-font-size:           0.9375rem !default;
-  $expansion-panel-font-size-secondary: 0.75rem !default;
-  $expansion-panel-height:              3rem !default;
-  $expansion-panel-inner-spacer-x:      $spacer-lg-x !default;
-  $expansion-panel-inner-spacer-y:      ($expansion-panel-inner-spacer-x / 2) !default;
 
-//
-// menu (dropdown)
-// based on https://material.google.com/components/menus.html#menus-specs
-//
-  $menu-bg:                     $white-primary !default;
-  $menu-divider-bg:             $black-divider !default;
-  $menu-font-size:              1rem !default;
-  $menu-font-size-cascading:    0.9375rem !default;
-  $menu-elevation-shadow:       $elevation-shadow-8dp !default;
-  $menu-line-height:            1.5rem !default;
-  $menu-line-height-cascading:  $menu-line-height !default;
-  $menu-link-bg:                transparent !default;
-  $menu-link-bg-active:         $offwhite !default;
-  $menu-link-color:             $black-primary !default;
-  $menu-link-color-disabled:    $black-hint !default;
-  $menu-link-height:            3rem !default;
-  $menu-link-height-cascading:  2rem !default;
-  $menu-link-padding:           (($menu-link-height - $menu-line-height) / 2) $spacer-md-x !default;
-  $menu-link-padding-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) $spacer-lg-x !default;
-  $menu-min-width:              7rem !default;
-  $menu-min-width-cascading:    20rem !default;
-  $menu-padding-y:              $spacer-sm-y !default;
-  $menu-padding-y-cascading:    $spacer-md-y !default;
 
-//
-// navigation drawer
-// based on https://material.google.com/patterns/navigation-drawer.html#navigation-drawer-specs
-//
-  $navdrawer-backdrop-bg:             $dialog-backdrop-bg !default;
-  $navdrawer-border-color:            $border-color !default;
-  $navdrawer-border-width:            $border-width !default;
-  $navdrawer-content-bg:              $dialog-content-bg !default;
-  $navdrawer-divider-bg:              $black-divider !default;
-  $navdrawer-elevation-shadow:        $elevation-shadow-16dp !default;
-  $navdrawer-gutter-width:            $toolbar-height !default;
-  $navdrawer-header-bg:               $offwhite !default;
-  $navdrawer-header-border-color:     $border-color !default;
-  $navdrawer-header-border-width:     $border-width !default;
-  $navdrawer-inner-spacer-x:          $spacer-md-x !default;
-  $navdrawer-inner-spacer-y:          $spacer-sm-y !default;
-  $navdrawer-nav-icon-color:          $black-secondary !default;
-  $navdrawer-nav-icon-width:          $toolbar-height !default;
-  $navdrawer-nav-link-bg-active:      $offwhite !default;
-  $navdrawer-nav-link-color:          $black-primary !default;
-  $navdrawer-nav-link-color-active:   $brand-color !default;
-  $navdrawer-nav-link-color-disabled: $black-hint !default;
-  $navdrawer-nav-link-font-size:      0.875rem !default;
-  $navdrawer-nav-link-font-weight:    $font-weight-medium !default;
-  $navdrawer-nav-link-height:         3rem !default;
-  $navdrawer-subheader-color:         $black-hint !default;
-  $navdrawer-subheader-font-size:     0.875rem !default;
-  $navdrawer-subheader-font-weight:   $font-weight-medium !default;
-  $navdrawer-subheader-height:        3rem !default;
-  $navdrawer-width-mobile:            17.5rem !default;
-  $navdrawer-width-tablet:            20rem !default;
+// Chip
+// Based on https://material.google.com/components/chips.html#chips-specs
 
-//
-// picker
-// based on https://material.google.com/components/pickers.html#pickers-date-pickers
-//
-  $picker-cell-size:          2.5rem !default;
-  $picker-content-bg:         $dialog-content-bg !default;
-  $picker-day-bg-selected:    $brand-color !default;
-  $picker-day-color-disabled: $black-hint !default;
-  $picker-day-color-selected: $brand-text-color !default;
-  $picker-day-color-today:    $brand-color !default;
-  $picker-elevation-shadow:   $dialog-elevation-shadow !default;
-  $picker-header-bg:          $brand-color !default;
-  $picker-header-color:       $brand-text-color !default;
-  $picker-header-padding:     $spacer-md-y $spacer-lg-x !default;
-  $picker-holder-bg:          $dialog-backdrop-bg !default;
-  $picker-inner-spacer-x:     $spacer-sm-x !default;
-  $picker-inner-spacer-y:     $spacer-sm-y !default;
-  $picker-margin-x:           $dialog-margin-x !default;
-  $picker-margin-y:           $dialog-margin-y !default;
-  $picker-nav-next-icon:      "keyboard_arrow_right" !default;
-  $picker-nav-prev-icon:      "keyboard_arrow_left" !default;
-  $picker-weekday-color:      $black-hint !default;
+$chip-bg:                     $material-color-grey-300 !default;
+$chip-bg-active:              $material-color-grey-400 !default;
+$chip-color:                  $black-primary !default;
+$chip-elevation-shadow-hover: $elevation-shadow-2dp !default;
+$chip-font-size:              .875rem !default;
+$chip-font-weight:            $font-weight-regular !default;
+$chip-height:                 2rem !default;
+$chip-icon-bg:                map-get(theme-color(secondary), color) !default;
+$chip-icon-font-size:         1rem !default;
+$chip-inner-spacer-x:         .25rem !default;
+$chip-line-height:            1 !default;
+$chip-padding-x:              .75rem !default;
 
-//
-// progress
-// based on https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators
-//
-  $progress-bar-bg:                 $palette-indigo-500 !default;
-  $progress-bar-mask:               $white-secondary !default;
-  $progress-height:                 0.25rem !default;
 
-  // circular
-  $progress-circular-bg:            $progress-bar-bg !default;
-  $progress-circular-height:        2.5rem !default;
-  $progress-circular-spinner-width: 0.25rem !default;
 
-//
-// selection control
-// based on https://material.google.com/components/selection-controls.html
-//
-  $selection-control-checkbox-bg:                  url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-checkbox-bg-checked:          url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
-  $selection-control-checkbox-bg-disabled:         url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-checkbox-bg-disabled-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
-  $selection-control-checkbox-bg-indeterminate:    url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M0 0h24v24H0z' id='a'/%3E%3C/defs%3E%3CclipPath id='b'%3E%3Cuse overflow='visible' xlink:href='#a'/%3E%3C/clipPath%3E%3Cpath clip-path='url(#b)' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z'/%3E%3C/svg%3E") !default;
-  $selection-control-color:                        $black-secondary !default;
-  $selection-control-color-active:                 $brand-color-accent !default;
-  $selection-control-color-disabled:               rgba(0, 0, 0, 0.26) !default;
-  $selection-control-indicator-size:               $material-icon-size !default;
-  $selection-control-radial-bg:                    $black-divider !default;
-  $selection-control-radio-bg:                     url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-radio-bg-checked:             url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-radio-bg-disabled:            url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-radio-bg-disabled-checked:    url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
-  $selection-control-spacer-x:                     ($material-icon-size / $font-size-root / 2 * 1rem) !default;
-  $selection-control-spacer-y:                     ($material-icon-size / $font-size-root / 2 * 1rem) !default;
-  $selection-control-thumb-bg:                     $offwhite-light !default;
-  $selection-control-thumb-bg-disabled:            #bdbdbd !default;
-  $selection-control-thumb-shadow:                 0 1px 5px 0 rgba(0, 0, 0, 0.6) !default;
-  $selection-control-track-bg:                     $black-hint !default;
-  $selection-control-track-bg-disabled:            $black-divider !default;
-  $selection-control-track-height:                 $font-size-root !default;
-  $selection-control-track-width:                  ($selection-control-indicator-size * 2) !default;
+// Data table (Bootstrap table)
+// Based on https://material.google.com/components/data-tables.html#data-tables-structure
 
-//
-// stepper
-// based on https://material.google.com/components/steppers.html#steppers-specs
-//
-  $stepper-bg:                $white-primary !default;
-  $stepper-border-color:      $palette-grey-400 !default;
-  $stepper-border-width:      $border-width !default;
-  $stepper-icon-bg:           $black-hint !default;
-  $stepper-icon-bg-active:    $brand-color !default;
-  $stepper-icon-color:        $white-primary !default;
-  $stepper-icon-color-active: $brand-text-color !default;
-  $stepper-icon-font-size:    0.75rem !default;
-  $stepper-icon-font-weight:  $font-weight-regular !default;
-  $stepper-icon-height:       ($material-icon-size / $font-size-root * 1rem) !default;
-  $stepper-inner-spacer:      $spacer-sm !default;
-  $stepper-padding-x:         $spacer-lg-x !default;
-  $stepper-padding-y:         $spacer-lg-y !default;
-  $stepper-text-color:        $black-hint !default;
-  $stepper-text-color-active: $black-primary !default;
-  $stepper-text-font-size:    0.875rem !default;
-  $stepper-text-font-weight:  $font-weight-regular !default;
+$table-bg:                    $white !default;
+$table-bg-accent:             $material-color-grey-100 !default;
+$table-bg-hover:              $material-color-grey-200 !default;
+$table-border-color:          $border-color-solid !default;
+$table-border-width:          $border-width !default;
+$table-cell-padding-x:        1.75rem !default;
+$table-cell-padding-x-alt:    1.5rem !default;
+$table-elevation-shadow:      $elevation-shadow-2dp !default;
+$table-line-height:           $line-height-base !default;
+$table-margin-y:              $spacer !default;
 
-//
-// tab (nav-tab)
-// based on https://material.google.com/components/tabs.html#tabs-specs
-//
-  $nav-tab-border-color:         $black-divider !default;
-  $nav-tab-indicator-bg:         $brand-color-accent !default;
-  $nav-tab-indicator-height:     2px !default;
-  $nav-tab-link-font-size:       0.875rem !default;
-  $nav-tab-link-font-weight:     $font-weight-medium !default;
-  $nav-tab-link-height:          3rem !default;
-  $nav-tab-link-opacity:         0.7 !default;
-  $nav-tab-link-opacity-visible: 1 !default;
-  $nav-tab-link-max-width:       16.5rem !default;
-  $nav-tab-link-min-width:       4.5rem !default;
-  $nav-tab-link-min-width-lg:    10rem !default;
-  $nav-tab-link-padding-x:       0.75rem !default;
-  $nav-tab-link-padding-x-lg:    1.5rem !default;
+$table-tbody-cell-height:     3rem !default;
+$table-tbody-color:           $black-primary !default;
+$table-tbody-font-size:       .8125rem !default;
+$table-tbody-font-weight:     $font-weight-regular !default;
+$table-tbody-padding-y:       (($table-tbody-cell-height - $table-tbody-font-size * $table-line-height) / 2) !default;
 
-//
-// text field (form)
-// based on https://material.google.com/components/text-fields.html#text-fields-single-line-text-field
-//
-  $textfield-border-color:       $border-color !default;
-  $textfield-border-color-focus: $brand-color !default;
-  $textfield-border-width:       $border-width !default;
-  $textfield-color:              $black-primary !default;
-  $textfield-color-disabled:     $black-hint !default;
-  $textfield-hint-color:         $black-hint !default;
+$table-tfoot-cell-height:     3.5rem !default;
+$table-tfoot-color:           $black-secondary !default;
+$table-tfoot-font-size:       .75rem !default;
+$table-tfoot-font-weight:     $font-weight-regular !default;
+$table-tfoot-padding-y:       (($table-tfoot-cell-height - $table-tfoot-font-size * $table-line-height) / 2) !default;
 
-  // size
-  $textfield-font-size:          1rem !default;
-  $textfield-font-size-lg:       2.125rem !default;
-  $textfield-font-size-sm:       0.8125rem !default;
-  $textfield-height:             2.25rem !default;
-  $textfield-height-lg:          3.75rem !default;
-  $textfield-height-sm:          2rem !default;
-  $textfield-margin-bottom:      0.5rem !default;
-  $textfield-margin-bottom-lg:   0.75rem !default;
-  $textfield-margin-bottom-sm:   0.25rem !default;
-  $textfield-padding-bottom:     0.5rem !default;
-  $textfield-padding-bottom-lg:  0.5rem !default;
-  $textfield-padding-bottom-sm:  0.5rem !default;
-  $textfield-padding-top:        0.5rem !default;
-  $textfield-padding-top-lg:     0.5rem !default;
-  $textfield-padding-top-sm:     0.25rem !default;
+$table-thead-bg:              $table-bg-accent !default;
+$table-thead-cell-height:     $table-tfoot-cell-height !default;
+$table-thead-color:           $table-tfoot-color !default;
+$table-thead-font-size:       $table-tfoot-font-size !default;
+$table-thead-font-weight:     $font-weight-medium !default;
+$table-thead-padding-y:       (($table-thead-cell-height - $table-thead-font-size * $table-line-height) / 2) !default;
 
-//
-// text field: floating label (form: floating label)
-// based on https://material.google.com/components/text-fields.html#text-fields-labels
-//
-  $floating-label-color:              $textfield-hint-color !default;
-  $floating-label-color-focus:        $brand-color !default;
-  $floating-label-font-size-focus:    0.75rem !default;
+// Size
+$table-sm-cell-padding-x:     1rem !default;
+$table-sm-cell-padding-x-alt: 1rem !default;
 
-  // size
-  $floating-label-divider-padding:    0.5rem !default;
-  $floating-label-divider-padding-lg: 0.75rem !default;
-  $floating-label-divider-padding-sm: 0.25rem !default;
-  $floating-label-height:             4rem !default;
-  $floating-label-height-lg:          5.25rem !default;
-  $floating-label-height-sm:          3.5rem !default;
-  $floating-label-padding-top:        1rem !default;
-  $floating-label-padding-top-lg:     1.25rem !default;
-  $floating-label-padding-top-sm:     0.75rem !default;
+$table-sm-tbody-cell-height:  2.25rem !default;
+$table-sm-tbody-padding-y:    (($table-sm-tbody-cell-height - $table-tbody-font-size * $table-line-height) / 2) !default;
 
-//
-// tooltip
-// based on https://material.google.com/components/tooltips.html#tooltips-tooltips-desktop
-//
-  $tooltip-bg:              $palette-grey-700 !default;
-  $tooltip-color:           $white-primary !default;
-  $tooltip-font-size:       0.875rem !default;
-  $tooltip-font-size-md-up: 0.625rem !default;
-  $tooltip-height:          2rem !default;
-  $tooltip-height-md-up:    1.375rem !default;
-  $tooltip-margin:          $spacer-lg-y !default;
-  $tooltip-margin-md-up:    0.875rem !default;
-  $tooltip-opacity:         0.9 !default;
-  $tooltip-padding-x:       $spacer-md-x !default;
-  $tooltip-padding-x-md-up: $spacer-sm-x !default;
-  $tooltip-padding-y:       (($tooltip-height - $line-height-base * $tooltip-font-size) / 2) !default;
-  $tooltip-padding-y-md-up: (($tooltip-height-md-up - $line-height-base * $tooltip-font-size-md-up) / 2) !default;
-  $tooltip-zindex:          $elevation-24dp !default;
+$table-sm-tfoot-cell-height:  2.5rem !default;
+$table-sm-tfoot-padding-y:    (($table-sm-tfoot-cell-height - $table-tfoot-font-size * $table-line-height) / 2) !default;
 
-//
-// waves
-//
-  $waves-bg:       $black-hint !default;
-  $waves-bg-light: $white-hint !default;
-  $waves-size:     4rem !default;
+$table-sm-thead-cell-height:  $table-sm-tfoot-cell-height !default;
+$table-sm-thead-padding-y:    (($table-sm-thead-cell-height - $table-thead-font-size * $table-line-height) / 2) !default;
+
+// Theme
+$table-dark-bg:               $dark-theme-4 !default;
+$table-dark-bg-accent:        $dark-theme-3 !default;
+$table-dark-bg-hover:         $dark-theme-2 !default;
+$table-dark-border-color:     $dark-theme-3 !default;
+$table-dark-color:            $white-primary !default;
+
+
+
+// Dialog (Bootstrap modal)
+// Based on https://material.google.com/components/dialogs.html#dialogs-specs
+
+$dialog-backdrop-bg:           $black-hint !default;
+$dialog-content-bg:            $white !default;
+$dialog-elevation-shadow:      $elevation-shadow-24dp !default;
+$dialog-footer-btn-min-width:  4rem !default;
+$dialog-footer-inner-spacer-x: .5rem !default;
+$dialog-footer-padding-x:      .5rem !default;
+$dialog-footer-padding-y:      .5rem !default;
+$dialog-margin-x:              $spacer-lg !default;
+$dialog-margin-y:              $spacer-lg !default;
+$dialog-padding-x:             1.5rem !default;
+$dialog-padding-y:             1.25rem !default;
+$dialog-scale:                 .87 !default;
+$dialog-width:                 35rem !default;
+$dialog-width-lg:              52.5rem !default;
+$dialog-width-sm:              17.5rem !default;
+
+
+
+// Expansion panel (Bootstrap list group)
+// Based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
+
+$expansion-panel-bg:               $white !default;
+$expansion-panel-bg-active:        $material-color-grey-200 !default;
+$expansion-panel-border-color:     $border-color !default;
+$expansion-panel-border-radius:    $border-radius !default;
+$expansion-panel-border-width:     $border-width !default;
+$expansion-panel-color:            $black-primary !default;
+$expansion-panel-color-disabled:   $black-hint !default;
+$expansion-panel-elevation-shadow: $elevation-shadow-1dp !default;
+$expansion-panel-font-size:        .9375rem !default;
+$expansion-panel-height:           3rem !default;
+$expansion-panel-line-height:      $line-height-base !default;
+$expansion-panel-padding-x:        1.5rem !default;
+$expansion-panel-padding-y:        (($expansion-panel-height - $expansion-panel-font-size * $expansion-panel-line-height) / 2) !default;
+
+
+
+// Menu (Bootstrap dropdown)
+// Based on https://material.google.com/components/menus.html#menus-specs
+
+$menu-bg:                       $white !default;
+$menu-border-radius:            $border-radius !default;
+$menu-divider-bg:               $border-color !default;
+$menu-font-size:                1rem !default;
+$menu-font-size-cascading:      .9375rem !default;
+$menu-elevation-shadow:         $elevation-shadow-8dp !default;
+$menu-header-color:             $black-primary !default;
+$menu-line-height:              1.5rem !default;
+$menu-line-height-cascading:    $menu-line-height !default;
+$menu-link-bg:                  transparent !default;
+$menu-link-bg-hover:            $material-color-grey-100 !default;
+$menu-link-color:               $black-primary !default;
+$menu-link-color-disabled:      $black-hint !default;
+$menu-link-height:              3rem !default;
+$menu-link-height-cascading:    2rem !default;
+$menu-link-padding-x:           1rem !default;
+$menu-link-padding-x-cascading: 1.5rem !default;
+$menu-link-padding-y:           (($menu-link-height - $menu-line-height) / 2) !default;
+$menu-link-padding-y-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) !default;
+$menu-min-width:                7rem !default;
+$menu-min-width-cascading:      20rem !default;
+$menu-padding-y:                .5rem !default;
+$menu-padding-y-cascading:      1rem !default;
+
+
+
+// Navigation drawer
+// Based on https://material.google.com/patterns/navigation-drawer.html#navigation-drawer-specs
+
+$navdrawer-backdrop-bg:             $dialog-backdrop-bg !default;
+$navdrawer-border-color:            $border-color !default;
+$navdrawer-border-width:            $border-width !default;
+$navdrawer-content-bg:              $dialog-content-bg !default;
+$navdrawer-divider-bg:              $border-color !default;
+$navdrawer-elevation-shadow:        $elevation-shadow-16dp !default;
+$navdrawer-gutter-width:            3.5rem !default;
+$navdrawer-header-bg:               $material-color-grey-100 !default;
+$navdrawer-header-border-color:     $border-color !default;
+$navdrawer-header-border-width:     $border-width !default;
+$navdrawer-inner-spacer-x:          1rem !default;
+$navdrawer-inner-spacer-y:          .5rem !default;
+$navdrawer-nav-icon-color:          $black-secondary !default;
+$navdrawer-nav-icon-width:          3.5rem !default;
+$navdrawer-nav-link-bg-hover:       $material-color-grey-100 !default;
+$navdrawer-nav-link-color:          $black-primary !default;
+$navdrawer-nav-link-color-active:   map-get(theme-color(primary), color) !default;
+$navdrawer-nav-link-color-disabled: $black-hint !default;
+$navdrawer-nav-link-font-size:      .875rem !default;
+$navdrawer-nav-link-font-weight:    $font-weight-medium !default;
+$navdrawer-nav-link-height:         3rem !default;
+$navdrawer-subheader-color:         $black-hint !default;
+$navdrawer-subheader-font-size:     .875rem !default;
+$navdrawer-subheader-font-weight:   $font-weight-medium !default;
+$navdrawer-subheader-height:        3rem !default;
+$navdrawer-width:                   17.5rem !default;
+
+
+
+// Picker
+// Based on https://material.google.com/components/pickers.html#pickers-date-pickers
+
+$picker-cell-size:          2.5rem !default;
+$picker-content-bg:         $dialog-content-bg !default;
+$picker-day-bg-selected:    map-get(theme-color(primary), color) !default;
+$picker-day-color-disabled: $black-hint !default;
+$picker-day-color-today:    map-get(theme-color(primary), color) !default;
+$picker-elevation-shadow:   $dialog-elevation-shadow !default;
+$picker-header-bg:          map-get(theme-color(primary), color) !default;
+$picker-header-padding-x:   1.5rem !default;
+$picker-header-padding-y:   1rem !default;
+$picker-holder-bg:          $dialog-backdrop-bg !default;
+$picker-inner-spacer-x:     .5rem !default;
+$picker-inner-spacer-y:     .5rem !default;
+$picker-margin-x:           $dialog-margin-x !default;
+$picker-margin-y:           $dialog-margin-y !default;
+$picker-nav-next-icon:      'keyboard_arrow_right' !default;
+$picker-nav-prev-icon:      'keyboard_arrow_left' !default;
+$picker-weekday-color:      $black-hint !default;
+
+
+
+// Progress (Bootstrap progress bar)
+// Based on https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators
+
+$progress-bar-bg:                      $material-color-indigo-500 !default;
+$progress-bar-border-radius:           .25rem !default;
+$progress-bar-height:                  .25rem !default;
+$progress-bg:                          $material-color-indigo-100 !default;
+
+// Circular
+$progress-circular-animation-duration: 5.332s !default;
+$progress-circular-bg:                 $material-color-indigo-500 !default;
+$progress-circular-height:             2.5rem !default;
+$progress-circular-spinner-width:      .25rem !default;
+
+
+
+// Selection control (Bootstrap custom form control)
+// Based on https://material.google.com/components/selection-controls.html
+
+$selection-control-checkbox-icon:               'check_box_outline_blank' !default;
+$selection-control-checkbox-icon-checked:       'check_box' !default;
+$selection-control-checkbox-icon-indeterminate: 'indeterminate_check_box' !default;
+$selection-control-color:                       $black-secondary !default;
+$selection-control-color-active:                map-get(theme-color(secondary), color) !default;
+$selection-control-color-disabled:              rgba(0, 0, 0, .26) !default;
+$selection-control-indicator-size:              $material-icon-size !default;
+$selection-control-radial-bg:                   $black-divider !default;
+$selection-control-radio-icon:                  'radio_button_unchecked' !default;
+$selection-control-radio-icon-checked:          'radio_button_checked' !default;
+$selection-control-spacer-x:                    ($material-icon-size / 2) !default;
+$selection-control-spacer-y:                    ($material-icon-size / 2) !default;
+$selection-control-thumb-bg:                    $material-color-grey-050 !default;
+$selection-control-thumb-bg-disabled:           #bdbdbd !default;
+$selection-control-thumb-shadow:                0 1px 5px 0 rgba(0, 0, 0, $black-secondary-opacity) !default;
+$selection-control-track-bg:                    $black-hint !default;
+$selection-control-track-bg-disabled:           $black-divider !default;
+$selection-control-track-height:                1rem !default;
+$selection-control-track-width:                 ($selection-control-indicator-size * 2) !default;
+
+
+
+// Stepper
+// Based on https://material.google.com/components/steppers.html#steppers-specs
+
+$stepper-bg:                $white !default;
+$stepper-border-color:      $material-color-grey-400 !default;
+$stepper-border-width:      $border-width !default;
+$stepper-icon-bg:           $black-hint !default;
+$stepper-icon-bg-active:    map-get(theme-color(primary), color) !default;
+$stepper-icon-color:        $white-primary !default;
+$stepper-icon-font-size:    .75rem !default;
+$stepper-icon-font-weight:  $font-weight-regular !default;
+$stepper-icon-height:       $material-icon-size !default;
+$stepper-inner-spacer:      .5rem !default;
+$stepper-padding-x:         1.5rem !default;
+$stepper-padding-y:         1.5rem !default;
+$stepper-text-color:        $black-hint !default;
+$stepper-text-color-active: $black-primary !default;
+$stepper-text-font-size:    .875rem !default;
+$stepper-text-font-weight:  $font-weight-regular !default;
+
+
+
+// Tab (Bootstrap tab)
+// Based on https://material.google.com/components/tabs.html#tabs-specs
+
+$nav-tab-bg-hover:         $black-divider !default;
+$nav-tab-border-color:     $border-color !default;
+$nav-tab-border-width:     $border-width !default;
+$nav-tab-color:            $black-primary !default;
+$nav-tab-color-active:     map-get(theme-color(secondary), color) !default;
+$nav-tab-color-disabled:   $black-hint !default;
+$nav-tab-font-size:        .875rem !default;
+$nav-tab-font-weight:      $font-weight-medium !default;
+$nav-tab-height:           3rem !default;
+$nav-tab-indicator-bg:     map-get(theme-color(secondary), color) !default;
+$nav-tab-indicator-height: .125rem !default;
+$nav-tab-line-height:      1 !default;
+$nav-tab-link-opacity:     .7 !default;
+$nav-tab-link-padding-x:   .75rem !default;
+$nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-line-height) / 2) !default;
+
+
+
+// Text field (Bootstrap form control)
+// Based on https://material.io/guidelines/components/text-fields.html#text-fields-states
+
+$textfield-border-color:       rgba(0, 0, 0, .42) !default;
+$textfield-border-color-focus: map-get(theme-color(primary), color) !default;
+$textfield-border-color-hover: rgba(0, 0, 0, .87) !default;
+$textfield-border-width:       $border-width !default;
+$textfield-border-width-focus: ($textfield-border-width * 2) !default;
+$textfield-border-width-hover: ($textfield-border-width * 2) !default;
+$textfield-color:              $black-primary !default;
+$textfield-color-disabled:     $black-hint !default;
+$textfield-hint-color:         $black-hint !default;
+$textfield-line-height:        $line-height-base !default;
+$textfield-margin-x:           $spacer !default;
+
+// Size
+$textfield-font-size:          1rem !default;
+$textfield-font-size-lg:       2.125rem !default;
+$textfield-font-size-sm:       .8125rem !default;
+$textfield-height:             2.25rem !default;
+$textfield-height-lg:          3.75rem !default;
+$textfield-height-sm:          2rem !default;
+$textfield-line-height:        1.5 !default;
+$textfield-line-height-lg:     1.176471 !default;
+$textfield-line-height-sm:     1.384615 !default;
+$textfield-margin-y:           .5rem !default;
+$textfield-margin-y-lg:        .75rem !default;
+$textfield-margin-y-sm:        .25rem !default;
+$textfield-padding-x:          0 !default;
+$textfield-padding-x-lg:       0 !default;
+$textfield-padding-x-sm:       0 !default;
+$textfield-padding-y:          (($textfield-height - $textfield-font-size * $textfield-line-height) / 2) !default;
+$textfield-padding-y-lg:       (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
+$textfield-padding-y-sm:       (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2) !default;
+
+
+
+// Text field: box
+// Based on https://material.io/guidelines/components/text-fields.html#text-fields-text-field-boxes
+
+$textfield-box-border-radius: 4px !default;
+
+// Size
+$textfield-box-padding-x:     1rem !default;
+$textfield-box-padding-x-lg:  1rem !default;
+$textfield-box-padding-x-sm:  .75rem !default;
+$textfield-box-padding-y:     1.125rem !default;
+$textfield-box-padding-y-lg:  1.125rem !default;
+$textfield-box-padding-y-sm:  .75rem !default;
+
+
+
+// Text field: floating label
+// Based on https://material.google.com/components/text-fields.html#text-fields-labels
+
+$floating-label-color:           $textfield-hint-color !default;
+$floating-label-color-focus:     map-get(theme-color(primary), color) !default;
+$floating-label-font-size-focus: .75rem !default;
+
+
+
+// Toolbar (Bootstrap navbar)
+// Based on https://material.google.com/components/toolbars.html#toolbars-usage
+
+$toolbar-color:                 $black-primary !default;
+$toolbar-color-lighter:         $black-hint !default;
+$toolbar-element-bg:            $black-divider !default;
+$toolbar-element-border-radius: $border-radius !default;
+$toolbar-element-height:        2.25rem !default;
+$toolbar-element-opacity:       .7 !default;
+$toolbar-elevation-shadow:      $elevation-shadow-4dp !default;
+$toolbar-height:                3.5rem !default;
+$toolbar-inner-spacer-x:        1rem !default;
+$toolbar-inner-spacer-y:        1rem !default;
+$toolbar-link-font-size:        1rem !default;
+$toolbar-link-height:           $toolbar-element-height !default;
+$toolbar-link-line-height:      1 !default;
+$toolbar-link-padding-x:        1rem !default;
+$toolbar-link-padding-y:        (($toolbar-link-height - $toolbar-link-font-size * $toolbar-link-line-height) / 2) !default;
+$toolbar-padding-x:             1rem !default;
+$toolbar-padding-y:             (($toolbar-height - $toolbar-element-height) / 2) !default;
+$toolbar-toggler-icon:          'menu' !default;
+$toolbar-waterfall-bg:          map-get(theme-color(primary), color) !default;
+
+// Theme
+$toolbar-dark-color:            $white-primary !default;
+$toolbar-dark-color-lighter:    $white-hint !default;
+$toolbar-dark-element-bg:       $white-divider !default;
+
+
+
+// Tooltip (Bootstrap tooltip)
+// Based on https://material.google.com/components/tooltips.html#tooltips-tooltips-desktop
+
+$tooltip-bg:                $material-color-grey-700 !default;
+$tooltip-color:             $white-primary !default;
+$tooltip-font-size:         .875rem !default;
+$tooltip-font-size-desktop: .625rem !default;
+$tooltip-height:            2rem !default;
+$tooltip-height-desktop:    1.375rem !default;
+$tooltip-line-height:       $line-height-base !default;
+$tooltip-margin:            1.5rem !default;
+$tooltip-margin-desktop:    .875rem !default;
+$tooltip-opacity:           .9 !default;
+$tooltip-padding-x:         1rem !default;
+$tooltip-padding-x-desktop: .5rem !default;
+$tooltip-padding-y:         (($tooltip-height - $tooltip-font-size * $tooltip-line-height) / 2) !default;
+$tooltip-padding-y-desktop: (($tooltip-height-desktop - $tooltip-font-size-desktop * $tooltip-line-height) / 2) !default;
+$tooltip-scale:             .87 !default;
+$tooltip-zindex:            $elevation-24dp !default;
+
+
+
+// Waves
+
+$waves-bg:       $black-divider !default;
+$waves-bg-light: $white-divider !default;
+$waves-size:     4rem !default;

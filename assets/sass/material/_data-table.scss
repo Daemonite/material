@@ -1,16 +1,14 @@
-//
-// todo: `.table-inverse`, `.table-reflow` and `.table-sm`
-//
-
 .table {
+  background-color: $table-bg;
   border: 0;
-  margin-bottom: $table-margin-bottom;
+  margin-bottom: $table-margin-y;
   max-width: 100%;
   width: 100%;
 
   td,
   th {
     border-top: $table-border-width solid $table-border-color;
+    line-height: $table-line-height;
     padding-right: $table-cell-padding-x;
     padding-left: $table-cell-padding-x;
     vertical-align: top;
@@ -74,63 +72,155 @@
   }
 }
 
-//
-// additional versions
-//
-  .table-bordered {
-    box-shadow: map-get($table-elevation-shadow, shadow);
-  }
+.table-bordered {
+  box-shadow: map-get($table-elevation-shadow, shadow);
+}
 
-  .table-striped {
-    tbody tr:nth-of-type(odd) {
-      background-color: $table-bg-accent;
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+.table-hover {
+  tbody tr {
+    @include hover {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
+// Size
+.table-sm {
+  td,
+  th {
+    padding-right: $table-sm-cell-padding-x;
+    padding-left: $table-sm-cell-padding-x;
+
+    &:first-child {
+      padding-left: $table-sm-cell-padding-x-alt;
+    }
+
+    &:last-child {
+      padding-right: $table-sm-cell-padding-x-alt;
     }
   }
 
-//
-// hover
-//
-  .table-hover {
-    tbody tr {
-      @include hover {
-        background-color: $table-bg-hover;
-      }
+  tbody {
+    td,
+    th {
+      height: $table-sm-tbody-cell-height;
+      padding-top: $table-sm-tbody-padding-y;
+      padding-bottom: $table-sm-tbody-padding-y;
     }
   }
 
-//
-// table background
-//
-  @each $color in $palettes {
-    $i: index($palettes, $color);
+  tfoot {
+    td,
+    th {
+      padding-top: $table-sm-tfoot-padding-y;
+      padding-bottom: $table-sm-tfoot-padding-y;
+    }
+  }
 
-    .table .table-#{$color} {
+  thead {
+    td,
+    th {
+      height: $table-sm-thead-cell-height;
+      padding-top: $table-sm-thead-padding-y;
+      padding-bottom: $table-sm-thead-padding-y;
+    }
+  }
+}
+
+
+
+// Table background
+
+@each $color, $values in $theme-colors {
+  .table .table-#{$color} {
+    &,
+    > td,
+    > th {
+      @include color-yiq(map-get(theme-color($color), color));
+
+      background-color: map-get(theme-color($color), color);
+    }
+  }
+
+  .table-hover .table-#{$color} {
+    @include hover {
       &,
       > td,
       > th {
-        background-color: nth($palettes-color, $i);
-        color: nth($palettes-text-color, $i);
+        @include color-yiq(map-get(theme-color($color), darker));
+
+        background-color: map-get(theme-color($color), darker);
       }
     }
+  }
+}
 
-    .table-hover .table-#{$color} {
+// scss-lint:disable MergeableSelector
+.table {
+// scss-lint:enable MergeableSelector
+  .thead-dark {
+    td,
+    th {
+      background-color: $table-dark-bg;
+      color: $table-dark-color;
+    }
+  }
+
+  .thead-light {
+    td,
+    th {
+      background-color: $table-thead-bg;
+      color: $table-thead-color;
+    }
+  }
+}
+
+.table-dark {
+  background-color: $table-dark-bg;
+  color: $table-dark-color;
+
+  tbody,
+  tfoot,
+  thead {
+    td,
+    th {
+      color: inherit;
+    }
+  }
+
+  td,
+  th {
+    border-color: $table-dark-border-color;
+  }
+
+  &.table-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: $table-dark-bg-accent;
+    }
+  }
+
+  &.table-hover {
+    tbody tr {
       @include hover {
-        &,
-        > td,
-        > th {
-          background-color: nth($palettes-color-dark, $i);
-          color: nth($palettes-text-color-dark, $i);
-        }
+        background-color: $table-dark-bg-hover;
       }
     }
   }
+}
 
-//
-// table responsive
-//
-  .table-responsive {
-    display: block;
-    min-height: 0.01%;
-    overflow-x: auto;
-    width: 100%;
-  }
+
+
+// Table responsive
+
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

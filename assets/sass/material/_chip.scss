@@ -1,93 +1,94 @@
-.badge,
 .chip {
+  align-items: center;
   background-color: $chip-bg;
+  border: 0;
   border-radius: ($chip-height / 2);
   color: $chip-color;
-  display: inline-block;
+  display: inline-flex;
   font-size: $chip-font-size;
   font-weight: $chip-font-weight;
-  line-height: 1;
-  padding: $chip-padding-y $chip-padding-x;
+  height: $chip-height;
+  justify-content: center;
+  line-height: $chip-line-height;
+  padding-right: $chip-padding-x;
+  padding-left: $chip-padding-x;
   position: relative;
+  text-align: center;
   vertical-align: middle;
   white-space: nowrap;
 
   &:empty {
     display: none;
   }
+
+  .close {
+    font-size: inherit;
+    line-height: inherit;
+    margin-right: ($chip-inner-spacer-x - $chip-padding-x);
+    margin-left: $chip-inner-spacer-x;
+    min-width: $material-icon-size;
+    order: 1;
+  }
 }
 
-a.badge,
-a.chip {
-  color: $chip-color;
-  z-index: 1;
-  @include transition-standard(box-shadow);
+// Colour
+@each $color, $values in $theme-colors {
+  .chip-#{$color} {
+    @include color-yiq(map-get(theme-color($color), color));
 
-  &::before {
-    background-color: $chip-active-overlay;
-    border-radius: ($chip-height / 2);
-    content: "";
-    display: block;
-    opacity: 0;
-    position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    z-index: -1;
-    @include transition-standard(opacity);
+    background-color: map-get(theme-color($color), color);
   }
-
-  // active, focus, hover
-    @include active-focus-hover {
-      color: $chip-color;
-
-      @if ($link-decoration-active != "none") {
-        text-decoration: none;
-      }
-
-      &::before {
-        opacity: 1; 
-      }
-    }
-
-    &:active {
-      box-shadow: map-get($chip-elevation-shadow-active, shadow);
-      z-index: map-get($chip-elevation-shadow-active, elevation);
-    }
-
-    &:focus {
-      outline: 0;
-    }
 }
 
-// colour
-  .badge-inverse,
-  .chip-inverse {
-    background-color: $chip-bg-inverse;
-    color: $chip-color-inverse;
+
+
+// Misc
+
+.chip-action {
+  @include transition-standard(background-color, box-shadow);
+
+  @include active-focus-hover {
+    box-shadow: map-get($chip-elevation-shadow-hover, shadow);
+    color: $chip-color;
+    text-decoration: none;
   }
 
-  a.badge-inverse,
-  a.chip-inverse {
-    @include plain-active-focus-hover {
-      color: $chip-color-inverse;
-    }
+  &:active {
+    background-color: $chip-bg-active;
   }
 
-  @each $color in $palettes {
-    $i: index($palettes, $color);
-
-    .badge-#{$color},
-    .chip-#{$color} {
-      background-color: nth($palettes-color, $i);
-      color: nth($palettes-text-color, $i);
-    }
-
-    a.badge-#{$color},
-    a.chip-#{$color} {
-      @include plain-active-focus-hover {
-        color: nth($palettes-text-color, $i);
-      }
-    }
+  &:focus {
+    outline: 0;
   }
+}
+
+.chip-icon {
+  @include color-yiq($chip-icon-bg);
+  @include text-truncate;
+
+  align-items: center;
+  background-color: $chip-icon-bg;
+  border-radius: ($chip-height / 2);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: $chip-icon-font-size;
+  font-style: normal;
+  font-weight: normal;
+  height: $chip-height;
+  justify-content: center;
+  margin-right: ($chip-inner-spacer-x * 2);
+  margin-left: ($chip-padding-x * -1);
+  order: -1;
+  text-align: center;
+  width: $chip-height;
+}
+
+.chip-img {
+  border-radius: ($chip-height / 2);
+  flex-shrink: 0;
+  height: $chip-height;
+  margin-right: ($chip-inner-spacer-x * 2);
+  margin-left: ($chip-padding-x * -1);
+  order: -1;
+  width: auto;
+}

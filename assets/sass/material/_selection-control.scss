@@ -1,47 +1,42 @@
 .custom-control {
-  cursor: pointer;
+  color: inherit;
   display: inline-flex;
   font-size: $font-size-base;
   margin-right: ($selection-control-spacer-x * 2);
   min-height: ($font-size-base * $line-height-base);
-  padding-left: ($selection-control-indicator-size / $font-size-root + $selection-control-spacer-x);
+  padding-left: ($selection-control-indicator-size + $selection-control-spacer-x);
   position: relative;
 }
 
 .custom-control-indicator {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: $selection-control-indicator-size $selection-control-indicator-size;
-  display: block;
+  align-items: center;
+  color: $selection-control-color;
+  display: flex;
   height: $selection-control-indicator-size;
   pointer-events: none;
   position: absolute;
-    top: (($font-size-base * $line-height-base - $selection-control-indicator-size / $font-size-root) / 2);
-    left: 0;
+  top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
+  left: 0;
   user-select: none;
-  width: $selection-control-indicator-size;
+  width: ($selection-control-indicator-size + $selection-control-spacer-x);
 
   &::before {
+    @include transition-standard(background-color, opacity, transform);
+
     background-color: $selection-control-radial-bg;
     border-radius: 50%;
-    content: "";
+    content: '';
     display: block;
     height: ($selection-control-indicator-size * 2);
     margin-top: ($selection-control-indicator-size / -2);
     margin-left: ($selection-control-indicator-size / -2);
     opacity: 0;
     position: absolute;
-      top: 0;
-      left: 0;
+    top: 0;
+    left: 0;
+    transform: scale(.87, .87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
-    z-index: -1;
-    @include transition-standard(background-color, opacity, transform);
   }
-
-  // active, focus, hover
-    &:active::before {
-      opacity: 1;
-    }
 }
 
 .custom-control-input {
@@ -49,156 +44,154 @@
   position: absolute;
   z-index: -1;
 
-  // active, focus, hover
-    &:focus ~ .custom-control-indicator::before {
+  // Active, focus, hover
+  &:active,
+  &.focus {
+    ~ .custom-control-indicator::before {
       opacity: 1;
+      transform: scale(1, 1) translateZ(0);
     }
+  }
 
-  // checked
-    &:checked ~ .custom-control-indicator::before {
-      background-color: hex-to-rgba($selection-control-color-active, 0.12);
-    }
+  // Checked
+  &:checked ~ {
+    .custom-control-indicator {
+      color: $selection-control-color-active;
 
-  // disabled
-    &:disabled ~ {
-      .custom-control-indicator,
-      .custom-control-description {
-        color: $selection-control-color-disabled;
-        cursor: $cursor-disabled;
-      }
-
-      .custom-control-indicator {
-        &::before {
-          display: none;
-        }
+      &::before {
+        background-color: hex-to-rgba($selection-control-color-active, .12);
       }
     }
+  }
+
+  // Disabled
+  &:disabled ~ {
+    .custom-control-indicator,
+    .custom-control-description {
+      color: $selection-control-color-disabled;
+    }
+
+    .custom-control-indicator::before {
+      display: none;
+    }
+  }
 }
 
-// stacked layout
-  .custom-controls-stacked {
+
+
+// Stacked layout
+.custom-controls-stacked {
+  display: flex;
+  flex-direction: column;
+
+  .custom-control {
     display: flex;
-    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: $selection-control-spacer-y;
+  }
+}
 
-    .custom-control {
-      margin-right: 0;
-      margin-bottom: $selection-control-spacer-y;
+
+
+// Checkbox
+
+.custom-checkbox {
+  .custom-control-indicator::after {
+    @include set-material-icons;
+
+    content: $selection-control-checkbox-icon;
+  }
+
+  .custom-control-input {
+    // Checked
+    &:checked ~ .custom-control-indicator::after {
+      content: $selection-control-checkbox-icon-checked;
+    }
+
+    // Indeterminate
+    &:indeterminate ~ .custom-control-indicator::after {
+      content: $selection-control-checkbox-icon-indeterminate;
+    }
+  }
+}
+
+
+
+// Radio button
+
+.custom-radio {
+  .custom-control-indicator::after {
+    @include set-material-icons;
+
+    content: $selection-control-radio-icon;
+  }
+
+  .custom-control-input {
+    // Checked
+    &:checked ~ .custom-control-indicator::after {
+      content: $selection-control-radio-icon-checked;
+    }
+  }
+}
+
+
+
+// Switch
+
+.custom-switch {
+  padding-left: ($selection-control-track-width + $selection-control-spacer-x);
+
+  .custom-control-indicator {
+    @include transition-standard(background-color);
+
+    background-clip: content-box;
+    background-color: $selection-control-track-bg;
+    border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
+    border-radius: $selection-control-track-height;
+    width: $selection-control-track-width;
+
+    &::after,
+    &::before {
+      top: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+      left: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+    }
+
+    &::after {
+      @include transition-standard(background-color, transform);
+
+      background-color: $selection-control-thumb-bg;
+      border-radius: 50%;
+      box-shadow: $selection-control-thumb-shadow;
+      content: '';
+      display: block;
+      height: $selection-control-indicator-size;
+      position: absolute;
+      width: $selection-control-indicator-size;
     }
   }
 
-//
-// checkbox
-//
-  .custom-checkbox {
-    .custom-control-indicator {
-      background-image: $selection-control-checkbox-bg;
-    }
-
-    .custom-control-input {
-      // checked
-        &:checked ~ .custom-control-indicator {
-          background-image: $selection-control-checkbox-bg-checked;
-        }
-
-      // disabled
-        &:disabled {
-          ~ .custom-control-indicator {
-            background-image: $selection-control-checkbox-bg-disabled;
-          }
-
-          &:checked ~ .custom-control-indicator {
-            background-image: $selection-control-checkbox-bg-disabled-checked;
-          }
-        }
-
-      // indeterminate
-        &:indeterminate ~ .custom-control-indicator {
-          background-image: $selection-control-checkbox-bg-indeterminate;
-        }
-    }
-  }
-
-//
-// radio button
-//
-  .custom-radio {
-    .custom-control-indicator {
-      background-image: $selection-control-radio-bg;
-    }
-
-    .custom-control-input {
-      // checked
-        &:checked ~ .custom-control-indicator {
-          background-image: $selection-control-radio-bg-checked;
-        }
-
-      // disabled
-        &:disabled {
-          ~ .custom-control-indicator {
-            background-image: $selection-control-radio-bg-disabled;
-          }
-
-          &:checked ~ .custom-control-indicator {
-            background-image: $selection-control-radio-bg-disabled-checked;
-          }
-        }
-    }
-  }
-
-//
-// switch
-//
-  .custom-switch {
-    padding-left: ($selection-control-track-width / $font-size-root + $selection-control-spacer-x);
-
-    .custom-control-indicator {
-      background-clip: content-box;
-      background-color: $selection-control-track-bg;
-      border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
-      border-radius: $selection-control-track-height;
-      width: $selection-control-track-width;
-      @include transition-standard(background-color);
+  .custom-control-input {
+    // Checked
+    &:checked ~ .custom-control-indicator {
+      background-color: hex-to-rgba($selection-control-color-active, .5);
 
       &::after,
       &::before {
-        // position
-          top: (($selection-control-indicator-size - $selection-control-track-height) / -2);
-          left: (($selection-control-indicator-size - $selection-control-track-height) / -2);
+        transform: translateX($selection-control-track-width - $selection-control-indicator-size);
       }
+
       &::after {
-        background-color: $selection-control-thumb-bg;
-        border-radius: 50%;
-        box-shadow: $selection-control-thumb-shadow;
-        content: "";
-        display: block;
-        height: $selection-control-indicator-size;
-        position: absolute;
-        width: $selection-control-indicator-size;
-        @include transition-standard(background-color, transform);
+        background-color: $selection-control-color-active;
       }
     }
 
-    .custom-control-input {
-      // checked
-        &:checked ~ .custom-control-indicator {
-          background-color: hex-to-rgba($selection-control-color-active, 0.5);
+    // Disabled
+    &:disabled ~ .custom-control-indicator {
+      background-color: $selection-control-track-bg-disabled;
 
-          &::after,
-          &::before {
-            transform: translateX($selection-control-track-width - $selection-control-indicator-size);
-          }
-          &::after {
-            background-color: $selection-control-color-active;
-          }
-        }
-
-      // disabled
-        &:disabled ~ .custom-control-indicator {
-          background-color: $selection-control-track-bg-disabled;
-
-          &::after {
-            background-color: $selection-control-thumb-bg-disabled;
-          }
-        }
+      &::after {
+        background-color: $selection-control-thumb-bg-disabled;
+      }
     }
   }
+}

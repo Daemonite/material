@@ -1,84 +1,91 @@
-//
-// elevation
-// based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-elevation-android-
-//
-//
-  $elevation-24dp: 24 * 10 !default;
-  $elevation-16dp: 16 * 10 !default;
-  $elevation-12dp: 12 * 10 !default;
-  $elevation-8dp:  8 * 10 !default;
-  $elevation-6dp:  6 * 10 !default;
-  $elevation-4dp:  4 * 10 !default;
-  $elevation-3dp:  3 * 10 !default;
-  $elevation-2dp:  2 * 10 !default;
-  $elevation-1dp:  1 * 10 !default;
+// Elevation
+// Based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-elevation-android-
 
-//
-// shadow
-// based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-shadows
-//
-  $shadow-24dp: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-                0 9px 46px 8px rgba(0, 0, 0, 0.12),
-                0 11px 15px -7px rgba(0, 0, 0, 0.4) !default;
-  $shadow-16dp: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-                0 6px 30px 5px rgba(0, 0, 0, 0.12),
-                0 8px 10px -5px rgba(0, 0, 0, 0.4) !default;
-  $shadow-12dp: 0 12px 16px 1px rgba(0, 0, 0, 0.14),
-                0 4px 22px 3px rgba(0, 0, 0, 0.12),
-                0 6px 7px -4px rgba(0, 0, 0, 0.4) !default;
-  $shadow-8dp:  0 8px 10px 1px rgba(0, 0, 0, 0.14),
-                0 3px 14px 2px rgba(0, 0, 0, 0.12),
-                0 5px 5px -3px rgba(0, 0, 0, 0.4) !default;
-  $shadow-6dp:  0 6px 10px 0 rgba(0, 0, 0, 0.14),
-                0 1px 18px 0 rgba(0, 0, 0, 0.12),
-                0 3px 5px -1px rgba(0, 0, 0, 0.4) !default;
-  $shadow-4dp:  0 4px 5px 0 rgba(0, 0, 0, 0.14),
-                0 1px 10px 0 rgba(0, 0, 0, 0.12),
-                0 2px 4px -1px rgba(0, 0, 0, 0.4) !default;
-  $shadow-3dp:  0 3px 4px 0 rgba(0, 0, 0, 0.14),
-                0 1px 8px 0 rgba(0, 0, 0, 0.12),
-                0 3px 3px -2px rgba(0, 0, 0, 0.4) !default;
-  $shadow-2dp:  0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2) !default;
-  $shadow-1dp:  none !default;
+$elevation-24dp: 24 * 10 !default;
+$elevation-16dp: 16 * 10 !default;
+$elevation-12dp: 12 * 10 !default;
+$elevation-8dp:  8 * 10 !default;
+$elevation-6dp:  6 * 10 !default;
+$elevation-4dp:  4 * 10 !default;
+$elevation-3dp:  3 * 10 !default;
+$elevation-2dp:  2 * 10 !default;
+$elevation-1dp:  1 * 10 !default;
 
-//
-// value pair
-//
-  $elevation-shadow-24dp: (
-    elevation: $elevation-24dp,
-    shadow: $shadow-24dp
-  ) !default;
-  $elevation-shadow-16dp: (
-    elevation: $elevation-16dp,
-    shadow: $shadow-16dp
-  ) !default;
-  $elevation-shadow-12dp: (
-    elevation: $elevation-12dp,
-    shadow: $shadow-12dp
-  ) !default;
-  $elevation-shadow-8dp:  (
-    elevation: $elevation-8dp,
-    shadow: $shadow-8dp
-  ) !default;
-  $elevation-shadow-6dp:  (
-    elevation: $elevation-6dp,
-    shadow: $shadow-6dp
-  ) !default;
-  $elevation-shadow-4dp:  (
-    elevation: $elevation-4dp,
-    shadow: $shadow-4dp
-  ) !default;
-  $elevation-shadow-3dp:  (
-    elevation: $elevation-3dp,
-    shadow: $shadow-3dp
-  ) !default;
-  $elevation-shadow-2dp:  (
-    elevation: $elevation-2dp,
-    shadow: $shadow-2dp
-  ) !default;
-  $elevation-shadow-1dp:  (
-    elevation: $elevation-1dp,
-    shadow: $shadow-1dp
-  ) !default;
+
+
+// Shadow
+// Based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-shadows
+
+$shadow-color-1: rgba(0, 0, 0, .14) !default;
+$shadow-color-2: rgba(0, 0, 0, .12) !default;
+$shadow-color-3: rgba(0, 0, 0, .2) !default;
+
+$shadow-24dp:    0 24px 38px 3px $shadow-color-1,
+                 0 9px 46px 8px $shadow-color-2,
+                 0 11px 15px 0 $shadow-color-3 !default;
+$shadow-16dp:    0 16px 24px 2px $shadow-color-1,
+                 0 6px 30px 5px $shadow-color-2,
+                 0 8px 10px 0 $shadow-color-3 !default;
+$shadow-12dp:    0 12px 17px 2px $shadow-color-1,
+                 0 5px 22px 4px $shadow-color-2,
+                 0 7px 8px 0 $shadow-color-3 !default;
+$shadow-8dp:     0 8px 10px 1px $shadow-color-1,
+                 0 3px 14px 3px $shadow-color-2,
+                 0 4px 15px 0 $shadow-color-3 !default;
+$shadow-6dp:     0 6px 10px 0 $shadow-color-1,
+                 0 1px 18px 0 $shadow-color-2,
+                 0 3px 5px 0 $shadow-color-3 !default;
+$shadow-4dp:     0 2px 4px 0 $shadow-color-1,
+                 0 4px 5px 0 $shadow-color-2,
+                 0 1px 10px 0 $shadow-color-3 !default;
+$shadow-3dp:     0 3px 3px 0 $shadow-color-1,
+                 0 3px 4px 0 $shadow-color-2,
+                 0 1px 8px 0 $shadow-color-3 !default;
+$shadow-2dp:     0 0 4px 0 $shadow-color-1,
+                 0 3px 4px 0 $shadow-color-2,
+                 0 1px 5px 0 $shadow-color-3 !default;
+$shadow-1dp:     0 0 2px 0 $shadow-color-1,
+                 0 2px 2px 0 $shadow-color-2,
+                 0 1px 3px 0 $shadow-color-3 !default;
+
+
+
+// Value pair
+// Combination of elevation and shadow
+
+$elevation-shadow-24dp: (
+  elevation: $elevation-24dp,
+  shadow: $shadow-24dp
+) !default;
+$elevation-shadow-16dp: (
+  elevation: $elevation-16dp,
+  shadow: $shadow-16dp
+) !default;
+$elevation-shadow-12dp: (
+  elevation: $elevation-12dp,
+  shadow: $shadow-12dp
+) !default;
+$elevation-shadow-8dp:  (
+  elevation: $elevation-8dp,
+  shadow: $shadow-8dp
+) !default;
+$elevation-shadow-6dp:  (
+  elevation: $elevation-6dp,
+  shadow: $shadow-6dp
+) !default;
+$elevation-shadow-4dp:  (
+  elevation: $elevation-4dp,
+  shadow: $shadow-4dp
+) !default;
+$elevation-shadow-3dp:  (
+  elevation: $elevation-3dp,
+  shadow: $shadow-3dp
+) !default;
+$elevation-shadow-2dp:  (
+  elevation: $elevation-2dp,
+  shadow: $shadow-2dp
+) !default;
+$elevation-shadow-1dp:  (
+  elevation: $elevation-1dp,
+  shadow: $shadow-1dp
+) !default;

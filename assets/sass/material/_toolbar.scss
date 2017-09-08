@@ -1,402 +1,397 @@
 .navbar {
   align-items: center;
-  color: $toolbar-color-dark;
+  color: $toolbar-color;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   min-height: $toolbar-height;
-  padding-top: $toolbar-padding-y;
-  padding-bottom: $toolbar-padding-y;
+  padding: $toolbar-padding-y $toolbar-padding-x;
   position: relative;
 
-  & > .container {
+  > .container {
     align-items: center;
     display: flex;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
-// colour
-  .navbar-inverse {
-    color: $toolbar-color-light;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  .navbar-light {
-    color: $toolbar-color-dark;
+  // Vertical align some elements normally placed in `.navbar` or `.toolbar`
+  .btn {
+    margin-top: (($btn-height - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height - $toolbar-element-height) / -2);
   }
 
-// variation
-  .navbar-fixed-bottom,
-  .navbar-fixed-top {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    position: fixed;
-      right: 0;
-      left: 0;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
+  .btn-lg {
+    margin-top: (($btn-height-lg - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height-lg - $toolbar-element-height) / -2);
   }
 
-  .navbar-fixed-bottom {
-    // position
-      bottom: 0;
+  .btn-sm {
+    margin-top: (($btn-height-sm - $toolbar-element-height) / -2);
+    margin-bottom: (($btn-height-sm - $toolbar-element-height) / -2);
   }
 
-  .navbar-fixed-top {
-    // position
-      top: 0;
-  }
+  .form-control {
+    @include border-radius($toolbar-element-border-radius);
+    @include transition-standard(opacity);
 
-  .navbar-full {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .navbar-sticky-top {
-    box-shadow: map-get($toolbar-elevation-shadow, shadow);
-    position: sticky;
-      top: 0;
-    width: 100%;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-  }
-
-  .toolbar-waterfall {
-    position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-    z-index: map-get($toolbar-elevation-shadow, elevation);
-    @include transition-standard(background-color, box-shadow);
-
-    &.waterfall {
-      background-color: $toolbar-waterfall-bg;
-      box-shadow: map-get($toolbar-elevation-shadow, shadow);
-      position: fixed;
-    }
-  }
-
-//
-// misc
-//
-  .navbar-brand {
-    align-items: center;
-    color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    padding-right: $toolbar-link-padding-x;
-    padding-left: $toolbar-link-padding-x;
-    vertical-align: middle;
-    white-space: nowrap;
-    @include typography-title;
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      &:focus {
-        outline: 0;
-      }
-  }
-
-  .navbar-text {
-    align-items: center;
-    color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    padding-right: $toolbar-link-padding-x;
-    padding-left: $toolbar-link-padding-x;
-    vertical-align: middle;
-  }
-
-//
-// nav
-//
-  .navbar-nav {
-    display: flex;
-    list-style: none;
-    margin-bottom: 0;
-    padding-left: 0;
-
-    .nav-link {
-      align-items: center;
-      color: inherit;
-      display: flex;
-      font-size: $toolbar-link-font-size;
-      height: $toolbar-link-height;
-      line-height: 1;
-      opacity: $toolbar-link-opacity;
-      padding: 0 $toolbar-link-padding-x;
-      @include border-radius($border-radius);
-      @include transition-standard(background-color, opacity);
-
-      // active, focus, hover
-        @include active-focus-hover {
-          color: inherit;
-          opacity: $toolbar-link-opacity-active;
-        }
-
-        &:focus {
-          outline: 0;
-        }
-
-        &.active {
-          color: inherit;
-        }
-
-      // disabled
-        &.disabled {
-          opacity: $toolbar-link-opacity;
-        }
-
-      // open
-        &.show {
-          background-color: $toolbar-element-bg-dark;
-        }
-    }
-
-    .active > .nav-link,
-    .show > .nav-link {
-      opacity: $toolbar-link-opacity-active;
-    }
-
-    .show > .nav-link {
-      background-color: $toolbar-element-bg-dark;
-    }
-
-    // direction
-      .dropdown.show > .nav-link {
-        @include border-bottom-radius(0);
-      }
-
-      .dropup.show > .nav-link {
-        @include border-top-radius(0);
-      }
-  }
-
-  // colour
-    .navbar-inverse {
-      .navbar-nav .nav-link.show,
-      .navbar-nav .show > .nav-link {
-        background-color: $toolbar-element-bg-light;
-      }
-    }
-
-//
-// toggleable
-//
-  .navbar-toggleable {
-    @each $breakpoint in map-keys($grid-breakpoints) {
-      $infix: breakpoint-infix($breakpoint);
-      $next: breakpoint-next($breakpoint);
-
-      &#{$infix} {
-        @include media-breakpoint-down($breakpoint) {
-          display: block;
-
-          > .container {
-            display: block;
-          }
-
-          .navbar-collapse {
-            clear: both;
-
-            > :first-child {
-              margin-top: $toolbar-padding-y;
-            }
-          }
-
-          .navbar-nav {
-            flex-wrap: wrap;
-          }
-        }
-
-        @include media-breakpoint-up($next) {
-          > .container {
-            align-items: center;
-            display: flex;
-          }
-
-          .navbar-collapse {
-            display: flex !important;
-            width: 100%;
-          }
-
-          .navbar-toggler {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
-  .navbar-toggler {
-    align-items: center;
-    background-color: transparent;
+    background-color: $toolbar-element-bg;
     border: 0;
-    border-radius: 50%;
     color: inherit;
-    display: inline-flex;
-    height: $toolbar-link-height;
-    margin-right: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
-    margin-left: ($toolbar-link-padding-x - (($toolbar-link-height - ($material-icon-size / $font-size-root) * 1rem) / 2));
-    position: relative;
-    vertical-align: middle;
-    width: $toolbar-link-height;
+    height: $toolbar-element-height;
+    opacity: $toolbar-element-opacity;
+    padding: (($toolbar-element-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-inner-spacer-x;
 
-    &::before {
-      background-color: $toolbar-element-bg-dark;
-      border-radius: 50%;
-      content: "";
-      display: block;
-      height: $toolbar-height;
-      opacity: 0;
-      position: absolute;
-        top: (($toolbar-link-height - $toolbar-height) / 2);
-        left: (($toolbar-link-height - $toolbar-height) / 2);
-      width: $toolbar-height;
-      @include transition-standard(opacity);
+    @include focus-hover {
+      box-shadow: none;
+      opacity: 1;
     }
-
-    // active, focus, hover
-      @include active-focus-hover {
-        color: inherit;
-        text-decoration: none;
-
-        &::before {
-          opacity: 1;
-        }
-      }
-
-      &:focus {
-        outline: 0;
-      }
   }
 
-  .navbar-toggler-icon {
-    background-image: $toolbar-toggler-bg-dark;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: $material-icon-size $material-icon-size;
-    display: block;
-    height: $material-icon-size;
-    margin: auto;
-    width: $material-icon-size;
+  .form-inline {
+    margin-left: $toolbar-inner-spacer-x;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
-  // colour
-    .navbar-inverse {
-      .navbar-toggler {
-        &::before {
-          background-color: $toolbar-element-bg-light;
-        }
-      }
+  .input-group {
+    @include border-radius($toolbar-element-border-radius);
+    @include transition-standard(opacity);
 
-      .navbar-toggler-icon {
-        background-image: $toolbar-toggler-bg-light;
-      }
-    }
+    background-color: $toolbar-element-bg;
+    opacity: $toolbar-element-opacity;
 
-//
-// vertical align some elements normally placed in `.navbar` or `.toolbar`
-//
-  .navbar {
-    .btn {
-      margin-top: (($btn-height - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height - $toolbar-link-height) / -2);
-    }
-
-    .btn-lg {
-      margin-top: (($btn-height-lg - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height-lg - $toolbar-link-height) / -2);
-    }
-
-    .btn-sm {
-      margin-top: (($btn-height-sm - $toolbar-link-height) / -2);
-      margin-bottom: (($btn-height-sm - $toolbar-link-height) / -2);
+    @include focus-hover {
+      opacity: 1;
     }
 
     .form-control {
-      background-color: $toolbar-element-bg-dark;
-      border-bottom: 0;
-      color: inherit;
-      height: $toolbar-link-height;
-      line-height: 1;
-      margin-bottom: 0;
-      opacity: $toolbar-link-opacity;
-      padding: (($toolbar-link-height - $textfield-font-size) / 2) $toolbar-link-padding-x;
-      @include transition-standard(opacity);
+      @include border-radius(0);
 
-      // active, focus, hover
-        @include focus-hover {
-          opacity: $toolbar-link-opacity-active;
-        }
+      background-color: transparent;
+      margin-left: 0;
+      opacity: 1;
     }
 
-    .form-inline {
-      flex-wrap: nowrap;
-      margin-right: $toolbar-link-padding-x;
-      margin-left: $toolbar-link-padding-x;
-    }
-
-    .input-group {
-      margin-bottom: 0;
-
-      .form-control {
-        margin-right: 0;
-        margin-left: 0;
-
-        &:first-child {
-          padding-right: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-        }
-
-        &:not(:first-child) {
-          padding-left: ($textfield-height + $textfield-margin-bottom + $toolbar-link-padding-x);
-        }
-      }
-
-      .input-group-addon {
-        align-items: center;
-        cursor: text;
-        display: flex;
-        justify-content: center;
-        margin-right: 0;
-        margin-left: 0;
-        overflow: hidden;
-        padding-top: 0;
-        position: absolute;
-          top: 0;
-          bottom: 0;
-        width: ($textfield-height + $textfield-margin-bottom);
-
-        &:first-child {
-          // position
-            left: 0;
-        }
-
-        &:not(:first-child) {
-          // position
-            right: 0;
-        }
-      }
-    }
-
-    .nav-tabs {
-      margin-top: (($nav-tab-link-height - $toolbar-link-height) / -2);
-      margin-bottom: (($nav-tab-link-height - $toolbar-link-height) / -2);
-
-      .nav-link {
-        height: $toolbar-height;
-      }
+    .input-group-addon {
+      margin-left: 0;
     }
   }
 
-  // colour
-    .navbar-inverse {
-      .form-control {
-        background-color: $toolbar-element-bg-light;
+  .nav-tabs {
+    margin-top: ($toolbar-padding-y * -1);
+    margin-bottom: ($toolbar-padding-y * -1);
 
-        &::placeholder {
-          color: $white-hint;
+    .nav-link {
+      min-height: $toolbar-height;
+      padding-top: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
+      padding-bottom: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
+    }
+  }
+}
+
+// Colour
+.navbar-dark {
+  color: $toolbar-dark-color;
+
+  .form-control,
+  .input-group,
+  .navbar-brand::before,
+  .navbar-nav .show > .nav-link,
+  .navbar-toggler::before {
+    background-color: $toolbar-dark-element-bg;
+  }
+
+  .form-control::placeholder,
+  .navbar-nav .nav-link.disabled {
+    color: $toolbar-dark-color-lighter;
+  }
+}
+
+// Variation
+.navbar-fixed-bottom,
+.navbar-fixed-top {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.navbar-fixed-bottom {
+  bottom: 0;
+}
+
+.navbar-fixed-top {
+  top: 0;
+}
+
+.navbar-full {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.navbar-sticky-top {
+  box-shadow: map-get($toolbar-elevation-shadow, shadow);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.toolbar-waterfall {
+  @include transition-standard(background-color, box-shadow);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+
+  &.waterfall {
+    background-color: $toolbar-waterfall-bg;
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    position: fixed;
+  }
+}
+
+
+
+// Misc
+
+.navbar-brand {
+  @include typography-title;
+
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  height: $toolbar-element-height;
+  margin-left: $toolbar-inner-spacer-x;
+  position: relative;
+  white-space: nowrap;
+
+  @include active-focus-hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &::before {
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg;
+    content: '';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: ($toolbar-inner-spacer-x / -2);
+    bottom: 0;
+    left: ($toolbar-inner-spacer-x / -2);
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.navbar-text {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-wrap: wrap;
+  height: $toolbar-element-height;
+  margin-left: $toolbar-inner-spacer-x;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+
+
+// Nav
+
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  .nav-link {
+    @include border-radius($toolbar-element-border-radius);
+    @include transition-standard(background-color, opacity);
+
+    color: inherit;
+    font-size: $toolbar-link-font-size;
+    height: $toolbar-link-height;
+    line-height: $toolbar-link-line-height;
+    opacity: $toolbar-element-opacity;
+    padding: $toolbar-link-padding-y $toolbar-link-padding-x;
+
+    @include active-focus-hover {
+      background-color: $toolbar-element-bg;
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.active,
+    &.disabled {
+      opacity: 1;
+    }
+
+    &.disabled {
+      background-color: transparent;
+      color: $toolbar-color-lighter;
+    }
+  }
+
+  .active > .nav-link,
+  .show > .nav-link {
+    opacity: 1;
+  }
+
+  .show > .nav-link {
+    background-color: $toolbar-element-bg;
+  }
+}
+
+
+
+// Toggleable
+
+.navbar-collapse {
+  align-items: center;
+  flex-basis: 100%;
+}
+
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint);
+    $infix: breakpoint-infix($next);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        > .container,
+        > .container-fluid {
+          padding-right: 0;
+          padding-left: 0;
+        }
+
+        .navbar-collapse {
+          > :first-child {
+            margin-top: $toolbar-inner-spacer-y;
+          }
+
+          > :not(:last-child) {
+            margin-bottom: $toolbar-inner-spacer-y;
+          }
+
+          .form-inline,
+          .navbar-brand,
+          .navbar-text {
+            margin-left: 0;
+          }
+        }
+      }
+
+      @include media-breakpoint-up($next) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+        > .container,
+        > .container-fluid {
+          flex-wrap: nowrap;
+        }
+
+        .navbar-collapse {
+          display: flex !important;
+        }
+
+        .navbar-nav {
+          flex-wrap: nowrap;
+        }
+
+        .navbar-toggler {
+          display: none;
+
+          + .form-inline,
+          + .navbar-brand,
+          + .navbar-text {
+            margin-left: 0;
+          }
         }
       }
     }
+  }
+}
 
+.navbar-toggler {
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  display: inline-flex;
+  height: $toolbar-element-height;
+  line-height: 1;
+  margin-left: $toolbar-inner-spacer-x;
+  position: relative;
+  width: $toolbar-element-height;
+
+  @include active-focus-hover {
+    text-decoration: none;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    @include transition-standard(opacity);
+
+    background-color: $toolbar-element-bg;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.navbar-toggler-icon {
+  @include set-material-icons;
+
+  display: block;
+  margin: auto;
+
+  &::before {
+    content: $toolbar-toggler-icon;
+  }
+}
