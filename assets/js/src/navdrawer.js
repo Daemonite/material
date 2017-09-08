@@ -2,7 +2,7 @@ import Util from './util'
 
 /*
  * navigation drawer
- * based on bootstrap's (v4.0.0-alpha.6) modal.js
+ * based on bootstrap's (v4.0.0-beta) modal.js
  */
 
 const NavDrawer = (($) => {

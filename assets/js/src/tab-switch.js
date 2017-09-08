@@ -2,7 +2,7 @@ import Util from './util'
 
 /*
  * tab indicator animation
- * requires bootstrap's (v4.0.0-alpha.6) tab.js
+ * requires bootstrap's (v4.0.0-beta) tab.js
  */
 
 const TabSwitch = (($) => {

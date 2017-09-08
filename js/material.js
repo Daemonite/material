@@ -1,5 +1,5 @@
 /*!
- * Material v4.0.0-alpha.6 (http://daemonite.github.io/material/)
+ * Material v4.0.0-beta (http://daemonite.github.io/material/)
  * Copyright 2017 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
@@ -10,8 +10,8 @@ if (typeof jQuery === 'undefined') {
 
 +function ($) {
   var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {
-    throw new Error('Material\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
+  if (version[0] < 3 || version[0] >= 4) {
+    throw new Error('Material\'s JavaScript requires at least jQuery v3.0.0 but less than v4.0.0')
   }
 }(jQuery);
 
@@ -311,7 +311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * navigation drawer
-   * based on bootstrap's (v4.0.0-alpha.6) modal.js
+   * based on bootstrap's (v4.0.0-beta) modal.js
    */
 
   var NavDrawer = function ($) {
@@ -707,7 +707,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * tab indicator animation
-   * requires bootstrap's (v4.0.0-alpha.6) tab.js
+   * requires bootstrap's (v4.0.0-beta) tab.js
    */
 
   var TabSwitch = function ($) {
@@ -854,7 +854,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * global util js
-   * based on bootstrap's (v4.0.0-alpha.6) util.js
+   * based on bootstrap's (v4.0.0-beta) util.js
    */
 
   var Util = function ($) {

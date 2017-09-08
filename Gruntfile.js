@@ -18,8 +18,8 @@ module.exports = function(grunt) {
             '}\n\n' +
             '+function ($) {\n' +
             '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
-            '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 4)) {\n' +
-            '    throw new Error(\'Material\\\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0\')\n' +
+            '  if (version[0] < 3 || version[0] >= 4) {\n' +
+            '    throw new Error(\'Material\\\'s JavaScript requires at least jQuery v3.0.0 but less than v4.0.0\')\n' +
             '  }\n' +
             '}(jQuery);\n',
 

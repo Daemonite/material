@@ -98,7 +98,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * navigation drawer
-   * based on bootstrap's (v4.0.0-alpha.6) modal.js
+   * based on bootstrap's (v4.0.0-beta) modal.js
    */
 
   var NavDrawer = function ($) {
@@ -494,7 +494,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * tab indicator animation
-   * requires bootstrap's (v4.0.0-alpha.6) tab.js
+   * requires bootstrap's (v4.0.0-beta) tab.js
    */
 
   var TabSwitch = function ($) {
@@ -641,7 +641,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   /*
    * global util js
-   * based on bootstrap's (v4.0.0-alpha.6) util.js
+   * based on bootstrap's (v4.0.0-beta) util.js
    */
 
   var Util = function ($) {
