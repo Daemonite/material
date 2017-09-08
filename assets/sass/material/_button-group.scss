@@ -66,6 +66,7 @@
   // Border colour
   > .btn {
     border-left: $btn-group-inner-spacer-x solid transparent;
+    margin-left: ($btn-group-inner-spacer-x * -1);
 
     &:disabled,
     &.disabled {
@@ -83,6 +84,16 @@
         border-left-color: $btn-group-divider-bg;
       }
     }
+  }
+
+  > .btn:first-child {
+    border-left-width: 0;
+    margin-left: 0;
+  }
+
+  > .btn-group > .btn:first-child {
+    border-left-width: $btn-group-inner-spacer-x;
+    margin-left: ($btn-group-inner-spacer-x * -1);
   }
 
   // Border radius
@@ -128,6 +139,7 @@
   // Border colour
   > .btn {
     border-top: $btn-group-inner-spacer-x solid transparent;
+    margin-top: ($btn-group-inner-spacer-x * -1);
 
     &:disabled,
     &.disabled {
@@ -145,6 +157,16 @@
         border-top-color: $btn-group-divider-bg;
       }
     }
+  }
+
+  > .btn:first-child {
+    border-top-width: 0;
+    margin-top: 0;
+  }
+
+  > .btn-group-vertical > .btn:first-child {
+    border-top-width: $btn-group-inner-spacer-x;
+    margin-top: ($btn-group-inner-spacer-x * -1);
   }
 
   // Border radius

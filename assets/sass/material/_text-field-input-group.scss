@@ -53,6 +53,7 @@
     border-left: $btn-group-inner-spacer-x solid transparent;
     box-shadow: none;
     flex: 0 1 auto;
+    margin-left: ($btn-group-inner-spacer-x * -1);
     min-width: 0;
 
     &:active,
@@ -66,6 +67,11 @@
       + .btn.disabled {
         border-left-color: $btn-group-divider-bg;
       }
+    }
+
+    &:first-child {
+      border-left-width: 0;
+      margin-left: 0;
     }
 
     &.active {
