@@ -15,7 +15,21 @@
     justify-content: space-between;
   }
 
-  // Vertical align some elements normally placed in `.navbar` or `.toolbar`
+  // Horizontally align `.dropdown-menu-right` in `.navbar`
+  .dropdown-menu-right {
+    right: 0;
+    left: auto;
+
+    &::before {
+      transform-origin: 100% 0;
+    }
+
+    &.menu::before {
+      transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+    }
+  }
+
+  // Vertically align some elements normally placed in `.navbar`
   .btn {
     margin-top: (($btn-height - $toolbar-element-height) / -2);
     margin-bottom: (($btn-height - $toolbar-element-height) / -2);
