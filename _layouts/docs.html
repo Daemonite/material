@@ -10,14 +10,20 @@
 
   {% include page-jumbotron.html %}
 
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             {{ content }}
           </div>
         </div>
+
+        {% if page.toc %}
+          <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+            {{ content | toc_only }}
+          </div>
+        {% endif %}
       </div>
     </div>
   </main>
