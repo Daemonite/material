@@ -14,6 +14,51 @@
   left: auto;
 }
 
+.section-nav {
+  border-left: 0.3125rem solid #ff4081;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 3.5rem;
+}
+
+.toc-entry a {
+  border-radius: 2px;
+  -webkit-transition-duration: 0.3s;
+       -o-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-property: background-color, color, opacity;
+  -o-transition-property: background-color, color, opacity;
+  transition-property: background-color, color, opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(0, 0, 0, 0.87);
+  opacity: 0.7;
+  padding: 0.5rem 0 0.5rem 24px;
+}
+@media (min-width: 600px) {
+  .toc-entry a {
+    -webkit-transition-duration: 0.39s;
+         -o-transition-duration: 0.39s;
+            transition-duration: 0.39s;
+  }
+}
+@media (min-width: 1280px) {
+  .toc-entry a {
+    -webkit-transition-duration: 0.2s;
+         -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+  }
+}
+.toc-entry a:active, .toc-entry a:focus, .toc-entry a:hover {
+  color: rgba(0, 0, 0, 0.87);
+  opacity: 1;
+}
+.toc-entry a.active {
+  color: #ff4081;
+  opacity: 1;
+}
+
 [id='accordion'] .card {
   border-radius: 0;
 }
