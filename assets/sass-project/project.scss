@@ -24,6 +24,33 @@
   }
 }
 
+.section-nav {
+  border-left: $blockquote-border-width solid map-get(theme-color(secondary), color);
+  position: sticky;
+  top: $toolbar-height;
+}
+
+.toc-entry {
+  a {
+    @include border-radius($nav-pills-border-radius);
+    @include transition-standard(background-color, color, opacity);
+
+    color: $nav-pills-color;
+    opacity: $nav-pills-link-opacity;
+    padding: $nav-link-padding-y 0 $nav-link-padding-y $grid-gutter-width-desktop;
+
+    @include active-focus-hover {
+      color: $nav-pills-color;
+      opacity: 1;
+    }
+
+    &.active {
+      color: $nav-pills-color-active;
+      opacity: 1;
+    }
+  }
+}
+
 
 
 // CSS for accordion examples
