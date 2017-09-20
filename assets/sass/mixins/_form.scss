@@ -18,6 +18,21 @@
   padding: $padding-y $padding-x ($padding-y - $textfield-border-width / $font-size-root * 1rem);
 }
 
+@mixin form-select-size($font-size, $height, $padding-x) {
+  @include media-moz-webkit {
+    $select-bg-size: (($material-icon-size / $textfield-font-size) * $font-size);
+
+    @if $padding-x != 0 {
+      background-position: calc(100% - #{$padding-x}) ($height / 2 - $select-bg-size / 2);
+    } @else {
+      background-position: 100% ($height / 2 - $select-bg-size / 2);
+    }
+
+    background-size: $select-bg-size $select-bg-size;
+    padding-right: ($padding-x + $select-bg-size);
+  }
+}
+
 @mixin form-control-validation($color, $state) {
   .custom-control-input {
     .was-validated &:#{$state},
@@ -78,5 +93,16 @@
         color: $color;
       }
     }
+  }
+}
+
+@mixin textfield-box-size($font-size, $height, $line-height, $padding-x, $padding-y) {
+  > label {
+    top: $padding-y;
+    left: $padding-x;
+  }
+
+  > .form-control {
+    padding-top: ($height - ($textfield-box-label-spacer-y - $textfield-border-width / $font-size-root * 1rem) - $font-size * $line-height);
   }
 }

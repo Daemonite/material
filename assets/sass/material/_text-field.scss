@@ -82,41 +82,26 @@
 }
 
 // Special treatment for select and textarea
-%form-control-select {
+%form-select {
+  @include form-select-size($textfield-font-size, $textfield-height, $textfield-padding-x);
+
   appearance: none;
 
   @include media-moz-webkit {
-    $select-bg-size: (($material-icon-size / $textfield-font-size) * $textfield-font-size);
-
     background-image: $caret-bg;
-    background-position: 100% ($textfield-height / 2 - $select-bg-size / 2);
     background-repeat: no-repeat;
-    background-size: $select-bg-size $select-bg-size;
-    padding-right: $select-bg-size;
   }
 
   &.form-control-lg {
-    @include media-moz-webkit {
-      $select-bg-size-lg: (($material-icon-size / $textfield-font-size) * $textfield-font-size-lg);
-
-      background-position: 100% ($textfield-height-lg / 2 - $select-bg-size-lg / 2);
-      background-size: $select-bg-size-lg $select-bg-size-lg;
-      padding-right: $select-bg-size-lg;
-    }
+    @include form-select-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-x-lg);
   }
 
   &.form-control-sm {
-    @include media-moz-webkit {
-      $select-bg-size-sm: (($material-icon-size / $textfield-font-size) * $textfield-font-size-sm);
-
-      background-position: 100% ($textfield-height-sm / 2 - $select-bg-size-sm / 2);
-      background-size: $select-bg-size-sm $select-bg-size-sm;
-      padding-right: $select-bg-size-sm;
-    }
+    @include form-select-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-x-sm);
   }
 }
 
-%textfield-box {
+%form-textarea {
   border-radius: $textfield-box-border-radius;
   border-width: $textfield-border-width;
   height: auto;
@@ -142,19 +127,19 @@
 select {
   &.form-control {
     &:not([multiple]):not([size]) {
-      @extend %form-control-select;
+      @extend %form-select;
     }
 
     &[multiple],
     &[size] {
-      @extend %textfield-box;
+      @extend %form-textarea;
     }
   }
 }
 
 textarea {
   &.form-control:not(.textarea-autosize) {
-    @extend %textfield-box;
+    @extend %form-textarea;
   }
 }
 
@@ -189,7 +174,7 @@ textarea {
 
 .custom-select {
   @extend %form-control;
-  @extend %form-control-select;
+  @extend %form-select;
 
   display: inline-block;
   vertical-align: middle;
