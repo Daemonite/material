@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Forms</h1>
           <p class="font-weight-light typography-title">Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="overview">Overview</h2>
             <p>Bootstrap’s form controls expand on <a href="/material/docs/4.0/content/reboot/#forms">our Rebooted form styles</a> with classes. Use these classes to opt into their customized displays for a more consistent rendering across browsers and devices.</p>
@@ -1589,8 +1588,8 @@
             <ul>
               <li>We wrap the <code class="highlighter-rouge">&lt;input&gt;</code> in a <code class="highlighter-rouge">&lt;label&gt;</code> so the custom control properly triggers the file browser.</li>
               <li>We hide the default file <code class="highlighter-rouge">&lt;input&gt;</code> via <code class="highlighter-rouge">opacity</code>.</li>
-              <li>We use <code class="highlighter-rouge">:after</code> to generate a custom background and directive (<em>Choose file…</em>).</li>
-              <li>We use <code class="highlighter-rouge">:before</code> to generate and position the <em>Browse</em> button.</li>
+              <li>We use <code class="highlighter-rouge">::after</code> to generate a custom background and directive (<em>Choose file…</em>).</li>
+              <li>We use <code class="highlighter-rouge">::before</code> to generate and position the <em>Browse</em> button.</li>
               <li>We declare a <code class="highlighter-rouge">height</code> on the <code class="highlighter-rouge">&lt;input&gt;</code> for proper spacing for surrounding content.</li>
             </ul>
             <p>In other words, it’s an entirely custom element, all generated via CSS.</p>
@@ -1608,6 +1607,87 @@
 <span class="p">);</span></code></pre></figure>
             <p>You’ll need to set the language of your document (or subtree thereof) correctly in order for the correct text to be shown. This can be done using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang">the <code class="highlighter-rouge">lang</code> attribute</a> or the <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.12"><code class="highlighter-rouge">Content-Language</code> HTTP header</a>, among other methods.</p>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+            <li class="toc-entry toc-h2"><a href="#form-controls">Form controls</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#sizing">Sizing</a></li>
+                <li class="toc-entry toc-h3"><a href="#readonly">Readonly</a></li>
+                <li class="toc-entry toc-h3"><a href="#readonly-plain-text">Readonly plain text</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#checkboxes-and-radios">Checkboxes and radios</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#default-stacked">Default (stacked)</a></li>
+                <li class="toc-entry toc-h3"><a href="#inline">Inline</a></li>
+                <li class="toc-entry toc-h3"><a href="#without-labels">Without labels</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#layout">Layout</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#form-groups">Form groups</a></li>
+                <li class="toc-entry toc-h3"><a href="#form-grid">Form grid</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#form-row">Form row</a></li>
+                    <li class="toc-entry toc-h4"><a href="#horizontal-form">Horizontal form</a></li>
+                    <li class="toc-entry toc-h4"><a href="#column-sizing">Column sizing</a></li>
+                    <li class="toc-entry toc-h4"><a href="#auto-sizing">Auto-sizing</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#inline-forms">Inline forms</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#alternatives-to-hidden-labels">Alternatives to hidden labels</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#help-text">Help text</a>
+              <ul>
+                <ul>
+                  <ul>
+                    <li class="toc-entry toc-h5"><a href="#associating-help-text-with-form-controls">Associating help text with form controls</a></li>
+                  </ul>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#disabled-forms">Disabled forms</a>
+              <ul>
+                <ul>
+                  <li class="toc-entry toc-h4"><a href="#caveat-with-anchors">Caveat with anchors</a></li>
+                  <li class="toc-entry toc-h4"><a href="#cross-browser-compatibility">Cross-browser compatibility</a></li>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#validation">Validation</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#how-it-works">How it works</a></li>
+                <li class="toc-entry toc-h3"><a href="#custom-styles">Custom styles</a></li>
+                <li class="toc-entry toc-h3"><a href="#browser-defaults">Browser defaults</a></li>
+                <li class="toc-entry toc-h3"><a href="#server-side">Server side</a></li>
+                <li class="toc-entry toc-h3"><a href="#supported-elements">Supported elements</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#custom-forms">Custom forms</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#checkboxes-and-radios-1">Checkboxes and radios</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#checkboxes">Checkboxes</a></li>
+                    <li class="toc-entry toc-h4"><a href="#radios">Radios</a></li>
+                    <li class="toc-entry toc-h4"><a href="#disabled">Disabled</a></li>
+                    <li class="toc-entry toc-h4"><a href="#stacked">Stacked</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#select-menu">Select menu</a></li>
+                <li class="toc-entry toc-h3"><a href="#file-browser">File browser</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#translating-or-customizing-the-strings">Translating or customizing the strings</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

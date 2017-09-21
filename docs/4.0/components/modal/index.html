@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Modal</h1>
           <p class="font-weight-light typography-title">Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="how-it-works">How it works</h2>
             <p>Before getting started with Bootstrap’s modal component, be sure to read the following as our menu options have recently changed.</p>
@@ -114,7 +113,7 @@
               <li>Due to how HTML5 defines its semantics, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus">the <code class="highlighter-rouge">autofocus</code> HTML attribute</a> has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:</li>
             </ul>
             <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'shown.bs.modal'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'#myInput'</span><span class="p">).</span><span class="nx">focus</span><span class="p">()</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#myInput'</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'focus'</span><span class="p">)</span>
 <span class="p">})</span></code></pre></figure>
             <p>Keep reading for demos and usage guidelines.</p>
             <h2 id="examples">Examples</h2>
@@ -633,6 +632,89 @@
   <span class="c1">// do something...</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
+            <li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#modal-components">Modal components</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#modal-title">Modal title</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#live-demo">Live demo</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#modal-title-1">Modal title</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#scrolling-long-content">Scrolling long content</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#modal-title-2">Modal title</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#tooltips-and-popovers">Tooltips and popovers</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#modal-title-3">Modal title</a></li>
+                      <li class="toc-entry toc-h5"><a href="#popover-in-a-modal">Popover in a modal</a></li>
+                      <li class="toc-entry toc-h5"><a href="#tooltips-in-a-modal">Tooltips in a modal</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#using-the-grid">Using the grid</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#grids-in-modals">Grids in modals</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#varying-modal-content">Varying modal content</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#new-message">New message</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#remove-animation">Remove animation</a></li>
+                <li class="toc-entry toc-h3"><a href="#dynamic-heights">Dynamic heights</a></li>
+                <li class="toc-entry toc-h3"><a href="#accessibility">Accessibility</a></li>
+                <li class="toc-entry toc-h3"><a href="#embedding-youtube-videos">Embedding YouTube videos</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#optional-sizes">Optional sizes</a>
+              <ul>
+                <ul>
+                  <li class="toc-entry toc-h4"><a href="#large-modal">Large modal</a></li>
+                  <li class="toc-entry toc-h4"><a href="#small-modal">Small modal</a></li>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#usage">Usage</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#via-data-attributes">Via data attributes</a></li>
+                <li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a></li>
+                <li class="toc-entry toc-h3"><a href="#options">Options</a></li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#asynchronous-methods-and-transitions">Asynchronous methods and transitions</a></li>
+                    <li class="toc-entry toc-h4"><a href="#modaloptions">.modal(options)</a></li>
+                    <li class="toc-entry toc-h4"><a href="#modaltoggle">.modal('toggle')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#modalshow">.modal('show')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#modalhide">.modal('hide')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#modalhandleupdate">.modal('handleUpdate')</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

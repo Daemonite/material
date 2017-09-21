@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,25 +87,25 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Popovers</h1>
           <p class="font-weight-light typography-title">Documentation and examples for adding Bootstrap popovers, like those found in iOS, to any element on your site.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="overview">Overview</h2>
             <p>Things to know when using the popover plugin:</p>
             <ul>
-              <li>Popovers rely on the 3rd party library <a href="https://popper.js.org">Popper.js</a> for positioning. You must include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before bootstrap.js in order for popovers to work!</li>
+              <li>Popovers rely on the 3rd party library <a href="https://popper.js.org">Popper.js</a> for positioning. You must include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before bootstrap.js or use <code class="highlighter-rouge">bootstrap.bundle.min.js</code> / <code class="highlighter-rouge">bootstrap.bundle.js</code> which contains Popper.js in order for popovers to work!</li>
               <li>Popovers require the <a href="/material/docs/4.0/components/tooltips/">tooltip plugin</a> as a dependency.</li>
               <li>If building our JS from source, it <a href="/material/docs/4.0/getting-started/javascript/#util">requires <code class="highlighter-rouge">util.js</code></a>.</li>
               <li>Popovers are opt-in for performance reasons, so <strong>you must initialize them yourself</strong>.</li>
@@ -393,6 +392,55 @@ sagittis lacus vel augue laoreet rutrum faucibus."</span><span class="nt">&gt;</
   <span class="c1">// do something…</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+            <li class="toc-entry toc-h2"><a href="#example-enable-popovers-everywhere">Example: Enable popovers everywhere</a></li>
+            <li class="toc-entry toc-h2"><a href="#example-using-the-container-option">Example: Using the container option</a></li>
+            <li class="toc-entry toc-h2"><a href="#static-popover">Static popover</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#popover-top">Popover top</a></li>
+                <li class="toc-entry toc-h3"><a href="#popover-right">Popover right</a></li>
+                <li class="toc-entry toc-h3"><a href="#popover-bottom">Popover bottom</a></li>
+                <li class="toc-entry toc-h3"><a href="#popover-left">Popover left</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#live-demo">Live demo</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#four-directions">Four directions</a></li>
+                <li class="toc-entry toc-h3"><a href="#dismiss-on-next-click">Dismiss on next click</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#specific-markup-required-for-dismiss-on-next-click">Specific markup required for dismiss-on-next-click</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#usage">Usage</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#options">Options</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#data-attributes-for-individual-popovers">Data attributes for individual popovers</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#asynchronous-methods-and-transitions">Asynchronous methods and transitions</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoveroptions">$().popover(options)</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popovershow">.popover('show')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoverhide">.popover('hide')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popovertoggle">.popover('toggle')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoverdispose">.popover('dispose')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoverenable">.popover('enable')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoverdisable">.popover('disable')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popovertoggleenabled">.popover('toggleEnabled')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#popoverupdate">.popover('update')</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

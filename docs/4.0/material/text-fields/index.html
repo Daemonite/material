@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Text fields</h1>
           <p class="font-weight-light typography-title">Text fields allow users to input text and select text.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <p>Text fields usually appear in forms.</p>
             <p>Users may enter text, numbers, or mixed-format types of input.</p>
@@ -109,55 +108,76 @@
             <p><strong>Most of the details about basic text fields have been covered in Components/Forms docuementation. Please refer to <a href="/material/docs/4.0/components/forms/">this page</a> for more details.</strong></p>
             <h2 id="floating-label-text-fields">Floating label text fields</h2>
             <p>When the user engages with the text input field, the floating inline labels move to float above the field.</p>
-            <p><strong>N.B.</strong> Implementations of this requires <code class="highlighter-rouge">material.js</code> or <code class="highlighter-rouge">material.min.js</code>.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="form-group floating-label">
-                <label for="exampleInputFloatingLabel1">Floating label</label>
-                <input class="form-control" id="exampleInputFloatingLabel1" placeholder="Placeholder" type="text" />
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputFloatingLabel1"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel1"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <p><code class="highlighter-rouge">.floating-label</code> does not have to be added to <code class="highlighter-rouge">.form-group</code>.</p>
+            <p><strong>N.B.</strong> Implementation of this requires <code class="highlighter-rouge">material.js</code> or <code class="highlighter-rouge">material.min.js</code>.</p>
             <div class="bd-example" data-example-id="">
               <div class="form-group">
                 <div class="floating-label">
-                  <label for="exampleInputFloatingLabel2">Floating label</label>
-                  <input class="form-control" id="exampleInputFloatingLabel2" placeholder="Placeholder" type="text" />
+                  <label for="exampleInputFloatingLabel1">Floating label</label>
+                  <input class="form-control" id="exampleInputFloatingLabel1" placeholder="Placeholder" type="text" />
                 </div>
-                <small id="exampleInputFloatingLabel2Help" class="form-text text-muted">Some help text.</small>
+                <small id="exampleInputFloatingLabel1Help" class="form-text text-muted">Some help text.</small>
+              </div>
+              <div class="form-group">
+                <div class="floating-label">
+                  <label for="exampleSelectFloatingLabel1">Floating label</label>
+                  <select class="form-control" id="exampleSelectFloatingLabel1">
+                    <option> </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputFloatingLabel2"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel2"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputFloatingLabel1"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel1"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;small</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel2Help"</span> <span class="na">class=</span><span class="s">"form-text text-muted"</span><span class="nt">&gt;</span>Some help text.<span class="nt">&lt;/small&gt;</span>
+  <span class="nt">&lt;small</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel1Help"</span> <span class="na">class=</span><span class="s">"form-text text-muted"</span><span class="nt">&gt;</span>Some help text.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleSelectFloatingLabel1"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleSelectFloatingLabel1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option&gt;</span> <span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>2<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>3<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+            <h3 id="sizes">Sizes</h3>
+            <p>Change sizes using <code class="highlighter-rouge">.floating-label-lg</code> and <code class="highlighter-rouge">.floating-label-sm</code>.</p>
             <div class="bd-example" data-example-id="">
-              <div class="form-group floating-label">
-                <label for="exampleSelectFloatingLabel3">Floating label</label>
-                <select class="form-control" id="exampleSelectFloatingLabel3">
-                  <option> </option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
+              <div class="form-group">
+                <div class="floating-label floating-label-lg">
+                  <label for="exampleInputFloatingLabel2">Large</label>
+                  <input class="form-control" id="exampleInputFloatingLabel2" placeholder="Placeholder" type="text" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="floating-label floating-label-sm">
+                  <label for="exampleInputFloatingLabel3">Small</label>
+                  <input class="form-control" id="exampleInputFloatingLabel3" placeholder="Placeholder" type="text" />
+                </div>
               </div>
             </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleSelectFloatingLabel3"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleSelectFloatingLabel3"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;option&gt;</span> <span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option&gt;</span>1<span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option&gt;</span>2<span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option&gt;</span>3<span class="nt">&lt;/option&gt;</span>
-  <span class="nt">&lt;/select&gt;</span>
+            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label floating-label-lg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputFloatingLabel2"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel2"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label floating-label-sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputFloatingLabel3"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputFloatingLabel3"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <p>It is recommended to run the following JavaScript code until the document is ready or after a floating label text field is added dynamically on a page, so the floating label will get the correct initial state based on whether a particular floating label text field has value or not.</p>
+            <h3 id="usage">Usage</h3>
+            <p>Implementation of floating label text fields requires <code class="highlighter-rouge">material.js</code> or <code class="highlighter-rouge">material.min.js</code>.</p>
+            <p>It is recommended to run the following JavaScript code after the document is ready or a floating label text field is added dynamically on a page, so the floating label will get the correct initial state based on whether a particular floating label text field has value or not.</p>
             <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.floating-label'</span><span class="p">).</span><span class="nx">floatinglabel</span><span class="p">();</span></code></pre></figure>
             <h2 id="multi-line-fields">Multi-line fields</h2>
             <p>Multi-line text fields wrap text onto a new line by expanding the bottom of the field, shifting screen elements downward. Multi-line text fields allow users to see everything they input at once.</p>
@@ -172,7 +192,160 @@
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleTextarea1"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"exampleTextarea1"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
+            <h2 id="text-field-box">Text field box</h2>
+            <p>Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.</p>
+            <div class="bd-example" data-example-id="">
+              <div class="form-group">
+                <label class="mb-2" for="exampleInputTextfieldBox1">Text field box label</label>
+                <div class="textfield-box">
+                  <input class="form-control" id="exampleInputTextfieldBox1" placeholder="Placeholder" type="text" />
+                </div>
+                <small id="exampleInputTextfieldBox1Help" class="form-text text-muted">Some help text.</small>
+              </div>
+              <div class="form-group">
+                <label class="mb-2" for="exampleSelectTextfieldBox1">Text field box label</label>
+                <div class="textfield-box">
+                  <select class="form-control" id="exampleSelectTextfieldBox1">
+                    <option> </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"mb-2"</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox1"</span><span class="nt">&gt;</span>Text field box label<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox1"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;small</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox1Help"</span> <span class="na">class=</span><span class="s">"form-text text-muted"</span><span class="nt">&gt;</span>Some help text.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"mb-2"</span> <span class="na">for=</span><span class="s">"exampleSelectTextfieldBox1"</span><span class="nt">&gt;</span>Text field box label<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleSelectTextfieldBox1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option&gt;</span> <span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>2<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>3<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+            <h3 id="sizes-1">Sizes</h3>
+            <p>Change sizes using <code class="highlighter-rouge">.textfield-box-lg</code> and <code class="highlighter-rouge">.textfield-box-sm</code>.</p>
+            <div class="bd-example" data-example-id="">
+              <div class="form-group">
+                <label class="mb-2" for="exampleInputTextfieldBox2">Large</label>
+                <div class="textfield-box textfield-box-lg">
+                  <input class="form-control" id="exampleInputTextfieldBox2" placeholder="Large" type="text" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="mb-2" for="exampleInputTextfieldBox3">Small</label>
+                <div class="textfield-box textfield-box-sm">
+                  <input class="form-control" id="exampleInputTextfieldBox3" placeholder="Small" type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"mb-2"</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox2"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box textfield-box-lg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox2"</span> <span class="na">placeholder=</span><span class="s">"Large"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"mb-2"</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox3"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box textfield-box-sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox3"</span> <span class="na">placeholder=</span><span class="s">"Small"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+            <h3 id="with-floating-labels">With floating labels</h3>
+            <p>Text field boxes can be combined with floating labels.</p>
+            <div class="bd-example" data-example-id="">
+              <div class="form-group">
+                <div class="floating-label textfield-box">
+                  <label for="exampleInputTextfieldBox4">Floating label</label>
+                  <input class="form-control" id="exampleInputTextfieldBox4" placeholder="Placeholder" type="text" />
+                </div>
+                <small id="exampleInputTextfieldBox4Help" class="form-text text-muted">Some help text.</small>
+              </div>
+              <div class="form-group">
+                <div class="floating-label textfield-box">
+                  <label for="exampleSelectTextfieldBox2">Floating label</label>
+                  <select class="form-control" id="exampleSelectTextfieldBox2">
+                    <option> </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label textfield-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox4"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox4"</span> <span class="na">placeholder=</span><span class="s">"Placeholder"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;small</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox4Help"</span> <span class="na">class=</span><span class="s">"form-text text-muted"</span><span class="nt">&gt;</span>Some help text.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label textfield-box"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleSelectTextfieldBox2"</span><span class="nt">&gt;</span>Floating label<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleSelectTextfieldBox2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option&gt;</span> <span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>1<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>2<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>3<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+            <p>Sizes can also be set by adding <code class="highlighter-rouge">.floating-label-lg/sm</code> and <code class="highlighter-rouge">.textfield-box-lg/sm</code> classes.</p>
+            <div class="bd-example" data-example-id="">
+              <div class="form-group">
+                <div class="floating-label floating-label-lg textfield-box textfield-box-lg">
+                  <label for="exampleInputTextfieldBox5">Large</label>
+                  <input class="form-control" id="exampleInputTextfieldBox5" placeholder="Large" type="text" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="floating-label floating-label-sm textfield-box textfield-box-sm">
+                  <label for="exampleInputTextfieldBox6">Small</label>
+                  <input class="form-control" id="exampleInputTextfieldBox6" placeholder="Small" type="text" />
+                </div>
+              </div>
+            </div>
+            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label floating-label-lg textfield-box textfield-box-lg"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox5"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox5"</span> <span class="na">placeholder=</span><span class="s">"Large"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label floating-label-sm textfield-box textfield-box-sm"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputTextfieldBox6"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputTextfieldBox6"</span> <span class="na">placeholder=</span><span class="s">"Small"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#basic-text-fields">Basic text fields</a></li>
+            <li class="toc-entry toc-h2"><a href="#floating-label-text-fields">Floating label text fields</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#sizes">Sizes</a></li>
+                <li class="toc-entry toc-h3"><a href="#usage">Usage</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#multi-line-fields">Multi-line fields</a></li>
+            <li class="toc-entry toc-h2"><a href="#text-field-box">Text field box</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#sizes-1">Sizes</a></li>
+                <li class="toc-entry toc-h3"><a href="#with-floating-labels">With floating labels</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

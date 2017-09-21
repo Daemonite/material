@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,25 +87,25 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Tooltips</h1>
           <p class="font-weight-light typography-title">Documentation and examples for adding custom Bootstrap tooltips with CSS and JavaScript using CSS3 for animations and data-attributes for local title storage.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="overview">Overview</h2>
             <p>Things to know when using the tooltip plugin:</p>
             <ul>
-              <li>Tooltips rely on the 3rd party library <a href="https://popper.js.org">Popper.js</a> for positioning. You must include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before bootstrap.js in order for tooltips to work!</li>
+              <li>Tooltips rely on the 3rd party library <a href="https://popper.js.org">Popper.js</a> for positioning. You must include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before bootstrap.js or use <code class="highlighter-rouge">bootstrap.bundle.min.js</code> / <code class="highlighter-rouge">bootstrap.bundle.js</code> which contains Popper.js in order for tooltips to work!</li>
               <li>If building our JS from source, it <a href="/material/docs/4.0/getting-started/javascript/#util">requires <code class="highlighter-rouge">util.js</code></a>.</li>
               <li>Tooltips are opt-in for performance reasons, so <strong>you must initialize them yourself</strong>.</li>
               <li>Tooltips with zero-length titles are never displayed.</li>
@@ -375,6 +374,47 @@
   <span class="c1">// do something…</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+            <li class="toc-entry toc-h2"><a href="#example-enable-tooltips-everywhere">Example: Enable tooltips everywhere</a></li>
+            <li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#static-demo">Static demo</a></li>
+                <li class="toc-entry toc-h3"><a href="#interactive-demo">Interactive demo</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#usage">Usage</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#markup">Markup</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#making-tooltips-work-for-keyboard-and-assistive-technology-users">Making tooltips work for keyboard and assistive technology users</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#options">Options</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#data-attributes-for-individual-tooltips">Data attributes for individual tooltips</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#asynchronous-methods-and-transitions">Asynchronous methods and transitions</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipoptions">$().tooltip(options)</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipshow">.tooltip('show')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltiphide">.tooltip('hide')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltiptoggle">.tooltip('toggle')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipdispose">.tooltip('dispose')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipenable">.tooltip('enable')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipdisable">.tooltip('disable')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltiptoggleenabled">.tooltip('toggleEnabled')</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tooltipupdate">.tooltip('update')</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

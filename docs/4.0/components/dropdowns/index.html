@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,24 +87,24 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Dropdowns</h1>
           <p class="font-weight-light typography-title">Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="overview">Overview</h2>
             <p>Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive with the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by hovering; this is <a href="http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/">an intentional design decision.</a></p>
-            <p>Dropdowns are built on a third party library, <a href="https://popper.js.org">Popper.js</a>, which provides dynamic positioning and viewport detection. Be sure to include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before Bootstrap’s JavaScript.</p>
+            <p>Dropdowns are built on a third party library, <a href="https://popper.js.org">Popper.js</a>, which provides dynamic positioning and viewport detection. Be sure to include <a href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js">popper.min.js</a> before Bootstrap’s JavaScript or use <code class="highlighter-rouge">bootstrap.bundle.min.js</code> / <code class="highlighter-rouge">bootstrap.bundle.js</code> which contains Popper.js.</p>
             <p>If you’re building our JS from source, it <a href="/material/docs/4.0/getting-started/javascript/#util">requires <code class="highlighter-rouge">util.js</code></a>.</p>
             <h2 id="accessibility">Accessibility</h2>
             <p>The <a href="https://www.w3.org/TR/wai-aria/"><abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr></a> standard defines an actual <a href="https://www.w3.org/TR/wai-aria/roles#menu"><code class="highlighter-rouge">role="menu"</code> widget</a>, but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.</p>
@@ -530,7 +529,7 @@
             <h2 id="menu-alignment">Menu alignment</h2>
             <p>By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add <code class="highlighter-rouge">.dropdown-menu-right</code> to a <code class="highlighter-rouge">.dropdown-menu</code> to right align the dropdown menu.</p>
             <div class="bd-callout bd-callout-info">
-              <p><strong>Heads up!</strong> Dropdowns are positioned only with CSS and may need some additional styles for exact alignment.</p>
+              <p><strong>Heads up!</strong> Dropdowns are positioned thanks to Popper.js (except when they are contained in a navbar).</p>
             </div>
             <div class="bd-example" data-example-id="">
               <div class="btn-group">
@@ -705,7 +704,7 @@
               <p>Regardless of whether you call your dropdown via JavaScript or instead use the data-api, <code class="highlighter-rouge">data-toggle="dropdown"</code> is always required to be present on the dropdown’s trigger element.</p>
             </div>
             <h3 id="options">Options</h3>
-            <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-placement=""</code>.</p>
+            <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-offset=""</code>.</p>
             <table class="table table-bordered table-striped table-responsive">
               <thead>
                 <tr>
@@ -716,14 +715,6 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>placement</td>
-                  <td>string</td>
-                  <td>'bottom'</td>
-                  <td>
-                    <p>How to position the popover - top | bottom.</p>
-                  </td>
-                </tr>
                 <tr>
                   <td>offset</td>
                   <td>number | string</td>
@@ -789,6 +780,51 @@
   <span class="c1">// do something…</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+            <li class="toc-entry toc-h2"><a href="#accessibility">Accessibility</a></li>
+            <li class="toc-entry toc-h2"><a href="#examples">Examples</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#single-button-dropdowns">Single button dropdowns</a></li>
+                <li class="toc-entry toc-h3"><a href="#split-button-dropdowns">Split button dropdowns</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#sizing">Sizing</a></li>
+            <li class="toc-entry toc-h2"><a href="#dropup-variation">Dropup variation</a></li>
+            <li class="toc-entry toc-h2"><a href="#menu-items">Menu items</a></li>
+            <li class="toc-entry toc-h2"><a href="#menu-alignment">Menu alignment</a></li>
+            <li class="toc-entry toc-h2"><a href="#menu-headers">Menu headers</a>
+              <ul>
+                <ul>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h6"><a href="#dropdown-header">Dropdown header</a></li>
+                    </ul>
+                  </ul>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#menu-dividers">Menu dividers</a></li>
+            <li class="toc-entry toc-h2"><a href="#menu-forms">Menu forms</a></li>
+            <li class="toc-entry toc-h2"><a href="#disabled-menu-items">Disabled menu items</a></li>
+            <li class="toc-entry toc-h2"><a href="#usage">Usage</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#via-data-attributes">Via data attributes</a></li>
+                <li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a>
+                  <ul>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#data-toggledropdown-still-required">data-toggle="dropdown" still required</a></li>
+                    </ul>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#options">Options</a></li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a></li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

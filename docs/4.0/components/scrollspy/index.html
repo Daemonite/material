@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Scrollspy</h1>
           <p class="font-weight-light typography-title">Automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="how-it-works">How it works</h2>
             <p>Scrollspy has a few requirements to function properly:</p>
@@ -370,6 +369,69 @@
   <span class="c1">// do something…</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
+            <li class="toc-entry toc-h2"><a href="#example-in-navbar">Example in navbar</a>
+              <ul>
+                <ul>
+                  <li class="toc-entry toc-h4"><a href="#fat">@fat</a></li>
+                  <li class="toc-entry toc-h4"><a href="#mdo">@mdo</a></li>
+                  <li class="toc-entry toc-h4"><a href="#one">one</a></li>
+                  <li class="toc-entry toc-h4"><a href="#two">two</a></li>
+                  <li class="toc-entry toc-h4"><a href="#three">three</a></li>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#example-with-nested-nav">Example with nested nav</a>
+              <ul>
+                <ul>
+                  <li class="toc-entry toc-h4"><a href="#item-1">Item 1</a>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#item-1-1">Item 1-1</a></li>
+                      <li class="toc-entry toc-h5"><a href="#item-2-2">Item 2-2</a></li>
+                    </ul>
+                  </li>
+                  <li class="toc-entry toc-h4"><a href="#item-2">Item 2</a></li>
+                  <li class="toc-entry toc-h4"><a href="#item-3">Item 3</a>
+                    <ul>
+                      <li class="toc-entry toc-h5"><a href="#item-3-1">Item 3-1</a></li>
+                      <li class="toc-entry toc-h5"><a href="#item-3-2">Item 3-2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#example-with-list-group">Example with list-group</a>
+              <ul>
+                <ul>
+                  <li class="toc-entry toc-h4"><a href="#item-1-1">Item 1</a></li>
+                  <li class="toc-entry toc-h4"><a href="#item-2-1">Item 2</a></li>
+                  <li class="toc-entry toc-h4"><a href="#item-3-1">Item 3</a></li>
+                  <li class="toc-entry toc-h4"><a href="#item-4">Item 4</a></li>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#usage">Usage</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#via-data-attributes">Via data attributes</a></li>
+                <li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#resolvable-id-targets-required">Resolvable ID targets required</a></li>
+                    <li class="toc-entry toc-h4"><a href="#non-visible-target-elements-ignored">Non-:visible target elements ignored</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#scrollspyrefresh">.scrollspy('refresh')</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#options">Options</a></li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

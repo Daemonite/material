@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">List group</h1>
           <p class="font-weight-light typography-title">List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="basic-example">Basic example</h2>
             <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.</p>
@@ -414,7 +413,7 @@
             </div>
             <h3 id="via-javascript">Via JavaScript</h3>
             <p>Enable tabbable list item via JavaScript (each list item needs to be activated individually):</p>
-            <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myList a'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+            <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myList a'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
   <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>
 <span class="p">})</span></code></pre></figure>
@@ -494,6 +493,45 @@
   <span class="nx">e</span><span class="p">.</span><span class="nx">relatedTarget</span> <span class="c1">// previous active tab</span>
 <span class="p">})</span></code></pre></figure>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#basic-example">Basic example</a></li>
+            <li class="toc-entry toc-h2"><a href="#active-items">Active items</a></li>
+            <li class="toc-entry toc-h2"><a href="#disabled-items">Disabled items</a></li>
+            <li class="toc-entry toc-h2"><a href="#links-and-buttons">Links and buttons</a></li>
+            <li class="toc-entry toc-h2"><a href="#contextual-classes">Contextual classes</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#conveying-meaning-to-assistive-technologies">Conveying meaning to assistive technologies</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#with-badges">With badges</a></li>
+            <li class="toc-entry toc-h2"><a href="#custom-content">Custom content</a>
+              <ul>
+                <ul>
+                  <ul>
+                    <li class="toc-entry toc-h5"><a href="#list-group-item-heading">List group item heading</a></li>
+                    <li class="toc-entry toc-h5"><a href="#list-group-item-heading-1">List group item heading</a></li>
+                    <li class="toc-entry toc-h5"><a href="#list-group-item-heading-2">List group item heading</a></li>
+                  </ul>
+                </ul>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#javascript-behavior">JavaScript behavior</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#using-data-attributes">Using data attributes</a></li>
+                <li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a></li>
+                <li class="toc-entry toc-h3"><a href="#fade-effect">Fade effect</a></li>
+                <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#tab">$().tab</a></li>
+                    <li class="toc-entry toc-h4"><a href="#tabshow">.tab(‘show’)</a></li>
+                  </ul>
+                </li>
+                <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

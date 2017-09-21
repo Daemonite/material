@@ -24,20 +24,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="dropdown d-lg-none">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
-      <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-md">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://labs.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md">chat_bubble_outline</i>Join the conversation
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-        </a>
+    <div class="d-lg-none ml-auto">
+      <div class="dropdown">
+        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
+          <i class="material-icons mx-auto">more_vert</i>
+        </button>
+        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-md">code</i>Fork me on GitHub
+          </a>
+          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -88,20 +87,20 @@
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl text-white doc-jumbotron" id="doc_jumbotron">
+  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-xl-8">
           <h1 class="typography-display-4">Grid system</h1>
           <p class="font-weight-light typography-title">Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes.</p>
         </div>
       </div>
     </div>
   </div>
-  <main class="doc-main">
+  <main class="doc-main px-lg-md">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8">
+        <div class="col-lg-9 col-xl-6">
           <div class="bd-content mb-xl">
             <h2 id="how-it-works">How it works</h2>
             <p>Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.</p>
@@ -998,8 +997,63 @@
   <span class="n">md</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
   <span class="n">lg</span><span class="o">:</span> <span class="m">960px</span>
 <span class="p">);</span></code></pre></figure>
-            <p>When making any changes to the Sass variables or maps, you’ll need to save your changes and recompile. Doing so will output a brand new set of predefined grid classes for column widths, offsets, and ordering. Responsive visibility utilities will also be updated to use the custom breakpoints. Make sure to set grid values in <code class="highlighter-rouge">px</code> (not <code class="highlighter-rouge">rem</code>, <code class="highlighter-rouge">em</code> or <code class="highlighter-rouge">%</code>).</p>
+            <p>When making any changes to the Sass variables or maps, you’ll need to save your changes and recompile. Doing so will output a brand new set of predefined grid classes for column widths, offsets, and ordering. Responsive visibility utilities will also be updated to use the custom breakpoints. Make sure to set grid values in <code class="highlighter-rouge">px</code> (not <code class="highlighter-rouge">rem</code>, <code class="highlighter-rouge">em</code>, or <code class="highlighter-rouge">%</code>).</p>
           </div>
+        </div>
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
+          <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
+            <li class="toc-entry toc-h2"><a href="#grid-options">Grid options</a></li>
+            <li class="toc-entry toc-h2"><a href="#auto-layout-columns">Auto-layout columns</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#equal-width">Equal-width</a></li>
+                <li class="toc-entry toc-h3"><a href="#setting-one-column-width">Setting one column width</a></li>
+                <li class="toc-entry toc-h3"><a href="#variable-width-content">Variable width content</a></li>
+                <li class="toc-entry toc-h3"><a href="#equal-width-multi-row">Equal-width multi-row</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#responsive-classes">Responsive classes</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#all-breakpoints">All breakpoints</a></li>
+                <li class="toc-entry toc-h3"><a href="#stacked-to-horizontal">Stacked to horizontal</a></li>
+                <li class="toc-entry toc-h3"><a href="#mix-and-match">Mix and match</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#alignment">Alignment</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#vertical-alignment">Vertical alignment</a></li>
+                <li class="toc-entry toc-h3"><a href="#horizontal-alignment">Horizontal alignment</a></li>
+                <li class="toc-entry toc-h3"><a href="#no-gutters">No gutters</a></li>
+                <li class="toc-entry toc-h3"><a href="#column-wrapping">Column wrapping</a></li>
+                <li class="toc-entry toc-h3"><a href="#column-resets">Column resets</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#reordering">Reordering</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#flex-order">Flex order</a></li>
+                <li class="toc-entry toc-h3"><a href="#offsetting-columns">Offsetting columns</a>
+                  <ul>
+                    <li class="toc-entry toc-h4"><a href="#offset-classes">Offset classes</a></li>
+                    <li class="toc-entry toc-h4"><a href="#margin-utilities">Margin utilities</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#nesting">Nesting</a></li>
+            <li class="toc-entry toc-h2"><a href="#sass-mixins">Sass mixins</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#variables">Variables</a></li>
+                <li class="toc-entry toc-h3"><a href="#mixins">Mixins</a></li>
+                <li class="toc-entry toc-h3"><a href="#example-usage">Example usage</a></li>
+              </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#customizing-the-grid">Customizing the grid</a>
+              <ul>
+                <li class="toc-entry toc-h3"><a href="#columns-and-gutters">Columns and gutters</a></li>
+                <li class="toc-entry toc-h3"><a href="#grid-tiers">Grid tiers</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
