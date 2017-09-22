@@ -16,6 +16,12 @@
   height: $height;
   line-height: $line-height;
   padding: $padding-y $padding-x ($padding-y - $textfield-border-width / $font-size-root * 1rem);
+
+  &[type='file'] {
+    height: auto;
+    max-height: $height;
+    min-height: $height;
+  }
 }
 
 @mixin form-select-size($font-size, $height, $padding-x) {
