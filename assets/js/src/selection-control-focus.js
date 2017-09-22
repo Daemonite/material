@@ -1,7 +1,6 @@
 /*
- * selection control focus:
- * chrome persists the focus style on checkboxes/radio buttons
- * after clicking with the mouse
+ * selection control focus
+ * chrome persists the focus style on checkboxes/radio buttons after clicking
  */
 
 const ControlFocus = (($) => {

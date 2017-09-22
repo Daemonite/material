@@ -1,5 +1,5 @@
 /*
- * floating label:
+ * floating label
  * when a user engages with the text input field,
  * the floating inline labels move to float above the field
  */
