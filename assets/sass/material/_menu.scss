@@ -189,12 +189,12 @@
 }
 
 // Positioning
-.dropdown-menu[x-placement="bottom-end"]::before {
+.dropdown-menu[x-placement='bottom-end']::before {
   transform-origin: 100% 0;
 }
 
-.dropdown-menu[x-placement="top-end"],
-.dropdown-menu[x-placement="top-start"] {
+.dropdown-menu[x-placement='top-end'],
+.dropdown-menu[x-placement='top-start'] {
   &,
   &::before {
     @include border-top-radius($menu-border-radius);
@@ -222,29 +222,29 @@
   }
 }
 
-.dropdown-menu[x-placement="top-end"]::before {
+.dropdown-menu[x-placement='top-end']::before {
   transform-origin: 100% 100%;
 }
 
-.dropdown-menu[x-placement="top-start"]::before {
+.dropdown-menu[x-placement='top-start']::before {
   transform-origin: 0 100%;
 }
 
-.menu[x-placement="bottom-end"]::before {
+.menu[x-placement='bottom-end']::before {
   transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
 }
 
-.menu[x-placement="top-end"],
-.menu[x-placement="top-start"] {
+.menu[x-placement='top-end'],
+.menu[x-placement='top-start'] {
   margin-top: 0;
   margin-bottom: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
 }
 
-.menu[x-placement="top-end"]::before {
+.menu[x-placement='top-end']::before {
   transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
 }
 
-.menu[x-placement="top-start"]::before {
+.menu[x-placement='top-start']::before {
   transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
 }
 
@@ -264,17 +264,17 @@
 .menu-cascading {
   margin-top: (($menu-link-height-cascading - ($menu-link-height-cascading - $menu-line-height-cascading) / 2) * -1 + $menu-padding-y-cascading * -1);
 
-  &[x-placement="top-end"],
-  &[x-placement="top-start"] {
+  &[x-placement='top-end'],
+  &[x-placement='top-start'] {
     margin-top: 0;
     margin-bottom: (($menu-link-height-cascading - ($menu-link-height-cascading - $menu-line-height-cascading) / 2) * -1 + $menu-padding-y-cascading * -1);
   }
 
-  &[x-placement="top-end"]::before {
+  &[x-placement='top-end']::before {
     transform-origin: 100% calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
   }
 
-  &[x-placement="top-start"]::before {
+  &[x-placement='top-start']::before {
     transform-origin: 0 calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
   }
 }
