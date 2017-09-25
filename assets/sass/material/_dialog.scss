@@ -114,22 +114,24 @@
 }
 
 .modal-footer {
-  align-items: center;
+  align-items: flex-end;
   display: flex;
   justify-content: flex-end;
-  padding: $dialog-footer-padding-y ($dialog-footer-padding-x - $dialog-footer-inner-spacer-x / 2) $dialog-footer-padding-y ($dialog-padding-x - $dialog-footer-inner-spacer-x / 2);
+  padding: $dialog-footer-padding-y $dialog-footer-padding-x $dialog-footer-padding-y ($dialog-footer-padding-x - $dialog-footer-inner-spacer-x);
 
   > * {
-    margin-right: ($dialog-footer-inner-spacer-x / 2);
-    margin-left: ($dialog-footer-inner-spacer-x / 2);
+    margin-left: $dialog-footer-inner-spacer-x;
   }
 
   .btn {
     background-color: transparent;
     box-shadow: none;
+    max-width: calc(50% - #{$dialog-footer-inner-spacer-x});
     min-width: $dialog-footer-btn-min-width;
+    overflow: hidden;
     padding-right: $dialog-footer-inner-spacer-x;
     padding-left: $dialog-footer-inner-spacer-x;
+    text-overflow: ellipsis;
 
     &:active,
     &.active {
