@@ -46,7 +46,7 @@
 .card-actions {
   align-items: flex-start;
   display: flex;
-  padding: ($card-action-padding-y - $card-action-inner-spacer-y / 2) ($card-action-padding-x - $card-action-inner-spacer-x / 2);
+  padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -60,7 +60,8 @@
     @include text-truncate;
 
     flex: 0 1 auto;
-    margin: ($card-action-inner-spacer-y / 2) ($card-action-inner-spacer-x / 2);
+    margin-right: $card-action-inner-spacer-x;
+    margin-bottom: $card-action-inner-spacer-y;
     min-width: 0;
     padding-right: $card-action-inner-spacer-x;
     padding-left: $card-action-inner-spacer-x;
@@ -197,7 +198,7 @@
 
 .card-header-pills {
   margin: ($card-inner-spacer-y * -1) ($card-inner-spacer-x * -1) 0;
-  padding: ($card-action-padding-y - $card-action-inner-spacer-y / 2) ($card-action-padding-x - $card-action-inner-spacer-x / 2);
+  padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
 
   .card-header:first-child &,
   .card-header[class*='border-'] &,
@@ -211,7 +212,8 @@
   }
 
   .nav-link {
-    margin: ($card-action-inner-spacer-y / 2) ($card-action-inner-spacer-x / 2);
+    margin-right: $card-action-inner-spacer-x;
+    margin-bottom: $card-action-inner-spacer-y;
     padding-right: $card-action-inner-spacer-x;
     padding-left: $card-action-inner-spacer-x;
   }
