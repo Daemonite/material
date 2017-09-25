@@ -130,6 +130,23 @@
   padding: $expansion-panel-padding-y $expansion-panel-padding-x;
 }
 
+.expansion-panel-icon {
+  flex-shrink: 0;
+  margin-left: $expansion-panel-inner-spacer-x;
+
+  .collapsed-hide {
+    [data-toggle='collapse'].collapsed & {
+      display: none;
+    }
+  }
+
+  .collapsed-show {
+    [data-toggle='collapse']:not(.collapsed) & {
+      display: none;
+    }
+  }
+}
+
 .expansion-panel-toggler {
   color: inherit;
   display: block;
