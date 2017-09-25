@@ -157,25 +157,23 @@
 }
 
 .expansion-panel-footer {
-  align-items: flex-start;
+  align-items: flex-end;
   border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
   display: flex;
   justify-content: flex-end;
-  padding: $expansion-panel-inner-spacer-y $expansion-panel-footer-padding-x $expansion-panel-inner-spacer-y ($expansion-panel-padding-x - $expansion-panel-footer-inner-spacer-x);
+  padding: $expansion-panel-inner-spacer-y $expansion-panel-footer-padding-x ($expansion-panel-inner-spacer-y - $expansion-panel-footer-inner-spacer-y) ($expansion-panel-footer-padding-x - $expansion-panel-footer-inner-spacer-x);
 
   .card & {
     padding-right: $card-padding-x;
     padding-left: ($card-padding-x - $expansion-panel-footer-inner-spacer-x);
   }
 
-  > * {
-    margin-left: $expansion-panel-footer-inner-spacer-x;
-  }
-
   .btn {
+    margin-left: $expansion-panel-footer-inner-spacer-x;
+    margin-bottom: $expansion-panel-footer-inner-spacer-y;
     min-width: $expansion-panel-footer-btn-min-width;
-    padding-right: ($expansion-panel-padding-x - $expansion-panel-footer-padding-x);
-    padding-left: ($expansion-panel-padding-x - $expansion-panel-footer-padding-x);
+    padding-right: $expansion-panel-footer-inner-spacer-x;
+    padding-left: $expansion-panel-footer-inner-spacer-x;
 
     .card & {
       padding-right: ($card-padding-x - $expansion-panel-footer-padding-x);
