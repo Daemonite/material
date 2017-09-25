@@ -130,6 +130,24 @@
   padding: $expansion-panel-inner-spacer-y $expansion-panel-padding-x;
 }
 
+.expansion-panel-footer {
+  align-items: flex-start;
+  border-top: $expansion-panel-border-width solid $expansion-panel-border-color;
+  display: flex;
+  justify-content: flex-end;
+  padding: $expansion-panel-inner-spacer-y $expansion-panel-footer-padding-x $expansion-panel-inner-spacer-y ($expansion-panel-padding-x - $expansion-panel-footer-inner-spacer-x);
+
+  > * {
+    margin-left: $expansion-panel-footer-inner-spacer-x;
+  }
+
+  .btn {
+    min-width: $expansion-panel-footer-btn-min-width;
+    padding-right: ($expansion-panel-padding-x - $expansion-panel-footer-padding-x);
+    padding-left: ($expansion-panel-padding-x - $expansion-panel-footer-padding-x);
+  }
+}
+
 .expansion-panel-icon {
   flex-shrink: 0;
   margin-left: $expansion-panel-inner-spacer-x;
