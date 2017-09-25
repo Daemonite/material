@@ -219,7 +219,58 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 +function () {
   /*
-   * floating label:
+   * expansion panel
+   * upon selecting the collapsed panel,
+   * it expands to display in full
+   */
+
+  var ExpansionPanel = function ($) {
+
+    // constants >>>
+    var DATA_KEY = 'bs.collapse';
+    var EVENT_KEY = '.' + DATA_KEY;
+
+    var ClassName = {
+      SHOW: 'show',
+      SHOW_PREDECESSOR: 'show-predecessor'
+    };
+
+    var Event = {
+      HIDE: 'hide' + EVENT_KEY,
+      SHOW: 'show' + EVENT_KEY
+    };
+
+    var Selector = {
+      PANEL: '.expansion-panel',
+      PANEL_BODY: '.expansion-panel .collapse'
+    };
+    // <<< constants
+
+    $(document).on('' + Event.HIDE, Selector.PANEL_BODY, function (event) {
+      var target = $(event.target).closest(Selector.PANEL);
+
+      target.removeClass(ClassName.SHOW);
+
+      var predecessor = target.prev(Selector.PANEL);
+
+      if (predecessor.length) {
+        predecessor.removeClass(ClassName.SHOW_PREDECESSOR);
+      }
+    }).on('' + Event.SHOW, Selector.PANEL_BODY, function (event) {
+      var target = $(event.target).closest(Selector.PANEL);
+
+      target.addClass(ClassName.SHOW);
+
+      var predecessor = target.prev(Selector.PANEL);
+
+      if (predecessor.length) {
+        predecessor.addClass(ClassName.SHOW_PREDECESSOR);
+      }
+    });
+  }(jQuery);
+
+  /*
+   * floating label
    * when a user engages with the text input field,
    * the floating inline labels move to float above the field
    */
@@ -658,9 +709,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   }(jQuery);
 
   /*
-   * selection control focus:
-   * chrome persists the focus style on checkboxes/radio buttons
-   * after clicking with the mouse
+   * selection control focus
+   * chrome persists the focus style on checkboxes/radio buttons after clicking
    */
 
   var ControlFocus = function ($) {
