@@ -67,7 +67,7 @@ Implementation of floating label text fields requires `material.js` or `material
 It is recommended to run the following JavaScript code after the document is ready or a floating label text field is added dynamically on a page, so the floating label will get the correct initial state based on whether a particular floating label text field has value or not.
 
 {% highlight js %}
-$('.floating-label').floatinglabel();
+$('.floating-label > .form-control').floatinglabel();
 {% endhighlight %}
 
 ## Multi-line fields

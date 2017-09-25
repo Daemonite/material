@@ -1,6 +1,12 @@
 $(function () {
 
   /*
+   * floating labels
+   */
+
+  $('.floating-label > .form-control').floatinglabel()
+
+  /*
    * material pickers
    */
 
