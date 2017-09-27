@@ -98,10 +98,18 @@
   > :last-child {
     margin-bottom: 0;
   }
+
+  &:first-child {
+    @include border-top-radius($dialog-border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($dialog-border-radius);
+  }
 }
 
 .modal-content {
-  @include border-radius($border-radius);
+  @include border-radius($dialog-border-radius);
 
   background-clip: padding-box;
   background-color: $dialog-content-bg;
@@ -118,6 +126,14 @@
   display: flex;
   justify-content: flex-end;
   padding: $dialog-footer-padding-y $dialog-footer-padding-x $dialog-footer-padding-y ($dialog-footer-padding-x - $dialog-footer-inner-spacer-x);
+
+  &:first-child {
+    @include border-top-radius($dialog-border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($dialog-border-radius);
+  }
 
   > * {
     margin-left: $dialog-footer-inner-spacer-x;
@@ -182,6 +198,14 @@
   display: flex;
   justify-content: space-between;
   padding: $dialog-padding-y $dialog-padding-x;
+
+  &:first-child {
+    @include border-top-radius($dialog-border-radius);
+  }
+
+  &:last-child {
+    @include border-bottom-radius($dialog-border-radius);
+  }
 }
 
 .modal-title {
