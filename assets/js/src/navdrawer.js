@@ -129,16 +129,16 @@ const NavDrawer = (($) => {
 
     _enforceFocus() {
       $(document)
-      .off(Event.FOCUSIN)
-      .on(Event.FOCUSIN, (event) => {
-        if (this._config.type === 'default' ||
-        $(window).width() <= this._config.breakpoint) {
-          if (this._element !== event.target &&
-          !$(this._element).has(event.target).length) {
-            this._element.focus()
+        .off(Event.FOCUSIN)
+        .on(Event.FOCUSIN, (event) => {
+          if (this._config.type === 'default' ||
+          $(window).width() <= this._config.breakpoint) {
+            if (this._element !== event.target &&
+            !$(this._element).has(event.target).length) {
+              this._element.focus()
+            }
           }
-        }
-      })
+        })
     }
 
     _getConfig(config) {

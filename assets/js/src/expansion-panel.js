@@ -26,29 +26,27 @@ const ExpansionPanel = (($) => {
   }
   // <<< constants
 
-  $(document)
-  .on(`${Event.HIDE}`,
+  $(document).on(`${Event.HIDE}`,
     Selector.PANEL_BODY,
     (event) => {
-      let target = $(event.target).closest(Selector.PANEL)
+      const target = $(event.target).closest(Selector.PANEL)
 
       target.removeClass(ClassName.SHOW)
 
-      let predecessor = target.prev(Selector.PANEL)
+      const predecessor = target.prev(Selector.PANEL)
 
       if (predecessor.length) {
         predecessor.removeClass(ClassName.SHOW_PREDECESSOR)
       }
     }
-  )
-  .on(`${Event.SHOW}`,
+  ).on(`${Event.SHOW}`,
     Selector.PANEL_BODY,
     (event) => {
-      let target = $(event.target).closest(Selector.PANEL)
+      const target = $(event.target).closest(Selector.PANEL)
 
       target.addClass(ClassName.SHOW)
 
-      let predecessor = target.prev(Selector.PANEL)
+      const predecessor = target.prev(Selector.PANEL)
 
       if (predecessor.length) {
         predecessor.addClass(ClassName.SHOW_PREDECESSOR)

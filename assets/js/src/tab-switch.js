@@ -83,16 +83,16 @@ const TabSwitch = (($) => {
       }
 
       $(this._navindicator)
-      .one(Util.TRANSITION_END, complete)
-      .emulateTransitionEnd(TRANSITION_DURATION)
+        .one(Util.TRANSITION_END, complete)
+        .emulateTransitionEnd(TRANSITION_DURATION)
     }
 
     _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
       this._navindicator = document.createElement('div')
 
       $(this._navindicator)
-      .addClass(ClassName.INDICATOR)
-      .appendTo(this._nav)
+        .addClass(ClassName.INDICATOR)
+        .appendTo(this._nav)
 
       if (relatedTarget !== undefined) {
         if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {

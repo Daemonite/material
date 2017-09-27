@@ -74,10 +74,11 @@ const FloatingLabel = (($) => {
   }
 
   $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`,
-  Selector.DATA_TOGGLE,
-  function (event) {
-    FloatingLabel._jQueryInterface.call($(this), event.type)
-  })
+    Selector.DATA_TOGGLE,
+    function (event) {
+      FloatingLabel._jQueryInterface.call($(this), event.type)
+    }
+  )
 
   $.fn[NAME]             = FloatingLabel._jQueryInterface
   $.fn[NAME].Constructor = FloatingLabel

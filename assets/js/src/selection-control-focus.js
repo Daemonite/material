@@ -30,28 +30,24 @@ const ControlFocus = (($) => {
   }
   // <<< constants
 
-  $(document)
-  .on(`${Event.BLUR}`,
+  $(document).on(`${Event.BLUR}`,
     Selector.INPUT,
     (event) => {
       $(event.target).removeClass(ClassName.FOCUS)
     }
-  )
-  .on(`${Event.FOCUS}`,
+  ).on(`${Event.FOCUS}`,
     Selector.INPUT,
     (event) => {
       if (LastInteraction.IS_MOUSEDOWN === false) {
         $(event.target).addClass(ClassName.FOCUS)
       }
     }
-  )
-  .on(`${Event.MOUSEDOWN}`,
+  ).on(`${Event.MOUSEDOWN}`,
     Selector.CONTROL,
     () => {
       LastInteraction.IS_MOUSEDOWN = true
     }
-  )
-  .on(`${Event.MOUSEUP}`,
+  ).on(`${Event.MOUSEUP}`,
     Selector.CONTROL,
     () => {
       setTimeout(() => {
