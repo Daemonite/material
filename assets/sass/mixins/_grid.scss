@@ -5,6 +5,10 @@
   max-width: percentage($size / $grid-columns);
 }
 
+@mixin make-col-offset($size) {
+  margin-left: percentage($size / $grid-columns);
+}
+
 @mixin make-gutters($type: padding) {
   @each $breakpoint in map-keys($grid-gutter-widths) {
     @include media-breakpoint-up($breakpoint) {
