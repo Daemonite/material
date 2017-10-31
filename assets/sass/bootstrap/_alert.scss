@@ -12,10 +12,6 @@
   .alert-#{$color} {
     background-color: map-get(theme-color($color), lighter);
     color: color-yiq(map-get(theme-color($color), lighter));
-
-    .alert-link {
-      color: map-get(theme-color($color), darker);
-    }
   }
 }
 
@@ -41,5 +37,10 @@
 }
 
 .alert-link {
+  color: inherit;
   font-weight: $alert-link-font-weight;
+
+  @include active-focus-hover {
+    color: inherit;
+  }
 }
