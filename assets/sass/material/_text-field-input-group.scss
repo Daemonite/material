@@ -86,9 +86,8 @@
     > .btn-#{$color} {
       &:disabled,
       &.disabled {
-        @include color-yiq(map-get(theme-color($color), lighter));
-
         background-color: map-get(theme-color($color), lighter);
+        color: color-yiq(map-get(theme-color($color), lighter));
       }
     }
   }

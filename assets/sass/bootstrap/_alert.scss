@@ -11,9 +11,8 @@
 // Colour
 @each $color, $values in $theme-colors {
   .alert-#{$color} {
-    @include color-yiq(map-get(theme-color($color), lighter));
-
     background-color: map-get(theme-color($color), lighter);
+    color: color-yiq(map-get(theme-color($color), lighter));
 
     .alert-link {
       color: map-get(theme-color($color), darker);

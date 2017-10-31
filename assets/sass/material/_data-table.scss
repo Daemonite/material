@@ -142,9 +142,8 @@
     &,
     > td,
     > th {
-      @include color-yiq(map-get(theme-color($color), color));
-
       background-color: map-get(theme-color($color), color);
+      color: color-yiq(map-get(theme-color($color), color));
     }
   }
 
@@ -153,9 +152,8 @@
       &,
       > td,
       > th {
-        @include color-yiq(map-get(theme-color($color), darker));
-
         background-color: map-get(theme-color($color), darker);
+        color: color-yiq(map-get(theme-color($color), darker));
       }
     }
   }
