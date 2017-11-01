@@ -232,24 +232,21 @@
 
 // Split button dropdown
 
-.btn + .dropdown-toggle-split {
-  padding-right: ($btn-padding-x / 2);
-  padding-left: ($btn-padding-x / 2);
+.dropdown-toggle.dropdown-toggle-split {
+  padding-right: $caret-spacer-x;
+  padding-left: $caret-spacer-x;
 
   &::after {
-    margin-left: ($caret-spacer-x * -1);
+    margin-right: 0;
+    margin-left: 0;
   }
-}
 
-// Size
-.btn-lg + .dropdown-toggle-split {
-  padding-right: ($btn-padding-x-lg / 2);
-  padding-left: ($btn-padding-x-lg / 2);
-}
-
-.btn-sm + .dropdown-toggle-split {
-  padding-right: ($btn-padding-x-sm / 2);
-  padding-left: ($btn-padding-x-sm / 2);
+  .dropleft & {
+    &::before {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
 }
 
 
