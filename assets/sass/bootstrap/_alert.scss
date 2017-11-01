@@ -5,6 +5,7 @@
   display: block;
   margin-bottom: $alert-margin-y;
   padding: $alert-padding-y $alert-padding-x;
+  position: relative;
 }
 
 // Colour
@@ -20,11 +21,14 @@
 // Dismissible
 
 .alert-dismissible {
+  padding-right: ($alert-padding-x * 2 + $close-font-size);
+
   .close {
-    padding: $btn-padding-y $btn-padding-x;
-    position: relative;
-    top: (($close-font-size - $font-size-base * $line-height-base) / -2 - $btn-padding-y);
-    right: ($btn-padding-x * -1);
+    color: inherit;
+    padding: ($alert-padding-y - ($close-font-size - $font-size-base * $line-height-base) / 2) $alert-padding-x;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 
