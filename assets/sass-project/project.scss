@@ -36,17 +36,14 @@
 .section-nav {
   border-left: $blockquote-border-width solid map-get(theme-color(secondary), color);
   position: sticky;
-  top: $toolbar-height;
+  top: $paragraph-margin-y;
 }
 
 .toc-entry {
   a {
-    @include border-radius($nav-pills-border-radius);
-    @include transition-standard(background-color, color, opacity);
-
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
-    padding: $nav-link-padding-y 0 $nav-link-padding-y $grid-gutter-width-desktop;
+    padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $grid-gutter-width-desktop;
 
     @include active-focus-hover {
       color: $nav-pills-color;
