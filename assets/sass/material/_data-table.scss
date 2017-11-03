@@ -217,8 +217,17 @@
 // Table responsive
 
 .table-responsive {
-  display: block;
-  overflow-x: auto;
-  width: 100%;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint);
+    $infix: breakpoint-infix($next);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+    }
+  }
 }
