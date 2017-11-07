@@ -7,18 +7,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  text-align: center;
-  white-space: nowrap;
   z-index: map-get($dialog-elevation-shadow, elevation);
-
-  &::before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    margin-right: -.25em;
-    vertical-align: middle;
-    width: 1px;
-  }
 
   &.fade {
     @include transition-standard-complex(opacity);
@@ -62,16 +51,32 @@
 
 // Dialog
 
-.modal-dialog {
-  @include text-align(left);
+.modal-content {
+  @include border-radius($dialog-border-radius);
 
-  display: inline-block;
-  margin: $dialog-margin-y $dialog-margin-x;
-  max-width: $dialog-width;
+  background-clip: padding-box;
+  background-color: $dialog-content-bg;
+  box-shadow: map-get($dialog-elevation-shadow, shadow);
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  pointer-events: auto;
   position: relative;
-  vertical-align: middle;
-  white-space: normal;
+  vertical-align: baseline;
+}
+
+.modal-dialog {
+  margin: $dialog-margin-y auto;
+  max-width: $dialog-width;
+  pointer-events: none;
+  position: relative;
   width: calc(100% - #{$dialog-margin-x} * 2);
+}
+
+.modal-dialog-centered {
+  align-items: center;
+  display: flex;
+  min-height: calc(100% - #{$dialog-margin-y} * 2);
 }
 
 .modal-lg {
@@ -106,19 +111,6 @@
   &:last-child {
     @include border-bottom-radius($dialog-border-radius);
   }
-}
-
-.modal-content {
-  @include border-radius($dialog-border-radius);
-
-  background-clip: padding-box;
-  background-color: $dialog-content-bg;
-  box-shadow: map-get($dialog-elevation-shadow, shadow);
-  display: flex;
-  flex-direction: column;
-  outline: 0;
-  position: relative;
-  vertical-align: baseline;
 }
 
 .modal-footer {

@@ -1,7 +1,6 @@
 // Alert
 
 $alert-border-radius:    $border-radius !default;
-$alert-elevation-shadow: $elevation-shadow-1dp !default;
 $alert-link-font-weight: $font-weight-medium !default;
 $alert-margin-y:         $spacer !default;
 $alert-padding-x:        1rem !default;
@@ -11,12 +10,9 @@ $alert-padding-y:        1rem !default;
 
 // Badge
 
-$badge-bg:            $black-divider !default;
 $badge-border-radius: $border-radius !default;
-$badge-color:         $black-primary !default;
 $badge-font-weight:   $font-weight-medium !default;
-$badge-padding-x:     .5rem !default;
-$badge-padding-y:     0 !default;
+$badge-padding-x:     .5em !default;
 
 
 
@@ -44,10 +40,12 @@ $breadcrumb-padding-y:        .625rem !default;
 
 // Caret
 
-$caret-bg:          str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg fill="#{$black}" fill-opacity="#{$black-secondary-opacity}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E'), '#', '%23') !default;
-$caret-icon:        'expand_more' !default;
-$caret-icon-dropup: 'expand_less' !default;
-$caret-spacer-x:    .2em !default;
+$caret-bg:         str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg fill="#{$black}" fill-opacity="#{$black-secondary-opacity}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E'), '#', '%23') !default;
+$caret-icon:       'expand_more' !default;
+$caret-icon-left:  'keyboard_arrow_left' !default;
+$caret-icon-right: 'keyboard_arrow_right' !default;
+$caret-icon-up:    'expand_less' !default;
+$caret-spacer-x:   .2em !default;
 
 
 
@@ -132,7 +130,7 @@ $jumbotron-padding-y:        3rem !default;
 $link-color:            map-get(theme-color(primary), color) !default;
 $link-color-hover:      map-get(theme-color(primary), darker) !default;
 $link-decoration:       none !default;
-$link-decoration-hover: none !default;
+$link-decoration-hover: underline !default;
 
 
 

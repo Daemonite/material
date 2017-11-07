@@ -14,29 +14,22 @@
 
 // Addon and button
 
-.input-group-addon {
+.input-group .custom-file,
+.input-group .custom-select,
+.input-group .form-control,
+.input-group-addon,
+.input-group-btn {
   align-items: center;
-  color: inherit;
   display: flex;
-  font-size: $textfield-font-size;
-  justify-content: center;
-  line-height: $textfield-line-height;
-  min-width: $textfield-height;
-  white-space: nowrap;
-
-  + .form-control,
-  .form-control + & {
-    margin-left: $input-group-addon-margin-x;
-  }
 }
 
-.input-group-btn {
-  @include border-radius($btn-border-radius);
+.input-group .custom-file,
+.input-group .custom-select {
+  width: 100%;
+}
 
-  align-items: center;
-  background-color: $btn-group-bg;
-  box-shadow: map-get($btn-elevation-shadow, shadow);
-  display: flex;
+.input-group-addon,
+.input-group-btn {
   justify-content: center;
   margin-right: $input-group-addon-margin-x;
   margin-left: $input-group-addon-margin-x;
@@ -48,6 +41,26 @@
   &:last-child {
     margin-right: 0;
   }
+
+  + .input-group-addon,
+  + .input-group-btn {
+    margin-left: ($input-group-addon-margin-x * -1);
+  }
+}
+
+.input-group-addon {
+  color: inherit;
+  font-size: $textfield-font-size;
+  line-height: $textfield-line-height;
+  min-width: $textfield-height;
+  white-space: nowrap;
+}
+
+.input-group-btn {
+  @include border-radius($btn-border-radius);
+
+  background-color: $btn-group-bg;
+  box-shadow: map-get($btn-elevation-shadow, shadow);
 
   > .btn {
     border-left: $btn-group-inner-spacer-x solid transparent;
@@ -86,9 +99,8 @@
     > .btn-#{$color} {
       &:disabled,
       &.disabled {
-        @include color-yiq(map-get(theme-color($color), lighter));
-
         background-color: map-get(theme-color($color), lighter);
+        color: color-yiq(map-get(theme-color($color), lighter));
       }
     }
   }

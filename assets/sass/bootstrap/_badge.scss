@@ -1,13 +1,13 @@
 .badge {
   @include border-radius($badge-border-radius);
 
-  background-color: $badge-bg;
-  color: $badge-color;
-  display: inline-block;
+  align-items: center;
+  display: inline-flex;
   font-size: inherit;
   font-weight: $badge-font-weight;
   line-height: inherit;
-  padding: $badge-padding-y $badge-padding-x;
+  padding-right: $badge-padding-x;
+  padding-left: $badge-padding-x;
   text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
@@ -27,8 +27,19 @@
 // Colour
 @each $color, $values in $theme-colors {
   .badge-#{$color} {
-    @include color-yiq(map-get(theme-color($color), color));
-
     background-color: map-get(theme-color($color), color);
+    color: color-yiq(map-get(theme-color($color), color));
+
+    &[href] {
+      @include active-focus-hover {
+        background-color: map-get(theme-color($color), darker);
+        color: color-yiq(map-get(theme-color($color), darker));
+        text-decoration: none;
+      }
+    }
   }
+}
+
+.badge-pill {
+  @include border-radius(1em);
 }

@@ -18,7 +18,15 @@ Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or in
 **Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#outline-buttons).**
 
 {% example html %}
-<button class="btn btn-outline waves-attach" type="button">Flat</button>
+<button class="btn btn-flat my-xs" type="button">Flat</button>
+<button class="btn btn-flat-primary my-xs" type="button">Primary</button>
+<button class="btn btn-flat-secondary my-xs" type="button">Secondary</button>
+<button class="btn btn-flat-danger my-xs" type="button">Danger</button>
+<button class="btn btn-flat-info my-xs" type="button">Info</button>
+<button class="btn btn-flat-success my-xs" type="button">Success</button>
+<button class="btn btn-flat-warning my-xs" type="button">Warning</button>
+<button class="btn btn-flat-dark my-xs" type="button">Dark</button>
+<button class="btn btn-flat-light my-xs" type="button">Light</button>
 {% endexample %}
 
 ### Raised buttons
@@ -28,7 +36,25 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% example html %}
-<button class="btn waves-attach" type="button">Raised</button>
+<button class="btn my-xs" type="button">Raised</button>
+<button class="btn btn-primary my-xs" type="button">Primary</button>
+<button class="btn btn-secondary my-xs" type="button">Secondary</button>
+<button class="btn btn-danger my-xs" type="button">Danger</button>
+<button class="btn btn-info my-xs" type="button">Info</button>
+<button class="btn btn-success my-xs" type="button">Success</button>
+<button class="btn btn-warning my-xs" type="button">Warning</button>
+<button class="btn btn-dark my-xs" type="button">Dark</button>
+<button class="btn btn-light my-xs" type="button">Light</button>
+{% endexample %}
+
+### With "waves" effect
+
+Attach "waves" (ripple) effect to a button by adding `.waves-attach` class.
+
+{% example html %}
+<button class="btn btn-flat my-xs waves-attach" type="button">Flat</button>
+<button class="btn my-xs waves-attach" type="button">Raised</button>
+<button class="btn btn-dark my-xs waves-attach waves-light" type="button">Light Waves on Dark Button</button>
 {% endexample %}
 
 ## Floating action buttons
@@ -36,18 +62,18 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 A floating action button represents the primary action in an application, it is used for a promoted action.
 
 {% example html %}
-<button class="btn btn-float waves-attach waves-circle" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-float" type="button"><i class="material-icons">add</i></button>
 {% endexample %}
 
 ### Colours
 
 {% example html %}
-<button class="btn btn-float btn-primary waves-attach waves-circle" type="button"><i class="material-icons">edit</i></button>
-<button class="btn btn-float btn-secondary waves-attach waves-circle" type="button"><i class="material-icons">grade</i></button>
-<button class="btn btn-float btn-danger waves-attach waves-circle" type="button"><i class="material-icons">favorite</i></button>
-<button class="btn btn-float btn-info waves-attach waves-circle" type="button"><i class="material-icons">reply</i></button>
-<button class="btn btn-float btn-success waves-attach waves-circle" type="button"><i class="material-icons">people</i></button>
-<button class="btn btn-float btn-warning waves-attach waves-circle" type="button"><i class="material-icons">my_location</i></button>
+<button class="btn btn-float btn-primary" type="button"><i class="material-icons">edit</i></button>
+<button class="btn btn-float btn-secondary" type="button"><i class="material-icons">grade</i></button>
+<button class="btn btn-float btn-danger" type="button"><i class="material-icons">favorite</i></button>
+<button class="btn btn-float btn-info" type="button"><i class="material-icons">reply</i></button>
+<button class="btn btn-float btn-success" type="button"><i class="material-icons">people</i></button>
+<button class="btn btn-float btn-warning" type="button"><i class="material-icons">my_location</i></button>
 {% endexample %}
 
 ### Sizes
@@ -55,7 +81,16 @@ A floating action button represents the primary action in an application, it is 
 A smaller sized, i.e. mini floating action button, is also available.
 
 {% example html %}
-<button class="btn btn-float btn-sm waves-attach waves-circle" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-float btn-sm" type="button"><i class="material-icons">add</i></button>
+{% endexample %}
+
+### With "waves" effect
+
+To attach "waves" effect to a floating action button, add an additional `.waves-cricle` class on top of the `.waves-attach` class.
+
+{% example html %}
+<button class="btn btn-float waves-attach waves-circle" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-dark btn-float waves-attach waves-circle waves-light" type="button"><i class="material-icons">add</i></button>
 {% endexample %}
 
 ## Toggle buttons

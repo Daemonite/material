@@ -184,10 +184,10 @@
 
 .picker-date-display {
   @include border-top-radius($border-radius);
-  @include color-yiq($picker-header-bg);
   @include text-align(left);
 
   background-color: $picker-header-bg;
+  color: color-yiq($picker-header-bg);
   padding: $picker-header-padding-y $picker-header-padding-x;
 }
 
@@ -222,9 +222,8 @@
   width: $picker-cell-size;
 
   &.picker-day-selected {
-    @include color-yiq($picker-day-bg-selected);
-
     background-color: $picker-day-bg-selected;
+    color: color-yiq($picker-day-bg-selected);
   }
 }
 

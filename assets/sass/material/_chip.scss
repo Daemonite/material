@@ -34,9 +34,8 @@
 // Colour
 @each $color, $values in $theme-colors {
   .chip-#{$color} {
-    @include color-yiq(map-get(theme-color($color), color));
-
     background-color: map-get(theme-color($color), color);
+    color: color-yiq(map-get(theme-color($color), color));
   }
 }
 
@@ -63,12 +62,12 @@
 }
 
 .chip-icon {
-  @include color-yiq($chip-icon-bg);
   @include text-truncate;
 
   align-items: center;
   background-color: $chip-icon-bg;
   border-radius: ($chip-height / 2);
+  color: color-yiq($chip-icon-bg);
   display: inline-flex;
   flex-shrink: 0;
   font-size: $chip-icon-font-size;

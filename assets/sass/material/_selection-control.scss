@@ -23,7 +23,7 @@
   &::before {
     @include transition-standard(background-color, opacity, transform);
 
-    background-color: $selection-control-radial-bg;
+    background-color: currentColor;
     border-radius: 50%;
     content: '';
     display: block;
@@ -48,7 +48,7 @@
   &:active,
   &.focus {
     ~ .custom-control-indicator::before {
-      opacity: 1;
+      opacity: $selection-control-radial-opacity;
       transform: scale(1, 1) translateZ(0);
     }
   }
@@ -57,10 +57,6 @@
   &:checked ~ {
     .custom-control-indicator {
       color: $selection-control-color-active;
-
-      &::before {
-        background-color: hex-to-rgba($selection-control-color-active, .12);
-      }
     }
   }
 

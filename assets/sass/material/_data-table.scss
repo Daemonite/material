@@ -142,9 +142,8 @@
     &,
     > td,
     > th {
-      @include color-yiq(map-get(theme-color($color), color));
-
       background-color: map-get(theme-color($color), color);
+      color: color-yiq(map-get(theme-color($color), color));
     }
   }
 
@@ -153,9 +152,8 @@
       &,
       > td,
       > th {
-        @include color-yiq(map-get(theme-color($color), darker));
-
         background-color: map-get(theme-color($color), darker);
+        color: color-yiq(map-get(theme-color($color), darker));
       }
     }
   }
@@ -219,8 +217,17 @@
 // Table responsive
 
 .table-responsive {
-  display: block;
-  overflow-x: auto;
-  width: 100%;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint);
+    $infix: breakpoint-infix($next);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+      }
+    }
+  }
 }
