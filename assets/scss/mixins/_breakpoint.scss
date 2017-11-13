@@ -41,11 +41,9 @@
       @content;
     }
   } @else {
-    @content
+    @content;
   }
 }
-
-
 
 // Additional mixins
 
@@ -67,10 +65,14 @@
   }
 }
 
+// stylelint-disable media-feature-name-no-vendor-prefix
 @mixin media-moz-webkit {
-  @media
-  screen and (-webkit-min-device-pixel-ratio: 0),
-  screen and (min--moz-device-pixel-ratio: 0) {
+  @-moz-document url-prefix('') {
+    @content;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 0) {
     @content;
   }
 }
+// stylelint-enable media-feature-name-no-vendor-prefix

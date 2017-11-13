@@ -3,12 +3,6 @@
 .form-check {
   display: block;
   margin-bottom: $textfield-margin-y;
-
-  &.disabled {
-    .form-check-label {
-      color: $textfield-color-disabled;
-    }
-  }
 }
 
 .form-check-inline {
@@ -34,9 +28,11 @@
   display: inline-flex;
   font-size: inherit;
   line-height: inherit;
+
+  .form-check.disabled & {
+    color: $textfield-color-disabled;
+  }
 }
-
-
 
 // Form group
 
@@ -56,8 +52,6 @@
     padding-left: ($textfield-margin-x / 2);
   }
 }
-
-
 
 // Inline
 
@@ -103,8 +97,6 @@
   }
 }
 
-
-
 // Label
 
 .col-form-label {
@@ -137,8 +129,6 @@
   padding-bottom: $textfield-padding-y;
 }
 
-
-
 // Misc
 
 .form-text {
@@ -161,8 +151,6 @@
 .form-control-range {
   display: block;
 }
-
-
 
 // Validation
 

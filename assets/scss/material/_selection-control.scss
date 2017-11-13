@@ -34,7 +34,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: scale(.87, .87) translateZ(0);
+    transform: scale(0.87, 0.87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
   }
 }
@@ -44,7 +44,6 @@
   position: absolute;
   z-index: -1;
 
-  // Active, focus, hover
   &:active,
   &.focus {
     ~ .custom-control-indicator::before {
@@ -53,14 +52,12 @@
     }
   }
 
-  // Checked
   &:checked ~ {
     .custom-control-indicator {
       color: $selection-control-color-active;
     }
   }
 
-  // Disabled
   &:disabled ~ {
     .custom-control-indicator,
     .custom-control-description {
@@ -73,9 +70,6 @@
   }
 }
 
-
-
-// Stacked layout
 .custom-controls-stacked {
   display: flex;
   flex-direction: column;
@@ -87,8 +81,6 @@
   }
 }
 
-
-
 // Checkbox
 
 .custom-checkbox {
@@ -99,19 +91,15 @@
   }
 
   .custom-control-input {
-    // Checked
     &:checked ~ .custom-control-indicator::after {
       content: $selection-control-checkbox-icon-checked;
     }
 
-    // Indeterminate
     &:indeterminate ~ .custom-control-indicator::after {
       content: $selection-control-checkbox-icon-indeterminate;
     }
   }
 }
-
-
 
 // Radio button
 
@@ -123,14 +111,11 @@
   }
 
   .custom-control-input {
-    // Checked
     &:checked ~ .custom-control-indicator::after {
       content: $selection-control-radio-icon-checked;
     }
   }
 }
-
-
 
 // Switch
 
@@ -167,9 +152,8 @@
   }
 
   .custom-control-input {
-    // Checked
     &:checked ~ .custom-control-indicator {
-      background-color: hex-to-rgba($selection-control-color-active, .5);
+      background-color: hex-to-rgba($selection-control-color-active, 0.5);
 
       &::after,
       &::before {
@@ -181,7 +165,6 @@
       }
     }
 
-    // Disabled
     &:disabled ~ .custom-control-indicator {
       background-color: $selection-control-track-bg-disabled;
 

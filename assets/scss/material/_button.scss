@@ -60,21 +60,13 @@
   }
 }
 
-a {
-  &.btn.disabled {
-    pointer-events: none;
-  }
+// stylelint-disable selector-no-qualifying-type
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
 }
+// stylelint-enable selector-no-qualifying-type
 
-fieldset {
-  &[disabled] a {
-    &.btn {
-      pointer-events: none;
-    }
-  }
-}
-
-// Colour
 @each $color, $values in $theme-colors {
   .btn-#{$color} {
     background-color: map-get(theme-color($color), color);
@@ -105,7 +97,6 @@ fieldset {
   }
 }
 
-// Size
 .btn-lg,
 %btn-lg {
   font-size: $btn-font-size-lg;
@@ -117,8 +108,6 @@ fieldset {
   font-size: $btn-font-size-sm;
   padding: $btn-padding-y-sm $btn-padding-x-sm;
 }
-
-
 
 // Block button
 
@@ -139,8 +128,6 @@ fieldset {
   }
 }
 
-
-
 // Link button
 
 .btn-link {
@@ -148,7 +135,7 @@ fieldset {
   border-radius: 0;
   box-shadow: none;
   color: $link-color;
-  font-weight: normal;
+  font-weight: $font-weight-regular;
   text-decoration: $link-decoration;
   text-transform: none;
 
@@ -174,8 +161,6 @@ fieldset {
     text-decoration: none;
   }
 }
-
-
 
 // No minimum width
 

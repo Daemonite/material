@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 @mixin bg-variant($class, $color, $color-dark: '') {
   #{$class} {
     background-color: $color !important;
@@ -5,7 +7,6 @@
 
   @if ($color-dark != '') {
     a#{$class} {
-      // Active, focus, hover
       @include active-focus-hover {
         background-color: $color-dark !important;
       }

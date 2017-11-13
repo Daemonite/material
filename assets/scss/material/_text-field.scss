@@ -57,7 +57,6 @@
   }
 }
 
-// Colour
 @each $color, $values in $theme-colors {
   .form-control-#{$color} {
     border-color: map-get(theme-color($color), color);
@@ -69,7 +68,6 @@
   }
 }
 
-// Size
 .form-control-lg,
 %form-control-lg {
   @include form-control-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-x-lg, $textfield-padding-y-lg);
@@ -80,7 +78,6 @@
   @include form-control-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-x-sm, $textfield-padding-y-sm);
 }
 
-// Special treatment for select and textarea
 %form-select {
   @include form-select-size($textfield-font-size, $textfield-height, $textfield-padding-x);
 
@@ -123,6 +120,7 @@
   }
 }
 
+// stylelint-disable selector-no-qualifying-type
 select {
   &.form-control {
     &:not([multiple]):not([size]) {
@@ -135,14 +133,15 @@ select {
     }
   }
 }
+// stylelint-enable selector-no-qualifying-type
 
+// stylelint-disable selector-no-qualifying-type
 textarea {
   &.form-control:not(.textarea-autosize) {
     @extend %form-textarea;
   }
 }
-
-
+// stylelint-enable selector-no-qualifying-type
 
 // Form control static
 
@@ -162,14 +161,10 @@ textarea {
   }
 }
 
-
-
 // Form validation
 
 @include form-control-validation($form-feedback-invalid-color, 'invalid');
 @include form-control-validation($form-feedback-valid-color, 'valid');
-
-
 
 // Style of Material design `select` should also be applied to `.custom-select`
 

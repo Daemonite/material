@@ -58,12 +58,14 @@
     }
   }
 
-  > tbody:first-child > tr:first-child,
-  > tfoot:first-child > tr:first-child,
-  > thead:first-child > tr:first-child {
-    td,
-    th {
-      border-top: 0;
+  > :first-child {
+    > tr:first-child,
+    > tr:first-child,
+    > tr:first-child {
+      td,
+      th {
+        border-top: 0;
+      }
     }
   }
 
@@ -90,7 +92,6 @@
   }
 }
 
-// Size
 .table-sm {
   td,
   th {
@@ -133,8 +134,6 @@
   }
 }
 
-
-
 // Table background
 
 @each $color, $values in $theme-colors {
@@ -159,9 +158,8 @@
   }
 }
 
-// scss-lint:disable MergeableSelector
+// stylelint-disable-next-line no-duplicate-selectors
 .table {
-// scss-lint:enable MergeableSelector
   .thead-dark {
     td,
     th {
@@ -211,8 +209,6 @@
     }
   }
 }
-
-
 
 // Table responsive
 

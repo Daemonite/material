@@ -1,3 +1,5 @@
+// stylelint-disable declaration-no-important
+
 @mixin text-emphasis-variant($class, $color, $color-dark: '') {
   #{$class} {
     color: $color !important;
@@ -5,7 +7,6 @@
 
   @if $color-dark != '' {
     a#{$class} {
-      // Active, focus, hover
       @include active-focus-hover {
         color: $color-dark !important;
       }

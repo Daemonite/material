@@ -90,6 +90,7 @@
 .picker-wrap {
   @include border-radius($border-radius);
   @include transition-standard-complex(transform);
+  @include typography-body-1;
 
   box-shadow: map-get($picker-elevation-shadow, shadow);
   display: inline-block;
@@ -97,15 +98,13 @@
   max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
   outline: 0;
   position: relative;
-  transform: scale(.87);
+  transform: scale(0.87);
   vertical-align: middle;
 
   .picker-opened & {
     transform: scale(1);
   }
 }
-
-
 
 // Footer
 
@@ -124,8 +123,6 @@
     }
   }
 }
-
-
 
 // Header
 
@@ -178,8 +175,6 @@
   }
 }
 
-
-
 // Material date display
 
 .picker-date-display {
@@ -207,8 +202,6 @@
     content: ',';
   }
 }
-
-
 
 // Table
 
@@ -249,10 +242,13 @@
   td,
   th {
     border: 0;
-    font-weight: normal;
     padding: 0;
     text-align: center;
     vertical-align: middle;
+  }
+
+  th {
+    font-weight: inherit;
   }
 }
 

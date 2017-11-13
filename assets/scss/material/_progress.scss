@@ -23,27 +23,17 @@
     z-index: -1;
   }
 
-  // Colour
   @each $color, $values in $theme-colors {
     &.bg-#{$color} {
-      background-color: transparent !important;
+      background-color: transparent !important; // stylelint-disable-line declaration-no-important
       border-bottom-color: map-get(theme-color($color), color);
 
       &::after {
         background-color: map-get(theme-color($color), lighter);
       }
-
-      &::before {
-        background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-        // scss-lint:disable VendorPrefix
-        background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-        // scss-lint:enable VendorPrefix
-      }
     }
   }
 }
-
-
 
 // Animated & striped
 
@@ -83,10 +73,11 @@
   }
 
   &::before {
+    // stylelint-disable value-no-vendor-prefix
     background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-    // scss-lint:disable VendorPrefix
     background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-    // scss-lint:enable VendorPrefix
+    background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    // stylelint-enable value-no-vendor-prefix
     background-position: 0 0;
     background-repeat: repeat-x;
     background-size: ($progress-bar-height * 3) ($progress-bar-height * 3);
@@ -100,13 +91,13 @@
     z-index: -1;
   }
 
-  // Colour
   @each $color, $values in $theme-colors {
     &.bg-#{$color}::before {
+      // stylelint-disable value-no-vendor-prefix
       background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-      // scss-lint:disable VendorPrefix
       background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-      // scss-lint:enable VendorPrefix
+      background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      // stylelint-enable value-no-vendor-prefix
     }
   }
 }
@@ -120,8 +111,6 @@
     background-position: ($progress-bar-height * 3) 0;
   }
 }
-
-
 
 // Indeterminate
 
@@ -157,7 +146,6 @@
     z-index: 0;
   }
 
-  // Colour
   @each $color, $values in $theme-colors {
     &.bg-#{$color} {
       border-bottom-color: map-get(theme-color($color), lighter);

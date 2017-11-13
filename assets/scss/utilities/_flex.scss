@@ -1,6 +1,10 @@
+// stylelint-disable declaration-no-important
+
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint);
+
+    // Align content
 
     .align-content#{$infix}-around {
       align-content: space-around !important;
@@ -26,7 +30,7 @@
       align-content: stretch !important;
     }
 
-
+    // Align items
 
     .align-items#{$infix}-baseline {
       align-items: baseline !important;
@@ -48,7 +52,7 @@
       align-items: stretch !important;
     }
 
-
+    // Align self
 
     .align-self#{$infix}-auto {
       align-self: auto !important;
@@ -74,7 +78,7 @@
       align-self: stretch !important;
     }
 
-
+    // Flex direction
 
     .flex#{$infix}-column {
       flex-direction: column !important;
@@ -92,7 +96,7 @@
       flex-direction: row-reverse !important;
     }
 
-
+    // Flex wrap
 
     .flex#{$infix}-nowrap {
       flex-wrap: nowrap !important;
@@ -106,7 +110,7 @@
       flex-wrap: wrap-reverse !important;
     }
 
-
+    // Justify content
 
     .justify-content#{$infix}-around {
       justify-content: space-around !important;
@@ -128,7 +132,7 @@
       justify-content: flex-start !important;
     }
 
-
+    // Order
 
     .order#{$infix}-first {
       order: -1;

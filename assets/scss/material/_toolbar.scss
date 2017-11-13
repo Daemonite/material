@@ -16,6 +16,7 @@
   }
 
   // Horizontally align `.dropdown-menu-right` in `.navbar`
+
   .dropdown-menu-right {
     right: 0;
     left: auto;
@@ -30,6 +31,7 @@
   }
 
   // Vertically align some elements normally placed in `.navbar`
+
   .btn {
     margin-top: (($btn-height - $toolbar-element-height) / -2);
     margin-bottom: (($btn-height - $toolbar-element-height) / -2);
@@ -106,7 +108,6 @@
   }
 }
 
-// Colour
 .navbar-dark {
   color: $toolbar-dark-color;
 
@@ -124,7 +125,6 @@
   }
 }
 
-// Variation
 .navbar-fixed-bottom,
 .navbar-fixed-top {
   box-shadow: map-get($toolbar-elevation-shadow, shadow);
@@ -170,8 +170,6 @@
     position: fixed;
   }
 }
-
-
 
 // Misc
 
@@ -231,8 +229,6 @@
   }
 }
 
-
-
 // Nav
 
 .navbar-nav {
@@ -283,8 +279,6 @@
   }
 }
 
-
-
 // Toggleable
 
 .navbar-collapse {
@@ -324,8 +318,7 @@
       }
 
       @include media-breakpoint-up($next) {
-        flex-direction: row;
-        flex-wrap: nowrap;
+        flex-flow: row nowrap;
         justify-content: flex-start;
 
         > .container,
@@ -334,7 +327,7 @@
         }
 
         .navbar-collapse {
-          display: flex !important;
+          display: flex !important; // stylelint-disable-line declaration-no-important
           flex-basis: auto;
         }
 

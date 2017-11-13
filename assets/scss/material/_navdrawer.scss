@@ -10,8 +10,6 @@
   z-index: map-get($navdrawer-elevation-shadow, elevation);
 }
 
-
-
 // Backdrop
 
 .navdrawer-backdrop {
@@ -31,8 +29,6 @@
   }
 }
 
-
-
 // Content
 
 .navdrawer-content {
@@ -50,22 +46,18 @@
   transform: translate3d(-100%, 0, 0);
   width: $navdrawer-width;
 
-  // Direction
   .navdrawer-right & {
     right: 0;
     left: auto;
     transform: translate3d(100%, 0, 0);
   }
 
-  // Open
   .navdrawer.show & {
     @include transition-deceleration(transform);
 
     transform: translate3d(0, 0, 0);
   }
 }
-
-
 
 // Misc
 
@@ -104,8 +96,6 @@
   }
 }
 
-
-
 // Nav
 
 .navdrawer-nav {
@@ -141,7 +131,6 @@
       color: $navdrawer-nav-link-color-active;
     }
 
-    // Disabled
     &.disabled {
       background-color: transparent;
       color: $navdrawer-nav-link-color-disabled;
@@ -167,14 +156,12 @@
   color: $navdrawer-nav-link-color-active;
 }
 
-
-
 // Permanent
 
 @include media-breakpoint-up(lg) {
   .navdrawer-permanent {
     border-right: $navdrawer-border-width solid $navdrawer-border-color;
-    display: block !important;
+    display: block !important; // stylelint-disable-line declaration-no-important
     right: auto;
     width: $navdrawer-width;
 
@@ -186,7 +173,6 @@
       width: 100%;
     }
 
-    // Direction
     &.navdrawer-right {
       border-right: 0;
       border-left: $navdrawer-border-width solid $navdrawer-border-color;
@@ -195,12 +181,10 @@
     }
   }
 
-  // Backdrop
   .navdrawer-backdrop-permanent {
     display: none;
   }
 
-  // Variation
   .navdrawer-permanent-clipped,
   .navdrawer-permanent-float {
     top: $toolbar-height;
@@ -225,8 +209,6 @@
   }
 }
 
-
-
 // Persistent
 
 @include media-breakpoint-up(lg) {
@@ -242,7 +224,6 @@
       width: 100%;
     }
 
-    // Direction
     &.navdrawer-right {
       right: 0;
       left: auto;
@@ -254,12 +235,10 @@
     }
   }
 
-  // Backdrop
   .navdrawer-backdrop-persistent {
     display: none;
   }
 
-  // Variation
   .navdrawer-persistent-clipped {
     border-top: $navdrawer-border-width solid $navdrawer-border-color;
     margin-top: ($navdrawer-border-width * -1);
@@ -267,8 +246,6 @@
     z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
   }
 }
-
-
 
 // Temporary
 
@@ -284,14 +261,12 @@
       width: 100%;
     }
 
-    // Direction
     &.navdrawer-right {
       right: 0;
       left: auto;
     }
   }
 
-  // Backdrop
   .navdrawer-backdrop-temporary {
     display: none;
   }

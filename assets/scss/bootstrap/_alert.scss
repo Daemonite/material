@@ -8,15 +8,12 @@
   position: relative;
 }
 
-// Colour
 @each $color, $values in $theme-colors {
   .alert-#{$color} {
     background-color: map-get(theme-color($color), lighter);
     color: color-yiq(map-get(theme-color($color), lighter));
   }
 }
-
-
 
 // Dismissible
 
@@ -31,8 +28,6 @@
     right: 0;
   }
 }
-
-
 
 // Misc
 

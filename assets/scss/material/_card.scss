@@ -23,7 +23,6 @@
   }
 }
 
-// Colour
 @each $color, $values in $theme-colors {
   .card {
     &.border-#{$color} {
@@ -38,8 +37,6 @@
     }
   }
 }
-
-
 
 // Action
 
@@ -67,8 +64,6 @@
     padding-left: $card-action-inner-spacer-x;
   }
 }
-
-
 
 // Body
 
@@ -106,8 +101,6 @@
     margin-top: ($card-padding-y - $card-inner-spacer-y);
   }
 }
-
-
 
 // Footer
 
@@ -151,8 +144,6 @@
     margin-bottom: 0;
   }
 }
-
-
 
 // Header
 
@@ -220,10 +211,7 @@
 }
 
 .card-header-tabs {
-  margin-top: ($card-inner-spacer-y * -1);
-  margin-right: ($card-inner-spacer-x * -1);
-  margin-bottom: ($card-padding-y - $card-inner-spacer-y);
-  margin-left: ($card-inner-spacer-x * -1);
+  margin: ($card-inner-spacer-y * -1) ($card-inner-spacer-x * -1) ($card-padding-y - $card-inner-spacer-y);
 
   .card-header:first-child &,
   .card-header[class*='border-'] &,
@@ -237,8 +225,6 @@
     margin-bottom: ($card-padding-y * -1);
   }
 }
-
-
 
 // Image
 
@@ -254,8 +240,6 @@
   @include border-top-radius($card-border-radius);
 }
 
-
-
 // Image overlay
 
 .card-img-overlay {
@@ -266,8 +250,6 @@
   bottom: 0;
   left: 0;
 }
-
-
 
 // Set
 
@@ -365,8 +347,6 @@
     }
   }
 }
-
-
 
 // Text and title
 

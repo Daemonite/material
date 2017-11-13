@@ -6,11 +6,11 @@
     border-radius: $textfield-box-border-radius;
   }
 
-  > select {
-    &.form-control:not([multiple]):not([size]) {
-      @include form-select-size($textfield-font-size, $textfield-box-height, $textfield-box-padding-x);
-    }
+  // stylelint-disable selector-no-qualifying-type
+  > select.form-control:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size, $textfield-box-height, $textfield-box-padding-x);
   }
+  // stylelint-enable selector-no-qualifying-type
 
   &.floating-label {
     @include textfield-box-size($textfield-font-size, $textfield-box-height, $textfield-line-height, $textfield-box-padding-x, $textfield-box-padding-y);
@@ -34,11 +34,11 @@
     @include form-control-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-line-height-lg, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
   }
 
-  > select {
-    &.form-control:not([multiple]):not([size]) {
-      @include form-select-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-box-padding-x-lg);
-    }
+  // stylelint-disable selector-no-qualifying-type
+  > select.form-control:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-box-padding-x-lg);
   }
+  // stylelint-enable selector-no-qualifying-type
 
   &.floating-label {
     @include textfield-box-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-line-height-lg, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
@@ -50,11 +50,11 @@
     @include form-control-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-line-height-sm, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
   }
 
-  > select {
-    &.form-control:not([multiple]):not([size]) {
-      @include form-select-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-box-padding-x-sm);
-    }
+  // stylelint-disable selector-no-qualifying-type
+  > select.form-control:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-box-padding-x-sm);
   }
+  // stylelint-enable selector-no-qualifying-type
 
   &.floating-label {
     @include textfield-box-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-line-height-sm, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);

@@ -31,15 +31,12 @@
   }
 }
 
-// Colour
 @each $color, $values in $theme-colors {
   .chip-#{$color} {
     background-color: map-get(theme-color($color), color);
     color: color-yiq(map-get(theme-color($color), color));
   }
 }
-
-
 
 // Misc
 
@@ -72,7 +69,7 @@
   flex-shrink: 0;
   font-size: $chip-icon-font-size;
   font-style: normal;
-  font-weight: normal;
+  font-weight: $chip-font-weight;
   height: $chip-height;
   justify-content: center;
   margin-right: ($chip-inner-spacer-x * 2);

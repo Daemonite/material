@@ -17,6 +17,10 @@
   top: 0;
   left: 0;
   z-index: map-get($dialog-elevation-shadow, elevation);
+
+  @include media-breakpoint-up(md) {
+    margin: $tooltip-margin-desktop;
+  }
 }
 
 .popover-body {
@@ -39,15 +43,5 @@
 
   &:last-child {
     padding-bottom: $dialog-padding-y;
-  }
-}
-
-
-
-// Desktop
-
-@include media-breakpoint-up(md) {
-  .popover {
-    margin: $tooltip-margin-desktop;
   }
 }

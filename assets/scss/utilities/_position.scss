@@ -1,3 +1,17 @@
+// stylelint-disable declaration-no-important
+
+// Common values
+
+$positions: absolute, fixed, relative, static, sticky;
+
+@each $position in $positions {
+  .position-#{$position} {
+    position: $position !important;
+  }
+}
+
+// Shorthand
+
 .fixed-bottom {
   position: fixed;
   right: 0;
