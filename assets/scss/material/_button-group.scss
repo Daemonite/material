@@ -53,6 +53,9 @@
 
   > .btn-group,
   > .btn-group-vertical {
+    @include border-radius(0);
+
+    background-color: transparent;
     box-shadow: none;
   }
 }
@@ -62,40 +65,18 @@
     box-shadow: none;
   }
 
-  // Border colour
-  > .btn {
-    border-left: $btn-group-inner-spacer-x solid transparent;
+  > .btn,
+  > .btn-group {
     margin-left: ($btn-group-inner-spacer-x * -1);
-
-    &:disabled,
-    &.disabled {
-      + .btn:disabled,
-      + .btn.disabled,
-      + .btn-group > .btn:disabled:first-child,
-      + .btn-group > .btn.disabled:first-child {
-        border-left-color: $btn-group-divider-bg;
-      }
-    }
-
-    &.active {
-      + .btn.active,
-      + .btn-group > .btn.active:first-child {
-        border-left-color: $btn-group-divider-bg;
-      }
-    }
   }
 
-  > .btn:first-child {
-    border-left-width: 0;
+  > .btn:first-child,
+  > .btn-group:first-child {
     margin-left: 0;
   }
 
-  > .btn-group > .btn:first-child {
-    border-left-width: $btn-group-inner-spacer-x;
-    margin-left: ($btn-group-inner-spacer-x * -1);
-  }
-
   // Border radius
+
   > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     @include border-right-radius(0);
   }
@@ -132,43 +113,18 @@
 
   > .btn,
   > .btn-group {
+    margin-top: ($btn-group-inner-spacer-y * -1);
+    margin-left: 0;
     width: 100%;
   }
 
-  // Border colour
-  > .btn {
-    border-top: $btn-group-inner-spacer-y solid transparent;
-    margin-top: ($btn-group-inner-spacer-y * -1);
-
-    &:disabled,
-    &.disabled {
-      + .btn:disabled,
-      + .btn.disabled,
-      + .btn-group > .btn:disabled:first-child,
-      + .btn-group > .btn.disabled:first-child {
-        border-top-color: $btn-group-divider-bg;
-      }
-    }
-
-    &.active {
-      + .btn.active,
-      + .btn-group > .btn.active:first-child {
-        border-top-color: $btn-group-divider-bg;
-      }
-    }
-  }
-
-  > .btn:first-child {
-    border-top-width: 0;
+  > .btn:first-child,
+  > .btn-group:first-child {
     margin-top: 0;
   }
 
-  > .btn-group-vertical > .btn:first-child {
-    border-top-width: $btn-group-inner-spacer-y;
-    margin-top: ($btn-group-inner-spacer-y * -1);
-  }
-
   // Border radius
+
   > .btn:first-child:not(:last-child) {
     @include border-bottom-radius(0);
   }
