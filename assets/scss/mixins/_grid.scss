@@ -28,11 +28,11 @@
 // Make container
 
 @mixin make-container() {
+  @include make-gutters;
+
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-
-  @include make-gutters;
 }
 
 @mixin make-container-max-widths() {
@@ -46,8 +46,8 @@
 // Make row
 
 @mixin make-row() {
+  @include make-gutters(margin);
+
   display: flex;
   flex-wrap: wrap;
-
-  @include make-gutters(margin);
 }

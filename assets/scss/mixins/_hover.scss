@@ -1,11 +1,11 @@
 @mixin active-focus-hover {
   @if $enable-hover-media-query {
-    &:active,
-    &:focus {
+    @include hover {
       @content;
     }
 
-    @include hover {
+    &:active,
+    &:focus {
       @content;
     }
   } @else {
@@ -19,11 +19,11 @@
 
 @mixin focus-hover {
   @if $enable-hover-media-query {
-    &:focus {
+    @include hover {
       @content;
     }
 
-    @include hover {
+    &:focus {
       @content;
     }
   } @else {
@@ -50,13 +50,13 @@
 
 @mixin plain-active-focus-hover {
   @if $enable-hover-media-query {
-    &,
-    &:active,
-    &:focus {
+    @include hover {
       @content;
     }
 
-    @include hover {
+    &,
+    &:active,
+    &:focus {
       @content;
     }
   } @else {

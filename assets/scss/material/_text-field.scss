@@ -107,10 +107,6 @@
     box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
 
-  &:focus {
-    box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 ($textfield-border-width * -1) $textfield-border-color-focus, inset ($textfield-border-width-focus * -1) ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
-  }
-
   &.form-control-lg {
     padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg;
   }
@@ -118,22 +114,26 @@
   &.form-control-sm {
     padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm;
   }
+
+  &:focus {
+    box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 ($textfield-border-width * -1) $textfield-border-color-focus, inset ($textfield-border-width-focus * -1) ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+  }
 }
 
 // stylelint-disable selector-no-qualifying-type
 select {
   &.form-control {
-    &:not([multiple]):not([size]) {
-      @extend %form-select;
-    }
-
     &[multiple],
     &[size] {
       @extend %form-textarea;
     }
+
+    &:not([multiple]):not([size]) {
+      @extend %form-select;
+    }
   }
 }
-// stylelint-enable selector-no-qualifying-type
+// stylelint-enable
 
 // stylelint-disable selector-no-qualifying-type
 textarea {
@@ -141,7 +141,7 @@ textarea {
     @extend %form-textarea;
   }
 }
-// stylelint-enable selector-no-qualifying-type
+// stylelint-enable
 
 // Form control static
 

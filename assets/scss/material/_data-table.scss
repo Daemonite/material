@@ -58,6 +58,10 @@
     }
   }
 
+  .table {
+    border-top: $table-border-width solid $table-border-color;
+  }
+
   > :first-child {
     > tr:first-child,
     > tr:first-child,
@@ -67,10 +71,6 @@
         border-top: 0;
       }
     }
-  }
-
-  .table {
-    border-top: $table-border-width solid $table-border-color;
   }
 }
 
@@ -181,20 +181,6 @@
   background-color: $table-dark-bg;
   color: $table-dark-color;
 
-  tbody,
-  tfoot,
-  thead {
-    td,
-    th {
-      color: inherit;
-    }
-  }
-
-  td,
-  th {
-    border-color: $table-dark-border-color;
-  }
-
   &.table-striped {
     tbody tr:nth-of-type(odd) {
       background-color: $table-dark-bg-accent;
@@ -207,6 +193,20 @@
         background-color: $table-dark-bg-hover;
       }
     }
+  }
+
+  tbody,
+  tfoot,
+  thead {
+    td,
+    th {
+      color: inherit;
+    }
+  }
+
+  td,
+  th {
+    border-color: $table-dark-border-color;
   }
 }
 

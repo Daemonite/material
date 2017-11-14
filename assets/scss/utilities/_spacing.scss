@@ -4,36 +4,6 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint);
 
-    .m#{$infix}-auto {
-      margin: auto !important;
-    }
-
-    .mt#{$infix}-auto {
-      margin-top: auto !important;
-    }
-
-    .mr#{$infix}-auto {
-      margin-right: auto !important;
-    }
-
-    .mb#{$infix}-auto {
-      margin-bottom: auto !important;
-    }
-
-    .ml#{$infix}-auto {
-      margin-left: auto !important;
-    }
-
-    .mx#{$infix}-auto {
-      margin-right: auto !important;
-      margin-left: auto !important;
-    }
-
-    .my#{$infix}-auto {
-      margin-top: auto !important;
-      margin-bottom: auto !important;
-    }
-
     @each $prop, $prop-abbr in (margin: m, padding: p) {
       @each $size, $value in $spacers {
         .#{$prop-abbr}#{$infix}-#{$size} {
@@ -66,6 +36,36 @@
           #{$prop}-bottom: $value !important;
         }
       }
+    }
+
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
+
+    .mt#{$infix}-auto {
+      margin-top: auto !important;
+    }
+
+    .mr#{$infix}-auto {
+      margin-right: auto !important;
+    }
+
+    .mb#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+
+    .ml#{$infix}-auto {
+      margin-left: auto !important;
+    }
+
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
+
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+      margin-bottom: auto !important;
     }
   }
 }

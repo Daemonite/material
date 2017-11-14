@@ -10,21 +10,7 @@
   position: relative;
   word-wrap: break-word;
 
-  &[href],
-  &[tabindex] {
-    @include active-focus-hover {
-      box-shadow: map-get($card-elevation-shadow-hover, shadow);
-      text-decoration: none;
-    }
-
-    &:focus {
-      outline: 0;
-    }
-  }
-}
-
-@each $color, $values in $theme-colors {
-  .card {
+  @each $color, $values in $theme-colors {
     &.border-#{$color} {
       box-shadow: map-get($card-elevation-shadow, shadow), inset 0 0 0 1px map-get(theme-color($color), color);
 
@@ -34,6 +20,18 @@
           box-shadow: map-get($card-elevation-shadow-hover, shadow), inset 0 0 0 1px map-get(theme-color($color), color);
         }
       }
+    }
+  }
+
+  &[href],
+  &[tabindex] {
+    @include active-focus-hover {
+      box-shadow: map-get($card-elevation-shadow-hover, shadow);
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: 0;
     }
   }
 }
@@ -125,12 +123,12 @@
 
   .card-body + &,
   .card-header + & {
-    &:not[class*='border-'] {
-      padding-top: 0;
-    }
-
     &[class*='border-'] {
       margin-top: ($card-padding-y - $card-inner-spacer-y);
+    }
+
+    &:not[class*='border-'] {
+      padding-top: 0;
     }
   }
 
@@ -157,6 +155,11 @@
     }
   }
 
+  &[class*='border-'] {
+    padding-top: $card-padding-y;
+    padding-bottom: $card-padding-y;
+  }
+
   &:first-child,
   .card-img-top + &,
   .list-group + & {
@@ -179,11 +182,6 @@
     + .list-group {
       margin-top: ($card-padding-y - $card-inner-spacer-y);
     }
-  }
-
-  &[class*='border-'] {
-    padding-top: $card-padding-y;
-    padding-bottom: $card-padding-y;
   }
 }
 

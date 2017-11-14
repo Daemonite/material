@@ -10,17 +10,17 @@
   word-break: break-word;
   z-index: $tooltip-zindex;
 
+  @include media-breakpoint-up(md) {
+    font-size: $tooltip-font-size-desktop;
+    margin: $tooltip-margin-desktop;
+  }
+
   &.show {
     opacity: $tooltip-opacity;
 
     .tooltip-inner {
       transform: scale(1);
     }
-  }
-
-  @include media-breakpoint-up(md) {
-    font-size: $tooltip-font-size-desktop;
-    margin: $tooltip-margin-desktop;
   }
 }
 

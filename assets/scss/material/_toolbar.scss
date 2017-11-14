@@ -8,25 +8,18 @@
   padding: $toolbar-padding-y $toolbar-padding-x;
   position: relative;
 
-  > .container {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
   // Horizontally align `.dropdown-menu-right` in `.navbar`
 
   .dropdown-menu-right {
     right: 0;
     left: auto;
 
-    &::before {
-      transform-origin: 100% 0;
-    }
-
     &.menu::before {
       transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+    }
+
+    &::before {
+      transform-origin: 100% 0;
     }
   }
 
@@ -105,6 +98,13 @@
       padding-top: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
       padding-bottom: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
     }
+  }
+
+  > .container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 }
 
@@ -254,10 +254,6 @@
       opacity: 1;
     }
 
-    &:focus {
-      outline: 0;
-    }
-
     &.active,
     &.disabled {
       opacity: 1;
@@ -266,6 +262,10 @@
     &.disabled {
       background-color: transparent;
       color: $toolbar-color-lighter;
+    }
+
+    &:focus {
+      outline: 0;
     }
   }
 
@@ -294,13 +294,13 @@
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
-        > .container,
-        > .container-fluid {
-          padding-right: 0;
-          padding-left: 0;
-        }
-
         .navbar-collapse {
+          .form-inline,
+          .navbar-brand,
+          .navbar-text {
+            margin-left: 0;
+          }
+
           > :first-child {
             margin-top: $toolbar-inner-spacer-y;
           }
@@ -308,23 +308,18 @@
           > :not(:last-child) {
             margin-bottom: $toolbar-inner-spacer-y;
           }
+        }
 
-          .form-inline,
-          .navbar-brand,
-          .navbar-text {
-            margin-left: 0;
-          }
+        > .container,
+        > .container-fluid {
+          padding-right: 0;
+          padding-left: 0;
         }
       }
 
       @include media-breakpoint-up($next) {
         flex-flow: row nowrap;
         justify-content: flex-start;
-
-        > .container,
-        > .container-fluid {
-          flex-wrap: nowrap;
-        }
 
         .navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
@@ -343,6 +338,11 @@
           + .navbar-text {
             margin-left: 0;
           }
+        }
+
+        > .container,
+        > .container-fluid {
+          flex-wrap: nowrap;
         }
       }
     }

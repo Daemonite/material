@@ -1,13 +1,13 @@
 @mixin floating-label-size($font-size, $height, $line-height, $padding-y) {
+  &.has-value > label,
+  &.is-focused > label {
+    transform: scale($floating-label-font-size-focus / $font-size);
+  }
+
   > label {
     font-size: $font-size;
     line-height: $line-height;
     top: ($floating-label-font-size-focus + $padding-y);
-  }
-
-  &.has-value > label,
-  &.is-focused > label {
-    transform: scale($floating-label-font-size-focus / $font-size);
   }
 }
 
@@ -28,14 +28,14 @@
   @include media-moz-webkit {
     $select-bg-size: (($material-icon-size / $textfield-font-size) * $font-size);
 
+    background-size: $select-bg-size $select-bg-size;
+    padding-right: ($padding-x + $select-bg-size);
+
     @if $padding-x != 0 {
       background-position: calc(100% - #{$padding-x}) ($height / 2 - $select-bg-size / 2);
     } @else {
       background-position: 100% ($height / 2 - $select-bg-size / 2);
     }
-
-    background-size: $select-bg-size $select-bg-size;
-    padding-right: ($padding-x + $select-bg-size);
   }
 }
 

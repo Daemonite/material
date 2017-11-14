@@ -4,6 +4,24 @@
   padding-top: $floating-label-font-size-focus;
   position: relative;
 
+  &.has-value > label,
+  &.is-focused > label {
+    line-height: 1;
+    top: 0;
+  }
+
+  &.is-focused > label {
+    color: $floating-label-color-focus;
+  }
+
+  &:not(.has-value):not(.is-focused) > .form-control {
+    &[type='date'],
+    &[type='datetime-local'],
+    &[type='time'] {
+      color: transparent;
+    }
+  }
+
   > label {
     @include text-truncate;
     @include transition-standard(color, top, transform);
@@ -17,18 +35,17 @@
     transform-origin: 0 0;
   }
 
-  &.has-value > label,
-  &.is-focused > label {
-    line-height: 1;
-    top: 0;
-  }
-
-  &.is-focused > label {
-    color: $floating-label-color-focus;
-  }
-
   > .form-control {
     position: relative;
+
+    &[type='file']::-webkit-file-upload-button {
+      background-color: transparent;
+      background-image: none;
+      border: 0;
+      color: $floating-label-color;
+      height: auto;
+      padding: 0;
+    }
 
     &:focus {
       &::placeholder {
@@ -42,23 +59,6 @@
 
       color: transparent;
       opacity: 0;
-    }
-
-    &[type='file']::-webkit-file-upload-button {
-      background-color: transparent;
-      background-image: none;
-      border: 0;
-      color: $floating-label-color;
-      height: auto;
-      padding: 0;
-    }
-  }
-
-  &:not(.has-value):not(.is-focused) > .form-control {
-    &[type='date'],
-    &[type='datetime-local'],
-    &[type='time'] {
-      color: transparent;
     }
   }
 }

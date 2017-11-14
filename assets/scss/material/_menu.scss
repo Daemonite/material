@@ -23,23 +23,6 @@
   position: absolute;
   z-index: map-get($menu-elevation-shadow, elevation);
 
-  &::before {
-    @include border-radius($menu-border-radius);
-
-    background-clip: padding-box;
-    background-color: $menu-bg;
-    box-shadow: map-get($menu-elevation-shadow, shadow);
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: 0 0;
-    z-index: -1;
-  }
-
   &.show {
     display: block;
 
@@ -76,6 +59,23 @@
     > :nth-child(3) {
       animation-name: dropdown-item-show-3;
     }
+  }
+
+  &::before {
+    @include border-radius($menu-border-radius);
+
+    background-clip: padding-box;
+    background-color: $menu-bg;
+    box-shadow: map-get($menu-elevation-shadow, shadow);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 0 0;
+    z-index: -1;
   }
 
   .nav:not(.flex-column):not(.flex-column-reverse) & {

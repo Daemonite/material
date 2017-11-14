@@ -15,13 +15,23 @@
     flex: 0 1 auto;
     min-width: 0;
 
-    &:active,
-    &.active {
+    @each $color, $values in $theme-colors {
+      &-#{$color} {
+        &:disabled,
+        &.disabled {
+          background-color: map-get(theme-color($color), lighter);
+          color: color-yiq(map-get(theme-color($color), lighter));
+        }
+      }
+    }
+
+    &.active,
+    &:active {
       box-shadow: none;
     }
 
-    &:disabled,
-    &.disabled {
+    &.disabled,
+    &:disabled {
       opacity: $btn-group-toggle-opacity;
     }
 
@@ -36,16 +46,6 @@
       &:disabled,
       &.disabled {
         opacity: 1;
-      }
-    }
-  }
-
-  @each $color, $values in $theme-colors {
-    > .btn-#{$color} {
-      &:disabled,
-      &.disabled {
-        background-color: map-get(theme-color($color), lighter);
-        color: color-yiq(map-get(theme-color($color), lighter));
       }
     }
   }

@@ -60,6 +60,16 @@
   background-color: $btn-group-bg;
   box-shadow: map-get($btn-elevation-shadow, shadow);
 
+  @each $color, $values in $theme-colors {
+    > .btn-#{$color} {
+      &:disabled,
+      &.disabled {
+        background-color: map-get(theme-color($color), lighter);
+        color: color-yiq(map-get(theme-color($color), lighter));
+      }
+    }
+  }
+
   > .btn {
     box-shadow: none;
     flex: 0 1 auto;
@@ -73,16 +83,6 @@
 
     &:first-child {
       margin-left: 0;
-    }
-  }
-
-  @each $color, $values in $theme-colors {
-    > .btn-#{$color} {
-      &:disabled,
-      &.disabled {
-        background-color: map-get(theme-color($color), lighter);
-        color: color-yiq(map-get(theme-color($color), lighter));
-      }
     }
   }
 

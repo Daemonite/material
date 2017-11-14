@@ -1,17 +1,4 @@
 .textfield-box {
-  > .form-control {
-    @include form-control-size($textfield-font-size, $textfield-box-height, $textfield-line-height, $textfield-box-padding-x, $textfield-box-padding-y);
-
-    background-color: $textfield-box-bg;
-    border-radius: $textfield-box-border-radius;
-  }
-
-  // stylelint-disable selector-no-qualifying-type
-  > select.form-control:not([multiple]):not([size]) {
-    @include form-select-size($textfield-font-size, $textfield-box-height, $textfield-box-padding-x);
-  }
-  // stylelint-enable selector-no-qualifying-type
-
   &.floating-label {
     @include textfield-box-size($textfield-font-size, $textfield-box-height, $textfield-line-height, $textfield-box-padding-x, $textfield-box-padding-y);
 
@@ -26,37 +13,47 @@
       padding-bottom: ($textfield-box-label-spacer-y - $textfield-border-width / $font-size-root * 1rem);
     }
   }
+
+  > .form-control {
+    @include form-control-size($textfield-font-size, $textfield-box-height, $textfield-line-height, $textfield-box-padding-x, $textfield-box-padding-y);
+
+    background-color: $textfield-box-bg;
+    border-radius: $textfield-box-border-radius;
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  > select.form-control:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size, $textfield-box-height, $textfield-box-padding-x);
+  }
 }
 
 // Size
 .textfield-box-lg {
+  &.floating-label {
+    @include textfield-box-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-line-height-lg, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
+  }
+
   > .form-control {
     @include form-control-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-line-height-lg, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
   }
 
-  // stylelint-disable selector-no-qualifying-type
+  // stylelint-disable-next-line selector-no-qualifying-type
   > select.form-control:not([multiple]):not([size]) {
     @include form-select-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-box-padding-x-lg);
-  }
-  // stylelint-enable selector-no-qualifying-type
-
-  &.floating-label {
-    @include textfield-box-size($textfield-font-size-lg, $textfield-box-height-lg, $textfield-line-height-lg, $textfield-box-padding-x-lg, $textfield-box-padding-y-lg);
   }
 }
 
 .textfield-box-sm {
+  &.floating-label {
+    @include textfield-box-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-line-height-sm, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
+  }
+
   > .form-control {
     @include form-control-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-line-height-sm, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
   }
 
-  // stylelint-disable selector-no-qualifying-type
+  // stylelint-disable-next-line selector-no-qualifying-type
   > select.form-control:not([multiple]):not([size]) {
     @include form-select-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-box-padding-x-sm);
-  }
-  // stylelint-enable selector-no-qualifying-type
-
-  &.floating-label {
-    @include textfield-box-size($textfield-font-size-sm, $textfield-box-height-sm, $textfield-line-height-sm, $textfield-box-padding-x-sm, $textfield-box-padding-y-sm);
   }
 }

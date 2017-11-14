@@ -43,6 +43,45 @@
     "media-feature-name-no-vendor-prefix": true,
     "media-query-list-comma-newline-before": "never-multi-line",
     "no-duplicate-selectors": true,
+    "order/order": [
+      {
+        name: "extend",
+        type: "at-rule"
+      },
+      {
+        hasBlock: false,
+        name: "include",
+        type: "at-rule"
+      },
+      "declarations",
+      {
+        hasBlock: true,
+        type: "at-rule"
+      },
+      {
+        selector: "^&[^:]",
+        type: "rule"
+      },
+      {
+        selector: "^&:",
+        type: "rule"
+      },
+      {
+        selector: "^[*]",
+        type: "rule"
+      },
+      {
+        selector: "^[a-z]",
+        type: "rule"
+      },
+      {
+        selector: "^[.]",
+        type: "rule"
+      },
+      {
+        type: "rule"
+      }
+    ],
     "order/properties-order": [
       "align-content",
       "align-items",

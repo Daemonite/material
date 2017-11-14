@@ -65,14 +65,13 @@
   }
 }
 
-// stylelint-disable media-feature-name-no-vendor-prefix
 @mixin media-moz-webkit {
   @-moz-document url-prefix('') {
     @content;
   }
 
+  // stylelint-disable-next-line media-feature-name-no-vendor-prefix
   @media (-webkit-min-device-pixel-ratio: 0) {
     @content;
   }
 }
-// stylelint-enable media-feature-name-no-vendor-prefix
