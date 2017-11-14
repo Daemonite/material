@@ -3,8 +3,6 @@
 @import '../sass/mixins';
 @import '../sass/variables';
 
-
-
 // Bootstrap doc css override
 
 .bd-example,
@@ -14,7 +12,7 @@
 }
 
 .bd-example {
-  border-width: .2rem;
+  border-width: 0.2rem;
   margin-bottom: 0;
 
   > .dropdown-menu:first-child {
@@ -39,6 +37,7 @@
   top: $paragraph-margin-y;
 }
 
+// stylelint-disable selector-no-qualifying-type
 .toc-entry {
   a {
     color: $nav-pills-color;
@@ -56,8 +55,7 @@
     }
   }
 }
-
-
+// stylelint-enable
 
 // CSS for accordion examples
 
@@ -83,22 +81,32 @@
   }
 }
 
-
-
 // CSS to flatten buttons in card examples
 
-// scss-lint:disable MergeableSelector
+// stylelint-disable selector-max-class
 .bd-example .card {
-// scss-lint:enable MergeableSelector
-  &:not(.text-center):not(.text-right) .card-body .btn {
-    margin-left: ($card-action-padding-x - $card-padding-x);
-  }
-
   &.text-right .card-body .btn {
     margin-right: ($card-action-padding-x - $card-padding-x);
   }
 
+  &:not(.text-center):not(.text-right) .card-body .btn {
+    margin-left: ($card-action-padding-x - $card-padding-x);
+  }
+
   .card-body {
+    @each $color, $values in $theme-colors {
+      .btn-#{$color} {
+        @include plain-active-focus-hover {
+          color: map-get(theme-color($color), color);
+        }
+
+        &.disabled,
+        &:disabled {
+          color: $btn-color-disabled;
+        }
+      }
+    }
+
     &:last-child .btn:last-child {
       margin-bottom: ($card-action-padding-y - $card-padding-y);
     }
@@ -114,35 +122,20 @@
       padding-right: $dialog-footer-inner-spacer-x;
       padding-left: $dialog-footer-inner-spacer-x;
 
-      &:active,
-      &.active {
+      &.active,
+      &:active {
         background-color: $btn-bg-active;
         box-shadow: none;
       }
 
-      &:disabled,
-      &.disabled {
+      &.disabled,
+      &:disabled {
         background-color: transparent;
-      }
-    }
-
-    // Colour
-    @each $color, $values in $theme-colors {
-      .btn-#{$color} {
-        @include plain-active-focus-hover {
-          color: map-get(theme-color($color), color);
-        }
-
-        &:disabled,
-        &.disabled {
-          color: $btn-color-disabled;
-        }
       }
     }
   }
 }
-
-
+// stylelint-enable
 
 // Project css
 
