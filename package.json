@@ -31,6 +31,7 @@
     "grunt-scss-lint": "^0.5.0",
     "load-grunt-tasks": "^3.5.2",
     "node-sass": "^4.6.1",
+    "postcss-cli": "^4.1.1",
     "stylelint": "^8.2.0",
     "stylelint-config-recommended-scss": "^2.0.0",
     "stylelint-config-standard": "^17.0.0",
@@ -74,7 +75,9 @@
     "css-compile": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss/material.scss css/material.css",
     "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss-project/project.scss css/project.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
-    "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss-project/*.scss\""
+    "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss-project/*.scss\"",
+    "css-prefix": "postcss --config build/postcss.config.js --replace \"css/material.css\"",
+    "css-prefix-docs": "postcss --config build/postcss.config.js --replace \"css/project.css\""
   },
   "style": "css/material.css",
   "version": "4.0.0-beta"
