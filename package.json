@@ -1,6 +1,16 @@
 {
   "name": "daemonite-material",
   "author": "Daemon Pty Ltd",
+  "browserslist": [
+    "Android >= 4.4",
+    "Chrome >= 45",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "Firefox ESR",
+    "iOS >= 9",
+    "Opera >= 30",
+    "Safari >= 9"
+  ],
   "bugs": {
     "url": "https://github.com/Daemonite/material/issues"
   },
@@ -14,6 +24,7 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "babel-preset-es2015": "^6.24.1",
+    "cssnano": "^3.10.0",
     "eslint": "^4.2.0",
     "grunt": "^1.0.1",
     "grunt-babel": "^7.0.0",
@@ -76,8 +87,10 @@
     "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss-project/project.scss css/project.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
     "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss-project/*.scss\"",
-    "css-prefix": "postcss --config build/postcss.config.js --replace \"css/material.css\"",
-    "css-prefix-docs": "postcss --config build/postcss.config.js --replace \"css/project.css\""
+    "css-minify": "postcss --config build/postcss.config.js --env minify --output css/material.min.css css/material.css",
+    "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output css/project.min.css css/project.css",
+    "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
+    "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"css/project.css\""
   },
   "style": "css/material.css",
   "version": "4.0.0-beta"
