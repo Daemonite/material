@@ -84,6 +84,9 @@
   },
   "sass": "assets/sass/material.scss",
   "scripts": {
+    "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
+    "css-auto": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
+    "css-auto-docs": "npm-run-all --parallel css-lint-docs css-compile-docs --sequential css-prefix-docs css-minify-docs",
     "css-compile": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss/material.scss css/material.css",
     "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss-project/project.scss css/project.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
