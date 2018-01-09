@@ -7,19 +7,24 @@
       text-shadow: none !important;
     }
 
-    a,
-    a:visited {
+    @page {
+      size: $print-page-size;
+    }
+
+    a:not(.btn) {
       text-decoration: underline;
     }
 
-    abbr {
-      &[title]::after {
-        content: ' (" attr(title) ") ';
-      }
+    abbr[title]::after {
+      content: ' (" attr(title) ") ';
     }
 
     blockquote {
       page-break-inside: avoid;
+    }
+
+    body {
+      min-width: $print-body-min-width !important;
     }
 
     h2,
@@ -53,6 +58,10 @@
 
     .card {
       border: $border-width solid $border-color-solid;
+    }
+
+    .container {
+      min-width: $print-body-min-width !important;
     }
 
     .dropdown-menu {
