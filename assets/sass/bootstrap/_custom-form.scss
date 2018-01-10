@@ -7,30 +7,38 @@
 .custom-file {
   display: inline-block;
   height: $textfield-height;
-  max-width: 100%;
+  margin-bottom: 0;
   position: relative;
+  width: 100%;
 }
 
-.custom-file-control {
+.custom-file-input {
+  height: $textfield-height;
+  margin: 0;
+  opacity: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  &:focus ~ .custom-file-label {
+    border-bottom-color: $textfield-border-color-focus;
+    box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+  }
+}
+
+.custom-file-label {
   @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
+  @include text-truncate;
   @include transition-standard(border-color, box-shadow);
 
-  align-items: center;
   border-bottom: $textfield-border-width solid $textfield-border-color;
   color: $textfield-hint-color;
-  display: flex;
-  justify-content: space-between;
+  height: $textfield-height;
+  padding-right: ($material-icon-size + $selection-control-spacer-x);
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-
-  @each $lang, $text in $custom-file-text {
-    &:lang(#{$lang})::before {
-      content: $text;
-    }
-  }
 
   @include hover {
     border-bottom-color: $textfield-border-color-hover;
@@ -41,21 +49,9 @@
     @include set-material-icons;
 
     content: $custom-file-button-icon;
-  }
-
-  &::before {
-    @include text-truncate;
-  }
-}
-
-.custom-file-input {
-  margin: 0;
-  max-width: 100%;
-  min-width: $custom-file-width;
-  opacity: 0;
-
-  &:focus ~ .custom-file-control {
-    border-bottom-color: $textfield-border-color-focus;
-    box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
   }
 }

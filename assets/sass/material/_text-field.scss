@@ -175,9 +175,42 @@ textarea {
 
 .custom-select {
   @extend %form-control;
-  @extend %form-select;
 
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
+  &:not([multiple]):not([size]) {
+    @extend %form-select;
+  }
+
+
+  &[multiple],
+  &[size] {
+    @extend %form-textarea;
+  }
+}
+
+.custom-select-lg {
+  @extend %form-control-lg;
+
+  &:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-x-lg);
+  }
+
+
+  &[multiple],
+  &[size] {
+    padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg;
+  }
+}
+
+.custom-select-sm {
+  @extend %form-control-sm;
+
+  &:not([multiple]):not([size]) {
+    @include form-select-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-x-sm);
+  }
+
+
+  &[multiple],
+  &[size] {
+    padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm;
+  }
 }
