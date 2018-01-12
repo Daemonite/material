@@ -699,13 +699,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var MAX_UID = 1000000;
     var transition = false;
 
-    var TransitionEndEvent = {
-      WebkitTransition: 'webkitTransitionEnd',
-      MozTransition: 'transitionend',
-      OTransition: 'oTransitionEnd otransitionend',
-      transition: 'transitionend'
-    };
-
     function getSpecialTransitionEndEvent() {
       return {
         bindType: transition.end,
@@ -761,17 +754,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         return false;
       }
 
-      var el = document.createElement('material');
-
-      for (var name in TransitionEndEvent) {
-        if (el.style[name] !== undefined) {
-          return {
-            end: TransitionEndEvent[name]
-          };
-        }
-      }
-
-      return false;
+      return {
+        end: 'transitionend'
+      };
     }
 
     var Util = {
