@@ -92,7 +92,7 @@ module.exports = function(grunt) {
           base: 'gh-pages/',
           keepalive: true,
           hostname: '0.0.0.0',
-          port: '9999'
+          port: '9000'
         }
       },
       once: {
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
           base: 'gh-pages/',
           keepalive: false,
           hostname: '0.0.0.0',
-          port: '9999'
+          port: '9000'
         }
       }
     },
