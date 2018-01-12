@@ -4,23 +4,23 @@
 
 .popover {
   @include reset-text;
-  @include border-radius($border-radius);
+  @include border-radius($popover-border-radius);
 
   background-clip: padding-box;
-  background-color: $dialog-content-bg;
-  box-shadow: map-get($dialog-elevation-shadow, shadow);
+  background-color: $popover-bg;
+  box-shadow: map-get($popover-elevation-shadow, shadow);
   display: block;
-  font-size: $font-size-base;
-  margin: $tooltip-margin;
-  max-width: $dialog-width-sm;
+  font-size: $popover-font-size;
+  margin: $popover-margin;
+  max-width: $popover-max-width;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: map-get($dialog-elevation-shadow, elevation);
+  z-index: map-get($popover-elevation-shadow, elevation);
 }
 
 .popover-body {
-  padding: $dialog-padding-y $dialog-padding-x;
+  padding: $popover-padding-y $popover-padding-x;
 
   > :last-child {
     margin-bottom: 0;
@@ -31,14 +31,14 @@
   @include typography-title;
 
   margin-bottom: 0;
-  padding: $dialog-padding-y $dialog-padding-x 0;
+  padding: $popover-padding-y $popover-padding-x 0;
 
   &:empty {
     display: none;
   }
 
   &:last-child {
-    padding-bottom: $dialog-padding-y;
+    padding-bottom: $popover-padding-y;
   }
 }
 
@@ -48,6 +48,6 @@
 
 @include media-breakpoint-up(md) {
   .popover {
-    margin: $tooltip-margin-desktop;
+    margin: $popover-margin-desktop;
   }
 }
