@@ -39,6 +39,10 @@
     outline: 0;
   }
 
+  &:not([disabled]):not(.disabled) {
+    cursor: pointer;
+  }
+
   .page-item:first-child & {
     margin-left: 0;
   }
@@ -50,6 +54,7 @@
   .page-item.disabled & {
     background-color: transparent;
     color: $pagination-color-disabled;
+    cursor: auto;
     pointer-events: none;
   }
 }
