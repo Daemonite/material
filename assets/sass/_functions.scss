@@ -35,7 +35,7 @@
 
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
-  @if ($yiq >= 150) {
+  @if ($yiq >= $yiq-contrasted-threshold) {
     @return $black-primary;
   } @else {
     @return $white-primary;
