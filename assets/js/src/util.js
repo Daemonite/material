@@ -8,13 +8,6 @@ const Util = (($) => {
   const MAX_UID  = 1000000
   let transition = false
 
-  const TransitionEndEvent = {
-    WebkitTransition : 'webkitTransitionEnd',
-    MozTransition    : 'transitionend',
-    OTransition      : 'oTransitionEnd otransitionend',
-    transition       : 'transitionend'
-  }
-
   function getSpecialTransitionEndEvent() {
     return {
       bindType     : transition.end,
@@ -68,17 +61,10 @@ const Util = (($) => {
       return false
     }
 
-    const el = document.createElement('material')
-
-    for (const name in TransitionEndEvent) {
-      if (el.style[name] !== undefined) {
-        return {
-          end: TransitionEndEvent[name]
-        }
-      }
+    
+    return {
+      end: 'transitionend'
     }
-
-    return false
   }
 
   const Util = {
