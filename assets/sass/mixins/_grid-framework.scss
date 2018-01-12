@@ -41,8 +41,10 @@
       }
 
       @for $i from 0 through ($grid-columns - 1) {
-        .offset#{$infix}-#{$i} {
-          @include make-col-offset($i);
+        @if not ($infix == '' and $i == 0) {
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i);
+          }
         }
       }
 

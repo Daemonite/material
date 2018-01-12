@@ -6,7 +6,9 @@
 }
 
 @mixin make-col-offset($size) {
-  margin-left: percentage($size / $grid-columns);
+  $num: $size / $grid-columns;
+
+  margin-left: if($num == 0, 0, percentage($num));
 }
 
 @mixin make-gutters($type: padding) {
