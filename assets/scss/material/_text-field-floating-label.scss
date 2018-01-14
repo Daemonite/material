@@ -1,0 +1,80 @@
+.floating-label {
+  @include floating-label-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-y);
+
+  padding-top: $floating-label-font-size-focus;
+  position: relative;
+
+  &.has-value > label,
+  &.is-focused > label {
+    line-height: 1;
+    top: 0;
+  }
+
+  &.is-focused > label {
+    color: $floating-label-color-focus;
+  }
+
+  &:not(.has-value):not(.is-focused) > .form-control {
+    &[type='date'],
+    &[type='datetime-local'],
+    &[type='time'] {
+      color: transparent;
+    }
+  }
+
+  > label {
+    @include text-truncate;
+    @include transition-standard(color, top, transform);
+
+    color: $floating-label-color;
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    transform-origin: 0 0;
+  }
+
+  > .form-control {
+    position: relative;
+
+    &[type='file']::-webkit-file-upload-button {
+      background-color: transparent;
+      background-image: none;
+      border: 0;
+      color: $floating-label-color;
+      height: auto;
+      padding: 0;
+    }
+
+    &:focus {
+      &::placeholder {
+        color: $textfield-hint-color;
+        opacity: 1;
+      }
+    }
+
+    &::placeholder {
+      @include transition-standard(opacity);
+
+      color: transparent;
+      opacity: 0;
+    }
+  }
+}
+
+.floating-label-lg {
+  @include floating-label-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-y-lg);
+
+  > .form-control {
+    @extend %form-control-lg;
+  }
+}
+
+.floating-label-sm {
+  @include floating-label-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-y-sm);
+
+  > .form-control {
+    @extend %form-control-sm;
+  }
+}

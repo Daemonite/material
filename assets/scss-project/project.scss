@@ -1,0 +1,201 @@
+@import '../scss/colours';
+@import '../scss/functions';
+@import '../scss/mixins';
+@import '../scss/variables';
+
+// Bootstrap doc css override
+
+.bd-example,
+.highlight {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.bd-example {
+  border-width: 0.2rem;
+  margin-bottom: 0;
+
+  > .dropdown-menu:first-child {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  > .list-group {
+    max-width: 100%;
+  }
+}
+
+.bd-example-modal .modal-dialog {
+  margin-top: ($dialog-margin-y * 2);
+  margin-bottom: ($dialog-margin-y * 2);
+}
+
+.section-nav {
+  border-left: $blockquote-border-width solid map-get(theme-color(secondary), color);
+  position: sticky;
+  top: $paragraph-margin-y;
+}
+
+// stylelint-disable selector-no-qualifying-type
+.toc-entry {
+  a {
+    color: $nav-pills-color;
+    opacity: $nav-pills-link-opacity;
+    padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $grid-gutter-width-desktop;
+
+    @include active-focus-hover {
+      color: $nav-pills-color;
+      opacity: 1;
+    }
+
+    &.active {
+      color: $nav-pills-color-active;
+      opacity: 1;
+    }
+  }
+}
+// stylelint-enable
+
+// CSS for accordion examples
+
+[id='accordion'] {
+  .card {
+    @include border-radius(0);
+
+    &:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+
+    &:last-child {
+      @include border-bottom-radius($card-border-radius);
+    }
+  }
+
+  .card-body {
+    padding-top: 0;
+  }
+
+  .card-header {
+    padding-top: $card-inner-spacer-y;
+  }
+}
+
+// CSS to flatten buttons in card examples
+
+// stylelint-disable selector-max-class
+.bd-example .card {
+  &.text-right .card-body .btn {
+    margin-right: ($card-action-padding-x - $card-padding-x);
+  }
+
+  &:not(.text-center):not(.text-right) .card-body .btn {
+    margin-left: ($card-action-padding-x - $card-padding-x);
+  }
+
+  .card-body {
+    @each $color, $values in $theme-colors {
+      .btn-#{$color} {
+        @include plain-active-focus-hover {
+          color: map-get(theme-color($color), color);
+        }
+
+        &.disabled,
+        &:disabled {
+          color: $btn-color-disabled;
+        }
+      }
+    }
+
+    &:last-child .btn:last-child {
+      margin-bottom: ($card-action-padding-y - $card-padding-y);
+    }
+
+    &:not(:last-child) .btn:last-child {
+      margin-bottom: ($card-action-padding-y - $card-inner-spacer-y);
+    }
+
+    .btn {
+      background-color: transparent;
+      box-shadow: none;
+      min-width: $dialog-footer-btn-min-width;
+      padding-right: $dialog-footer-inner-spacer-x;
+      padding-left: $dialog-footer-inner-spacer-x;
+
+      &.active,
+      &:active {
+        background-color: $btn-bg-active;
+        box-shadow: none;
+      }
+
+      &.disabled,
+      &:disabled {
+        background-color: transparent;
+      }
+    }
+  }
+}
+// stylelint-enable
+
+// Project css
+
+.doc-jumbotron {
+  background-color: map-get(theme-color(primary), color);
+  background-image: url('images/doc-jumbotron-bg.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white-primary;
+  padding-top: ($toolbar-height * 2);
+
+  @include media-breakpoint-down(sm) {
+    h1 {
+      @include typography-display-3;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width;
+    }
+  }
+
+  h1:last-child,
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.doc-main {
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width;
+    }
+  }
+}
+
+.doc-navbar-logo {
+  font-weight: $font-weight-light;
+  justify-content: center;
+  min-width: ($toolbar-element-height - $toolbar-inner-spacer-x);
+
+  &::before {
+    border: $border-width solid currentColor;
+    border-radius: $border-radius;
+    opacity: 1;
+  }
+}
+
+.doc-navdrawer-body {
+  min-height: 100%;
+}
+
+.doc-toolbar {
+  position: fixed;
+
+  @include media-breakpoint-up(lg) {
+    .navdrawer-permanent ~ & {
+      margin-left: $navdrawer-width;
+    }
+  }
+}

@@ -121,22 +121,6 @@ module.exports = function(grunt) {
       }
     },
 
-    cssmin: {
-      options: {
-        rebaseTo: 'css',
-        report: 'gzip',
-        sourceMap: true
-      },
-      material: {
-        dest: 'css/material.min.css',
-        src: '<%= postcss.material.dest %>'
-      },
-      project: {
-        dest: 'css/project.min.css',
-        src: '<%= postcss.project.dest %>'
-      }
-    },
-
     jekyll: {
       options: {
         bundleExec: true,
@@ -144,38 +128,6 @@ module.exports = function(grunt) {
         incremental: false
       },
       doc: {}
-    },
-
-    postcss: {
-      options: {
-        map: {
-          annotation: true,
-          inline: false,
-          sourcesContent: true
-        },
-        processors: [
-          require('autoprefixer')({
-            browsers: [
-              'Android >= 4.4',
-              'Chrome >= 45',
-              'Edge >= 12',
-              'Explorer >= 10',
-              'Firefox ESR',
-              'iOS >= 9',
-              'Opera >= 30',
-              'Safari >= 9'
-            ]
-          })
-        ]
-      },
-      material: {
-        dest: 'css/material.css',
-        src: '<%= sass.material.dest %>'
-      },
-      project: {
-        dest: 'css/project.css',
-        src: '<%= sass.project.dest %>'
-      }
     },
 
     prettify: {
@@ -198,29 +150,6 @@ module.exports = function(grunt) {
       files: 'assets/js/tests/index.html'
     },
 
-    sass: {
-      options: {
-        precision: 6,
-        style: 'expanded'
-      },
-      material: {
-        dest: 'css/material.css',
-        src: 'assets/sass/material.scss'
-      },
-      project: {
-        dest: 'css/project.css',
-        src: 'assets/sass-project/project.scss'
-      }
-    },
-
-    scsslint: {
-      options: {
-        config: 'assets/sass/.scss-lint.yml'
-      },
-      material: ['assets/sass/**/*.scss'],
-      project: ['assets/sass-project/**/*.scss']
-    },
-
     uglify: {
       material: {
         dest: 'js/material.min.js',
@@ -235,8 +164,7 @@ module.exports = function(grunt) {
     watch: {
       default: {
         files: [
-          'assets/**/*.js',
-          'assets/**/*.scss'
+          'assets/**/*.js'
         ],
         tasks: [
           'default'
@@ -244,8 +172,7 @@ module.exports = function(grunt) {
       },
       material: {
         files: [
-          'assets/js/**/*.js',
-          'assets/sass/**/*.scss'
+          'assets/js/**/*.js'
         ],
         tasks: [
           'material'
@@ -253,8 +180,7 @@ module.exports = function(grunt) {
       },
       project: {
         files: [
-          'assets/js-project/**/*.js',
-          'assets/sass-project/**/*.scss'
+          'assets/js-project/**/*.js'
         ],
         tasks: [
           'project'
@@ -292,11 +218,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask(
     'material-css',
-    [
-      'sass:material',
-      'postcss:material',
-      'cssmin:material'
-    ]
+    []
   )
 
   grunt.registerTask(
@@ -319,11 +241,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask(
     'project-css',
-    [
-      'sass:project',
-      'postcss:project',
-      'cssmin:project'
-    ]
+    []
   )
 
   grunt.registerTask(
