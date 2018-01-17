@@ -1,5 +1,3 @@
-// stylelint-disable font-weight-notation
-
 @mixin reset-material-icons {
   font-size: ($material-icon-size / $font-size-base * 1em);
   line-height: ($font-size-base / $material-icon-size * 1em);
@@ -24,12 +22,12 @@
 @mixin set-material-icons {
   @include reset-material-icons;
 
-  font-family: 'Material Icons';
+  font-family: 'Material Icons'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
   font-feature-settings: 'liga';
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
-  font-weight: normal;
+  font-weight: normal; // stylelint-disable-line font-weight-notation
   letter-spacing: normal;
   text-rendering: optimizeLegibility;
   text-transform: none;
