@@ -7,79 +7,89 @@
     "stylelint-order"
   ],
   "rules": {
-    "at-rule-empty-line-before": ["always", {
-      except: [
-        "blockless-after-same-name-blockless",
-        "first-nested"
-      ],
-      ignore: [
-        "after-comment"
-      ],
-      ignoreAtRules: [
-        "else"
-      ]
-    }],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ],
+        "ignoreAtRules": [
+          "else"
+        ]
+      }
+    ],
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-space-before": "never",
-    "block-closing-brace-newline-after": ["always", {
-      ignoreAtRules: [
-        "else",
-        "if"
-      ]
-    }],
+    "block-closing-brace-newline-after": [
+      "always",
+      {
+        "ignoreAtRules": [
+          "else",
+          "if"
+        ]
+      }
+    ],
     "color-hex-length": "long",
     "color-named": "never",
     "declaration-block-semicolon-newline-before": "never-multi-line",
     "declaration-no-important": true,
     "font-family-name-quotes": "always-where-recommended",
-    "font-weight-notation": ["numeric", {
-      ignore: [
-        "relative"
-      ]
-    }],
+    "font-weight-notation": [
+      "numeric",
+      {
+        "ignore": [
+          "relative"
+        ]
+      }
+    ],
     "function-comma-newline-before": "never-multi-line",
     "function-url-no-scheme-relative": true,
     "function-url-quotes": "always",
     "media-feature-name-no-vendor-prefix": true,
     "media-query-list-comma-newline-before": "never-multi-line",
+    "no-descending-specificity": null,
     "no-duplicate-selectors": true,
     "order/order": [
       {
-        name: "extend",
-        type: "at-rule"
+        "name": "extend",
+        "type": "at-rule"
       },
       {
-        hasBlock: false,
-        name: "include",
-        type: "at-rule"
+        "hasBlock": false,
+        "name": "include",
+        "type": "at-rule"
       },
       "declarations",
       {
-        hasBlock: true,
-        type: "at-rule"
+        "hasBlock": true,
+        "type": "at-rule"
       },
       {
-        selector: "^&[^:]",
-        type: "rule"
+        "selector": "^&[^:]",
+        "type": "rule"
       },
       {
-        selector: "^&:",
-        type: "rule"
+        "selector": "^&:",
+        "type": "rule"
       },
       {
-        selector: "^[*]",
-        type: "rule"
+        "selector": "^[*]",
+        "type": "rule"
       },
       {
-        selector: "^[a-z]",
-        type: "rule"
+        "selector": "^[a-z]",
+        "type": "rule"
       },
       {
-        selector: "^[.]",
-        type: "rule"
+        "selector": "^[.]",
+        "type": "rule"
       },
       {
-        type: "rule"
+        "type": "rule"
       }
     ],
     "order/properties-order": [
