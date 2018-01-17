@@ -1,19 +1,13 @@
 /*
- * customise pickadate js for material
- * requires addons/picker.js and addons/picker.date.js
+ * Customise pickadate JavaScript for Material
  */
 
-+function ($) {
-
+(function ($) {
   'use strict'
 
   var Datepicker = function (element, options) {
     this._element = element
     this._options = options
-  }
-
-  if (typeof $.fn.pickadate === 'undefined') {
-    throw new Error('Material\'s JavaScript requires pickadate.js')
   }
 
   Datepicker.DEFAULTS = {
@@ -175,5 +169,4 @@
     $.fn.pickdate = old
     return this
   }
-
-}(jQuery)
+}(jQuery))

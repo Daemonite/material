@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /*
  * expansion panel
  * upon selecting the collapsed panel,
@@ -54,6 +56,6 @@ const ExpansionPanel = (($) => {
     }
   )
 
-})(jQuery)
+})($)
 
 export default ExpansionPanel

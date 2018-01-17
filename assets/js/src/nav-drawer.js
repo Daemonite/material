@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import Util from './util'
 
 /*
@@ -300,7 +301,7 @@ const NavDrawer = (($) => {
         }
 
         if (typeof config === 'string') {
-          if (data[config] === undefined) {
+          if (data[config] === 'undefined') {
             throw new Error(`No method named "${config}"`)
           }
 
@@ -354,6 +355,6 @@ const NavDrawer = (($) => {
 
   return NavDrawer
 
-})(jQuery)
+})($)
 
 export default NavDrawer

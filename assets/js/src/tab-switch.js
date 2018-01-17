@@ -1,3 +1,4 @@
+import $ from 'jquery'
 import Util from './util'
 
 /*
@@ -94,7 +95,7 @@ const TabSwitch = (($) => {
         .addClass(ClassName.INDICATOR)
         .appendTo(this._nav)
 
-      if (relatedTarget !== undefined) {
+      if (relatedTarget !== 'undefined') {
         if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
           relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN)
         }
@@ -144,6 +145,6 @@ const TabSwitch = (($) => {
 
   return TabSwitch
 
-})(jQuery)
+})($)
 
 export default TabSwitch

@@ -1,12 +1,14 @@
+import $ from 'jquery'
+
 /*
  * selection control focus
  * chrome persists the focus style on checkboxes/radio buttons after clicking
  */
 
-const ControlFocus = (($) => {
+const SelectionControlFocus = (($) => {
 
   // constants >>>
-  const DATA_KEY  = 'md.controlfocus'
+  const DATA_KEY  = 'md.selectioncontrolfocus'
   const EVENT_KEY = `.${DATA_KEY}`
 
   const ClassName = {
@@ -56,6 +58,6 @@ const ControlFocus = (($) => {
     }
   )
 
-})(jQuery)
+})($)
 
-export default ControlFocus
+export default SelectionControlFocus

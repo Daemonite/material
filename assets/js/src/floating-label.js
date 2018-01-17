@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /*
  * floating label
  * when a user engages with the text input field,
@@ -63,7 +65,7 @@ const FloatingLabel = (($) => {
         }
 
         if (typeof _event === 'string') {
-          if (data[_event] === undefined) {
+          if (data[_event] === 'undefined') {
             throw new Error(`No method named "${_event}"`)
           }
 
@@ -89,6 +91,6 @@ const FloatingLabel = (($) => {
 
   return FloatingLabel
 
-})(jQuery)
+})($)
 
 export default FloatingLabel

@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /*
  * global util js
  * based on bootstrap's (v4.0.0-beta) util.js
@@ -8,22 +10,24 @@ const Util = (($) => {
   const MAX_UID  = 1000000
   let transition = false
 
+  function escapeId(selector) {
+    selector = typeof $.escapeSelector === 'function' ? $.escapeSelector(selector).substr(1)
+      : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1')
+
+    return selector
+  }
+
   function getSpecialTransitionEndEvent() {
     return {
       bindType     : transition.end,
       delegateType : transition.end,
       handle(event) {
         if ($(event.target).is(this)) {
-          // eslint-disable-next-line prefer-rest-params
-          return event.handleObj.handler.apply(this, arguments)
+          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
         }
-        return undefined
+        return undefined // eslint-disable-line no-undefined
       }
     }
-  }
-
-  function isElement(obj) {
-    return (obj[0] || obj).nodeType
   }
 
   function setTransitionEndSupport() {
@@ -61,24 +65,33 @@ const Util = (($) => {
       return false
     }
 
-    
     return {
       end: 'transitionend'
     }
   }
 
   const Util = {
+
     TRANSITION_END: 'mdTransitionEnd',
 
     getSelectorFromElement(element) {
       let selector = element.getAttribute('data-target')
 
-      if (!selector) {
+      if (!selector || selector === '#') {
         selector = element.getAttribute('href') || ''
-        selector = /^#[a-z]/i.test(selector) ? selector : null
       }
 
-      return selector
+      if (selector.charAt(0) === '#') {
+        selector = escapeId(selector)
+      }
+
+      try {
+        const $selector = $(document).find(selector)
+
+        return $selector.length > 0 ? selector : null
+      } catch (err) {
+        return null
+      }
     },
 
     getUID(prefix) {
@@ -89,8 +102,12 @@ const Util = (($) => {
       return prefix
     },
 
+    isElement(obj) {
+      return (obj[0] || obj).nodeType
+    },
+
     reflow(element) {
-      new Function('md', 'return md')(element.offsetHeight)
+      return element.offsetHeight
     },
 
     supportsTransitionEnd() {
@@ -103,10 +120,10 @@ const Util = (($) => {
 
     typeCheckConfig(componentName, config, configTypes) {
       for (const property in configTypes) {
-        if (configTypes.hasOwnProperty(property)) {
+        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
           const expectedTypes = configTypes[property]
           const value         = config[property]
-          const valueType     = value && isElement(value) ? 'element' : toType(value)
+          const valueType     = value && Util.isElement(value) ? 'element' : toType(value)
 
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(
@@ -123,6 +140,6 @@ const Util = (($) => {
 
   return Util
 
-})(jQuery)
+})($)
 
 export default Util
