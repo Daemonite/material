@@ -24,10 +24,10 @@
           <div class="navdrawer-divider"></div>
         {%- endif -%}
 
-          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
             <strong>{{ group.title }}</strong>
           </a>
-          <div class="collapse pb-sm {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+          <div class="collapse pb-sm {{ class_show }}" id="{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
 
             {%- for doc in group.pages -%}
 

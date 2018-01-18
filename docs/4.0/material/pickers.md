@@ -316,7 +316,7 @@ The following rules can be used to format any date:
     <tbody>
       <tr>
         <td><code>yy</code></td>
-        <td>Year in short form <b>*</b></td>
+        <td>Year in short form <strong>*</strong></td>
         <td>00 – 99</td>
       </tr>
       <tr>
