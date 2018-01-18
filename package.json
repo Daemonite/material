@@ -84,6 +84,8 @@
     "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
     "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
     "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"docs/css/docs.css\"",
+    "docs-compile": "bundle exec jekyll build",
+    "docs-serve": "bundle exec jekyll serve",
     "js": "npm-run-all js-lint* js-compile* js-minify*",
     "js-build": "npm-run-all js-lint js-compile js-minify",
     "js-build-docs": "npm-run-all js-lint-docs js-compile-docs js-minify-docs",
