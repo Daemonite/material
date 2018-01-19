@@ -85,6 +85,7 @@
     "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
     "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
     "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"docs/css/docs.css\"",
+    "dist": "npm-run-all --parallel css js",
     "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
     "docs-compile": "bundle exec jekyll build",
     "docs-lint": "htmllint --rc build/.htmllintrc \"gh-pages/**/*.html\"",
