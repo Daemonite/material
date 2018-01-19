@@ -711,7 +711,7 @@ Here's how form validation works with Bootstrap:
 - Bootstrap scopes the `:invalid` and `:valid` styles to parent `.was-validated` class, usually applied to the `<form>`. Otherwise, any required field without a value shows up as invalid on page load. This way, you may choose when to activate them (typically after form submission is attempted).
 - As a fallback, `.is-invalid` and `.is-valid` classes may be used instead of the pseudo-classes for [server side validation](#server-side). They do not require a `.was-validated` parent class.
 - Due to constraints in how CSS works, we cannot (at present) apply styles to a `<label>` that comes before a form control in the DOM without the help of custom JavaScript.
-- All modern browsers support the [constraint validation API](https://www.w3.org/TR/html5/forms.html#the-constraint-validation-api), a series of JavaScript methods for validating form controls.
+- All modern browsers support the [constraint validation API](https://www.w3.org/TR/html5/sec-forms.html#the-constraint-validation-api), a series of JavaScript methods for validating form controls.
 - Feedback messages may utilize the [browser defaults](#browser-defaults) (different for each browser, and unstylable via CSS) or our custom feedback styles with additional HTML and CSS.
 - You may provide custom validity messages with `setCustomValidity` in JavaScript.
 
@@ -773,6 +773,17 @@ When attempting to submit, you'll see the `:invalid` and `:valid` styles applied
       <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
       <div class="invalid-feedback">
         Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
       </div>
     </div>
   </div>
@@ -842,6 +853,14 @@ While these feedback styles cannot be styled with CSS, you can still customize t
       <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
     </div>
   </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+      <label class="form-check-label" for="invalidCheck2">
+        Agree to terms and conditions
+      </label>
+    </div>
+  </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 {% endexample %}
@@ -903,7 +922,17 @@ We recommend using client side validation, but in case you require server side, 
       </div>
     </div>
   </div>
-
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
+      <label class="form-check-label" for="invalidCheck3">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 {% endexample %}
@@ -1162,8 +1191,17 @@ The [`:lang()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:l
 {% highlight scss %}
 $custom-file-text: (
   en: "Browse",
-  es: "Navegar"
+  es: "Elegir"
 );
 {% endhighlight %}
+
+Here's `lang(es)` in action on the custom file input for a Spanish translation:
+
+{% example html %}
+<div class="custom-file">
+  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+</div>
+{% endexample %}
 
 You'll need to set the language of your document (or subtree thereof) correctly in order for the correct text to be shown. This can be done using [the `lang` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang) on the `<html>` element or the [`Content-Language` HTTP header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.12), among other methods.
