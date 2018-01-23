@@ -10,13 +10,6 @@ const Util = (($) => {
   const MAX_UID  = 1000000
   let transition = false
 
-  function escapeId(selector) {
-    selector = typeof $.escapeSelector === 'function' ? $.escapeSelector(selector).substr(1)
-      : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1')
-
-    return selector
-  }
-
   function getSpecialTransitionEndEvent() {
     return {
       bindType     : transition.end,
@@ -41,7 +34,7 @@ const Util = (($) => {
   }
 
   function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
   }
 
   function transitionEndEmulator(duration) {
@@ -79,10 +72,6 @@ const Util = (($) => {
 
       if (!selector || selector === '#') {
         selector = element.getAttribute('href') || ''
-      }
-
-      if (selector.charAt(0) === '#') {
-        selector = escapeId(selector)
       }
 
       try {
