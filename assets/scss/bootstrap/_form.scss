@@ -3,35 +3,28 @@
 .form-check {
   display: block;
   margin-bottom: $textfield-margin-y;
-
-  &.disabled {
-    .form-check-label {
-      color: $textfield-color-disabled;
-    }
-  }
+  padding-left: $form-check-input-gutter;
+  position: relative;
 }
 
 .form-check-inline {
   display: inline-block;
+  margin-right: $form-check-inline-margin-x;
   margin-bottom: 0;
-  vertical-align: middle;
-
-  + .form-check-inline {
-    margin-left: $form-check-inline-margin-x;
-  }
 }
 
 .form-check-input {
-  flex-shrink: 0;
-  margin-right: $form-check-input-margin-x;
-  position: relative;
-  top: (($font-size-base * $line-height-base - $font-size-base) / 3 * 2);
+  margin-top: (($font-size-base * $line-height-base - $font-size-base) / 3 * 2);
+  margin-left: ($form-check-input-gutter * -1);
+  position: absolute;
+
+  &:disabled ~ .form-check-label {
+    color: $textfield-color-disabled;
+  }
 }
 
 .form-check-label {
-  align-items: flex-start;
   color: inherit;
-  display: inline-flex;
   font-size: inherit;
   line-height: inherit;
 }
