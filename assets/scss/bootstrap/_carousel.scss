@@ -65,6 +65,39 @@
   top: 0;
 }
 
+// Fade
+
+.carousel-fade {
+  .carousel-item {
+    @include transition-standard-complex(opacity);
+
+    opacity: 0;
+  }
+
+  .carousel-item.active,
+  .carousel-item-next.carousel-item-left,
+  .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+  }
+
+  .carousel-item.active,
+  .carousel-item-left.active,
+  .carousel-item-next,
+  .carousel-item-prev,
+  .carousel-item-prev.active {
+    transform: translateX(0);
+
+    @supports (transform-style: preserve-3d) {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .carousel-item-left.active,
+  .carousel-item-right.active {
+    opacity: 0;
+  }
+}
+
 // Left/right controls
 
 .carousel-control-next,
