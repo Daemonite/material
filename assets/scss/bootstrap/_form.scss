@@ -134,3 +134,16 @@
 .form-control-range {
   display: block;
 }
+
+.form-control-file {
+  @extend %form-control;
+
+  &::-webkit-file-upload-button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    color: $textfield-hint-color;
+    height: auto;
+    padding: 0;
+  }
+}
