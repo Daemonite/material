@@ -1,3 +1,27 @@
+:root {
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $values in $theme-colors {
+    @each $level, $value in $values {
+      @if $level == 'color' {
+        --#{$color}: #{$value};
+      } @else {
+        --#{$color}-#{$level}: #{$value};
+      }
+    }
+  }
+
+  --font-family-monospace: #{inspect($font-family-monospace)};
+  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-family-serif: #{inspect($font-family-serif)};
+}
+
 // stylelint-disable at-rule-no-vendor-prefix, declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
 
 // Box sizing
