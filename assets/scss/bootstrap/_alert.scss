@@ -10,8 +10,8 @@
 
 @each $color, $values in $theme-colors {
   .alert-#{$color} {
-    background-color: map-get(theme-color($color), lighter);
-    color: color-yiq(map-get(theme-color($color), lighter));
+    background-color: theme-color-light($color);
+    color: color-yiq(theme-color-light($color));
   }
 }
 

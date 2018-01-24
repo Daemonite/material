@@ -59,11 +59,11 @@
 
 @each $color, $values in $theme-colors {
   .form-control-#{$color} {
-    border-color: map-get(theme-color($color), color);
+    border-color: theme-color($color);
 
     @include focus-hover {
-      border-color: map-get(theme-color($color), color);
-      box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) map-get(theme-color($color), color);
+      border-color: theme-color($color);
+      box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) theme-color($color);
     }
   }
 }

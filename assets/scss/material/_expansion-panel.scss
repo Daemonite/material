@@ -75,18 +75,18 @@
 
 @each $color, $values in $theme-colors {
   .list-group-item-#{$color} {
-    background-color: map-get(theme-color($color), lighter);
-    color: color-yiq(map-get(theme-color($color), lighter));
+    background-color: theme-color-light($color);
+    color: color-yiq(theme-color-light($color));
 
     &.active {
-      background-color: map-get(theme-color($color), color);
-      color: color-yiq(map-get(theme-color($color), color));
+      background-color: theme-color($color);
+      color: color-yiq(theme-color($color));
     }
 
     &.list-group-item-action {
       @include active-focus-hover {
-        background-color: map-get(theme-color($color), color);
-        color: color-yiq(map-get(theme-color($color), color));
+        background-color: theme-color($color);
+        color: color-yiq(theme-color($color));
       }
     }
   }

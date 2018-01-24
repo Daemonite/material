@@ -134,7 +134,7 @@
     @each $color, $values in $theme-colors {
       &-#{$color} {
         @include plain-active-focus-hover {
-          color: map-get(theme-color($color), color);
+          color: theme-color($color);
         }
 
         &.disabled,

@@ -26,13 +26,13 @@
 
 @each $color, $values in $theme-colors {
   .badge-#{$color} {
-    background-color: map-get(theme-color($color), color);
-    color: color-yiq(map-get(theme-color($color), color));
+    background-color: theme-color($color);
+    color: color-yiq(theme-color($color));
 
     &[href] {
       @include active-focus-hover {
-        background-color: map-get(theme-color($color), darker);
-        color: color-yiq(map-get(theme-color($color), darker));
+        background-color: theme-color-dark($color);
+        color: color-yiq(theme-color-dark($color));
         text-decoration: none;
       }
     }

@@ -15,10 +15,10 @@
   @each $color, $values in $theme-colors {
     &.bg-#{$color} {
       background-color: transparent !important; // stylelint-disable-line declaration-no-important
-      border-bottom-color: map-get(theme-color($color), color);
+      border-bottom-color: theme-color($color);
 
       &::after {
-        background-color: map-get(theme-color($color), lighter);
+        background-color: theme-color-light($color);
       }
     }
   }
@@ -64,9 +64,9 @@
   @each $color, $values in $theme-colors {
     &.bg-#{$color}::before {
       // stylelint-disable value-no-vendor-prefix
-      background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-      background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-      background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, map-get(theme-color($color), lighter), map-get(theme-color($color), lighter) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
       // stylelint-enable
     }
   }
@@ -122,11 +122,11 @@
 
   @each $color, $values in $theme-colors {
     &.bg-#{$color} {
-      border-bottom-color: map-get(theme-color($color), lighter);
+      border-bottom-color: theme-color-light($color);
 
       &::after,
       &::before {
-        background-color: map-get(theme-color($color), color);
+        background-color: theme-color($color);
       }
 
       &::before {

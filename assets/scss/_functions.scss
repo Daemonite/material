@@ -34,9 +34,9 @@
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
 
   @if ($yiq >= $yiq-contrasted-threshold) {
-    @return $black-primary;
+    @return $yiq-text-dark;
   } @else {
-    @return $white-primary;
+    @return $yiq-text-light;
   }
 }
 
@@ -52,8 +52,20 @@
   }
 }
 
-// Return a theme colour palette
+// Retrieve a colour
+
+@function color($key: 'amber') {
+  @return map-get($colors, $key);
+}
 
 @function theme-color($key: 'primary') {
-  @return map-get($theme-colors, $key);
+  @return map-get(map-get($theme-colors, $key), color);
+}
+
+@function theme-color-dark($key: 'primary') {
+  @return map-get(map-get($theme-colors, $key), dark);
+}
+
+@function theme-color-light($key: 'primary') {
+  @return map-get(map-get($theme-colors, $key), light);
 }

@@ -33,8 +33,8 @@
 
 @each $color, $values in $theme-colors {
   .chip-#{$color} {
-    background-color: map-get(theme-color($color), color);
-    color: color-yiq(map-get(theme-color($color), color));
+    background-color: theme-color($color);
+    color: color-yiq(theme-color($color));
   }
 }
 
