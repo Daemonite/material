@@ -83,6 +83,7 @@
     "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true docs-assets/scss/docs.scss docs/css/docs.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
     "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"docs-assets/scss/**/*.scss\"",
+    "css-lint-vars": "node build/lint-vars.js assets/scss/",
     "css-minify": "postcss --config build/postcss.config.js --env minify --output css/material.min.css css/material.css",
     "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
     "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
