@@ -2833,11 +2833,6 @@ var Util = function ($$$1) {
   var MAX_UID = 1000000;
   var transition = false;
 
-  function escapeId(selector) {
-    selector = typeof $$$1.escapeSelector === 'function' ? $$$1.escapeSelector(selector).substr(1) : selector.replace(/(:|\.|\[|\]|,|=|@)/g, '\\$1');
-    return selector;
-  }
-
   function getSpecialTransitionEndEvent() {
     return {
       bindType: transition.end,
@@ -2862,7 +2857,7 @@ var Util = function ($$$1) {
   }
 
   function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
   }
 
   function transitionEndEmulator(duration) {
@@ -2881,7 +2876,7 @@ var Util = function ($$$1) {
   }
 
   function transitionEndTest() {
-    if (window.QUnit) {
+    if (typeof window !== 'undefined' && window.QUnit) {
       return false;
     }
 
@@ -2897,10 +2892,6 @@ var Util = function ($$$1) {
 
       if (!selector || selector === '#') {
         selector = element.getAttribute('href') || '';
-      }
-
-      if (selector.charAt(0) === '#') {
-        selector = escapeId(selector);
       }
 
       try {
