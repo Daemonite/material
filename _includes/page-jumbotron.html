@@ -1,11 +1,11 @@
-<div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc-jumbotron">
+<div class="jumbotron jumbotron-fluid mb-5 px-lg-3 text-white doc-jumbotron" id="doc-jumbotron">
   <div class="container">
-    <div class="row justify-content-center">
-      {% if page.toc %}
-        <div class="col-xl-8">
-      {% else %}
-        <div class="col-lg-9 col-xl-6">
-      {% endif %}
+    {% if page.toc %}
+      <div class="row">
+    {% else %}
+      <div class="row justify-content-center">
+    {% endif %}
+      <div class="col-lg-9">
         <h1 class="typography-display-4">{{ page.title }}</h1>
         <p class="font-weight-light typography-title">{{ page.description }}</p>
       </div>
