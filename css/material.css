@@ -4463,9 +4463,12 @@ fieldset:disabled a.btn {
   padding-right: 1.5rem;
 }
 
+.table tbody {
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .table tbody td,
 .table tbody th {
-  color: rgba(0, 0, 0, 0.87);
   font-size: 0.8125rem;
   font-weight: 400;
   height: 3rem;
@@ -4473,9 +4476,12 @@ fieldset:disabled a.btn {
   padding-bottom: 0.919643rem;
 }
 
+.table tfoot {
+  color: rgba(0, 0, 0, 0.54);
+}
+
 .table tfoot td,
 .table tfoot th {
-  color: rgba(0, 0, 0, 0.54);
   font-size: 0.75rem;
   font-weight: 400;
   height: 3.5rem;
@@ -4483,9 +4489,12 @@ fieldset:disabled a.btn {
   padding-bottom: 1.214285rem;
 }
 
+.table thead {
+  color: rgba(0, 0, 0, 0.54);
+}
+
 .table thead td,
 .table thead th {
-  color: rgba(0, 0, 0, 0.54);
   font-size: 0.75rem;
   font-weight: 500;
   height: 3.5rem;
@@ -4497,10 +4506,6 @@ fieldset:disabled a.btn {
   border-top: 1px solid #e1e1e1;
 }
 
-.table > :first-child > tr:first-child td,
-.table > :first-child > tr:first-child th,
-.table > :first-child > tr:first-child td,
-.table > :first-child > tr:first-child th,
 .table > :first-child > tr:first-child td,
 .table > :first-child > tr:first-child th {
   border-top: 0;
@@ -4514,14 +4519,6 @@ fieldset:disabled a.btn {
 
 .table-bordered {
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-  background-color: #f5f5f5;
-}
-
-.table-hover tbody tr:hover {
-  background-color: #eeeeee;
 }
 
 .table-sm td,
@@ -4560,114 +4557,136 @@ fieldset:disabled a.btn {
   padding-bottom: 0.714286rem;
 }
 
-.table .table-primary,
-.table .table-primary > td,
-.table .table-primary > th {
-  background-color: #9c27b0;
-  color: white;
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f5f5f5;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #eeeeee;
+}
+
+.table-primary,
+.table-primary > td,
+.table-primary > th {
+  background-color: #e1bee7;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-primary:hover,
 .table-hover .table-primary:hover > td,
 .table-hover .table-primary:hover > th {
-  background-color: #7b1fa2;
+  background-color: #9c27b0;
   color: white;
 }
 
-.table .table-secondary,
-.table .table-secondary > td,
-.table .table-secondary > th {
-  background-color: #ff4081;
-  color: white;
+.table-secondary,
+.table-secondary > td,
+.table-secondary > th {
+  background-color: #ff80ab;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-secondary:hover,
 .table-hover .table-secondary:hover > td,
 .table-hover .table-secondary:hover > th {
-  background-color: #f50057;
+  background-color: #ff4081;
   color: white;
 }
 
-.table .table-danger,
-.table .table-danger > td,
-.table .table-danger > th {
-  background-color: #f44336;
-  color: white;
+.table-danger,
+.table-danger > td,
+.table-danger > th {
+  background-color: #ffcdd2;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-danger:hover,
 .table-hover .table-danger:hover > td,
 .table-hover .table-danger:hover > th {
-  background-color: #d32f2f;
+  background-color: #f44336;
   color: white;
 }
 
-.table .table-info,
-.table .table-info > td,
-.table .table-info > th {
-  background-color: #2196f3;
-  color: white;
+.table-info,
+.table-info > td,
+.table-info > th {
+  background-color: #bbdefb;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-info:hover,
 .table-hover .table-info:hover > td,
 .table-hover .table-info:hover > th {
-  background-color: #1976d2;
+  background-color: #2196f3;
   color: white;
 }
 
-.table .table-success,
-.table .table-success > td,
-.table .table-success > th {
-  background-color: #4caf50;
-  color: white;
+.table-success,
+.table-success > td,
+.table-success > th {
+  background-color: #c8e6c9;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-success:hover,
 .table-hover .table-success:hover > td,
 .table-hover .table-success:hover > th {
-  background-color: #388e3c;
+  background-color: #4caf50;
   color: white;
 }
 
-.table .table-warning,
-.table .table-warning > td,
-.table .table-warning > th {
-  background-color: #ff9800;
+.table-warning,
+.table-warning > td,
+.table-warning > th {
+  background-color: #ffe0b2;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-warning:hover,
 .table-hover .table-warning:hover > td,
 .table-hover .table-warning:hover > th {
-  background-color: #f57c00;
-  color: white;
+  background-color: #ff9800;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-.table .table-dark,
-.table .table-dark > td,
-.table .table-dark > th {
-  background-color: #424242;
+.table-dark,
+.table-dark > td,
+.table-dark > th {
+  background-color: #757575;
   color: white;
 }
 
 .table-hover .table-dark:hover,
 .table-hover .table-dark:hover > td,
 .table-hover .table-dark:hover > th {
-  background-color: #212121;
+  background-color: #424242;
   color: white;
 }
 
-.table .table-light,
-.table .table-light > td,
-.table .table-light > th {
-  background-color: #f5f5f5;
+.table-light,
+.table-light > td,
+.table-light > th {
+  background-color: #fafafa;
   color: rgba(0, 0, 0, 0.87);
 }
 
 .table-hover .table-light:hover,
 .table-hover .table-light:hover > td,
 .table-hover .table-light:hover > th {
+  background-color: #f5f5f5;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.table-active,
+.table-active > td,
+.table-active > th {
+  background-color: #eeeeee;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
   background-color: #e0e0e0;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -4697,17 +4716,15 @@ fieldset:disabled a.btn {
   background-color: #212121;
 }
 
-.table-dark tbody td,
-.table-dark tbody th,
-.table-dark tfoot td,
-.table-dark tfoot th,
-.table-dark thead td,
-.table-dark thead th {
+.table-dark tbody,
+.table-dark tfoot,
+.table-dark thead {
   color: inherit;
 }
 
 .table-dark td,
-.table-dark th {
+.table-dark th,
+.table-dark .table {
   border-color: #303030;
 }
 
@@ -11466,33 +11483,33 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
 }
 
 .m-5 {
-  margin: 3rem !important;
+  margin: 5rem !important;
 }
 
 .mt-5 {
-  margin-top: 3rem !important;
+  margin-top: 5rem !important;
 }
 
 .mr-5 {
-  margin-right: 3rem !important;
+  margin-right: 5rem !important;
 }
 
 .mb-5 {
-  margin-bottom: 3rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .ml-5 {
-  margin-left: 3rem !important;
+  margin-left: 5rem !important;
 }
 
 .mx-5 {
-  margin-right: 3rem !important;
-  margin-left: 3rem !important;
+  margin-right: 5rem !important;
+  margin-left: 5rem !important;
 }
 
 .my-5 {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+  margin-top: 5rem !important;
+  margin-bottom: 5rem !important;
 }
 
 .p-0 {
@@ -11646,33 +11663,33 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
 }
 
 .p-5 {
-  padding: 3rem !important;
+  padding: 5rem !important;
 }
 
 .pt-5 {
-  padding-top: 3rem !important;
+  padding-top: 5rem !important;
 }
 
 .pr-5 {
-  padding-right: 3rem !important;
+  padding-right: 5rem !important;
 }
 
 .pb-5 {
-  padding-bottom: 3rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .pl-5 {
-  padding-left: 3rem !important;
+  padding-left: 5rem !important;
 }
 
 .px-5 {
-  padding-right: 3rem !important;
-  padding-left: 3rem !important;
+  padding-right: 5rem !important;
+  padding-left: 5rem !important;
 }
 
 .py-5 {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .m-auto {
@@ -11822,27 +11839,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-sm-5 {
-    margin: 3rem !important;
+    margin: 5rem !important;
   }
   .mt-sm-5 {
-    margin-top: 3rem !important;
+    margin-top: 5rem !important;
   }
   .mr-sm-5 {
-    margin-right: 3rem !important;
+    margin-right: 5rem !important;
   }
   .mb-sm-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 5rem !important;
   }
   .ml-sm-5 {
-    margin-left: 3rem !important;
+    margin-left: 5rem !important;
   }
   .mx-sm-5 {
-    margin-right: 3rem !important;
-    margin-left: 3rem !important;
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
   }
   .my-sm-5 {
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
   }
   .p-sm-0 {
     padding: 0 !important;
@@ -11960,27 +11977,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-sm-5 {
-    padding: 3rem !important;
+    padding: 5rem !important;
   }
   .pt-sm-5 {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
   }
   .pr-sm-5 {
-    padding-right: 3rem !important;
+    padding-right: 5rem !important;
   }
   .pb-sm-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 5rem !important;
   }
   .pl-sm-5 {
-    padding-left: 3rem !important;
+    padding-left: 5rem !important;
   }
   .px-sm-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 5rem !important;
+    padding-left: 5rem !important;
   }
   .py-sm-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   .m-sm-auto {
     margin: auto !important;
@@ -12124,27 +12141,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-md-5 {
-    margin: 3rem !important;
+    margin: 5rem !important;
   }
   .mt-md-5 {
-    margin-top: 3rem !important;
+    margin-top: 5rem !important;
   }
   .mr-md-5 {
-    margin-right: 3rem !important;
+    margin-right: 5rem !important;
   }
   .mb-md-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 5rem !important;
   }
   .ml-md-5 {
-    margin-left: 3rem !important;
+    margin-left: 5rem !important;
   }
   .mx-md-5 {
-    margin-right: 3rem !important;
-    margin-left: 3rem !important;
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
   }
   .my-md-5 {
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
   }
   .p-md-0 {
     padding: 0 !important;
@@ -12262,27 +12279,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-md-5 {
-    padding: 3rem !important;
+    padding: 5rem !important;
   }
   .pt-md-5 {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
   }
   .pr-md-5 {
-    padding-right: 3rem !important;
+    padding-right: 5rem !important;
   }
   .pb-md-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 5rem !important;
   }
   .pl-md-5 {
-    padding-left: 3rem !important;
+    padding-left: 5rem !important;
   }
   .px-md-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 5rem !important;
+    padding-left: 5rem !important;
   }
   .py-md-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   .m-md-auto {
     margin: auto !important;
@@ -12426,27 +12443,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-lg-5 {
-    margin: 3rem !important;
+    margin: 5rem !important;
   }
   .mt-lg-5 {
-    margin-top: 3rem !important;
+    margin-top: 5rem !important;
   }
   .mr-lg-5 {
-    margin-right: 3rem !important;
+    margin-right: 5rem !important;
   }
   .mb-lg-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 5rem !important;
   }
   .ml-lg-5 {
-    margin-left: 3rem !important;
+    margin-left: 5rem !important;
   }
   .mx-lg-5 {
-    margin-right: 3rem !important;
-    margin-left: 3rem !important;
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
   }
   .my-lg-5 {
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
   }
   .p-lg-0 {
     padding: 0 !important;
@@ -12564,27 +12581,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-lg-5 {
-    padding: 3rem !important;
+    padding: 5rem !important;
   }
   .pt-lg-5 {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
   }
   .pr-lg-5 {
-    padding-right: 3rem !important;
+    padding-right: 5rem !important;
   }
   .pb-lg-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 5rem !important;
   }
   .pl-lg-5 {
-    padding-left: 3rem !important;
+    padding-left: 5rem !important;
   }
   .px-lg-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 5rem !important;
+    padding-left: 5rem !important;
   }
   .py-lg-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   .m-lg-auto {
     margin: auto !important;
@@ -12728,27 +12745,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-xl-5 {
-    margin: 3rem !important;
+    margin: 5rem !important;
   }
   .mt-xl-5 {
-    margin-top: 3rem !important;
+    margin-top: 5rem !important;
   }
   .mr-xl-5 {
-    margin-right: 3rem !important;
+    margin-right: 5rem !important;
   }
   .mb-xl-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 5rem !important;
   }
   .ml-xl-5 {
-    margin-left: 3rem !important;
+    margin-left: 5rem !important;
   }
   .mx-xl-5 {
-    margin-right: 3rem !important;
-    margin-left: 3rem !important;
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
   }
   .my-xl-5 {
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
   }
   .p-xl-0 {
     padding: 0 !important;
@@ -12866,27 +12883,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-xl-5 {
-    padding: 3rem !important;
+    padding: 5rem !important;
   }
   .pt-xl-5 {
-    padding-top: 3rem !important;
+    padding-top: 5rem !important;
   }
   .pr-xl-5 {
-    padding-right: 3rem !important;
+    padding-right: 5rem !important;
   }
   .pb-xl-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 5rem !important;
   }
   .pl-xl-5 {
-    padding-left: 3rem !important;
+    padding-left: 5rem !important;
   }
   .px-xl-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 5rem !important;
+    padding-left: 5rem !important;
   }
   .py-xl-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
   .m-xl-auto {
     margin: auto !important;
