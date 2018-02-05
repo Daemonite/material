@@ -54,18 +54,18 @@
 
 // Retrieve a colour
 
-@function color($key: 'amber') {
+@function color($key: amber) {
   @return map-get($colors, $key);
 }
 
-@function theme-color($key: 'primary') {
+@function theme-color($key: primary) {
   @return map-get(map-get($theme-colors, $key), color);
 }
 
-@function theme-color-dark($key: 'primary') {
+@function theme-color-dark($key: primary) {
   @return map-get(map-get($theme-colors, $key), dark);
 }
 
-@function theme-color-light($key: 'primary') {
+@function theme-color-light($key: primary) {
   @return map-get(map-get($theme-colors, $key), light);
 }
