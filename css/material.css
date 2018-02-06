@@ -6059,12 +6059,11 @@ fieldset:disabled a.btn {
 
 .navdrawer-content {
   transition-duration: 0.195s;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  transition-property: box-shadow, -webkit-transform;
+  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, -webkit-transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
   background-color: #ffffff;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px 0 rgba(0, 0, 0, 0.2);
   max-width: calc(100% - 3.5rem);
   overflow-x: hidden;
   overflow-y: auto;
@@ -6098,10 +6097,11 @@ fieldset:disabled a.btn {
 
 .navdrawer.show .navdrawer-content {
   transition-duration: 0.225s;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  transition-property: box-shadow, -webkit-transform;
+  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, -webkit-transform;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px 0 rgba(0, 0, 0, 0.2);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
@@ -6166,8 +6166,14 @@ fieldset:disabled a.btn {
   -ms-flex-direction: column;
   flex-direction: column;
   list-style: none;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   padding-left: 0;
+}
+
+.navdrawer-header + .navdrawer-nav,
+.navdrawer-subheader + .navdrawer-nav {
+  margin-top: 0;
 }
 
 .navdrawer-nav .nav-link {
@@ -11483,33 +11489,33 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
 }
 
 .m-5 {
-  margin: 5rem !important;
+  margin: 3rem !important;
 }
 
 .mt-5 {
-  margin-top: 5rem !important;
+  margin-top: 3rem !important;
 }
 
 .mr-5 {
-  margin-right: 5rem !important;
+  margin-right: 3rem !important;
 }
 
 .mb-5 {
-  margin-bottom: 5rem !important;
+  margin-bottom: 3rem !important;
 }
 
 .ml-5 {
-  margin-left: 5rem !important;
+  margin-left: 3rem !important;
 }
 
 .mx-5 {
-  margin-right: 5rem !important;
-  margin-left: 5rem !important;
+  margin-right: 3rem !important;
+  margin-left: 3rem !important;
 }
 
 .my-5 {
-  margin-top: 5rem !important;
-  margin-bottom: 5rem !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
 }
 
 .p-0 {
@@ -11663,33 +11669,33 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
 }
 
 .p-5 {
-  padding: 5rem !important;
+  padding: 3rem !important;
 }
 
 .pt-5 {
-  padding-top: 5rem !important;
+  padding-top: 3rem !important;
 }
 
 .pr-5 {
-  padding-right: 5rem !important;
+  padding-right: 3rem !important;
 }
 
 .pb-5 {
-  padding-bottom: 5rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .pl-5 {
-  padding-left: 5rem !important;
+  padding-left: 3rem !important;
 }
 
 .px-5 {
-  padding-right: 5rem !important;
-  padding-left: 5rem !important;
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
 }
 
 .py-5 {
-  padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
 }
 
 .m-auto {
@@ -11839,27 +11845,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-sm-5 {
-    margin: 5rem !important;
+    margin: 3rem !important;
   }
   .mt-sm-5 {
-    margin-top: 5rem !important;
+    margin-top: 3rem !important;
   }
   .mr-sm-5 {
-    margin-right: 5rem !important;
+    margin-right: 3rem !important;
   }
   .mb-sm-5 {
-    margin-bottom: 5rem !important;
+    margin-bottom: 3rem !important;
   }
   .ml-sm-5 {
-    margin-left: 5rem !important;
+    margin-left: 3rem !important;
   }
   .mx-sm-5 {
-    margin-right: 5rem !important;
-    margin-left: 5rem !important;
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .my-sm-5 {
-    margin-top: 5rem !important;
-    margin-bottom: 5rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
   }
   .p-sm-0 {
     padding: 0 !important;
@@ -11977,27 +11983,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-sm-5 {
-    padding: 5rem !important;
+    padding: 3rem !important;
   }
   .pt-sm-5 {
-    padding-top: 5rem !important;
+    padding-top: 3rem !important;
   }
   .pr-sm-5 {
-    padding-right: 5rem !important;
+    padding-right: 3rem !important;
   }
   .pb-sm-5 {
-    padding-bottom: 5rem !important;
+    padding-bottom: 3rem !important;
   }
   .pl-sm-5 {
-    padding-left: 5rem !important;
+    padding-left: 3rem !important;
   }
   .px-sm-5 {
-    padding-right: 5rem !important;
-    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .py-sm-5 {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   .m-sm-auto {
     margin: auto !important;
@@ -12141,27 +12147,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-md-5 {
-    margin: 5rem !important;
+    margin: 3rem !important;
   }
   .mt-md-5 {
-    margin-top: 5rem !important;
+    margin-top: 3rem !important;
   }
   .mr-md-5 {
-    margin-right: 5rem !important;
+    margin-right: 3rem !important;
   }
   .mb-md-5 {
-    margin-bottom: 5rem !important;
+    margin-bottom: 3rem !important;
   }
   .ml-md-5 {
-    margin-left: 5rem !important;
+    margin-left: 3rem !important;
   }
   .mx-md-5 {
-    margin-right: 5rem !important;
-    margin-left: 5rem !important;
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .my-md-5 {
-    margin-top: 5rem !important;
-    margin-bottom: 5rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
   }
   .p-md-0 {
     padding: 0 !important;
@@ -12279,27 +12285,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-md-5 {
-    padding: 5rem !important;
+    padding: 3rem !important;
   }
   .pt-md-5 {
-    padding-top: 5rem !important;
+    padding-top: 3rem !important;
   }
   .pr-md-5 {
-    padding-right: 5rem !important;
+    padding-right: 3rem !important;
   }
   .pb-md-5 {
-    padding-bottom: 5rem !important;
+    padding-bottom: 3rem !important;
   }
   .pl-md-5 {
-    padding-left: 5rem !important;
+    padding-left: 3rem !important;
   }
   .px-md-5 {
-    padding-right: 5rem !important;
-    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .py-md-5 {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   .m-md-auto {
     margin: auto !important;
@@ -12443,27 +12449,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-lg-5 {
-    margin: 5rem !important;
+    margin: 3rem !important;
   }
   .mt-lg-5 {
-    margin-top: 5rem !important;
+    margin-top: 3rem !important;
   }
   .mr-lg-5 {
-    margin-right: 5rem !important;
+    margin-right: 3rem !important;
   }
   .mb-lg-5 {
-    margin-bottom: 5rem !important;
+    margin-bottom: 3rem !important;
   }
   .ml-lg-5 {
-    margin-left: 5rem !important;
+    margin-left: 3rem !important;
   }
   .mx-lg-5 {
-    margin-right: 5rem !important;
-    margin-left: 5rem !important;
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .my-lg-5 {
-    margin-top: 5rem !important;
-    margin-bottom: 5rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
   }
   .p-lg-0 {
     padding: 0 !important;
@@ -12581,27 +12587,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-lg-5 {
-    padding: 5rem !important;
+    padding: 3rem !important;
   }
   .pt-lg-5 {
-    padding-top: 5rem !important;
+    padding-top: 3rem !important;
   }
   .pr-lg-5 {
-    padding-right: 5rem !important;
+    padding-right: 3rem !important;
   }
   .pb-lg-5 {
-    padding-bottom: 5rem !important;
+    padding-bottom: 3rem !important;
   }
   .pl-lg-5 {
-    padding-left: 5rem !important;
+    padding-left: 3rem !important;
   }
   .px-lg-5 {
-    padding-right: 5rem !important;
-    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .py-lg-5 {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   .m-lg-auto {
     margin: auto !important;
@@ -12745,27 +12751,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     margin-bottom: 1.5rem !important;
   }
   .m-xl-5 {
-    margin: 5rem !important;
+    margin: 3rem !important;
   }
   .mt-xl-5 {
-    margin-top: 5rem !important;
+    margin-top: 3rem !important;
   }
   .mr-xl-5 {
-    margin-right: 5rem !important;
+    margin-right: 3rem !important;
   }
   .mb-xl-5 {
-    margin-bottom: 5rem !important;
+    margin-bottom: 3rem !important;
   }
   .ml-xl-5 {
-    margin-left: 5rem !important;
+    margin-left: 3rem !important;
   }
   .mx-xl-5 {
-    margin-right: 5rem !important;
-    margin-left: 5rem !important;
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
   .my-xl-5 {
-    margin-top: 5rem !important;
-    margin-bottom: 5rem !important;
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
   }
   .p-xl-0 {
     padding: 0 !important;
@@ -12883,27 +12889,27 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
     padding-bottom: 1.5rem !important;
   }
   .p-xl-5 {
-    padding: 5rem !important;
+    padding: 3rem !important;
   }
   .pt-xl-5 {
-    padding-top: 5rem !important;
+    padding-top: 3rem !important;
   }
   .pr-xl-5 {
-    padding-right: 5rem !important;
+    padding-right: 3rem !important;
   }
   .pb-xl-5 {
-    padding-bottom: 5rem !important;
+    padding-bottom: 3rem !important;
   }
   .pl-xl-5 {
-    padding-left: 5rem !important;
+    padding-left: 3rem !important;
   }
   .px-xl-5 {
-    padding-right: 5rem !important;
-    padding-left: 5rem !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
   .py-xl-5 {
-    padding-top: 5rem !important;
-    padding-bottom: 5rem !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
   .m-xl-auto {
     margin: auto !important;

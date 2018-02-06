@@ -2960,7 +2960,6 @@ var NavDrawer = function ($$$1) {
     SHOW: 'show'
   };
   var Default = {
-    breakpoint: 1280,
     keyboard: true,
     show: true,
     type: 'default'
@@ -3067,10 +3066,8 @@ var NavDrawer = function ($$$1) {
       var _this2 = this;
 
       $$$1(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
-        if (_this2._config.type === 'default' || $$$1(window).width() <= _this2._config.breakpoint) {
-          if (_this2._element !== event.target && !$$$1(_this2._element).has(event.target).length) {
-            _this2._element.focus();
-          }
+        if (_this2._element !== event.target && !$$$1(_this2._element).has(event.target).length) {
+          _this2._element.focus();
         }
       });
     };
