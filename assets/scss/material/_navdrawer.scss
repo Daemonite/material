@@ -102,8 +102,14 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  margin-top: $navdrawer-inner-spacer-y;
   margin-bottom: $navdrawer-inner-spacer-y;
   padding-left: 0;
+
+  .navdrawer-header + &,
+  .navdrawer-subheader + & {
+    margin-top: 0;
+  }
 
   .nav-link {
     @include text-truncate;
