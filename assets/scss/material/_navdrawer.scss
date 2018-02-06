@@ -32,10 +32,9 @@
 // Content
 
 .navdrawer-content {
-  @include transition-sharp(transform);
+  @include transition-sharp(box-shadow, transform);
 
   background-color: $navdrawer-content-bg;
-  box-shadow: map-get($navdrawer-elevation-shadow, shadow);
   max-width: calc(100% - #{$navdrawer-gutter-width});
   overflow-x: hidden;
   overflow-y: auto;
@@ -53,8 +52,9 @@
   }
 
   .navdrawer.show & {
-    @include transition-deceleration(transform);
+    @include transition-deceleration(box-shadow, transform);
 
+    box-shadow: map-get($navdrawer-elevation-shadow, shadow);
     transform: translate3d(0, 0, 0);
   }
 }
