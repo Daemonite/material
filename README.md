@@ -32,7 +32,7 @@ daemonite-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   ├── material.min.css.map
+│   └── material.min.css.map
 └── js/
     ├── material.js
     ├── material.js.map
@@ -53,7 +53,7 @@ daemonite-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   ├── material.min.css.map
+│   └── material.min.css.map
 ├── docs/
 │   └── 4.0/
 └── js/
