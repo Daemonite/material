@@ -13,7 +13,7 @@ toc: true
 The Material [precompiled code download]({{ site.download.dist }}) includes the following:
 
 {% highlight plaintext %}
-material/
+daemonite-material/
 ├── css/
 │   ├── material.css
 │   ├── material.css.map
@@ -33,7 +33,7 @@ This is the most basic form of Material: precompiled files for quick drop-in usa
 The Material [source code download]({{ site.download.source }}) includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
 
 {% highlight plaintext %}
-material/
+daemonite-material/
 ├── assets/
 │   ├── js/
 │   └── scss/
