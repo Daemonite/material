@@ -41,6 +41,16 @@
     }
   }
 
+  .form-control-lg {
+    padding-top: (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2);
+    padding-bottom: (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2);
+  }
+
+  .form-control-sm {
+    padding-top: (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2);
+    padding-bottom: (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2);
+  }
+
   .input-group {
     @include border-radius($toolbar-element-border-radius);
     @include transition-standard(opacity);
@@ -55,15 +65,40 @@
     .form-control {
       background-color: transparent;
       opacity: 1;
+
+      &:not(:first-child) {
+        padding-left: 0;
+      }
+
+      &:not(:last-child) {
+        padding-right: 0;
+      }
     }
 
     .input-group-append {
       margin-left: 0;
+      min-width: 0;
     }
 
     .input-group-prepend {
       margin-right: 0;
+      min-width: 0;
     }
+
+    .input-group-text {
+      margin-right: $toolbar-inner-spacer-x;
+      margin-left: $toolbar-inner-spacer-x;
+    }
+  }
+
+  .input-group-lg > .form-control {
+    padding-top: (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2);
+    padding-bottom: (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2);
+  }
+
+  .input-group-sm > .form-control {
+    padding-top: (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2);
+    padding-bottom: (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2);
   }
 
   .nav-tabs {
