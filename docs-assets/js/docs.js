@@ -6,6 +6,16 @@
 
     $('.floating-label .form-control').floatinglabel()
 
+    // Navbar examples
+
+    $('.navbar-brand img[src="/material/assets/brand/bootstrap-solid.svg"]')
+      .addClass('mr-2 rounded')
+      .attr({
+        height : 36,
+        src    : '/material/apple-touch-icon.png',
+        width  : 36
+      })
+
     // Pickers
 
     $('#exampleInputDatePicker1').pickdate()
