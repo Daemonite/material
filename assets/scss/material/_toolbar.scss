@@ -25,21 +25,6 @@
 
   // Vertically align some elements normally placed in `.navbar`
 
-  .btn {
-    margin-top: (($btn-height - $toolbar-element-height) / -2);
-    margin-bottom: (($btn-height - $toolbar-element-height) / -2);
-  }
-
-  .btn-lg {
-    margin-top: (($btn-height-lg - $toolbar-element-height) / -2);
-    margin-bottom: (($btn-height-lg - $toolbar-element-height) / -2);
-  }
-
-  .btn-sm {
-    margin-top: (($btn-height-sm - $toolbar-element-height) / -2);
-    margin-bottom: (($btn-height-sm - $toolbar-element-height) / -2);
-  }
-
   .form-control {
     @include border-radius($toolbar-element-border-radius);
     @include transition-standard(opacity);
@@ -47,21 +32,12 @@
     background-color: $toolbar-element-bg;
     border: 0;
     color: inherit;
-    height: $toolbar-element-height;
     opacity: $toolbar-element-opacity;
-    padding: (($toolbar-element-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-inner-spacer-x;
+    padding: (($textfield-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-inner-spacer-x;
 
     @include focus-hover {
       box-shadow: none;
       opacity: 1;
-    }
-  }
-
-  .form-inline {
-    margin-left: $toolbar-inner-spacer-x;
-
-    &:first-child {
-      margin-left: 0;
     }
   }
 
@@ -77,15 +53,16 @@
     }
 
     .form-control {
-      @include border-radius(0);
-
       background-color: transparent;
-      margin-left: 0;
       opacity: 1;
     }
 
-    .input-group-addon {
+    .input-group-append {
       margin-left: 0;
+    }
+
+    .input-group-prepend {
+      margin-right: 0;
     }
   }
 
@@ -180,7 +157,6 @@
   color: inherit;
   display: inline-flex;
   height: $toolbar-element-height;
-  margin-left: $toolbar-inner-spacer-x;
   position: relative;
   white-space: nowrap;
 
@@ -203,16 +179,20 @@
     left: ($toolbar-inner-spacer-x / -2);
   }
 
-  &:first-child {
-    margin-left: 0;
-  }
-
   &:focus {
     outline: 0;
 
     &::before {
       opacity: 1;
     }
+  }
+
+  &:not(:first-child) {
+    margin-left: $toolbar-inner-spacer-x;
+  }
+
+  &:not(:last-child) {
+    margin-right: $toolbar-inner-spacer-x;
   }
 }
 
@@ -222,11 +202,6 @@
   display: inline-flex;
   flex-wrap: wrap;
   height: $toolbar-element-height;
-  margin-left: $toolbar-inner-spacer-x;
-
-  &:first-child {
-    margin-left: 0;
-  }
 }
 
 // Nav
@@ -294,22 +269,6 @@
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
-        .navbar-collapse {
-          .form-inline,
-          .navbar-brand,
-          .navbar-text {
-            margin-left: 0;
-          }
-
-          > :first-child {
-            margin-top: $toolbar-inner-spacer-y;
-          }
-
-          > :not(:last-child) {
-            margin-bottom: $toolbar-inner-spacer-y;
-          }
-        }
-
         > .container,
         > .container-fluid {
           padding-right: 0;
@@ -326,16 +285,10 @@
           flex-basis: auto;
         }
 
-        .navbar-nav {
-          flex-wrap: nowrap;
-        }
-
         .navbar-toggler {
           display: none;
 
-          + .form-inline,
-          + .navbar-brand,
-          + .navbar-text {
+          &:first-child + .navbar-brand {
             margin-left: 0;
           }
         }
@@ -360,7 +313,6 @@
   height: $toolbar-element-height;
   justify-content: center;
   line-height: 1;
-  margin-left: $toolbar-inner-spacer-x;
   padding: 0;
   position: relative;
   width: $toolbar-element-height;
@@ -387,10 +339,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-  }
-
-  &:first-child {
-    margin-left: 0;
   }
 
   &:focus {
