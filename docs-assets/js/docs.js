@@ -4,7 +4,7 @@
   $(function () {
     // Floating labels
 
-    $('.floating-label > .form-control').floatinglabel()
+    $('.floating-label .form-control').floatinglabel()
 
     // Pickers
 
