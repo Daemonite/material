@@ -66,6 +66,34 @@ A floating action button represents the primary action in an application, it is 
 <button class="btn btn-float btn-warning" type="button"><i class="material-icons">my_location</i></button>
 {% endexample %}
 
+### Dropdown
+
+Floating action buttons can also work with dropdown menus to fling out related actions:
+
+{% example html %}
+<div class="btn-float-dropdown dropdown">
+  <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
+  <div class="dropdown-menu">
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+  </div>
+</div>
+{% endexample %}
+
+Or flinging them upwards:
+
+{% example html %}
+<div class="btn-float-dropdown dropup">
+  <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
+  <div class="dropdown-menu">
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+  </div>
+</div>
+{% endexample %}
+
 ### Sizes
 
 A smaller sized, i.e. mini floating action button, is also available.
