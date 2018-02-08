@@ -15,8 +15,11 @@ const NavDrawer = (($) => {
   const EVENT_KEY                    = `.${DATA_KEY}`
   const NAME                         = 'navdrawer'
   const NO_CONFLICT                  = $.fn[NAME]
-  const TRANSITION_DURATION          = 292.5
-  const TRANSITION_DURATION_BACKDROP = 487.5
+
+  const Breakpoints = {
+    DESKTOP : 992,
+    TABLET  : 576
+  }
 
   const ClassName = {
     BACKDROP : 'navdrawer-backdrop',
@@ -54,16 +57,28 @@ const NavDrawer = (($) => {
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]'
   }
+
+  const TransitionDurationEntering = {
+    DESKTOP : 150,
+    MOBILE  : 225,
+    TABLET  : 292.5
+  }
+
+  const TransitionDurationLeaving = {
+    DESKTOP : 130,
+    MOBILE  : 195,
+    TABLET  : 253.5
+  }
   // <<< constants
 
   class NavDrawer {
     constructor(element, config) {
-      this._backdrop            = null
-      this._config              = this._getConfig(config)
-      this._content             = $(element).find(Selector.CONTENT)[0]
-      this._element             = element
-      this._ignoreBackdropClick = false
-      this._isShown             = false
+      this._backdrop               = null
+      this._config                 = this._getConfig(config)
+      this._content                = $(element).find(Selector.CONTENT)[0]
+      this._element                = element
+      this._ignoreBackdropClick    = false
+      this._isShown                = false
     }
 
     hide(event) {
@@ -71,45 +86,75 @@ const NavDrawer = (($) => {
         event.preventDefault()
       }
 
-      const hideClassName = `${ClassName.OPEN}-${this._config.type}`
-      const hideEvent     = $.Event(Event.HIDE)
+      if (this._isTransitioning || !this._isShown) {
+        return
+      }
+
+      const hideEvent = $.Event(Event.HIDE)
 
       $(this._element).trigger(hideEvent)
 
-      if (!this._isShown ||
-        hideEvent.isDefaultPrevented()) {
+      if (!this._isShown || hideEvent.isDefaultPrevented()) {
         return
       }
 
       this._isShown = false
+
+      const supportsTransition = Util.supportsTransitionEnd()
+
+      if (supportsTransition) {
+        this._isTransitioning = true
+      }
+
       this._setEscapeEvent()
+
       $(document).off(Event.FOCUSIN)
+
+      $(this._element).removeClass(ClassName.SHOW)
+
+      $(this._element).off(Event.CLICK_DISMISS)
+
       $(this._content).off(Event.MOUSEDOWN_DISMISS)
 
-      $(this._element)
-        .off(Event.CLICK_DISMISS)
-        .removeClass(ClassName.SHOW)
+      if (supportsTransition) {
+        $(this._element)
+          .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
+          .emulateTransitionEnd(this._getTransitionDuration(TransitionDurationLeaving))
+      } else {
+        this._hideNavdrawer()
+      }
 
-      this._hideNavdrawer(hideClassName)
+      this._showBackdrop()
     }
 
     show(relatedTarget) {
+      if (this._isTransitioning || this._isShown) {
+        return
+      }
+
+      if (Util.supportsTransitionEnd()) {
+        this._isTransitioning = true
+      }
+
       const showEvent = $.Event(Event.SHOW, {
         relatedTarget
       })
 
       $(this._element).trigger(showEvent)
 
-      if (this._isShown ||
-        showEvent.isDefaultPrevented()) {
+      if (this._isShown || showEvent.isDefaultPrevented()) {
         return
       }
 
       this._isShown = true
+
       $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}`)
+
       this._setEscapeEvent()
+
       $(this._element).addClass(`${NAME}-${this._config.type}`)
-      $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, $.proxy(this.hide, this))
+
+      $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, (event) => this.hide(event))
 
       $(this._content).on(Event.MOUSEDOWN_DISMISS, () => {
         $(this._element).one(Event.MOUSEUP_DISMISS, (event) => {
@@ -131,28 +176,45 @@ const NavDrawer = (($) => {
       $(document)
         .off(Event.FOCUSIN)
         .on(Event.FOCUSIN, (event) => {
-          if (this._element !== event.target &&
-          !$(this._element).has(event.target).length) {
+          if (document !== event.target &&
+              this._element !== event.target &&
+              $(this._element).has(event.target).length === 0) {
             this._element.focus()
           }
         })
     }
 
     _getConfig(config) {
-      config = $.extend({}, Default, config)
+      config = {
+        ...Default,
+        ...config
+      }
+
       Util.typeCheckConfig(NAME, config, DefaultType)
+
       return config
     }
 
-    _hideNavdrawer(className) {
-      this._showBackdrop(() => {
-        $(document.body).removeClass(className)
+    _getTransitionDuration(duration) {
+      if (window.innerWidth >= Breakpoints.DESKTOP) {
+        return duration.DESKTOP
+      } else if (window.innerWidth >= Breakpoints.TABLET) {
+        return duration.TABLET
+      }
 
-        this._element.setAttribute('aria-hidden', 'true')
-        this._element.style.display = 'none'
+      return duration.MOBILE
+    }
 
-        $(this._element).trigger(Event.HIDDEN)
-      })
+    _hideNavdrawer() {
+      this._element.style.display = 'none'
+
+      this._element.setAttribute('aria-hidden', true)
+
+      this._isTransitioning = false
+
+      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}`)
+
+      $(this._element).trigger(Event.HIDDEN)
     }
 
     _removeBackdrop() {
@@ -163,10 +225,11 @@ const NavDrawer = (($) => {
     }
 
     _setEscapeEvent() {
-      if (this._isShown &&
-      this._config.keyboard) {
+      if (this._isShown && this._config.keyboard) {
         $(this._element).on(Event.KEYDOWN_DISMISS, (event) => {
           if (event.which === ESCAPE_KEYCODE) {
+            event.preventDefault()
+
             this.hide()
           }
         })
@@ -175,7 +238,7 @@ const NavDrawer = (($) => {
       }
     }
 
-    _showBackdrop(callback) {
+    _showBackdrop() {
       const supportsTransition = Util.supportsTransitionEnd()
 
       if (this._isShown) {
@@ -189,6 +252,7 @@ const NavDrawer = (($) => {
         $(this._element).on(Event.CLICK_DISMISS, (event) => {
           if (this._ignoreBackdropClick) {
             this._ignoreBackdropClick = false
+
             return
           }
 
@@ -204,39 +268,10 @@ const NavDrawer = (($) => {
         }
 
         $(this._backdrop).addClass(ClassName.SHOW)
-
-        if (!callback) {
-          return
-        }
-
-        if (!supportsTransition) {
-          callback()
-          return
-        }
-
-        $(this._backdrop)
-          .one(Util.TRANSITION_END, callback)
-          .emulateTransitionEnd(TRANSITION_DURATION_BACKDROP)
-      } else if (this._backdrop && !this._isShown) {
+      } else if (!this._isShown && this._backdrop) {
         $(this._backdrop).removeClass(ClassName.SHOW)
 
-        const callbackRemove = () => {
-          this._removeBackdrop()
-
-          if (callback) {
-            callback()
-          }
-        }
-
-        if (supportsTransition) {
-          $(this._backdrop)
-            .one(Util.TRANSITION_END, callbackRemove)
-            .emulateTransitionEnd(TRANSITION_DURATION_BACKDROP)
-        } else {
-          callbackRemove()
-        }
-      } else if (callback) {
-        callback()
+        this._removeBackdrop()
       }
     }
 
@@ -244,18 +279,20 @@ const NavDrawer = (($) => {
       const supportsTransition = Util.supportsTransitionEnd()
 
       if (!this._element.parentNode ||
-      this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
+          this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
         document.body.appendChild(this._element)
       }
 
-      this._element.removeAttribute('aria-hidden')
       this._element.style.display = 'block'
+
+      this._element.removeAttribute('aria-hidden')
 
       if (supportsTransition) {
         Util.reflow(this._element)
       }
 
       $(this._element).addClass(ClassName.SHOW)
+
       this._enforceFocus()
 
       const shownEvent = $.Event(Event.SHOWN, {
@@ -264,13 +301,16 @@ const NavDrawer = (($) => {
 
       const transitionComplete = () => {
         this._element.focus()
+
+        this._isTransitioning = false
+
         $(this._element).trigger(shownEvent)
       }
 
       if (supportsTransition) {
         $(this._content)
           .one(Util.TRANSITION_END, transitionComplete)
-          .emulateTransitionEnd(TRANSITION_DURATION)
+          .emulateTransitionEnd(this._getTransitionDuration(TransitionDurationEntering))
       } else {
         transitionComplete()
       }
@@ -282,23 +322,23 @@ const NavDrawer = (($) => {
 
     static _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        const _config = $.extend(
-          {},
-          NavDrawer.Default,
-          $(this).data(),
-          typeof config === 'object' && config
-        )
+        const _config = {
+          ...NavDrawer.Default,
+          ...$(this).data(),
+          ...typeof config === 'object' && config
+        }
 
         let data = $(this).data(DATA_KEY)
 
         if (!data) {
           data = new NavDrawer(this, _config)
+
           $(this).data(DATA_KEY, data)
         }
 
         if (typeof config === 'string') {
-          if (data[config] === 'undefined') {
-            throw new Error(`No method named "${config}"`)
+          if (typeof data[config] === 'undefined') {
+            throw new TypeError(`No method named "${config}"`)
           }
 
           data[config](relatedTarget)
@@ -311,19 +351,19 @@ const NavDrawer = (($) => {
 
   $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
     const selector = Util.getSelectorFromElement(this)
+
     let target
 
     if (selector) {
       target = $(selector)[0]
     }
 
-    const config = $(target).data(DATA_KEY) ? 'toggle' : $.extend(
-      {},
-      $(target).data(),
-      $(this).data()
-    )
+    const config = $(target).data(DATA_KEY) ? 'toggle' : {
+      ...$(target).data(),
+      ...$(this).data()
+    }
 
-    if (this.tagName === 'A') {
+    if (this.tagName === 'A' || this.tagName === 'AREA') {
       event.preventDefault()
     }
 
@@ -346,6 +386,7 @@ const NavDrawer = (($) => {
   $.fn[NAME].Constructor = NavDrawer
   $.fn[NAME].noConflict  = function () {
     $.fn[NAME] = NO_CONFLICT
+
     return NavDrawer._jQueryInterface
   }
 
