@@ -12,7 +12,11 @@ const TabSwitch = (($) => {
   const DATA_KEY            = 'md.tabswitch'
   const NAME                = 'tabswitch'
   const NO_CONFLICT         = $.fn[NAME]
-  const TRANSITION_DURATION = 390
+
+  const Breakpoints = {
+    DESKTOP : 992,
+    TABLET  : 576
+  }
 
   const ClassName = {
     ANIMATE       : 'animate',
@@ -32,14 +36,16 @@ const TabSwitch = (($) => {
     DROPDOWN      : '.dropdown',
     NAV           : '.nav-tabs'
   }
+
+  const TransitionDuration = {
+    DESKTOP : 200,
+    MOBILE  : 300,
+    TABLET  : 390
+  }
   // <<< constants
 
   class TabSwitch {
     constructor(nav) {
-      if (typeof $.fn.tab === 'undefined') {
-        throw new Error('Material\'s JavaScript requires Bootstrap\'s tab.js')
-      }
-
       this._nav          = nav
       this._navindicator = null
     }
@@ -62,6 +68,7 @@ const TabSwitch = (($) => {
       const elWidth = $(element).outerWidth()
 
       $(this._navindicator).addClass(ClassName.SHOW)
+
       Util.reflow(this._navindicator)
 
       if (supportsTransition) {
@@ -75,17 +82,27 @@ const TabSwitch = (($) => {
 
       const complete = () => {
         $(this._nav).removeClass(ClassName.ANIMATE)
+
         $(this._navindicator).removeClass(ClassName.SHOW)
       }
 
       if (!supportsTransition) {
         complete()
+
         return
+      }
+
+      let transitionDuration = TransitionDuration.MOBILE
+
+      if (window.innerWidth >= Breakpoints.DESKTOP) {
+        transitionDuration = TransitionDuration.DESKTOP
+      } else if (window.innerWidth >= Breakpoints.TABLET) {
+        transitionDuration = TransitionDuration.TABLET
       }
 
       $(this._navindicator)
         .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(TRANSITION_DURATION)
+        .emulateTransitionEnd(transitionDuration)
     }
 
     _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
@@ -124,6 +141,7 @@ const TabSwitch = (($) => {
 
         if (!data) {
           data = new TabSwitch(nav)
+
           $(nav).data(DATA_KEY, data)
         }
 
@@ -132,14 +150,15 @@ const TabSwitch = (($) => {
     }
   }
 
-  $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, (event) => {
-    TabSwitch._jQueryInterface.call($(event.target), event.relatedTarget)
+  $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
+    TabSwitch._jQueryInterface.call($(this), event.relatedTarget)
   })
 
   $.fn[NAME]             = TabSwitch._jQueryInterface
   $.fn[NAME].Constructor = TabSwitch
   $.fn[NAME].noConflict  = function () {
     $.fn[NAME] = NO_CONFLICT
+
     return TabSwitch._jQueryInterface
   }
 
