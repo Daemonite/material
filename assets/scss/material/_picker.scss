@@ -1,5 +1,3 @@
-// Todo: landscape picker
-
 .picker {
   position: absolute;
   user-select: none;
@@ -101,6 +99,11 @@
   transform: scale(0.87);
   vertical-align: middle;
 
+  @media (orientation: landscape) {
+    display: inline-flex;
+    max-width: none;
+  }
+
   .picker-opened & {
     transform: scale(1);
   }
@@ -112,6 +115,11 @@
   display: flex;
   justify-content: flex-end;
   padding: $picker-inner-spacer-y $picker-inner-spacer-x;
+
+  @media (orientation: landscape) {
+    padding-right: ($picker-inner-spacer-x * 1.5);
+    padding-left: ($picker-inner-spacer-x * 1.5);
+  }
 
   button {
     flex: 0 1 auto;
@@ -133,6 +141,12 @@
   margin-left: $picker-inner-spacer-x;
   position: relative;
   vertical-align: middle;
+
+  @media (orientation: landscape) {
+    margin-top: $picker-inner-spacer-y;
+    margin-right: ($picker-inner-spacer-x * 1.5);
+    margin-left: ($picker-inner-spacer-x * 1.5);
+  }
 }
 
 .picker-month,
@@ -184,6 +198,11 @@
   background-color: $picker-header-bg;
   color: color-yiq($picker-header-bg);
   padding: $picker-header-padding-y $picker-header-padding-x;
+
+  @media (orientation: landscape) {
+    min-width: ($picker-cell-size * 3.5 + $picker-inner-spacer-x * 2);
+    white-space: nowrap;
+  }
 }
 
 .picker-date-display-bottom {
@@ -197,6 +216,11 @@
 
 .picker-weekday-display {
   margin-right: $picker-inner-spacer-x;
+
+  @media (orientation: landscape) {
+    display: block;
+    margin-right: 0;
+  }
 
   &::after {
     content: ',';
@@ -213,6 +237,11 @@
   margin: auto;
   vertical-align: middle;
   width: $picker-cell-size;
+
+  @media (orientation: landscape) {
+    margin-right: ($picker-inner-spacer-x / 2);
+    margin-left: ($picker-inner-spacer-x / 2);
+  }
 
   &.picker-day-selected {
     background-color: $picker-day-bg-selected;
