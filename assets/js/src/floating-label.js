@@ -34,58 +34,59 @@ const FloatingLabel = (($) => {
   class FloatingLabel {
     constructor(element) {
       this._element = element
+      this._parent  = $(element).closest(Selector.DATA_PARENT)[0]
     }
 
-    change(relatedTarget) {
+    change() {
       if ($(this._element).val() ||
-      $(this._element).is('select') &&
-      $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
-        $(relatedTarget).addClass(ClassName.HAS_VALUE)
+        $(this._element).is('select') &&
+        $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
+        $(this._parent).addClass(ClassName.HAS_VALUE)
       } else {
-        $(relatedTarget).removeClass(ClassName.HAS_VALUE)
+        $(this._parent).removeClass(ClassName.HAS_VALUE)
       }
     }
 
-    focusin(relatedTarget) {
-      $(relatedTarget).addClass(ClassName.IS_FOCUSED)
+    focusin() {
+      $(this._parent).addClass(ClassName.IS_FOCUSED)
     }
 
-    focusout(relatedTarget) {
-      $(relatedTarget).removeClass(ClassName.IS_FOCUSED)
+    focusout() {
+      $(this._parent).removeClass(ClassName.IS_FOCUSED)
     }
 
     static _jQueryInterface(event) {
       return this.each(function () {
         const _event = event ? event : 'change'
+
         let data     = $(this).data(DATA_KEY)
 
         if (!data) {
           data = new FloatingLabel(this)
+
           $(this).data(DATA_KEY, data)
         }
 
         if (typeof _event === 'string') {
-          if (data[_event] === 'undefined') {
+          if (typeof data[_event] === 'undefined') {
             throw new Error(`No method named "${_event}"`)
           }
 
-          data[_event]($(this).closest(Selector.DATA_PARENT))
+          data[_event]()
         }
       })
     }
   }
 
-  $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`,
-    Selector.DATA_TOGGLE,
-    function (event) {
-      FloatingLabel._jQueryInterface.call($(this), event.type)
-    }
-  )
+  $(document).on(`${Event.CHANGE} ${Event.FOCUSIN} ${Event.FOCUSOUT}`, Selector.DATA_TOGGLE, function (event) {
+    FloatingLabel._jQueryInterface.call($(this), event.type)
+  })
 
   $.fn[NAME]             = FloatingLabel._jQueryInterface
   $.fn[NAME].Constructor = FloatingLabel
   $.fn[NAME].noConflict  = function () {
     $.fn[NAME] = NO_CONFLICT
+
     return FloatingLabel._jQueryInterface
   }
 
