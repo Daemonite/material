@@ -259,11 +259,41 @@
   width: $picker-cell-size;
 }
 
-// .picker-select-month,
-// .picker-select-year {
-//   // @extend .form-control;
-//   // @extend .form-control-sm;
-//   display: inline-block !important;
-//   margin: 0 $spacer-sm !important;
-//   width: auto !important;
-// }
+.picker-select-month,
+.picker-select-year {
+  @include border-radius($picker-select-border-radius);
+  @include transition-standard(opacity);
+
+  appearance: none;
+  background-clip: padding-box;
+  background-color: $picker-select-bg;
+  background-image: none;
+  background-position: 100% 50%;
+  background-size: auto 100%;
+  border: 0;
+  box-shadow: none;
+  color: $textfield-color;
+  display: inline-block;
+  font-size: inherit;
+  height: ($picker-cell-size / 2);
+  line-height: ($picker-cell-size / 2);
+  opacity: $picker-select-opacity;
+  padding: 0 ($picker-cell-size / 2) 0 $picker-inner-spacer-x;
+
+  @include focus-hover {
+    opacity: 1;
+  }
+
+  @include media-moz-webkit {
+    background-image: $caret-bg;
+    background-repeat: no-repeat;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.picker-select-month {
+  margin-left: $picker-inner-spacer-x;
+}
