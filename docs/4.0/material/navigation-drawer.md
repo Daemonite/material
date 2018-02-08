@@ -2,6 +2,7 @@
 layout: docs
 title: Navigation drawer
 description: The navigation drawer contains the navigation destinations for your app or site.
+group: material
 toc: true
 ---
 
