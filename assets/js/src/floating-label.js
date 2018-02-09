@@ -9,10 +9,10 @@ import $ from 'jquery'
 const FloatingLabel = (($) => {
 
   // constants >>>
-  const DATA_KEY     = 'md.floatinglabel'
-  const EVENT_KEY    = `.${DATA_KEY}`
-  const NAME         = 'floatinglabel'
-  const NO_CONFLICT  = $.fn[NAME]
+  const DATA_KEY    = 'md.floatinglabel'
+  const EVENT_KEY   = `.${DATA_KEY}`
+  const NAME        = 'floatinglabel'
+  const NO_CONFLICT = $.fn[NAME]
 
   const ClassName = {
     IS_FOCUSED : 'is-focused',
@@ -59,7 +59,7 @@ const FloatingLabel = (($) => {
       return this.each(function () {
         const _event = event ? event : 'change'
 
-        let data     = $(this).data(DATA_KEY)
+        let data = $(this).data(DATA_KEY)
 
         if (!data) {
           data = new FloatingLabel(this)

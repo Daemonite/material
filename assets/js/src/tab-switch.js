@@ -9,9 +9,9 @@ import Util from './util'
 const TabSwitch = (($) => {
 
   // constants >>>
-  const DATA_KEY            = 'md.tabswitch'
-  const NAME                = 'tabswitch'
-  const NO_CONFLICT         = $.fn[NAME]
+  const DATA_KEY    = 'md.tabswitch'
+  const NAME        = 'tabswitch'
+  const NO_CONFLICT = $.fn[NAME]
 
   const Breakpoints = {
     DESKTOP : 992,
@@ -32,9 +32,9 @@ const TabSwitch = (($) => {
   }
 
   const Selector = {
-    DATA_TOGGLE   : '.nav-tabs [data-toggle="tab"]',
-    DROPDOWN      : '.dropdown',
-    NAV           : '.nav-tabs'
+    DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
+    DROPDOWN    : '.dropdown',
+    NAV         : '.nav-tabs'
   }
 
   const TransitionDuration = {
