@@ -12,13 +12,17 @@ layout: base
       <div class="col-lg-10 col-xl-8">
         <h1 class="typography-display-4">Material</h1>
         <p class="font-weight-light typography-title">{{ site.description }}</p>
-        <div>
-          <a class="btn btn-lg btn-secondary mb-3" data-toggle="modal" href="#doc-modal-download">Download Material</a>
-          <a class="btn btn-lg btn-light mb-3" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/">Documentation</a>
+        <div class="d-flex flex-wrap">
+          <a class="btn btn-lg btn-secondary mb-3 mr-3" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/introduction/">
+            <i class="material-icons mr-2">code</i>Documentation
+          </a>
+          <a class="btn btn-lg btn-light mb-3" data-toggle="modal" href="#doc-modal-download">
+            <i class="material-icons mr-2">cloud_download</i>Download
+          </a>
         </div>
         <p class="text-white-hint typography-caption">Currently v{{ site.current_version }}<br>(based on Bootstrap v{{ site.current_version }})</p>
         <hr class="mb-0">
-        <div class="text-right">
+        <div class="d-flex flex-wrap justify-content-end">
           <a class="btn btn-outline-light btn-sm mt-3" href="{{ site.repo }}" target="_blank">
             <i class="material-icons mr-2">code</i>Fork me on GitHub
           </a>
