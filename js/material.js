@@ -2844,8 +2844,8 @@ var FloatingLabel = function ($$$1) {
 }($);
 
 /*
- * global util js
- * based on bootstrap's (v4.0.0-beta) util.js
+ * Global util js
+ * Based on Bootstrap's (v4.0.0) `util.js`
  */
 
 var Util = function ($$$1) {
@@ -2959,8 +2959,8 @@ var Util = function ($$$1) {
 }($);
 
 /*
- * navigation drawer
- * based on bootstrap's (v4.0.0-beta) modal.js
+ * Navigation drawer
+ * Based on Bootstrap's (v4.0.0) `modal.js`
  */
 
 var NavDrawer = function ($$$1) {
@@ -3370,8 +3370,8 @@ var SelectionControlFocus = function ($$$1) {
 }($);
 
 /*
- * tab indicator animation
- * requires bootstrap's (v4.0.0-beta) tab.js
+ * Tab indicator animation
+ * Requires Bootstrap's (v4.0.0) `tab.js`
  */
 
 var TabSwitch = function ($$$1) {
