@@ -55,7 +55,7 @@ Material provides some basic styles for a set of components that are normally us
 
 ## Usage
 
-The navigation drawer plugin toggles your hidden drawer on demand, via data attributes or JavaScripts. It also adds `.navdrawer-open` to the `<body>` for additional styling. The plugin also generates a `.navdrawer-backdrop` to provide a click area for dismissing shown navigation drawer.
+The navigation drawer plugin toggles your hidden drawer on demand, via data attributes or JavaScripts. It also adds `.navdrawer-open{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}` to the `<body>` for additional styling. The plugin also generates a `.navdrawer-backdrop{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}` to provide a click area for dismissing shown navigation drawer when required.
 
 ### Data attributes
 
@@ -153,6 +153,12 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
   </thead>
   <tbody>
     <tr>
+      <td>breakpoint</td>
+      <td>string</td>
+      <td><code class="text-nowrap">''</code></td>
+      <td>Works with <code class="text-nowrap">type</code> to determine when the styles associated with a particular type kick in.</td>
+    </tr>
+    <tr>
       <td>keyboard</td>
       <td>boolean</td>
       <td>true</td>
@@ -168,7 +174,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>type</td>
       <td>string</td>
       <td><code class="text-nowrap">'default'</code></td>
-      <td>Different types behave differently on desktop. For details regarding different types of navigation drawer, see <a href="#variations">variations</a>.</td>
+      <td>Different types of navigation drawers behave differently. For details regarding each type, see <a href="#variations">variations</a>.</td>
     </tr>
   </tbody>
 </table>
@@ -184,26 +190,32 @@ Add `.navdrawer-right` to the navigation drawer to make it stick to the right ha
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-right" id="navdrawerRight" tabindex="-1">
-  ...
-</div>
+<div aria-hidden="true" class="navdrawer navdrawer-right" id="navdrawerRight" tabindex="-1">...</div>
 {% endhighlight %}
 
 ### Permanent drawer
 
-A permanent navigation drawer on desktop (`min-width: 992px`) is always visible at the same elevation as the content. A permanent drawer cannot be closed on desktop, but it behaves in the same way as a default drawer on mobile and tablet.
+A permanent navigation drawer is always visible at the same elevation as the content.
 
-<div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent.html" style="height: 480px; min-width: 992px;"></iframe>
+<div class="bd-example">
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent" id="navdrawerPermanent" tabindex="-1">
-  ...
-</div>
+<button data-target="#navdrawerPermanent" data-toggle="navdrawer" data-type="permanent" type="button">Launch permanent drawer</button>
+
+<div aria-hidden="true" class="navdrawer navdrawer-permanent" id="navdrawerPermanent" tabindex="-1">...</div>
 {% endhighlight %}
 
-Because a permanent navigation drawer is always visible on desktop, you may need to add some custom styles to shift the content of your page to the left or right to accomendate the screen estate being taken up by the drawer. For example:
+You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the permanent styles only kick in when the screen reaches a certain breakpoint.
+
+{% highlight html %}
+<button ... data-breakpoint="lg" data-toggle="navdrawer" data-type="permanent" ...>...</button>
+
+<div ... class="navdrawer navdrawer-permanent-lg" ...>...</div>
+{% endhighlight %}
+
+Because a permanent navigation drawer is always visible, you may need to add some custom styles to shift the content of your page to the left or right to accomendate the screen estate being taken up by the drawer. For example, to work with a `.navdrawer-permanent-lg`:
 
 {% highlight css %}
 @include media-breakpoint-up(lg) {
@@ -217,14 +229,12 @@ Because a permanent navigation drawer is always visible on desktop, you may need
 
 A permanent navigation drawer has a few variations of its own, too. It can be clipped under the top navigation bar (`.navbar`):
 
-<div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-clipped.html" style="height: 480px; min-width: 992px;"></iframe>
+<div class="bd-example">
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-clipped.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-clipped" id="navdrawerPermanentClipped" tabindex="-1">
-  ...
-</div>
+<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-clipped" id="navdrawerPermanentClipped" tabindex="-1">...</div>
 {% endhighlight %}
 
 #### Float permanent drawer
@@ -232,28 +242,24 @@ A permanent navigation drawer has a few variations of its own, too. It can be cl
 For pages that require less hierarchy, a floating permanent drawer may be the best fit:
 
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-float.html" style="height: 480px; min-width: 992px;"></iframe>
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-float.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloat" tabindex="-1">
-  ...
-</div>
+<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloat" tabindex="-1">...</div>
 {% endhighlight %}
 
 A floating permanent drawer can also work with other componenets, such as `.card`:
 
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-float-card.html" style="height: 480px; min-width: 992px;"></iframe>
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-float-card.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
 <div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloatCard" tabindex="-1">
   <div class="navdrawer-content">
     <div class="card m-3">
-      <nav class="navdrawer-nav">
-        ...
-      </nav>
+      <nav class="navdrawer-nav">...</nav>
     </div>
   </div>
 </div>
@@ -261,28 +267,44 @@ A floating permanent drawer can also work with other componenets, such as `.card
 
 ### Persistent drawer
 
-A persistent navigation drawer can be closed and opened on desktop (`min-width: 992px`), but unlike a default drawer, a persistent drawer sits on the same surface elevation as the content so it does not generate a backdrop on desktop.
+A persistent navigation drawer can be closed and opened, but unlike a default drawer, a persistent drawer sits on the same surface elevation as the content so it does not generate a backdrop.
 
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-persistent.html" style="height: 480px; min-width: 992px;"></iframe>
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-persistent.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-persistent" id="navdrawerPersistent" tabindex="-1">
-  ...
-</div>
+<button data-target="#navdrawerPersistent" data-toggle="navdrawer" data-type="persistent" type="button">Launch persistent drawer</button>
+
+<div aria-hidden="true" class="navdrawer navdrawer-persistent" id="navdrawerPersistent" tabindex="-1">...</div>
+{% endhighlight %}
+
+You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.
+
+{% highlight html %}
+<button ... data-breakpoint="lg" data-toggle="navdrawer" data-type="persistent" ...>...</button>
+
+<div ... class="navdrawer navdrawer-persistent-lg" ...>...</div>
 {% endhighlight %}
 
 ### Temporary drawer
 
-A temporary navigation drawer can be closed and opened on desktop (`min-width: 992px`) and sits above all other content, but unlike a default drawer, a temporary drawer does not generate a backdrop on desktop so it can remain open while you perform other actions on the page.
+A temporary navigation drawer can be closed and opened and sits above all other content, but unlike a default drawer, a temporary drawer does not generate a backdrop so it can remain open while you perform other actions on the page.
 
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
-  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-temporary.html" style="height: 480px; min-width: 992px;"></iframe>
+  <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-temporary.html" style="height: 480px;"></iframe>
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-temporary" id="navdrawerTemporary" tabindex="-1">
-  ...
-</div>
+<button data-target="#navdrawerTemporary" data-toggle="navdrawer" data-type="temporary" type="button">Launch temporary drawer</button>
+
+<div aria-hidden="true" class="navdrawer navdrawer-temporary" id="navdrawerTemporary" tabindex="-1">...</div>
+{% endhighlight %}
+
+You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the temporary styles only kick in when the screen reaches a certain breakpoint.
+
+{% highlight html %}
+<button ... data-breakpoint="lg" data-toggle="navdrawer" data-type="temporary" ...>...</button>
+
+<div ... class="navdrawer navdrawer-temporary-lg" ...>...</div>
 {% endhighlight %}
