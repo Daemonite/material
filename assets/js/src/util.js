@@ -1,8 +1,8 @@
 import $ from 'jquery'
 
 /*
- * global util js
- * based on bootstrap's (v4.0.0-beta) util.js
+ * Global util js
+ * Based on Bootstrap's (v4.0.0-beta) `util.js`
  */
 
 const Util = (($) => {
