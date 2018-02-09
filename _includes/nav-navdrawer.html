@@ -1,4 +1,4 @@
-<div aria-hidden="true" class="navdrawer navdrawer-permanent doc-navdrawer" id="{{ site.id.navdrawer }}" tabindex="-1">
+<div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="{{ site.id.navdrawer }}" tabindex="-1">
   <div class="navdrawer-content">
     <div class="d-flex flex-column doc-navdrawer-body">
       <div class="navdrawer-header">
@@ -20,14 +20,14 @@
           {%- assign class_show = 'show' -%}
         {%- endif -%}
 
-        {%- if group.title == 'Material' -%}
+        {%- if group.title == 'Components' or group.title == 'Material' -%}
           <div class="navdrawer-divider"></div>
         {%- endif -%}
 
-          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+          <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
             <strong>{{ group.title }}</strong>
           </a>
-          <div class="collapse pb-sm {{ class_show }}" id="{{ site.id.navdrawer }}_{{ group_slug | replace: ' ', '_' }}">
+          <div class="collapse pb-2 {{ class_show }}" id="{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
 
             {%- for doc in group.pages -%}
 
@@ -38,7 +38,7 @@
                 {%- assign class_active = 'active' -%}
               {%- endif -%}
 
-              <a class="nav-item nav-link pl-lg py-sm {{ class_active }}" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/"><span class="font-weight-normal">{{ doc.title }}</span></a>
+              <a class="nav-item nav-link pl-4 py-2 {{ class_active }}" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/"><span class="font-weight-normal">{{ doc.title }}</span></a>
 
             {%- endfor -%}
 
@@ -52,10 +52,10 @@
         <div class="navdrawer-divider mt-no"></div>
         <div class="navdrawer-nav">
           <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank">
-            <i class="material-icons mr-md">code</i>Fork me on GitHub
+            <i class="material-icons mr-3">code</i>Fork me on GitHub
           </a>
           <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank">
-            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
+            <i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon
           </a>
         </div>
       </div>

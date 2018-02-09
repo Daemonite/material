@@ -7,29 +7,35 @@
 # permalinks
   permalink:        pretty
 
+# plugins
+  plugins:
+                    - jekyll-redirect-from
+                    - jekyll-sitemap
+                    - jekyll-toc
+
 # server
   baseurl:          "/material" # workaround for our GitHub Pages hosting
   destination:      "gh-pages/material" # workaround for our GitHub Pages hosting
   encoding:         "UTF-8"
   exclude:          
+                    - .babelrc.js
+                    - .eslintignore
                     - .git
                     - .gitignore
-                    - .sass-cache
+                    - .sass-cache/
                     - assets/
                     - bower.json
+                    - build/
+                    - docs-assets/
                     - Gemfile
                     - Gemfile.lock
                     - gh-pages/
-                    - Gruntfile.js
                     - lint-vars.sh
                     - node_modules/
-                    - npm-shrinkwrap.json
                     - package.json
+                    - package-lock.json
+                    - README.md
   host:             0.0.0.0
-  plugins:
-                    - jekyll-redirect-from
-                    - jekyll-sitemap
-                    - jekyll-toc
   port:             9999
   source:           "."
   url:              "http://daemonite.github.io/material"
@@ -41,18 +47,22 @@
 
 # vars
   cdn:
+    bs_css:         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    bs_css_docs:    "https://getbootstrap.com/assets/css/docs.min.css"
+    bs_js:          "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    bs_js_docs:     "https://getbootstrap.com/assets/js/docs.min.js"
     jquery:         "https://code.jquery.com/jquery-3.2.1.slim.min.js"
     jquery_hash:    "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     md_font:        "https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i"
     md_icon:        "https://fonts.googleapis.com/icon?family=Material+Icons"
-    popper:         "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-    popper_hash:    "sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-  current_version:  "4.0.0-beta"
+    popper:         "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    popper_hash:    "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  current_version:  "4.0.0"
   docs_version:     "4.0"
   download:
-    source:         "https://github.com/Daemonite/material/archive/v4.0.0-beta.zip"
-    dist:           "https://github.com/Daemonite/material/releases/download/v4.0.0-beta/material-4.0.0-beta-dist.zip"
+    source:         "https://github.com/Daemonite/material/archive/v4.0.0.zip"
+    dist:           "https://github.com/Daemonite/material/releases/download/v4.0.0/material-4.0.0-dist.zip"
   id:
-    navbar:         "doc_navbar"
-    navdrawer:      "doc_navdrawer"
+    navbar:         "doc-navbar"
+    navdrawer:      "doc-navdrawer"
   repo:             "https://github.com/Daemonite/material"

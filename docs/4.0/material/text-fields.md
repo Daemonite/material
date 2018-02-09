@@ -67,19 +67,26 @@ Implementation of floating label text fields requires `material.js` or `material
 It is recommended to run the following JavaScript code after the document is ready or a floating label text field is added dynamically on a page, so the floating label will get the correct initial state based on whether a particular floating label text field has value or not.
 
 {% highlight js %}
-$('.floating-label > .form-control').floatinglabel();
+$('.floating-label .form-control').floatinglabel();
 {% endhighlight %}
 
-## Multi-line fields
-
-Multi-line text fields wrap text onto a new line by expanding the bottom of the field, shifting screen elements downward. Multi-line text fields allow users to see everything they input at once.
-
-**N.B.** Implementations of this requires `material.js` or `material.min.js`.
-
 {% example html %}
-<div class="form-group floating-label">
-  <label for="exampleTextarea1">Floating label</label>
-  <textarea class="form-control textarea-autosize" id="exampleTextarea1" rows="1"></textarea>
+<div class="form-group">
+  <div class="floating-label" id="qweqweqwe">
+    <label for="exampleInputFloatingLabel4">Floating label</label>
+    <input class="form-control" id="exampleInputFloatingLabel4" placeholder="Placeholder" type="text" value="Initial value">
+  </div>
+</div>
+<div class="form-group">
+  <div class="floating-label" id="asdasdasd">
+    <label for="exampleSelectFloatingLabel2">Floating label</label>
+    <select class="form-control" id="exampleSelectFloatingLabel2">
+      <option> </option>
+      <option selected>Initial option</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
 </div>
 {% endexample %}
 

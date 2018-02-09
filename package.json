@@ -1,46 +1,56 @@
 {
   "name": "daemonite-material",
   "author": "Daemon Pty Ltd",
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Android >= 4.4",
+    "Chrome >= 45",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "Firefox >= 38",
+    "iOS >= 9",
+    "Opera >= 30",
+    "Safari >= 9"
+  ],
   "bugs": {
     "url": "https://github.com/Daemonite/material/issues"
   },
-  "dependencies": {
-    "jquery": "^3.0.0",
-    "popper.js": "^1.12.3"
-  },
+  "dependencies": {},
   "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
-    "autoprefixer": "^7.1.2",
-    "babel-eslint": "^7.2.3",
+    "@babel/cli": "^7.0.0-beta.38",
+    "@babel/core": "^7.0.0-beta.38",
+    "@babel/preset-env": "^7.0.0-beta.38",
+    "autoprefixer": "^7.2.5",
+    "babel-eslint": "^8.2.1",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "babel-preset-es2015": "^6.24.1",
-    "eslint": "^4.2.0",
-    "grunt": "^1.0.1",
-    "grunt-babel": "^7.0.0",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
-    "grunt-contrib-qunit": "^2.0.0",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^3.0.1",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-jekyll": "^0.4.6",
-    "grunt-postcss": "^0.8.0",
-    "grunt-prettify": "^0.4.0",
-    "grunt-scss-lint": "^0.5.0",
-    "load-grunt-tasks": "^3.5.2",
-    "time-grunt": "^1.4.0"
+    "cssnano": "^4.0.0-rc.2",
+    "eslint": "^4.16.0",
+    "eslint-plugin-compat": "^2.2.0",
+    "htmllint-cli": "0.0.6",
+    "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
+    "pickadate": "^3.5.6",
+    "postcss-cli": "^4.1.1",
+    "rollup": "^0.55.1",
+    "rollup-plugin-babel": "4.0.0-beta.0",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended-scss": "^3.0.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-order": "^0.8.0",
+    "stylelint-scss": "^2.2.0",
+    "uglify-js": "^3.3.9"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "file": [
-    "assets",
-    "css/**/*.css",
-    "Gruntfile.js",
-    "js/**/*.js",
-    "templates/**/*.html"
+    "assets/",
+    "css/",
+    "js/"
   ],
   "homepage": "http://daemonite.github.io/material/",
   "keywords": [
@@ -55,14 +65,42 @@
   ],
   "license": "MIT",
   "main": "js/material.js",
+  "peerDependencies": {
+    "jquery": "1.9.1 - 3",
+    "pickadate": "^3.5.6"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Daemonite/material.git"
   },
   "sass": "assets/sass/material.scss",
   "scripts": {
-    "eslint": "eslint --config assets/js/.eslintrc.json assets/js/src/*.js"
+    "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
+    "css-build": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
+    "css-build-docs": "npm-run-all --parallel css-lint-docs css-compile-docs --sequential css-prefix-docs css-minify-docs",
+    "css-compile": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss/material.scss css/material.css",
+    "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true docs-assets/scss/docs.scss docs/css/docs.css",
+    "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
+    "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"docs-assets/scss/**/*.scss\"",
+    "css-lint-vars": "node build/lint-vars.js assets/scss/",
+    "css-minify": "postcss --config build/postcss.config.js --env minify --output css/material.min.css css/material.css",
+    "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
+    "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
+    "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"docs/css/docs.css\"",
+    "dist": "npm-run-all --parallel css js",
+    "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
+    "docs-compile": "bundle exec jekyll build",
+    "docs-lint": "htmllint --rc build/.htmllintrc \"gh-pages/**/*.html\"",
+    "docs-serve": "bundle exec jekyll serve",
+    "js": "npm-run-all js-lint* js-compile* js-minify*",
+    "js-build": "npm-run-all js-lint js-compile js-minify",
+    "js-build-docs": "npm-run-all js-lint-docs js-minify-docs",
+    "js-compile": "rollup --config build/rollup.config.js --sourcemap",
+    "js-lint": "eslint --config build/.eslintrc.addon.json assets/js/addons && eslint --config build/.eslintrc.json assets/js/src/",
+    "js-lint-docs": "eslint --config build/.eslintrc.addon.json docs-assets/js/",
+    "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/material.js.map,includeSources,url=material.min.js.map\" --output js/material.min.js js/material.js",
+    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/*.js\""
   },
   "style": "css/material.css",
-  "version": "4.0.0-beta"
+  "version": "4.0.0"
 }

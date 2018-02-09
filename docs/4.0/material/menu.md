@@ -16,10 +16,10 @@ Add `.menu` to default `.dropdown-menu` to have the menu appear above its toggle
 
 {% example html %}
 <div class="dropdown">
-  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton1" type="button">
     Dropdown
   </button>
-  <div aria-labelledby="dropdownMenuButton" class="dropdown-menu menu">
+  <div aria-labelledby="dropdownMenuButton1" class="dropdown-menu menu">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>
@@ -33,10 +33,10 @@ Add an additional class `.dropdown-menu-sm` to an existing `.dropdown-menu` to a
 
 {% example html %}
 <div class="dropdown">
-  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton2" type="button">
     Dropdown
   </button>
-  <div aria-labelledby="dropdownMenuButton" class="dropdown-menu dropdown-menu-sm">
+  <div aria-labelledby="dropdownMenuButton2" class="dropdown-menu dropdown-menu-sm">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>
@@ -48,10 +48,10 @@ Add an additional class `.menu-cascading` to an existing `.dropdown-menu` to hav
 
 {% example html %}
 <div class="dropdown">
-  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" type="button">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton3" type="button">
     Dropdown
   </button>
-  <div aria-labelledby="dropdownMenuButton" class="dropdown-menu menu-cascading">
+  <div aria-labelledby="dropdownMenuButton3" class="dropdown-menu menu-cascading">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>

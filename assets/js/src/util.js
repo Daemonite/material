@@ -1,6 +1,8 @@
+import $ from 'jquery'
+
 /*
- * global util js
- * based on bootstrap's (v4.0.0-beta) util.js
+ * Global util js
+ * Based on Bootstrap's (v4.0.0) `util.js`
  */
 
 const Util = (($) => {
@@ -8,29 +10,17 @@ const Util = (($) => {
   const MAX_UID  = 1000000
   let transition = false
 
-  const TransitionEndEvent = {
-    WebkitTransition : 'webkitTransitionEnd',
-    MozTransition    : 'transitionend',
-    OTransition      : 'oTransitionEnd otransitionend',
-    transition       : 'transitionend'
-  }
-
   function getSpecialTransitionEndEvent() {
     return {
       bindType     : transition.end,
       delegateType : transition.end,
       handle(event) {
         if ($(event.target).is(this)) {
-          // eslint-disable-next-line prefer-rest-params
-          return event.handleObj.handler.apply(this, arguments)
+          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
         }
-        return undefined
+        return undefined // eslint-disable-line no-undefined
       }
     }
-  }
-
-  function isElement(obj) {
-    return (obj[0] || obj).nodeType
   }
 
   function setTransitionEndSupport() {
@@ -44,7 +34,7 @@ const Util = (($) => {
   }
 
   function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
   }
 
   function transitionEndEmulator(duration) {
@@ -64,35 +54,33 @@ const Util = (($) => {
   }
 
   function transitionEndTest() {
-    if (window.QUnit) {
+    if (typeof window !== 'undefined' && window.QUnit) {
       return false
     }
 
-    const el = document.createElement('material')
-
-    for (const name in TransitionEndEvent) {
-      if (el.style[name] !== undefined) {
-        return {
-          end: TransitionEndEvent[name]
-        }
-      }
+    return {
+      end: 'transitionend'
     }
-
-    return false
   }
 
   const Util = {
+
     TRANSITION_END: 'mdTransitionEnd',
 
     getSelectorFromElement(element) {
       let selector = element.getAttribute('data-target')
 
-      if (!selector) {
+      if (!selector || selector === '#') {
         selector = element.getAttribute('href') || ''
-        selector = /^#[a-z]/i.test(selector) ? selector : null
       }
 
-      return selector
+      try {
+        const $selector = $(document).find(selector)
+
+        return $selector.length > 0 ? selector : null
+      } catch (err) {
+        return null
+      }
     },
 
     getUID(prefix) {
@@ -103,8 +91,12 @@ const Util = (($) => {
       return prefix
     },
 
+    isElement(obj) {
+      return (obj[0] || obj).nodeType
+    },
+
     reflow(element) {
-      new Function('md', 'return md')(element.offsetHeight)
+      return element.offsetHeight
     },
 
     supportsTransitionEnd() {
@@ -117,10 +109,10 @@ const Util = (($) => {
 
     typeCheckConfig(componentName, config, configTypes) {
       for (const property in configTypes) {
-        if (configTypes.hasOwnProperty(property)) {
+        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
           const expectedTypes = configTypes[property]
           const value         = config[property]
-          const valueType     = value && isElement(value) ? 'element' : toType(value)
+          const valueType     = value && Util.isElement(value) ? 'element' : toType(value)
 
           if (!new RegExp(expectedTypes).test(valueType)) {
             throw new Error(
@@ -137,6 +129,6 @@ const Util = (($) => {
 
   return Util
 
-})(jQuery)
+})($)
 
 export default Util

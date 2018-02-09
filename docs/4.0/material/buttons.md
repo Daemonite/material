@@ -7,9 +7,9 @@ redirect_from: "/material/"
 toc: true
 ---
 
-Material buttons trigger an ink reaction on press. They may display text, imagery, or both. Flat buttons and raised buttons are the most commonly used types.
+Flat buttons and raised buttons are the most commonly used types.
 
-## Flat & raised buttons
+## Buttons
 
 ### Flat buttons
 
@@ -18,7 +18,15 @@ Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or in
 **Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#outline-buttons).**
 
 {% example html %}
-<button class="btn btn-outline waves-attach" type="button">Flat</button>
+<button class="btn btn-flat my-xs" type="button">Flat</button>
+<button class="btn btn-flat-primary my-xs" type="button">Primary</button>
+<button class="btn btn-flat-secondary my-xs" type="button">Secondary</button>
+<button class="btn btn-flat-danger my-xs" type="button">Danger</button>
+<button class="btn btn-flat-info my-xs" type="button">Info</button>
+<button class="btn btn-flat-success my-xs" type="button">Success</button>
+<button class="btn btn-flat-warning my-xs" type="button">Warning</button>
+<button class="btn btn-flat-dark my-xs" type="button">Dark</button>
+<button class="btn btn-flat-light my-xs" type="button">Light</button>
 {% endexample %}
 
 ### Raised buttons
@@ -28,7 +36,15 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% example html %}
-<button class="btn waves-attach" type="button">Raised</button>
+<button class="btn my-xs" type="button">Raised</button>
+<button class="btn btn-primary my-xs" type="button">Primary</button>
+<button class="btn btn-secondary my-xs" type="button">Secondary</button>
+<button class="btn btn-danger my-xs" type="button">Danger</button>
+<button class="btn btn-info my-xs" type="button">Info</button>
+<button class="btn btn-success my-xs" type="button">Success</button>
+<button class="btn btn-warning my-xs" type="button">Warning</button>
+<button class="btn btn-dark my-xs" type="button">Dark</button>
+<button class="btn btn-light my-xs" type="button">Light</button>
 {% endexample %}
 
 ## Floating action buttons
@@ -36,18 +52,46 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 A floating action button represents the primary action in an application, it is used for a promoted action.
 
 {% example html %}
-<button class="btn btn-float waves-attach waves-circle" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-float" type="button"><i class="material-icons">add</i></button>
 {% endexample %}
 
 ### Colours
 
 {% example html %}
-<button class="btn btn-float btn-primary waves-attach waves-circle" type="button"><i class="material-icons">edit</i></button>
-<button class="btn btn-float btn-secondary waves-attach waves-circle" type="button"><i class="material-icons">grade</i></button>
-<button class="btn btn-float btn-danger waves-attach waves-circle" type="button"><i class="material-icons">favorite</i></button>
-<button class="btn btn-float btn-info waves-attach waves-circle" type="button"><i class="material-icons">reply</i></button>
-<button class="btn btn-float btn-success waves-attach waves-circle" type="button"><i class="material-icons">people</i></button>
-<button class="btn btn-float btn-warning waves-attach waves-circle" type="button"><i class="material-icons">my_location</i></button>
+<button class="btn btn-float btn-primary" type="button"><i class="material-icons">edit</i></button>
+<button class="btn btn-float btn-secondary" type="button"><i class="material-icons">grade</i></button>
+<button class="btn btn-float btn-danger" type="button"><i class="material-icons">favorite</i></button>
+<button class="btn btn-float btn-info" type="button"><i class="material-icons">reply</i></button>
+<button class="btn btn-float btn-success" type="button"><i class="material-icons">people</i></button>
+<button class="btn btn-float btn-warning" type="button"><i class="material-icons">my_location</i></button>
+{% endexample %}
+
+### Dropdown
+
+Floating action buttons can also work with dropdown menus to fling out related actions:
+
+{% example html %}
+<div class="btn-float-dropdown dropdown">
+  <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
+  <div class="dropdown-menu">
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+  </div>
+</div>
+{% endexample %}
+
+Or flinging them upwards:
+
+{% example html %}
+<div class="btn-float-dropdown dropup">
+  <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
+  <div class="dropdown-menu">
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+    <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
+  </div>
+</div>
 {% endexample %}
 
 ### Sizes
@@ -55,7 +99,7 @@ A floating action button represents the primary action in an application, it is 
 A smaller sized, i.e. mini floating action button, is also available.
 
 {% example html %}
-<button class="btn btn-float btn-sm waves-attach waves-circle" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-float btn-sm" type="button"><i class="material-icons">add</i></button>
 {% endexample %}
 
 ## Toggle buttons
@@ -64,19 +108,19 @@ Toggle buttons may be used to group related options, similar to [Components/Butt
 
 {% example html %}
 <div class="btn-group" data-toggle="buttons" role="group">
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options1" type="radio">
     <i class="material-icons">format_align_left</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options1" type="radio">
     <i class="material-icons">format_align_center</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options1" type="radio">
     <i class="material-icons">format_align_right</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options1" type="radio">
     <i class="material-icons">format_align_justify</i>
   </label>
@@ -87,35 +131,35 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
 
 {% example html %}
 <div class="btn-group" data-toggle="buttons" role="group">
-  <button class="btn btn-outline btn-sm waves-attach" disabled>
+  <button class="btn btn-outline btn-sm" disabled>
     <i class="material-icons">attach_file</i>
   </button>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options2" type="checkbox">
     <i class="material-icons">format_bold</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options2" type="checkbox">
     <i class="material-icons">format_italic</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options2" type="checkbox">
     <i class="material-icons">format_underlined</i>
   </label>
   <div class="btn-group" role="group">
-    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle waves-attach" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
     <div aria-labelledby="toggleBtnDrop1" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item waves-attach" href="#">Colour 1</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 2</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
     </div>
   </div>
   <div class="btn-group" role="group">
-    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle waves-attach" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
     <div aria-labelledby="toggleBtnDrop2" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item waves-attach" href="#">Colour 1</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 2</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
     </div>
   </div>
 </div>
@@ -125,19 +169,19 @@ Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
 
 {% example html %}
 <div class="btn-group btn-group-fluid" data-toggle="buttons" role="group">
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options3" type="radio">
     <i class="material-icons">format_align_left</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options3" type="radio">
     <i class="material-icons">format_align_center</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options3" type="radio">
     <i class="material-icons">format_align_right</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach">
+  <label class="btn btn-outline btn-sm">
     <input autocomplete="off" name="options3" type="radio">
     <i class="material-icons">format_align_justify</i>
   </label>
@@ -148,35 +192,35 @@ Vertical variation is also supported
 
 {% example html %}
 <div class="btn-group-vertical" data-toggle="buttons" role="group">
-  <button class="btn btn-outline btn-sm waves-attach" disabled>
+  <button class="btn btn-outline btn-sm" disabled>
     <i class="material-icons">attach_file</i>
   </button>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options4" type="checkbox">
     <i class="material-icons">format_bold</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options4" type="checkbox">
     <i class="material-icons">format_italic</i>
   </label>
-  <label class="btn btn-outline btn-sm waves-attach active">
+  <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options4" type="checkbox">
     <i class="material-icons">format_underlined</i>
   </label>
   <div class="btn-group" role="group">
-    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle waves-attach" data-toggle="dropdown" id="toggleBtnDrop3" type="button"><i class="material-icons">format_color_text</i></button>
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop3" type="button"><i class="material-icons">format_color_text</i></button>
     <div aria-labelledby="toggleBtnDrop3" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item waves-attach" href="#">Colour 1</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 2</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
     </div>
   </div>
   <div class="btn-group" role="group">
-    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle waves-attach" data-toggle="dropdown" id="toggleBtnDrop4" type="button"><i class="material-icons">format_color_fill</i></button>
+    <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop4" type="button"><i class="material-icons">format_color_fill</i></button>
     <div aria-labelledby="toggleBtnDrop4" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item waves-attach" href="#">Colour 1</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 2</a>
-      <a class="dropdown-item waves-attach" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">Colour 1</a>
+      <a class="dropdown-item" href="#">Colour 2</a>
+      <a class="dropdown-item" href="#">Colour 3</a>
     </div>
   </div>
 </div>

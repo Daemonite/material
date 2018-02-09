@@ -17,21 +17,21 @@ Tables may be embedded within a card, with data manipulation tools and table nav
     <h4 class="card-title mb-no">Card title</h4>
     <div class="card-actions ml-auto py-no">
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no waves-attach" data-toggle="dropdown" type="button"><i class="material-icons">filter_list</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no" data-toggle="dropdown" type="button"><i class="material-icons">filter_list</i></button>
         <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item waves-attach" href="#">Filter 1</a>
-          <a class="dropdown-item waves-attach" href="#">Filter 2</a>
-          <a class="dropdown-item waves-attach" href="#">Filter 3</a>
+          <a class="dropdown-item" href="#">Filter 1</a>
+          <a class="dropdown-item" href="#">Filter 2</a>
+          <a class="dropdown-item" href="#">Filter 3</a>
         </div>
       </div>
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no waves-attach" data-toggle="dropdown" type="button"><i class="material-icons">more_vert</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no" data-toggle="dropdown" type="button"><i class="material-icons">more_vert</i></button>
         <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item waves-attach" href="#">Action</a>
-          <a class="dropdown-item waves-attach" href="#">Another action</a>
-          <a class="dropdown-item waves-attach" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item waves-attach" href="#">Separated link</a>
+          <a class="dropdown-item" href="#">Separated link</a>
         </div>
       </div>
     </div>
@@ -70,18 +70,18 @@ Tables may be embedded within a card, with data manipulation tools and table nav
   <div class="card-actions justify-content-end">
     <span class="align-self-center m-xs text-muted">Rows per page:</span>
     <div class="dropdown">
-      <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline dropdown-toggle waves-attach" data-toggle="dropdown" type="button">3</button>
+      <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline dropdown-toggle" data-toggle="dropdown" type="button">3</button>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item waves-attach active" href="#">3</a>
-        <a class="dropdown-item waves-attach" href="#">10</a>
-        <a class="dropdown-item waves-attach" href="#">100</a>
+        <a class="dropdown-item active" href="#">3</a>
+        <a class="dropdown-item" href="#">10</a>
+        <a class="dropdown-item" href="#">100</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item waves-attach" href="#">Show all</a>
+        <a class="dropdown-item" href="#">Show all</a>
       </div>
     </div>
     <span class="align-self-center m-xs text-muted">1-3 of 300</span>
-    <a class="btn btn-outline waves-attach" href="#"><i class="material-icons">chevron_left</i></a>
-    <a class="btn btn-outline waves-attach" href="#"><i class="material-icons">chevron_right</i></a>
+    <a class="btn btn-outline" href="#"><i class="material-icons">chevron_left</i></a>
+    <a class="btn btn-outline" href="#"><i class="material-icons">chevron_right</i></a>
   </div>
 </div>
 {% endexample %}

@@ -6,42 +6,46 @@ group: getting-started
 toc: true
 ---
 
-## Starter template
+## Contents
 
-Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:
+### Precompiled code
 
-{% highlight html %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+The Material [precompiled code download]({{ site.download.dist }}) includes the following:
 
-    <!-- CSS -->
-    <!-- Add Material font (Roboto) and Material icon as needed -->
-    <link href="{{ site.cdn.md_font }}" rel="stylesheet">
-    <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
-
-    <!-- Add Material CSS, replace Bootstrap CSS -->
-    <link href="css/material.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ site.cdn.jquery }}"></script>
-    <script src="{{ site.cdn.popper }}"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
-    <script src="{{ site.baseurl }}/js/material.min.js"></script>
-  </body>
-</html>
+{% highlight plaintext %}
+daemonite-material/
+├── css/
+│   ├── material.css
+│   ├── material.css.map
+│   ├── material.min.css
+│   └── material.min.css.map
+└── js/
+    ├── material.js
+    ├── material.js.map
+    ├── material.min.js
+    └── material.min.js.map
 {% endhighlight %}
 
-That's all you need for overall page requirements.
+This is the most basic form of Material: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`). Remember to check the [starter template](#starter-template) for a basic set up guide.
+
+### Source code
+
+The Material [source code download]({{ site.download.source }}) includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
+
+{% highlight plaintext %}
+daemonite-material/
+├── assets/
+│   ├── js/
+│   └── scss/
+├── css/
+├── docs/
+│   └── 4.0/
+└── js/
+{% endhighlight %}
+
+The `assets/` is the source code for our CSS and JavaScript. The `css/` and `js/` folders are the same in the precompiled download section above. The `docs/` folder includes the source code for our documentation. Beyond that, any other included file provides support for development.
+
+Please check the [theming guide]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/) for how to customise Material for your project using our source code.
 
 ## Important globals
 
@@ -81,3 +85,40 @@ Material is developed *mobile first*, a strategy in which we optimize code for m
 {% highlight html %}
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 {% endhighlight %}
+
+## Starter template
+
+Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:
+
+{% highlight html %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+
+    <!-- CSS -->
+    <!-- Add Material font (Roboto) and Material icon as needed -->
+    <link href="{{ site.cdn.md_font }}" rel="stylesheet">
+    <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
+
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link href="css/material.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{ site.cdn.jquery }}"></script>
+    <script src="{{ site.cdn.popper }}"></script>
+    <script src="{{ site.cdn.bs_js }}"></script>
+
+    <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
+    <script src="js/material.min.js"></script>
+  </body>
+</html>
+{% endhighlight %}
+
+That's all you need for overall page requirements.

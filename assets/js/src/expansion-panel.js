@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 /*
  * expansion panel
  * upon selecting the collapsed panel,
@@ -26,34 +28,28 @@ const ExpansionPanel = (($) => {
   }
   // <<< constants
 
-  $(document).on(`${Event.HIDE}`,
-    Selector.PANEL_BODY,
-    (event) => {
-      const target = $(event.target).closest(Selector.PANEL)
+  $(document).on(`${Event.HIDE}`, Selector.PANEL_BODY, function () {
+    const target = $(this).closest(Selector.PANEL)
 
-      target.removeClass(ClassName.SHOW)
+    target.removeClass(ClassName.SHOW)
 
-      const predecessor = target.prev(Selector.PANEL)
+    const predecessor = target.prev(Selector.PANEL)
 
-      if (predecessor.length) {
-        predecessor.removeClass(ClassName.SHOW_PREDECESSOR)
-      }
+    if (predecessor.length) {
+      predecessor.removeClass(ClassName.SHOW_PREDECESSOR)
     }
-  ).on(`${Event.SHOW}`,
-    Selector.PANEL_BODY,
-    (event) => {
-      const target = $(event.target).closest(Selector.PANEL)
+  }).on(`${Event.SHOW}`, Selector.PANEL_BODY, function () {
+    const target = $(this).closest(Selector.PANEL)
 
-      target.addClass(ClassName.SHOW)
+    target.addClass(ClassName.SHOW)
 
-      const predecessor = target.prev(Selector.PANEL)
+    const predecessor = target.prev(Selector.PANEL)
 
-      if (predecessor.length) {
-        predecessor.addClass(ClassName.SHOW_PREDECESSOR)
-      }
+    if (predecessor.length) {
+      predecessor.addClass(ClassName.SHOW_PREDECESSOR)
     }
-  )
+  })
 
-})(jQuery)
+})($)
 
 export default ExpansionPanel

@@ -1,12 +1,14 @@
+import $ from 'jquery'
+
 /*
  * selection control focus
  * chrome persists the focus style on checkboxes/radio buttons after clicking
  */
 
-const ControlFocus = (($) => {
+const SelectionControlFocus = (($) => {
 
   // constants >>>
-  const DATA_KEY  = 'md.controlfocus'
+  const DATA_KEY  = 'md.selectioncontrolfocus'
   const EVENT_KEY = `.${DATA_KEY}`
 
   const ClassName = {
@@ -30,32 +32,20 @@ const ControlFocus = (($) => {
   }
   // <<< constants
 
-  $(document).on(`${Event.BLUR}`,
-    Selector.INPUT,
-    (event) => {
-      $(event.target).removeClass(ClassName.FOCUS)
+  $(document).on(`${Event.BLUR}`, Selector.INPUT, function () {
+    $(this).removeClass(ClassName.FOCUS)
+  }).on(`${Event.FOCUS}`, Selector.INPUT, function () {
+    if (LastInteraction.IS_MOUSEDOWN === false) {
+      $(this).addClass(ClassName.FOCUS)
     }
-  ).on(`${Event.FOCUS}`,
-    Selector.INPUT,
-    (event) => {
-      if (LastInteraction.IS_MOUSEDOWN === false) {
-        $(event.target).addClass(ClassName.FOCUS)
-      }
-    }
-  ).on(`${Event.MOUSEDOWN}`,
-    Selector.CONTROL,
-    () => {
-      LastInteraction.IS_MOUSEDOWN = true
-    }
-  ).on(`${Event.MOUSEUP}`,
-    Selector.CONTROL,
-    () => {
-      setTimeout(() => {
-        LastInteraction.IS_MOUSEDOWN = false
-      }, 1)
-    }
-  )
+  }).on(`${Event.MOUSEDOWN}`, Selector.CONTROL, () => {
+    LastInteraction.IS_MOUSEDOWN = true
+  }).on(`${Event.MOUSEUP}`, Selector.CONTROL, () => {
+    setTimeout(() => {
+      LastInteraction.IS_MOUSEDOWN = false
+    }, 1)
+  })
 
-})(jQuery)
+})($)
 
-export default ControlFocus
+export default SelectionControlFocus
