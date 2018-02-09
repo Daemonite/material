@@ -9,12 +9,12 @@ import Util from './util'
 const NavDrawer = (($) => {
 
   // constants >>>
-  const DATA_API_KEY                 = '.data-api'
-  const DATA_KEY                     = 'md.navdrawer'
-  const ESCAPE_KEYCODE               = 27
-  const EVENT_KEY                    = `.${DATA_KEY}`
-  const NAME                         = 'navdrawer'
-  const NO_CONFLICT                  = $.fn[NAME]
+  const DATA_API_KEY   = '.data-api'
+  const DATA_KEY       = 'md.navdrawer'
+  const ESCAPE_KEYCODE = 27
+  const EVENT_KEY      = `.${DATA_KEY}`
+  const NAME           = 'navdrawer'
+  const NO_CONFLICT    = $.fn[NAME]
 
   const Breakpoints = {
     DESKTOP : 992,
@@ -28,6 +28,7 @@ const NavDrawer = (($) => {
   }
 
   const Default = {
+    breakpoint : '',
     keyboard   : true,
     show       : true,
     type       : 'default'
@@ -73,12 +74,13 @@ const NavDrawer = (($) => {
 
   class NavDrawer {
     constructor(element, config) {
-      this._backdrop               = null
-      this._config                 = this._getConfig(config)
-      this._content                = $(element).find(Selector.CONTENT)[0]
-      this._element                = element
-      this._ignoreBackdropClick    = false
-      this._isShown                = false
+      this._backdrop            = null
+      this._config              = this._getConfig(config)
+      this._content             = $(element).find(Selector.CONTENT)[0]
+      this._element             = element
+      this._ignoreBackdropClick = false
+      this._isShown             = false
+      this._typeBreakpoint      = this._config.breakpoint === '' ? '' : `-${this._config.breakpoint}`
     }
 
     hide(event) {
@@ -148,11 +150,11 @@ const NavDrawer = (($) => {
 
       this._isShown = true
 
-      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}`)
+      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       this._setEscapeEvent()
 
-      $(this._element).addClass(`${NAME}-${this._config.type}`)
+      $(this._element).addClass(`${NAME}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, (event) => this.hide(event))
 
@@ -212,7 +214,7 @@ const NavDrawer = (($) => {
 
       this._isTransitioning = false
 
-      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}`)
+      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).trigger(Event.HIDDEN)
     }
@@ -246,7 +248,7 @@ const NavDrawer = (($) => {
 
         $(this._backdrop)
           .addClass(ClassName.BACKDROP)
-          .addClass(`${ClassName.BACKDROP}-${this._config.type}`)
+          .addClass(`${ClassName.BACKDROP}-${this._config.type}${this._typeBreakpoint}`)
           .appendTo(document.body)
 
         $(this._element).on(Event.CLICK_DISMISS, (event) => {

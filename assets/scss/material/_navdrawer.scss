@@ -159,118 +159,121 @@
   color: $navdrawer-nav-link-color-active;
 }
 
-// Permanent
+// Permanent, persistent and temporary variations
 
-@include media-breakpoint-up(lg) {
-  .navdrawer-permanent {
-    border-right: $navdrawer-border-width solid $navdrawer-border-color;
-    display: block !important; // stylelint-disable-line declaration-no-important
-    right: auto;
-    width: $navdrawer-width;
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $next: breakpoint-next($breakpoint);
+  $infix: breakpoint-infix($next);
 
-    &.navdrawer-right {
-      border-right: 0;
-      border-left: $navdrawer-border-width solid $navdrawer-border-color;
-      right: 0;
-      left: auto;
+  @include media-breakpoint-up($next) {
+    .navdrawer-backdrop-permanent#{$infix} {
+      display: none;
     }
 
-    .navdrawer-content {
-      box-shadow: none;
-      max-width: none;
-      position: absolute;
-      transform: translate3d(0, 0, 0);
-      width: 100%;
-    }
-  }
-
-  .navdrawer-backdrop-permanent {
-    display: none;
-  }
-
-  .navdrawer-permanent-clipped,
-  .navdrawer-permanent-float {
-    top: $toolbar-height;
-    z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
-  }
-
-  .navdrawer-permanent-clipped {
-    border-top: $navdrawer-border-width solid $navdrawer-border-color;
-    margin-top: ($navdrawer-border-width * -1);
-  }
-
-  .navdrawer-permanent-float {
-    border-right: 0;
-
-    &.navdrawer-right {
-      border-left: 0;
+    .navdrawer-backdrop-persistent#{$infix} {
+      display: none;
     }
 
-    .navdrawer-content {
-      background-color: transparent;
+    .navdrawer-backdrop-temporary#{$infix} {
+      display: none;
     }
-  }
-}
 
-// Persistent
+    .navdrawer-permanent#{$infix} {
+      border-right: $navdrawer-border-width solid $navdrawer-border-color;
+      display: block !important; // stylelint-disable-line declaration-no-important
+      right: auto;
+      width: $navdrawer-width;
 
-@include media-breakpoint-up(lg) {
-  .navdrawer-persistent {
-    right: auto;
-    width: $navdrawer-width;
+      &.navdrawer-permanent-clipped,
+      &.navdrawer-permanent-float {
+        top: $toolbar-height;
+        z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
+      }
 
-    &.navdrawer-right {
-      right: 0;
-      left: auto;
+      &.navdrawer-permanent-clipped {
+        border-top: $navdrawer-border-width solid $navdrawer-border-color;
+        margin-top: ($navdrawer-border-width * -1);
+      }
 
-      .navdrawer-content {
+      &.navdrawer-permanent-float {
+        border-right: 0;
+
+        &.navdrawer-right {
+          border-left: 0;
+        }
+
+        .navdrawer-content {
+          background-color: transparent;
+        }
+      }
+
+      &.navdrawer-right {
         border-right: 0;
         border-left: $navdrawer-border-width solid $navdrawer-border-color;
+        right: 0;
+        left: auto;
+      }
+
+      &.show .navdrawer-content {
+        box-shadow: none;
+      }
+
+      .navdrawer-content {
+        max-width: none;
+        position: absolute;
+        transform: translate3d(0, 0, 0);
+        width: 100%;
       }
     }
 
-    .navdrawer-content {
-      border-right: $navdrawer-border-width solid $navdrawer-border-color;
-      box-shadow: none;
-      max-width: none;
-      position: absolute;
-      width: 100%;
+    .navdrawer-persistent#{$infix} {
+      right: auto;
+      width: $navdrawer-width;
+
+      &.navdrawer-persistent-clipped {
+        border-top: $navdrawer-border-width solid $navdrawer-border-color;
+        margin-top: ($navdrawer-border-width * -1);
+        top: $toolbar-height;
+        z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
+      }
+
+      &.navdrawer-right {
+        right: 0;
+        left: auto;
+
+        .navdrawer-content {
+          border-right: 0;
+          border-left: $navdrawer-border-width solid $navdrawer-border-color;
+        }
+      }
+
+      &.show .navdrawer-content {
+        box-shadow: none;
+      }
+
+      .navdrawer-content {
+        border-right: $navdrawer-border-width solid $navdrawer-border-color;
+        max-width: none;
+        position: absolute;
+        width: 100%;
+      }
     }
-  }
 
-  .navdrawer-backdrop-persistent {
-    display: none;
-  }
+    .navdrawer-temporary#{$infix} {
+      overflow: visible;
+      right: auto;
+      width: $navdrawer-width;
 
-  .navdrawer-persistent-clipped {
-    border-top: $navdrawer-border-width solid $navdrawer-border-color;
-    margin-top: ($navdrawer-border-width * -1);
-    top: $toolbar-height;
-    z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
-  }
-}
+      &.navdrawer-right {
+        right: 0;
+        left: auto;
+      }
 
-// Temporary
-
-@include media-breakpoint-up(lg) {
-  .navdrawer-temporary {
-    overflow: visible;
-    right: auto;
-    width: $navdrawer-width;
-
-    &.navdrawer-right {
-      right: 0;
-      left: auto;
+      .navdrawer-content {
+        max-width: none;
+        position: absolute;
+        width: 100%;
+      }
     }
-
-    .navdrawer-content {
-      max-width: none;
-      position: absolute;
-      width: 100%;
-    }
-  }
-
-  .navdrawer-backdrop-temporary {
-    display: none;
   }
 }
