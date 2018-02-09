@@ -2,516 +2,768 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
-  <title>Input group &middot; Material</title>
-  <!-- CSS -->
-  <!-- Add Material font (Roboto) and Material icon as needed -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Add Material CSS, replace Bootstrap CSS -->
-  <link href="/material/css/material.min.css" rel="stylesheet">
-  <!-- Additional CSS for documentation site -->
-  <link href="/material/bs/docs.min.css" rel="stylesheet">
-  <link href="/material/css/project.min.css" rel="stylesheet">
-  <!-- Favicons -->
-  <meta content="#9c27b0" name="theme-color">
-  <link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="/material/favicon.ico" rel="icon">
+<meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+<title>Input group &middot; Material</title>
+
+<!-- CSS -->
+<!-- Add Material font (Roboto) and Material icon as needed -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Add Material CSS, replace Bootstrap CSS -->
+<link href="/material/css/material.min.css" rel="stylesheet">
+
+<!-- Additional CSS for documentation site -->
+<link href="https://getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+<link href="/material/docs/css/docs.min.css" rel="stylesheet">
+
+<!-- Favicons -->
+<meta content="#9c27b0" name="theme-color">
+<link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/material/favicon.ico" rel="icon">
+
 </head>
 <body class="doc-body">
-  <div class="navbar navbar-dark toolbar-waterfall doc-navbar" id="doc_navbar">
-    <button aria-controls="doc_navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler d-lg-none" data-target="#doc_navdrawer" data-toggle="navdrawer" data-type="permanent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
-    <div class="d-lg-none ml-auto">
-      <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc_dropdown_follow" type="button">
-          <i class="material-icons mx-auto">more_vert</i>
-        </button>
-        <div aria-labelledby="doc_dropdown_follow" class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-            <i class="material-icons mr-md">code</i>Fork me on GitHub
-          </a>
-          <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-            <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-          </a>
-        </div>
+  <div class="navbar navbar-dark toolbar-waterfall doc-navbar" id="doc-navbar">
+  <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler d-lg-none" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand d-lg-none mr-auto" href="/material/">Material</a>
+  <div class="d-lg-none ml-auto">
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button">
+        <i class="material-icons mx-auto">more_vert</i>
+      </button>
+      <div aria-labelledby="doc-dropdown-follow" class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
+          <i class="material-icons mr-3">code</i>Fork me on GitHub
+        </a>
+        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
+          <i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon
+        </a>
       </div>
     </div>
   </div>
-  <div aria-hidden="true" class="navdrawer navdrawer-permanent doc-navdrawer" id="doc_navdrawer" tabindex="-1">
-    <div class="navdrawer-content">
-      <div class="d-flex flex-column doc-navdrawer-body">
-        <div class="navdrawer-header">
-          <a class="navbar-brand px-0" href="/material/">Material</a>
-        </div>
-        <nav class="navdrawer-nav">
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_getting-started">
+</div>
+
+
+  <div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1">
+  <div class="navdrawer-content">
+    <div class="d-flex flex-column doc-navdrawer-body">
+      <div class="navdrawer-header">
+        <a class="navbar-brand px-0" href="/material/">Material</a>
+      </div>
+
+      <nav class="navdrawer-nav"><a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started">
             <strong>Getting started</strong>
           </a>
-          <div class="collapse pb-sm " id="doc_navdrawer_getting-started"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a></div>
-          <a class="nav-item nav-link " data-toggle="collapse" href="#doc_navdrawer_components">
+          <div class="collapse pb-2 " id="doc-navdrawer-getting-started"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/getting-started/theming/"><span class="font-weight-normal">Theming</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a></div><div class="navdrawer-divider"></div><a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-components">
             <strong>Components</strong>
           </a>
-          <div class="collapse pb-sm show" id="doc_navdrawer_components"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/alerts/"><span class="font-weight-normal">Alerts</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/badge/"><span class="font-weight-normal">Badge</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/buttons/"><span class="font-weight-normal">Buttons</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/button-group/"><span class="font-weight-normal">Button group</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/card/"><span class="font-weight-normal">Card</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/carousel/"><span class="font-weight-normal">Carousel</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/collapse/"><span class="font-weight-normal">Collapse</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/forms/"><span class="font-weight-normal">Forms</span></a><a class="nav-item nav-link pl-lg py-sm active" href="/material/docs/4.0/components/input-group/"><span class="font-weight-normal">Input group</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/list-group/"><span class="font-weight-normal">List group</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/modal/"><span class="font-weight-normal">Modal</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/navs/"><span class="font-weight-normal">Navs</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/navbar/"><span class="font-weight-normal">Navbar</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/pagination/"><span class="font-weight-normal">Pagination</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/popovers/"><span class="font-weight-normal">Popovers</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/progress/"><span class="font-weight-normal">Progress</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a></div>
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_content">
+          <div class="collapse pb-2 show" id="doc-navdrawer-components"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/alerts/"><span class="font-weight-normal">Alerts</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/badge/"><span class="font-weight-normal">Badge</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/buttons/"><span class="font-weight-normal">Buttons</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/button-group/"><span class="font-weight-normal">Button group</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/card/"><span class="font-weight-normal">Card</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/carousel/"><span class="font-weight-normal">Carousel</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/collapse/"><span class="font-weight-normal">Collapse</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/forms/"><span class="font-weight-normal">Forms</span></a><a class="nav-item nav-link pl-4 py-2 active" href="/material/docs/4.0/components/input-group/"><span class="font-weight-normal">Input group</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/list-group/"><span class="font-weight-normal">List group</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/modal/"><span class="font-weight-normal">Modal</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/navs/"><span class="font-weight-normal">Navs</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/navbar/"><span class="font-weight-normal">Navbar</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/pagination/"><span class="font-weight-normal">Pagination</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/popovers/"><span class="font-weight-normal">Popovers</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/progress/"><span class="font-weight-normal">Progress</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a></div><a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content">
             <strong>Content</strong>
           </a>
-          <div class="collapse pb-sm " id="doc_navdrawer_content"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/content/code/"><span class="font-weight-normal">Code</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/content/figures/"><span class="font-weight-normal">Figures</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/content/images/"><span class="font-weight-normal">Images</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/content/tables/"><span class="font-weight-normal">Tables</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/content/typography/"><span class="font-weight-normal">Typography</span></a></div>
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_layout">
+          <div class="collapse pb-2 " id="doc-navdrawer-content"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/content/code/"><span class="font-weight-normal">Code</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/content/figures/"><span class="font-weight-normal">Figures</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/content/images/"><span class="font-weight-normal">Images</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/content/tables/"><span class="font-weight-normal">Tables</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/content/typography/"><span class="font-weight-normal">Typography</span></a></div><a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-layout">
             <strong>Layout</strong>
           </a>
-          <div class="collapse pb-sm " id="doc_navdrawer_layout"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/layout/grid/"><span class="font-weight-normal">Grid</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/layout/media-object/"><span class="font-weight-normal">Media object</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a></div>
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_utilities">
+          <div class="collapse pb-2 " id="doc-navdrawer-layout"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/layout/grid/"><span class="font-weight-normal">Grid</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/layout/media-object/"><span class="font-weight-normal">Media object</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a></div><a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities">
             <strong>Utilities</strong>
           </a>
-          <div class="collapse pb-sm " id="doc_navdrawer_utilities"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/borders/"><span class="font-weight-normal">Borders</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/colors/"><span class="font-weight-normal">Colors</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/display/"><span class="font-weight-normal">Display</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/embed/"><span class="font-weight-normal">Embed</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/flex/"><span class="font-weight-normal">Flex</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/float/"><span class="font-weight-normal">Float</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/position/"><span class="font-weight-normal">Position</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/screenreaders/"><span class="font-weight-normal">Screenreaders</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/text/"><span class="font-weight-normal">Text</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a></div>
-          <div class="navdrawer-divider"></div>
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc_navdrawer_material">
+          <div class="collapse pb-2 " id="doc-navdrawer-utilities"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/borders/"><span class="font-weight-normal">Borders</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/colors/"><span class="font-weight-normal">Colors</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/display/"><span class="font-weight-normal">Display</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/embed/"><span class="font-weight-normal">Embed</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/flex/"><span class="font-weight-normal">Flex</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/float/"><span class="font-weight-normal">Float</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/position/"><span class="font-weight-normal">Position</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/screenreaders/"><span class="font-weight-normal">Screenreaders</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/text/"><span class="font-weight-normal">Text</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a></div><div class="navdrawer-divider"></div><a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-material">
             <strong>Material</strong>
           </a>
-          <div class="collapse pb-sm " id="doc_navdrawer_material"><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/buttons/"><span class="font-weight-normal">Buttons</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/cards/"><span class="font-weight-normal">Cards</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/chips/"><span class="font-weight-normal">Chips</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/data-tables/"><span class="font-weight-normal">Data tables</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/menu/"><span class="font-weight-normal">Menu</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/pickers/"><span class="font-weight-normal">Pickers</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/progress/"><span class="font-weight-normal">Progress</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/selection-controls/"><span class="font-weight-normal">Selection controls</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/steppers/"><span class="font-weight-normal">Steppers</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/tabs/"><span class="font-weight-normal">Tabs</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/text-fields/"><span class="font-weight-normal">Text fields</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/toolbars/"><span class="font-weight-normal">Toolbars</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a><a class="nav-item nav-link pl-lg py-sm text-black-secondary" href="/material/docs/4.0/material/waves/"><span class="font-weight-normal">Waves</span></a></div>
-        </nav>
-        <div class="mt-auto">
-          <div class="navdrawer-divider mt-no"></div>
-          <div class="navdrawer-nav">
-            <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank">
-              <i class="material-icons mr-md">code</i>Fork me on GitHub
-            </a>
-            <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank">
-              <i class="material-icons mr-md text-danger">favorite</i>Made by Daemon
-            </a>
-          </div>
+          <div class="collapse pb-2 " id="doc-navdrawer-material"><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/buttons/"><span class="font-weight-normal">Buttons</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/cards/"><span class="font-weight-normal">Cards</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/chips/"><span class="font-weight-normal">Chips</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/data-tables/"><span class="font-weight-normal">Data tables</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/icons/"><span class="font-weight-normal">Icons</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/menu/"><span class="font-weight-normal">Menu</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/pickers/"><span class="font-weight-normal">Pickers</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/progress/"><span class="font-weight-normal">Progress</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/selection-controls/"><span class="font-weight-normal">Selection controls</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/steppers/"><span class="font-weight-normal">Steppers</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/tabs/"><span class="font-weight-normal">Tabs</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/text-fields/"><span class="font-weight-normal">Text fields</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/toolbars/"><span class="font-weight-normal">Toolbars</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a><a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.0/material/typography/"><span class="font-weight-normal">Typography</span></a></div></nav>
+
+      <div class="mt-auto">
+        <div class="navdrawer-divider mt-no"></div>
+        <div class="navdrawer-nav">
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank">
+            <i class="material-icons mr-3">code</i>Fork me on GitHub
+          </a>
+          <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank">
+            <i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon
+          </a>
         </div>
       </div>
     </div>
   </div>
-  <div class="jumbotron jumbotron-fluid mb-xl px-lg-md text-white doc-jumbotron" id="doc_jumbotron">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <h1 class="typography-display-4">Input group</h1>
-          <p class="font-weight-light typography-title">Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs.</p>
-        </div>
+</div>
+
+
+  <div class="jumbotron jumbotron-fluid mb-5 px-lg-3 text-white doc-jumbotron" id="doc-jumbotron">
+  <div class="container">
+    
+      <div class="row">
+    
+      <div class="col-xl-9">
+        <h1 class="typography-display-4">Input group</h1>
+        <p class="font-weight-light typography-title">Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs.</p>
       </div>
     </div>
   </div>
-  <main class="doc-main px-lg-md">
+</div>
+
+
+  <main class="doc-main px-lg-3">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-9 col-xl-6">
-          <div class="bd-content mb-xl">
+        <div class="col-xl-9">
+          <div class="bd-content mb-5">
             <h2 id="basic-example">Basic example</h2>
-            <p>Place one add-on or button on either side of an input. You may also place one on both sides of an input. <strong>We do not support multiple form-controls in a single input group</strong> and <code class="highlighter-rouge">&lt;label&gt;</code>s must come outside the input group.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-              </div>
-              <br />
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                <span class="input-group-addon" id="basic-addon2">@example.com</span>
-              </div>
-              <br />
-              <label for="basic-url">Your vanity URL</label>
-              <div class="input-group">
-                <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" />
-              </div>
-              <br />
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
-                <span class="input-group-addon">.00</span>
-              </div>
-              <br />
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <span class="input-group-addon">0.00</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+
+<p>Place one add-on or button on either side of an input. You may also place one on both sides of an input. <strong>We do not support multiple form-controls in a single input group</strong> and <code class="highlighter-rouge">&lt;label&gt;</code>s must come outside the input group.</p>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2">@example.com</span>
+  </div>
+</div>
+
+<label for="basic-url">Your vanity URL</label>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+  </div>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" />
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">$</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+  <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">With textarea</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea"></textarea>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Username"</span> <span class="na">aria-label=</span><span class="s">"Username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Recipient's username"</span> <span class="na">aria-label=</span><span class="s">"Recipient's username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>@example.com<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>@example.com<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
+
 <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"basic-url"</span><span class="nt">&gt;</span>Your vanity URL<span class="nt">&lt;/label&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"basic-addon3"</span><span class="nt">&gt;</span>https://example.com/users/<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"basic-addon3"</span><span class="nt">&gt;</span>https://example.com/users/<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"basic-url"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon3"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Amount (to the nearest dollar)"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>.00<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>.00<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
+
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>0.00<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>With textarea<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"With textarea"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="sizing">Sizing</h2>
+
+<p>Add the relative form sizing classes to the <code class="highlighter-rouge">.input-group</code> itself and contents within will automatically resize—no need for repeating the form control size classes on each element.</p>
+
+<p><strong>Sizing on the individual input group elements isn’t supported.</strong></p>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" />
+</div>
+
+<div class="input-group input-group-lg">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" />
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group input-group-sm mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"inputGroup-sizing-sm"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Small"</span> <span class="na">aria-describedby=</span><span class="s">"inputGroup-sizing-sm"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"inputGroup-sizing-default"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Default"</span> <span class="na">aria-describedby=</span><span class="s">"inputGroup-sizing-default"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group input-group-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">"inputGroup-sizing-lg"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Large"</span> <span class="na">aria-describedby=</span><span class="s">"inputGroup-sizing-sm"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="checkboxes-and-radios">Checkboxes and radios</h2>
+
+<p>Place any checkbox or radio option within an input group’s addon instead of text.</p>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <input type="checkbox" aria-label="Checkbox for following text input" />
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with checkbox" />
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+    <input type="radio" aria-label="Radio button for following text input" />
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with radio button" />
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">aria-label=</span><span class="s">"Checkbox for following text input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with checkbox"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">aria-label=</span><span class="s">"Radio button for following text input"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with radio button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="multiple-inputs">Multiple inputs</h2>
+
+<p>While multiple <code class="highlighter-rouge">&lt;input&gt;</code>s are supported visually, validation styles are only available for input groups with a single <code class="highlighter-rouge">&lt;input&gt;</code>.</p>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">First and last name</span>
+  </div>
+  <input type="text" class="form-control" />
+  <input type="text" class="form-control" />
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span>First and last name<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="multiple-addons">Multiple addons</h2>
+
+<p>Multiple add-ons are supported and can be mixed with checkbox and radio input versions.</p>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">$</span>
+    <span class="input-group-text">0.00</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+  <div class="input-group-append">
+    <span class="input-group-text">$</span>
+    <span class="input-group-text">0.00</span>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>0.00<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Amount (to the nearest dollar)"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="sizing">Sizing</h2>
-            <p>Add the relative form sizing classes to the <code class="highlighter-rouge">.input-group</code> itself and contents within will automatically resize—no need for repeating the form control size classes on each element.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="sizing-addon1" />
-              </div>
-              <br />
-              <div class="input-group input-group-sm">
-                <span class="input-group-addon" id="sizing-addon2">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="sizing-addon2" />
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group input-group-lg"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"sizing-addon1"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Username"</span> <span class="na">aria-label=</span><span class="s">"Username"</span> <span class="na">aria-describedby=</span><span class="s">"sizing-addon1"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group input-group-sm"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span> <span class="na">id=</span><span class="s">"sizing-addon2"</span><span class="nt">&gt;</span>@<span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Username"</span> <span class="na">aria-label=</span><span class="s">"Username"</span> <span class="na">aria-describedby=</span><span class="s">"sizing-addon2"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="checkboxes-and-radio-addons">Checkboxes and radio addons</h2>
-            <p>Place any checkbox or radio option within an input group’s addon instead of text.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">
-        <input type="checkbox" aria-label="Checkbox for following text input" />
-      </span>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox" />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">
-        <input type="radio" aria-label="Radio button for following text input" />
-      </span>
-                    <input type="text" class="form-control" aria-label="Text input with radio button" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">aria-label=</span><span class="s">"Checkbox for following text input"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with checkbox"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">aria-label=</span><span class="s">"Radio button for following text input"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with radio button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Amount (to the nearest dollar)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>0.00<span class="nt">&lt;/span&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="multiple-addons">Multiple addons</h2>
-            <p>Multiple add-ons are supported and can be mixed with checkbox and radio input versions.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">
-        <input type="checkbox" aria-label="Checkbox for following text input" />
-      </span>
-                    <span class="input-group-addon">$</span>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox" />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <span class="input-group-addon">0.00</span>
-                    <input type="text" class="form-control" aria-label="Text input with radio button" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">aria-label=</span><span class="s">"Checkbox for following text input"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with checkbox"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+
+<h2 id="button-addons">Button addons</h2>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" />
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>$<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-addon"</span><span class="nt">&gt;</span>0.00<span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with radio button"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="button-addons">Button addons</h2>
-            <p>Buttons in input groups must wrapped in a <code class="highlighter-rouge">.input-group-btn</code> for proper alignment and sizing. This is required due to default browser styles that cannot be overridden.</p>
-            <div class="bd-example" data-example-id="">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-                    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." />
-                    <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Go!</button>
-      </span>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div class="row">
-                <div class="col-lg-offset-3 col-lg-6">
-                  <div class="input-group">
-                    <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Hate it</button>
-      </span>
-                    <input type="text" class="form-control" placeholder="Product name" aria-label="Product name" />
-                    <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Love it</button>
-      </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Go!<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Search for..."</span> <span class="na">aria-label=</span><span class="s">"Search for..."</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Search for..."</span> <span class="na">aria-label=</span><span class="s">"Search for..."</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Go!<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">""</span> <span class="na">aria-label=</span><span class="s">""</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Recipient's username"</span> <span class="na">aria-label=</span><span class="s">"Recipient's username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;br&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-offset-3 col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Hate it<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Product name"</span> <span class="na">aria-label=</span><span class="s">"Product name"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Love it<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/span&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">""</span> <span class="na">aria-label=</span><span class="s">""</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Recipient's username"</span> <span class="na">aria-label=</span><span class="s">"Recipient's username"</span> <span class="na">aria-describedby=</span><span class="s">"basic-addon2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="buttons-with-dropdowns">Buttons with dropdowns</h2>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with dropdown button" />
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" aria-label="Text input with dropdown button" />
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary dropdown-toggle"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Dropdown<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with dropdown button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with dropdown button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary dropdown-toggle"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>Dropdown<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="buttons-with-dropdowns">Buttons with dropdowns</h2>
-            <div class="bd-example" data-example-id="">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                      </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button" />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button" />
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-          Action
-        <span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with dropdown button"</span><span class="nt">&gt;</span>
+
+<h2 id="segmented-buttons">Segmented buttons</h2>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button type="button" class="btn btn-outline-secondary">Action</button>
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" />
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" aria-label="Text input with segmented dropdown button" />
+  <div class="input-group-append">
+    <button type="button" class="btn btn-outline-secondary">Action</button>
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with dropdown button"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-          Action
-        <span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu dropdown-menu-right"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with segmented dropdown button"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with segmented dropdown button"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="segmented-buttons">Segmented buttons</h2>
-            <div class="bd-example" data-example-id="">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-secondary">Action</button>
-                      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                      </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with segmented button dropdown" />
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with segmented button dropdown" />
-                    <div class="input-group-btn">
-                      <button type="button" class="btn btn-secondary">Action</button>
-                      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div role="separator" class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary dropdown-toggle dropdown-toggle-split"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with segmented button dropdown"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+
+<h2 id="custom-forms">Custom forms</h2>
+
+<p>Input groups include support for custom selects and custom file inputs. Browser default versions of these are not supported.</p>
+
+<h3 id="custom-select">Custom select</h3>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01">
+    <option selected="">Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+
+<div class="input-group mb-3">
+  <select class="custom-select" id="inputGroupSelect02">
+    <option selected="">Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <div class="input-group-append">
+    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <select class="custom-select" id="inputGroupSelect03">
+    <option selected="">Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+
+<div class="input-group">
+  <select class="custom-select" id="inputGroupSelect04">
+    <option selected="">Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">for=</span><span class="s">"inputGroupSelect01"</span><span class="nt">&gt;</span>Options<span class="nt">&lt;/label&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-lg-6"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">aria-label=</span><span class="s">"Text input with segmented button dropdown"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-btn"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-secondary dropdown-toggle dropdown-toggle-split"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Toggle Dropdown<span class="nt">&lt;/span&gt;</span>
-        <span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu dropdown-menu-right"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"separator"</span> <span class="na">class=</span><span class="s">"dropdown-divider"</span><span class="nt">&gt;&lt;/div&gt;</span>
-          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"custom-select"</span> <span class="na">id=</span><span class="s">"inputGroupSelect01"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">selected</span><span class="nt">&gt;</span>Choose...<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"custom-select"</span> <span class="na">id=</span><span class="s">"inputGroupSelect02"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">selected</span><span class="nt">&gt;</span>Choose...<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">for=</span><span class="s">"inputGroupSelect02"</span><span class="nt">&gt;</span>Options<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"custom-select"</span> <span class="na">id=</span><span class="s">"inputGroupSelect03"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">selected</span><span class="nt">&gt;</span>Choose...<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"custom-select"</span> <span class="na">id=</span><span class="s">"inputGroupSelect04"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">selected</span><span class="nt">&gt;</span>Choose...<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>One<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"2"</span><span class="nt">&gt;</span>Two<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>Three<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
-            <h2 id="accessibility">Accessibility</h2>
-            <p>Screen readers will have trouble with your forms if you don’t include a label for every input. For these input groups, ensure that any additional label or functionality is conveyed to assistive technologies.</p>
-            <p>The exact technique to be used (<code class="highlighter-rouge">&lt;label&gt;</code> elements hidden using the <code class="highlighter-rouge">.sr-only</code> class, or use of the <code class="highlighter-rouge">aria-label</code> and <code class="highlighter-rouge">aria-labelledby</code> attributes, possibly in combination with <code class="highlighter-rouge">aria-describedby</code>) and what additional information will need to be conveyed will vary depending on the exact type of interface widget you’re implementing. The examples in this section provide a few suggested, case-specific approaches.</p>
+
+<h3 id="custom-file-input">Custom file input</h3>
+
+<div class="bd-example" data-example-id="">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01" />
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile02" />
+    <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+  </div>
+  <div class="input-group-append">
+    <span class="input-group-text">Upload</span>
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile03" />
+    <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" />
+    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  </div>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span><span class="nt">&gt;</span>Upload<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-file"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">class=</span><span class="s">"custom-file-input"</span> <span class="na">id=</span><span class="s">"inputGroupFile01"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-file-label"</span> <span class="na">for=</span><span class="s">"inputGroupFile01"</span><span class="nt">&gt;</span>Choose file<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-file"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">class=</span><span class="s">"custom-file-input"</span> <span class="na">id=</span><span class="s">"inputGroupFile02"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-file-label"</span> <span class="na">for=</span><span class="s">"inputGroupFile02"</span><span class="nt">&gt;</span>Choose file<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"input-group-text"</span> <span class="na">id=</span><span class="s">""</span><span class="nt">&gt;</span>Upload<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-prepend"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-file"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">class=</span><span class="s">"custom-file-input"</span> <span class="na">id=</span><span class="s">"inputGroupFile03"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-file-label"</span> <span class="na">for=</span><span class="s">"inputGroupFile03"</span><span class="nt">&gt;</span>Choose file<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"custom-file"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"file"</span> <span class="na">class=</span><span class="s">"custom-file-input"</span> <span class="na">id=</span><span class="s">"inputGroupFile04"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"custom-file-label"</span> <span class="na">for=</span><span class="s">"inputGroupFile04"</span><span class="nt">&gt;</span>Choose file<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group-append"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-outline-secondary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Button<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>Screen readers will have trouble with your forms if you don’t include a label for every input. For these input groups, ensure that any additional label or functionality is conveyed to assistive technologies.</p>
+
+<p>The exact technique to be used (<code class="highlighter-rouge">&lt;label&gt;</code> elements hidden using the <code class="highlighter-rouge">.sr-only</code> class, or use of the <code class="highlighter-rouge">aria-label</code> and <code class="highlighter-rouge">aria-labelledby</code> attributes, possibly in combination with <code class="highlighter-rouge">aria-describedby</code>) and what additional information will need to be conveyed will vary depending on the exact type of interface widget you’re implementing. The examples in this section provide a few suggested, case-specific approaches.</p>
+
           </div>
         </div>
-        <div class="col-lg-3 col-xl-2 d-none d-lg-block">
-          <ul class="section-nav">
-            <li class="toc-entry toc-h2"><a href="#basic-example">Basic example</a></li>
-            <li class="toc-entry toc-h2"><a href="#sizing">Sizing</a></li>
-            <li class="toc-entry toc-h2"><a href="#checkboxes-and-radio-addons">Checkboxes and radio addons</a></li>
-            <li class="toc-entry toc-h2"><a href="#multiple-addons">Multiple addons</a></li>
-            <li class="toc-entry toc-h2"><a href="#button-addons">Button addons</a></li>
-            <li class="toc-entry toc-h2"><a href="#buttons-with-dropdowns">Buttons with dropdowns</a></li>
-            <li class="toc-entry toc-h2"><a href="#segmented-buttons">Segmented buttons</a></li>
-            <li class="toc-entry toc-h2"><a href="#accessibility">Accessibility</a></li>
-          </ul>
-        </div>
+
+        
+          <div class="col-xl-3 d-none d-xl-block">
+            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#basic-example">Basic example</a></li>
+<li class="toc-entry toc-h2"><a href="#sizing">Sizing</a></li>
+<li class="toc-entry toc-h2"><a href="#checkboxes-and-radios">Checkboxes and radios</a></li>
+<li class="toc-entry toc-h2"><a href="#multiple-inputs">Multiple inputs</a></li>
+<li class="toc-entry toc-h2"><a href="#multiple-addons">Multiple addons</a></li>
+<li class="toc-entry toc-h2"><a href="#button-addons">Button addons</a></li>
+<li class="toc-entry toc-h2"><a href="#buttons-with-dropdowns">Buttons with dropdowns</a></li>
+<li class="toc-entry toc-h2"><a href="#segmented-buttons">Segmented buttons</a></li>
+<li class="toc-entry toc-h2"><a href="#custom-forms">Custom forms</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#custom-select">Custom select</a></li>
+<li class="toc-entry toc-h3"><a href="#custom-file-input">Custom file input</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#accessibility">Accessibility</a></li>
+</ul>
+          </div>
+        
       </div>
     </div>
   </main>
+
   <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-  <script src="/material/bs/bootstrap.min.js"></script>
-  <!-- Add Material JavaScript on top of Bootstrap JavaScript -->
-  <script src="/material/js/material.min.js"></script>
-  <!-- Additional JavaScript for documentation site -->
-  <script src="/material/bs/docs.min.js"></script>
-  <script src="/material/js/project.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Add Material JavaScript on top of Bootstrap JavaScript -->
+<script src="/material/js/material.min.js"></script>
+
+<!-- Additional JavaScript for documentation site -->
+<script src="https://getbootstrap.com/assets/js/docs.min.js"></script>
+<script src="/material/docs/js/docs.min.js"></script>
+
 </body>
 </html>
