@@ -90,7 +90,7 @@ $('.floating-label .form-control').floatinglabel();
 </div>
 {% endexample %}
 
-## Text field box
+## Text field boxes
 
 Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
 
@@ -173,5 +173,62 @@ Sizes can also be set by adding `.floating-label-lg/sm` and `.textfield-box-lg/s
     <label for="exampleInputTextfieldBox6">Small</label>
     <input class="form-control" id="exampleInputTextfieldBox6" placeholder="Small" type="text">
   </div>
+</div>
+{% endexample %}
+
+## With icons
+
+Icons describe the type of input a text field requires. They are displayed to the left of the text field.
+
+{% example html %}
+<div class="input-group mb-3">
+  <input class="form-control" id="exampleInputGroup1" placeholder="With icons" type="text">
+  <label class="input-group-icon" for="exampleInputGroup1">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-lg mb-3">
+  <input class="form-control" id="exampleInputGroup2" placeholder="Large" type="text">
+  <label class="input-group-icon" for="exampleInputGroup2">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <input class="form-control" id="exampleInputGroup3" placeholder="Small" type="text">
+  <label class="input-group-icon" for="exampleInputGroup3">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+{% endexample %}
+
+`.input-group-icon` can also work with floating label text fields:
+
+{% example html %}
+<div class="input-group mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup4">Floating label</label>
+    <input class="form-control" id="exampleInputGroup4" placeholder="With icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup4">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-lg mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup5">Large</label>
+    <input class="form-control" id="exampleInputGroup5" placeholder="with icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup5">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup6">Small</label>
+    <input class="form-control" id="exampleInputGroup6" placeholder="with icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup6">
+    <i class="material-icons">event</i>
+  </label>
 </div>
 {% endexample %}
