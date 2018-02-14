@@ -11,6 +11,12 @@
     flex: 1 1 auto;
     margin-bottom: 0;
     width: 1%;
+
+    + .custom-file,
+    + .custom-select,
+    + .form-control {
+      margin-left: $input-group-inner-spacer-x;
+    }
   }
 }
 
@@ -33,20 +39,20 @@
 }
 
 .input-group-append {
-  margin-left: $input-group-addon-margin-x;
+  margin-left: $input-group-inner-spacer-x;
 }
 
 .input-group-prepend {
-  margin-right: $input-group-addon-margin-x;
+  margin-right: $input-group-inner-spacer-x;
 }
 
 .input-group-text {
   color: inherit;
   font-size: $textfield-font-size;
   line-height: $textfield-line-height;
-  margin-right: ($input-group-addon-margin-x / 2);
+  margin-right: ($input-group-inner-spacer-x / 2);
   margin-bottom: 0;
-  margin-left: ($input-group-addon-margin-x / 2);
+  margin-left: ($input-group-inner-spacer-x / 2);
   white-space: nowrap;
 }
 
