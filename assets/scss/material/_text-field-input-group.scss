@@ -31,7 +31,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  min-width: $textfield-height;
 
   .btn {
     min-width: 0;
@@ -54,10 +53,12 @@
   color: inherit;
   font-size: $textfield-font-size;
   line-height: $textfield-line-height;
-  margin-right: ($input-group-inner-spacer-x / 2);
   margin-bottom: 0;
-  margin-left: ($input-group-inner-spacer-x / 2);
   white-space: nowrap;
+
+  + .input-group-text {
+    margin-left: ($input-group-inner-spacer-x / 2);
+  }
 }
 
 // Border radius
@@ -92,8 +93,6 @@
 
   > .input-group-append,
   > .input-group-prepend {
-    min-width: $textfield-height-lg;
-
     > .btn {
       @extend %btn-lg;
     }
@@ -137,8 +136,6 @@
 
   > .input-group-append,
   > .input-group-prepend {
-    min-width: $textfield-height-sm;
-
     > .btn {
       @extend %btn-sm;
     }
