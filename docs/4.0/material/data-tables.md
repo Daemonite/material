@@ -13,11 +13,11 @@ Tables may be embedded within a card, with data manipulation tools and table nav
 
 {% example html %}
 <div class="card">
-  <div class="card-header d-flex pr-no">
-    <h4 class="card-title mb-no">Card title</h4>
-    <div class="card-actions ml-auto py-no">
+  <div class="card-header d-flex pr-0">
+    <h4 class="card-title mb-0">Card title</h4>
+    <div class="card-actions ml-auto py-0">
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no" data-toggle="dropdown" type="button"><i class="material-icons">filter_list</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" type="button"><i class="material-icons">filter_list</i></button>
         <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" href="#">Filter 1</a>
           <a class="dropdown-item" href="#">Filter 2</a>
@@ -25,7 +25,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
         </div>
       </div>
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-no" data-toggle="dropdown" type="button"><i class="material-icons">more_vert</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" type="button"><i class="material-icons">more_vert</i></button>
         <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -36,7 +36,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
       </div>
     </div>
   </div>
-  <table class="table mb-no">
+  <table class="table mb-0">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -66,9 +66,9 @@ Tables may be embedded within a card, with data manipulation tools and table nav
       </tr>
     </tbody>
   </table>
-  <hr class="my-no w-100">
-  <div class="card-actions justify-content-end">
-    <span class="align-self-center m-xs text-muted">Rows per page:</span>
+  <hr class="my-0 w-100">
+  <div class="card-actions align-items-center justify-content-end">
+    <span class="align-self-center mb-1 mx-1 text-muted">Rows per page:</span>
     <div class="dropdown">
       <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline dropdown-toggle" data-toggle="dropdown" type="button">3</button>
       <div class="dropdown-menu dropdown-menu-right">
@@ -79,7 +79,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
         <a class="dropdown-item" href="#">Show all</a>
       </div>
     </div>
-    <span class="align-self-center m-xs text-muted">1-3 of 300</span>
+    <span class="align-self-center mb-1 mx-1 text-muted">1-3 of 300</span>
     <a class="btn btn-outline" href="#"><i class="material-icons">chevron_left</i></a>
     <a class="btn btn-outline" href="#"><i class="material-icons">chevron_right</i></a>
   </div>
