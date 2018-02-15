@@ -1,0 +1,20 @@
+.toast {
+  background-clip: padding-box;
+  background-color: $toast-bg;
+  color: $toast-color;
+  font-size: $toast-font-size;
+  overflow: hidden;
+  padding: $toast-padding-y $toast-padding-x;
+  width: 100%;
+
+  @include media-breakpoint-up($toast-breakpoint) {
+    border-radius: $toast-border-radius;
+    max-width: $toast-max-width;
+    min-width: $toast-min-width;
+    width: auto;
+  }
+
+  + .toast {
+    margin-top: $toast-margin-y;
+  }
+}
