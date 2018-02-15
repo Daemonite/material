@@ -1,0 +1,22 @@
+// Basic styles for Bootstrap toast
+
+.toast {
+  background-clip: padding-box;
+  background-color: $snackbar-bg;
+  color: $snackbar-color;
+  font-size: $snackbar-font-size;
+  overflow: hidden;
+  padding: $snackbar-padding-y $snackbar-padding-x;
+  width: 100%;
+
+  @include media-breakpoint-up($snackbar-breakpoint) {
+    border-radius: $snackbar-border-radius;
+    max-width: $snackbar-max-width;
+    min-width: $snackbar-min-width;
+    width: auto;
+  }
+
+  + .toast {
+    margin-top: $snackbar-margin-y;
+  }
+}
