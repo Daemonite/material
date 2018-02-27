@@ -35,6 +35,47 @@
   }
 }
 
+// Accordion
+
+.accordion {
+  .card:first-of-type {
+    @include border-bottom-radius(0);
+  }
+
+  .card:last-of-type {
+    @include border-top-radius(0);
+  }
+
+  .card:not(:first-of-type):not(:last-of-type) {
+    border-radius: 0;
+  }
+
+  .card:not(:first-of-type) {
+    .card-body:first-child,
+    .card-footer:first-child,
+    .card-header:first-child {
+      @include border-top-radius(0);
+    }
+  }
+
+  .card:not(:last-of-type) {
+    .card-body:last-child,
+    .card-footer:last-child,
+    .card-header:last-child {
+      @include border-bottom-radius(0);
+    }
+  }
+
+  .collapse,
+  .collapsing {
+    .card-body:first-child,
+    .card-footer:first-child,
+    .card-header:first-child {
+      @include border-top-radius(0);
+    }
+  }
+}
+
 // Action
 
 .card-actions {
