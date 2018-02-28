@@ -3879,6 +3879,44 @@ fieldset:disabled a.btn {
   outline: 0;
 }
 
+.accordion .card:first-of-type {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion .card:last-of-type {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion .card:not(:first-of-type):not(:last-of-type) {
+  border-radius: 0;
+}
+
+.accordion .card:not(:first-of-type) .card-body:first-child,
+.accordion .card:not(:first-of-type) .card-footer:first-child,
+.accordion .card:not(:first-of-type) .card-header:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.accordion .card:not(:last-of-type) .card-body:last-child,
+.accordion .card:not(:last-of-type) .card-footer:last-child,
+.accordion .card:not(:last-of-type) .card-header:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.accordion .collapse .card-body:first-child,
+.accordion .collapse .card-footer:first-child,
+.accordion .collapse .card-header:first-child,
+.accordion .collapsing .card-body:first-child,
+.accordion .collapsing .card-footer:first-child,
+.accordion .collapsing .card-header:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .card-actions {
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -3924,13 +3962,6 @@ fieldset:disabled a.btn {
   padding: 1rem 1rem;
 }
 
-.card-body:first-child,
-.card-header[class*='border-'] + .card-body,
-.card-img-top + .card-body,
-.list-group + .card-body {
-  padding-top: 1.5rem;
-}
-
 .card-body:first-child {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
@@ -3939,56 +3970,47 @@ fieldset:disabled a.btn {
 .card-body:last-child {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
-  padding-bottom: 1.5rem;
-}
-
-.card-header:not([class*='border-']) + .card-body {
-  padding-top: 0;
 }
 
 .card-body > :last-child {
   margin-bottom: 0;
 }
 
-.card-body + .card-img-bottom,
-.card-body + .list-group {
-  margin-top: 0.5rem;
-}
-
 .card-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   padding: 1rem 1rem;
 }
 
 .card-footer.border-primary {
-  border-top: 1px solid #9c27b0;
+  border-top-color: #9c27b0;
 }
 
 .card-footer.border-secondary {
-  border-top: 1px solid #ff4081;
+  border-top-color: #ff4081;
 }
 
 .card-footer.border-danger {
-  border-top: 1px solid #f44336;
+  border-top-color: #f44336;
 }
 
 .card-footer.border-info {
-  border-top: 1px solid #2196f3;
+  border-top-color: #2196f3;
 }
 
 .card-footer.border-success {
-  border-top: 1px solid #4caf50;
+  border-top-color: #4caf50;
 }
 
 .card-footer.border-warning {
-  border-top: 1px solid #ff9800;
+  border-top-color: #ff9800;
 }
 
 .card-footer.border-dark {
-  border-top: 1px solid #424242;
+  border-top-color: #424242;
 }
 
 .card-footer.border-light {
-  border-top: 1px solid #f5f5f5;
+  border-top-color: #f5f5f5;
 }
 
 .card-footer:first-child {
@@ -4002,70 +4024,46 @@ fieldset:disabled a.btn {
   border-bottom-left-radius: 2px;
 }
 
-.card-body + .card-footer[class*='border-'],
-.card-header + .card-footer[class*='border-'] {
-  margin-top: 0.5rem;
-}
-
-.card-body + .card-footer:not[class*='border-'],
-.card-header + .card-footer:not[class*='border-'] {
-  padding-top: 0;
-}
-
-.card-header[class*='border-'] + .card-footer[class*='border-'] {
-  margin-top: -1px;
-}
-
 .card-footer > :last-child {
   margin-bottom: 0;
 }
 
 .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   margin-bottom: 0;
   padding: 1rem 1rem;
 }
 
 .card-header.border-primary {
-  border-bottom: 1px solid #9c27b0;
+  border-bottom-color: #9c27b0;
 }
 
 .card-header.border-secondary {
-  border-bottom: 1px solid #ff4081;
+  border-bottom-color: #ff4081;
 }
 
 .card-header.border-danger {
-  border-bottom: 1px solid #f44336;
+  border-bottom-color: #f44336;
 }
 
 .card-header.border-info {
-  border-bottom: 1px solid #2196f3;
+  border-bottom-color: #2196f3;
 }
 
 .card-header.border-success {
-  border-bottom: 1px solid #4caf50;
+  border-bottom-color: #4caf50;
 }
 
 .card-header.border-warning {
-  border-bottom: 1px solid #ff9800;
+  border-bottom-color: #ff9800;
 }
 
 .card-header.border-dark {
-  border-bottom: 1px solid #424242;
+  border-bottom-color: #424242;
 }
 
 .card-header.border-light {
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.card-header[class*='border-'] {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.card-header:first-child,
-.card-img-top + .card-header,
-.list-group + .card-header {
-  padding-top: 1.5rem;
+  border-bottom-color: #f5f5f5;
 }
 
 .card-header:first-child {
@@ -4077,28 +4075,11 @@ fieldset:disabled a.btn {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom: 0;
-  padding-bottom: 1.5rem;
-}
-
-.card-header:not([class*='border-']) + .card-img-bottom,
-.card-header:not([class*='border-']) + .list-group {
-  margin-top: 0.5rem;
 }
 
 .card-header-pills {
-  margin: -1rem -1rem 0;
+  margin: -1rem -1rem;
   padding: 0.5rem 0rem 0.25rem 0.5rem;
-}
-
-.card-header:first-child .card-header-pills,
-.card-header[class*='border-'] .card-header-pills,
-.card-img-top + .card-header .card-header-pills {
-  margin-top: -1.5rem;
-}
-
-.card-header:last-child .card-header-pills,
-.card-header[class*='border-'] .card-header-pills {
-  margin-bottom: -1.5rem;
 }
 
 .card-header-pills .nav-link {
@@ -4109,19 +4090,7 @@ fieldset:disabled a.btn {
 }
 
 .card-header-tabs {
-  margin: -1rem -1rem 0.5rem;
-}
-
-.card-header:first-child .card-header-tabs,
-.card-header[class*='border-'] .card-header-tabs,
-.card-img-top + .card-header .card-header-tabs,
-.list-group + .card-header .card-header-tabs {
-  margin-top: -1.5rem;
-}
-
-.card-header[class*='border-'] .card-header-tabs,
-.card-header:last-child .card-header-tabs {
-  margin-bottom: -1.5rem;
+  margin: -1rem -1rem calc(-1rem - 1px);
 }
 
 .card-img {
@@ -4140,7 +4109,7 @@ fieldset:disabled a.btn {
 
 .card-img-overlay {
   max-height: 100%;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -4884,6 +4853,7 @@ fieldset:disabled a.btn {
   pointer-events: auto;
   position: relative;
   vertical-align: baseline;
+  width: 100%;
 }
 
 .modal-dialog {
