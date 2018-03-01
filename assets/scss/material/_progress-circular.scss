@@ -1,143 +1,51 @@
-.progress-circular {
-  height: $progress-circular-height;
-  position: relative;
-  width: $progress-circular-height;
+// stylelint-disable scss/dollar-variable-default
+$progress-circular-size-in-px:         ($progress-circular-size / 1rem * $font-size-root / 1px);
+$progress-circular-spinner-animation:  progress-circular-spinner-rotate #{$progress-circular-animation-duration} #{$transition-timing-function-standard} infinite;
+$progress-circular-spinner-dasharray:  (($progress-circular-size - $progress-circular-spinner-width) * 3.1415926 / 1rem * $font-size-root);
+$progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotate(0); } 12.5% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotate(0); } 12.51% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotateX(180deg) rotate(72.5deg); } 25% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotateX(180deg) rotate(72.5deg); } 25.1% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotate(270deg); } 37.5% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotate(270deg); } 37.51% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotateX(180deg) rotate(161.5deg); } 50% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotateX(180deg) rotate(161.5deg); } 50.01% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotate(180deg); } 62.5% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotate(180deg); } 62.51% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotateX(180deg) rotate(251.5deg); } 75% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotateX(180deg) rotate(251.5deg); } 75.01% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotate(90deg); } 87.5% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotate(90deg); } 87.51% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.2}; transform: rotateX(180deg) rotate(341.5deg); } 100% { stroke-dashoffset: #{$progress-circular-spinner-dasharray * 0.95}; transform: rotateX(180deg) rotate(341.5deg); }';
+// stylelint-enable
+
+@function progress-circular-spinner($color) {
+  @return str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg focusable="false" preserveAspectRatio="xMidYMid meet" style="height: #{$progress-circular-size}; width: #{$progress-circular-size};" viewBox="0 0 #{$progress-circular-size-in-px} #{$progress-circular-size-in-px}" xmlns="http://www.w3.org/2000/svg"%3E%3Cstyle type="text/css"%3E@-webkit-keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} } @keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} }%3C/style%3E%3Ccircle cx="50%" cy="50%" fill="transparent" r="#{($progress-circular-size - $progress-circular-spinner-width) / 2rem * $font-size-root / 1px}" style="-webkit-animation: #{$progress-circular-spinner-animation}; animation: #{$progress-circular-spinner-animation}; stroke: #{$color}; stroke-dasharray: #{$progress-circular-spinner-dasharray}; stroke-width: #{$progress-circular-spinner-width / 1rem * $font-size-root}; transform-origin: 50% 50%;"%3E%3C/circle%3E%3C/svg%3E'), '#', '%23');
 }
 
-.progress-circular-gap {
-  border-top: ($progress-circular-spinner-width / 2) solid $progress-circular-bg;
-  position: absolute;
-  top: 0;
-  right: ($progress-circular-height / 2 - $progress-circular-spinner-width / 4);
-  bottom: 0;
-  left: ($progress-circular-height / 2 - $progress-circular-spinner-width / 4);
-}
-
-.progress-circular-inner {
-  animation: progress-circular-inner-rotate $progress-circular-animation-duration $transition-timing-function-standard infinite;
-  height: $progress-circular-height;
-  position: relative;
-  width: $progress-circular-height;
-}
-
-.progress-circular-left,
-.progress-circular-right {
-  height: $progress-circular-height;
+.progress-circular,
+.spinner-border {
+  animation: progress-circular-rotate ($progress-circular-animation-duration / 2) linear infinite;
+  color: $progress-circular-spinner-bg;
+  height: $progress-circular-size;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: ($progress-circular-height / 2);
-}
+  position: relative;
+  text-indent: 100%;
+  width: $progress-circular-size;
 
-.progress-circular-left {
-  left: 0;
-}
-
-.progress-circular-right {
-  right: 0;
-}
-
-.progress-circular-spinner {
-  border: $progress-circular-spinner-width solid $progress-circular-bg;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  height: $progress-circular-height;
-  position: absolute;
-  top: 0;
-  width: $progress-circular-height;
-
-  .progress-circular-left & {
-    animation: progress-circular-spinner-left ($progress-circular-animation-duration / 4) $transition-timing-function-standard infinite;
-    border-right-color: transparent;
+  &::after {
+    content: progress-circular-spinner($progress-circular-spinner-bg);
+    display: block;
+    height: $progress-circular-size;
+    position: absolute;
+    top: 0;
     left: 0;
-  }
-
-  .progress-circular-right & {
-    animation: progress-circular-spinner-right ($progress-circular-animation-duration / 4) $transition-timing-function-standard infinite;
-    border-left-color: transparent;
-    right: 0;
-  }
-}
-
-.progress-circular-wrapper {
-  animation: progress-circular-wrapper-rotate ($progress-circular-animation-duration / 2) linear infinite;
-}
-
-@keyframes progress-circular-inner-rotate {
-  12.5% {
-    transform: rotate(135deg);
-  }
-
-  25% {
-    transform: rotate(270deg);
-  }
-
-  37.5% {
-    transform: rotate(405deg);
-  }
-
-  50% {
-    transform: rotate(540deg);
-  }
-
-  62.5% {
-    transform: rotate(675deg);
-  }
-
-  75% {
-    transform: rotate(810deg);
-  }
-
-  87.5% {
-    transform: rotate(945deg);
-  }
-
-  100% {
-    transform: rotate(1080deg);
-  }
-}
-
-@keyframes progress-circular-spinner-left {
-  0%,
-  100% {
-    transform: rotate(130deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-}
-
-@keyframes progress-circular-spinner-right {
-  0%,
-  100% {
-    transform: rotate(-130deg);
-  }
-
-  50% {
-    transform: rotate(5deg);
-  }
-}
-
-@keyframes progress-circular-wrapper-rotate {
-  100% {
-    transform: rotate(360deg);
+    text-indent: 0;
+    width: $progress-circular-size;
   }
 }
 
 @each $color, $values in $theme-colors {
-  .progress-circular-#{$color} {
-    .progress-circular-gap,
-    .progress-circular-spinner {
-      border-top-color: theme-color($color);
+  .progress-circular-#{$color},
+  .spinner-border.text-#{$color} {
+    &::after {
+      content: progress-circular-spinner(theme-color($color));
     }
+  }
+}
 
-    .progress-circular-left .progress-circular-spinner {
-      border-left-color: theme-color($color);
-    }
+@keyframes progress-circular-rotate {
+  0% {
+    transform: rotate(0);
+  }
 
-    .progress-circular-right .progress-circular-spinner {
-      border-right-color: theme-color($color);
-    }
+  100% {
+    transform: rotate(360deg);
   }
 }
