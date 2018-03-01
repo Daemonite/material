@@ -20,6 +20,7 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
   width: $progress-circular-size;
 
   &::after {
+    border-radius: 50%;
     content: progress-circular-spinner($progress-circular-spinner-bg);
     display: block;
     height: $progress-circular-size;
@@ -33,10 +34,22 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
 
 @each $color, $values in $theme-colors {
   .progress-circular-#{$color},
-  .spinner-border.text-#{$color} {
+  .spinner-border.text-#{$color}:not(.spinner-border-reverse) {
     &::after {
       content: progress-circular-spinner(theme-color($color));
     }
+  }
+}
+
+.spinner-border-reverse {
+  animation-duration: ($progress-circular-animation-duration * 2);
+  animation-name: progress-circular-rotate-reverse;
+  animation-timing-function: $transition-timing-function-standard;
+
+  &::after {
+    border: $progress-circular-spinner-width solid currentColor;
+    border-right-color: transparent;
+    content: '';
   }
 }
 
@@ -47,5 +60,27 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes progress-circular-rotate-reverse {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(1170deg);
+  }
+
+  50% {
+    transform: rotate(2340deg);
+  }
+
+  75% {
+    transform: rotate(3510deg);
+  }
+
+  100% {
+    transform: rotate(4680deg);
   }
 }
