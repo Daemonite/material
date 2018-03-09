@@ -6,13 +6,14 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
 // stylelint-enable
 
 @function progress-circular-spinner($color) {
-  @return str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg focusable="false" preserveAspectRatio="xMidYMid meet" style="height: #{$progress-circular-size}; width: #{$progress-circular-size};" viewBox="0 0 #{$progress-circular-size-in-px} #{$progress-circular-size-in-px}" xmlns="http://www.w3.org/2000/svg"%3E%3Cstyle type="text/css"%3E@-webkit-keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} } @keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} }%3C/style%3E%3Ccircle cx="50%" cy="50%" fill="transparent" r="#{($progress-circular-size - $progress-circular-spinner-width) / 2rem * $font-size-root / 1px}" style="-webkit-animation: #{$progress-circular-spinner-animation}; animation: #{$progress-circular-spinner-animation}; stroke: #{$color}; stroke-dasharray: #{$progress-circular-spinner-dasharray}; stroke-width: #{$progress-circular-spinner-width / 1rem * $font-size-root}; transform-origin: 50% 50%;"%3E%3C/circle%3E%3C/svg%3E'), '#', '%23');
+  @return str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg focusable="false" preserveAspectRatio="xMidYMid meet" style="height: 100%; width: 100%;" viewBox="0 0 #{$progress-circular-size-in-px} #{$progress-circular-size-in-px}" xmlns="http://www.w3.org/2000/svg"%3E%3Cstyle type="text/css"%3E@-webkit-keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} } @keyframes progress-circular-spinner-rotate { #{$progress-circular-spinner-transition} }%3C/style%3E%3Ccircle cx="50%" cy="50%" fill="transparent" r="#{($progress-circular-size - $progress-circular-spinner-width) / 2rem * $font-size-root / 1px}" style="-webkit-animation: #{$progress-circular-spinner-animation}; animation: #{$progress-circular-spinner-animation}; stroke: #{$color}; stroke-dasharray: #{$progress-circular-spinner-dasharray}; stroke-width: #{$progress-circular-spinner-width / 1rem * $font-size-root}; transform-origin: 50% 50%;"%3E%3C/circle%3E%3C/svg%3E'), '#', '%23');
 }
 
 .progress-circular,
 .spinner-border {
   animation: progress-circular-rotate ($progress-circular-animation-duration / 2) linear infinite;
   color: $progress-circular-spinner-bg;
+  display: inline-block;
   height: $progress-circular-size;
   overflow: hidden;
   position: relative;
@@ -23,12 +24,16 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
     border-radius: 50%;
     content: progress-circular-spinner($progress-circular-spinner-bg);
     display: block;
-    height: $progress-circular-size;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     text-indent: 0;
-    width: $progress-circular-size;
+    width: 100%;
+  }
+
+  .btn & {
+    vertical-align: middle;
   }
 }
 
@@ -50,6 +55,31 @@ $progress-circular-spinner-transition: '0% { stroke-dashoffset: #{$progress-circ
     border: $progress-circular-spinner-width solid currentColor;
     border-right-color: transparent;
     content: '';
+  }
+}
+
+.spinner-border-sm {
+  height: $material-icon-size;
+  width: $material-icon-size;
+
+  &.spinner-border-reverse::after {
+    border-width: ($material-icon-size / $progress-circular-size * $progress-circular-spinner-width);
+  }
+
+  .btn & {
+    margin-top: calc(#{($btn-font-size * $btn-line-height - $material-icon-size) / 2} - 1px);
+    margin-bottom: calc(#{($btn-font-size * $btn-line-height - $material-icon-size) / 2} - 1px);
+    vertical-align: top;
+  }
+
+  .btn-lg & {
+    margin-top: calc(#{($btn-font-size-lg * $btn-line-height - $material-icon-size) / 2} - 1px);
+    margin-bottom: calc(#{($btn-font-size-lg * $btn-line-height - $material-icon-size) / 2} - 1px);
+  }
+
+  .btn-sm & {
+    margin-top: calc(#{($btn-font-size-sm * $btn-line-height - $material-icon-size) / 2} - 1px);
+    margin-bottom: calc(#{($btn-font-size-sm * $btn-line-height - $material-icon-size) / 2} - 1px);
   }
 }
 
