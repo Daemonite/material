@@ -13,11 +13,6 @@ const TabSwitch = (($) => {
   const NAME        = 'tabswitch'
   const NO_CONFLICT = $.fn[NAME]
 
-  const Breakpoints = {
-    DESKTOP : 992,
-    TABLET  : 576
-  }
-
   const ClassName = {
     ANIMATE       : 'animate',
     DROPDOWN_ITEM : 'dropdown-item',
@@ -35,12 +30,6 @@ const TabSwitch = (($) => {
     DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
     DROPDOWN    : '.dropdown',
     NAV         : '.nav-tabs'
-  }
-
-  const TransitionDuration = {
-    DESKTOP : 200,
-    MOBILE  : 300,
-    TABLET  : 390
   }
   // <<< constants
 
@@ -92,13 +81,7 @@ const TabSwitch = (($) => {
         return
       }
 
-      let transitionDuration = TransitionDuration.MOBILE
-
-      if (window.innerWidth >= Breakpoints.DESKTOP) {
-        transitionDuration = TransitionDuration.DESKTOP
-      } else if (window.innerWidth >= Breakpoints.TABLET) {
-        transitionDuration = TransitionDuration.TABLET
-      }
+      const transitionDuration = Util.getTransitionDurationFromElement(this._navindicator)
 
       $(this._navindicator)
         .one(Util.TRANSITION_END, complete)

@@ -7,7 +7,9 @@ import $ from 'jquery'
 
 const Util = (($) => {
 
-  const MAX_UID  = 1000000
+  const MAX_UID                 = 1000000
+  const MILLISECONDS_MULTIPLIER = 1000
+
   let transition = false
 
   function getSpecialTransitionEndEvent() {
@@ -81,6 +83,22 @@ const Util = (($) => {
       } catch (err) {
         return null
       }
+    },
+
+    getTransitionDurationFromElement(element) {
+      if (!element) {
+        return 0
+      }
+
+      let transitionDuration = $(element).css('transition-duration')
+
+      if (!transitionDuration) {
+        return 0
+      }
+
+      transitionDuration = transitionDuration.split(',')[0]
+
+      return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER
     },
 
     getUID(prefix) {
