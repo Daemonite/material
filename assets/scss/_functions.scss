@@ -69,3 +69,9 @@
 @function theme-color-light($key: primary) {
   @return map-get(map-get($theme-colors, $key), light);
 }
+
+// Strip unit
+
+@function strip-unit($val) {
+  @return $val / ($val * 0 + 1);
+}
