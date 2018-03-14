@@ -32,7 +32,7 @@ When the user engages with the text input field, the floating inline labels move
   <div class="floating-label">
     <label for="exampleSelectFloatingLabel1">Floating label</label>
     <select class="form-control" id="exampleSelectFloatingLabel1">
-      <option> </option>
+      <option label="Empty option"></option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -81,7 +81,7 @@ $('.floating-label .form-control').floatinglabel();
   <div class="floating-label" id="asdasdasd">
     <label for="exampleSelectFloatingLabel2">Floating label</label>
     <select class="form-control" id="exampleSelectFloatingLabel2">
-      <option> </option>
+      <option label="Empty option"></option>
       <option selected>Initial option</option>
       <option>2</option>
       <option>3</option>
@@ -106,7 +106,7 @@ Text field boxes increase text field identifiability and scannability by using a
   <label class="mb-2" for="exampleSelectTextfieldBox1">Text field box label</label>
   <div class="textfield-box">
     <select class="form-control" id="exampleSelectTextfieldBox1">
-      <option> </option>
+      <option label="Empty option"></option>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -150,7 +150,7 @@ Text field boxes can be combined with floating labels.
   <div class="floating-label textfield-box">
     <label for="exampleSelectTextfieldBox2">Floating label</label>
     <select class="form-control" id="exampleSelectTextfieldBox2">
-      <option> </option>
+      <option label="Empty option"></option>
       <option>1</option>
       <option>2</option>
       <option>3</option>

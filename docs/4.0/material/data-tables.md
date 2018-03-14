@@ -17,7 +17,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
     <h4 class="card-title mb-0">Card title</h4>
     <div class="card-actions ml-auto py-0">
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" type="button"><i class="material-icons">filter_list</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>
         <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" href="#">Filter 1</a>
           <a class="dropdown-item" href="#">Filter 2</a>
@@ -25,7 +25,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
         </div>
       </div>
       <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" type="button"><i class="material-icons">more_vert</i></button>
+        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop2" type="button"><i class="material-icons">more_vert</i></button>
         <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
