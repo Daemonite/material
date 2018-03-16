@@ -70,6 +70,12 @@
   @return map-get(map-get($theme-colors, $key), light);
 }
 
+// Retrieve an `rgba` colour
+
+@function hex-to-rgba($color, $opacity) {
+  @return rgba(red($color), green($color), blue($color), $opacity);
+}
+
 // Strip unit
 
 @function strip-unit($val) {
