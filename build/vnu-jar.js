@@ -25,6 +25,7 @@ childProcess.exec('java -version', (error, stdout, stderr) => {
   const ignores = [
     'Attribute “autocomplete” is only allowed when the input type is.*',
     'Attribute “autocomplete” not allowed on element “button” at this point.',
+    'Bad value “https://fonts.googleapis.com/css\\?family=.*',
     'Element “img” is missing required attribute “src”.',
     'Element “legend” not allowed as child of element “div” in this context.*'
   ].join('|')
