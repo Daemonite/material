@@ -3,8 +3,13 @@ layout: base
 ---
 
 <header class="navbar navbar-dark toolbar-waterfall doc-navbar" id="doc-navbar">
+  <button aria-controls="{{ site.id.navdrawer }}" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler" data-target="#{{ site.id.navdrawer }}" data-toggle="navdrawer">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   <a class="h4 ml-3 mr-auto doc-logo" href="{{ site.baseurl }}/">M</a>
 </header>
+
+{% include nav-navdrawer.html %}
 
 <div class="jumbotron jumbotron-fluid mb-5 text-white doc-jumbotron" id="doc-index-jumbotron">
   <div class="container">

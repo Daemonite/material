@@ -1,50 +1,60 @@
-<div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="{{ site.id.navdrawer }}" tabindex="-1">
+{% assign class_permanent = '' %}
+{% assign page_slug = page.url | split: '/' | last %}
+
+{% if page_slug|length %}
+  {% assign class_permanent = 'navdrawer-permanent-lg' %}
+{% endif %}
+
+<div aria-hidden="true" class="navdrawer {{class_permanent}} doc-navdrawer" id="{{ site.id.navdrawer }}" tabindex="-1">
   <div class="navdrawer-content">
     <div class="d-flex flex-column doc-navdrawer-body">
       <div class="navdrawer-header">
-        <a class="navbar-brand px-0" href="{{ site.baseurl }}/">{{ site.title }}</a>
+        <a class="h4 mr-2 doc-logo" href="{{ site.baseurl }}/">M</a>
+        <span class="h4 mb-0">{{ site.title }}</span>
       </div>
 
       <nav class="navdrawer-nav">
 
-      {%- assign page_slug = page.url | split: '/' | last -%}
+        {% assign page_slug = page.url | split: '/' | last %}
 
-      {%- for group in site.data.nav -%}
+        {% for group in site.data.nav %}
 
-        {%- assign class_collapsed = 'collapsed' -%}
-        {%- assign class_show = '' -%}
-        {%- assign group_slug = group.title | slugify -%}
+          {% assign class_collapsed = 'collapsed' %}
+          {% assign class_show = '' %}
+          {% assign group_slug = group.title | slugify %}
 
-        {%- if group_slug == page.group -%}
-          {%- assign class_collapsed = '' -%}
-          {%- assign class_show = 'show' -%}
-        {%- endif -%}
+          {% if group_slug == page.group %}
+            {% assign class_collapsed = '' %}
+            {% assign class_show = 'show' %}
+          {% endif %}
 
-        {%- if group.title == 'Components' or group.title == 'Material' -%}
-          <div class="navdrawer-divider"></div>
-        {%- endif -%}
+          {% if group.title == 'Components' or group.title == 'Material' %}
+
+            <div class="navdrawer-divider"></div>
+
+          {% endif %}
 
           <a class="nav-item nav-link {{ class_collapsed }}" data-toggle="collapse" href="#{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
             <strong>{{ group.title }}</strong>
           </a>
           <div class="collapse pb-2 {{ class_show }}" id="{{ site.id.navdrawer }}-{{ group_slug | replace: ' ', '-' }}">
 
-            {%- for doc in group.pages -%}
+            {% for doc in group.pages %}
 
-              {%- assign class_active = 'text-black-secondary' -%}
-              {%- assign doc_slug = doc.title | slugify -%}
+              {% assign class_active = 'text-black-secondary' %}
+              {% assign doc_slug = doc.title | slugify %}
 
-              {%- if doc_slug == page_slug and group_slug == page.group -%}
-                {%- assign class_active = 'active' -%}
-              {%- endif -%}
+              {% if doc_slug == page_slug and group_slug == page.group %}
+                {% assign class_active = 'active' %}
+              {% endif %}
 
               <a class="nav-item nav-link pl-4 py-2 {{ class_active }}" href="{{ site.baseurl }}/docs/{{ site.docs_version }}/{{ group.title | downcase | replace: ' ', '-' }}/{{ doc.title | downcase | replace: ' ', '-' | replace: '-&- ', '-'  }}/"><span class="font-weight-normal">{{ doc.title }}</span></a>
 
-            {%- endfor -%}
+            {% endfor %}
 
           </div>
 
-      {%- endfor -%}
+        {% endfor %}
 
       </nav>
 
