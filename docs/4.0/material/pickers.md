@@ -96,6 +96,10 @@ $('.datepicker').pickdate({
         <td>Optionally, set a different date format for the value to be submitted to the server. When <code>formatSubmit</code> is specified, a hidden <code>input</code> will be created to hold the value.</td>
       </tr>
       <tr>
+        <td class="text-nowrap">labelMonthNext<br>labelMonthPrev<br>labelMonthSelect<br>labelYearSelect</td>
+        <td>Change the accessibility labels (i.e. <code>title</code> attributes) to several elements of the picker.</td>
+      </tr>
+      <tr>
         <td class="text-nowrap">max</td>
         <td>Set the maximum selectable date. See below for detailed usage.</td>
       </tr>
