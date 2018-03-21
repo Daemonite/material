@@ -2,7 +2,7 @@ import $ from 'jquery'
 import Util from './util'
 
 /*
- * Navigation drawer
+ * Navigation drawer plguin
  * Based on Bootstrap's (v4.0.0) `modal.js`
  */
 

@@ -1,8 +1,8 @@
 import $ from 'jquery'
 
 /*
- * selection control focus
- * chrome persists the focus style on checkboxes/radio buttons after clicking
+ * Selection control plugin fixes the focus state problem with
+ * Chrome persisting focus state on checkboxes/radio buttons after clicking
  */
 
 const SelectionControlFocus = (($) => {

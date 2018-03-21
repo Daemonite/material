@@ -1,9 +1,7 @@
 import $ from 'jquery'
 
 /*
- * expansion panel
- * upon selecting the collapsed panel,
- * it expands to display in full
+ * Expansion panel plugins expands a collapsed panel in full upon selecting
  */
 
 const ExpansionPanel = (($) => {
