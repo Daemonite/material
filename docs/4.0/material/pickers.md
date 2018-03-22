@@ -93,7 +93,11 @@ $('.datepicker').pickdate({
       </tr>
       <tr>
         <td class="text-nowrap">formatSubmit</td>
-        <td>Optionally, set a different date format for the value to be submitted to the server. When <code>formatSubmit</code> is specified, a hidden <code>input</code> will be created to hold the value.</td>
+        <td>Optionally, set a different date format for the value to be submitted to the server. When <code>formatSubmit</code> is specified, a hidden <code>input</code> with the same <code>name</code> attribute as the original will be created to hold the value.</td>
+      </tr>
+      <tr>
+        <td class="text-nowrap">hiddenPrefix<br>hiddenSuffix</td>
+        <td>Add optional prefix/suffix to the <code>name</code> attribute of the hidden input that is created by setting <code>formatSubmit</code>.</td>
       </tr>
       <tr>
         <td class="text-nowrap">labelMonthNext<br>labelMonthPrev<br>labelMonthSelect<br>labelYearSelect</td>
