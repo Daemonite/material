@@ -188,7 +188,6 @@ const PickDate = (($) => {
       })
 
       const datepickerApi  = $(this._element).pickadate('picker')
-      // const datepickerNode = datepickerApi.$node
       const datepickerRoot = datepickerApi.$root
 
       datepickerApi.on({
