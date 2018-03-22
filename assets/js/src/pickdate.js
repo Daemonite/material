@@ -21,6 +21,7 @@ const PickDate = (($) => {
     firstDay         : 0,
     format           : 'd/m/yyyy',
     formatSubmit     : '',
+    hiddenName       : false,
     hiddenPrefix     : '',
     hiddenSuffix     : '',
     klass            : {
@@ -109,6 +110,7 @@ const PickDate = (($) => {
     firstDay         : 'number',
     format           : 'string',
     formatSubmit     : 'string',
+    hiddenName       : 'boolean',
     hiddenPrefix     : 'string',
     hiddenSuffix     : 'string',
     klass            : 'object',
@@ -158,6 +160,7 @@ const PickDate = (($) => {
         format           : this._config.format,
         formatSubmit     : this._config.formatSubmit,
         klass            : this._config.klass,
+        hiddenName       : this._config.hiddenName,
         hiddenPrefix     : this._config.hiddenPrefix,
         hiddenSuffix     : this._config.hiddenSuffix,
         labelMonthNext   : this._config.labelMonthNext,

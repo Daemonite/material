@@ -96,6 +96,10 @@ $('.datepicker').pickdate({
         <td>Optionally, set a different date format for the value to be submitted to the server. When <code>formatSubmit</code> is specified, a hidden <code>input</code> with the same <code>name</code> attribute as the original will be created to hold the value.</td>
       </tr>
       <tr>
+        <td class="text-nowrap">hiddenName</td>
+        <td>Set to <code>true</code> to only send the hidden value hold by the hidden input created by setting <code>formatSubmit</code> to the server. Setting this to <code>true</code> essentially nullifies the <code>hiddenPrefix</code> and <code>hiddenSuffix</code>, strips the <vode>name</vode> attribute from the source input, and then sets it as the <code>name</code> of the hidden input.</td>
+      </tr>
+      <tr>
         <td class="text-nowrap">hiddenPrefix<br>hiddenSuffix</td>
         <td>Add optional prefix/suffix to the <code>name</code> attribute of the hidden input that is created by setting <code>formatSubmit</code>.</td>
       </tr>
