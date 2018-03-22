@@ -4,13 +4,6 @@
   z-index: map-get($picker-elevation-shadow, elevation);
 }
 
-.picker-box {
-  @include border-bottom-radius($picker-border-radius);
-
-  background-color: $picker-content-bg;
-  overflow: hidden;
-}
-
 .picker-frame {
   @include transition-standard-complex(opacity);
 
@@ -70,18 +63,6 @@
     &::before {
       opacity: 1;
     }
-  }
-}
-
-.picker-input {
-  &.form-control[readonly] {
-    border-bottom-style: solid;
-    color: inherit;
-    cursor: text;
-  }
-
-  &.picker-input-active {
-    border-bottom-color: $textfield-border-color-focus;
   }
 }
 
@@ -224,6 +205,27 @@
 
   &::after {
     content: ',';
+  }
+}
+
+// Misc
+
+.picker-box {
+  @include border-bottom-radius($picker-border-radius);
+
+  background-color: $picker-content-bg;
+  overflow: hidden;
+}
+
+.picker-input {
+  &.form-control[readonly] {
+    border-bottom-style: solid;
+    color: inherit;
+    cursor: text;
+  }
+
+  &.picker-input-active {
+    border-bottom-color: $textfield-border-color-focus;
   }
 }
 
