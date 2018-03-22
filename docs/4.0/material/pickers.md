@@ -80,6 +80,10 @@ $('.datepicker').pickdate({
         <td>Change where to insert the datepicker element by passing any valid CSS selector. By default, the picker is inserted right after the associated <code>input</code> element.</td>
       </tr>
       <tr>
+        <td class="text-nowrap">containerHidden</td>
+        <td>By default, the picker’s hidden input is inserted right after the main <code>input</code> element. Specify where to insert the hidden element by passing any valid CSS selector to this option.</td>
+      </tr>
+      <tr>
         <td class="text-nowrap">disable</td>
         <td>Disable a date or a set of dates from being selectable in the picker. See below for detailed usage.</td>
       </tr>
