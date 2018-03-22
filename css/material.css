@@ -6481,65 +6481,8 @@ fieldset:disabled a.btn {
 }
 
 .picker {
-  position: absolute;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 240;
-}
-
-.picker-box {
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-  background-color: #ffffff;
-  overflow: hidden;
-}
-
-.picker-frame {
-  transition-duration: 0.375s;
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: rgba(0, 0, 0, 0.38);
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-@media (min-width: 576px) {
-  .picker-frame {
-    transition-duration: 0.4875s;
-  }
-}
-
-@media (min-width: 992px) {
-  .picker-frame {
-    transition-duration: 0.25s;
-  }
-}
-
-.picker-frame::after {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  width: 1px;
-}
-
-.picker-opened .picker-frame {
-  opacity: 1;
-}
-
-.picker-holder {
   outline: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -6547,11 +6490,66 @@ fieldset:disabled a.btn {
   left: 0;
   -webkit-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
-  transition-delay: 0.375s;
+  transition-delay: 0.675s;
   transition-duration: 0;
   transition-property: -webkit-transform;
   transition-property: transform;
   transition-property: transform, -webkit-transform;
+  z-index: 240;
+}
+
+@media (min-width: 576px) {
+  .picker {
+    transition-delay: 0.8775s;
+  }
+}
+
+@media (min-width: 992px) {
+  .picker {
+    transition-delay: 0.45s;
+  }
+}
+
+.picker.picker-opened {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: none;
+}
+
+.picker-frame {
+  margin: 1.5rem 1.5rem;
+}
+
+.picker-holder {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.38);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: 0.375s;
+}
+
+@media (min-width: 576px) {
+  .picker-holder {
+    transition-duration: 0.39s;
+  }
+}
+
+@media (min-width: 992px) {
+  .picker-holder {
+    transition-duration: 0.2s;
+  }
 }
 
 @media (min-width: 576px) {
@@ -6568,47 +6566,28 @@ fieldset:disabled a.btn {
 
 .picker-opened .picker-holder {
   opacity: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  transition: none;
-}
-
-.picker-opened .picker-holder::before {
-  opacity: 1;
-}
-
-.picker-input.form-control[readonly] {
-  border-bottom-style: solid;
-  color: inherit;
-  cursor: text;
-}
-
-.picker-input.picker-input-active {
-  border-bottom-color: #9c27b0;
+  transition-delay: 0s;
 }
 
 .picker-wrap {
   border-radius: 2px;
   transition-duration: 0.375s;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.428572;
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px 0 rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  margin: 1.5rem 1.5rem;
   max-width: 18.5rem;
+  opacity: 0;
   outline: 0;
+  pointer-events: auto;
   position: relative;
   -webkit-transform: scale(0.87);
   transform: scale(0.87);
-  vertical-align: middle;
 }
 
 @media (min-width: 576px) {
@@ -6625,18 +6604,21 @@ fieldset:disabled a.btn {
 
 @media (orientation: landscape) {
   .picker-wrap {
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: -ms-flexbox;
+    display: flex;
     max-width: none;
   }
 }
 
 .picker-opened .picker-wrap {
+  opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
 }
 
 .picker-footer {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: end;
@@ -6646,6 +6628,7 @@ fieldset:disabled a.btn {
 
 @media (orientation: landscape) {
   .picker-footer {
+    border-radius: 0 0 2px 0;
     padding-right: 0.75rem;
     padding-left: 0.75rem;
   }
@@ -6667,8 +6650,10 @@ fieldset:disabled a.btn {
   line-height: 2.5rem;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
   position: relative;
-  vertical-align: middle;
+  text-align: center;
 }
 
 @media (orientation: landscape) {
@@ -6724,20 +6709,16 @@ fieldset:disabled a.btn {
 .picker-date-display {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  text-align: left;
-  text-align: start;
   background-color: #9c27b0;
   color: white;
   padding: 1rem 1.5rem;
 }
 
-[dir='rtl'] .picker-date-display {
-  text-align: right;
-  text-align: start;
-}
-
 @media (orientation: landscape) {
   .picker-date-display {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 0;
     min-width: 9.75rem;
     white-space: nowrap;
   }
@@ -6770,6 +6751,31 @@ fieldset:disabled a.btn {
 
 .picker-weekday-display::after {
   content: ',';
+}
+
+.picker-box {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+@media (orientation: landscape) {
+  .picker-box {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.picker-input.form-control[readonly] {
+  border-bottom-style: solid;
+  color: inherit;
+  cursor: text;
+}
+
+.picker-input.picker-input-active {
+  border-bottom-color: #9c27b0;
 }
 
 .picker-day {
