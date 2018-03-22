@@ -77,7 +77,7 @@ $('.datepicker').pickdate({
       </tr>
       <tr>
         <td class="text-nowrap">container</td>
-        <td>Change where to insert the datepicker element by passing any valid CSS selector. Default is <code>'body'</code>. Set it to <code>''</code> to insert the picker right after the associated <code>input</code> element.</td>
+        <td>Change where to insert the datepicker element by passing any valid CSS selector. By default, the picker is inserted right after the associated <code>input</code> element.</td>
       </tr>
       <tr>
         <td class="text-nowrap">disable</td>

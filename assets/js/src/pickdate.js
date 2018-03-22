@@ -16,7 +16,7 @@ const PickDate = (($) => {
     cancel           : 'Cancel',
     closeOnCancel    : true,
     closeOnSelect    : false,
-    container        : 'body',
+    container        : '',
     disable          : [],
     firstDay         : 0,
     format           : 'd/m/yyyy',
