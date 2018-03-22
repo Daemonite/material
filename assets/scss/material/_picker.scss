@@ -7,21 +7,20 @@
   bottom: 0;
   left: 0;
   transform: translate3d(0, 100%, 0);
-  transition-delay: $transition-duration-mobile-complex;
+  transition-delay: ($transition-duration-mobile + $transition-duration-mobile-complex);
   transition-duration: 0;
   transition-property: transform;
   z-index: map-get($picker-elevation-shadow, elevation);
 
   @include media-breakpoint-up(sm) {
-    transition-delay: $transition-duration-tablet-complex;
+    transition-delay: ($transition-duration-tablet + $transition-duration-tablet-complex);
   }
 
   @include media-breakpoint-up(lg) {
-    transition-delay: $transition-duration-desktop-complex;
+    transition-delay: ($transition-duration-desktop + $transition-duration-desktop-complex);
   }
 
   &.picker-opened {
-    opacity: 1;
     overflow-x: hidden;
     overflow-y: auto;
     transform: translate3d(0, 0, 0);
@@ -34,7 +33,7 @@
 }
 
 .picker-holder {
-  @include transition-standard-complex(opacity);
+  @include transition-standard(opacity);
 
   align-items: center;
   background-color: $picker-holder-bg;
@@ -43,20 +42,31 @@
   min-height: 100%;
   min-width: 100%;
   opacity: 0;
+  transition-delay: $transition-duration-mobile-complex;
+
+  @include media-breakpoint-up(sm) {
+    transition-delay: $transition-duration-tablet-complex;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition-delay: $transition-duration-desktop-complex;
+  }
 
   .picker-opened & {
     opacity: 1;
+    transition-delay: 0s;
   }
 }
 
 .picker-wrap {
   @include border-radius($picker-border-radius);
-  @include transition-standard-complex(transform);
+  @include transition-standard-complex(opacity, transform);
   @include typography-body-1;
 
   box-shadow: map-get($picker-elevation-shadow, shadow);
   display: inline-block;
   max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
+  opacity: 0;
   outline: 0;
   position: relative;
   transform: scale(0.87);
@@ -68,6 +78,7 @@
   }
 
   .picker-opened & {
+    opacity: 1;
     transform: scale(1);
   }
 }
