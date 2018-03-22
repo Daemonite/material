@@ -14,10 +14,11 @@ A date picker has to be activated via JavaScript.
 
 **N.B.** Date picker requires `material.js` or `material.min.js`.
 
-{% example html %}
+{% capture example %}
 <label for="exampleInputDatePicker1">A basic example:</label>
 <input class="form-control" id="exampleInputDatePicker1" placeholder="Pick a date" type="text">
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('#exampleInputDatePicker1').pickdate();

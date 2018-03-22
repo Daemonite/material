@@ -11,7 +11,7 @@ group: material
 
 Tables may be embedded within a card, with data manipulation tools and table navigation displayed using card components.
 
-{% example html %}
+{% capture example %}
 <div class="card">
   <div class="card-header d-flex pr-0">
     <h4 class="card-title mb-0">Card title</h4>
@@ -84,4 +84,5 @@ Tables may be embedded within a card, with data manipulation tools and table nav
     <a class="btn btn-outline" href="#"><i class="material-icons">chevron_right</i></a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

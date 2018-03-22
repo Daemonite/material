@@ -12,7 +12,7 @@ Steppers display progress through a sequence of logical and numbered steps. They
 
 Horizontal steppers are ideal when the contents of one step depend on an earlier step.
 
-{% example html %}
+{% capture example %}
 <div class="stepper-horiz">
   <div class="stepper done">
     <div class="stepper-icon">
@@ -33,13 +33,14 @@ Horizontal steppers are ideal when the contents of one step depend on an earlier
     <span class="stepper-text">Name of step 3</span>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Vertical steppers
 
 Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.
 
-{% example html %}
+{% capture example %}
 <div class="stepper-vert">
   <div class="stepper done">
     <div class="stepper-icon">
@@ -60,4 +61,5 @@ Vertical steppers are designed for narrow screen sizes. They are ideal for mobil
     <span class="stepper-text">Name of step 3</span>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

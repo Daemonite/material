@@ -20,7 +20,7 @@ When the user engages with the text input field, the floating inline labels move
 
 **N.B.** Implementation of this requires `material.js` or `material.min.js`.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <div class="floating-label">
     <label for="exampleInputFloatingLabel1">Floating label</label>
@@ -39,13 +39,14 @@ When the user engages with the text input field, the floating inline labels move
     </select>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Sizes
 
 Change sizes using `.floating-label-lg` and `.floating-label-sm`.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <div class="floating-label floating-label-lg">
     <label for="exampleInputFloatingLabel2">Large</label>
@@ -58,7 +59,8 @@ Change sizes using `.floating-label-lg` and `.floating-label-sm`.
     <input class="form-control" id="exampleInputFloatingLabel3" placeholder="Placeholder" type="text">
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Usage
 
@@ -70,7 +72,7 @@ It is recommended to run the following JavaScript code after the document is rea
 $('.floating-label .form-control').floatinglabel();
 {% endhighlight %}
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <div class="floating-label" id="qweqweqwe">
     <label for="exampleInputFloatingLabel4">Floating label</label>
@@ -88,13 +90,14 @@ $('.floating-label .form-control').floatinglabel();
     </select>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Text field boxes
 
 Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <label class="mb-2" for="exampleInputTextfieldBox1">Text field box label</label>
   <div class="textfield-box">
@@ -113,13 +116,14 @@ Text field boxes increase text field identifiability and scannability by using a
     </select>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Sizes
 
 Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <label class="mb-2" for="exampleInputTextfieldBox2">Large</label>
   <div class="textfield-box textfield-box-lg">
@@ -132,13 +136,14 @@ Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
     <input class="form-control" id="exampleInputTextfieldBox3" placeholder="Small" type="text">
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### With floating labels
 
 Text field boxes can be combined with floating labels.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <div class="floating-label textfield-box">
     <label for="exampleInputTextfieldBox4">Floating label</label>
@@ -157,11 +162,12 @@ Text field boxes can be combined with floating labels.
     </select>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Sizes can also be set by adding `.floating-label-lg/sm` and `.textfield-box-lg/sm` classes.
 
-{% example html %}
+{% capture example %}
 <div class="form-group">
   <div class="floating-label floating-label-lg textfield-box textfield-box-lg">
     <label for="exampleInputTextfieldBox5">Large</label>
@@ -174,13 +180,14 @@ Sizes can also be set by adding `.floating-label-lg/sm` and `.textfield-box-lg/s
     <input class="form-control" id="exampleInputTextfieldBox6" placeholder="Small" type="text">
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## With icons
 
 Icons describe the type of input a text field requires. They are displayed to the left of the text field.
 
-{% example html %}
+{% capture example %}
 <div class="input-group mb-3">
   <input class="form-control" id="exampleInputGroup1" placeholder="With icons" type="text">
   <label class="input-group-icon" for="exampleInputGroup1">
@@ -199,11 +206,12 @@ Icons describe the type of input a text field requires. They are displayed to th
     <i class="material-icons">event</i>
   </label>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 `.input-group-icon` can also work with floating label text fields:
 
-{% example html %}
+{% capture example %}
 <div class="input-group mb-3">
   <div class="floating-label">
     <label for="exampleInputGroup4">Floating label</label>
@@ -231,4 +239,5 @@ Icons describe the type of input a text field requires. They are displayed to th
     <i class="material-icons">event</i>
   </label>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

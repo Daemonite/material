@@ -10,7 +10,7 @@ toc: true
 
 An expansion panel can stand alone.
 
-{% example html %}
+{% capture example %}
 <div class="list-group" id="accordionOne">
   <div class="expansion-panel list-group-item">
     <a aria-controls="collapseOne" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseOne" id="headingOne">
@@ -55,11 +55,12 @@ An expansion panel can stand alone.
     </div>
   </div>
 </div>
-{%endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 An expansion panel can also be connected to a larger surface, such as a card.
 
-{% example html %}
+{% capture example %}
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">Card title</h4>
@@ -110,13 +111,14 @@ An expansion panel can also be connected to a larger surface, such as a card.
     </div>
   </div>
 </div>
-{%endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Usage
 
 Expansion panels are best used for lightweight editing of an element. A collapsed panel displays summary information. Upon selecting the collapsed panel, it expands to display the full expansion panel, allowing users to add or edit information.
 
-{% example html %}
+{% capture example %}
 <div class="list-group" id="accordionThree">
   <div class="expansion-panel list-group-item">
     <div aria-controls="collapseSeven" aria-expanded="false" class="expansion-panel-toggler collapsed" data-target="#collapseSeven" data-toggle="collapse" id="headingSeven" role="button">
@@ -239,4 +241,5 @@ Expansion panels are best used for lightweight editing of an element. A collapse
     </div>
   </div>
 </div>
-{%endexample %}
+{% endcapture %}
+{% include example.html content=example %}

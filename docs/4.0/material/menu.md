@@ -14,7 +14,7 @@ Menus appear upon interaction with a action, button, or other control. They disp
 
 Add `.menu` to default `.dropdown-menu` to have the menu appear above its toggler.
 
-{% example html %}
+{% capture example %}
 <div class="dropdown">
   <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton1" type="button">
     Dropdown
@@ -25,13 +25,14 @@ Add `.menu` to default `.dropdown-menu` to have the menu appear above its toggle
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Type
 
 Add an additional class `.dropdown-menu-sm` to an existing `.dropdown-menu` to achieve a more compact dropdown menu which is more suitable for desktop.
 
-{% example html %}
+{% capture example %}
 <div class="dropdown">
   <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton2" type="button">
     Dropdown
@@ -42,11 +43,12 @@ Add an additional class `.dropdown-menu-sm` to an existing `.dropdown-menu` to a
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Add an additional class `.menu-cascading` to an existing `.dropdown-menu` to have a more compact dropdown menu appear above its toggler.
 
-{% example html %}
+{% capture example %}
 <div class="dropdown">
   <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton3" type="button">
     Dropdown
@@ -57,4 +59,5 @@ Add an additional class `.menu-cascading` to an existing `.dropdown-menu` to hav
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

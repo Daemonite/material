@@ -24,10 +24,11 @@ Three types of selection controls are covered in this guidance:
 
 Switches toggle the state of a single settings option. The option that the switch controls, as well as the state it’s in, should be made clear from the corresponding inline label.
 
-{% example html %}
+{% capture example %}
 <div class="custom-control custom-switch">
   <input class="custom-control-input" id="customSwitch" type="checkbox">
   <span class="custom-control-track"></span>
   <label class="custom-control-label" for="customSwitch">Toggle this custom switch</label>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

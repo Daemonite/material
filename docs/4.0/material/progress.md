@@ -10,7 +10,7 @@ toc: true
 
 Circular progress is built with a group of HTML elements, below is a detailed example.
 
-{% example html %}
+{% capture example %}
 <div class="progress-circular">
   <div class="progress-circular-wrapper">
     <div class="progress-circular-inner">
@@ -24,11 +24,12 @@ Circular progress is built with a group of HTML elements, below is a detailed ex
     </div>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>-secondary</code>, or helper colours: <code>-danger</code>, <code>-info</code>, <code>-success</code>, <code>-warning</code>) to change the appearance of individual circular progress.
 
-{% example html %}
+{% capture example %}
 <div class="progress-circular progress-circular-primary">
   <div class="progress-circular-wrapper">
     <div class="progress-circular-inner">
@@ -42,7 +43,8 @@ Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>
     </div>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Linear progress
 
@@ -54,8 +56,9 @@ When indicators are indeterminate they request that the user wait while somethin
 
 Create an indeterminate linear progress by adding `.progress-bar-indeterminate` class.
 
-{% example html %}
+{% capture example %}
 <div class="progress">
   <div class="progress-bar progress-bar-indeterminate" role="progressbar"></div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

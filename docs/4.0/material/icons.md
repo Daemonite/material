@@ -15,16 +15,18 @@ The easiest way to set up icon fonts for use in any web page is through [Google 
 
 Then, it's easy to incorporate icons into your web page. Here’s a small example:
 
-{% example html %}
+{% capture example %}
 <i class="material-icons">face</i>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 This example uses a typographic feature called [ligatures](http://alistapart.com/article/the-era-of-symbol-fonts), which allows rendering of an icon glyph simply by using its textual name. The replacement is done automatically by the web browser and provides more readable code than the equivalent numeric character reference. This feature is supported in most modern browsers on both desktop and mobile devices.
 
 For browsers that do not support ligatures, fall back to specifying the icons using numeric character references like the example below:
 
-{% example html %}
+{% capture example %}
 <i class="material-icons">&#xE87C;</i>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 For all available icons, please refer to [Material icons library](https://material.io/icons/).

@@ -19,7 +19,7 @@ Supplemental actions can vary from card to card in a collection, depending on th
 
 Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
 
-{% example html %}
+{% capture example %}
 <div class="card" style="width: 20rem;">
   <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
@@ -31,11 +31,12 @@ Supplemental actions within the card are explicitly called out using icons, text
     <a class="btn btn-outline-primary" href="#">Action</a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-reverse` to convert a horizontal action sheet to a vertical one.
 
-{% example html %}
+{% capture example %}
 <div class="card" style="width: 20rem;">
   <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
@@ -47,4 +48,5 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
     <a class="btn btn-outline-primary" href="#">Action</a>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}

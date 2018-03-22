@@ -17,7 +17,7 @@ Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or in
 
 **Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#outline-buttons).**
 
-{% example html %}
+{% capture example %}
 <button class="btn btn-flat my-xs" type="button">Flat</button>
 <button class="btn btn-flat-primary my-xs" type="button">Primary</button>
 <button class="btn btn-flat-secondary my-xs" type="button">Secondary</button>
@@ -27,7 +27,8 @@ Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or in
 <button class="btn btn-flat-warning my-xs" type="button">Warning</button>
 <button class="btn btn-flat-dark my-xs" type="button">Dark</button>
 <button class="btn btn-flat-light my-xs" type="button">Light</button>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Raised buttons
 
@@ -35,7 +36,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
-{% example html %}
+{% capture example %}
 <button class="btn my-xs" type="button">Raised</button>
 <button class="btn btn-primary my-xs" type="button">Primary</button>
 <button class="btn btn-secondary my-xs" type="button">Secondary</button>
@@ -45,32 +46,35 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 <button class="btn btn-warning my-xs" type="button">Warning</button>
 <button class="btn btn-dark my-xs" type="button">Dark</button>
 <button class="btn btn-light my-xs" type="button">Light</button>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Floating action buttons
 
 A floating action button represents the primary action in an application, it is used for a promoted action.
 
-{% example html %}
+{% capture example %}
 <button class="btn btn-float" type="button"><i class="material-icons">add</i></button>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Colours
 
-{% example html %}
+{% capture example %}
 <button class="btn btn-float btn-primary" type="button"><i class="material-icons">edit</i></button>
 <button class="btn btn-float btn-secondary" type="button"><i class="material-icons">grade</i></button>
 <button class="btn btn-float btn-danger" type="button"><i class="material-icons">favorite</i></button>
 <button class="btn btn-float btn-info" type="button"><i class="material-icons">reply</i></button>
 <button class="btn btn-float btn-success" type="button"><i class="material-icons">people</i></button>
 <button class="btn btn-float btn-warning" type="button"><i class="material-icons">my_location</i></button>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Dropdown
 
 Floating action buttons can also work with dropdown menus to fling out related actions:
 
-{% example html %}
+{% capture example %}
 <div class="btn-float-dropdown dropdown">
   <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
   <div class="dropdown-menu">
@@ -79,11 +83,12 @@ Floating action buttons can also work with dropdown menus to fling out related a
     <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Or flinging them upwards:
 
-{% example html %}
+{% capture example %}
 <div class="btn-float-dropdown dropup">
   <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
   <div class="dropdown-menu">
@@ -92,21 +97,23 @@ Or flinging them upwards:
     <button class="btn btn-float btn-light btn-sm" type="button"><i class="material-icons">link</i></button>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ### Sizes
 
 A smaller sized, i.e. mini floating action button, is also available.
 
-{% example html %}
+{% capture example %}
 <button class="btn btn-float btn-sm" type="button"><i class="material-icons">add</i></button>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Toggle buttons
 
 Toggle buttons may be used to group related options, similar to [Components/Button group]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/button-group/). Use flat buttons (i.e. `.btn-outline`s or `.btn-outline-*`s) instead of raised buttons to achieve a look that is more in line with the specifications laid out in Material Design Guidelines.
 
-{% example html %}
+{% capture example %}
 <div class="btn-group" data-toggle="buttons" role="group">
   <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options1" type="radio">
@@ -125,11 +132,12 @@ Toggle buttons may be used to group related options, similar to [Components/Butt
     <i class="material-icons">format_align_justify</i>
   </label>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Logically-grouped options, like Bold, Italic, and Underline, allow multiple options to be selected.
 
-{% example html %}
+{% capture example %}
 <div class="btn-group" data-toggle="buttons" role="group">
   <button class="btn btn-outline btn-sm" disabled>
     <i class="material-icons">attach_file</i>
@@ -163,11 +171,12 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
     </div>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
 
-{% example html %}
+{% capture example %}
 <div class="btn-group btn-group-fluid" data-toggle="buttons" role="group">
   <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options3" type="radio">
@@ -186,11 +195,12 @@ Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
     <i class="material-icons">format_align_justify</i>
   </label>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 Vertical variation is also supported
 
-{% example html %}
+{% capture example %}
 <div class="btn-group-vertical" data-toggle="buttons" role="group">
   <button class="btn btn-outline btn-sm" disabled>
     <i class="material-icons">attach_file</i>
@@ -224,7 +234,8 @@ Vertical variation is also supported
     </div>
   </div>
 </div>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Usage
 

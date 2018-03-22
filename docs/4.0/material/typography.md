@@ -17,7 +17,7 @@ By default, Material utilises 4 weights, `300` (light), `400` (regular), `500` (
 
 The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34.
 
-{% example html %}
+{% capture example %}
 <p class="typography-display-4">Display 4 - Light 112sp</p>
 <p class="typography-display-3">Display 3 - Regular 56sp</p>
 <p class="typography-display-2">Display 2 - Regular 45sp</p>
@@ -28,4 +28,5 @@ The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 
 <p class="typography-body-2">Body 2 - Medium 14sp</p>
 <p class="typography-body-1">Body 1 - Regular 14sp</p>
 <p class="typography-caption">Caption - Regular 12sp</p>
-{% endexample %}
+{% endcapture %}
+{% include example.html content=example %}
