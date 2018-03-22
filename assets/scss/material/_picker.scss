@@ -65,17 +65,15 @@
   @include typography-body-1;
 
   box-shadow: map-get($picker-elevation-shadow, shadow);
-  display: inline-block;
   max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
   opacity: 0;
   outline: 0;
   pointer-events: auto;
   position: relative;
   transform: scale($picker-transition-scale);
-  vertical-align: middle;
 
   @media (orientation: landscape) {
-    display: inline-flex;
+    display: flex;
     max-width: none;
   }
 
@@ -88,11 +86,14 @@
 // Footer
 
 .picker-footer {
+  @include border-bottom-radius($picker-border-radius);
+
   display: flex;
   justify-content: flex-end;
   padding: $picker-inner-spacer-y $picker-inner-spacer-x;
 
   @media (orientation: landscape) {
+    border-radius: 0 0 $picker-border-radius 0;
     padding-right: ($picker-inner-spacer-x * 1.5);
     padding-left: ($picker-inner-spacer-x * 1.5);
   }
@@ -115,6 +116,8 @@
   line-height: $picker-cell-size;
   margin-right: $picker-inner-spacer-x;
   margin-left: $picker-inner-spacer-x;
+  padding-right: ($picker-cell-size + $picker-inner-spacer-x);
+  padding-left: ($picker-cell-size + $picker-inner-spacer-x);
   position: relative;
   text-align: center;
 
@@ -169,13 +172,15 @@
 
 .picker-date-display {
   @include border-top-radius($picker-border-radius);
-  @include text-align(left);
 
   background-color: $picker-header-bg;
   color: color-yiq($picker-header-bg);
   padding: $picker-header-padding-y $picker-header-padding-x;
 
   @media (orientation: landscape) {
+    @include border-left-radius($picker-border-radius);
+
+    border-top-right-radius: 0;
     min-width: ($picker-cell-size * 3.5 + $picker-inner-spacer-x * 2);
     white-space: nowrap;
   }
@@ -210,6 +215,12 @@
 
   background-color: $picker-content-bg;
   overflow: hidden;
+
+  @media (orientation: landscape) {
+    @include border-right-radius($picker-border-radius);
+
+    border-bottom-left-radius: 0;
+  }
 }
 
 .picker-input {
