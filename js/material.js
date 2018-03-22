@@ -2560,160 +2560,7 @@ function _extends() {
 }
 
 /*
- * Customise pickadate JavaScript for Material
- */
-(function ($$$1) {
-  var Datepicker = function Datepicker(element, options) {
-    this._element = element;
-    this._options = options;
-  };
-
-  Datepicker.DEFAULTS = {
-    cancel: 'Cancel',
-    closeOnCancel: true,
-    closeOnSelect: false,
-    container: 'body',
-    disable: [],
-    firstDay: 0,
-    format: 'd/m/yyyy',
-    formatSubmit: '',
-    klass: {
-      // button
-      buttonClear: 'btn btn-outline-primary picker-button-clear',
-      buttonClose: 'btn btn-outline-primary picker-button-close',
-      buttonToday: 'btn btn-outline-primary picker-button-today',
-      // day
-      day: 'picker-day',
-      disabled: 'picker-day-disabled',
-      highlighted: 'picker-day-highlighted',
-      infocus: 'picker-day-infocus',
-      now: 'picker-day-today',
-      outfocus: 'picker-day-outfocus',
-      selected: 'picker-day-selected',
-      weekdays: 'picker-weekday',
-      // element
-      box: 'picker-box',
-      footer: 'picker-footer',
-      frame: 'picker-frame',
-      header: 'picker-header',
-      holder: 'picker-holder',
-      table: 'picker-table',
-      wrap: 'picker-wrap',
-      // input element
-      active: 'picker-input-active',
-      input: 'picker-input',
-      // month and year nav
-      month: 'picker-month',
-      navDisabled: 'picker-nav-disabled',
-      navNext: 'material-icons picker-nav-next',
-      navPrev: 'material-icons picker-nav-prev',
-      selectMonth: 'picker-select-month',
-      selectYear: 'picker-select-year',
-      year: 'picker-year',
-      // root picker
-      focused: 'picker-focused',
-      opened: 'picker-opened',
-      picker: 'picker'
-    },
-    max: false,
-    min: false,
-    monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    ok: 'OK',
-    onClose: false,
-    onOpen: false,
-    onRender: false,
-    onSet: false,
-    onStart: false,
-    onStop: false,
-    selectMonths: false,
-    selectYears: false,
-    today: '',
-    weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-  };
-
-  Datepicker.prototype.display = function (datepickerApi, datepickerRoot, datepickerValue) {
-    $$$1('.picker-date-display', datepickerRoot).remove();
-    $$$1('.picker-wrap', datepickerRoot).prepend('<div class="picker-date-display">' + '<div class="picker-date-display-top">' + '<span class="picker-year-display">' + datepickerApi.get(datepickerValue, 'yyyy') + '</span>' + '</div>' + '<div class="picker-date-display-bottom">' + '<span class="picker-weekday-display">' + datepickerApi.get(datepickerValue, 'dddd') + '</span>' + '<span class="picker-day-display">' + datepickerApi.get(datepickerValue, 'd') + '</span>' + '<span class="picker-month-display">' + datepickerApi.get(datepickerValue, 'mmm') + '</span>' + '</div>' + '</div>');
-  };
-
-  Datepicker.prototype.show = function () {
-    var that = this;
-    $$$1(this._element).pickadate({
-      clear: that._options.cancel,
-      close: that._options.ok,
-      closeOnClear: that._options.closeOnCancel,
-      closeOnSelect: that._options.closeOnSelect,
-      container: that._options.container,
-      disable: that._options.disable,
-      firstDay: that._options.firstDay,
-      format: that._options.format,
-      formatSubmit: that._options.formatSubmit,
-      klass: that._options.klass,
-      max: that._options.max,
-      min: that._options.min,
-      monthsFull: that._options.monthsFull,
-      monthsShort: that._options.monthsShort,
-      onClose: that._options.onClose,
-      onOpen: that._options.onOpen,
-      onRender: that._options.onRender,
-      onSet: that._options.onSet,
-      onStart: that._options.onStart,
-      onStop: that._options.onStop,
-      selectMonths: that._options.selectMonths,
-      selectYears: that._options.selectYears,
-      today: that._options.today,
-      weekdaysFull: that._options.weekdaysFull,
-      weekdaysShort: that._options.weekdaysShort
-    });
-    var datepickerApi = $$$1(this._element).pickadate('picker'),
-        datepickerNode = datepickerApi.$node,
-        datepickerRoot = datepickerApi.$root;
-    datepickerApi.on({
-      close: function close() {
-        $$$1(document.activeElement).blur();
-      },
-      open: function open() {
-        if (!$$$1('.picker__date-display', datepickerRoot).length) {
-          that.display(datepickerApi, datepickerRoot, 'highlight');
-        }
-      },
-      set: function set() {
-        if (datepickerApi.get('select') !== null) {
-          that.display(datepickerApi, datepickerRoot, 'select');
-        }
-      }
-    });
-  };
-
-  function Plugin(option) {
-    return this.each(function () {
-      var data = $$$1(this).data('bs.pickdate');
-      var options = $$$1.extend({}, Datepicker.DEFAULTS, $$$1(this).data(), typeof option == 'object' && option);
-
-      if (!data) {
-        $$$1(this).data('bs.pickdate', data = new Datepicker(this, options));
-      }
-
-      data.show();
-    });
-  }
-
-  var old = $$$1.fn.pickdate;
-  $$$1.fn.pickdate = Plugin;
-  $$$1.fn.pickdate.Constructor = Datepicker;
-
-  $$$1.fn.pickdate.noConflict = function () {
-    $$$1.fn.pickdate = old;
-    return this;
-  };
-})(jQuery);
-
-/*
- * expansion panel
- * upon selecting the collapsed panel,
- * it expands to display in full
+ * Expansion panel plugins expands a collapsed panel in full upon selecting
  */
 
 var ExpansionPanel = function ($$$1) {
@@ -2753,9 +2600,8 @@ var ExpansionPanel = function ($$$1) {
 }($);
 
 /*
- * floating label
- * when a user engages with the text input field,
- * the floating inline labels move to float above the field
+ * Floating label plugin moves inline label to float above the field
+ * when a user engages with the assosciated text input field
  */
 
 var FloatingLabel = function ($$$1) {
@@ -2850,6 +2696,7 @@ var FloatingLabel = function ($$$1) {
 
 var Util = function ($$$1) {
   var MAX_UID = 1000000;
+  var MILLISECONDS_MULTIPLIER = 1000;
   var transition = false;
 
   function getSpecialTransitionEndEvent() {
@@ -2920,6 +2767,20 @@ var Util = function ($$$1) {
         return null;
       }
     },
+    getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
+      if (!element) {
+        return 0;
+      }
+
+      var transitionDuration = $$$1(element).css('transition-duration');
+
+      if (!transitionDuration) {
+        return 0;
+      }
+
+      transitionDuration = transitionDuration.split(',')[0];
+      return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER;
+    },
     getUID: function getUID(prefix) {
       do {
         // eslint-disable-next-line no-bitwise
@@ -2959,7 +2820,7 @@ var Util = function ($$$1) {
 }($);
 
 /*
- * Navigation drawer
+ * Navigation drawer plguin
  * Based on Bootstrap's (v4.0.0) `modal.js`
  */
 
@@ -2971,10 +2832,6 @@ var NavDrawer = function ($$$1) {
   var EVENT_KEY = "." + DATA_KEY;
   var NAME = 'navdrawer';
   var NO_CONFLICT = $$$1.fn[NAME];
-  var Breakpoints = {
-    DESKTOP: 992,
-    TABLET: 576
-  };
   var ClassName = {
     BACKDROP: 'navdrawer-backdrop',
     OPEN: 'navdrawer-open',
@@ -3006,17 +2863,7 @@ var NavDrawer = function ($$$1) {
   var Selector = {
     CONTENT: '.navdrawer-content',
     DATA_DISMISS: '[data-dismiss="navdrawer"]',
-    DATA_TOGGLE: '[data-toggle="navdrawer"]'
-  };
-  var TransitionDurationEntering = {
-    DESKTOP: 150,
-    MOBILE: 225,
-    TABLET: 292.5
-  };
-  var TransitionDurationLeaving = {
-    DESKTOP: 130,
-    MOBILE: 195,
-    TABLET: 253.5 // <<< constants
+    DATA_TOGGLE: '[data-toggle="navdrawer"]' // <<< constants
 
   };
 
@@ -3068,9 +2915,10 @@ var NavDrawer = function ($$$1) {
       $$$1(this._content).off(Event.MOUSEDOWN_DISMISS);
 
       if (supportsTransition) {
-        $$$1(this._element).one(Util.TRANSITION_END, function (event) {
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, function (event) {
           return _this._hideNavdrawer(event);
-        }).emulateTransitionEnd(this._getTransitionDuration(TransitionDurationLeaving));
+        }).emulateTransitionEnd(transitionDuration);
       } else {
         this._hideNavdrawer();
       }
@@ -3138,16 +2986,6 @@ var NavDrawer = function ($$$1) {
       config = _extends({}, Default, config);
       Util.typeCheckConfig(NAME, config, DefaultType);
       return config;
-    };
-
-    _proto._getTransitionDuration = function _getTransitionDuration(duration) {
-      if (window.innerWidth >= Breakpoints.DESKTOP) {
-        return duration.DESKTOP;
-      } else if (window.innerWidth >= Breakpoints.TABLET) {
-        return duration.TABLET;
-      }
-
-      return duration.MOBILE;
     };
 
     _proto._hideNavdrawer = function _hideNavdrawer() {
@@ -3249,7 +3087,8 @@ var NavDrawer = function ($$$1) {
       };
 
       if (supportsTransition) {
-        $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(this._getTransitionDuration(TransitionDurationEntering));
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
       } else {
         transitionComplete();
       }
@@ -3329,8 +3168,236 @@ var NavDrawer = function ($$$1) {
 }($);
 
 /*
- * selection control focus
- * chrome persists the focus style on checkboxes/radio buttons after clicking
+ * Date picker plugin extends `pickadate.js` by Amsul
+ */
+
+var PickDate = function ($$$1) {
+  // constants >>>
+  var DATA_KEY = 'md.pickdate';
+  var NAME = 'pickdate';
+  var NO_CONFLICT = $$$1.fn[NAME];
+  var Default = {
+    cancel: 'Cancel',
+    closeOnCancel: true,
+    closeOnSelect: false,
+    container: '',
+    containerHidden: '',
+    disable: [],
+    firstDay: 0,
+    format: 'd/m/yyyy',
+    formatSubmit: '',
+    hiddenName: false,
+    hiddenPrefix: '',
+    hiddenSuffix: '',
+    klass: {
+      // button
+      buttonClear: 'btn btn-outline-primary picker-button-clear',
+      buttonClose: 'btn btn-outline-primary picker-button-close',
+      buttonToday: 'btn btn-outline-primary picker-button-today',
+      // day
+      day: 'picker-day',
+      disabled: 'picker-day-disabled',
+      highlighted: 'picker-day-highlighted',
+      infocus: 'picker-day-infocus',
+      now: 'picker-day-today',
+      outfocus: 'picker-day-outfocus',
+      selected: 'picker-day-selected',
+      weekdays: 'picker-weekday',
+      // element
+      box: 'picker-box',
+      footer: 'picker-footer',
+      frame: 'picker-frame',
+      header: 'picker-header',
+      holder: 'picker-holder',
+      table: 'picker-table',
+      wrap: 'picker-wrap',
+      // input element
+      active: 'picker-input-active',
+      input: 'picker-input',
+      // month and year nav
+      month: 'picker-month',
+      navDisabled: 'picker-nav-disabled',
+      navNext: 'material-icons picker-nav-next',
+      navPrev: 'material-icons picker-nav-prev',
+      selectMonth: 'picker-select-month',
+      selectYear: 'picker-select-year',
+      year: 'picker-year',
+      // root picker
+      focused: 'picker-focused',
+      opened: 'picker-opened',
+      picker: 'picker'
+    },
+    labelMonthNext: 'Next month',
+    labelMonthPrev: 'Previous month',
+    labelMonthSelect: 'Select a month',
+    labelYearSelect: 'Select a year',
+    max: false,
+    min: false,
+    monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    ok: 'OK',
+    onClose: function onClose() {// Do nothing
+    },
+    onOpen: function onOpen() {// Do nothing
+    },
+    onRender: function onRender() {// Do nothing
+    },
+    onSet: function onSet() {// Do nothing
+    },
+    onStart: function onStart() {// Do nothing
+    },
+    onStop: function onStop() {// Do nothing
+    },
+    selectMonths: false,
+    selectYears: false,
+    today: '',
+    weekdaysFull: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    weekdaysShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+  };
+  var DefaultType = {
+    cancel: 'string',
+    closeOnCancel: 'boolean',
+    closeOnSelect: 'boolean',
+    container: 'string',
+    containerHidden: 'string',
+    disable: 'array',
+    firstDay: 'number',
+    format: 'string',
+    formatSubmit: 'string',
+    hiddenName: 'boolean',
+    hiddenPrefix: 'string',
+    hiddenSuffix: 'string',
+    klass: 'object',
+    labelMonthNext: 'string',
+    labelMonthPrev: 'string',
+    labelMonthSelect: 'string',
+    labelYearSelect: 'string',
+    max: 'boolean || date',
+    min: 'boolean || date',
+    monthsFull: 'array',
+    monthsShort: 'array',
+    ok: 'string',
+    onClose: 'function',
+    onOpen: 'function',
+    onRender: 'function',
+    onSet: 'function',
+    onStart: 'function',
+    onStop: 'function',
+    selectMonths: 'boolean',
+    selectYears: 'boolean || number',
+    today: 'string',
+    weekdaysFull: 'array',
+    weekdaysShort: 'array'
+  };
+
+  var PickDate =
+  /*#__PURE__*/
+  function () {
+    function PickDate(element, config) {
+      this._config = this._getConfig(config);
+      this._element = element;
+    }
+
+    var _proto = PickDate.prototype;
+
+    _proto.display = function display(datepickerApi, datepickerRoot, datepickerValue) {
+      $$$1('.picker-date-display', datepickerRoot).remove();
+      $$$1('.picker-wrap', datepickerRoot).prepend("<div class=\"picker-date-display\"><div class=\"picker-date-display-top\"><span class=\"picker-year-display\">" + datepickerApi.get(datepickerValue, 'yyyy') + "</span></div><div class=\"picker-date-display-bottom\"><span class=\"picker-weekday-display\">" + datepickerApi.get(datepickerValue, 'dddd') + "</span><span class=\"picker-day-display\">" + datepickerApi.get(datepickerValue, 'd') + "</span><span class=\"picker-month-display\">" + datepickerApi.get(datepickerValue, 'mmm') + "</span></div></div>");
+    };
+
+    _proto.show = function show() {
+      var _this = this;
+
+      $$$1(this._element).pickadate({
+        clear: this._config.cancel,
+        close: this._config.ok,
+        closeOnClear: this._config.closeOnCancel,
+        closeOnSelect: this._config.closeOnSelect,
+        container: this._config.container,
+        containerHidden: this._config.containerHidden,
+        disable: this._config.disable,
+        firstDay: this._config.firstDay,
+        format: this._config.format,
+        formatSubmit: this._config.formatSubmit,
+        klass: this._config.klass,
+        hiddenName: this._config.hiddenName,
+        hiddenPrefix: this._config.hiddenPrefix,
+        hiddenSuffix: this._config.hiddenSuffix,
+        labelMonthNext: this._config.labelMonthNext,
+        labelMonthPrev: this._config.labelMonthPrev,
+        labelMonthSelect: this._config.labelMonthSelect,
+        labelYearSelect: this._config.labelYearSelect,
+        max: this._config.max,
+        min: this._config.min,
+        monthsFull: this._config.monthsFull,
+        monthsShort: this._config.monthsShort,
+        onClose: this._config.onClose,
+        onOpen: this._config.onOpen,
+        onRender: this._config.onRender,
+        onSet: this._config.onSet,
+        onStart: this._config.onStart,
+        onStop: this._config.onStop,
+        selectMonths: this._config.selectMonths,
+        selectYears: this._config.selectYears,
+        today: this._config.today,
+        weekdaysFull: this._config.weekdaysFull,
+        weekdaysShort: this._config.weekdaysShort
+      });
+      var datepickerApi = $$$1(this._element).pickadate('picker');
+      var datepickerRoot = datepickerApi.$root;
+      datepickerApi.on({
+        close: function close() {
+          $$$1(document.activeElement).blur();
+        },
+        open: function open() {
+          if (!$$$1('.picker__date-display', datepickerRoot).length) {
+            _this.display(datepickerApi, datepickerRoot, 'highlight');
+          }
+        },
+        set: function set() {
+          if (datepickerApi.get('select') !== null) {
+            _this.display(datepickerApi, datepickerRoot, 'select');
+          }
+        }
+      });
+    };
+
+    _proto._getConfig = function _getConfig(config) {
+      config = _extends({}, Default, config);
+      Util.typeCheckConfig(NAME, config, DefaultType);
+      return config;
+    };
+
+    PickDate._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var _config = _extends({}, PickDate.Default, $$$1(this).data(), typeof config === 'object' && config);
+
+        var data = $$$1(this).data(DATA_KEY);
+
+        if (!data) {
+          data = new PickDate(this, _config);
+          $$$1(this).data(DATA_KEY, data);
+        }
+
+        data.show();
+      });
+    };
+
+    return PickDate;
+  }();
+
+  $$$1.fn[NAME] = PickDate._jQueryInterface;
+  $$$1.fn[NAME].Constructor = PickDate;
+
+  $$$1.fn[NAME].noConflict = function () {
+    $$$1.fn[NAME] = NO_CONFLICT;
+    return PickDate._jQueryInterface;
+  };
+}($);
+
+/*
+ * Selection control plugin fixes the focus state problem with
+ * Chrome persisting focus state on checkboxes/radio buttons after clicking
  */
 
 var SelectionControlFocus = function ($$$1) {
@@ -3379,10 +3446,6 @@ var TabSwitch = function ($$$1) {
   var DATA_KEY = 'md.tabswitch';
   var NAME = 'tabswitch';
   var NO_CONFLICT = $$$1.fn[NAME];
-  var Breakpoints = {
-    DESKTOP: 992,
-    TABLET: 576
-  };
   var ClassName = {
     ANIMATE: 'animate',
     DROPDOWN_ITEM: 'dropdown-item',
@@ -3397,12 +3460,7 @@ var TabSwitch = function ($$$1) {
   var Selector = {
     DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
     DROPDOWN: '.dropdown',
-    NAV: '.nav-tabs'
-  };
-  var TransitionDuration = {
-    DESKTOP: 200,
-    MOBILE: 300,
-    TABLET: 390 // <<< constants
+    NAV: '.nav-tabs' // <<< constants
 
   };
 
@@ -3456,14 +3514,7 @@ var TabSwitch = function ($$$1) {
         return;
       }
 
-      var transitionDuration = TransitionDuration.MOBILE;
-
-      if (window.innerWidth >= Breakpoints.DESKTOP) {
-        transitionDuration = TransitionDuration.DESKTOP;
-      } else if (window.innerWidth >= Breakpoints.TABLET) {
-        transitionDuration = TransitionDuration.TABLET;
-      }
-
+      var transitionDuration = Util.getTransitionDurationFromElement(this._navindicator);
       $$$1(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
     };
 
@@ -3529,6 +3580,7 @@ exports.Util = Util;
 exports.ExpansionPanel = ExpansionPanel;
 exports.FloatingLabel = FloatingLabel;
 exports.NavDrawer = NavDrawer;
+exports.PickDate = PickDate;
 exports.SelectionControlFocus = SelectionControlFocus;
 exports.TabSwitch = TabSwitch;
 
