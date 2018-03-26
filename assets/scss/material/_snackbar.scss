@@ -29,19 +29,19 @@
 // Snackbar based on https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs
 
 .snackbar {
-  @include transition-acceleration(transform);
-
   align-items: center;
   background-color: $snackbar-bg;
   color: $snackbar-color;
   display: flex;
   font-size: $snackbar-font-size;
   line-height: $snackbar-line-height;
+  opacity: 0;
   padding: $snackbar-padding-y $snackbar-padding-x;
   position: fixed;
   bottom: 0;
   left: 0;
   transform: translateY(100%);
+  transition: opacity 0s $transition-duration-mobile-leaving, transform $transition-duration-mobile-leaving $transition-timing-function-acceleration;
   width: 100%;
   z-index: map-get($snackbar-elevation-shadow, elevation);
 
@@ -54,9 +54,18 @@
     width: auto;
   }
 
+  @include media-breakpoint-up(sm) {
+    transition: opacity 0s $transition-duration-tablet-leaving, transform $transition-duration-tablet-leaving $transition-timing-function-acceleration;
+  }
+
+  @include media-breakpoint-up(lg) {
+    transition: opacity 0s $transition-duration-desktop-leaving, transform $transition-duration-desktop-leaving $transition-timing-function-acceleration;
+  }
+
   &.show {
     @include transition-deceleration(transform);
 
+    opacity: 1;
     transform: translateY(0);
 
     @include media-breakpoint-up($snackbar-breakpoint) {
@@ -107,16 +116,11 @@
 
 .snackbar-left,
 .snackbar-right {
-  @include transition-acceleration(margin-bottom, transform);
-
   @include media-breakpoint-up($snackbar-breakpoint) {
     transform: translateY(100%);
 
     &.show {
-      @include transition-deceleration(margin-bottom, transform);
-
-      margin-bottom: $snackbar-margin-y;
-      transform: translateY(0);
+      transform: translateY($snackbar-margin-y * -1);
     }
   }
 }
