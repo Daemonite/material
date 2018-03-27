@@ -34,6 +34,10 @@
     transition: opacity 0s $transition-duration-desktop-leaving, transform $transition-duration-desktop-leaving $transition-timing-function-acceleration;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
   &.show {
     @include transition-deceleration(transform);
 
