@@ -21,9 +21,9 @@ const plugins  = [
     exclude: 'node_modules/**',
     externalHelpersWhitelist: [
       'createClass',
-      'defineProperties',
+      'defineProperty',
       'extends',
-      'inheritsLoose'
+      'objectSpread'
     ]
   }),
   commonjs({
