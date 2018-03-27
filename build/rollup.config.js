@@ -22,7 +22,6 @@ const plugins  = [
     externalHelpersWhitelist: [
       'createClass',
       'defineProperty',
-      'extends',
       'objectSpread'
     ]
   }),
