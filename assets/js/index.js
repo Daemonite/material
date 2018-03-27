@@ -1,9 +1,4 @@
-// Extend third party JavaScript
-
-import '../../node_modules/pickadate/lib/picker.date.js'
-
-// Import Material JavaScript
-
+import $ from 'jquery'
 import ExpansionPanel from './src/expansion-panel'
 import FloatingLabel from './src/floating-label'
 import NavDrawer from './src/nav-drawer'

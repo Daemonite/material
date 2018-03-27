@@ -1,3 +1,4 @@
+import '../../../node_modules/pickadate/lib/picker.date.js'
 import $ from 'jquery'
 import Util from './util'
 
