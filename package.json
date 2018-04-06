@@ -16,6 +16,20 @@
   "bugs": {
     "url": "https://github.com/Daemonite/material/issues"
   },
+  "bundlesize": [
+    {
+      "path": "./css/material.css"
+    },
+    {
+      "path": "./css/material.min.css"
+    },
+    {
+      "path": "./js/material.js"
+    },
+    {
+      "path": "./js/material.min.js"
+    }
+  ],
   "dependencies": {},
   "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
@@ -25,6 +39,7 @@
     "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "bundlesize": "^0.17.0",
     "cssnano": "^4.0.0-rc.2",
     "eslint": "^4.19.1",
     "eslint-plugin-compat": "^2.2.0",
@@ -76,6 +91,7 @@
   },
   "sass": "assets/sass/material.scss",
   "scripts": {
+    "bundlesize": "bundlesize",
     "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
     "css-build": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
     "css-build-docs": "npm-run-all --parallel css-lint-docs css-compile-docs --sequential css-prefix-docs css-minify-docs",
@@ -88,7 +104,7 @@
     "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
     "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
     "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"docs/css/docs.css\"",
-    "dist": "npm-run-all --parallel css js",
+    "dist": "npm-run-all --parallel css js --sequential bundlesize",
     "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
     "docs-compile": "bundle exec jekyll build",
     "docs-lint": "npm-run-all docs-lint-*",
