@@ -3,7 +3,50 @@ layout: docs
 title: Typography
 description: Material's typographic scale has a set of type sizes that balances content density and reading comfort under typical usage conditions.
 group: material
+toc: true
 ---
+
+## Colours
+
+### Black and white variations
+
+{% capture example %}
+<div class="bg-light-4 card card-body">
+  <p class="text-black">.text-black</p>
+  <p class="text-black-primary">.text-black-primary</p>
+  <p class="text-black-secondary">.text-black-secondary</p>
+  <p class="text-black-hint">.text-black-hint</p>
+  <p class="text-black-divider">.text-black-divider</p>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+{% capture example %}
+<div class="bg-dark-1 card card-body">
+  <p class="text-white">.text-white</p>
+  <p class="text-white-primary">.text-white-primary</p>
+  <p class="text-white-secondary">.text-white-secondary</p>
+  <p class="text-white-hint">.text-white-hint</p>
+  <p class="text-white-divider">.text-white-divider</p>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Theme colours
+
+{% capture example %}
+<div class="bg-light-4 card card-body">
+  <p class="text-primary">.text-primary</p>
+  <p class="text-secondary">.text-secondary</p>
+  <p class="text-danger">.text-danger</p>
+  <p class="text-info">.text-info</p>
+  <p class="text-success">.text-success</p>
+  <p class="text-warning">.text-warning</p>
+  <p class="text-dark">.text-dark</p>
+  <p class="bg-dark-1 text-light">.text-light</p>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 ## Styles
 
