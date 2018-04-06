@@ -32,13 +32,16 @@
     text-decoration: none;
   }
 
-  + .breadcrumb-item::before {
-    @include set-material-icons;
-
-    color: $breadcrumb-item-color;
-    content: $breadcrumb-item-icon;
-    display: inline-block;
-    margin-right: $breadcrumb-inner-spacer-x;
+  + .breadcrumb-item {
     margin-left: $breadcrumb-inner-spacer-x;
+
+    &::before {
+      @include set-material-icons;
+
+      color: $breadcrumb-item-color;
+      content: $breadcrumb-item-icon;
+      display: inline-block;
+      margin-right: $breadcrumb-inner-spacer-x;
+    }
   }
 }
