@@ -18,7 +18,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
     <div class="card-actions ml-auto py-0">
       <div class="dropdown">
         <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>
-        <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right">
+        <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right menu">
           <a class="dropdown-item" href="#">Filter 1</a>
           <a class="dropdown-item" href="#">Filter 2</a>
           <a class="dropdown-item" href="#">Filter 3</a>
@@ -26,7 +26,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
       </div>
       <div class="dropdown">
         <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop2" type="button"><i class="material-icons">more_vert</i></button>
-        <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right">
+        <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right menu">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -71,7 +71,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
     <span class="align-self-center mb-1 mx-1 text-muted">Rows per page:</span>
     <div class="dropdown">
       <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline dropdown-toggle" data-toggle="dropdown" type="button">3</button>
-      <div class="dropdown-menu dropdown-menu-right">
+      <div class="dropdown-menu dropdown-menu-right menu">
         <a class="dropdown-item active" href="#">3</a>
         <a class="dropdown-item" href="#">10</a>
         <a class="dropdown-item" href="#">100</a>

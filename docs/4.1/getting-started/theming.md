@@ -406,15 +406,43 @@ Here's how you can use these in your Sass:
 To add a new colour to `$theme-colors`, add the new key and value to your custom Sass file. Please be aware that each new colour should also include darker and lighter shades of the primary colour to accent some parts of our components.
 
 {% highlight scss %}
+// Your variable overrides
+$custom-color: (
+  color: #ffc107,
+  dark: #c79100,
+  light: #fff350
+);
+
+$theme-colors: (
+  'custom-color': $custom-color
+);
+
+// Material
+@import "node_modules/daemonite-material/assets/scss/material";
+{% endhighlight %}
+
+Or
+
+{% highlight scss %}
+// Import Material colours
+@import "node_modules/daemonite-material/assets/scss/colours";
+
+// Your variable overrides
 $custom-color: (
   color: $material-color-amber-500,
-  dark: $material-color-amber-700,
+  dark: $material-color-amber-900,
   light: $material-color-amber-100
 );
 
 $theme-colors: (
   'custom-color': $custom-color
 );
+
+// Import the rest of Material
+@import "node_modules/daemonite-material/assets/scss/functions";
+@import "node_modules/daemonite-material/assets/scss/mixins";
+@import "node_modules/daemonite-material/assets/scss/variables";
+...
 {% endhighlight %}
 
 #### Modify a theme colour

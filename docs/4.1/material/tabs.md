@@ -23,7 +23,7 @@ Fixed tabs have equal width, calculated either as the view width divided by the 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-      <a aria-controls="home" aria-selected="true" class="nav-link" data-toggle="tab" href="#home" id="home-tab" role="tab">Home</a>
+      <a aria-controls="home" aria-selected="true" class="active nav-link show" data-toggle="tab" href="#home" id="home-tab" role="tab">Home</a>
     </li>
     <li class="nav-item">
       <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab" role="tab">Profile</a>
@@ -33,7 +33,7 @@ Fixed tabs have equal width, calculated either as the view width divided by the 
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div aria-labelledby="home-tab" class="tab-pane fade" id="home" role="tabpanel">
+    <div aria-labelledby="home-tab" class="tab-pane active fade show" id="home" role="tabpanel">
       <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
     </div>
     <div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role="tabpanel">

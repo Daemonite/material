@@ -7,7 +7,7 @@ group: material
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
-**Most of the details about cards have been covered in Components/Cards docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/cards/) for more details.**
+**Most of the details about cards have been covered in Components/Cards docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/) for more details.**
 
 **N.B.** According to Material Design, flat buttons should be used in cards.
 

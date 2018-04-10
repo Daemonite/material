@@ -55,7 +55,7 @@ daemonite-material/
 │   ├── material.min.css
 │   └── material.min.css.map
 ├── docs/
-│   └── 4.0/
+│   └── 4.1/
 └── js/
     ├── material.js
     ├── material.js.map
@@ -69,7 +69,7 @@ Material's documentation, included in this repo in the root directory, is built 
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](http://daemonite.github.io/material/docs/4.0/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](http://daemonite.github.io/material/docs/4.1/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies.
 3. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
 4. From the root `/daemonite-material` directory, run `npm run docs-serve` in the command line.

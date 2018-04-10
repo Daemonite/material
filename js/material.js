@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material v4.0.0 (http://daemonite.github.io/material/)
+ * Daemonite Material v4.1.0 (http://daemonite.github.io/material/)
  * Copyright 2011-2018 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
@@ -194,7 +194,7 @@
 
   /*
    * Global util js
-   * Based on Bootstrap's (v4.0.0) `util.js`
+   * Based on Bootstrap's (v4.1.0) `util.js`
    */
 
   var Util = function ($$$1) {
@@ -324,7 +324,7 @@
 
   /*
    * Navigation drawer plguin
-   * Based on Bootstrap's (v4.0.0) `modal.js`
+   * Based on Bootstrap's (v4.1.0) `modal.js`
    */
 
   var NavDrawer = function ($$$1) {
@@ -3455,7 +3455,7 @@
 
   /*
    * Tab indicator animation
-   * Requires Bootstrap's (v4.0.0) `tab.js`
+   * Requires Bootstrap's (v4.1.0) `tab.js`
    */
 
   var TabSwitch = function ($$$1) {

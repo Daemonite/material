@@ -8,9 +8,25 @@ toc: true
 
 ## Bootstrap changes
 
-Material monitors the changes in the Bootstrap project so the exact same Bootstrap HTML markup can always work with Material. For example, when Bootstrap dropped `.hidden-*` classes for new display utilities, Material did the same by dropping `.hidden-*` classes and introducing `.d-{value}` and `.d-{breakpoint}-{value}` classes. If you are upgrading Material, please follow Bootstrap's [migration doc](https://getbootstrap.com/docs/4.0/migration/) for details about breaking and/or notable changes in each release as the changes will apply to Material, too.
+Material monitors the changes in the Bootstrap project so the exact same Bootstrap HTML markup can always work with Material. For example, when Bootstrap dropped `.hidden-*` classes for new display utilities, Material did the same by dropping `.hidden-*` classes and introducing `.d-{value}` and `.d-{breakpoint}-{value}` classes. If you are upgrading Material, please follow **Bootstrap's [migration doc](https://getbootstrap.com/docs/4.1/migration/)** for details about breaking and/or notable changes in each release as the changes will apply to Material, too.
 
-This page will focus on the changes that are unique to Material.
+**This page will focus on the changes that are unique to Material.**
+
+## v4.1.0
+
+This release consists of incorporating Bootstrap 4's changes and minor bug fixes. v4.1 also introduces a couple of new features.
+
+### Default link colour
+
+Changed default link colour to `$secondary` colour based on Google Material Design's [colour system guidelines](https://material.io/guidelines/style/color.html#color-color-system).
+
+### Shadows
+
+Added new `.shadow-*` utilities for quickly adding `box-shadow`s. Details are documented [here]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/shadows/).
+
+### Snackbars
+
+Added new `.snackbar` component. Details are documented [here]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/snackbars/).
 
 ## v4.0.0
 
