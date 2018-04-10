@@ -14,7 +14,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
 {% capture example %}
 <div class="card">
   <div class="card-header d-flex pr-0">
-    <h4 class="card-title mb-0">Card title</h4>
+    <h5 class="card-title mb-0">Card title</h5>
     <div class="card-actions ml-auto py-0">
       <div class="dropdown">
         <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>

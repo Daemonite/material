@@ -63,7 +63,7 @@ An expansion panel can also be connected to a larger surface, such as a card.
 {% capture example %}
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
+    <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="list-group list-group-flush" id="accordionTwo">
