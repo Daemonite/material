@@ -156,14 +156,6 @@
   max-width: 10rem;
 }
 
-.toast .text-muted {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-.toast-header img {
-  display: none;
-}
-
 .doc-jumbotron {
   background-color: #9c27b0;
   background-image: url("../images/doc-jumbotron-bg.jpg");
@@ -197,13 +189,13 @@
 .doc-logo {
   -ms-flex-align: center;
   align-items: center;
-  background-color: rgba(255, 64, 129, 0.12);
+  background-color: hex-to-rgba(#ff4081, 0.12);
   border: 0.05em solid currentColor;
   border-radius: 0.9em;
   color: inherit;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
+  font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 700;
   height: 1.8em;
   -ms-flex-pack: center;
@@ -255,6 +247,12 @@
 @media (min-width: 992px) {
   .doc-logo::before {
     transition-duration: 0.2s;
+  }
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .doc-logo::before {
+    transition: none;
   }
 }
 
