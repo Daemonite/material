@@ -73,7 +73,7 @@ Secondary colours are best used for:
   </div>
 </div>
 
-## Dark & light theme
+## Dark and light theme
 
 Themes let you apply a consistent tone to an app. The theme specifies the darkness of elements. To promote greater consistency between apps, dark and light themes are available to choose from.
 
