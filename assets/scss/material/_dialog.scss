@@ -15,7 +15,7 @@
     .modal-dialog {
       @include transition-standard-complex(transform);
 
-      transform: scale($dialog-scale);
+      transform: scale($dialog-transition-scale);
     }
   }
 
@@ -50,7 +50,6 @@
 .modal-content {
   @include border-radius($dialog-border-radius);
 
-  background-clip: padding-box;
   background-color: $dialog-content-bg;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: flex;
@@ -59,6 +58,7 @@
   pointer-events: auto;
   position: relative;
   vertical-align: baseline;
+  width: 100%;
 }
 
 .modal-dialog {

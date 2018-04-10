@@ -6,7 +6,6 @@
   @include reset-text;
   @include border-radius($popover-border-radius);
 
-  background-clip: padding-box;
   background-color: $popover-bg;
   box-shadow: map-get($popover-elevation-shadow, shadow);
   display: block;
@@ -44,7 +43,7 @@
 
 // Desktop
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up($popover-breakpoint) {
   .popover {
     margin: $popover-margin-desktop;
   }

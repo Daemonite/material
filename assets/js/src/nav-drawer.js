@@ -2,8 +2,8 @@ import $ from 'jquery'
 import Util from './util'
 
 /*
- * Navigation drawer
- * Based on Bootstrap's (v4.0.0) `modal.js`
+ * Navigation drawer plguin
+ * Based on Bootstrap's (v4.1.0) `modal.js`
  */
 
 const NavDrawer = (($) => {
@@ -15,11 +15,6 @@ const NavDrawer = (($) => {
   const EVENT_KEY      = `.${DATA_KEY}`
   const NAME           = 'navdrawer'
   const NO_CONFLICT    = $.fn[NAME]
-
-  const Breakpoints = {
-    DESKTOP : 992,
-    TABLET  : 576
-  }
 
   const ClassName = {
     BACKDROP : 'navdrawer-backdrop',
@@ -57,18 +52,6 @@ const NavDrawer = (($) => {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]'
-  }
-
-  const TransitionDurationEntering = {
-    DESKTOP : 150,
-    MOBILE  : 225,
-    TABLET  : 292.5
-  }
-
-  const TransitionDurationLeaving = {
-    DESKTOP : 130,
-    MOBILE  : 195,
-    TABLET  : 253.5
   }
   // <<< constants
 
@@ -119,9 +102,11 @@ const NavDrawer = (($) => {
       $(this._content).off(Event.MOUSEDOWN_DISMISS)
 
       if (supportsTransition) {
-        $(this._element)
+        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+
+        $(this._content)
           .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
-          .emulateTransitionEnd(this._getTransitionDuration(TransitionDurationLeaving))
+          .emulateTransitionEnd(transitionDuration)
       } else {
         this._hideNavdrawer()
       }
@@ -195,16 +180,6 @@ const NavDrawer = (($) => {
       Util.typeCheckConfig(NAME, config, DefaultType)
 
       return config
-    }
-
-    _getTransitionDuration(duration) {
-      if (window.innerWidth >= Breakpoints.DESKTOP) {
-        return duration.DESKTOP
-      } else if (window.innerWidth >= Breakpoints.TABLET) {
-        return duration.TABLET
-      }
-
-      return duration.MOBILE
     }
 
     _hideNavdrawer() {
@@ -310,9 +285,11 @@ const NavDrawer = (($) => {
       }
 
       if (supportsTransition) {
+        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+
         $(this._content)
           .one(Util.TRANSITION_END, transitionComplete)
-          .emulateTransitionEnd(this._getTransitionDuration(TransitionDurationEntering))
+          .emulateTransitionEnd(transitionDuration)
       } else {
         transitionComplete()
       }

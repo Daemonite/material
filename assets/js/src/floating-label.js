@@ -1,9 +1,8 @@
 import $ from 'jquery'
 
 /*
- * floating label
- * when a user engages with the text input field,
- * the floating inline labels move to float above the field
+ * Floating label plugin moves inline label to float above the field
+ * when a user engages with the assosciated text input field
  */
 
 const FloatingLabel = (($) => {

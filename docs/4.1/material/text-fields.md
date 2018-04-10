@@ -1,0 +1,243 @@
+---
+layout: docs
+title: Text fields
+description: Text fields allow users to input text and select text.
+group: material
+toc: true
+---
+
+Text fields usually appear in forms.
+
+Users may enter text, numbers, or mixed-format types of input.
+
+## Basic text fields
+
+**Most of the details about basic text fields have been covered in Components/Forms docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/) for more details.**
+
+## Floating label text fields
+
+When the user engages with the text input field, the floating inline labels move to float above the field. 
+
+**N.B.** Implementation of this requires `material.js` or `material.min.js`.
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label">
+    <label for="exampleInputFloatingLabel1">Floating label</label>
+    <input class="form-control" id="exampleInputFloatingLabel1" placeholder="Placeholder" type="text">
+  </div>
+  <small id="exampleInputFloatingLabel1Help" class="form-text text-muted">Some help text.</small>
+</div>
+<div class="form-group">
+  <div class="floating-label">
+    <label for="exampleSelectFloatingLabel1">Floating label</label>
+    <select class="form-control" id="exampleSelectFloatingLabel1">
+      <option label=" "></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Sizes
+
+Change sizes using `.floating-label-lg` and `.floating-label-sm`.
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label floating-label-lg">
+    <label for="exampleInputFloatingLabel2">Large</label>
+    <input class="form-control" id="exampleInputFloatingLabel2" placeholder="Placeholder" type="text">
+  </div>
+</div>
+<div class="form-group">
+  <div class="floating-label floating-label-sm">
+    <label for="exampleInputFloatingLabel3">Small</label>
+    <input class="form-control" id="exampleInputFloatingLabel3" placeholder="Placeholder" type="text">
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Usage
+
+Implementation of floating label text fields requires `material.js` or `material.min.js`.
+
+It is recommended to run the following JavaScript code after the document is ready or a floating label text field is added dynamically on a page, so the floating label will get the correct initial state based on whether a particular floating label text field has value or not.
+
+{% highlight js %}
+$('.floating-label .form-control').floatinglabel();
+{% endhighlight %}
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label" id="qweqweqwe">
+    <label for="exampleInputFloatingLabel4">Floating label</label>
+    <input class="form-control" id="exampleInputFloatingLabel4" placeholder="Placeholder" type="text" value="Initial value">
+  </div>
+</div>
+<div class="form-group">
+  <div class="floating-label" id="asdasdasd">
+    <label for="exampleSelectFloatingLabel2">Floating label</label>
+    <select class="form-control" id="exampleSelectFloatingLabel2">
+      <option label=" "></option>
+      <option selected>Initial option</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Text field boxes
+
+Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
+
+{% capture example %}
+<div class="form-group">
+  <label class="mb-2" for="exampleInputTextfieldBox1">Text field box label</label>
+  <div class="textfield-box">
+    <input class="form-control" id="exampleInputTextfieldBox1" placeholder="Placeholder" type="text">
+  </div>
+  <small id="exampleInputTextfieldBox1Help" class="form-text text-muted">Some help text.</small>
+</div>
+<div class="form-group">
+  <label class="mb-2" for="exampleSelectTextfieldBox1">Text field box label</label>
+  <div class="textfield-box">
+    <select class="form-control" id="exampleSelectTextfieldBox1">
+      <option label=" "></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Sizes
+
+Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
+
+{% capture example %}
+<div class="form-group">
+  <label class="mb-2" for="exampleInputTextfieldBox2">Large</label>
+  <div class="textfield-box textfield-box-lg">
+    <input class="form-control" id="exampleInputTextfieldBox2" placeholder="Large" type="text">
+  </div>
+</div>
+<div class="form-group">
+  <label class="mb-2" for="exampleInputTextfieldBox3">Small</label>
+  <div class="textfield-box textfield-box-sm">
+    <input class="form-control" id="exampleInputTextfieldBox3" placeholder="Small" type="text">
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### With floating labels
+
+Text field boxes can be combined with floating labels.
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label textfield-box">
+    <label for="exampleInputTextfieldBox4">Floating label</label>
+    <input class="form-control" id="exampleInputTextfieldBox4" placeholder="Placeholder" type="text">
+  </div>
+  <small id="exampleInputTextfieldBox4Help" class="form-text text-muted">Some help text.</small>
+</div>
+<div class="form-group">
+  <div class="floating-label textfield-box">
+    <label for="exampleSelectTextfieldBox2">Floating label</label>
+    <select class="form-control" id="exampleSelectTextfieldBox2">
+      <option label=" "></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Sizes can also be set by adding `.floating-label-lg/sm` and `.textfield-box-lg/sm` classes.
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label floating-label-lg textfield-box textfield-box-lg">
+    <label for="exampleInputTextfieldBox5">Large</label>
+    <input class="form-control" id="exampleInputTextfieldBox5" placeholder="Large" type="text">
+  </div>
+</div>
+<div class="form-group">
+  <div class="floating-label floating-label-sm textfield-box textfield-box-sm">
+    <label for="exampleInputTextfieldBox6">Small</label>
+    <input class="form-control" id="exampleInputTextfieldBox6" placeholder="Small" type="text">
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+## With icons
+
+Icons describe the type of input a text field requires. They are displayed to the left of the text field.
+
+{% capture example %}
+<div class="input-group mb-3">
+  <input class="form-control" id="exampleInputGroup1" placeholder="With icons" type="text">
+  <label class="input-group-icon" for="exampleInputGroup1">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-lg mb-3">
+  <input class="form-control" id="exampleInputGroup2" placeholder="Large" type="text">
+  <label class="input-group-icon" for="exampleInputGroup2">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <input class="form-control" id="exampleInputGroup3" placeholder="Small" type="text">
+  <label class="input-group-icon" for="exampleInputGroup3">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+`.input-group-icon` can also work with floating label text fields:
+
+{% capture example %}
+<div class="input-group mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup4">Floating label</label>
+    <input class="form-control" id="exampleInputGroup4" placeholder="With icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup4">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-lg mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup5">Large</label>
+    <input class="form-control" id="exampleInputGroup5" placeholder="with icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup5">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+<div class="input-group input-group-sm mb-3">
+  <div class="floating-label">
+    <label for="exampleInputGroup6">Small</label>
+    <input class="form-control" id="exampleInputGroup6" placeholder="with icons" type="text">
+  </div>
+  <label class="input-group-icon" for="exampleInputGroup6">
+    <i class="material-icons">event</i>
+  </label>
+</div>
+{% endcapture %}
+{% include example.html content=example %}

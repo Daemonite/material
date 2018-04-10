@@ -3,7 +3,7 @@ import Util from './util'
 
 /*
  * Tab indicator animation
- * Requires Bootstrap's (v4.0.0) `tab.js`
+ * Requires Bootstrap's (v4.1.0) `tab.js`
  */
 
 const TabSwitch = (($) => {
@@ -12,11 +12,6 @@ const TabSwitch = (($) => {
   const DATA_KEY    = 'md.tabswitch'
   const NAME        = 'tabswitch'
   const NO_CONFLICT = $.fn[NAME]
-
-  const Breakpoints = {
-    DESKTOP : 992,
-    TABLET  : 576
-  }
 
   const ClassName = {
     ANIMATE       : 'animate',
@@ -35,12 +30,6 @@ const TabSwitch = (($) => {
     DATA_TOGGLE : '.nav-tabs [data-toggle="tab"]',
     DROPDOWN    : '.dropdown',
     NAV         : '.nav-tabs'
-  }
-
-  const TransitionDuration = {
-    DESKTOP : 200,
-    MOBILE  : 300,
-    TABLET  : 390
   }
   // <<< constants
 
@@ -92,13 +81,7 @@ const TabSwitch = (($) => {
         return
       }
 
-      let transitionDuration = TransitionDuration.MOBILE
-
-      if (window.innerWidth >= Breakpoints.DESKTOP) {
-        transitionDuration = TransitionDuration.DESKTOP
-      } else if (window.innerWidth >= Breakpoints.TABLET) {
-        transitionDuration = TransitionDuration.TABLET
-      }
+      const transitionDuration = Util.getTransitionDurationFromElement(this._navindicator)
 
       $(this._navindicator)
         .one(Util.TRANSITION_END, complete)
@@ -112,7 +95,7 @@ const TabSwitch = (($) => {
         .addClass(ClassName.INDICATOR)
         .appendTo(this._nav)
 
-      if (relatedTarget !== 'undefined') {
+      if (typeof relatedTarget !== 'undefined') {
         if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
           relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN)
         }

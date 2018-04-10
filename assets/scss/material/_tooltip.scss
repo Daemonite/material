@@ -10,7 +10,7 @@
   word-break: break-word;
   z-index: $tooltip-zindex;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up($tooltip-breakpoint) {
     font-size: $tooltip-font-size-desktop;
     margin: $tooltip-margin-desktop;
   }
@@ -34,7 +34,7 @@
   text-align: center;
   transform: scale($tooltip-scale);
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up($tooltip-breakpoint) {
     padding: $tooltip-padding-y-desktop $tooltip-padding-x-desktop;
   }
 }

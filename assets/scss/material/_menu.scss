@@ -21,6 +21,8 @@
   min-width: $menu-min-width;
   padding: $menu-padding-y 0;
   position: absolute;
+  top: 100%;
+  left: 0;
   z-index: map-get($menu-elevation-shadow, elevation);
 
   &.show {
@@ -37,6 +39,10 @@
 
       @include media-breakpoint-up(lg) {
         animation-duration: $transition-duration-desktop;
+      }
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        animation: none;
       }
     }
 
@@ -64,7 +70,6 @@
   &::before {
     @include border-radius($menu-border-radius);
 
-    background-clip: padding-box;
     background-color: $menu-bg;
     box-shadow: map-get($menu-elevation-shadow, shadow);
     content: '';
@@ -84,7 +89,7 @@
 }
 
 .menu {
-  margin-top: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
+  margin-top: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
 
   &::before {
     transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
@@ -93,6 +98,163 @@
 
 .show > a {
   outline: 0;
+}
+
+.dropdown-menu-right:not([x-placement]) {
+  right: 0;
+  left: auto;
+
+  &.menu::before {
+    transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+  }
+
+  &::before {
+    transform-origin: 100% 0;
+  }
+}
+
+.dropleft {
+  .dropdown-menu:not([x-placement]) {
+    top: 0;
+    right: 100%;
+    left: auto;
+
+    &.menu {
+      margin-top: 0;
+    }
+
+    &::before {
+      transform-origin: 100% 0;
+    }
+  }
+}
+
+.dropright {
+  .dropdown-menu:not([x-placement]) {
+    top: 0;
+    left: 100%;
+
+    &.menu {
+      margin-top: 0;
+    }
+
+    &::before {
+      transform-origin: 0 0;
+    }
+  }
+}
+
+.dropup {
+  .dropdown-menu:not([x-placement]) {
+    top: auto;
+    bottom: 100%;
+
+    &.menu {
+      margin-top: 0;
+      margin-bottom: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
+
+      &::before {
+        transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+      }
+    }
+
+    &::before {
+      transform-origin: 0 100%;
+    }
+
+    > :nth-child(1),
+    > :nth-child(2),
+    > :nth-child(3) {
+      animation-name: dropdown-item-show;
+    }
+
+    > :nth-last-child(1) {
+      animation-name: dropdown-item-show-1;
+    }
+
+    > :nth-last-child(2) {
+      animation-name: dropdown-item-show-2;
+    }
+
+    > :nth-last-child(3) {
+      animation-name: dropdown-item-show-3;
+    }
+  }
+
+  .dropdown-menu-right:not([x-placement]) {
+    &.menu::before {
+      transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+    }
+
+    &::before {
+      transform-origin: 100% 100%;
+    }
+  }
+}
+
+.dropdown-menu[x-placement='bottom-end']::before,
+.dropdown-menu[x-placement='left-start']::before {
+  transform-origin: 100% 0;
+}
+
+.dropdown-menu[x-placement='top-end'].show,
+.dropdown-menu[x-placement='top-start'].show {
+  > :nth-child(1),
+  > :nth-child(2),
+  > :nth-child(3) {
+    animation-name: dropdown-item-show;
+  }
+
+  > :nth-last-child(1) {
+    animation-name: dropdown-item-show-1;
+  }
+
+  > :nth-last-child(2) {
+    animation-name: dropdown-item-show-2;
+  }
+
+  > :nth-last-child(3) {
+    animation-name: dropdown-item-show-3;
+  }
+}
+
+.dropdown-menu[x-placement='top-end']::before {
+  transform-origin: 100% 100%;
+}
+
+.dropdown-menu[x-placement='top-start']::before {
+  transform-origin: 0 100%;
+}
+
+.menu[x-placement='bottom-end']::before {
+  transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+}
+
+.menu[x-placement='left-start'],
+.menu[x-placement='right-start'] {
+  margin-top: 0;
+}
+
+.menu[x-placement='left-start']::before {
+  transform-origin: 100% 0;
+}
+
+.menu[x-placement='right-start']::before {
+  transform-origin: 0 0;
+}
+
+.menu[x-placement='top-end'],
+.menu[x-placement='top-start'] {
+  margin-top: 0;
+  margin-bottom: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
+}
+
+.menu[x-placement='top-end']::before {
+  transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+}
+
+.menu[x-placement='top-start']::before {
+  transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
 }
 
 @keyframes dropdown-item-show {
@@ -185,58 +347,6 @@
   100% {
     margin-top: 0;
   }
-}
-
-.dropdown-menu[x-placement='bottom-end']::before,
-.dropdown-menu[x-placement='left-start']::before {
-  transform-origin: 100% 0;
-}
-
-.dropdown-menu[x-placement='top-end'].show,
-.dropdown-menu[x-placement='top-start'].show {
-  > :nth-child(1),
-  > :nth-child(2),
-  > :nth-child(3) {
-    animation-name: dropdown-item-show;
-  }
-
-  > :nth-last-child(1) {
-    animation-name: dropdown-item-show-1;
-  }
-
-  > :nth-last-child(2) {
-    animation-name: dropdown-item-show-2;
-  }
-
-  > :nth-last-child(3) {
-    animation-name: dropdown-item-show-3;
-  }
-}
-
-.dropdown-menu[x-placement='top-end']::before {
-  transform-origin: 100% 100%;
-}
-
-.dropdown-menu[x-placement='top-start']::before {
-  transform-origin: 0 100%;
-}
-
-.menu[x-placement='bottom-end']::before {
-  transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
-}
-
-.menu[x-placement='top-end'],
-.menu[x-placement='top-start'] {
-  margin-top: 0;
-  margin-bottom: (($menu-link-height - ($menu-link-height - $menu-line-height) / 2) * -1 + $menu-padding-y * -1);
-}
-
-.menu[x-placement='top-end']::before {
-  transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
-}
-
-.menu[x-placement='top-start']::before {
-  transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
 }
 
 // Cascading menu for desktop

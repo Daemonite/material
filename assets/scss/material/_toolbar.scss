@@ -8,21 +8,6 @@
   padding: $toolbar-padding-y $toolbar-padding-x;
   position: relative;
 
-  // Horizontally align `.dropdown-menu-right` in `.navbar`
-
-  .dropdown-menu-right {
-    right: 0;
-    left: auto;
-
-    &.menu::before {
-      transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
-    }
-
-    &::before {
-      transform-origin: 100% 0;
-    }
-  }
-
   // Vertically align some elements normally placed in `.navbar`
 
   .form-control {
@@ -389,7 +374,6 @@
   @include set-material-icons;
 
   display: block;
-  margin: auto;
 
   &::before {
     content: $toolbar-toggler-icon;

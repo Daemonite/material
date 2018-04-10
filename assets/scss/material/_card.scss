@@ -1,7 +1,6 @@
 .card {
   @include border-radius($card-border-radius);
 
-  background-clip: border-box;
   background-color: $card-bg;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: flex;
@@ -36,6 +35,47 @@
   }
 }
 
+// Accordion
+
+.accordion {
+  .card:first-of-type {
+    @include border-bottom-radius(0);
+  }
+
+  .card:last-of-type {
+    @include border-top-radius(0);
+  }
+
+  .card:not(:first-of-type):not(:last-of-type) {
+    border-radius: 0;
+  }
+
+  .card:not(:first-of-type) {
+    .card-body:first-child,
+    .card-footer:first-child,
+    .card-header:first-child {
+      @include border-top-radius(0);
+    }
+  }
+
+  .card:not(:last-of-type) {
+    .card-body:last-child,
+    .card-footer:last-child,
+    .card-header:last-child {
+      @include border-bottom-radius(0);
+    }
+  }
+
+  .collapse,
+  .collapsing {
+    .card-body:first-child,
+    .card-footer:first-child,
+    .card-header:first-child {
+      @include border-top-radius(0);
+    }
+  }
+}
+
 // Action
 
 .card-actions {
@@ -61,20 +101,17 @@
     padding-right: $card-action-inner-spacer-x;
     padding-left: $card-action-inner-spacer-x;
   }
+
+  .dropdown-toggle::after {
+    margin-right: 0;
+  }
 }
 
 // Body
 
 .card-body {
   flex: 1 1 auto;
-  padding: $card-inner-spacer-y $card-padding-x;
-
-  &:first-child,
-  .card-header[class*='border-'] + &,
-  .card-img-top + &,
-  .list-group + & {
-    padding-top: $card-padding-y;
-  }
+  padding: $card-padding-y $card-padding-x;
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -82,32 +119,22 @@
 
   &:last-child {
     @include border-bottom-radius($card-border-radius);
-
-    padding-bottom: $card-padding-y;
-  }
-
-  .card-header:not([class*='border-']) + & {
-    padding-top: 0;
   }
 
   > :last-child {
     margin-bottom: 0;
-  }
-
-  + .card-img-bottom,
-  + .list-group {
-    margin-top: ($card-padding-y - $card-inner-spacer-y);
   }
 }
 
 // Footer
 
 .card-footer {
-  padding: $card-inner-spacer-y $card-padding-x;
+  border-top: $card-border-width solid $card-border-color;
+  padding: $card-padding-y $card-padding-x;
 
   @each $color, $values in $theme-colors {
     &.border-#{$color} {
-      border-top: $card-border-width solid theme-color($color);
+      border-top-color: theme-color($color);
     }
   }
 
@@ -121,23 +148,6 @@
     @include border-bottom-radius($card-border-radius);
   }
 
-  .card-body + &,
-  .card-header + & {
-    &[class*='border-'] {
-      margin-top: ($card-padding-y - $card-inner-spacer-y);
-    }
-
-    &:not[class*='border-'] {
-      padding-top: 0;
-    }
-  }
-
-  .card-header[class*='border-'] + & {
-    &[class*='border-'] {
-      margin-top: ($card-border-width * -1);
-    }
-  }
-
   > :last-child {
     margin-bottom: 0;
   }
@@ -146,24 +156,14 @@
 // Header
 
 .card-header {
+  border-bottom: $card-border-width solid $card-border-color;
   margin-bottom: 0;
-  padding: $card-inner-spacer-y $card-padding-x;
+  padding: $card-padding-y $card-padding-x;
 
   @each $color, $values in $theme-colors {
     &.border-#{$color} {
-      border-bottom: $card-border-width solid theme-color($color);
+      border-bottom-color: theme-color($color);
     }
-  }
-
-  &[class*='border-'] {
-    padding-top: $card-padding-y;
-    padding-bottom: $card-padding-y;
-  }
-
-  &:first-child,
-  .card-img-top + &,
-  .list-group + & {
-    padding-top: $card-padding-y;
   }
 
   &:first-child {
@@ -174,31 +174,12 @@
     @include border-bottom-radius($card-border-radius);
 
     border-bottom: 0;
-    padding-bottom: $card-padding-y;
-  }
-
-  &:not([class*='border-']) {
-    + .card-img-bottom,
-    + .list-group {
-      margin-top: ($card-padding-y - $card-inner-spacer-y);
-    }
   }
 }
 
 .card-header-pills {
-  margin: ($card-inner-spacer-y * -1) ($card-inner-spacer-x * -1) 0;
+  margin: ($card-padding-y * -1) ($card-padding-x * -1);
   padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
-
-  .card-header:first-child &,
-  .card-header[class*='border-'] &,
-  .card-img-top + .card-header & {
-    margin-top: ($card-padding-y * -1);
-  }
-
-  .card-header:last-child &,
-  .card-header[class*='border-'] & {
-    margin-bottom: ($card-padding-y * -1);
-  }
 
   .nav-link {
     margin-right: $card-action-inner-spacer-x;
@@ -209,19 +190,7 @@
 }
 
 .card-header-tabs {
-  margin: ($card-inner-spacer-y * -1) ($card-inner-spacer-x * -1) ($card-padding-y - $card-inner-spacer-y);
-
-  .card-header:first-child &,
-  .card-header[class*='border-'] &,
-  .card-img-top + .card-header &,
-  .list-group + .card-header & {
-    margin-top: ($card-padding-y * -1);
-  }
-
-  .card-header[class*='border-'] &,
-  .card-header:last-child & {
-    margin-bottom: ($card-padding-y * -1);
-  }
+  margin: ($card-padding-y * -1) ($card-padding-x * -1) calc(#{$card-padding-y * -1} - #{$card-border-width});
 }
 
 // Image
@@ -256,6 +225,8 @@
   column-gap: $card-margin-x;
   margin-top: ($card-margin-y / -2);
   margin-bottom: ($card-margin-y / 2);
+  orphans: 1;
+  widows: 1;
 
   @include media-breakpoint-up(md) {
     column-count: $card-columns-count-desktop;
@@ -295,7 +266,6 @@
   }
 
   .card {
-    box-shadow: $shadow-1dp;
     margin-bottom: $card-margin-y;
 
     @include media-breakpoint-up(sm) {
