@@ -132,12 +132,6 @@
   border-top: $card-border-width solid $card-border-color;
   padding: $card-padding-y $card-padding-x;
 
-  @each $color, $values in $theme-colors {
-    &.border-#{$color} {
-      border-top-color: theme-color($color);
-    }
-  }
-
   &:first-child {
     @include border-top-radius($card-border-radius);
 
@@ -159,12 +153,6 @@
   border-bottom: $card-border-width solid $card-border-color;
   margin-bottom: 0;
   padding: $card-padding-y $card-padding-x;
-
-  @each $color, $values in $theme-colors {
-    &.border-#{$color} {
-      border-bottom-color: theme-color($color);
-    }
-  }
 
   &:first-child {
     @include border-top-radius($card-border-radius);
