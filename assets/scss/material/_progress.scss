@@ -71,15 +71,10 @@
     }
   }
 
-  &[style*='width:100%'],
-  &[style*='width: 100%'] {
-    border-right: 0;
-  }
-
   &::after {
     @include border-right-radius($progress-bar-border-radius);
 
-    right: ($progress-bar-height * -6);
+    right: ($progress-bar-buffer-width * -1);
     bottom: ($progress-bar-height * -1);
   }
 
