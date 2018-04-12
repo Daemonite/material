@@ -95,6 +95,8 @@ const NavDrawer = (($) => {
 
       $(document).off(Event.FOCUSIN)
 
+      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
+
       $(this._element).removeClass(ClassName.SHOW)
 
       $(this._element).off(Event.CLICK_DISMISS)
@@ -134,8 +136,6 @@ const NavDrawer = (($) => {
       }
 
       this._isShown = true
-
-      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       this._setEscapeEvent()
 
@@ -188,8 +188,6 @@ const NavDrawer = (($) => {
       this._element.setAttribute('aria-hidden', true)
 
       this._isTransitioning = false
-
-      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).trigger(Event.HIDDEN)
     }
@@ -267,6 +265,8 @@ const NavDrawer = (($) => {
       if (supportsTransition) {
         Util.reflow(this._element)
       }
+
+      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).addClass(ClassName.SHOW)
 
