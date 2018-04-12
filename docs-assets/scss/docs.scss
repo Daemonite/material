@@ -211,6 +211,31 @@
   }
 }
 
+.doc-navbar-permanent {
+  margin-left: $navdrawer-width;
+}
+
+.doc-navbar-persistent,
+.doc-navbar-temporary {
+  @include transition-sharp(margin-left);
+}
+
+.doc-navbar-persistent {
+  .navdrawer-open-persistent & {
+    @include transition-deceleration(margin-left);
+
+    margin-left: $navdrawer-width;
+  }
+}
+
+.doc-navbar-temporary {
+  .navdrawer-open-temporary & {
+    @include transition-deceleration(margin-left);
+
+    margin-left: $navdrawer-width;
+  }
+}
+
 .doc-navdrawer-body {
   min-height: 100%;
 }
