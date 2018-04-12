@@ -1,5 +1,3 @@
-// stylelint-disable selector-no-qualifying-type
-
 .collapse {
   display: none;
 
@@ -8,16 +6,14 @@
   }
 }
 
-tbody {
-  &.collapse.show {
-    display: table-row-group;
-  }
+// stylelint-disable-next-line selector-no-qualifying-type
+tbody.collapse.show {
+  display: table-row-group;
 }
 
-tr {
-  &.collapse.show {
-    display: table-row;
-  }
+// stylelint-disable-next-line selector-no-qualifying-type
+tr.collapse.show {
+  display: table-row;
 }
 
 .collapsing {

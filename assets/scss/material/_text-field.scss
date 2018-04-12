@@ -121,25 +121,19 @@
 }
 
 // stylelint-disable selector-no-qualifying-type
-select {
-  &.form-control {
-    &[multiple],
-    &[size] {
-      @extend %form-textarea;
-    }
-
-    &:not([multiple]):not([size]) {
-      @extend %form-select;
-    }
-  }
-}
-// stylelint-enable
-
-// stylelint-disable selector-no-qualifying-type
-textarea {
-  &.form-control:not(.textarea-autosize) {
+select.form-control {
+  &[multiple],
+  &[size] {
     @extend %form-textarea;
   }
+
+  &:not([multiple]):not([size]) {
+    @extend %form-select;
+  }
+}
+
+textarea.form-control:not(.textarea-autosize) {
+  @extend %form-textarea;
 }
 // stylelint-enable
 

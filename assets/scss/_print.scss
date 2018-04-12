@@ -1,4 +1,4 @@
-// stylelint-disable declaration-no-important, selector-no-qualifying-type
+// stylelint-disable declaration-no-important
 
 @if $enable-print-styles {
   @media print {
@@ -17,6 +17,7 @@
       text-decoration: underline;
     }
 
+    // stylelint-disable-next-line selector-no-qualifying-type
     abbr[title]::after {
       content: ' (" attr(title) ") ';
     }
