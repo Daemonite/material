@@ -3,7 +3,7 @@ layout: docs
 title: Buttons
 description: Buttons communicate the action that will occur when the user touches them.
 group: material
-redirect_from: "/material/"
+redirect_from: "/docs/4.1/material/"
 toc: true
 ---
 
