@@ -9,7 +9,45 @@ group: material
 
 ## Tables within cards
 
-Tables may be embedded within a card, with data manipulation tools and table navigation displayed using card components.
+Tables may be embedded within a card.
+
+{% capture example %}
+<div class="card">
+  <table class="table mb-0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Data manipulation tools and table navigation can be added using card components.
 
 {% capture example %}
 <div class="card">
@@ -79,7 +117,7 @@ Tables may be embedded within a card, with data manipulation tools and table nav
         <a class="dropdown-item" href="#">Show all</a>
       </div>
     </div>
-    <span class="align-self-center mb-1 mx-1 text-muted">1-3 of 300</span>
+    <span class="align-self-center mb-1 mr-2 text-muted">1-3 of 300</span>
     <a class="btn btn-outline" href="#"><i class="material-icons">chevron_left</i></a>
     <a class="btn btn-outline" href="#"><i class="material-icons">chevron_right</i></a>
   </div>
