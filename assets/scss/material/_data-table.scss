@@ -61,6 +61,54 @@
     }
   }
 
+  .card > & {
+    &:first-child {
+      &,
+      > :first-child,
+      > :first-child > tr:first-child {
+        @include border-top-radius($card-border-radius);
+      }
+
+      > :first-child > tr:first-child {
+        // stylelint-disable selector-max-compound-selectors
+        td,
+        th {
+          &:first-child {
+            border-top-left-radius: $card-border-radius;
+          }
+
+          &:last-child {
+            border-top-right-radius: $card-border-radius;
+          }
+        }
+        // stylelint-enable
+      }
+    }
+
+    &:last-child {
+      &,
+      > :last-child,
+      > :last-child > tr:last-child {
+        @include border-bottom-radius($card-border-radius);
+      }
+
+      > :last-child > tr:last-child {
+        // stylelint-disable selector-max-compound-selectors
+        td,
+        th {
+          &:first-child {
+            border-bottom-left-radius: $card-border-radius;
+          }
+
+          &:last-child {
+            border-bottom-right-radius: $card-border-radius;
+          }
+        }
+        // stylelint-enable
+      }
+    }
+  }
+
   .table {
     border-top: $table-border-width solid $table-border-color;
   }
@@ -82,7 +130,11 @@
 }
 
 .table-bordered {
-  box-shadow: map-get($table-elevation-shadow, shadow);
+  border: $table-border-width solid $table-border-color;
+
+  .card > & {
+    border: 0;
+  }
 }
 
 .table-sm {
@@ -209,6 +261,10 @@
 .table-dark {
   background-color: $table-dark-bg;
   color: $table-dark-color;
+
+  &.table-bordered {
+    border-color: $table-dark-border-color;
+  }
 
   &.table-striped {
     tbody tr:nth-of-type(odd) {
