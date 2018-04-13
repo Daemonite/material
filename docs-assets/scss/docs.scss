@@ -159,47 +159,50 @@
 }
 
 .doc-logo {
+  @include typography-title;
+
   align-items: center;
-  background-color: hex-to-rgba(theme-color(secondary), $black-divider-opacity);
-  border: 0.05em solid currentColor;
-  border-radius: 0.9em;
+  background-color: rgba(theme-color(secondary), $black-divider-opacity);
+  border-radius: ($toolbar-element-height / 2);
+  box-shadow: inset 0 0 0 $border-width currentColor;
   color: inherit;
   display: inline-flex;
   font-family: $font-family-serif;
   font-weight: 700;
-  height: 1.8em;
+  height: $toolbar-element-height;
   justify-content: center;
   line-height: 1;
-  margin-bottom: 0;
-  overflow: hidden;
   position: relative;
   user-select: none;
+  vertical-align: top;
   white-space: nowrap;
-  width: 1.8em;
+  width: $toolbar-element-height;
   z-index: 1;
 
-  @include active-focus-hover {
-    color: inherit;
-    text-decoration: none;
+  &[href] {
+    @include active-focus-hover {
+      color: inherit;
+      text-decoration: none;
+
+      &::before {
+        opacity: $black-divider-opacity;
+      }
+    }
 
     &::before {
-      opacity: 1;
+      @include transition-standard(opacity);
+
+      background-color: currentColor;
+      border-radius: ($toolbar-element-height / 2);
+      content: '';
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
     }
-  }
-
-  &::before {
-    @include transition-standard(opacity);
-
-    background-color: $black-divider;
-    border-radius: 0.9em;
-    content: '';
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
   }
 }
 
