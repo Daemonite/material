@@ -62,8 +62,8 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div>
-  <table class="table table-bordered table-striped">
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
     <thead>
       <tr>
         <th>Option</th>
@@ -284,8 +284,8 @@ The values can also be integers representing dates relative to the other:
 
 The following rules can be used to format any date:
 
-<div>
-  <table class="table table-bordered table-striped">
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
     <thead>
       <tr>
         <th>Rule</th>

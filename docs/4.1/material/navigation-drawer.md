@@ -75,32 +75,34 @@ Call a navigation drawer with id `myNavdrawer` with a single line of JavaScript:
 
 Material's navigation drawer class exposes a few events for hooking into navigation drawer functionality. All events are fired at the navigation drawer itself (i.e. at the `<div class="navdrawer">`).
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Event Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>hide.md.navdrawer</td>
-      <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-    </tr>
-    <tr>
-      <td>hidden.md.navdrawer</td>
-      <td>This event is fired when the navigation drawer has finished being hidden from the user (will wait for CSS transitions to complete).</td>
-    </tr>
-    <tr>
-      <td>show.md.navdrawer</td>
-      <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-    </tr>
-    <tr>
-      <td>shown.md.navdrawer</td>
-      <td>This event is fired when the navigation drawer has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
+    <thead>
+      <tr>
+        <th>Event Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>hide.md.navdrawer</td>
+        <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
+      </tr>
+      <tr>
+        <td>hidden.md.navdrawer</td>
+        <td>This event is fired when the navigation drawer has finished being hidden from the user (will wait for CSS transitions to complete).</td>
+      </tr>
+      <tr>
+        <td>show.md.navdrawer</td>
+        <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+      </tr>
+      <tr>
+        <td>shown.md.navdrawer</td>
+        <td>This event is fired when the navigation drawer has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 {% highlight js %}
 $('#myNavdrawer').on('hide.md.navdrawer', function (e) {
@@ -142,42 +144,44 @@ Manually toggles a navigation drawer.
 
 Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-backdrop=""`.
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>breakpoint</td>
-      <td>string</td>
-      <td><code class="text-nowrap">''</code></td>
-      <td>Works with <code class="text-nowrap">type</code> to determine when the styles associated with a particular type kick in.</td>
-    </tr>
-    <tr>
-      <td>keyboard</td>
-      <td>boolean</td>
-      <td>true</td>
-      <td>Closes the navigation drawer when escape key is pressed</td>
-    </tr>
-    <tr>
-      <td>show</td>
-      <td>boolean</td>
-      <td>true</td>
-      <td>Shows the navigation drawer when initialised.</td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td>string</td>
-      <td><code class="text-nowrap">'default'</code></td>
-      <td>Different types of navigation drawers behave differently. For details regarding each type, see <a href="#variations">variations</a>.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>breakpoint</td>
+        <td>string</td>
+        <td><code class="text-nowrap">''</code></td>
+        <td>Works with <code class="text-nowrap">type</code> to determine when the styles associated with a particular type kick in.</td>
+      </tr>
+      <tr>
+        <td>keyboard</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td>Closes the navigation drawer when escape key is pressed</td>
+      </tr>
+      <tr>
+        <td>show</td>
+        <td>boolean</td>
+        <td>true</td>
+        <td>Shows the navigation drawer when initialised.</td>
+      </tr>
+      <tr>
+        <td>type</td>
+        <td>string</td>
+        <td><code class="text-nowrap">'default'</code></td>
+        <td>Different types of navigation drawers behave differently. For details regarding each type, see <a href="#variations">variations</a>.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Variations
 

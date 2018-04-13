@@ -241,8 +241,8 @@ Vertical variation is also supported
 
 The type of button used should be suited to the context in which it appears.
 
-<div>
-  <table class="table table-bordered table-striped">
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
     <thead>
       <tr>
         <th>Context</th>
