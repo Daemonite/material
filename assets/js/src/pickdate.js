@@ -222,9 +222,9 @@ const PickDate = (($) => {
     static _jQueryInterface(config) {
       return this.each(function () {
         const _config = {
-          ...PickDate.Default,
+          ...Default,
           ...$(this).data(),
-          ...typeof config === 'object' && config
+          ...typeof config === 'object' && config ? config : {}
         }
 
         let data = $(this).data(DATA_KEY)

@@ -302,9 +302,9 @@ const NavDrawer = (($) => {
     static _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
         const _config = {
-          ...NavDrawer.Default,
+          ...Default,
           ...$(this).data(),
-          ...typeof config === 'object' && config
+          ...typeof config === 'object' && config ? config : {}
         }
 
         let data = $(this).data(DATA_KEY)
