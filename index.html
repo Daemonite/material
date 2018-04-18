@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<header class="navbar navbar-dark toolbar-waterfall doc-navbar" id="doc-navbar">
+<header class="navbar navbar-dark fixed-top toolbar-waterfall">
   <button aria-controls="{{ site.id.navdrawer }}" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler mr-3" data-target="#{{ site.id.navdrawer }}" data-toggle="navdrawer">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +11,7 @@ layout: base
 
 {% include nav-navdrawer.html %}
 
-<div class="jumbotron jumbotron-fluid mb-5 text-white doc-jumbotron" id="doc-index-jumbotron">
+<div class="jumbotron jumbotron-fluid mb-5 doc-jumbotron">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-8">
@@ -45,9 +45,7 @@ layout: base
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title" id="doc-modal-download-label">Download</h2>
-        <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button aria-label="Close" class="close material-icons" data-dismiss="modal" type="button">close</button>
       </div>
       <div class="modal-body">
         <p>Material v{{ site.current_version }} is available for download in several ways, including some of the favourite package managers.</p>
@@ -71,7 +69,7 @@ layout: base
   </div>
 </div>
 
-<main class="doc-main" id="doc-main">
+<main class="doc-main">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 col-xl-8">
