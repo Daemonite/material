@@ -7,7 +7,6 @@ import Util from './util'
  */
 
 const PickDate = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.pickdate'
   const NAME        = 'pickdate'
@@ -247,7 +246,6 @@ const PickDate = (($) => {
 
     return PickDate._jQueryInterface
   }
-
 })($)
 
 export default PickDate

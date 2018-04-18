@@ -6,7 +6,6 @@ import $ from 'jquery'
  */
 
 const FloatingLabel = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.floatinglabel'
   const EVENT_KEY   = `.${DATA_KEY}`
@@ -90,7 +89,6 @@ const FloatingLabel = (($) => {
   }
 
   return FloatingLabel
-
 })($)
 
 export default FloatingLabel

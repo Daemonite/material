@@ -6,7 +6,6 @@ import $ from 'jquery'
  */
 
 const Util = (($) => {
-
   const MAX_UID                 = 1000000
   const MILLISECONDS_MULTIPLIER = 1000
 
@@ -146,7 +145,6 @@ const Util = (($) => {
   setTransitionEndSupport()
 
   return Util
-
 })($)
 
 export default Util

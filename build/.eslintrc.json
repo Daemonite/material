@@ -5,10 +5,6 @@
   },
   "extends": "eslint:recommended",
   "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module"
-  },
   "plugins": [
     "compat"
   ],
@@ -61,8 +57,7 @@
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",
-    "indent": "off",
-    "indent-legacy": [
+    "indent": [
       "error",
       2,
       {
@@ -99,7 +94,6 @@
     ],
     "new-parens": "error",
     "newline-after-var": "off",
-    "newline-before-return": "off",
     "newline-per-chained-call": [
       "error",
       {
@@ -209,7 +203,7 @@
     "no-useless-concat": "error",
     "no-useless-constructor": "error",
     "no-useless-rename": "error",
-    "no-useless-return": "off",
+    "no-useless-return": "error",
     "no-var": "error",
     "no-void": "error",
     "no-warning-comments": "off",
@@ -234,8 +228,12 @@
     ],
     "one-var-declaration-per-line": "error",
     "operator-assignment": "error",
-    "operator-linebreak": "off",
-    "padded-blocks": "off",
+    "operator-linebreak": "error",
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "padding-line-between-statements": "off",
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "prefer-destructuring": "off",

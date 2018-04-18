@@ -7,7 +7,6 @@ import Util from './util'
  */
 
 const NavDrawer = (($) => {
-
   // constants >>>
   const DATA_API_KEY   = '.data-api'
   const DATA_KEY       = 'md.navdrawer'
@@ -370,7 +369,6 @@ const NavDrawer = (($) => {
   }
 
   return NavDrawer
-
 })($)
 
 export default NavDrawer

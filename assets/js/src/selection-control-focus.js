@@ -6,7 +6,6 @@ import $ from 'jquery'
  */
 
 const SelectionControlFocus = (($) => {
-
   // constants >>>
   const DATA_KEY  = 'md.selectioncontrolfocus'
   const EVENT_KEY = `.${DATA_KEY}`
@@ -45,7 +44,6 @@ const SelectionControlFocus = (($) => {
       LastInteraction.IS_MOUSEDOWN = false
     }, 1)
   })
-
 })($)
 
 export default SelectionControlFocus

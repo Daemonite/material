@@ -7,7 +7,6 @@ import Util from './util'
  */
 
 const TabSwitch = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.tabswitch'
   const NAME        = 'tabswitch'
@@ -146,7 +145,6 @@ const TabSwitch = (($) => {
   }
 
   return TabSwitch
-
 })($)
 
 export default TabSwitch
