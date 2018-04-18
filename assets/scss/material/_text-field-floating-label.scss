@@ -6,8 +6,7 @@
 
   &.has-value label,
   &.is-focused label {
-    line-height: 1;
-    top: 0;
+    top: (($textfield-font-size * $textfield-line-height - $textfield-font-size) / -2);
   }
 
   &.is-focused label {
@@ -29,6 +28,7 @@
     color: $floating-label-color;
     display: block;
     margin: 0;
+    max-width: 100%;
     padding: 0;
     position: absolute;
     left: 0;
