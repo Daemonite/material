@@ -238,6 +238,15 @@
       }
     })
 
+    // Toolbar
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop() > 0) {
+        $('.toolbar-waterfall').addClass('waterfall')
+      } else {
+        $('.toolbar-waterfall').removeClass('waterfall')
+      }
+    })
+
     // Tooltip
     $('[data-toggle="popover"]').popover()
 
