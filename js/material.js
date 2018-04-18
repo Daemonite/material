@@ -413,6 +413,7 @@
         this._setEscapeEvent();
 
         $$$1(document).off(Event.FOCUSIN);
+        $$$1(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).removeClass(ClassName.SHOW);
         $$$1(this._element).off(Event.CLICK_DISMISS);
         $$$1(this._content).off(Event.MOUSEDOWN_DISMISS);
@@ -450,7 +451,6 @@
         }
 
         this._isShown = true;
-        $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
 
         this._setEscapeEvent();
 
@@ -497,7 +497,6 @@
         this._element.setAttribute('aria-hidden', true);
 
         this._isTransitioning = false;
-        $$$1(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).trigger(Event.HIDDEN);
       };
 
@@ -574,6 +573,7 @@
           Util.reflow(this._element);
         }
 
+        $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).addClass(ClassName.SHOW);
 
         this._enforceFocus();
@@ -599,7 +599,7 @@
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var _config = _objectSpread({}, NavDrawer.Default, $$$1(this).data(), typeof config === 'object' && config);
+          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
 
           var data = $$$1(this).data(DATA_KEY);
 
@@ -1834,6 +1834,13 @@
   }));
   });
 
+  var picker$1 = /*#__PURE__*/Object.freeze({
+    default: picker,
+    __moduleExports: picker
+  });
+
+  var require$$0 = ( picker$1 && picker ) || picker$1;
+
   var picker_date = createCommonjsModule(function (module, exports) {
   /*!
    * Date picker for pickadate.js v3.5.6
@@ -1847,7 +1854,7 @@
           undefined( ['picker', 'jquery'], factory );
 
       // Node.js/browserify.
-      else module.exports = factory( picker, $ );
+      else module.exports = factory( require$$0, $ );
 
   }(function( Picker, $$$1 ) {
 
@@ -1864,12 +1871,12 @@
   /**
    * The date picker constructor
    */
-  function DatePicker( picker$$1, settings ) {
+  function DatePicker( picker, settings ) {
 
       var calendar = this,
-          element = picker$$1.$node[ 0 ],
+          element = picker.$node[ 0 ],
           elementValue = element.value,
-          elementDataValue = picker$$1.$node.data( 'value' ),
+          elementDataValue = picker.$node.data( 'value' ),
           valueString = elementDataValue || elementValue,
           formatString = elementDataValue ? settings.formatSubmit : settings.format,
           isRTL = function() {
@@ -1880,11 +1887,11 @@
                   element.currentStyle.direction == 'rtl' :
 
                   // For normal browsers.
-                  getComputedStyle( picker$$1.$root[0] ).direction == 'rtl'
+                  getComputedStyle( picker.$root[0] ).direction == 'rtl'
           };
 
       calendar.settings = settings;
-      calendar.$node = picker$$1.$node;
+      calendar.$node = picker.$node;
 
       // The queue of methods that will be used to build item objects.
       calendar.queue = {
@@ -1949,20 +1956,20 @@
 
 
       // Bind some picker events.
-      picker$$1.
+      picker.
           on( 'render', function() {
-              picker$$1.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
+              picker.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker$$1.set( 'highlight', [ picker$$1.get( 'view' ).year, value, picker$$1.get( 'highlight' ).date ] );
-                      picker$$1.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
+                      picker.set( 'highlight', [ picker.get( 'view' ).year, value, picker.get( 'highlight' ).date ] );
+                      picker.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
                   }
               });
-              picker$$1.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
+              picker.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker$$1.set( 'highlight', [ value, picker$$1.get( 'view' ).month, picker$$1.get( 'highlight' ).date ] );
-                      picker$$1.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
+                      picker.set( 'highlight', [ value, picker.get( 'view' ).month, picker.get( 'highlight' ).date ] );
+                      picker.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
                   }
               });
           }, 1 ).
@@ -1971,10 +1978,10 @@
               if ( calendar.disabled( calendar.get('now') ) ) {
                   includeToday = ':not(.' + settings.klass.buttonToday + ')';
               }
-              picker$$1.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
+              picker.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
           }, 1 ).
           on( 'close', function() {
-              picker$$1.$root.find( 'button, select' ).attr( 'disabled', true );
+              picker.$root.find( 'button, select' ).attr( 'disabled', true );
           }, 1 );
 
   } //DatePicker
@@ -3387,7 +3394,7 @@
 
       PickDate._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var _config = _objectSpread({}, PickDate.Default, $$$1(this).data(), typeof config === 'object' && config);
+          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
 
           var data = $$$1(this).data(DATA_KEY);
 
