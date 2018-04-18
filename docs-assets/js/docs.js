@@ -1,13 +1,87 @@
+/* global anchors: false, ClipboardJS: false, Holder: false */
+
 (function ($) {
   'use strict'
 
   $(function () {
-    // Floating labels
+    // Anchor
+    anchors.options = {
+      icon: '#'
+    }
 
+    anchors.add('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
+
+    $('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5').wrapInner('<div></div>')
+
+    // Clipboard
+    $('div.highlight, figure.highlight').each(function () {
+      var btnHtml = '<div class="bd-clipboard"><button class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
+
+      $(this).before(btnHtml)
+
+      $('.btn-clipboard').on('mouseleave', function () {
+        $(this).tooltip('hide')
+      }).tooltip()
+    })
+
+    var clipboard = new ClipboardJS('.btn-clipboard', {
+      target: function (trigger) {
+        return trigger.parentNode.nextElementSibling
+      }
+    })
+
+    clipboard.on('error', function (e) {
+      var key = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
+      var msg = 'Press ' + key + 'C to copy'
+
+      $(e.trigger)
+        .attr('title', msg)
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
+    })
+
+    clipboard.on('success', function (e) {
+      $(e.trigger)
+        .attr('title', 'Copied!')
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
+
+      e.clearSelection()
+    })
+
+    // Disable empty links in docs examples
+    $('.bd-content [href="#"]').on('click', function (e) {
+      e.preventDefault()
+    })
+
+    // Floating labels
     $('.floating-label .form-control').floatinglabel()
 
-    // Navbar examples
+    // Holder
+    Holder.addTheme('gray', {
+      bg: '#424242',
+      fg: 'rgba(255, 255, 255, .7)',
+      fontweight: 'normal'
+    })
 
+    // Indeterminate checkbox example
+    $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
+
+    // Modal
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var $button   = $(event.relatedTarget)
+      var $modal    = $(this)
+      var recipient = $button.data('whatever')
+
+      $modal.find('.modal-body input').val(recipient)
+      $modal.find('.modal-title').text('New message to ' + recipient)
+    })
+
+    // Navbar examples
     $('.navbar-brand img[src="/material/assets/brand/bootstrap-solid.svg"]')
       .addClass('mr-2 rounded')
       .attr({
@@ -17,7 +91,6 @@
       })
 
     // Pickers
-
     $('#exampleInputDatePicker1').pickdate()
 
     $('#exampleInputDatePicker2').pickdate({
@@ -37,10 +110,10 @@
       labelYearSelect  : 'Choose a year from the dropdown menu',
       ok               : 'Close',
       onClose          : function () {
-        console.log('Datepicker closes')
+        console.log('Datepicker closes') // eslint-disable-line no-console
       },
       onOpen           : function () {
-        console.log('Datepicker opens')
+        console.log('Datepicker opens') // eslint-disable-line no-console
       },
       selectMonths     : true,
       selectYears      : 10,
@@ -78,24 +151,37 @@
 
     $('#exampleInputDatePicker8').pickdate({
       disable: [
-        { from: new Date(2016, 0, 16), to: [2016, 0, 24] }
+        {
+          from: new Date(2016, 0, 16),
+          to: [2016, 0, 24]
+        }
       ]
     })
 
     $('#exampleInputDatePicker9').pickdate({
       disable: [
-        { from: -10, to: true }
+        {
+          from: -10,
+          to: true
+        }
       ]
     })
 
     $('#exampleInputDatePicker10').pickdate({
       disable: [
-        { from: [2016, 0, 16], to: 10 }
+        {
+          from: [2016, 0, 16],
+          to: 10
+        }
       ]
     })
 
-    // Snackbar
+    // Progress bar
+    $('.bd-toggle-animated-progress').on('click', function () {
+      $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated')
+    })
 
+    // Snackbar
     $('.snackbar-btn').on('click', function () {
       $(this).parent('.snackbar').removeClass('show')
     })
@@ -123,5 +209,17 @@
         })
       }
     })
+
+    // Tooltip
+    $('[data-toggle="popover"]').popover()
+
+    $('.popover-test').popover()
+
+    $('.tooltip-demo').tooltip({
+      container: 'body',
+      selector: '[data-toggle="tooltip"]'
+    })
+
+    $('.tooltip-test').tooltip()
   })
 }(jQuery))
