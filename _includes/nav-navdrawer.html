@@ -13,6 +13,15 @@
         <span class="navbar-brand">{{ site.title }}</span>
       </div>
 
+      <form class="navdrawer-body mt-2">
+        <div class="floating-label textfield-box">
+          <label for="doc-search">Search</label>
+          <input aria-label="Search" autocomplete="off" data-siteurl="{{ site.url }}" class="form-control doc-search" id="doc-search" type="search">
+        </div>
+      </form>
+
+      <div class="navdrawer-divider mb-0"></div>
+
       <nav class="navdrawer-nav">
 
         {% assign page_slug = page.url | split: '/' | last %}

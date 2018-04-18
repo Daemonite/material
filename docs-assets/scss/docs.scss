@@ -129,6 +129,54 @@
   max-width: 10rem;
 }
 
+// Docsearch
+
+// stylelint-disable declaration-no-important
+.algolia-autocomplete {
+  .algolia-docsearch-footer {
+    border-top: $border-width solid $border-color;
+    color: $menu-link-color-disabled !important;
+    font-size: $font-size-caption !important;
+    line-height: $line-height-caption !important;
+    padding: $menu-padding-y-cascading $menu-link-padding-x-cascading 0;
+  }
+
+  .algolia-docsearch-suggestion {
+    color: $menu-link-color;
+  }
+
+  .algolia-docsearch-suggestion--category-header,
+  .algolia-docsearch-suggestion--title {
+    color: $menu-header-color !important;
+    font-size: $menu-font-size-cascading !important;
+    line-height: $menu-line-height-cascading;
+    padding: $menu-link-padding-y-cascading $menu-link-padding-x-cascading !important;
+  }
+
+  .ds-dropdown-menu {
+    border: 0;
+    border-radius: $menu-border-radius;
+    box-shadow: map-get($menu-elevation-shadow, shadow);
+    margin-top: 0;
+    padding-top: $menu-padding-y-cascading !important;
+    padding-bottom: $menu-padding-y-cascading !important;
+    width: 100%;
+
+    [class^='ds-dataset-'] {
+      border-radius: 0;
+    }
+  }
+
+  .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
+    background-color: $menu-link-bg-hover !important;
+  }
+}
+// stylelint-enable
+
+.doc-search:focus {
+  z-index: 101;
+}
+
 // Project css
 
 .doc-jumbotron {

@@ -1,4 +1,4 @@
-/* global anchors: false, ClipboardJS: false, Holder: false */
+/* global anchors: false, ClipboardJS: false, docsearch: false, Holder: false */
 
 (function ($) {
   'use strict'
@@ -56,6 +56,34 @@
     // Disable empty links in docs examples
     $('.bd-content [href="#"]').on('click', function (e) {
       e.preventDefault()
+    })
+
+    // Docsearch
+    docsearch({
+      algoliaOptions: {
+        facetFilters: ['version: 4.1']
+      },
+      apiKey: 'c1af50add5aa791153ec947a3035b0c4',
+      debug: false,
+      handleSelected: function (input, event, suggestion) {
+        var url = suggestion.url
+
+        url = suggestion.isLvl1 ? url.split('#')[0] : url
+
+        window.location.href = url
+      },
+      indexName: 'daemonite_material',
+      inputSelector: '#doc-search',
+      transformData: function (hits) {
+        return hits.map(function (hit) {
+          var siteurl = document.getElementById('doc-search').getAttribute('data-siteurl')
+          var urlRE = /^https?:\/\/daemonite\.github\.io/
+
+          hit.url = siteurl.match(urlRE) ? hit.url : hit.url.replace(urlRE, '')
+
+          return hit
+        })
+      }
     })
 
     // Floating labels
