@@ -118,7 +118,7 @@
     "js-lint": "eslint --config build/.eslintrc.json assets/js/addons && eslint --config build/.eslintrc.json assets/js/src/",
     "js-lint-docs": "eslint --config build/.eslintrc.addon.json docs-assets/js/",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/material.js.map,includeSources,url=material.min.js.map\" --output js/material.min.js js/material.js",
-    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/*.js\""
+    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js"
   },
   "style": "css/material.css",
   "version": "4.1.0"
