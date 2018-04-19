@@ -19,10 +19,10 @@ Chips can be used for various types of entities, including brief information, fr
 Chips can be deletable. A delete icon can be displayed if a chip is deletable.
 
 {% capture example %}
-<span class="chip fade show" id="chipDismissible">
+<div class="chip fade show" id="chipDismissible">
   Chip Label
   <button class="close" data-dismiss="alert" data-target="#chipDismissible" type="button"><i class="material-icons">cancel</i></button>
-</span>
+</div>
 {% endcapture %}
 {% include example.html content=example %}
 

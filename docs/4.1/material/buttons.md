@@ -18,15 +18,10 @@ Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or in
 **Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#outline-buttons).**
 
 {% capture example %}
-<button class="btn btn-flat my-xs" type="button">Flat</button>
-<button class="btn btn-flat-primary my-xs" type="button">Primary</button>
-<button class="btn btn-flat-secondary my-xs" type="button">Secondary</button>
-<button class="btn btn-flat-danger my-xs" type="button">Danger</button>
-<button class="btn btn-flat-info my-xs" type="button">Info</button>
-<button class="btn btn-flat-success my-xs" type="button">Success</button>
-<button class="btn btn-flat-warning my-xs" type="button">Warning</button>
-<button class="btn btn-flat-dark my-xs" type="button">Dark</button>
-<button class="btn btn-flat-light my-xs" type="button">Light</button>
+<button class="btn btn-flat" type="button">Flat</button>
+{% for color in site.data.theme-colors %}
+<button class="btn btn-flat-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+{% endfor %}
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -37,15 +32,10 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
-<button class="btn my-xs" type="button">Raised</button>
-<button class="btn btn-primary my-xs" type="button">Primary</button>
-<button class="btn btn-secondary my-xs" type="button">Secondary</button>
-<button class="btn btn-danger my-xs" type="button">Danger</button>
-<button class="btn btn-info my-xs" type="button">Info</button>
-<button class="btn btn-success my-xs" type="button">Success</button>
-<button class="btn btn-warning my-xs" type="button">Warning</button>
-<button class="btn btn-dark my-xs" type="button">Dark</button>
-<button class="btn btn-light my-xs" type="button">Light</button>
+<button class="btn my-1" type="button">Raised</button>
+{% for color in site.data.theme-colors %}
+<button class="btn btn-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+{% endfor %}
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -61,12 +51,9 @@ A floating action button represents the primary action in an application, it is 
 ### Colours
 
 {% capture example %}
-<button class="btn btn-float btn-primary" type="button"><i class="material-icons">edit</i></button>
-<button class="btn btn-float btn-secondary" type="button"><i class="material-icons">grade</i></button>
-<button class="btn btn-float btn-danger" type="button"><i class="material-icons">favorite</i></button>
-<button class="btn btn-float btn-info" type="button"><i class="material-icons">reply</i></button>
-<button class="btn btn-float btn-success" type="button"><i class="material-icons">people</i></button>
-<button class="btn btn-float btn-warning" type="button"><i class="material-icons">my_location</i></button>
+{% for color in site.data.theme-colors %}
+<button class="btn btn-float btn-{{ color.name }} my-1" type="button"><i class="material-icons">add</i></button>
+{% endfor %}
 {% endcapture %}
 {% include example.html content=example %}
 
