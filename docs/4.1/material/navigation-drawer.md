@@ -31,22 +31,13 @@ Material provides some basic styles for a set of components that are normally us
     <p class="navdrawer-subheader">Navdrawer subheader</p>
     <ul class="navdrawer-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="#">
-          <i class="material-icons mr-3">alarm_on</i>
-          Active with icon
-        </a>
+        <a class="nav-link active" href="#"><i class="material-icons mr-3">alarm_on</i> Active with icon</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">
-          <i class="material-icons mr-3">alarm_off</i>
-          Disabled with icon
-        </a>
+        <a class="nav-link disabled" href="#"><i class="material-icons mr-3">alarm_off</i> Disabled with icon</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="material-icons mr-3">link</i>
-          Link with icon
-        </a>
+        <a class="nav-link" href="#"><i class="material-icons mr-3">link</i> Link with icon</a>
       </li>
     </ul>
   </div>

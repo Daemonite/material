@@ -298,34 +298,32 @@ All colours available in Material, are available as Sass variables in our `asset
 
   {% for color in site.data.colors %}
 
-    <div class="col-lg-4 col-sm-6">
-      <div class="d-flex flex-column mb-4">
+  <div class="col-lg-4 col-sm-6">
+    <div class="d-flex flex-column mb-4">
 
-        {% for level in color.levels %}
+    {% for level in color.levels %}
 
-          {% if level.name == 500 %}
+    {% if level.name == 500 %}
 
-            <div class="order-first p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-              <p class="mb-5">
-                <strong>{{ color.name | capitalize }}</strong>
-              </p>
-              <div class="d-flex justify-content-between">
-                <span class="doc-swatch-text">{{ level.name }}</span>
-                <span class="doc-swatch-text">{{ level.hex }}</span>
-              </div>
-            </div>
-
-          {% endif %}
-
-          <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-            <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
-            <span class="doc-swatch-text">{{ level.hex }}</span>
-          </div>
-
-        {% endfor %}
-
+      <div class="order-first p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <p class="mb-5"><strong>{{ color.name | capitalize }}</strong></p>
+        <div class="d-flex justify-content-between">
+          <span class="doc-swatch-text">{{ level.name }}</span>
+          <span class="doc-swatch-text">{{ level.hex }}</span>
+        </div>
       </div>
+
+    {% endif %}
+
+      <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
+        <span class="doc-swatch-text">{{ level.hex }}</span>
+      </div>
+
+    {% endfor %}
+
     </div>
+  </div>
 
   {% endfor %}
 
@@ -356,30 +354,30 @@ We use a subset of all colours to create a smaller colour palette for generating
 
   {% for color in site.data.theme-colors %}
 
-    <div class="col-lg-4 col-sm-6">
-      <div class="mb-4">
+  <div class="col-lg-4 col-sm-6">
+    <div class="mb-4">
 
-        <div class="p-3" style="background-color: {{ color.hex }}; color: {{ color.text }};">
-          <p class="mb-5">
-            <strong>{{ color.name | capitalize }}</strong>
-          </p>
-          <div class="d-flex justify-content-between">
-            <span class="doc-swatch-text">Base</span>
-            <span class="doc-swatch-text">{{ color.hex }}</span>
-          </div>
+      <div class="p-3" style="background-color: {{ color.hex }}; color: {{ color.text }};">
+        <p class="mb-5">
+          <strong>{{ color.name | capitalize }}</strong>
+        </p>
+        <div class="d-flex justify-content-between">
+          <span class="doc-swatch-text">Base</span>
+          <span class="doc-swatch-text">{{ color.hex }}</span>
         </div>
-
-        {% for level in color.levels %}
-
-          <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-            <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
-            <span class="doc-swatch-text">{{ level.hex }}</span>
-          </div>
-
-        {% endfor %}
-
       </div>
+
+      {% for level in color.levels %}
+
+      <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
+        <span class="doc-swatch-text">{{ level.hex }}</span>
+      </div>
+
+      {% endfor %}
+
     </div>
+  </div>
 
   {% endfor %}
 
