@@ -214,7 +214,7 @@
       $(this).parent('.snackbar').removeClass('show')
     })
 
-    $('.snackbar-example .btn').on('click', function () {
+    $('.snackbar-toggler').on('click', function () {
       var $snackbar = $(this).next('.snackbar')
 
       if ($('.snackbar.show').length > 0) {

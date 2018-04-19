@@ -19,9 +19,8 @@ Since Material only provides styles for snackbars, when coding JavaScript to int
 
 ### Default snackbars
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Snackbar</button>
+<button class="btn btn-primary snackbar-toggler">Snackbar</button>
 <div class="snackbar">
   <div class="snackbar-body">
     Single line of text directly related to the operation performed
@@ -29,11 +28,9 @@ Since Material only provides styles for snackbars, when coding JavaScript to int
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Snackbar with action</button>
+<button class="btn btn-primary snackbar-toggler">Snackbar with action</button>
 <div class="snackbar">
   <div class="snackbar-body">
     Single line of text directly related to the operation performed
@@ -42,13 +39,11 @@ Since Material only provides styles for snackbars, when coding JavaScript to int
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
 
 ### Multi-line snackbars
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Multi-line snackbar</button>
+<button class="btn btn-primary snackbar-toggler">Multi-line snackbar</button>
 <div class="snackbar snackbar-multi-line">
   <div class="snackbar-body">
     When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon
@@ -56,11 +51,9 @@ Since Material only provides styles for snackbars, when coding JavaScript to int
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Multi-line with action</button>
+<button class="btn btn-primary snackbar-toggler">Multi-line with action</button>
 <div class="snackbar snackbar-multi-line">
   <div class="snackbar-body">
     When I was 5 years old, my mother always told me that happiness was the key to life. When I went to school, they asked me what I wanted to be when I grew up. I wrote down ‘happy’. They told me I didn’t understand the assignment, and I told them they didn’t understand life. –John Lennon
@@ -69,15 +62,13 @@ Since Material only provides styles for snackbars, when coding JavaScript to int
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
 
 ### Placement
 
 Although all snackbars will span across the bottom of the screen on mobile devices, they can be left or right aligned on desktop/tablet devices.
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Left-aligned snackbar</button>
+<button class="btn btn-primary snackbar-toggler">Left-aligned snackbar</button>
 <div class="snackbar snackbar-left">
   <div class="snackbar-body">
     Single line of text directly related to the operation performed
@@ -86,11 +77,9 @@ Although all snackbars will span across the bottom of the screen on mobile devic
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
 
-<div class="snackbar-example">
 {% capture example %}
-<button class="btn btn-primary">Right-aligned snackbar</button>
+<button class="btn btn-primary snackbar-toggler">Right-aligned snackbar</button>
 <div class="snackbar snackbar-right">
   <div class="snackbar-body">
     Single line of text directly related to the operation performed
@@ -99,4 +88,3 @@ Although all snackbars will span across the bottom of the screen on mobile devic
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-</div>
