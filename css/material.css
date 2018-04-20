@@ -10400,13 +10400,14 @@ select.form-control:focus[multiple], select.form-control:focus[size], textarea.f
   z-index: 40;
 }
 
-.navbar-sticky-top {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.2);
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 40;
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .navbar-sticky-top {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.12), 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
 }
 
 .toolbar-waterfall {
@@ -12328,11 +12329,13 @@ a.bg-light:active, a.bg-light:focus, a.bg-light:hover {
   z-index: 40;
 }
 
-.sticky-top {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 40;
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sticky-top {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
 }
 
 .sr-only {

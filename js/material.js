@@ -200,12 +200,12 @@
   var Util = function ($$$1) {
     var MAX_UID = 1000000;
     var MILLISECONDS_MULTIPLIER = 1000;
-    var transition = false;
+    var TRANSITION_END = 'transitionend';
 
     function getSpecialTransitionEndEvent() {
       return {
-        bindType: transition.end,
-        delegateType: transition.end,
+        bindType: TRANSITION_END,
+        delegateType: TRANSITION_END,
         handle: function handle(event) {
           if ($$$1(event.target).is(this)) {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
@@ -217,12 +217,8 @@
     }
 
     function setTransitionEndSupport() {
-      transition = transitionEndTest();
       $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-
-      if (Util.supportsTransitionEnd()) {
-        $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-      }
+      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
 
     function toType(obj) {
@@ -242,16 +238,6 @@
         }
       }, duration);
       return this;
-    }
-
-    function transitionEndTest() {
-      if (typeof window !== 'undefined' && window.QUnit) {
-        return false;
-      }
-
-      return {
-        end: 'transitionend'
-      };
     }
 
     var Util = {
@@ -299,10 +285,10 @@
         return element.offsetHeight;
       },
       supportsTransitionEnd: function supportsTransitionEnd() {
-        return Boolean(transition);
+        return Boolean(TRANSITION_END);
       },
       triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(transition.end);
+        $$$1(element).trigger(TRANSITION_END);
       },
       typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
         for (var property in configTypes) {
@@ -404,11 +390,7 @@
         }
 
         this._isShown = false;
-        var supportsTransition = Util.supportsTransitionEnd();
-
-        if (supportsTransition) {
-          this._isTransitioning = true;
-        }
+        this._isTransitioning = true;
 
         this._setEscapeEvent();
 
@@ -417,15 +399,10 @@
         $$$1(this._element).removeClass(ClassName.SHOW);
         $$$1(this._element).off(Event.CLICK_DISMISS);
         $$$1(this._content).off(Event.MOUSEDOWN_DISMISS);
-
-        if (supportsTransition) {
-          var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-          $$$1(this._content).one(Util.TRANSITION_END, function (event) {
-            return _this._hideNavdrawer(event);
-          }).emulateTransitionEnd(transitionDuration);
-        } else {
-          this._hideNavdrawer();
-        }
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, function (event) {
+          return _this._hideNavdrawer(event);
+        }).emulateTransitionEnd(transitionDuration);
 
         this._showBackdrop();
       };
@@ -437,10 +414,7 @@
           return;
         }
 
-        if (Util.supportsTransitionEnd()) {
-          this._isTransitioning = true;
-        }
-
+        this._isTransitioning = true;
         var showEvent = $$$1.Event(Event.SHOW, {
           relatedTarget: relatedTarget
         });
@@ -526,8 +500,6 @@
       _proto._showBackdrop = function _showBackdrop() {
         var _this5 = this;
 
-        var supportsTransition = Util.supportsTransitionEnd();
-
         if (this._isShown) {
           this._backdrop = document.createElement('div');
           $$$1(this._backdrop).addClass(ClassName.BACKDROP).addClass(ClassName.BACKDROP + "-" + this._config.type + this._typeBreakpoint).appendTo(document.body);
@@ -543,11 +515,7 @@
 
             _this5.hide();
           });
-
-          if (supportsTransition) {
-            Util.reflow(this._backdrop);
-          }
-
+          Util.reflow(this._backdrop);
           $$$1(this._backdrop).addClass(ClassName.SHOW);
         } else if (!this._isShown && this._backdrop) {
           $$$1(this._backdrop).removeClass(ClassName.SHOW);
@@ -559,8 +527,6 @@
       _proto._showElement = function _showElement(relatedTarget) {
         var _this6 = this;
 
-        var supportsTransition = Util.supportsTransitionEnd();
-
         if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
           document.body.appendChild(this._element);
         }
@@ -569,10 +535,7 @@
 
         this._element.removeAttribute('aria-hidden');
 
-        if (supportsTransition) {
-          Util.reflow(this._element);
-        }
-
+        Util.reflow(this._element);
         $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).addClass(ClassName.SHOW);
 
@@ -589,12 +552,8 @@
           $$$1(_this6._element).trigger(shownEvent);
         };
 
-        if (supportsTransition) {
-          var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-          $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
-        } else {
-          transitionComplete();
-        }
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
       };
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
@@ -3504,7 +3463,6 @@
         var navLeft = $$$1(this._nav).offset().left;
         var navScrollLeft = $$$1(this._nav).scrollLeft();
         var navWidth = $$$1(this._nav).outerWidth();
-        var supportsTransition = Util.supportsTransitionEnd();
 
         if (!this._navindicator) {
           this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
@@ -3518,11 +3476,7 @@
         var elWidth = $$$1(element).outerWidth();
         $$$1(this._navindicator).addClass(ClassName.SHOW);
         Util.reflow(this._navindicator);
-
-        if (supportsTransition) {
-          $$$1(this._nav).addClass(ClassName.ANIMATE);
-        }
-
+        $$$1(this._nav).addClass(ClassName.ANIMATE);
         $$$1(this._navindicator).css({
           left: elLeft + navScrollLeft - navLeft,
           right: navWidth - (elLeft + navScrollLeft - navLeft + elWidth)
@@ -3532,11 +3486,6 @@
           $$$1(_this._nav).removeClass(ClassName.ANIMATE);
           $$$1(_this._navindicator).removeClass(ClassName.SHOW);
         };
-
-        if (!supportsTransition) {
-          complete();
-          return;
-        }
 
         var transitionDuration = Util.getTransitionDurationFromElement(this._navindicator);
         $$$1(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
