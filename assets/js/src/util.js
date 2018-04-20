@@ -8,13 +8,12 @@ import $ from 'jquery'
 const Util = (($) => {
   const MAX_UID                 = 1000000
   const MILLISECONDS_MULTIPLIER = 1000
-
-  let transition = false
+  const TRANSITION_END          = 'transitionend'
 
   function getSpecialTransitionEndEvent() {
     return {
-      bindType     : transition.end,
-      delegateType : transition.end,
+      bindType     : TRANSITION_END,
+      delegateType : TRANSITION_END,
       handle(event) {
         if ($(event.target).is(this)) {
           return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
@@ -25,13 +24,8 @@ const Util = (($) => {
   }
 
   function setTransitionEndSupport() {
-    transition = transitionEndTest()
-
     $.fn.emulateTransitionEnd = transitionEndEmulator
-
-    if (Util.supportsTransitionEnd()) {
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
-    }
+    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
   }
 
   function toType(obj) {
@@ -52,16 +46,6 @@ const Util = (($) => {
     }, duration)
 
     return this
-  }
-
-  function transitionEndTest() {
-    if (typeof window !== 'undefined' && window.QUnit) {
-      return false
-    }
-
-    return {
-      end: 'transitionend'
-    }
   }
 
   const Util = {
@@ -117,11 +101,11 @@ const Util = (($) => {
     },
 
     supportsTransitionEnd() {
-      return Boolean(transition)
+      return Boolean(TRANSITION_END)
     },
 
     triggerTransitionEnd(element) {
-      $(element).trigger(transition.end)
+      $(element).trigger(TRANSITION_END)
     },
 
     typeCheckConfig(componentName, config, configTypes) {

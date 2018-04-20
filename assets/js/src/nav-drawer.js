@@ -84,11 +84,7 @@ const NavDrawer = (($) => {
 
       this._isShown = false
 
-      const supportsTransition = Util.supportsTransitionEnd()
-
-      if (supportsTransition) {
-        this._isTransitioning = true
-      }
+      this._isTransitioning = true
 
       this._setEscapeEvent()
 
@@ -102,15 +98,11 @@ const NavDrawer = (($) => {
 
       $(this._content).off(Event.MOUSEDOWN_DISMISS)
 
-      if (supportsTransition) {
-        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+      const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-        $(this._content)
-          .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
-          .emulateTransitionEnd(transitionDuration)
-      } else {
-        this._hideNavdrawer()
-      }
+      $(this._content)
+        .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
+        .emulateTransitionEnd(transitionDuration)
 
       this._showBackdrop()
     }
@@ -120,9 +112,7 @@ const NavDrawer = (($) => {
         return
       }
 
-      if (Util.supportsTransitionEnd()) {
-        this._isTransitioning = true
-      }
+      this._isTransitioning = true
 
       const showEvent = $.Event(Event.SHOW, {
         relatedTarget
@@ -213,8 +203,6 @@ const NavDrawer = (($) => {
     }
 
     _showBackdrop() {
-      const supportsTransition = Util.supportsTransitionEnd()
-
       if (this._isShown) {
         this._backdrop = document.createElement('div')
 
@@ -237,9 +225,7 @@ const NavDrawer = (($) => {
           this.hide()
         })
 
-        if (supportsTransition) {
-          Util.reflow(this._backdrop)
-        }
+        Util.reflow(this._backdrop)
 
         $(this._backdrop).addClass(ClassName.SHOW)
       } else if (!this._isShown && this._backdrop) {
@@ -250,8 +236,6 @@ const NavDrawer = (($) => {
     }
 
     _showElement(relatedTarget) {
-      const supportsTransition = Util.supportsTransitionEnd()
-
       if (!this._element.parentNode ||
           this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
         document.body.appendChild(this._element)
@@ -261,9 +245,7 @@ const NavDrawer = (($) => {
 
       this._element.removeAttribute('aria-hidden')
 
-      if (supportsTransition) {
-        Util.reflow(this._element)
-      }
+      Util.reflow(this._element)
 
       $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
@@ -283,15 +265,11 @@ const NavDrawer = (($) => {
         $(this._element).trigger(shownEvent)
       }
 
-      if (supportsTransition) {
-        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+      const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-        $(this._content)
-          .one(Util.TRANSITION_END, transitionComplete)
-          .emulateTransitionEnd(transitionDuration)
-      } else {
-        transitionComplete()
-      }
+      $(this._content)
+        .one(Util.TRANSITION_END, transitionComplete)
+        .emulateTransitionEnd(transitionDuration)
     }
 
     static get Default() {
