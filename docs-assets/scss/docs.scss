@@ -3,17 +3,57 @@
 @import '../../assets/scss/mixins';
 @import '../../assets/scss/variables';
 
-// Bootstrap doc css override
+// Bootstrap doc CSS override
 
-.bd-content .highlight,
-.bd-example {
-  margin-right: 0;
-  margin-left: 0;
+.bd-callout {
+  border: 0;
+  border-left: $blockquote-border-width solid $blockquote-border-color;
+  border-radius: 0;
+  margin-top: 0;
+  margin-bottom: $paragraph-margin-y;
+  padding: 0 $spacer;
+
+  + .bd-callout {
+    margin-top: 0;
+  }
+}
+
+.bd-callout-danger {
+  border-left-color: theme-color(danger);
+
+  h5 {
+    color: theme-color(danger);
+  }
+}
+
+.bd-callout-info {
+  border-left-color: theme-color(info);
+
+  h5 {
+    color: theme-color(info);
+  }
+}
+
+.bd-callout-warning {
+  border-left-color: theme-color(warning);
+
+  h5 {
+    color: theme-color(warning);
+  }
 }
 
 .bd-example {
-  border-width: 0.2rem;
-  margin-bottom: 0;
+  background-color: $body-bg;
+  border: $border-width solid $border-color;
+  margin: 0;
+  padding: $spacer-lg;
+
+  .bd-example + & {
+    @include border-top-radius(0);
+
+    border-top: 0;
+    margin-top: ($border-width * -1);
+  }
 
   .custom-file-input:lang(es) ~ .custom-file-label::after {
     content: $custom-file-button-icon;
@@ -28,11 +68,39 @@
   > .list-group {
     max-width: 100%;
   }
+
+  + p {
+    margin-top: $paragraph-margin-y;
+  }
 }
 
 .bd-example-modal .modal-dialog {
   margin-top: ($dialog-margin-y * 2);
   margin-bottom: ($dialog-margin-y * 2);
+}
+
+.btn-clipboard {
+  top: $spacer-xs;
+  right: $spacer-xs;
+}
+
+.highlight {
+  background-color: $light-theme-2;
+  margin: 0 0 $paragraph-margin-y;
+  padding: $spacer-lg;
+  position: relative;
+
+  .bd-content & {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .bd-example + &,
+  .bd-example + .bd-clipboard + & {
+    border: $border-width solid $border-color;
+    border-top: 0;
+    margin-top: ($border-width * -1);
+  }
 }
 
 .section-nav {
@@ -46,7 +114,7 @@
   a {
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
-    padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $grid-gutter-width;
+    padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $spacer;
 
     @include active-focus-hover {
       color: $nav-pills-color;
