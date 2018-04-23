@@ -8,7 +8,7 @@ toc: true
 
 Dialogs contain text and UI controls. They retain focus until dismissed or a required action has been taken. Use dialogs sparingly because they are interruptive.
 
-**Most of the details about dialogs have been covered in Components/Modal docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/modal/) for more details.**
+**Most of the details about dialogs have been covered in Components/Modal documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/modal/) for more details.**
 
 ## Alerts
 

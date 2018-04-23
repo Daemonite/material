@@ -8,7 +8,7 @@ toc: true
 
 Menus appear upon interaction with a action, button, or other control. They display a list of choices, with one choice per line.
 
-**Most of the details about menu have been covered in Bootstrap dropdowns docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/) for more details.**
+**Most of the details about menu have been covered in Bootstrap dropdowns documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/) for more details.**
 
 ## Behaviour
 

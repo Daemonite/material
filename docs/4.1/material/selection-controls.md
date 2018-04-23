@@ -14,11 +14,11 @@ Three types of selection controls are covered in this guidance:
 
 ## Checkboxes
 
-**Most of the details about Material checkboxes have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#checkboxes) for more details.**
+**Most of the details about Material checkboxes have been covered in Components/Custom form elements documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#checkboxes) for more details.**
 
 ## Radio buttons
 
-**Most of the details about Material radio buttons have been covered in Components/Custom form elements docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#radios) for more details.**
+**Most of the details about Material radio buttons have been covered in Components/Custom form elements documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/#radios) for more details.**
 
 ## Switches
 

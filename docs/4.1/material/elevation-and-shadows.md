@@ -6,7 +6,7 @@ group: material
 toc: true
 ---
 
-All the available elevation and shadow variables are defined in `daemonite-material/assets/scss/variables/_elevation-shadow.scss`. This page summarises the default elevation and shadow values used by Material componenets.
+All the available elevation and shadow variables are defined in `daemonite-material/assets/scss/variables/_elevation-shadow.scss`. This page summarises the default elevation and shadow values used by Material components.
 
 ## Elevation
 

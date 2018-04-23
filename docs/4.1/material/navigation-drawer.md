@@ -210,7 +210,7 @@ You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `
 <div ... class="navdrawer navdrawer-permanent-lg" ...>...</div>
 {% endhighlight %}
 
-Because a permanent navigation drawer is always visible, you may need to add some custom styles to shift the content of your page to the left or right to accomendate the screen estate being taken up by the drawer. For example, to work with a `.navdrawer-permanent-lg`:
+Because a permanent navigation drawer is always visible, you may need to add some custom styles to shift the content of your page to the left or right to accommodate the screen estate being taken up by the drawer. For example, to work with a `.navdrawer-permanent-lg`:
 
 {% highlight css %}
 @include media-breakpoint-up(lg) {
@@ -244,7 +244,7 @@ For pages that require less hierarchy, a floating permanent drawer may be the be
 <div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloat" tabindex="-1">...</div>
 {% endhighlight %}
 
-A floating permanent drawer can also work with other componenets, such as `.card`:
+A floating permanent drawer can also work with other components, such as `.card`:
 
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
   <iframe class="border-0 d-block w-100" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/examples/navdrawer-permanent-float-card.html" style="height: 480px;"></iframe>
