@@ -1,10 +1,12 @@
 ---
 layout: docs
 title: Elevation and shadows
-description: In the physical world, objects can be affixed or stacked to one another, but cannot pass through each other. Objects also cast shadows and reflect light. Material reflects these qualities to form a spatial model that is familiar to users and can be applied consistently across apps.
+description: Material defines a model of elevation and shadows that can be applied consistently across apps.
 group: material
 toc: true
 ---
+
+All the available elevation and shadow variables are defined in `daemonite-material/assets/scss/variables/_elevation-shadow.scss`. This page summarises the default elevation and shadow values used by Material componenets.
 
 ## Elevation
 
@@ -55,7 +57,7 @@ Several Material components utilise `z-index`, the CSS property that helps contr
 
 ## Shadows
 
-Shadows provide important visual cues about objects’ depth and directional movement. They are the only visual cue indicating the amount of separation between surfaces.
+Shadows provide important visual cues about objects’ depth.
 
 Most Material components have default shadows applied:
 
@@ -153,14 +155,14 @@ Most Material components have default shadows applied:
 Material also provides utility classes to quickly add or remove a shadow for any componenet/element.
 
 {% capture example %}
-<div class="bg-light mb-3 p-3 rounded shadow-none"><code>0dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-1"><code>1dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-2"><code>2dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-4"><code>4dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-6"><code>6dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-8"><code>8dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-12"><code>12dp</code> shadow</div>
-<div class="bg-white mb-3 p-3 rounded shadow-16"><code>16dp</code> shadow</div>
-<div class="bg-white p-3 rounded shadow-24"><code>24dp</code> shadow</div>
+<div class="bg-light mb-3 p-3 rounded shadow-none"><code>0</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-1"><code>1</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-2"><code>2</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-4"><code>4</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-6"><code>6</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-8"><code>8</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-12"><code>12</code> shadow</div>
+<div class="bg-white mb-3 p-3 rounded shadow-16"><code>16</code> shadow</div>
+<div class="bg-white p-3 rounded shadow-24"><code>24</code> shadow</div>
 {% endcapture %}
 {% include example.html content=example %}
