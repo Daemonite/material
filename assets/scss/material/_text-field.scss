@@ -122,17 +122,17 @@
 
 // stylelint-disable selector-no-qualifying-type
 select.form-control {
-  &[multiple],
-  &[size] {
-    @extend %form-textarea;
-  }
+  @extend %form-select;
 
-  &:not([multiple]):not([size]) {
-    @extend %form-select;
+  &[multiple],
+  &[size]:not([size='1']) {
+    @extend %form-textarea;
+
+    background-image: none;
   }
 }
 
-textarea.form-control:not(.textarea-autosize) {
+textarea.form-control:not([rows='1']):not(.textarea-autosize) {
   @extend %form-textarea;
 }
 // stylelint-enable
