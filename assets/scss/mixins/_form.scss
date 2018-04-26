@@ -103,6 +103,10 @@
         }
       }
 
+      ~ .custom-control-track {
+        background-color: rgba($color, $selection-control-track-opacity);
+      }
+
       ~ .#{$state}-feedback,
       ~ .#{$state}-tooltip {
         display: block;
@@ -151,6 +155,15 @@
       ~ .#{$state}-feedback,
       ~ .#{$state}-tooltip {
         display: block;
+      }
+    }
+  }
+
+  .custom-switch .custom-control-input {
+    &.is-#{$state},
+    .was-validated &:#{$state} {
+      ~ .custom-control-label::after {
+        background-color: $color;
       }
     }
   }
