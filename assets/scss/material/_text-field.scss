@@ -103,6 +103,14 @@
   height: auto;
   padding: $textfield-box-padding-y $textfield-box-padding-x;
 
+  @each $color, $values in $theme-colors {
+    &.form-control-#{$color} {
+      @include focus-hover {
+        box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) theme-color($color), inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) theme-color($color);
+      }
+    }
+  }
+
   @include hover {
     box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
