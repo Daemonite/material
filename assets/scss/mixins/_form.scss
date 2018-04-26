@@ -176,6 +176,15 @@
       }
     }
   }
+
+  %form-textarea {
+    &.is-#{$state},
+    .was-validated &:#{$state} {
+      @include focus-hover {
+        box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $color, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $color;
+      }
+    }
+  }
 }
 
 @mixin textfield-box-size($font-size, $height, $line-height, $padding-x, $padding-y) {
