@@ -98,23 +98,37 @@
   .floating-label:not(.textfield-box) ~ & {
     margin-top: $floating-label-font-size;
   }
-
-  .floating-label-lg:not(.textfield-box) ~ & {
-    margin-top: $floating-label-font-size-lg;
-  }
-
-  .floating-label-sm:not(.textfield-box) ~ & {
-    margin-top: $floating-label-font-size-sm;
-  }
 }
 
 // Size
 
 .input-group-lg {
+  > .floating-label {
+    @extend .floating-label-lg;
+
+    &.has-value label,
+    &.is-focused label {
+      top: 0;
+    }
+
+    &.textfield-box.has-value label,
+    &.textfield-box.is-focused label {
+      top: $textfield-box-label-spacer-y;
+    }
+
+    &:not(.textfield-box) ~ .input-group-icon {
+      margin-top: $floating-label-font-size-lg;
+    }
+  }
+
   > %form-control {
     font-size: $textfield-font-size-lg;
     line-height: $textfield-line-height-lg;
     padding: $textfield-padding-y-lg $textfield-padding-x-lg calc(#{$textfield-padding-y-lg} - #{$textfield-border-width});
+  }
+
+  > %form-select {
+    padding-right: $textfield-select-bg-size;
   }
 
   > %form-textarea {
@@ -142,13 +156,39 @@
     font-size: ($font-size-base / 1rem * $textfield-font-size-lg);
     line-height: $textfield-line-height-lg;
   }
+
+  > .textfield-box {
+    @extend .textfield-box-lg;
+  }
 }
 
 .input-group-sm {
+  > .floating-label {
+    @extend .floating-label-sm;
+
+    &.has-value label,
+    &.is-focused label {
+      top: 0;
+    }
+
+    &.textfield-box.has-value label,
+    &.textfield-box.is-focused label {
+      top: $textfield-box-label-spacer-y;
+    }
+
+    &:not(.textfield-box) ~ .input-group-icon {
+      margin-top: $floating-label-font-size-sm;
+    }
+  }
+
   > %form-control {
     font-size: $textfield-font-size-sm;
     line-height: $textfield-line-height-sm;
     padding: $textfield-padding-y-sm $textfield-padding-x-sm calc(#{$textfield-padding-y-sm} - #{$textfield-border-width});
+  }
+
+  > %form-select {
+    padding-right: $textfield-select-bg-size;
   }
 
   > %form-textarea {
@@ -175,5 +215,9 @@
   > .input-group-icon {
     font-size: ($font-size-base / 1rem * $textfield-font-size-sm);
     line-height: $textfield-line-height-sm;
+  }
+
+  > .textfield-box {
+    @extend .textfield-box-sm;
   }
 }
