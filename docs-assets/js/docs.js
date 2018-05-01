@@ -87,7 +87,7 @@
     })
 
     // Floating labels
-    $('.floating-label .form-control').floatinglabel()
+    $('.floating-label .custom-select, .floating-label .form-control').floatinglabel()
 
     // Holder
     Holder.addTheme('gray', {
