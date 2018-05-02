@@ -3,7 +3,7 @@ import Util from './util'
 
 /*
  * Navigation drawer plguin
- * Based on Bootstrap's (v4.1.0) `modal.js`
+ * Based on Bootstrap's (v4.1.X) `modal.js`
  */
 
 const NavDrawer = (($) => {
