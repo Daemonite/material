@@ -74,7 +74,7 @@
     };
     var Selector = {
       DATA_PARENT: '.floating-label',
-      DATA_TOGGLE: '.floating-label .form-control' // <<< constants
+      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control' // <<< constants
 
     };
 
@@ -194,7 +194,7 @@
 
   /*
    * Global util js
-   * Based on Bootstrap's (v4.1.0) `util.js`
+   * Based on Bootstrap's (v4.1.X) `util.js`
    */
 
   var Util = function ($$$1) {
@@ -310,7 +310,7 @@
 
   /*
    * Navigation drawer plguin
-   * Based on Bootstrap's (v4.1.0) `modal.js`
+   * Based on Bootstrap's (v4.1.X) `modal.js`
    */
 
   var NavDrawer = function ($$$1) {
@@ -3421,7 +3421,7 @@
 
   /*
    * Tab indicator animation
-   * Requires Bootstrap's (v4.1.0) `tab.js`
+   * Requires Bootstrap's (v4.1.X) `tab.js`
    */
 
   var TabSwitch = function ($$$1) {
