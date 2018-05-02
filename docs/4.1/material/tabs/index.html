@@ -1,883 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 <title>Tabs &middot; Material</title>
-
 <!-- CSS -->
 <!-- Add Material font (Roboto) and Material icon as needed -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 <!-- Add Material CSS, replace Bootstrap CSS -->
 <link href="/material/css/material.min.css" rel="stylesheet">
-
 <!-- Additional CSS for documentation site -->
-<link href="https://getbootstrap.com/assets/css/docs.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/4.1/assets/css/docs.min.css" rel="stylesheet">
 <link href="/material/docs/css/docs.min.css" rel="stylesheet">
-
 <!-- Favicons -->
 <meta content="#9c27b0" name="theme-color">
 <link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 <link href="/material/favicon.ico" rel="icon">
-
 </head>
 <body class="doc-body">
-  <div class="navbar navbar-dark toolbar-waterfall d-lg-none doc-navbar" id="doc-navbar">
-  <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler d-lg-none" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="d-lg-none h4 ml-3 mr-auto doc-logo" href="/material/">M</a>
-  <div class="d-lg-none ml-auto">
+<a class="sr-only sr-only-focusable doc-skip" href="#doc-main-h1">
+  <div class="container">
+    <span class="doc-skip-text">Skip to main content</span>
+  </div>
+</a>
+<header class="navbar navbar-dark d-lg-none fixed-top toolbar-waterfall">
+  <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler mr-3" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent"><span class="navbar-toggler-icon"></span></button>
+  <a aria-label="Daemonite Material" class="mr-auto doc-logo" href="/material/">M</a>
+  <div class="ml-3">
     <div class="dropdown">
-      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button">
-        <i class="material-icons mx-auto">more_vert</i>
-      </button>
+      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button"><i class="material-icons mx-auto">more_vert</i></button>
       <div aria-labelledby="doc-dropdown-follow" class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank">
-          <i class="material-icons mr-3">code</i>Fork me on GitHub
-        </a>
-        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank">
-          <i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon
-        </a>
+        <a class="dropdown-item" href="https://github.com/Daemonite/material" target="_blank"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon</a>
       </div>
     </div>
   </div>
-</div>
-
-
-  
-
-
-
-
+</header>
 <div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1">
   <div class="navdrawer-content">
     <div class="d-flex flex-column doc-navdrawer-body">
       <div class="navdrawer-header">
-        <a class="h4 mr-2 doc-logo" href="/material/">M</a>
-        <span class="h4 mb-0">Material</span>
+        <a aria-label="Daemonite Material" class="doc-logo" href="/material/">M</a>
+        <span class="navbar-brand">Material</span>
       </div>
-
+      <form class="navdrawer-body mt-2">
+        <div class="floating-label textfield-box">
+          <label for="doc-search">Search</label>
+          <input aria-label="Search" autocomplete="off" data-siteurl="http://daemonite.github.io" class="form-control doc-search" id="doc-search" type="search">
+        </div>
+        <button class="sr-only" type="submit">Search documentation</button>
+      </form>
+      <div class="navdrawer-divider mb-0"></div>
       <nav class="navdrawer-nav">
-
-        
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started">
-            <strong>Getting started</strong>
-          </a>
-          <div class="collapse pb-2 " id="doc-navdrawer-getting-started">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/migration/"><span class="font-weight-normal">Migration</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/theming/"><span class="font-weight-normal">Theming</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a>
-
-            
-
-          </div>
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-            <div class="navdrawer-divider"></div>
-
-          
-
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-components">
-            <strong>Components</strong>
-          </a>
-          <div class="collapse pb-2 " id="doc-navdrawer-components">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/alerts/"><span class="font-weight-normal">Alerts</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/badge/"><span class="font-weight-normal">Badge</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/buttons/"><span class="font-weight-normal">Buttons</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/button-group/"><span class="font-weight-normal">Button group</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/card/"><span class="font-weight-normal">Card</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/carousel/"><span class="font-weight-normal">Carousel</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/collapse/"><span class="font-weight-normal">Collapse</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/forms/"><span class="font-weight-normal">Forms</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/input-group/"><span class="font-weight-normal">Input group</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/list-group/"><span class="font-weight-normal">List group</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/modal/"><span class="font-weight-normal">Modal</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/navs/"><span class="font-weight-normal">Navs</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/navbar/"><span class="font-weight-normal">Navbar</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/pagination/"><span class="font-weight-normal">Pagination</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/popovers/"><span class="font-weight-normal">Popovers</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/progress/"><span class="font-weight-normal">Progress</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
-
-            
-
-          </div>
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content">
-            <strong>Content</strong>
-          </a>
-          <div class="collapse pb-2 " id="doc-navdrawer-content">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/code/"><span class="font-weight-normal">Code</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/figures/"><span class="font-weight-normal">Figures</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/images/"><span class="font-weight-normal">Images</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/tables/"><span class="font-weight-normal">Tables</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/typography/"><span class="font-weight-normal">Typography</span></a>
-
-            
-
-          </div>
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-layout">
-            <strong>Layout</strong>
-          </a>
-          <div class="collapse pb-2 " id="doc-navdrawer-layout">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/grid/"><span class="font-weight-normal">Grid</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/media-object/"><span class="font-weight-normal">Media object</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a>
-
-            
-
-          </div>
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities">
-            <strong>Utilities</strong>
-          </a>
-          <div class="collapse pb-2 " id="doc-navdrawer-utilities">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/borders/"><span class="font-weight-normal">Borders</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/colors/"><span class="font-weight-normal">Colors</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/display/"><span class="font-weight-normal">Display</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/embed/"><span class="font-weight-normal">Embed</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/flex/"><span class="font-weight-normal">Flex</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/float/"><span class="font-weight-normal">Float</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/position/"><span class="font-weight-normal">Position</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/screenreaders/"><span class="font-weight-normal">Screenreaders</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/shadows/"><span class="font-weight-normal">Shadows</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/text/"><span class="font-weight-normal">Text</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a>
-
-            
-
-          </div>
-
-        
-
-          
-          
-          
-
-          
-
-          
-
-            <div class="navdrawer-divider"></div>
-
-          
-
-          <a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-material">
-            <strong>Material</strong>
-          </a>
-          <div class="collapse pb-2 show" id="doc-navdrawer-material">
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/buttons/"><span class="font-weight-normal">Buttons</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/cards/"><span class="font-weight-normal">Cards</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/chips/"><span class="font-weight-normal">Chips</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/colours/"><span class="font-weight-normal">Colours</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/data-tables/"><span class="font-weight-normal">Data tables</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/icons/"><span class="font-weight-normal">Icons</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/menu/"><span class="font-weight-normal">Menu</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/pickers/"><span class="font-weight-normal">Pickers</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/progress/"><span class="font-weight-normal">Progress</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/selection-controls/"><span class="font-weight-normal">Selection controls</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/shadows/"><span class="font-weight-normal">Shadows</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/snackbars/"><span class="font-weight-normal">Snackbars</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/steppers/"><span class="font-weight-normal">Steppers</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 active" href="/material/docs/4.1/material/tabs/"><span class="font-weight-normal">Tabs</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/text-fields/"><span class="font-weight-normal">Text fields</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/toolbars/"><span class="font-weight-normal">Toolbars</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
-
-            
-
-              
-              
-
-              
-
-              <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/typography/"><span class="font-weight-normal">Typography</span></a>
-
-            
-
-          </div>
-
-        
-
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started"><strong>Getting started</strong></a>
+        <div class="collapse pb-2 " id="doc-navdrawer-getting-started">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/migration/"><span class="font-weight-normal">Migration</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/theming/"><span class="font-weight-normal">Theming</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a>
+        </div>
+        <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-components"><strong>Components</strong></a>
+        <div class="collapse pb-2 " id="doc-navdrawer-components">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/alerts/"><span class="font-weight-normal">Alerts</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/badge/"><span class="font-weight-normal">Badge</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/button-group/"><span class="font-weight-normal">Button group</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/card/"><span class="font-weight-normal">Card</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/carousel/"><span class="font-weight-normal">Carousel</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/collapse/"><span class="font-weight-normal">Collapse</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/forms/"><span class="font-weight-normal">Forms</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/input-group/"><span class="font-weight-normal">Input group</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/list-group/"><span class="font-weight-normal">List group</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/modal/"><span class="font-weight-normal">Modal</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/navs/"><span class="font-weight-normal">Navs</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/navbar/"><span class="font-weight-normal">Navbar</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/pagination/"><span class="font-weight-normal">Pagination</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/popovers/"><span class="font-weight-normal">Popovers</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+        </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content"><strong>Content</strong></a>
+        <div class="collapse pb-2 " id="doc-navdrawer-content">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/code/"><span class="font-weight-normal">Code</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/figures/"><span class="font-weight-normal">Figures</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/images/"><span class="font-weight-normal">Images</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/tables/"><span class="font-weight-normal">Tables</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/content/typography/"><span class="font-weight-normal">Typography</span></a>
+        </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-layout"><strong>Layout</strong></a>
+        <div class="collapse pb-2 " id="doc-navdrawer-layout">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/grid/"><span class="font-weight-normal">Grid</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/media-object/"><span class="font-weight-normal">Media object</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a>
+        </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities"><strong>Utilities</strong></a>
+        <div class="collapse pb-2 " id="doc-navdrawer-utilities">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/borders/"><span class="font-weight-normal">Borders</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/colors/"><span class="font-weight-normal">Colors</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/display/"><span class="font-weight-normal">Display</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/embed/"><span class="font-weight-normal">Embed</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/flex/"><span class="font-weight-normal">Flex</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/float/"><span class="font-weight-normal">Float</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/position/"><span class="font-weight-normal">Position</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/screenreaders/"><span class="font-weight-normal">Screenreaders</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/shadows/"><span class="font-weight-normal">Shadows</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/text/"><span class="font-weight-normal">Text</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a>
+        </div>
+        <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-material"><strong>Material</strong></a>
+        <div class="collapse pb-2 show" id="doc-navdrawer-material">
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/cards/"><span class="font-weight-normal">Cards</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/chips/"><span class="font-weight-normal">Chips</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/colours/"><span class="font-weight-normal">Colours</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/data-tables/"><span class="font-weight-normal">Data tables</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/elevation-and-shadows/"><span class="font-weight-normal">Elevation and shadows</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/icons/"><span class="font-weight-normal">Icons</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/menu/"><span class="font-weight-normal">Menu</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/pickers/"><span class="font-weight-normal">Pickers</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/selection-controls/"><span class="font-weight-normal">Selection controls</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/snackbars/"><span class="font-weight-normal">Snackbars</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/steppers/"><span class="font-weight-normal">Steppers</span></a>
+          <a class="nav-item nav-link pl-4 py-2 active" href="/material/docs/4.1/material/tabs/"><span class="font-weight-normal">Tabs</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/text-fields/"><span class="font-weight-normal">Text fields</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/toolbars/"><span class="font-weight-normal">Toolbars</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+          <a class="nav-item nav-link pl-4 py-2 text-black-secondary" href="/material/docs/4.1/material/typography/"><span class="font-weight-normal">Typography</span></a>
+        </div>
       </nav>
-
       <div class="mt-auto">
         <div class="navdrawer-divider mt-0"></div>
         <div class="navdrawer-nav">
-          <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank">
-            <i class="material-icons mr-3">code</i>Fork me on GitHub
-          </a>
-          <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank">
-            <i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon
-          </a>
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/Daemonite/material" target="_blank"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+          <a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-  <div class="jumbotron jumbotron-fluid mb-5 px-lg-3 text-white doc-jumbotron" id="doc-jumbotron">
+<div class="jumbotron jumbotron-fluid mb-5 px-lg-3 doc-jumbotron">
   <div class="container">
-    
-      <div class="row">
-    
+    <div class="row">
       <div class="col-xl-9">
-        <h1 class="typography-display-4">Tabs</h1>
+        <h1 class="typography-display-4" id="doc-main-h1">Tabs</h1>
         <p class="font-weight-light typography-title">Tabs make it easy to explore and switch between different views.</p>
       </div>
     </div>
   </div>
 </div>
-
-
   <main class="doc-main px-lg-3">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-xl-9">
           <div class="bd-content mb-5">
             <p>Tabs enable content organization at a high level, such as switching between views.</p>
-
 <p>Present tabs as a single row above their associated content. Tab labels should succinctly describe the content within.</p>
-
 <h2 id="default-tabs">Default tabs</h2>
-
-<p><strong>Most of the details about a basic tab have been covered in Components/Navs docuementation. Please refer to <a href="/material/docs/4.1/components/navs/#tabs">this page</a> for more details.</strong></p>
-
+<p><strong>Most of the details about a basic tab have been covered in Components/Navs documentation. Please refer to <a href="/material/docs/4.1/components/navs/#tabs">this page</a> for more details.</strong></p>
 <h2 id="fixed-tabs">Fixed tabs</h2>
-
 <p>Fixed tabs display all tabs concurrently and are best used with content that benefits from quick pivots between tabs in fixed positions, such as switching transportation methods for directions in Google Maps.</p>
-
 <p>Fixed tabs have equal width, calculated either as the view width divided by the number of tabs, or based on the widest tab label.</p>
-
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -902,7 +202,6 @@
     </div>
   </div>
 </div>
-
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-justified nav-tabs"</span> <span class="na">id=</span><span class="s">"justifiedTab"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">aria-controls=</span><span class="s">"home"</span> <span class="na">aria-selected=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"nav-link active"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#home"</span> <span class="na">id=</span><span class="s">"home-tab"</span> <span class="na">role=</span><span class="s">"tab"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
@@ -919,193 +218,102 @@
   <span class="nt">&lt;div</span> <span class="na">aria-labelledby=</span><span class="s">"profile-tab"</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">aria-labelledby=</span><span class="s">"contact-tab"</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"contact"</span> <span class="na">role=</span><span class="s">"tabpanel"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
 <h2 id="scrollable-tabs">Scrollable tabs</h2>
-
 <p>Scrollable tabs display a subset of tabs at any given moment. They can contain longer tab labels and a larger number of tabs than fixed tabs. Scrollable tabs are best used for browsing contexts in touch interfaces when users don’t need to directly compare the tab labels.</p>
-
 <p><strong>N.B.</strong> Due to its <code class="highlighter-rouge">overflow</code> value, scrollable tabs are not compatible with dropdown componenets.</p>
-
 <div class="bd-example bd-example-tabs">
   <div class="nav-tabs-scrollable">
     <ul class="nav nav-tabs" id="scrollableTab" role="tablist">
       <li class="nav-item">
         <a aria-controls="scrollableTab1" aria-selected="true" class="nav-link active" data-toggle="tab" href="#scrollableTab1" id="scrollableTab1-tab" role="tab">Active</a>
       </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab2" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab2" id="scrollableTab2-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab3" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab3" id="scrollableTab3-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab4" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab4" id="scrollableTab4-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab5" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab5" id="scrollableTab5-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab6" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab6" id="scrollableTab6-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab7" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab7" id="scrollableTab7-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab8" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab8" id="scrollableTab8-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab9" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab9" id="scrollableTab9-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab10" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab10" id="scrollableTab10-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab11" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab11" id="scrollableTab11-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab12" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab12" id="scrollableTab12-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab13" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab13" id="scrollableTab13-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab14" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab14" id="scrollableTab14-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab15" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab15" id="scrollableTab15-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab16" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab16" id="scrollableTab16-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab17" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab17" id="scrollableTab17-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab18" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab18" id="scrollableTab18-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab19" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab19" id="scrollableTab19-tab" role="tab">Link</a>
         </li>
-
-      
-
         <li class="nav-item">
           <a aria-controls="scrollableTab20" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab20" id="scrollableTab20-tab" role="tab">Link</a>
         </li>
-
-      
-
     </ul>
   </div>
   <div class="tab-content" id="scrollableTabContent">
     <div aria-labelledby="scrollableTab1-tab" class="tab-pane fade show active" id="scrollableTab1" role="tabpanel"></div>
-
-    
       <div aria-labelledby="scrollableTab2-tab" class="tab-pane fade" id="scrollableTab2" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab3-tab" class="tab-pane fade" id="scrollableTab3" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab4-tab" class="tab-pane fade" id="scrollableTab4" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab5-tab" class="tab-pane fade" id="scrollableTab5" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab6-tab" class="tab-pane fade" id="scrollableTab6" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab7-tab" class="tab-pane fade" id="scrollableTab7" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab8-tab" class="tab-pane fade" id="scrollableTab8" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab9-tab" class="tab-pane fade" id="scrollableTab9" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab10-tab" class="tab-pane fade" id="scrollableTab10" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab11-tab" class="tab-pane fade" id="scrollableTab11" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab12-tab" class="tab-pane fade" id="scrollableTab12" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab13-tab" class="tab-pane fade" id="scrollableTab13" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab14-tab" class="tab-pane fade" id="scrollableTab14" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab15-tab" class="tab-pane fade" id="scrollableTab15" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab16-tab" class="tab-pane fade" id="scrollableTab16" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab17-tab" class="tab-pane fade" id="scrollableTab17" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab18-tab" class="tab-pane fade" id="scrollableTab18" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab19-tab" class="tab-pane fade" id="scrollableTab19" role="tabpanel"></div>
-    
       <div aria-labelledby="scrollableTab20-tab" class="tab-pane fade" id="scrollableTab20" role="tabpanel"></div>
-    
-
   </div>
 </div>
-
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav-tabs-scrollable"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">id=</span><span class="s">"scrollableTab"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
-
           </div>
         </div>
-
-        
           <div class="col-xl-3 d-none d-xl-block">
             <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#default-tabs">Default tabs</a></li>
@@ -1113,22 +321,17 @@
 <li class="toc-entry toc-h2"><a href="#scrollable-tabs">Scrollable tabs</a></li>
 </ul>
           </div>
-        
       </div>
     </div>
   </main>
-
-  <!-- JavaScript -->
+<!-- JavaScript -->
 <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script crossorigin="anonymous" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+<script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->
 <script src="/material/js/material.min.js"></script>
-
 <!-- Additional JavaScript for documentation site -->
-<script src="https://getbootstrap.com/assets/js/docs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 <script src="/material/docs/js/docs.min.js"></script>
-
 </body>
 </html>
