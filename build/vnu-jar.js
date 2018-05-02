@@ -28,7 +28,8 @@ childProcess.exec('java -version', (error, stdout, stderr) => {
     'Bad value “https://fonts.googleapis.com/css\\?family=.*',
     'Document uses the Unicode Private Use Area\\(s\\).*',
     'Element “img” is missing required attribute “src”.',
-    'Element “legend” not allowed as child of element “div” in this context.*'
+    'Element “legend” not allowed as child of element “div” in this context.*',
+    'The “datetime-local” input type is not supported in all browsers.*'
   ].join('|')
 
   const args = [
