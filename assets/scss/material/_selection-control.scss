@@ -1,14 +1,21 @@
 .custom-control {
   display: block;
-  margin-bottom: $selection-control-spacer-y;
   min-height: ($font-size-base * $line-height-base);
   padding-left: ($selection-control-indicator-size + $selection-control-spacer-x);
   position: relative;
+
+  + .custom-control {
+    margin-top: $selection-control-spacer-y;
+  }
 }
 
 .custom-control-inline {
   display: inline-flex;
   margin-right: ($selection-control-spacer-x * 2);
+
+  + .custom-control-inline {
+    margin-top: 0;
+  }
 }
 
 // Base styles for custom control indicators

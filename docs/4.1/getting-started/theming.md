@@ -16,39 +16,41 @@ Alternative browsers which use the latest version of Blink, Gecko, or WebKit whe
 
 The latest versions of most desktop browsers are supported.
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <td></td>
-      <th>Chrome</th>
-      <th>Firefox</th>
-      <th>Internet Explorer</th>
-      <th>Microsoft Edge</th>
-      <th>Opera</th>
-      <th>Safari</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Mac</th>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-muted">N/A</td>
-      <td class="text-muted">N/A</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-    </tr>
-    <tr>
-      <th scope="row">Windows</th>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported, IE10+</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-danger">Not supported</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
+    <thead>
+      <tr>
+        <td></td>
+        <th>Chrome</th>
+        <th>Firefox</th>
+        <th>Internet Explorer</th>
+        <th>Microsoft Edge</th>
+        <th>Opera</th>
+        <th>Safari</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Mac</th>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-muted">N/A</td>
+        <td class="text-muted">N/A</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+      </tr>
+      <tr>
+        <th scope="row">Windows</th>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported, IE10+</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-danger">Not supported</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 For Firefox, in addition to the latest normal stable release, we also support the latest [Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/faq/) version of Firefox.
 
@@ -62,44 +64,46 @@ Internet Explorer 10+ is supported; IE9 and down is not. Please be aware that so
 
 Material supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini) are not supported.
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <td></td>
-      <th>Android Browser &amp; WebView</th>
-      <th>Chrome</th>
-      <th>Firefox</th>
-      <th>Microsoft Edge</th>
-      <th>Safari</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Android</th>
-      <td class="text-success">Android v5.0+ supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-muted">N/A</td>
-    </tr>
-    <tr>
-      <th scope="row">iOS</th>
-      <td class="text-muted">N/A</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-      <td class="text-success">Supported</td>
-    </tr>
-    <tr>
-      <th scope="row">Windows 10 Mobile</th>
-      <td class="text-muted">N/A</td>
-      <td class="text-muted">N/A</td>
-      <td class="text-muted">N/A</td>
-      <td class="text-success">Supported</td>
-      <td class="text-muted">N/A</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
+    <thead>
+      <tr>
+        <td></td>
+        <th>Android Browser &amp; WebView</th>
+        <th>Chrome</th>
+        <th>Firefox</th>
+        <th>Microsoft Edge</th>
+        <th>Safari</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Android</th>
+        <td class="text-success">Android v5.0+ supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-muted">N/A</td>
+      </tr>
+      <tr>
+        <th scope="row">iOS</th>
+        <td class="text-muted">N/A</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+        <td class="text-success">Supported</td>
+      </tr>
+      <tr>
+        <th scope="row">Windows 10 Mobile</th>
+        <td class="text-muted">N/A</td>
+        <td class="text-muted">N/A</td>
+        <td class="text-muted">N/A</td>
+        <td class="text-success">Supported</td>
+        <td class="text-muted">N/A</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## CSS variables
 
@@ -298,34 +302,32 @@ All colours available in Material, are available as Sass variables in our `asset
 
   {% for color in site.data.colors %}
 
-    <div class="col-lg-4 col-sm-6">
-      <div class="d-flex flex-column mb-4">
+  <div class="col-lg-4 col-sm-6">
+    <div class="d-flex flex-column mb-4">
 
-        {% for level in color.levels %}
+    {% for level in color.levels %}
 
-          {% if level.name == 500 %}
+    {% if level.name == 500 %}
 
-            <div class="order-first p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-              <p class="mb-5">
-                <strong>{{ color.name | capitalize }}</strong>
-              </p>
-              <div class="d-flex justify-content-between">
-                <span class="doc-swatch-text">{{ level.name }}</span>
-                <span class="doc-swatch-text">{{ level.hex }}</span>
-              </div>
-            </div>
-
-          {% endif %}
-
-          <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-            <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
-            <span class="doc-swatch-text">{{ level.hex }}</span>
-          </div>
-
-        {% endfor %}
-
+      <div class="order-first p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <p class="mb-5"><strong>{{ color.name | capitalize }}</strong></p>
+        <div class="d-flex justify-content-between">
+          <span class="doc-swatch-text">{{ level.name }}</span>
+          <span class="doc-swatch-text">{{ level.hex }}</span>
+        </div>
       </div>
+
+    {% endif %}
+
+      <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
+        <span class="doc-swatch-text">{{ level.hex }}</span>
+      </div>
+
+    {% endfor %}
+
     </div>
+  </div>
 
   {% endfor %}
 
@@ -356,30 +358,30 @@ We use a subset of all colours to create a smaller colour palette for generating
 
   {% for color in site.data.theme-colors %}
 
-    <div class="col-lg-4 col-sm-6">
-      <div class="mb-4">
+  <div class="col-lg-4 col-sm-6">
+    <div class="mb-4">
 
-        <div class="p-3" style="background-color: {{ color.hex }}; color: {{ color.text }};">
-          <p class="mb-5">
-            <strong>{{ color.name | capitalize }}</strong>
-          </p>
-          <div class="d-flex justify-content-between">
-            <span class="doc-swatch-text">Base</span>
-            <span class="doc-swatch-text">{{ color.hex }}</span>
-          </div>
+      <div class="p-3" style="background-color: {{ color.hex }}; color: {{ color.text }};">
+        <p class="mb-5">
+          <strong>{{ color.name | capitalize }}</strong>
+        </p>
+        <div class="d-flex justify-content-between">
+          <span class="doc-swatch-text">Base</span>
+          <span class="doc-swatch-text">{{ color.hex }}</span>
         </div>
-
-        {% for level in color.levels %}
-
-          <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
-            <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
-            <span class="doc-swatch-text">{{ level.hex }}</span>
-          </div>
-
-        {% endfor %}
-
       </div>
+
+      {% for level in color.levels %}
+
+      <div class="d-flex justify-content-between p-3" style="background-color: {{ level.hex }}; color: {{ level.text }};">
+        <span class="doc-swatch-text">{{ level.name | capitalize }}</span>
+        <span class="doc-swatch-text">{{ level.hex }}</span>
+      </div>
+
+      {% endfor %}
+
     </div>
+  </div>
 
   {% endfor %}
 

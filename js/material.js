@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material v4.1.0 (http://daemonite.github.io/material/)
+ * Daemonite Material v4.1.1 (http://daemonite.github.io/material/)
  * Copyright 2011-2018 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
@@ -74,7 +74,7 @@
     };
     var Selector = {
       DATA_PARENT: '.floating-label',
-      DATA_TOGGLE: '.floating-label .form-control' // <<< constants
+      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control' // <<< constants
 
     };
 
@@ -194,18 +194,18 @@
 
   /*
    * Global util js
-   * Based on Bootstrap's (v4.1.0) `util.js`
+   * Based on Bootstrap's (v4.1.X) `util.js`
    */
 
   var Util = function ($$$1) {
     var MAX_UID = 1000000;
     var MILLISECONDS_MULTIPLIER = 1000;
-    var transition = false;
+    var TRANSITION_END = 'transitionend';
 
     function getSpecialTransitionEndEvent() {
       return {
-        bindType: transition.end,
-        delegateType: transition.end,
+        bindType: TRANSITION_END,
+        delegateType: TRANSITION_END,
         handle: function handle(event) {
           if ($$$1(event.target).is(this)) {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
@@ -217,12 +217,8 @@
     }
 
     function setTransitionEndSupport() {
-      transition = transitionEndTest();
       $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-
-      if (Util.supportsTransitionEnd()) {
-        $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-      }
+      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
 
     function toType(obj) {
@@ -242,16 +238,6 @@
         }
       }, duration);
       return this;
-    }
-
-    function transitionEndTest() {
-      if (typeof window !== 'undefined' && window.QUnit) {
-        return false;
-      }
-
-      return {
-        end: 'transitionend'
-      };
     }
 
     var Util = {
@@ -299,10 +285,10 @@
         return element.offsetHeight;
       },
       supportsTransitionEnd: function supportsTransitionEnd() {
-        return Boolean(transition);
+        return Boolean(TRANSITION_END);
       },
       triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(transition.end);
+        $$$1(element).trigger(TRANSITION_END);
       },
       typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
         for (var property in configTypes) {
@@ -324,7 +310,7 @@
 
   /*
    * Navigation drawer plguin
-   * Based on Bootstrap's (v4.1.0) `modal.js`
+   * Based on Bootstrap's (v4.1.X) `modal.js`
    */
 
   var NavDrawer = function ($$$1) {
@@ -404,27 +390,19 @@
         }
 
         this._isShown = false;
-        var supportsTransition = Util.supportsTransitionEnd();
-
-        if (supportsTransition) {
-          this._isTransitioning = true;
-        }
+        this._isTransitioning = true;
 
         this._setEscapeEvent();
 
         $$$1(document).off(Event.FOCUSIN);
+        $$$1(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).removeClass(ClassName.SHOW);
         $$$1(this._element).off(Event.CLICK_DISMISS);
         $$$1(this._content).off(Event.MOUSEDOWN_DISMISS);
-
-        if (supportsTransition) {
-          var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-          $$$1(this._content).one(Util.TRANSITION_END, function (event) {
-            return _this._hideNavdrawer(event);
-          }).emulateTransitionEnd(transitionDuration);
-        } else {
-          this._hideNavdrawer();
-        }
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, function (event) {
+          return _this._hideNavdrawer(event);
+        }).emulateTransitionEnd(transitionDuration);
 
         this._showBackdrop();
       };
@@ -436,10 +414,7 @@
           return;
         }
 
-        if (Util.supportsTransitionEnd()) {
-          this._isTransitioning = true;
-        }
-
+        this._isTransitioning = true;
         var showEvent = $$$1.Event(Event.SHOW, {
           relatedTarget: relatedTarget
         });
@@ -450,7 +425,6 @@
         }
 
         this._isShown = true;
-        $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
 
         this._setEscapeEvent();
 
@@ -497,7 +471,6 @@
         this._element.setAttribute('aria-hidden', true);
 
         this._isTransitioning = false;
-        $$$1(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).trigger(Event.HIDDEN);
       };
 
@@ -527,8 +500,6 @@
       _proto._showBackdrop = function _showBackdrop() {
         var _this5 = this;
 
-        var supportsTransition = Util.supportsTransitionEnd();
-
         if (this._isShown) {
           this._backdrop = document.createElement('div');
           $$$1(this._backdrop).addClass(ClassName.BACKDROP).addClass(ClassName.BACKDROP + "-" + this._config.type + this._typeBreakpoint).appendTo(document.body);
@@ -544,11 +515,7 @@
 
             _this5.hide();
           });
-
-          if (supportsTransition) {
-            Util.reflow(this._backdrop);
-          }
-
+          Util.reflow(this._backdrop);
           $$$1(this._backdrop).addClass(ClassName.SHOW);
         } else if (!this._isShown && this._backdrop) {
           $$$1(this._backdrop).removeClass(ClassName.SHOW);
@@ -560,8 +527,6 @@
       _proto._showElement = function _showElement(relatedTarget) {
         var _this6 = this;
 
-        var supportsTransition = Util.supportsTransitionEnd();
-
         if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
           document.body.appendChild(this._element);
         }
@@ -570,10 +535,8 @@
 
         this._element.removeAttribute('aria-hidden');
 
-        if (supportsTransition) {
-          Util.reflow(this._element);
-        }
-
+        Util.reflow(this._element);
+        $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
         $$$1(this._element).addClass(ClassName.SHOW);
 
         this._enforceFocus();
@@ -589,17 +552,13 @@
           $$$1(_this6._element).trigger(shownEvent);
         };
 
-        if (supportsTransition) {
-          var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-          $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
-        } else {
-          transitionComplete();
-        }
+        var transitionDuration = Util.getTransitionDurationFromElement(this._content);
+        $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
       };
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var _config = _objectSpread({}, NavDrawer.Default, $$$1(this).data(), typeof config === 'object' && config);
+          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
 
           var data = $$$1(this).data(DATA_KEY);
 
@@ -1834,6 +1793,13 @@
   }));
   });
 
+  var picker$1 = /*#__PURE__*/Object.freeze({
+    default: picker,
+    __moduleExports: picker
+  });
+
+  var require$$0 = ( picker$1 && picker ) || picker$1;
+
   var picker_date = createCommonjsModule(function (module, exports) {
   /*!
    * Date picker for pickadate.js v3.5.6
@@ -1847,7 +1813,7 @@
           undefined( ['picker', 'jquery'], factory );
 
       // Node.js/browserify.
-      else module.exports = factory( picker, $ );
+      else module.exports = factory( require$$0, $ );
 
   }(function( Picker, $$$1 ) {
 
@@ -1864,12 +1830,12 @@
   /**
    * The date picker constructor
    */
-  function DatePicker( picker$$1, settings ) {
+  function DatePicker( picker, settings ) {
 
       var calendar = this,
-          element = picker$$1.$node[ 0 ],
+          element = picker.$node[ 0 ],
           elementValue = element.value,
-          elementDataValue = picker$$1.$node.data( 'value' ),
+          elementDataValue = picker.$node.data( 'value' ),
           valueString = elementDataValue || elementValue,
           formatString = elementDataValue ? settings.formatSubmit : settings.format,
           isRTL = function() {
@@ -1880,11 +1846,11 @@
                   element.currentStyle.direction == 'rtl' :
 
                   // For normal browsers.
-                  getComputedStyle( picker$$1.$root[0] ).direction == 'rtl'
+                  getComputedStyle( picker.$root[0] ).direction == 'rtl'
           };
 
       calendar.settings = settings;
-      calendar.$node = picker$$1.$node;
+      calendar.$node = picker.$node;
 
       // The queue of methods that will be used to build item objects.
       calendar.queue = {
@@ -1949,20 +1915,20 @@
 
 
       // Bind some picker events.
-      picker$$1.
+      picker.
           on( 'render', function() {
-              picker$$1.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
+              picker.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker$$1.set( 'highlight', [ picker$$1.get( 'view' ).year, value, picker$$1.get( 'highlight' ).date ] );
-                      picker$$1.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
+                      picker.set( 'highlight', [ picker.get( 'view' ).year, value, picker.get( 'highlight' ).date ] );
+                      picker.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
                   }
               });
-              picker$$1.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
+              picker.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker$$1.set( 'highlight', [ value, picker$$1.get( 'view' ).month, picker$$1.get( 'highlight' ).date ] );
-                      picker$$1.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
+                      picker.set( 'highlight', [ value, picker.get( 'view' ).month, picker.get( 'highlight' ).date ] );
+                      picker.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
                   }
               });
           }, 1 ).
@@ -1971,10 +1937,10 @@
               if ( calendar.disabled( calendar.get('now') ) ) {
                   includeToday = ':not(.' + settings.klass.buttonToday + ')';
               }
-              picker$$1.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
+              picker.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
           }, 1 ).
           on( 'close', function() {
-              picker$$1.$root.find( 'button, select' ).attr( 'disabled', true );
+              picker.$root.find( 'button, select' ).attr( 'disabled', true );
           }, 1 );
 
   } //DatePicker
@@ -3387,7 +3353,7 @@
 
       PickDate._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var _config = _objectSpread({}, PickDate.Default, $$$1(this).data(), typeof config === 'object' && config);
+          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
 
           var data = $$$1(this).data(DATA_KEY);
 
@@ -3455,7 +3421,7 @@
 
   /*
    * Tab indicator animation
-   * Requires Bootstrap's (v4.1.0) `tab.js`
+   * Requires Bootstrap's (v4.1.X) `tab.js`
    */
 
   var TabSwitch = function ($$$1) {
@@ -3497,7 +3463,6 @@
         var navLeft = $$$1(this._nav).offset().left;
         var navScrollLeft = $$$1(this._nav).scrollLeft();
         var navWidth = $$$1(this._nav).outerWidth();
-        var supportsTransition = Util.supportsTransitionEnd();
 
         if (!this._navindicator) {
           this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
@@ -3511,11 +3476,7 @@
         var elWidth = $$$1(element).outerWidth();
         $$$1(this._navindicator).addClass(ClassName.SHOW);
         Util.reflow(this._navindicator);
-
-        if (supportsTransition) {
-          $$$1(this._nav).addClass(ClassName.ANIMATE);
-        }
-
+        $$$1(this._nav).addClass(ClassName.ANIMATE);
         $$$1(this._navindicator).css({
           left: elLeft + navScrollLeft - navLeft,
           right: navWidth - (elLeft + navScrollLeft - navLeft + elWidth)
@@ -3525,11 +3486,6 @@
           $$$1(_this._nav).removeClass(ClassName.ANIMATE);
           $$$1(_this._navindicator).removeClass(ClassName.SHOW);
         };
-
-        if (!supportsTransition) {
-          complete();
-          return;
-        }
 
         var transitionDuration = Util.getTransitionDurationFromElement(this._navindicator);
         $$$1(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);

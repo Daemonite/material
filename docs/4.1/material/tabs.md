@@ -12,7 +12,7 @@ Present tabs as a single row above their associated content. Tab labels should s
 
 ## Default tabs
 
-**Most of the details about a basic tab have been covered in Components/Navs docuementation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/#tabs) for more details.**
+**Most of the details about a basic tab have been covered in Components/Navs documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/#tabs) for more details.**
 
 ## Fixed tabs
 

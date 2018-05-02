@@ -33,11 +33,11 @@
   "dependencies": {},
   "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.42",
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "autoprefixer": "^8.2.0",
-    "babel-eslint": "^8.2.2",
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "autoprefixer": "^8.3.0",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
     "bundlesize": "^0.17.0",
     "cssnano": "^4.0.0-rc.2",
@@ -48,16 +48,16 @@
     "npm-run-all": "^4.1.2",
     "pickadate": "^3.5.6",
     "postcss-cli": "^5.0.0",
-    "rollup": "^0.57.1",
-    "rollup-plugin-babel": "^4.0.0-beta.2",
+    "rollup": "^0.58.1",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "stylelint": "^9.1.3",
-    "stylelint-config-recommended-scss": "^3.1.0",
+    "stylelint": "^9.2.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1",
-    "stylelint-scss": "^2.5.0",
-    "uglify-js": "^3.3.16",
+    "stylelint-scss": "^3.0.1",
+    "uglify-js": "^3.3.21",
     "vnu-jar": "^18.3.0"
   },
   "engines": {
@@ -115,11 +115,11 @@
     "js-build": "npm-run-all js-lint js-compile js-minify",
     "js-build-docs": "npm-run-all js-lint-docs js-minify-docs",
     "js-compile": "rollup --config build/rollup.config.js --sourcemap",
-    "js-lint": "eslint --config build/.eslintrc.addon.json assets/js/addons && eslint --config build/.eslintrc.json assets/js/src/",
+    "js-lint": "eslint --config build/.eslintrc.json assets/js/addons && eslint --config build/.eslintrc.json assets/js/src/",
     "js-lint-docs": "eslint --config build/.eslintrc.addon.json docs-assets/js/",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/material.js.map,includeSources,url=material.min.js.map\" --output js/material.min.js js/material.js",
-    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/*.js\""
+    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js"
   },
   "style": "css/material.css",
-  "version": "4.1.0"
+  "version": "4.1.1"
 }

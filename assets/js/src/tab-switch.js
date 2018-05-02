@@ -3,11 +3,10 @@ import Util from './util'
 
 /*
  * Tab indicator animation
- * Requires Bootstrap's (v4.1.0) `tab.js`
+ * Requires Bootstrap's (v4.1.X) `tab.js`
  */
 
 const TabSwitch = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.tabswitch'
   const NAME        = 'tabswitch'
@@ -43,7 +42,6 @@ const TabSwitch = (($) => {
       const navLeft            = $(this._nav).offset().left
       const navScrollLeft      = $(this._nav).scrollLeft()
       const navWidth           = $(this._nav).outerWidth()
-      const supportsTransition = Util.supportsTransitionEnd()
 
       if (!this._navindicator) {
         this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget)
@@ -60,9 +58,7 @@ const TabSwitch = (($) => {
 
       Util.reflow(this._navindicator)
 
-      if (supportsTransition) {
-        $(this._nav).addClass(ClassName.ANIMATE)
-      }
+      $(this._nav).addClass(ClassName.ANIMATE)
 
       $(this._navindicator).css({
         left  : elLeft + navScrollLeft - navLeft,
@@ -73,12 +69,6 @@ const TabSwitch = (($) => {
         $(this._nav).removeClass(ClassName.ANIMATE)
 
         $(this._navindicator).removeClass(ClassName.SHOW)
-      }
-
-      if (!supportsTransition) {
-        complete()
-
-        return
       }
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._navindicator)
@@ -146,7 +136,6 @@ const TabSwitch = (($) => {
   }
 
   return TabSwitch
-
 })($)
 
 export default TabSwitch

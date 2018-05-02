@@ -7,7 +7,6 @@ import Util from './util'
  */
 
 const PickDate = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.pickdate'
   const NAME        = 'pickdate'
@@ -222,9 +221,9 @@ const PickDate = (($) => {
     static _jQueryInterface(config) {
       return this.each(function () {
         const _config = {
-          ...PickDate.Default,
+          ...Default,
           ...$(this).data(),
-          ...typeof config === 'object' && config
+          ...typeof config === 'object' && config ? config : {}
         }
 
         let data = $(this).data(DATA_KEY)
@@ -247,7 +246,6 @@ const PickDate = (($) => {
 
     return PickDate._jQueryInterface
   }
-
 })($)
 
 export default PickDate

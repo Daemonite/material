@@ -6,7 +6,6 @@ import $ from 'jquery'
  */
 
 const FloatingLabel = (($) => {
-
   // constants >>>
   const DATA_KEY    = 'md.floatinglabel'
   const EVENT_KEY   = `.${DATA_KEY}`
@@ -26,7 +25,7 @@ const FloatingLabel = (($) => {
 
   const Selector = {
     DATA_PARENT : '.floating-label',
-    DATA_TOGGLE : '.floating-label .form-control'
+    DATA_TOGGLE : '.floating-label .custom-select, .floating-label .form-control'
   }
   // <<< constants
 
@@ -90,7 +89,6 @@ const FloatingLabel = (($) => {
   }
 
   return FloatingLabel
-
 })($)
 
 export default FloatingLabel

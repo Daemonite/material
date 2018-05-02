@@ -20,7 +20,6 @@ Because these components will require additional markup (some may require additi
 - [Content](#content)
 - [Documentation](#documentation)
 - [Quick start](#quick-start)
-- [Roadmap](#roadmap)
 
 ## Content
 
@@ -83,17 +82,3 @@ Several quick start options are available:
 - Download the [latest release](https://github.com/Daemonite/material/releases)
 - Install with [bower](https://bower.io/): `bower install daemonite-material`
 - Install with [npm](https://www.npmjs.com/): `npm install daemonite-material`
-
-## Roadmap
-
-### Near-term
-
-Bug fixes and updates alongside Bootstrap 4's continuous releases.
-
-### Mid-term
-
-Add missing support for some Google Material Design components (e.g. snackbars).
-
-### Long-term
-
-Rewrite all JavaScript plugins in ES6 to take advantage of the newest JavaScript enhancements.

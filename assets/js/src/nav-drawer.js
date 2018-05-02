@@ -3,11 +3,10 @@ import Util from './util'
 
 /*
  * Navigation drawer plguin
- * Based on Bootstrap's (v4.1.0) `modal.js`
+ * Based on Bootstrap's (v4.1.X) `modal.js`
  */
 
 const NavDrawer = (($) => {
-
   // constants >>>
   const DATA_API_KEY   = '.data-api'
   const DATA_KEY       = 'md.navdrawer'
@@ -85,15 +84,13 @@ const NavDrawer = (($) => {
 
       this._isShown = false
 
-      const supportsTransition = Util.supportsTransitionEnd()
-
-      if (supportsTransition) {
-        this._isTransitioning = true
-      }
+      this._isTransitioning = true
 
       this._setEscapeEvent()
 
       $(document).off(Event.FOCUSIN)
+
+      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).removeClass(ClassName.SHOW)
 
@@ -101,15 +98,11 @@ const NavDrawer = (($) => {
 
       $(this._content).off(Event.MOUSEDOWN_DISMISS)
 
-      if (supportsTransition) {
-        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+      const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-        $(this._content)
-          .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
-          .emulateTransitionEnd(transitionDuration)
-      } else {
-        this._hideNavdrawer()
-      }
+      $(this._content)
+        .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
+        .emulateTransitionEnd(transitionDuration)
 
       this._showBackdrop()
     }
@@ -119,9 +112,7 @@ const NavDrawer = (($) => {
         return
       }
 
-      if (Util.supportsTransitionEnd()) {
-        this._isTransitioning = true
-      }
+      this._isTransitioning = true
 
       const showEvent = $.Event(Event.SHOW, {
         relatedTarget
@@ -134,8 +125,6 @@ const NavDrawer = (($) => {
       }
 
       this._isShown = true
-
-      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       this._setEscapeEvent()
 
@@ -189,8 +178,6 @@ const NavDrawer = (($) => {
 
       this._isTransitioning = false
 
-      $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
-
       $(this._element).trigger(Event.HIDDEN)
     }
 
@@ -216,8 +203,6 @@ const NavDrawer = (($) => {
     }
 
     _showBackdrop() {
-      const supportsTransition = Util.supportsTransitionEnd()
-
       if (this._isShown) {
         this._backdrop = document.createElement('div')
 
@@ -240,9 +225,7 @@ const NavDrawer = (($) => {
           this.hide()
         })
 
-        if (supportsTransition) {
-          Util.reflow(this._backdrop)
-        }
+        Util.reflow(this._backdrop)
 
         $(this._backdrop).addClass(ClassName.SHOW)
       } else if (!this._isShown && this._backdrop) {
@@ -253,8 +236,6 @@ const NavDrawer = (($) => {
     }
 
     _showElement(relatedTarget) {
-      const supportsTransition = Util.supportsTransitionEnd()
-
       if (!this._element.parentNode ||
           this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
         document.body.appendChild(this._element)
@@ -264,9 +245,9 @@ const NavDrawer = (($) => {
 
       this._element.removeAttribute('aria-hidden')
 
-      if (supportsTransition) {
-        Util.reflow(this._element)
-      }
+      Util.reflow(this._element)
+
+      $(document.body).addClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
       $(this._element).addClass(ClassName.SHOW)
 
@@ -284,15 +265,11 @@ const NavDrawer = (($) => {
         $(this._element).trigger(shownEvent)
       }
 
-      if (supportsTransition) {
-        const transitionDuration = Util.getTransitionDurationFromElement(this._content)
+      const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-        $(this._content)
-          .one(Util.TRANSITION_END, transitionComplete)
-          .emulateTransitionEnd(transitionDuration)
-      } else {
-        transitionComplete()
-      }
+      $(this._content)
+        .one(Util.TRANSITION_END, transitionComplete)
+        .emulateTransitionEnd(transitionDuration)
     }
 
     static get Default() {
@@ -302,9 +279,9 @@ const NavDrawer = (($) => {
     static _jQueryInterface(config, relatedTarget) {
       return this.each(function () {
         const _config = {
-          ...NavDrawer.Default,
+          ...Default,
           ...$(this).data(),
-          ...typeof config === 'object' && config
+          ...typeof config === 'object' && config ? config : {}
         }
 
         let data = $(this).data(DATA_KEY)
@@ -370,7 +347,6 @@ const NavDrawer = (($) => {
   }
 
   return NavDrawer
-
 })($)
 
 export default NavDrawer

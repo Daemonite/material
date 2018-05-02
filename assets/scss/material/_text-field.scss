@@ -1,10 +1,6 @@
-.form-control,
 %form-control {
-  @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
-
   background-clip: padding-box;
   background-color: transparent;
-  background-image: none;
   border-color: $textfield-border-color;
   border-radius: 0;
   border-style: solid;
@@ -12,6 +8,9 @@
   box-shadow: none;
   color: $textfield-color;
   display: block;
+  font-size: $textfield-font-size;
+  line-height: $textfield-line-height;
+  padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
   width: 100%;
 
   @include hover {
@@ -35,12 +34,7 @@
     color: $textfield-color-disabled;
     opacity: 1;
 
-    @include hover {
-      border-color: $textfield-border-color;
-      box-shadow: none;
-    }
-
-    &:focus {
+    @include focus-hover {
       border-color: $textfield-border-color;
       box-shadow: none;
     }
@@ -57,62 +51,63 @@
   }
 }
 
-@each $color, $values in $theme-colors {
-  .form-control-#{$color} {
-    border-color: theme-color($color);
+.form-control {
+  @extend %form-control;
 
-    @include focus-hover {
-      border-color: theme-color($color);
-      box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) theme-color($color);
-    }
+  &[type='file'] {
+    max-height: $textfield-height;
   }
 }
 
-.form-control-lg,
-%form-control-lg {
-  @include form-control-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-x-lg, $textfield-padding-y-lg);
+// Form control sizing
+
+.form-control-lg {
+  font-size: $textfield-font-size-lg;
+  line-height: $textfield-line-height-lg;
+  padding: $textfield-padding-y-lg $textfield-padding-x-lg calc(#{$textfield-padding-y-lg} - #{$textfield-border-width});
+
+  &[type='file'] {
+    max-height: $textfield-height-lg;
+  }
 }
 
-.form-control-sm,
-%form-control-sm {
-  @include form-control-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-x-sm, $textfield-padding-y-sm);
+.form-control-sm {
+  font-size: $textfield-font-size-sm;
+  line-height: $textfield-line-height-sm;
+  padding: $textfield-padding-y-sm $textfield-padding-x-sm calc(#{$textfield-padding-y-sm} - #{$textfield-border-width});
+
+  &[type='file'] {
+    max-height: $textfield-height-sm;
+  }
 }
+
+// Select and textarea
 
 %form-select {
-  @include form-select-size($textfield-font-size, $textfield-height, $textfield-padding-x);
-
   appearance: none;
 
   @include media-moz-webkit {
     background-image: $caret-bg;
+    background-position: 100% 50%;
     background-repeat: no-repeat;
-  }
+    background-size: $textfield-select-bg-size $textfield-select-bg-size;
+    padding-right: $textfield-select-bg-size;
 
-  &.form-control-lg {
-    @include form-select-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-x-lg);
-  }
-
-  &.form-control-sm {
-    @include form-select-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-x-sm);
+    &[multiple],
+    &[size]:not([size='1']) {
+      background-image: none;
+    }
   }
 }
 
 %form-textarea {
   border-radius: $textfield-box-border-radius;
   border-width: $textfield-border-width;
-  height: auto;
-  padding: $textfield-box-padding-y $textfield-box-padding-x;
+  min-height: $textfield-box-height;
+  padding: calc(#{$textfield-box-padding-y} - #{$textfield-border-width}) $textfield-box-padding-x;
 
   @include hover {
     box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
-  }
-
-  &.form-control-lg {
-    padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg;
-  }
-
-  &.form-control-sm {
-    padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm;
   }
 
   &:focus {
@@ -123,87 +118,152 @@
 // stylelint-disable selector-no-qualifying-type
 select {
   &.form-control {
+    @extend %form-select;
+
     &[multiple],
-    &[size] {
+    &[size]:not([size='1']) {
       @extend %form-textarea;
     }
-
-    &:not([multiple]):not([size]) {
-      @extend %form-select;
-    }
   }
-}
-// stylelint-enable
-
-// stylelint-disable selector-no-qualifying-type
-textarea {
-  &.form-control:not(.textarea-autosize) {
-    @extend %form-textarea;
-  }
-}
-// stylelint-enable
-
-// Form control static
-
-.form-control-plaintext {
-  @include form-control-size($textfield-font-size, $textfield-height, $textfield-line-height, $textfield-padding-x, $textfield-padding-y);
-
-  border-color: transparent;
-  color: $textfield-plaintext-color;
-  display: block;
-  width: 100%;
 
   &.form-control-lg {
-    @include form-control-size($textfield-font-size-lg, $textfield-height-lg, $textfield-line-height-lg, $textfield-padding-x-lg, $textfield-padding-y-lg);
+    &[multiple],
+    &[size]:not([size='1']) {
+      padding: calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width}) $textfield-box-padding-x-lg;
+    }
   }
 
   &.form-control-sm {
-    @include form-control-size($textfield-font-size-sm, $textfield-height-sm, $textfield-line-height-sm, $textfield-padding-x-sm, $textfield-padding-y-sm);
+    &[multiple],
+    &[size]:not([size='1']) {
+      padding: calc(#{$textfield-box-padding-y-sm} - #{$textfield-border-width}) $textfield-box-padding-x-sm;
+    }
   }
 }
 
-// Form validation
+textarea {
+  &.form-control {
+    min-height: $textfield-height;
 
-@include form-validation-state('invalid', $form-feedback-invalid-color);
-@include form-validation-state('valid', $form-feedback-valid-color);
+    &:not([rows='1']) {
+      @extend %form-textarea;
+    }
+  }
 
-// Style of Material design `select` should also be applied to `.custom-select`
+  &.form-control-lg {
+    min-height: $textfield-height-lg;
+
+    &:not([rows='1']) {
+      min-height: $textfield-box-height-lg;
+      padding: calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width}) $textfield-box-padding-x-lg;
+    }
+  }
+
+  &.form-control-sm {
+    min-height: $textfield-height-sm;
+
+    &:not([rows='1']) {
+      min-height: $textfield-box-height-sm;
+      padding: calc(#{$textfield-box-padding-y-sm} - #{$textfield-border-width}) $textfield-box-padding-x-sm;
+    }
+  }
+}
+// stylelint-enable
+
+.custom-file {
+  display: inline-block;
+  height: $textfield-height;
+  margin-bottom: 0;
+  position: relative;
+  width: 100%;
+}
+
+.custom-file-input {
+  height: $textfield-height;
+  margin: 0;
+  opacity: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include focus-hover {
+    ~ .custom-file-label {
+      border-bottom-color: $textfield-border-color-focus;
+      box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
+    }
+  }
+}
+
+.custom-file-label {
+  @include text-truncate;
+  @include transition-standard(border-color, box-shadow);
+
+  border-bottom: $textfield-border-width solid $textfield-border-color;
+  color: $textfield-hint-color;
+  font-size: $textfield-font-size;
+  height: $textfield-height;
+  line-height: $textfield-line-height;
+  padding: $textfield-padding-y ($material-icon-size + $selection-control-spacer-x) calc(#{$textfield-padding-y} - #{$textfield-border-width}) $textfield-padding-x;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  &::after {
+    @include set-material-icons;
+
+    content: $custom-file-button-icon;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
 
 .custom-select {
   @extend %form-control;
+  @extend %form-select;
 
   &[multiple],
-  &[size] {
+  &[size]:not([size='1']) {
     @extend %form-textarea;
-  }
-
-  &:not([multiple]):not([size]) {
-    @extend %form-select;
   }
 }
 
 .custom-select-lg {
-  @extend %form-control-lg;
+  font-size: $textfield-font-size-lg;
+  line-height: $textfield-line-height-lg;
+  padding: $textfield-padding-y-lg $textfield-select-bg-size calc(#{$textfield-padding-y-lg} - #{$textfield-border-width}) $textfield-padding-x-lg;
 
   &[multiple],
-  &[size] {
-    padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg;
-  }
-
-  &:not([multiple]):not([size]) {
-    @include form-select-size($textfield-font-size-lg, $textfield-height-lg, $textfield-padding-x-lg);
+  &[size]:not([size='1']) {
+    padding: calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width}) $textfield-box-padding-x-lg;
   }
 }
 
 .custom-select-sm {
-  @extend %form-control-sm;
+  font-size: $textfield-font-size-sm;
+  line-height: $textfield-line-height-sm;
+  padding: $textfield-padding-y-sm $textfield-select-bg-size calc(#{$textfield-padding-y-sm} - #{$textfield-border-width}) $textfield-padding-x-sm;
 
   &[multiple],
-  &[size] {
-    padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm;
-  }
-
-  &:not([multiple]):not([size]) {
-    @include form-select-size($textfield-font-size-sm, $textfield-height-sm, $textfield-padding-x-sm);
+  &[size]:not([size='1']) {
+    padding: calc(#{$textfield-box-padding-y-sm} - #{$textfield-border-width}) $textfield-box-padding-x-sm;
   }
 }
+
+.form-control-file {
+  @extend %form-control;
+
+  max-height: $textfield-height;
+}
+
+.form-control-range {
+  display: block;
+  width: 100%;
+}
+
+// Validation
+
+@include form-validation-state('invalid', $form-feedback-invalid-color);
+@include form-validation-state('valid', $form-feedback-valid-color);

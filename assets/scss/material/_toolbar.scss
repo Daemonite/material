@@ -145,11 +145,12 @@
 }
 
 .navbar-sticky-top {
-  box-shadow: map-get($toolbar-elevation-shadow, shadow);
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: map-get($toolbar-elevation-shadow, elevation);
+  @supports (position: sticky) {
+    box-shadow: map-get($toolbar-elevation-shadow, shadow);
+    position: sticky;
+    top: 0;
+    z-index: map-get($toolbar-elevation-shadow, elevation);
+  }
 }
 
 .toolbar-waterfall {

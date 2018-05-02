@@ -5,7 +5,6 @@ import $ from 'jquery'
  */
 
 const ExpansionPanel = (($) => {
-
   // constants >>>
   const DATA_KEY  = 'bs.collapse'
   const EVENT_KEY = `.${DATA_KEY}`
@@ -47,7 +46,6 @@ const ExpansionPanel = (($) => {
       predecessor.addClass(ClassName.SHOW_PREDECESSOR)
     }
   })
-
 })($)
 
 export default ExpansionPanel

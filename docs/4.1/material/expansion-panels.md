@@ -15,7 +15,7 @@ An expansion panel can stand alone.
   <div class="expansion-panel list-group-item">
     <a aria-controls="collapseOne" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseOne" id="headingOne">
       Expansion panel item #1
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
@@ -29,7 +29,7 @@ An expansion panel can stand alone.
   <div class="expansion-panel list-group-item">
     <a aria-controls="collapseTwo" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseTwo" id="headingTwo">
       Expansion panel item #2
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
@@ -43,7 +43,7 @@ An expansion panel can stand alone.
   <div class="expansion-panel list-group-item">
     <a aria-controls="collapseThree" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseThree" id="headingThree">
       Expansion panel item #3
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
@@ -70,7 +70,7 @@ An expansion panel can also be connected to a larger surface, such as a card.
     <div class="expansion-panel list-group-item">
       <a aria-controls="collapseFour" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFour" id="headingFour">
         Connected expansion panel item #1
-        <div class="expansion-panel-icon ml-md text-black-secondary">
+        <div class="expansion-panel-icon ml-3 text-black-secondary">
           <i class="collapsed-show material-icons">keyboard_arrow_down</i>
           <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
@@ -84,7 +84,7 @@ An expansion panel can also be connected to a larger surface, such as a card.
     <div class="expansion-panel list-group-item">
       <a aria-controls="collapseFive" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFive" id="headingFive">
         Connected expansion panel item #2
-        <div class="expansion-panel-icon ml-md text-black-secondary">
+        <div class="expansion-panel-icon ml-3 text-black-secondary">
           <i class="collapsed-show material-icons">keyboard_arrow_down</i>
           <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
@@ -98,7 +98,7 @@ An expansion panel can also be connected to a larger surface, such as a card.
     <div class="expansion-panel list-group-item">
       <a aria-controls="collapseSix" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseSix" id="headingSix">
         Connected expansion panel item #3
-        <div class="expansion-panel-icon ml-md text-black-secondary">
+        <div class="expansion-panel-icon ml-3 text-black-secondary">
           <i class="collapsed-show material-icons">keyboard_arrow_down</i>
           <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
@@ -130,7 +130,7 @@ Expansion panels are best used for lightweight editing of an element. A collapse
           Value #1
         </div>
       </div>
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
@@ -158,7 +158,7 @@ Expansion panels are best used for lightweight editing of an element. A collapse
           Value #2
         </div>
       </div>
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
@@ -170,30 +170,30 @@ Expansion panels are best used for lightweight editing of an element. A collapse
             <small class="text-black-secondary">Choose value(s) for Item #2</small>
           </div>
           <div class="col-12 col-sm-10">
-            <span class="chip fade mt-xs show" id="chipDismissible1">
+            <div class="chip fade mt-1 show" id="chipDismissible1">
               Value #1
               <button class="close" data-dismiss="alert" data-target="#chipDismissible1" type="button"><i class="material-icons">cancel</i></button>
-            </span>
-            <span class="chip chip-info fade mt-xs show" id="chipDismissible2">
+            </div>
+            <div class="chip chip-info fade mt-1 show" id="chipDismissible2">
               Value #2
               <button class="close" data-dismiss="alert" data-target="#chipDismissible2" type="button"><i class="material-icons">cancel</i></button>
-            </span>
-            <span class="chip fade mt-xs show" id="chipDismissible3">
+            </div>
+            <div class="chip fade mt-1 show" id="chipDismissible3">
               Value #3
               <button class="close" data-dismiss="alert" data-target="#chipDismissible3" type="button"><i class="material-icons">cancel</i></button>
-            </span>
-            <span class="chip fade mt-xs show" id="chipDismissible4">
+            </div>
+            <div class="chip fade mt-1 show" id="chipDismissible4">
               Value #4
               <button class="close" data-dismiss="alert" data-target="#chipDismissible4" type="button"><i class="material-icons">cancel</i></button>
-            </span>
-            <span class="chip fade mt-xs show" id="chipDismissible5">
+            </div>
+            <div class="chip fade mt-1 show" id="chipDismissible5">
               Value #5
               <button class="close" data-dismiss="alert" data-target="#chipDismissible5" type="button"><i class="material-icons">cancel</i></button>
-            </span>
-            <span class="chip fade mt-xs show" id="chipDismissible6">
+            </div>
+            <div class="chip fade mt-1 show" id="chipDismissible6">
               Value #6
               <button class="close" data-dismiss="alert" data-target="#chipDismissible6" type="button"><i class="material-icons">cancel</i></button>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@ Expansion panels are best used for lightweight editing of an element. A collapse
           <span class="text-black-hint">Value:</span>&nbsp;<span class="text-black-secondary">#3.2</span>
         </div>
       </div>
-      <div class="expansion-panel-icon ml-md text-black-secondary">
+      <div class="expansion-panel-icon ml-3 text-black-secondary">
         <i class="collapsed-show material-icons">keyboard_arrow_down</i>
         <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>

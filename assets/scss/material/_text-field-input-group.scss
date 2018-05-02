@@ -9,6 +9,7 @@
   > .custom-select,
   > .floating-label,
   > .form-control,
+  > .form-control-file,
   > .textfield-box {
     flex: 1 1 auto;
     margin-bottom: 0;
@@ -18,6 +19,7 @@
     + .custom-select,
     + .floating-label,
     + .form-control,
+    + .form-control-file,
     + .textfield-box {
       margin-left: $input-group-inner-spacer-x;
     }
@@ -94,25 +96,48 @@
   }
 
   .floating-label:not(.textfield-box) ~ & {
-    margin-top: $floating-label-font-size-focus;
+    margin-top: $floating-label-font-size;
   }
 }
 
 // Size
 
 .input-group-lg {
-  > .form-control {
-    @extend %form-control-lg;
-  }
-
   > .floating-label {
     @extend .floating-label-lg;
 
     &.has-value label,
     &.is-focused label {
-      line-height: 1;
       top: 0;
     }
+
+    &.textfield-box.has-value label,
+    &.textfield-box.is-focused label {
+      top: $textfield-box-label-spacer-y;
+    }
+
+    &:not(.textfield-box) ~ .input-group-icon {
+      margin-top: $floating-label-font-size-lg;
+    }
+  }
+
+  > %form-control {
+    font-size: $textfield-font-size-lg;
+    line-height: $textfield-line-height-lg;
+    padding: $textfield-padding-y-lg $textfield-padding-x-lg calc(#{$textfield-padding-y-lg} - #{$textfield-border-width});
+  }
+
+  > %form-select {
+    padding-right: $textfield-select-bg-size;
+  }
+
+  > %form-textarea {
+    padding: $textfield-box-padding-y-lg $textfield-box-padding-x-lg calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width});
+  }
+
+  > .form-control[type='file'],
+  > .form-control-file {
+    max-height: $textfield-box-height-lg;
   }
 
   > .input-group-append,
@@ -134,33 +159,45 @@
 
   > .textfield-box {
     @extend .textfield-box-lg;
-
-    &.floating-label {
-      &.has-value label,
-      &.is-focused label {
-        top: $textfield-box-label-spacer-y;
-      }
-
-      .form-control {
-        padding-bottom: ($textfield-box-label-spacer-y - $textfield-border-width / $font-size-root * 1rem);
-      }
-    }
   }
 }
 
 .input-group-sm {
-  > .form-control {
-    @extend %form-control-sm;
-  }
-
   > .floating-label {
     @extend .floating-label-sm;
 
     &.has-value label,
     &.is-focused label {
-      line-height: 1;
       top: 0;
     }
+
+    &.textfield-box.has-value label,
+    &.textfield-box.is-focused label {
+      top: $textfield-box-label-spacer-y;
+    }
+
+    &:not(.textfield-box) ~ .input-group-icon {
+      margin-top: $floating-label-font-size-sm;
+    }
+  }
+
+  > %form-control {
+    font-size: $textfield-font-size-sm;
+    line-height: $textfield-line-height-sm;
+    padding: $textfield-padding-y-sm $textfield-padding-x-sm calc(#{$textfield-padding-y-sm} - #{$textfield-border-width});
+  }
+
+  > %form-select {
+    padding-right: $textfield-select-bg-size;
+  }
+
+  > %form-textarea {
+    padding: $textfield-box-padding-y-sm $textfield-box-padding-x-sm calc(#{$textfield-box-padding-y-sm} - #{$textfield-border-width});
+  }
+
+  > .form-control[type='file'],
+  > .form-control-file {
+    max-height: $textfield-box-height-sm;
   }
 
   > .input-group-append,
@@ -182,16 +219,5 @@
 
   > .textfield-box {
     @extend .textfield-box-sm;
-
-    &.floating-label {
-      &.has-value label,
-      &.is-focused label {
-        top: $textfield-box-label-spacer-y;
-      }
-
-      .form-control {
-        padding-bottom: ($textfield-box-label-spacer-y - $textfield-border-width / $font-size-root * 1rem);
-      }
-    }
   }
 }

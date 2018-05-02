@@ -28,10 +28,11 @@ $('#exampleInputDatePicker1').pickdate();
 
 Alternatively, options can be passed on to override some default datepicker behaviours.
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker2">A customised date picker:</label>
 <input class="form-control" id="exampleInputDatePicker2" name="exampleInputDatePicker2" placeholder="Pick a date" type="text">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -62,8 +63,8 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div>
-  <table class="table table-bordered table-striped">
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
     <thead>
       <tr>
         <th>Option</th>
@@ -171,10 +172,11 @@ $('.datepicker').pickdate({
 
 Maximum and minimum selectable dates can be set on the picker.
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker3">Using boolean or integers:</label>
 <input class="form-control" id="exampleInputDatePicker3" placeholder="Pick a date" type="text">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -185,10 +187,11 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker4">Using JavaScript date:</label>
 <input class="form-control" id="exampleInputDatePicker4" placeholder="Pick a date" type="text">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -197,10 +200,11 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker5">Using <code>[YEAR,MONTH,DATE]</code>:</label>
 <input class="form-control" id="exampleInputDatePicker5" placeholder="Pick a date" type="text">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -213,10 +217,11 @@ $('.datepicker').pickdate({
 
 Disable a specific or arbitrary set of dates selectable on the picker.
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker6">Using JavaScript date or <code>[YEAR,MONTH,DATE]</code>:</label>
 <input class="form-control" id="exampleInputDatePicker6" placeholder="Pick a date" type="text" value="1/1/2016">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -228,10 +233,11 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker7">Using integers as days of the week:</label>
 <input class="form-control" id="exampleInputDatePicker7" placeholder="Pick a date" type="text" value="1/1/2016">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -241,10 +247,11 @@ $('.datepicker').pickdate({
 });
 {% endhighlight %}
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker8">Using objects as a range of dates:</label>
 <input class="form-control" id="exampleInputDatePicker8" placeholder="Pick a date" type="text" value="1/1/2016">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 $('.datepicker').pickdate({
@@ -262,19 +269,21 @@ The values for <code>from</code> and <code>to</code> can be:
 
 The values can also be integers representing dates relative to the other:
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker9"><code>from</code> can only be negative:</label>
 <input class="form-control" id="exampleInputDatePicker9" placeholder="Pick a date" type="text">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 { from: -10, to: true }
 {% endhighlight %}
 
-<div class="bd-example">
+{% capture example %}
 <label for="exampleInputDatePicker10"><code>to</code> can only be positive:</label>
 <input class="form-control" id="exampleInputDatePicker10" placeholder="Pick a date" type="text" value="1/1/2016">
-</div>
+{% endcapture %}
+{% include example.html content=example %}
 
 {% highlight js %}
 { from: [2016,0,16], to: 10 }
@@ -284,8 +293,8 @@ The values can also be integers representing dates relative to the other:
 
 The following rules can be used to format any date:
 
-<div>
-  <table class="table table-bordered table-striped">
+<div class="table-responsive mb-3">
+  <table class="table table-bordered table-striped mb-0">
     <thead>
       <tr>
         <th>Rule</th>

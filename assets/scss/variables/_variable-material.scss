@@ -100,7 +100,6 @@ $table-border-color:          $border-color-solid !default;
 $table-border-width:          $border-width !default;
 $table-cell-padding-x:        1.75rem !default;
 $table-cell-padding-x-alt:    1.5rem !default;
-$table-elevation-shadow:      map-get($elevation-shadows, 2) !default;
 $table-line-height:           $line-height-base !default;
 $table-margin-y:              $spacer !default;
 $table-striped-order:         odd !default;
@@ -275,6 +274,7 @@ $picker-weekday-color:        $black-hint !default;
 
 $progress-bar-bg:                      $material-color-indigo-500 !default;
 $progress-bar-border-radius:           0.25rem !default;
+$progress-bar-buffer-width:            1.5rem !default;
 $progress-bar-height:                  0.25rem !default;
 $progress-bg:                          $material-color-indigo-100 !default;
 
@@ -391,7 +391,6 @@ $textfield-border-width-hover: ($textfield-border-width * 2) !default;
 $textfield-color:              $black-primary !default;
 $textfield-color-disabled:     $black-hint !default;
 $textfield-hint-color:         $black-hint !default;
-$textfield-line-height:        $line-height-base !default;
 $textfield-margin-x:           $spacer !default;
 $textfield-plaintext-color:    $body-color !default;
 
@@ -403,7 +402,7 @@ $textfield-height-lg:          3.75rem !default;
 $textfield-height-sm:          2rem !default;
 $textfield-line-height:        1.5 !default;
 $textfield-line-height-lg:     1.176471 !default;
-$textfield-line-height-sm:     1.384615 !default;
+$textfield-line-height-sm:     1.538462 !default;
 $textfield-margin-y:           0.5rem !default;
 $textfield-margin-y-lg:        0.75rem !default;
 $textfield-margin-y-sm:        0.25rem !default;
@@ -413,6 +412,8 @@ $textfield-padding-x-sm:       0 !default;
 $textfield-padding-y:          (($textfield-height - $textfield-font-size * $textfield-line-height) / 2) !default;
 $textfield-padding-y-lg:       (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
 $textfield-padding-y-sm:       (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2) !default;
+
+$textfield-select-bg-size:     ($material-icon-size / $textfield-font-size * 1em) !default;
 
 // Text field: box
 // Based on https://material.io/guidelines/components/text-fields.html#text-fields-text-field-boxes
@@ -436,7 +437,9 @@ $textfield-box-padding-y-sm:   (($textfield-box-height-sm - $textfield-font-size
 
 $floating-label-color:           $textfield-hint-color !default;
 $floating-label-color-focus:     theme-color(secondary) !default;
-$floating-label-font-size-focus: 0.75rem !default;
+$floating-label-font-size:       0.75rem !default;
+$floating-label-font-size-lg:    0.875rem !default;
+$floating-label-font-size-sm:    0.625rem !default;
 
 // Toolbar (Bootstrap navbar)
 // Based on https://material.google.com/components/toolbars.html#toolbars-usage
