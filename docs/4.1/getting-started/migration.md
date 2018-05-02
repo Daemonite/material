@@ -14,6 +14,8 @@ Material monitors the changes in the Bootstrap project so the exact same Bootstr
 
 ## v4.1.1
 
+This release mainly focuses on bug fixes, especially styles related to [form controls]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/text-fields).
+
 ### Table
 
 Because responsive table now again requires a wrapping element, it does not work well with `.table-bordered` as the card like `box-shadow` will be cut off. As a result, `.table-bordered` now reverts back to adding a `border` rather than a `box-shadow` to the table. However, it is very easy to [combine `.card` and `.table` together]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/data-tables/#tables-within-cards) to achieve how `.table-bordered` used to look like.
