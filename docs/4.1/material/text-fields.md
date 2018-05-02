@@ -118,20 +118,15 @@ When the user engages with the text input field, the floating inline labels move
 </div>
 <div class="form-group">
   <div class="floating-label">
-    <label for="exampleFloatingLabel2">Floating label</label>
-    <select aria-describedby="exampleFloatingLabel2Help" class="form-control" id="exampleFloatingLabel2">
-      <option label=" "></option>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-    </select>
+    <label for="exampleFloatingLabel2">Date and time</label>
+    <input aria-describedby="exampleFloatingLabel2Help" class="form-control" id="exampleFloatingLabel2" placeholder="Date and time" type="datetime-local">
   </div>
   <small id="exampleFloatingLabel2Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
 <div class="form-group">
   <div class="floating-label">
-    <label for="exampleFloatingLabel3">Custom select</label>
-    <select class="custom-select" id="exampleFloatingLabel3">
+    <label for="exampleFloatingLabel3">Select</label>
+    <select class="form-control" id="exampleFloatingLabel3">
       <option label=" "></option>
       <option>1</option>
       <option>2</option>
@@ -141,8 +136,19 @@ When the user engages with the text input field, the floating inline labels move
 </div>
 <div class="form-group">
   <div class="floating-label">
-    <label for="exampleFloatingLabel4">1 row textarea</label>
-    <textarea class="form-control" id="exampleFloatingLabel4" placeholder="Optional placeholder" rows="1"></textarea>
+    <label for="exampleFloatingLabel4">Custom select</label>
+    <select class="custom-select" id="exampleFloatingLabel4">
+      <option label=" "></option>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <div class="floating-label">
+    <label for="exampleFloatingLabel5">1 row textarea</label>
+    <textarea class="form-control" id="exampleFloatingLabel5" placeholder="Optional placeholder" rows="1"></textarea>
   </div>
 </div>
 {% endcapture %}
@@ -155,23 +161,23 @@ Change sizes using `.floating-label-lg` and `.floating-label-sm`.
 {% capture example %}
 <div class="form-group">
   <div class="floating-label floating-label-lg">
-    <label for="exampleFloatingLabel5">Large</label>
-    <input aria-describedby="exampleFloatingLabel5Help" class="form-control" id="exampleFloatingLabel5" placeholder="Optional placeholder" type="text">
-    <small id="exampleFloatingLabel5Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
+    <label for="exampleFloatingLabel6">Large</label>
+    <input aria-describedby="exampleFloatingLabel6Help" class="form-control" id="exampleFloatingLabel6" placeholder="Optional placeholder" type="text">
+    <small id="exampleFloatingLabel6Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
   </div>
 </div>
 <div class="form-group">
   <div class="floating-label">
-    <label for="exampleFloatingLabel6">Default</label>
-    <input class="form-control" id="exampleFloatingLabel6" placeholder="Optional placeholder" type="text">
+    <label for="exampleFloatingLabel7">Default</label>
+    <input class="form-control" id="exampleFloatingLabel7" placeholder="Optional placeholder" type="text">
   </div>
 </div>
 <div class="form-group">
   <div class="floating-label floating-label-sm">
-    <label for="exampleFloatingLabel7">Small</label>
-    <input aria-describedby="exampleFloatingLabel7Help" class="form-control" id="exampleFloatingLabel7" placeholder="Optional placeholder" type="text">
+    <label for="exampleFloatingLabel8">Small</label>
+    <input aria-describedby="exampleFloatingLabel8Help" class="form-control" id="exampleFloatingLabel8" placeholder="Optional placeholder" type="text">
   </div>
-  <small id="exampleFloatingLabel7Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
+  <small id="exampleFloatingLabel8Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -189,14 +195,14 @@ $('.floating-label .custom-select, .floating-label .form-control').floatinglabel
 {% capture example %}
 <div class="form-group">
   <div class="floating-label" id="qweqweqwe">
-    <label for="exampleFloatingLabel8">Floating label</label>
-    <input class="form-control" id="exampleFloatingLabel8" placeholder="Optional placeholder" type="text" value="Initial value">
+    <label for="exampleFloatingLabel9">Floating label</label>
+    <input class="form-control" id="exampleFloatingLabel9" placeholder="Optional placeholder" type="text" value="Initial value">
   </div>
 </div>
 <div class="form-group">
   <div class="floating-label" id="asdasdasd">
-    <label for="exampleFloatingLabel9">Floating label</label>
-    <select class="form-control" id="exampleFloatingLabel9">
+    <label for="exampleFloatingLabel10">Floating label</label>
+    <select class="form-control" id="exampleFloatingLabel10">
       <option label=" "></option>
       <option selected>Initial option</option>
       <option>2</option>
