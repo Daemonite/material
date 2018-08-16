@@ -21,7 +21,8 @@ Because these components will require additional markup (some may require additi
 ## :pray:
 
 This project exists thanks to all the people who contribute.
-<a href="graphs/contributors"><img src="https://opencollective.com/material/contributors.svg?width=890&button=false" /></a>
+
+<a href="https://github.com/Daemonite/material/graphs/contributors"><img src="https://opencollective.com/material/contributors.svg?width=890&button=false" /></a>
 
 ### Backers
 
