@@ -18,18 +18,18 @@ A secondary goal of this project is to add support for some unique Google Materi
 
 Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation.
 
-## 🙏
+## :pray:
 
 This project exists thanks to all the people who contribute.
 <a href="graphs/contributors"><img src="https://opencollective.com/material/contributors.svg?width=890&button=false" /></a>
 
-## Backers
+### Backers
 
 Thank you to all our backers! [[Become a backer](https://opencollective.com/material#backer)]
 
 <a href="https://opencollective.com/material#backers" target="_blank"><img src="https://opencollective.com/material/backers.svg?width=890"></a>
 
-## Sponsors
+### Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/material#sponsor)]
 
