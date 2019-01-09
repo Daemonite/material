@@ -1,14 +1,14 @@
 /*!
  * Daemonite Material v4.1.1 (http://daemonite.github.io/material/)
- * Copyright 2011-2018 Daemon Pty Ltd
+ * Copyright 2011-2019 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
-  (factory((global.material = {}),global.jQuery));
-}(this, (function (exports,$) { 'use strict';
+  (global = global || self, factory(global.material = {}, global.jQuery));
+}(this, function (exports, $) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -645,11 +645,7 @@
   (function ( factory ) {
 
       // AMD.
-      if ( typeof undefined == 'function' && undefined.amd )
-          undefined( 'picker', ['jquery'], factory );
-
-      // Node.js/browserify.
-      else module.exports = factory( $ );
+      module.exports = factory( $ );
 
   }(function( $$$1 ) {
 
@@ -1793,13 +1789,6 @@
   }));
   });
 
-  var picker$1 = /*#__PURE__*/Object.freeze({
-    default: picker,
-    __moduleExports: picker
-  });
-
-  var require$$0 = ( picker$1 && picker ) || picker$1;
-
   var picker_date = createCommonjsModule(function (module, exports) {
   /*!
    * Date picker for pickadate.js v3.5.6
@@ -1809,11 +1798,7 @@
   (function ( factory ) {
 
       // AMD.
-      if ( typeof undefined == 'function' && undefined.amd )
-          undefined( ['picker', 'jquery'], factory );
-
-      // Node.js/browserify.
-      else module.exports = factory( require$$0, $ );
+      module.exports = factory( picker, $ );
 
   }(function( Picker, $$$1 ) {
 
@@ -1830,12 +1815,12 @@
   /**
    * The date picker constructor
    */
-  function DatePicker( picker, settings ) {
+  function DatePicker( picker$$1, settings ) {
 
       var calendar = this,
-          element = picker.$node[ 0 ],
+          element = picker$$1.$node[ 0 ],
           elementValue = element.value,
-          elementDataValue = picker.$node.data( 'value' ),
+          elementDataValue = picker$$1.$node.data( 'value' ),
           valueString = elementDataValue || elementValue,
           formatString = elementDataValue ? settings.formatSubmit : settings.format,
           isRTL = function() {
@@ -1846,11 +1831,11 @@
                   element.currentStyle.direction == 'rtl' :
 
                   // For normal browsers.
-                  getComputedStyle( picker.$root[0] ).direction == 'rtl'
+                  getComputedStyle( picker$$1.$root[0] ).direction == 'rtl'
           };
 
       calendar.settings = settings;
-      calendar.$node = picker.$node;
+      calendar.$node = picker$$1.$node;
 
       // The queue of methods that will be used to build item objects.
       calendar.queue = {
@@ -1915,20 +1900,20 @@
 
 
       // Bind some picker events.
-      picker.
+      picker$$1.
           on( 'render', function() {
-              picker.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
+              picker$$1.$root.find( '.' + settings.klass.selectMonth ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker.set( 'highlight', [ picker.get( 'view' ).year, value, picker.get( 'highlight' ).date ] );
-                      picker.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
+                      picker$$1.set( 'highlight', [ picker$$1.get( 'view' ).year, value, picker$$1.get( 'highlight' ).date ] );
+                      picker$$1.$root.find( '.' + settings.klass.selectMonth ).trigger( 'focus' );
                   }
               });
-              picker.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
+              picker$$1.$root.find( '.' + settings.klass.selectYear ).on( 'change', function() {
                   var value = this.value;
                   if ( value ) {
-                      picker.set( 'highlight', [ value, picker.get( 'view' ).month, picker.get( 'highlight' ).date ] );
-                      picker.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
+                      picker$$1.set( 'highlight', [ value, picker$$1.get( 'view' ).month, picker$$1.get( 'highlight' ).date ] );
+                      picker$$1.$root.find( '.' + settings.klass.selectYear ).trigger( 'focus' );
                   }
               });
           }, 1 ).
@@ -1937,10 +1922,10 @@
               if ( calendar.disabled( calendar.get('now') ) ) {
                   includeToday = ':not(.' + settings.klass.buttonToday + ')';
               }
-              picker.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
+              picker$$1.$root.find( 'button' + includeToday + ', select' ).attr( 'disabled', false );
           }, 1 ).
           on( 'close', function() {
-              picker.$root.find( 'button, select' ).attr( 'disabled', true );
+              picker$$1.$root.find( 'button, select' ).attr( 'disabled', true );
           }, 1 );
 
   } //DatePicker
@@ -3557,5 +3542,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=material.js.map
