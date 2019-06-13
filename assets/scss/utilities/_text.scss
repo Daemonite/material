@@ -1,34 +1,21 @@
 // stylelint-disable declaration-no-important
+// 4.3.1 ok
 
 // Alignment
 
-.text-justify {
-  text-align: justify !important;
-}
+.text-justify  { text-align: justify !important; }
+.text-wrap     { white-space: normal !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { @include text-truncate; }
 
-.text-nowrap {
-  white-space: nowrap !important;
-}
-
-.text-truncate {
-  @include text-truncate;
-}
-
+// TODO with 4.3.1
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .text#{$infix}-center {
-      text-align: center !important;
-    }
-
-    .text#{$infix}-left {
-      text-align: left !important;
-    }
-
-    .text#{$infix}-right {
-      text-align: right !important;
-    }
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
   }
 }
 
@@ -50,43 +37,22 @@
   @include text-emphasis-variant('.text-#{$color}', theme-color($color), theme-color-dark($color));
 }
 
-.text-black-50 {
-  color: rgba($black, 0.5) !important;
-}
 
-.text-body {
-  color: $body-color !important;
-}
 
-.text-white-50 {
-  color: rgba($white, 0.5) !important;
-}
+.text-body { color: $body-color !important; }
+.text-black-50 { color: rgba($black, 0.5) !important; }
+.text-white-50 { color: rgba($white, 0.5) !important; }
 
 // Family
 
-.text-monospace {
-  font-family: $font-family-monospace;
-}
+.text-monospace { font-family: $font-family-monospace !important; }
 
 // Italcs and weight
 
-.font-italic {
-  font-style: italic;
-}
-
-.font-weight-bold,
-.font-weight-medium {
-  font-weight: $font-weight-medium;
-}
-
-.font-weight-light {
-  font-weight: $font-weight-light;
-}
-
-.font-weight-normal,
-.font-weight-regular {
-  font-weight: $font-weight-regular;
-}
+.font-weight-light, .font-weight-lighter  { font-weight: $font-weight-light !important; }
+.font-weight-normal, .font-weight-regular { font-weight: $font-weight-regular !important; }
+.font-weight-bold, .font-weight-medium    { font-weight: $font-weight-medium !important; }
+.font-italic         { font-style: italic !important; }
 
 // Misc
 
@@ -94,16 +60,15 @@
   @include text-hide($ignore-warning: true);
 }
 
+.text-decoration-none { text-decoration: none !important; }
+
+.text-break {
+  word-break: break-word !important; // IE & < Edge 18
+  overflow-wrap: break-word !important;
+}
+
 // Transformation
 
-.text-capitalize {
-  text-transform: capitalize !important;
-}
-
-.text-lowercase {
-  text-transform: lowercase !important;
-}
-
-.text-uppercase {
-  text-transform: uppercase !important;
-}
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
