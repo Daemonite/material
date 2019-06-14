@@ -35,6 +35,11 @@
   }
 }
 
+// Addition
+.card-shaped {
+  border-radius: 24px 8px;
+}
+
 // Accordion
 
 .accordion {
@@ -311,6 +316,8 @@
 // Text and title
 
 .card-link {
+  font-weight: 500; //addition
+
   @include active-focus-hover {
     text-decoration: none;
   }
@@ -321,18 +328,24 @@
 }
 
 .card-subtitle {
-  @include typography-body-1;
+  @include typography-subtitle-2;
 
   margin-top: ($card-inner-spacer-y * -1);
   margin-bottom: 0;
 }
 
-.card-text:last-child {
-  margin-bottom: 0;
+.card-text {
+  @include typography-body-2;
+
+  color: $black-secondary;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .card-title {
-  @include typography-headline;
+  @include typography-headline-6;
 
   margin-bottom: $card-inner-spacer-y;
 
