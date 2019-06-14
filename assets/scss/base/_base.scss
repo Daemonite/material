@@ -60,7 +60,7 @@ body {
   background-color: $body-bg;
   color: $body-color;
   font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-size: ($font-size-base * .875);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-weight: $font-weight-base;
@@ -183,7 +183,7 @@ label {
 }
 
 legend {
-  @include typography-headline;
+  @include typography-headline-6;
 
   color: inherit;
   display: block;
@@ -381,6 +381,7 @@ ul ul {
 }
 
 p {
+  font-size: $font-size-base;// addition
   margin-top: 0;
   margin-bottom: $paragraph-margin-y;
 }
@@ -403,4 +404,9 @@ sub {
 
 sup {
   top: -0.5em;
+}
+
+// Addition
+::selection {
+	background: rgba(theme-color(primary), .08);
 }

@@ -1,157 +1,185 @@
 .custom-range {
-  appearance: none;
-  background-color: transparent;
-  padding-left: 0;
   width: 100%;
+  height: 48px;
+  padding: 0; // Need to reset padding
+  background-color: transparent;
+  appearance: none;
 
-  &:active,
-  &:focus {
-    &::-moz-range-track {
-      background-color: $slider-track-bg-active;
-    }
-
-    &::-ms-fill-upper {
-      background-color: $slider-track-bg-active;
-    }
-
-    &::-webkit-slider-runnable-track {
-      background-color: $slider-track-bg-active;
-    }
+  &:hover {
+    cursor: $slider-track-cursor;
   }
 
   &:focus {
     outline: 0;
 
-    &::-moz-range-thumb {
-      box-shadow: 0 0 0 $slider-thumb-size rgba($slider-thumb-bg, $slider-thumb-radial-opacity);
-    }
+    &::-webkit-slider-thumb { box-shadow: none; }
+    &::-moz-range-thumb     { box-shadow: none; }
+    &::-ms-thumb            { box-shadow: none; }
+  }
 
-    &::-ms-range-thumb {
-      box-shadow: 0 0 0 $slider-thumb-size rgba($slider-thumb-bg, $slider-thumb-radial-opacity);
-    }
+  &:active {
+    outline: 0;
 
-    &::-webkit-slider-thumb {
-      box-shadow: 0 0 0 $slider-thumb-size rgba($slider-thumb-bg, $slider-thumb-radial-opacity);
-    }
+    &::-webkit-slider-thumb { box-shadow: $slider-thumb-focus-box-shadow; }
+    &::-moz-range-thumb, &::-ms-thumb { box-shadow: $slider-thumb-focus-box-shadow; }
   }
 
   &::-moz-focus-outer {
     border: 0;
   }
 
-  &::-moz-range-progress {
-    background-color: $slider-thumb-bg;
+  &::-webkit-slider-thumb {
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
+    transition: $slider-thumb-transition;
+    appearance: none;
+
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-focus-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: $slider-track-width;
+    height: $slider-track-height;
+    color: transparent; // Why?
+    cursor: $slider-track-cursor;
+    background-color: $slider-track-bg;
+    border-color: transparent;
+    border-radius: $slider-track-border-radius;
   }
 
   &::-moz-range-thumb {
-    @include transition-standard(box-shadow, height, width);
-
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
+    transition: $slider-thumb-transition;
     appearance: none;
-    background-color: $slider-thumb-bg;
-    border: 0;
-    border-radius: 50%;
-    height: $slider-thumb-size;
-    width: $slider-thumb-size;
 
-    &:active {
-      box-shadow: none;
-      height: ($slider-thumb-size * 2);
-      width: ($slider-thumb-size * 2);
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
+      transition: $slider-thumb-transition;
     }
 
-    &:focus {
-      outline: 0;
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-focus-box-shadow;
+      transition: $slider-thumb-transition;
     }
   }
 
   &::-moz-range-track {
-    @include transition-standard(background-color);
-
-    background-color: $slider-track-bg;
-    border-color: transparent;
-    border-radius: 0;
+    width: $slider-track-width;
+    height: $slider-track-height;
     color: transparent;
-    cursor: pointer;
-    height: $slider-track-height;
-    width: 100%;
-  }
-
-  &::-ms-fill-lower {
-    background-color: $slider-thumb-bg;
-    height: $slider-track-height;
-    margin-bottom: $slider-track-height;
-    margin-left: ($slider-thumb-size / 2);
-  }
-
-  &::-ms-fill-upper {
+    cursor: $slider-track-cursor;
     background-color: $slider-track-bg;
+    border-color: transparent; // Firefox specific?
+    border-radius: $slider-track-border-radius;
+  }
+
+  &::-moz-range-progress {
     height: $slider-track-height;
-    margin-right: ($slider-thumb-size / 2);
-    margin-bottom: $slider-track-height;
+    background: theme-color(secondary);
   }
 
   &::-ms-thumb {
-    @include transition-standard(box-shadow);
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    margin-top: 0; // Edge specific
+    margin-right: $slider-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
+    margin-left: $slider-thumb-focus-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
 
-    appearance: none;
-    background-color: $slider-thumb-bg;
-    border: 0;
-    border-radius: 50%;
-    height: $slider-thumb-size;
-    margin-right: ($slider-thumb-size / 2);
-    margin-left: ($slider-thumb-size / 2);
-    width: $slider-thumb-size;
-
-    &:active {
-      box-shadow: 0 0 0 ($slider-thumb-size / 2) $slider-thumb-bg;
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
     }
 
     &:focus {
-      outline: 0;
+      box-shadow: none;
+    }
+
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-focus-box-shadow;
     }
   }
 
   &::-ms-track {
-    @include transition-standard(background-color);
-
+    width: $slider-track-width;
+    height: $slider-track-height;
+    color: transparent;
+    cursor: $slider-track-cursor;
     background-color: transparent;
     border-color: transparent;
-    border-width: ($slider-thumb-size + $slider-track-height) 0;
-    color: transparent;
-    cursor: pointer;
-    height: $slider-track-height;
-    width: 100%;
+    border-width: $slider-thumb-height / 2;
   }
 
-  &::-webkit-slider-runnable-track {
-    @include transition-standard(background-color);
+  &::-ms-fill-lower {
+    background-color: theme-color(secondary);
+    border-radius: $slider-track-border-radius;
+  }
 
+  &::-ms-fill-upper {
+    margin-right: 15px; // arbitrary?
     background-color: $slider-track-bg;
-    border-color: transparent;
-    border-radius: 0;
-    color: transparent;
-    cursor: pointer;
-    height: $slider-track-height;
-    width: 100%;
+    border-radius: $slider-track-border-radius;
   }
 
-  &::-webkit-slider-thumb {
-    @include transition-standard(box-shadow);
+  &:disabled {
+    cursor: default;
 
-    appearance: none;
-    background-color: $slider-thumb-bg;
-    border: 0;
-    border-radius: 50%;
-    height: $slider-thumb-size;
-    margin-top: (($slider-thumb-size - $slider-track-height) / -2);
-    width: $slider-thumb-size;
-
-    &:active {
-      box-shadow: 0 0 0 ($slider-thumb-size / 2) $slider-thumb-bg;
+    &::-webkit-slider-thumb {
+      background-color: $slider-thumb-disabled-bg;
+      box-shadow: 0 0 0 4px #fff;
     }
 
-    &:focus {
-      outline: 0;
+    &::-webkit-slider-runnable-track {
+      background: $slider-track-bg-disabled;
+      cursor: default;
+    }
+
+    &::-moz-range-thumb,
+    &:hover::-moz-range-thumb {
+      background-color: $slider-thumb-disabled-bg;
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    &::-moz-range-track {
+      background: $slider-track-bg-disabled;
+      cursor: default;
+    }
+
+    &::-moz-range-progress {
+      background: $slider-thumb-disabled-bg;
+    }
+    
+    &::-ms-thumb {
+      background: $slider-thumb-disabled-bg;
+    }
+
+    &::-ms-fill-lower {
+      background: $slider-thumb-disabled-bg;
+    }
+
+    &::-ms-fill-upper {
+      margin-right: 15px; // arbitrary?
+      background-color: $slider-track-bg-disabled;
     }
   }
 }

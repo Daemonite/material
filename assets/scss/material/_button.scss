@@ -1,40 +1,49 @@
 .btn {
   @include border-radius($btn-border-radius);
   @include transition-standard(box-shadow);
-
+  
+  -webkit-font-smoothing: antialiased;
+  align-items: center;
   background-color: transparent;
   background-image: none;
   border: 0;
   box-shadow: map-get($btn-elevation-shadow, shadow);
   color: $btn-color;
-  display: inline-block;
+  display: inline-flex;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
-  margin: 0;
+  height: 2.25rem; // 36px
+  justify-content: center;
+  letter-spacing: .0892857143em;
+  line-height: normal;
+  margin: 0 0 0 .5rem;
   max-width: 100%;
   min-width: $btn-min-width;
+  overflow: hidden;
   padding: $btn-padding-y $btn-padding-x;
   position: relative;
-  text-align: center;
   text-transform: uppercase;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+
+  @include hover {
+    &:not(:disabled):not(.disabled):not(.btn-link):not([class*='btn-outline-']):not([class*='btn-flat']) {
+      background-image: linear-gradient(to bottom, $btn-overlay-inverse, $btn-overlay-inverse);
+      box-shadow: map-get($btn-elevation-shadow-hover, shadow); // djibe addition
+      transition: background-image 15ms linear, box-shadow .28ms cubic-bezier(.4,0,.2,1);
+    }
+  }
 
   @include active-focus-hover {
     color: $btn-color;
     text-decoration: none;
   }
 
-  @include focus-hover {
-    background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
-  }
-
-  &.active,
-  &:active {
-    background-color: $btn-bg-active;
-    background-image: none;
+  @include active {
+    //background-color: $btn-bg-active;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,.37), rgba(255,255,255,.37));
+    //background-image: none;
     box-shadow: map-get($btn-elevation-shadow-active, shadow);
   }
 
@@ -60,12 +69,10 @@
   }
 }
 
-// stylelint-disable selector-no-qualifying-type
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none;
 }
-// stylelint-enable
 
 @each $color, $values in $theme-colors {
   .btn-#{$color} {
@@ -78,7 +85,7 @@ fieldset:disabled a.btn {
 
     &.active,
     &:active {
-      background-color: theme-color-dark($color);
+      background-color: theme-color-dark($color); // todo
     }
 
     &.disabled,

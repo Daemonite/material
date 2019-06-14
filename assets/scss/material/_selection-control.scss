@@ -25,6 +25,7 @@
   font-size: $font-size-base;
   line-height: inherit;
   margin-bottom: 0;
+  user-select: none; // djibe addition
 
   &::after {
     color: $selection-control-color;
@@ -48,7 +49,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: scale(0.87, 0.87) translateZ(0);
+    transform: scale(.87, .87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
   }
 }
@@ -57,6 +58,12 @@
   opacity: 0;
   position: absolute;
   z-index: -1;
+
+  &:not([disabled]):hover {
+    ~ .custom-control-label {
+      cursor: pointer; // djibe addition
+    }
+  }
 
   &.focus,
   &:active {
@@ -133,72 +140,45 @@
   }
 }
 
-// Switch
+// switches
+//
+// Tweak a few things for switches
 
 .custom-switch {
-  padding-left: ($selection-control-track-width + $selection-control-spacer-x);
+  padding-left: $selection-control-track-width + $selection-control-spacer-x;
 
   .custom-control-label {
     @include transition-standard(background-color);
 
-    &::after {
-      @include transition-standard(background-color, transform);
-
-      background-color: $selection-control-thumb-bg;
-      border-radius: 50%;
-      box-shadow: $selection-control-thumb-shadow;
-      content: '';
-      display: block;
-      height: $selection-control-indicator-size;
-      position: absolute;
+    &::before {
+      left: -($selection-control-indicator-size + $selection-control-gutter);
       width: $selection-control-indicator-size;
+      pointer-events: all;
+      border-radius: $selection-control-border-radius;
+    }
+
+    &::after {
+      top: calc(#{(($font-size-base * $line-height-base - $selection-control-indicator-size) / 2)} + #{$selection-control-border-width * 2});
+      left: calc(#{-($selection-control-indicator-size + $selection-control-gutter)} + #{$selection-control-border-width * 2});
+      width: $selection-control-indicator-size;
+      height: $selection-control-indicator-size;
+      //background-color: $custom-control-indicator-border-color; test djibe
+      border-radius: $selection-control-border-radius;
+      //@include transition(transform .15s ease-in-out, $custom-forms-transition); remove djibe
+      @include transition-standard(background-color, transform);
     }
   }
 
-  .custom-control-input {
-    &:checked {
-      ~ .custom-control-label {
-        // scss-lint:disable NestingDepth
-        &::after,
-        &::before {
-          transform: translateX($selection-control-track-width - $selection-control-indicator-size);
-        }
-
-        &::after {
-          background-color: $selection-control-color-active;
-        }
-        // scss-lint:enable
-      }
-
-      ~ .custom-control-track {
-        background-color: rgba($selection-control-color-active, $selection-control-track-opacity);
-      }
-    }
-
-    &:disabled {
-      ~ .custom-control-label::after {
-        background-color: $selection-control-thumb-bg-disabled;
-      }
-
-      ~ .custom-control-track {
-        background-color: $selection-control-track-bg-disabled;
-      }
+  .custom-control-input:checked ~ .custom-control-label {
+    &::after {
+      background-color: $selection-control-thumb-bg;
+      transform: translateX($selection-control-track-width - $selection-control-indicator-size);
     }
   }
 
-  .custom-control-track {
-    @include transition-standard(background-color);
-
-    background-clip: content-box;
-    background-color: $selection-control-track-bg;
-    border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
-    border-radius: $selection-control-track-height;
-    content: '';
-    display: block;
-    height: $selection-control-indicator-size;
-    position: absolute;
-    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
-    left: 0;
-    width: $selection-control-track-width;
+  .custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
+      background-color: $selection-control-thumb-bg-disabled;
+    }
   }
 }
