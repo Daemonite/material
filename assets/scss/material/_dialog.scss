@@ -1,12 +1,21 @@
+.modal-open {
+  overflow: hidden;
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
 .modal {
   display: none;
+  height: 100%;
   outline: 0;
   overflow: hidden;
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  width: 100%;
   z-index: map-get($dialog-elevation-shadow, elevation);
 
   &.fade {
@@ -21,44 +30,8 @@
 
   &.show .modal-dialog {
     transform: scale(1);
+    opacity: 1;
   }
-}
-
-.modal-open {
-  overflow: hidden;
-
-  .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
-}
-
-// Backdrop
-
-.modal-backdrop {
-  background-color: $dialog-backdrop-bg;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
-}
-
-// Dialog
-
-.modal-content {
-  @include border-radius($dialog-border-radius);
-
-  background-color: $dialog-content-bg;
-  box-shadow: map-get($dialog-elevation-shadow, shadow);
-  display: flex;
-  flex-direction: column;
-  outline: 0;
-  pointer-events: auto;
-  position: relative;
-  vertical-align: baseline;
-  width: 100%;
 }
 
 .modal-dialog {
@@ -69,26 +42,135 @@
   width: calc(100% - #{$dialog-margin-x} * 2);
 }
 
+.modal-dialog-scrollable {
+  display: flex; // IE10/11
+  max-height: calc(100vh - 32px);
+
+  .modal-content {
+    max-height: calc(100vh - #{$dialog-margin-y * 2}); // IE10/11
+    overflow: hidden;
+  }
+
+  .modal-header,
+  .modal-footer {
+    flex-shrink: 0;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid $black-divider;
+  }
+
+  .modal-footer {
+    border-top: 1px solid $black-divider;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+  }
+}
+
 .modal-dialog-centered {
   align-items: center;
   display: flex;
   min-height: calc(100% - #{$dialog-margin-y} * 2);
+
+    // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
+    &::before {
+      display: block; // IE10
+      height: calc(100vh - #{$dialog-margin-y * 2});
+      content: "";
+    }
+  
+    // Ensure `.modal-body` shows scrollbar (IE10/11)
+    &.modal-dialog-scrollable {
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+  
+      .modal-content {
+        max-height: none;
+      }
+  
+      &::before {
+        content: none;
+      }
+    }
 }
 
-.modal-lg {
-  max-width: $dialog-width-lg;
+// Dialog
+.modal-content {
+  @include border-radius($dialog-border-radius);
+
+  background-clip: padding-box;
+  background-color: $dialog-content-bg;
+  box-shadow: map-get($dialog-elevation-shadow, shadow);
+  //color: $modal-content-color;
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  pointer-events: auto;
+  position: relative;
+  vertical-align: baseline;
+  width: 100%;
 }
 
-.modal-sm {
-  max-width: $dialog-width-sm;
+
+// Modal background
+.modal-backdrop {
+  background-color: $dialog-backdrop-bg;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: 1; }
 }
 
-// Misc
+.modal-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem $dialog-padding-x;
+  border-bottom: 1px solid 0; // djibe addition from GMD
 
+  &:first-child {
+    @include border-top-radius($dialog-border-radius);
+  }
+
+  /*&:last-child {
+    @include border-bottom-radius($dialog-border-radius);
+  }*/
+
+  .close {
+    //padding: $modal-header-padding;
+    // auto on the left force icon to the right even when there is no .modal-title
+    //margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
+  }
+}
+
+// Title text within header
+.modal-title {
+  // djibe edit
+  font-size: 1.25rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: .0125em;
+  line-height: 2rem;
+  margin: 0;
+}
+
+// Modal body
 .modal-body {
   flex: 1 1 auto;
   padding: $dialog-padding-y $dialog-padding-x;
   position: relative;
+  color: $black-secondary; // djibe added from GMD
+  font-size: $dialog-body-font-size; // djibe added from GMD
+  line-height: 1.5rem;
+  letter-spacing: .03125em;
 
   &:first-child {
     @include border-top-radius($dialog-border-radius);
@@ -178,27 +260,6 @@
   }
 }
 
-.modal-header {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: $dialog-padding-y $dialog-padding-x;
-
-  &:first-child {
-    @include border-top-radius($dialog-border-radius);
-  }
-
-  &:last-child {
-    @include border-bottom-radius($dialog-border-radius);
-  }
-}
-
-.modal-title {
-  @include typography-title;
-
-  margin: 0;
-}
-
 // Scrollbar measure
 
 .modal-scrollbar-measure {
@@ -208,3 +269,14 @@
   top: -99999px;
   width: 50px;
 }
+
+.modal-lg {
+  max-width: $dialog-width-lg;
+}
+
+.modal-sm {
+  max-width: $dialog-width-sm;
+}
+
+// Scale up the modal
+// TODO

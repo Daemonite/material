@@ -61,9 +61,10 @@
 // Standard curve: relative movement
 
 @mixin transition-standard($property...) {
-  transition-duration: $transition-duration-mobile;
+  /*transition: $transition-duration-mobile;
   transition-property: $property;
-  transition-timing-function: $transition-timing-function-standard;
+  transition-timing-function: $transition-timing-function-standard;*/
+  transition: $property $transition-duration-mobile $transition-timing-function-standard;
 
   @include media-breakpoint-up(sm) {
     transition-duration: $transition-duration-tablet;

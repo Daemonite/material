@@ -1,5 +1,5 @@
 // Elevation
-// Based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-elevation-android-
+// Based on https://material-components.github.io/material-components-web-catalog/#/component/elevation
 
 $elevations: (
   24: (24 * 10),
@@ -13,21 +13,21 @@ $elevations: (
 ) !default;
 
 // Shadow
-// Based on https://material.google.com/what-is-material/elevation-shadows.html#elevation-shadows-shadows
+// Based on https://material-components.github.io/material-components-web-catalog/#/component/elevation
 
-$shadow-color-1: rgba(0, 0, 0, 0.14) !default;
-$shadow-color-2: rgba(0, 0, 0, 0.12) !default;
-$shadow-color-3: rgba(0, 0, 0, 0.2) !default;
+$shadow-color-1: rgba(0, 0, 0, .14) !default;
+$shadow-color-2: rgba(0, 0, 0, .12) !default;
+$shadow-color-3: rgba(0, 0, 0, .2) !default;
 
 $shadows: (
-  24: unquote('0 24px 38px 3px #{$shadow-color-1}, 0 9px 46px 8px #{$shadow-color-2}, 0 11px 15px 0 #{$shadow-color-3}'),
-  16: unquote('0 16px 24px 2px #{$shadow-color-1}, 0 6px 30px 5px #{$shadow-color-2}, 0 8px 10px 0 #{$shadow-color-3}'),
-  12: unquote('0 12px 17px 2px #{$shadow-color-1}, 0 5px 22px 4px #{$shadow-color-2}, 0 7px 8px 0 #{$shadow-color-3}'),
-  8:  unquote('0 8px 10px 1px #{$shadow-color-1}, 0 3px 14px 3px #{$shadow-color-2}, 0 4px 15px 0 #{$shadow-color-3}'),
-  6:  unquote('0 6px 10px 0 #{$shadow-color-1}, 0 1px 18px 0 #{$shadow-color-2}, 0 3px 5px 0 #{$shadow-color-3}'),
-  4:  unquote('0 2px 4px 0 #{$shadow-color-1}, 0 4px 5px 0 #{$shadow-color-2}, 0 1px 10px 0 #{$shadow-color-3}'),
-  2:  unquote('0 0 4px 0 #{$shadow-color-1}, 0 3px 4px 0 #{$shadow-color-2}, 0 1px 5px 0 #{$shadow-color-3}'),
-  1:  unquote('0 0 2px 0 #{$shadow-color-1}, 0 2px 2px 0 #{$shadow-color-2}, 0 1px 3px 0 #{$shadow-color-3}')
+  24: unquote('0 24px 38px 3px #{$shadow-color-1}, 0 9px 46px 8px #{$shadow-color-2}, 0 11px 15px -7px #{$shadow-color-3}'),
+  16: unquote('0 16px 24px 2px #{$shadow-color-1}, 0 6px 30px 5px #{$shadow-color-2}, 0 8px 10px -5px #{$shadow-color-3}'),
+  12: unquote('0 12px 17px 2px #{$shadow-color-1}, 0 5px 22px 4px #{$shadow-color-2}, 0 7px 8px -4px #{$shadow-color-3}'),
+  8:  unquote('0 8px 10px 1px #{$shadow-color-1}, 0 3px 14px 2px #{$shadow-color-2}, 0 5px 5px -3px #{$shadow-color-3}'),
+  6:  unquote('0 6px 10px 0 #{$shadow-color-1}, 0 1px 18px 0 #{$shadow-color-2}, 0 3px 5px -1px #{$shadow-color-3}'),
+  4:  unquote('0 4px 5px 0 #{$shadow-color-1}, 0 1px 10px 0 #{$shadow-color-2}, 0 2px 4px -1px #{$shadow-color-3}'),
+  2:  unquote('0 2px 2px 0 #{$shadow-color-1}, 0 1px 5px 0 #{$shadow-color-2}, 0 3px 1px -2px #{$shadow-color-3}'),
+  1:  unquote('0 1px 1px 0 #{$shadow-color-1}, 0 1px 3px 0 #{$shadow-color-2}, 0 2px 1px -1px #{$shadow-color-3}')
 ) !default;
 
 // Value pair
@@ -36,15 +36,16 @@ $shadows: (
 $elevation-shadows: (
   24: (
     elevation: map-get($elevations, 24),
-    shadow: map-get($shadows, 4)
+    //shadow: map-get($shadows, 4)
+    shadow: map-get($shadows, 24)
   ),
   16: (
     elevation: map-get($elevations, 16),
-    shadow: map-get($shadows, 6)
+    shadow: map-get($shadows, 16)
   ),
   12: (
     elevation: map-get($elevations, 12),
-    shadow: map-get($shadows, 2)
+    shadow: map-get($shadows, 12)
   ),
   8:  (
     elevation: map-get($elevations, 8),

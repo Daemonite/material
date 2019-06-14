@@ -1,6 +1,5 @@
 .tooltip {
   @include reset-text;
-
   display: block;
   font-size: $tooltip-font-size;
   line-height: $tooltip-line-height;
@@ -28,8 +27,12 @@
   @include border-radius($tooltip-border-radius);
   @include transition-standard(transform);
 
+  align-items: center;
   background-color: $tooltip-bg;
   color: $tooltip-color;
+  display: flex;
+  margin: auto;
+  height: 1.5rem; //addition
   padding: $tooltip-padding-y $tooltip-padding-x;
   text-align: center;
   transform: scale($tooltip-scale);
