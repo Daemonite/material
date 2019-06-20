@@ -1,0 +1,29 @@
+.img-fluid {
+  @include img-fluid;
+}
+
+.img-thumbnail {
+  /*  padding: $thumbnail-padding;
+  background-color: $thumbnail-bg;
+  border: $thumbnail-border-width solid $thumbnail-border-color;
+  @include border-radius($thumbnail-border-radius);
+  @include box-shadow($thumbnail-box-shadow);
+  */
+
+  box-shadow: $thumbnail-box-shadow;
+  @include img-fluid;
+}
+
+.figure {
+  display: inline-block;
+}
+
+.figure-img {
+  line-height: 1;
+  margin-bottom: $figure-img-margin-y;
+}
+
+.figure-caption {
+  @include typography-caption;
+  color: $figure-caption-color;
+}

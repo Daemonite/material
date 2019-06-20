@@ -1,8 +1,5 @@
 :root {
-  @each $bp, $value in $grid-breakpoints {
-    --breakpoint-#{$bp}: #{$value};
-  }
-
+  // Custom variable values only support SassScript inside `#{}`.
   @each $color, $value in $colors {
     --#{$color}: #{$value};
   }
@@ -16,10 +13,15 @@
       }
     }
   }
+  
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
 
-  --font-family-monospace: #{inspect($font-family-monospace)};
+  // Use `inspect` for lists so that quoted items keep the quotes.
+  // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
   --font-family-sans-serif: #{inspect($font-family-sans-serif)};
-  --font-family-serif: #{inspect($font-family-serif)};
+  --font-family-monospace: #{inspect($font-family-monospace)};
 }
 
 // stylelint-disable declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
@@ -266,7 +268,7 @@ a {
   text-decoration: $link-decoration;
   -webkit-text-decoration-skip: objects;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: $link-color-hover;
     text-decoration: $link-decoration-hover;
   }
@@ -276,7 +278,7 @@ a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: inherit;
     text-decoration: none;
   }

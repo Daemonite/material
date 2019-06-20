@@ -1,5 +1,3 @@
-// 4.3.1 ok
-
 .breadcrumb {
   @include border-radius($breadcrumb-border-radius);
 
@@ -20,7 +18,7 @@
   color: $breadcrumb-item-color;
   display: flex;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: $breadcrumb-item-color-hover;
   }
 
@@ -45,5 +43,18 @@
       display: inline-block;
       margin-right: $breadcrumb-inner-spacer-x;
     }
+  }
+
+  + .breadcrumb-item:hover::before {
+    text-decoration: underline;
+  }
+
+  // stylelint-disable-next-line no-duplicate-selectors
+  + .breadcrumb-item:hover::before {
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $breadcrumb-item-color-hover;
   }
 }

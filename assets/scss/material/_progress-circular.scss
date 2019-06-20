@@ -1,3 +1,56 @@
+//
+// Rotating border
+//
+
+.spinner-border {
+  display: inline-block;
+  width: $progress-circular-height;
+  height: $progress-circular-height;
+  vertical-align: text-bottom;
+  border: $progress-circular-spinner-width solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border ($progress-circular-animation-duration / 4) linear infinite; //.75s
+}
+
+.spinner-border-sm {
+  width: $progress-circular-height-sm;
+  height: $progress-circular-height-sm;
+  border-width: $progress-circular-spinner-width-sm;
+}
+
+
+//
+// Growing circle
+//
+
+@keyframes spinner-grow {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.spinner-grow {
+  display: inline-block;
+  width: $progress-circular-height;
+  height: $progress-circular-height;
+  vertical-align: text-bottom;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spinner-grow .75s linear infinite;
+}
+
+.spinner-grow-sm {
+  width: $progress-circular-height-sm;
+  height: $progress-circular-height-sm;
+}
+
+// Material
+
 .progress-circular {
   height: $progress-circular-height;
   position: relative;
@@ -60,7 +113,7 @@
 }
 
 .progress-circular-wrapper {
-  animation: progress-circular-wrapper-rotate ($progress-circular-animation-duration / 2) linear infinite;
+  animation: spinner-border ($progress-circular-animation-duration / 2) linear infinite;
 }
 
 @keyframes progress-circular-inner-rotate {
@@ -119,8 +172,8 @@
   }
 }
 
-@keyframes progress-circular-wrapper-rotate {
-  100% {
+@keyframes spinner-border {
+  to {
     transform: rotate(360deg);
   }
 }

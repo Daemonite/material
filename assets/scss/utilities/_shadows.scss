@@ -1,5 +1,9 @@
 // stylelint-disable declaration-no-important
 
+.shadow-sm {
+  box-shadow: map-get($shadows, 2) !important;
+}
+
 .shadow {
   box-shadow: map-get($shadows, 8) !important;
 }
@@ -8,13 +12,7 @@
   box-shadow: map-get($shadows, 24) !important;
 }
 
-.shadow-none {
-  box-shadow: none !important;
-}
-
-.shadow-sm {
-  box-shadow: map-get($shadows, 2) !important;
-}
+.shadow-none { box-shadow: none !important; }
 
 @each $shadow, $value in $shadows {
   .shadow-#{$shadow} {

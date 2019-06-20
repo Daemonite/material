@@ -1,5 +1,10 @@
 // stylelint-disable declaration-no-important
-// 4.3.1 ok
+
+//
+// Text
+//
+
+.text-monospace { font-family: $font-family-monospace !important; }
 
 // Alignment
 
@@ -8,7 +13,8 @@
 .text-nowrap   { white-space: nowrap !important; }
 .text-truncate { @include text-truncate; }
 
-// TODO with 4.3.1
+// Responsive alignment
+
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -19,7 +25,22 @@
   }
 }
 
-// Color
+// Transformation
+
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Weight and italics
+
+.font-weight-light   { font-weight: $font-weight-light !important; }
+.font-weight-lighter { font-weight: $font-weight-lighter !important; }
+.font-weight-normal  { font-weight: $font-weight-normal !important; }
+.font-weight-bold    { font-weight: $font-weight-bold !important; }
+.font-weight-bolder  { font-weight: $font-weight-bolder !important; }
+.font-italic         { font-style: italic !important; }
+
+// Contextual colors
 
 @include text-emphasis-variant('.text-black', $black);
 @include text-emphasis-variant('.text-black-primary', $black-primary);
@@ -37,21 +58,10 @@
   @include text-emphasis-variant('.text-#{$color}', theme-color($color), theme-color-dark($color));
 }
 
-
 .text-body { color: $body-color !important; }
 .text-black-50 { color: rgba($black, $black-secondary-opacity) !important; }
 .text-white-50 { color: rgba($white, $white-hint-opacity) !important; }
 
-// Family
-
-.text-monospace { font-family: $font-family-monospace !important; }
-
-// Italcs and weight
-
-.font-weight-light, .font-weight-lighter  { font-weight: $font-weight-light !important; }
-.font-weight-normal, .font-weight-regular { font-weight: $font-weight-regular !important; }
-.font-weight-bold, .font-weight-medium    { font-weight: $font-weight-medium !important; }
-.font-italic         { font-style: italic !important; }
 
 // Misc
 
@@ -66,8 +76,6 @@
   overflow-wrap: break-word !important;
 }
 
-// Transformation
+// Reset
 
-.text-lowercase  { text-transform: lowercase !important; }
-.text-uppercase  { text-transform: uppercase !important; }
-.text-capitalize { text-transform: capitalize !important; }
+.text-reset { color: inherit !important; }

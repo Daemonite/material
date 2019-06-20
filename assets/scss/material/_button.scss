@@ -1,7 +1,8 @@
+// Btn raised : https://material.io/design/components/buttons.html#
 .btn {
   @include border-radius($btn-border-radius);
-  @include transition-standard(box-shadow);
-  
+  @include transition-standard(all);
+
   -webkit-font-smoothing: antialiased;
   align-items: center;
   background-color: transparent;
@@ -19,6 +20,7 @@
   margin: 0 0 0 .5rem;
   max-width: 100%;
   min-width: $btn-min-width;
+  outline: none;
   overflow: hidden;
   padding: $btn-padding-y $btn-padding-x;
   position: relative;
@@ -27,23 +29,14 @@
   vertical-align: middle;
   white-space: nowrap;
 
-  @include hover {
-    &:not(:disabled):not(.disabled):not(.btn-link):not([class*='btn-outline-']):not([class*='btn-flat']) {
-      background-image: linear-gradient(to bottom, $btn-overlay-inverse, $btn-overlay-inverse);
-      box-shadow: map-get($btn-elevation-shadow-hover, shadow); // djibe addition
-      transition: background-image 15ms linear, box-shadow .28ms cubic-bezier(.4,0,.2,1);
-    }
+  @include hover-focus-active {
+    background-image: linear-gradient(to bottom, $btn-overlay-inverse, $btn-overlay-inverse);
+    box-shadow: map-get($btn-elevation-shadow-hover, shadow);
+    outline: 0;
   }
 
-  @include active-focus-hover {
-    color: $btn-color;
-    text-decoration: none;
-  }
-
-  @include active {
-    //background-color: $btn-bg-active;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,.37), rgba(255,255,255,.37));
-    //background-image: none;
+  &:active {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .24), rgba(255, 255, 255, .24));
     box-shadow: map-get($btn-elevation-shadow-active, shadow);
   }
 
@@ -53,18 +46,13 @@
     background-image: none;
     box-shadow: none;
     color: $btn-color-disabled;
-    opacity: 1;
-  }
-
-  &:focus {
-    outline: 0;
   }
 
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
 
-  .show > &.dropdown-toggle {
+  .show>&.dropdown-toggle {
     background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
   }
 }
@@ -74,34 +62,27 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 
-@each $color, $values in $theme-colors {
+@each $color,
+$values in $theme-colors {
   .btn-#{$color} {
     background-color: theme-color($color);
-    color: color-yiq(theme-color($color));
-
-    @include active-focus-hover {
-      color: color-yiq(theme-color($color));
-    }
-
-    &.active,
-    &:active {
-      background-color: theme-color-dark($color); // todo
-    }
-
-    &.disabled,
-    &:disabled {
-      background-color: $btn-bg-disabled;
-      color: $btn-color-disabled;
-    }
+    color: $white-primary; //color-yiq(theme-color($color));
   }
 }
 
 [class*='bg-dark'] :not([class*='bg-light']) .btn {
+
   &.disabled,
   &:disabled {
     background-color: $btn-bg-disabled-inverse;
     color: $btn-color-disabled-inverse;
   }
+}
+
+[class*='bg-outline']:hover,
+[class*='bg-outline']:active {
+  box-shadow: none;
+  transition: background-color 100ms linear;
 }
 
 .btn-lg,
@@ -119,40 +100,42 @@ fieldset:disabled a.btn {
 // Block button
 
 .btn-block {
-  display: block;
+  //display: block;
+  margin: 0;
   width: 100%;
 
-  + .btn-block {
+  +.btn-block {
     margin-top: $btn-block-margin-y;
   }
 }
 
-[type='button'],
+/*[type='button'],
 [type='reset'],
 [type='submit'] {
   &.btn-block {
     width: 100%;
   }
-}
+}*/
 
 // Link button
 
 .btn-link {
-  background-color: transparent;
+  //background-color: transparent;
   border-radius: 0;
   box-shadow: none;
   color: $link-color;
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-medium;
   text-decoration: $link-decoration;
   text-transform: none;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: $link-color-hover;
     text-decoration: $link-decoration-hover;
   }
 
-  @include focus-hover {
+  @include hover-focus {
     background-image: none;
+    box-shadow: none;
   }
 
   &.active,
@@ -173,4 +156,8 @@ fieldset:disabled a.btn {
 
 .btn-fluid {
   min-width: 0;
+}
+
+.btn-shaped {
+  border-radius: 1.125rem;
 }

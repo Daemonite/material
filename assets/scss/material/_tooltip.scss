@@ -1,9 +1,11 @@
 .tooltip {
-  @include reset-text;
+  //@include reset-text; // to check
   display: block;
   font-size: $tooltip-font-size;
+  font-weight: $tooltip-font-weight;
   line-height: $tooltip-line-height;
   margin: $tooltip-margin;
+  max-width: 250px;
   opacity: 0;
   position: absolute;
   word-break: break-word;
@@ -19,25 +21,35 @@
 
     .tooltip-inner {
       transform: scale(1);
+      @include transition-deceleration(transform);
     }
   }
 }
 
 .tooltip-inner {
   @include border-radius($tooltip-border-radius);
-  @include transition-standard(transform);
+  //@include transition-deceleration(transform);
+  //@include transition-standard(transform);
+  transition: transform 75ms $transition-timing-function-acceleration;
 
   align-items: center;
   background-color: $tooltip-bg;
   color: $tooltip-color;
   display: flex;
   margin: auto;
-  height: 1.5rem; //addition
+  height: $tooltip-height; // added 24px
   padding: $tooltip-padding-y $tooltip-padding-x;
-  text-align: center;
   transform: scale($tooltip-scale);
+  transform-origin: center top;
+
+  // How to ellipsis tooltip ???
+  max-width: 250px - (2*8px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
 
   @include media-breakpoint-up($tooltip-breakpoint) {
+    height: $tooltip-height-desktop;
     padding: $tooltip-padding-y-desktop $tooltip-padding-x-desktop;
   }
 }

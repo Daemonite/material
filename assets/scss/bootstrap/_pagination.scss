@@ -1,4 +1,5 @@
 .pagination {
+  //@include border-radius();
   background-color: $pagination-bg;
   display: flex;
   list-style: none;
@@ -8,24 +9,25 @@
 .page-link {
   @include border-radius($pagination-border-radius);
   @include transition-standard(color);
-
+  // background-color: $pagination-bg;
+  // border: $pagination-border-width solid $pagination-border-color;
   color: $pagination-color;
   display: block;
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
-  margin-left: $pagination-inner-spacer-x;
-  padding: $btn-padding-y $btn-padding-x;
+  line-height: $btn-line-height; // $pagination-line-height
+  margin-left: $pagination-inner-spacer-x; //-$pagination-border-width;
+  padding: $btn-padding-y $btn-padding-x; //$pagination-padding-y $pagination-padding-x
   position: relative;
   text-align: center;
   white-space: nowrap;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: $pagination-color;
     text-decoration: none;
   }
 
-  @include focus-hover {
+  @include hover-focus {
     background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
   }
 
@@ -58,6 +60,10 @@
     pointer-events: none;
   }
 }
+
+//
+// Sizing
+//
 
 .pagination-lg .page-link {
   font-size: $btn-font-size-lg;

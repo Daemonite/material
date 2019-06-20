@@ -12,6 +12,8 @@ $badge-border-radius: $border-radius !default;
 $badge-font-weight:   $font-weight-medium !default;
 $badge-padding-x:     .5em !default;
 
+$rounded-pill:   50rem !default;
+
 // Body
 
 $body-bg:    $white-primary !default;
@@ -79,6 +81,19 @@ $kbd-color:                 $white-primary !default;
 $pre-color:                 $black-primary !default;
 $pre-margin-y:              $spacer !default;
 $pre-scrollable-max-height: 340px !default;
+
+// Embed
+$embed-responsive-aspect-ratios: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$embed-responsive-aspect-ratios: join(
+  (
+    (21 9),
+    (16 9),
+    (4 3),
+    (1 1),
+  ),
+  $embed-responsive-aspect-ratios
+);
 
 // Form
 
@@ -183,7 +198,9 @@ $popover-padding-y:        1.25rem !default;
 
 // Utilities
 
+$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
 $overflows: auto, hidden !default;
+$positions: static, relative, absolute, fixed, sticky !default;
 
 // Printing
 
