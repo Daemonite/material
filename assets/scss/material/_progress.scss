@@ -6,7 +6,11 @@
   display: flex;
   overflow: hidden;
   position: relative;
+  white-space: nowrap;
   z-index: 1;
+
+  /*@include font-size($progress-font-size);
+  background-color: $progress-bg;*/
 }
 
 .progress-bar {
@@ -52,6 +56,10 @@
 
     @include media-breakpoint-up(lg) {
       animation-duration: $transition-duration-desktop;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
     }
   }
 }

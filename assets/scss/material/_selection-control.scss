@@ -1,19 +1,23 @@
+// Checkboxes and radios
+//
+// Base class takes care of all the key behavioral aspects.
+
 .custom-control {
   display: block;
-  min-height: ($font-size-base * $line-height-base);
-  padding-left: ($selection-control-indicator-size + $selection-control-spacer-x);
+  min-height: $font-size-base * $line-height-base;
+  padding-left: $selection-control-spacer-x + $selection-control-indicator-size;
   position: relative;
 
-  + .custom-control {
+  +.custom-control {
     margin-top: $selection-control-spacer-y;
   }
 }
 
 .custom-control-inline {
   display: inline-flex;
-  margin-right: ($selection-control-spacer-x * 2);
+  margin-right: $selection-control-spacer-x * 2; //$custom-control-spacer-x
 
-  + .custom-control-inline {
+  +.custom-control-inline {
     margin-top: 0;
   }
 }
@@ -25,15 +29,11 @@
   font-size: $font-size-base;
   line-height: inherit;
   margin-bottom: 0;
+  //position: relative;
   user-select: none; // djibe addition
+  vertical-align: top;
 
-  &::after {
-    color: $selection-control-color;
-    position: absolute;
-    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
-    left: 0;
-  }
-
+  // Background-color and (when enabled) gradient
   &::before {
     @include transition-standard(background-color, opacity, transform);
 
@@ -52,6 +52,15 @@
     transform: scale(.87, .87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
   }
+
+  // Foreground (icon)
+  &::after {
+    color: $selection-control-color;
+    display: block;
+    position: absolute;
+    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
+    left: 0;
+  }
 }
 
 .custom-control-input {
@@ -60,20 +69,20 @@
   z-index: -1;
 
   &:not([disabled]):hover {
-    ~ .custom-control-label {
+    ~.custom-control-label {
       cursor: pointer; // djibe addition
     }
   }
 
   &.focus,
   &:active {
-    ~ .custom-control-label::before {
+    ~.custom-control-label::before {
       opacity: $selection-control-radial-opacity;
       transform: scale(1, 1) translateZ(0);
     }
   }
 
-  &:checked ~ {
+  &:checked~ {
     .custom-control-label {
       &::after {
         color: $selection-control-color-active;
@@ -85,7 +94,7 @@
     }
   }
 
-  &:disabled ~ {
+  &:disabled~ {
     .custom-control-label {
       color: $selection-control-color-disabled;
 
@@ -100,7 +109,9 @@
   }
 }
 
-// Checkbox
+// Checkboxes
+//
+// Tweak just a few things for checkboxes.
 
 .custom-checkbox {
   .custom-control-label::after {
@@ -112,11 +123,11 @@
   }
 
   .custom-control-input {
-    &:checked ~ .custom-control-label::after {
+    &:checked~.custom-control-label::after {
       content: $selection-control-checkbox-icon-checked;
     }
 
-    &:indeterminate ~ .custom-control-label::after {
+    &:indeterminate~.custom-control-label::after {
       content: $selection-control-checkbox-icon-indeterminate;
     }
   }
@@ -133,9 +144,10 @@
     vertical-align: middle;
   }
 
-  .custom-control-input {
-    &:checked ~ .custom-control-label::after {
+  .custom-control-input:checked~.custom-control-label {
+    &::after {
       content: $selection-control-radio-icon-checked;
+      // background-image: $custom-radio-indicator-icon-checked;
     }
   }
 }
@@ -145,40 +157,39 @@
 // Tweak a few things for switches
 
 .custom-switch {
-  padding-left: $selection-control-track-width + $selection-control-spacer-x;
+  padding-left: $custom-switch-width + $custom-control-gutter;
 
   .custom-control-label {
-    @include transition-standard(background-color);
-
     &::before {
-      left: -($selection-control-indicator-size + $selection-control-gutter);
-      width: $selection-control-indicator-size;
+      left: -($custom-switch-width + $custom-control-gutter);
+      width: $custom-switch-width;
       pointer-events: all;
-      border-radius: $selection-control-border-radius;
+      // stylelint-disable-next-line property-blacklist
+      border-radius: $custom-switch-indicator-border-radius;
     }
 
     &::after {
-      top: calc(#{(($font-size-base * $line-height-base - $selection-control-indicator-size) / 2)} + #{$selection-control-border-width * 2});
-      left: calc(#{-($selection-control-indicator-size + $selection-control-gutter)} + #{$selection-control-border-width * 2});
-      width: $selection-control-indicator-size;
-      height: $selection-control-indicator-size;
-      //background-color: $custom-control-indicator-border-color; test djibe
-      border-radius: $selection-control-border-radius;
-      //@include transition(transform .15s ease-in-out, $custom-forms-transition); remove djibe
-      @include transition-standard(background-color, transform);
+      top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
+      left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
+      width: $custom-switch-indicator-size;
+      height: $custom-switch-indicator-size;
+      background-color: $custom-control-indicator-border-color;
+      // stylelint-disable-next-line property-blacklist
+      border-radius: $custom-switch-indicator-border-radius;
+      transition: transform .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      background-color: $selection-control-thumb-bg;
-      transform: translateX($selection-control-track-width - $selection-control-indicator-size);
+      background-color: $custom-control-indicator-bg;
+      transform: translateX($custom-switch-width - $custom-control-indicator-size);
     }
   }
 
   .custom-control-input:disabled {
     &:checked ~ .custom-control-label::before {
-      background-color: $selection-control-thumb-bg-disabled;
+      background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
 }

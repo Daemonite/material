@@ -7,8 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="../material.css">
+    <!--<link rel="stylesheet" href="https://www.diabeclic.com/daemonite/materialWIP.css">-->
+	<link href="../material.css" rel="stylesheet">
 	<style>
+	.toast {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		align-items: flex-start;
+	}
+	
+	.toast .btn, .toast .close {
+		margin-top: 6px;
+	}
 	</style>
   </head>
   <body>
@@ -98,6 +110,30 @@
       ================================================== -->
       <div class="bs-docs-section clearfix">
         <div class="row">
+		<div class="col-lg-12">
+		<!-- should be from 4 to 10 sec -->
+		<div id="toast" class="toast show" data-delay="10000" role="alert" aria-live="assertive" aria-atomic="true">
+  <!--<div class="toast-header">
+    <img src="..." class="rounded mr-2" alt="...">
+    <strong class="mr-auto">Bootstrap</strong>
+    <small>11 mins ago</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>-->
+  <div class="toast-body">
+    This item already has the label "travel". You can add a new label.
+  </div>
+  <button type="button" class="btn btn-flat-primary">Add a new label</button>
+  <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+	
+</div>
+<a class="btn btn-primary" id="btnToast" href="#">Send toast</a>
+		</div>
+		
+		
           <div class="col-lg-12">
             <div class="page-header">
               <h1 id="navbars">Navbars</h1>
@@ -211,8 +247,8 @@
 
         <div class="row">
           <div class="col-lg-7">
-
             <p class="bs-component">
+			  <button type="button" class="btn">Btn</button>
               <button type="button" class="btn btn-primary">Primary</button>
               <button type="button" class="btn btn-secondary">Secondary</button>
               <button type="button" class="btn btn-success">Success</button>
@@ -221,8 +257,16 @@
               <button type="button" class="btn btn-danger">Danger</button>
               <button type="button" class="btn btn-link">Link</button>
             </p>
+			
+			<p class="bs-component">
+			<p class="typography-overline">Resized buttons</p>
+              <button type="button" class="btn btn-primary btn-sm">Small</button>
+			  <button type="button" class="btn btn-primary btn-lg">Large</button>
+			  <button type="button" class="btn btn-primary btn-shaped">Shaped</button>
+            </p>
 
             <p class="bs-component">
+			<p class="typography-overline">Disabled buttons</p>
               <button type="button" class="btn btn-primary disabled">Primary</button>
               <button type="button" class="btn btn-secondary disabled">Secondary</button>
               <button type="button" class="btn btn-success disabled">Success</button>
@@ -233,6 +277,7 @@
             </p>
 
             <p class="bs-component">
+			<p class="typography-overline">Outlined buttons</p>
               <button type="button" class="btn btn-outline-primary">Primary</button>
               <button type="button" class="btn btn-outline-secondary">Secondary</button>
               <button type="button" class="btn btn-outline-success">Success</button>
@@ -298,13 +343,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="bs-component">
-              <button type="button" class="btn btn-primary btn-lg">Large button</button>
-              <button type="button" class="btn btn-primary">Default button</button>
-              <button type="button" class="btn btn-primary btn-sm">Small button</button>
-            </div>
-
           </div>
           <div class="col-lg-5">
 
@@ -659,6 +697,14 @@
                   </fieldset>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </fieldset>
+				
+				<div class="form-group">
+				
+  <div class="floating-label textfield-box mt-3">
+    <label for="exampleFloatingBox1">Floating label</label>
+    <input class="form-control" id="exampleFloatingBox1" placeholder="Optional placeholder" type="text">
+  </div>
+</div>
               </form>
             </div>
           </div>
@@ -787,6 +833,19 @@
 				</div>
               </fieldset>
             </div>
+			<div class="bs-component">
+			<p><div class="spinner-border text-primary" role="status">
+				  <span class="sr-only">Loading...</span>
+				</div></p>
+				<p>
+				<div class="spinner-border spinner-border-sm" role="status">
+				  <span class="sr-only">Loading...</span>
+				</div>
+				<div class="spinner-grow spinner-grow-sm" role="status">
+				  <span class="sr-only">Loading...</span>
+				</div>
+				</p>
+			</div>
 
           </div>
         </div>
@@ -1480,9 +1539,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
   <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-body">
-	  Discard draft?
-      </div>
+      <div class="modal-body typography-body-1">Discard draft?</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-flat-primary" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-flat-primary">Discard</button>
@@ -1562,7 +1619,7 @@ The Wonderful Wizard of Oz</h5>
 
               <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Bottom</button>
 
-              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Right</button>
+              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right extra long text to ensure it's working and not long enough">Right</button>
 			  
 			  <!--<div class="tooltip fade bs-tooltip-right show">
 				<div class="tooltip-inner">
@@ -1630,6 +1687,10 @@ The Wonderful Wizard of Oz</h5>
 	<script>
 	$('[data-toggle="tooltip"]').tooltip();
 	$('[data-toggle="popover"]').popover();
+	$('#btnToast').on('click', function() {
+		$('#toast').toast('show');
+	});
+	
 	</script>
   </body>
 </html>

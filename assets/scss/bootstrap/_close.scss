@@ -10,9 +10,10 @@
   font-size: $close-font-size;
   font-weight: $close-font-weight;
   line-height: 1;
+  // opacity: .5;
   padding: 0;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: $close-color-hover;
     text-decoration: none;
   }
@@ -24,4 +25,15 @@
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
+}
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+}
+
+a.close.disabled {
+  pointer-events: none;
 }

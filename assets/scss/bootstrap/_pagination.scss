@@ -2,56 +2,59 @@
   background-color: $pagination-bg;
   display: flex;
   list-style: none;
-  padding: $pagination-padding-y $pagination-padding-x;
+  margin: $pagination-margin-x;
 }
 
 .page-link {
   @include border-radius($pagination-border-radius);
-  @include transition-standard(color);
+  @include transition-standard(all);
 
+  align-items: center;
   color: $pagination-color;
-  display: block;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
+  display: flex;
+  font-size: $pagination-font-size;
+  font-weight: $pagination-font-weight;
+  justify-content: center;
+  line-height: $pagination-line-height;
   margin-left: $pagination-inner-spacer-x;
-  padding: $btn-padding-y $btn-padding-x;
   position: relative;
   text-align: center;
+  width: $pagination-line-height * $pagination-font-size;
   white-space: nowrap;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
+    background-color: rgba(0, 0, 0, $btn-hover-white-opacity); //linear-gradient(to bottom, rgba(0,0,0,$btn-hover-white-opacity), rgba(0,0,0,$btn-hover-white-opacity));
     color: $pagination-color;
     text-decoration: none;
-  }
-
-  @include focus-hover {
-    background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
-  }
-
-  &.active,
-  &:active {
-    background-color: $btn-bg-active;
-    background-image: none;
+    z-index: 2;
   }
 
   &:focus {
-    outline: 0;
+    background-color: rgba(0, 0, 0, $btn-focus-white-opacity);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, $btn-active-white-opacity);
   }
 
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
+}
 
-  .page-item:first-child & {
-    margin-left: 0;
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+    }
   }
 
-  .page-item.active & {
-    background-color: $btn-bg-active;
+  &.active .page-link {
+    background-color: theme-color(primary);
+    color: $white;
   }
 
-  .page-item.disabled & {
+  &.disabled .page-link {
     background-color: transparent;
     color: $pagination-color-disabled;
     cursor: auto;
@@ -59,12 +62,17 @@
   }
 }
 
+
+//
+// Sizing
+//
+
 .pagination-lg .page-link {
-  font-size: $btn-font-size-lg;
-  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $pagination-font-size-lg;
+  width: $pagination-line-height * $pagination-font-size-lg;
 }
 
 .pagination-sm .page-link {
-  font-size: $btn-font-size-sm;
-  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  font-size: $pagination-font-size-sm;
+  width: $pagination-line-height * $pagination-font-size-sm;
 }

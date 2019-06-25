@@ -20,7 +20,7 @@
     opacity: $toolbar-element-opacity;
     padding: (($textfield-height - $textfield-font-size * $textfield-line-height) / 2) $toolbar-inner-spacer-x;
 
-    @include focus-hover {
+    @include hover-focus {
       box-shadow: none;
       opacity: 1;
     }
@@ -43,7 +43,7 @@
     background-color: $toolbar-element-bg;
     opacity: $toolbar-element-opacity;
 
-    @include focus-hover {
+    @include hover-focus {
       opacity: 1;
     }
 
@@ -97,7 +97,8 @@
     }
   }
 
-  > .container {
+  > .container,
+  > .container-fluid {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -176,12 +177,12 @@
 
   align-items: center;
   color: inherit;
-  display: inline-flex;
+  display: inline-flex; // inline-block
   height: $toolbar-element-height;
   position: relative;
   white-space: nowrap;
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     color: inherit;
     text-decoration: none;
   }
@@ -220,7 +221,7 @@
 .navbar-text {
   align-items: center;
   color: inherit;
-  display: inline-flex;
+  display: inline-flex; // inline-block
   flex-wrap: wrap;
   height: $toolbar-element-height;
 }
@@ -229,7 +230,7 @@
 
 .navbar-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
@@ -245,7 +246,7 @@
     opacity: $toolbar-element-opacity;
     padding: $toolbar-link-padding-y $toolbar-link-padding-x;
 
-    @include active-focus-hover {
+    @include hover-focus-active {
       background-color: $toolbar-element-bg;
       opacity: 1;
     }
@@ -273,6 +274,11 @@
   .show > .nav-link {
     background-color: $toolbar-element-bg;
   }
+
+  /*.dropdown-menu {
+    position: static;
+    float: none;
+  }*/
 }
 
 // Toggleable
@@ -285,8 +291,8 @@
 
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint);
-    $infix: breakpoint-infix($next);
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
@@ -301,22 +307,34 @@
         flex-flow: row nowrap;
         justify-content: flex-start;
 
+        .navbar-nav {
+          flex-direction: row;
+
+          .dropdown-menu {
+            position: absolute;
+          }
+
+          .nav-link {
+            padding-right: $toolbar-link-padding-x;
+            padding-left: $toolbar-link-padding-x;
+          }
+        }
+
+        // For nesting containers, have to redeclare for alignment purposes
+        > .container,
+        > .container-fluid {
+          flex-wrap: nowrap;
+        }
+
         .navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
+
+          // Changes flex-bases to auto because of an IE10 bug
           flex-basis: auto;
         }
 
         .navbar-toggler {
           display: none;
-
-          &:first-child + .navbar-brand {
-            margin-left: 0;
-          }
-        }
-
-        > .container,
-        > .container-fluid {
-          flex-wrap: nowrap;
         }
       }
     }
@@ -338,7 +356,7 @@
   position: relative;
   width: $toolbar-element-height;
 
-  @include active-focus-hover {
+  @include hover-focus {
     color: inherit;
     text-decoration: none;
 
@@ -374,9 +392,122 @@
 .navbar-toggler-icon {
   @include set-material-icons;
 
+  /*display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%;*/
+
   display: block;
 
   &::before {
     content: $toolbar-toggler-icon;
   }
 }
+
+// Dark links against a light background
+// todo
+/*.navbar-light {
+  .navbar-brand {
+    color: $navbar-light-brand-color;
+
+    @include hover-focus {
+      color: $navbar-light-brand-hover-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-light-color;
+
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-light-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-light-toggler-icon-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-light-color;
+    a {
+      color: $navbar-light-active-color;
+
+      @include hover-focus {
+        color: $navbar-light-active-color;
+      }
+    }
+  }
+}
+
+// White links against a dark background
+.navbar-dark {
+  .navbar-brand {
+    color: $navbar-dark-brand-color;
+
+    @include hover-focus {
+      color: $navbar-dark-brand-hover-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-dark-color;
+
+      @include hover-focus {
+        color: $navbar-dark-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $navbar-dark-active-color;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-dark-color;
+    border-color: $navbar-dark-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-dark-toggler-icon-bg;
+  }
+
+  .navbar-text {
+    color: $navbar-dark-color;
+    a {
+      color: $navbar-dark-active-color;
+
+      @include hover-focus {
+        color: $navbar-dark-active-color;
+      }
+    }
+  }
+}*/

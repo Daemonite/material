@@ -34,7 +34,7 @@
     color: $textfield-color-disabled;
     opacity: 1;
 
-    @include focus-hover {
+    @include hover-focus {
       border-color: $textfield-border-color;
       box-shadow: none;
     }
@@ -168,25 +168,28 @@ textarea {
     }
   }
 }
-// stylelint-enable
+
+// File
+//
+// Custom file input.
 
 .custom-file {
   display: inline-block;
-  height: $textfield-height;
+  height: $textfield-height; //$custom-file-height
   margin-bottom: 0;
   position: relative;
   width: 100%;
 }
 
 .custom-file-input {
-  height: $textfield-height;
+  height: $textfield-height; //$custom-file-height
   margin: 0;
   opacity: 0;
   position: relative;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
-  @include focus-hover {
+  @include hover-focus {
     ~ .custom-file-label {
       border-bottom-color: $textfield-border-color-focus;
       box-shadow: inset 0 ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
@@ -201,13 +204,14 @@ textarea {
   border-bottom: $textfield-border-width solid $textfield-border-color;
   color: $textfield-hint-color;
   font-size: $textfield-font-size;
-  height: $textfield-height;
-  line-height: $textfield-line-height;
+  height: $textfield-height; //$custom-file-height
+  line-height: $textfield-line-height; //$custom-file-line-height
   padding: $textfield-padding-y ($material-icon-size + $selection-control-spacer-x) calc(#{$textfield-padding-y} - #{$textfield-border-width}) $textfield-padding-x;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1;
 
   &::after {
     @include set-material-icons;
@@ -230,18 +234,8 @@ textarea {
   }
 }
 
-.custom-select-lg {
-  font-size: $textfield-font-size-lg;
-  line-height: $textfield-line-height-lg;
-  padding: $textfield-padding-y-lg $textfield-select-bg-size calc(#{$textfield-padding-y-lg} - #{$textfield-border-width}) $textfield-padding-x-lg;
-
-  &[multiple],
-  &[size]:not([size='1']) {
-    padding: calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width}) $textfield-box-padding-x-lg;
-  }
-}
-
 .custom-select-sm {
+  // height: $custom-select-height-sm;
   font-size: $textfield-font-size-sm;
   line-height: $textfield-line-height-sm;
   padding: $textfield-padding-y-sm $textfield-select-bg-size calc(#{$textfield-padding-y-sm} - #{$textfield-border-width}) $textfield-padding-x-sm;
@@ -249,6 +243,18 @@ textarea {
   &[multiple],
   &[size]:not([size='1']) {
     padding: calc(#{$textfield-box-padding-y-sm} - #{$textfield-border-width}) $textfield-box-padding-x-sm;
+  }
+}
+
+.custom-select-lg {
+  //  height: $custom-select-height-lg
+  font-size: $textfield-font-size-lg;
+  line-height: $textfield-line-height-lg;
+  padding: $textfield-padding-y-lg $textfield-select-bg-size calc(#{$textfield-padding-y-lg} - #{$textfield-border-width}) $textfield-padding-x-lg;
+
+  &[multiple],
+  &[size]:not([size='1']) {
+    padding: calc(#{$textfield-box-padding-y-lg} - #{$textfield-border-width}) $textfield-box-padding-x-lg;
   }
 }
 

@@ -1,0 +1,43 @@
+.fade {
+  //@include transition-standard(opacity);
+  transition: opacity $transition-duration-desktop-complex $transition-timing-function-standard;
+
+  &:not(.show) {
+    opacity: 0;
+  }
+
+  /*opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }*/
+}
+
+.collapse {
+  &:not(.show) {
+    display: none;
+  }/*
+  display: none;
+
+  &.show {
+    display: block;
+  }*/
+}
+
+.collapsing {
+  @include transition-standard(height);
+
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+// stylelint-disable-next-line selector-no-qualifying-type
+tbody.collapse.show {
+  display: table-row-group;
+}
+
+// stylelint-disable-next-line selector-no-qualifying-type
+tr.collapse.show {
+  display: table-row;
+}

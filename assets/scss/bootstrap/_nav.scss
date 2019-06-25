@@ -10,13 +10,15 @@
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
-  @include active-focus-hover {
+  @include hover-focus {
     text-decoration: none;
   }
 
+  // Disabled state lightens text
   &.disabled {
     color: $nav-link-color-disabled;
     cursor: default;
+    pointer-events: none;
   }
 }
 
@@ -47,7 +49,7 @@
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
 
-    @include active-focus-hover {
+    @include hover-focus-active {
       background-color: $nav-pills-bg-hover;
     }
 

@@ -1,21 +1,22 @@
 .card {
-  @include border-radius($card-border-radius);
-
+  background-clip: border-box;
   background-color: $card-bg;
+  border-radius: $card-border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   position: relative;
   word-wrap: break-word;
 
+  // Keep ?
   @each $color, $values in $theme-colors {
     &.border-#{$color} {
       box-shadow: map-get($card-elevation-shadow, shadow), inset 0 0 0 $card-border-width theme-color($color);
 
       &[href],
       &[tabindex] {
-        @include active-focus-hover {
+        @include hover-focus-active {
           box-shadow: map-get($card-elevation-shadow-hover, shadow), inset 0 0 0 $card-border-width theme-color($color);
         }
       }
@@ -24,13 +25,30 @@
 
   &[href],
   &[tabindex] {
-    @include active-focus-hover {
+    @include hover-focus-active {
       box-shadow: map-get($card-elevation-shadow-hover, shadow);
       text-decoration: none;
     }
 
     &:focus {
       outline: 0;
+    }
+  }
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group:first-child {
+    .list-group-item:first-child {
+      @include border-top-radius($card-border-radius);
+    }
+  }
+
+  > .list-group:last-child {
+    .list-group-item:last-child {
+      @include border-bottom-radius($card-border-radius);
     }
   }
 }
@@ -117,6 +135,7 @@
 .card-body {
   flex: 1 1 auto;
   padding: $card-padding-y $card-padding-x;
+  //color: $card-color;
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -134,6 +153,7 @@
 // Footer
 
 .card-footer {
+  // background-color: $card-cap-bg;
   border-top: $card-border-width solid $card-border-color;
   padding: $card-padding-y $card-padding-x;
 
@@ -144,7 +164,7 @@
   }
 
   &:last-child {
-    @include border-bottom-radius($card-border-radius);
+    @include border-bottom-radius($card-border-radius); //@include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
   }
 
   > :last-child {
@@ -155,12 +175,18 @@
 // Header
 
 .card-header {
+  //background-color: $card-cap-bg;
   border-bottom: $card-border-width solid $card-border-color;
-  margin-bottom: 0;
+  //color: $card-cap-color;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
   padding: $card-padding-y $card-padding-x;
 
   &:first-child {
-    @include border-top-radius($card-border-radius);
+    @include border-top-radius($card-border-radius); //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0)
+  }
+
+  + .list-group .list-group-item:first-child {
+    border-top: 0;
   }
 
   &:last-child {
@@ -169,9 +195,7 @@
     border-bottom: 0;
   }
 
-  + .list-group .list-group-item:first-child {
-    border-top: 0;
-  }
+  
 }
 
 .card-header-pills {
@@ -187,6 +211,7 @@
 }
 
 .card-header-tabs {
+  //border-bottom: 0;
   margin: ($card-padding-y * -1) ($card-padding-x * -1) calc(#{$card-padding-y * -1} - #{$card-border-width});
 }
 
@@ -194,14 +219,17 @@
 
 .card-img {
   @include border-radius($card-border-radius);
+  width: 100%;
 }
 
 .card-img-bottom {
   @include border-bottom-radius($card-border-radius);
+  width: 100%;
 }
 
 .card-img-top {
   @include border-top-radius($card-border-radius);
+  width: 100%;
 }
 
 // Image overlay
@@ -215,7 +243,9 @@
   left: 0;
 }
 
-// Set
+//
+// Columns : todo
+//
 
 .card-columns {
   column-count: $card-columns-count;
@@ -238,19 +268,25 @@
 }
 
 .card-deck {
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    margin-bottom: $card-margin-y; //$card-deck-margin
+  }
+
   @include media-breakpoint-up(sm) {
-    display: flex;
     flex-flow: row wrap;
     margin-right: ($card-margin-x / -2);
     margin-left: ($card-margin-x / -2);
-  }
 
-  .card {
-    margin-bottom: $card-margin-y;
-
-    @include media-breakpoint-up(sm) {
-      flex: 1 0 0;
+    .card {
+      display: flex;
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      flex-direction: column;
       margin-right: ($card-margin-x / 2);
+      margin-bottom: 0; // Override the default
       margin-left: ($card-margin-x / 2);
     }
   }
@@ -316,9 +352,9 @@
 // Text and title
 
 .card-link {
-  font-weight: 500; //addition
+  font-weight: $font-weight-bold; //addition
 
-  @include active-focus-hover {
+  @include hover-focus-active {
     text-decoration: none;
   }
 
@@ -327,10 +363,20 @@
   }
 }
 
+.card-title {
+  @include typography-headline-6;
+
+  margin-bottom: $card-inner-spacer-y;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .card-subtitle {
   @include typography-subtitle-2;
 
-  margin-top: ($card-inner-spacer-y * -1);
+  margin-top: ($card-inner-spacer-y * -1); //-$card-spacer-y / 2;
   margin-bottom: 0;
 }
 
@@ -338,16 +384,6 @@
   @include typography-body-2;
 
   color: $black-secondary;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.card-title {
-  @include typography-headline-6;
-
-  margin-bottom: $card-inner-spacer-y;
 
   &:last-child {
     margin-bottom: 0;

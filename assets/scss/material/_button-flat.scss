@@ -1,14 +1,20 @@
-// djibe edit from https://material-components.github.io/material-components-web-catalog/#/component/button?label=HYPERLONG%20TEXT&type=raised
-
+// Btn flat and outlined : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
 
 [class*='btn-flat'],
 [class*='btn-outline'] {
-  background-color: transparent;
   box-shadow: none;
 
-  &.active,
-  &:active {
+@include hover-focus-active {
     box-shadow: none;
+    color: rgba($black, .87);
+  }
+
+  &:hover {
+    background-color: rgba(0,0,0,$btn-hover-white-opacity);
+  }
+
+  &:active {
+    background-color: rgba(0,0,0,$btn-active-white-opacity);
   }
 
   &.disabled,
@@ -20,12 +26,25 @@
 @each $color, $values in $theme-colors {
   .btn-flat-#{$color},
   .btn-outline-#{$color} {
-    @include plain-active-focus-hover {
+    @include plain-hover-focus {
       color: theme-color($color);
+    }
+
+    &:hover {
+      background-color: rgba(theme-color($color), $btn-hover-white-opacity);
+    }
+
+    &:focus {
+      background-color: rgba(theme-color($color), $btn-focus-white-opacity);
+    }
+
+    &:active {
+      background-color: rgba(theme-color($color), $btn-active-white-opacity);
     }
 
     &.disabled,
     &:disabled {
+      background-color: $btn-bg-disabled;
       color: $btn-color-disabled;
     }
   }
@@ -36,7 +55,7 @@
 
 .btn-flat-light,
 .btn-outline-light {
-  @include focus-hover {
+  @include hover-focus {
     background-image: linear-gradient(to bottom, $btn-overlay-inverse, $btn-overlay-inverse);
   }
 

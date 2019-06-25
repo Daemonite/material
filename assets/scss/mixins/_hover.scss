@@ -1,37 +1,26 @@
-@mixin active-focus-hover {
-  &:active,
-  &:focus,
-  &:hover {
-    @content;
-  }
-}
-
-@mixin focus-hover {
-  &:focus,
-  &:hover {
-    @content;
-  }
-}
-
 @mixin hover {
-  &:hover {
+  &:hover { @content; }
+}
+
+@mixin hover-focus {
+  &:hover,
+  &:focus {
     @content;
   }
 }
 
-@mixin active {
-  // djibe addition
-  &.active,
-  &:active {
-    @content;
-  }
-}
-
-@mixin plain-active-focus-hover {
+@mixin plain-hover-focus {
   &,
-  &:active,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin hover-focus-active {
+  &:hover,
   &:focus,
-  &:hover {
+  &:active {
     @content;
   }
 }

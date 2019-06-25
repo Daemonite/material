@@ -1,43 +1,44 @@
-// 4.3.1 ok
+// Base class
+//
+// Requires one of the contextual, color modifier classes for `color` and
+// `background-color`.
 
 .badge {
   @include border-radius($badge-border-radius);
+  //@include transition($badge-transition);
 
   align-items: center;
   display: inline-flex;
-  font-size: inherit;
+  font-size: inherit; //@include font-size($badge-font-size);
   font-weight: $badge-font-weight;
   line-height: inherit;
   padding-right: $badge-padding-x;
   padding-left: $badge-padding-x;
   text-align: center;
-  vertical-align: baseline;
   white-space: nowrap;
 
-  &:empty {
-    display: none;
+  @at-root a#{&} {
+    @include hover-focus {
+      text-decoration: none;
+    }
   }
 
   .btn & {
-    margin-top: -1px;
-    margin-bottom: -1px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    position: absolute;
+    top: -$badge-width / 2;
+    right: -$badge-width / 2;
+    border-radius: 50%;
+    width: $badge-width;
+    height: $badge-width;
+    line-height: $badge-width;
+    display: inline-block;
+    font-weight: 600;
+    font-size: .75rem;
   }
-}
 
-@each $color, $values in $theme-colors {
-  .badge-#{$color} {
-    background-color: theme-color($color);
-    color: color-yiq(theme-color($color));
-
-    &[href] {
-      @include active-focus-hover {
-        background-color: theme-color-dark($color);
-        color: color-yiq(theme-color-dark($color));
-        text-decoration: none;
-      }
-    }
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
   }
 }
 
@@ -45,4 +46,23 @@
 
 .badge-pill {
   @include border-radius(1em);
+
+  //padding-right: $badge-pill-padding-x;
+  //padding-left: $badge-pill-padding-x;
+}
+
+@each $color,
+$values in $theme-colors {
+  .badge-#{$color} {
+    background-color: theme-color($color);
+    color: color-yiq(theme-color($color));
+
+    &[href] {
+      @include hover-focus-active {
+        background-color: theme-color-dark($color);
+        color: color-yiq(theme-color-dark($color));
+        text-decoration: none;
+      }
+    }
+  }
 }

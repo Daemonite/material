@@ -1,46 +1,6 @@
-// Blockquote
-
-.blockquote {
-  @include typography-body-1;
-
-  border-left: $blockquote-border-width solid $blockquote-border-color;
-  margin-bottom: $paragraph-margin-y;
-  padding: 0 $spacer;
-}
-
-.blockquote-footer {
-  @include typography-caption;
-
-  color: $blockquote-small-color;
-  display: block;
-  margin-top: $spacer-xs;
-
-  &::before {
-    content: '\2014 \00A0';
-  }
-}
-
-// Emphasis
-
-mark,
-.mark {
-  background-color: $mark-bg;
-  color: $mark-color;
-  padding: $mark-padding;
-}
-
-small,
-.small {
-  font-size: $small-font-size;
-  font-weight: $font-weight-regular;
-}
-
-.initialism {
-  font-size: 90%;
-  text-transform: uppercase;
-}
-
+//
 // Headings
+//
 
 .typography-headline-1 {
   @include typography-headline-1;
@@ -92,74 +52,31 @@ small,
 
 // Headings - bootstrap classes
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   color: $headings-color;
   font-family: $headings-font-family;
   margin-bottom: $headings-margin-y;
 }
 
-h1,
-.h1 {
-  @include typography-headline-1;
-}
+h1, .h1, .display-1 { @include typography-headline-1; }
 
-h2,
-.h2 {
-  @include typography-headline-2;
-}
+h2, .h2, .display-2 { @include typography-headline-2; }
 
-h3,
-.h3 {
-  @include typography-headline-3;
-}
+h3, .h3, .display-3 { @include typography-headline-3; }
 
-h4,
-.h4 {
-  @include typography-headline-4;
-}
+h4, .h4, .display-4 { @include typography-headline-4; }
 
-h5,
-.h5 {
-  @include typography-headline-5;
-}
+h5, .h5 { @include typography-headline-5; }
 
-h6,
-.h6 {
-  @include typography-headline-6;
-}
+h6, .h6 { @include typography-headline-6; }
 
-.display-1 {
-  @include typography-headline-1;
-}
+.lead { @include typography-headline-6; }
 
-.display-2 {
-  @include typography-headline-2;
-}
 
-.display-3 {
-  @include typography-headline-3;
-}
-
-.display-4 {
-  @include typography-headline-4;
-}
-
-.lead {
-  @include typography-headline-6;
-}
-
-// Hr
+//
+// Horizontal rules
+//
 
 hr {
   border: 0;
@@ -168,7 +85,30 @@ hr {
   margin-bottom: $paragraph-margin-y;
 }
 
-// List
+//
+// Emphasis
+//
+
+small,
+.small {
+  font-size: $small-font-size;
+  font-weight: $font-weight-regular;
+}
+
+mark,
+.mark {
+  background-color: $mark-bg;
+  color: $mark-color;
+  padding: $mark-padding;
+}
+
+//
+// Lists
+//
+
+.list-unstyled {
+  @include list-unstyled;
+}
 
 .list-inline {
   @include list-unstyled;
@@ -182,6 +122,35 @@ hr {
   }
 }
 
-.list-unstyled {
-  @include list-unstyled;
+//
+// Misc
+//
+
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
 }
+
+// Blockquotes
+.blockquote {
+  @include typography-body-1;
+
+  border-left: $blockquote-border-width solid $blockquote-border-color;
+  margin-bottom: $paragraph-margin-y;
+  padding: 0 $spacer;
+}
+
+.blockquote-footer {
+  @include typography-caption;
+
+  color: $blockquote-small-color;
+  display: block;
+  margin-top: $spacer-xs;
+
+  &::before {
+    content: '\2014 \00A0';
+  }
+}
+
+
+
