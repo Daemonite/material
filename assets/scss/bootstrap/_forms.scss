@@ -116,13 +116,15 @@
 // Misc
 
 .form-text {
-  @include typography-caption;
-
-  color: $textfield-hint-color;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-caption;
+  letter-spacing: $letter-spacing-caption;
+  line-height: normal;
+  color: $textfield-caption-color;
   display: block;
-  margin-top: $textfield-margin-y;
+  //margin-top: $textfield-margin-y;
 
-  .custom-select-lg + &,
+  /*.custom-select-lg + &,
   .floating-label-lg + &,
   .floating-label-lg .custom-select + &,
   .floating-label-lg .form-control + &,
@@ -146,6 +148,14 @@
   .textfield-box-sm .form-control + &,
   .textfield-box-sm .form-control-file + & {
     margin-top: $textfield-margin-y-sm;
+  }*/
+
+  &::before {
+    display: inline-block;
+    width: 0;
+    height: 1rem;
+    content: "";
+    vertical-align: 0;
   }
 }
 

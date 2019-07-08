@@ -1,35 +1,26 @@
 .breadcrumb {
-  @include border-radius($breadcrumb-border-radius);
-
   align-items: center;
   background-color: $breadcrumb-bg;
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
-  margin-bottom: $breadcrumb-margin-y;
-  min-height: $breadcrumb-height;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
 }
 
 .breadcrumb-item {
-  @include transition-standard(color);
-
   align-items: center;
   color: $breadcrumb-item-color;
   display: flex;
-
-  @include hover-focus-active {
-    color: $breadcrumb-item-color-hover;
-  }
-
-  &.active {
-    color: $breadcrumb-item-color-hover;
-    font-weight: bolder;
-  }
+  font-size: $breadcrumb-font-size;
 
   a {
+    @include transition-standard(background-color);
+    border-radius: .5rem;
     color: inherit;
     text-decoration: none;
+    padding: .375rem $breadcrumb-padding-y;
+
+    &:hover {
+      background-color: $breadcrumb-bg-hover;
+    }
   }
 
   + .breadcrumb-item {
@@ -38,23 +29,18 @@
     &::before {
       @include set-material-icons;
 
-      color: $breadcrumb-item-color;
+      color: $black-secondary;
       content: $breadcrumb-item-icon;
       display: inline-block;
       margin-right: $breadcrumb-inner-spacer-x;
     }
   }
 
-  + .breadcrumb-item:hover::before {
-    text-decoration: underline;
+  &.active::before {
+    margin-right: $breadcrumb-padding-y;
   }
 
-  // stylelint-disable-next-line no-duplicate-selectors
-  + .breadcrumb-item:hover::before {
-    text-decoration: none;
-  }
-
-  &.active {
-    color: $breadcrumb-item-color-hover;
+  &:only-child {
+    padding: .375rem $breadcrumb-padding-y;
   }
 }

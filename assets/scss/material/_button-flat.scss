@@ -1,4 +1,10 @@
-// Btn flat and outlined : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
+// Btn flat and outlined
+// Material guidelines : https://material.io/design/components/buttons.html#specs
+// Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
+[class*='btn-flat'] {
+  padding: $btn-padding-y $btn-flat-padding-x;
+}
+
 
 [class*='btn-flat'],
 [class*='btn-outline'] {
@@ -6,6 +12,15 @@
 
 @include hover-focus-active {
     box-shadow: none;
+    color: $black-primary;
+  }
+
+  &:hover {
+    background-color: rgba(0,0,0,$overlay-hover-white-opacity);
+  }
+
+  &:active {
+    background-color: rgba(0,0,0,$overlay-pressed-white-opacity);
   }
 
   &.disabled,
@@ -22,15 +37,15 @@
     }
 
     &:hover {
-      background-color: rgba(theme-color($color), .04);
+      background-color: rgba(theme-color($color), $overlay-hover-white-opacity);
     }
 
     &:focus {
-      background-color: rgba(theme-color($color), .12);
+      background-color: rgba(theme-color($color), $overlay-focus-white-opacity);
     }
 
     &:active {
-      background-color: rgba(theme-color($color), .32);
+      background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
     }
 
     &.disabled,

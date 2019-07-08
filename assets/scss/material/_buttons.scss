@@ -1,0 +1,193 @@
+// Btn raised : https://material.io/design/components/buttons.html#
+// Todo btn-light color, btn-link, btn-light-outline
+
+
+.btn {
+  @include border-radius($btn-border-radius);
+  @include transition-standard(all);
+
+  -webkit-font-smoothing: antialiased;
+  align-items: center;
+  background-color: transparent;
+  background-image: none;
+  border: 0;
+  box-shadow: map-get($btn-elevation-shadow, shadow);
+  color: $btn-color;
+  display: inline-flex;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  height: $btn-height;
+  justify-content: center;
+  letter-spacing: .0892857143em;
+  line-height: normal;
+  margin: 0;
+  max-width: 100%;
+  min-width: $btn-min-width;
+  outline: none;
+  padding: $btn-padding-y $btn-padding-x;
+  position: relative;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  @include hover-focus {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-hover-colored-opacity), rgba($white, $overlay-hover-colored-opacity));
+    box-shadow: map-get($btn-elevation-shadow-hover, shadow);
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-focus-colored-opacity), rgba($white, $overlay-focus-colored-opacity));
+  }
+
+  &:active,
+  &.active {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: $btn-bg-disabled;
+    background-image: none;
+    box-shadow: none;
+    color: $btn-color-disabled;
+  }
+
+  & + .btn {
+    margin-left: .5rem;
+  }
+
+  .show>&.dropdown-toggle {
+    background-image: linear-gradient(to bottom, $overlay-pressed-colored-opacity, $overlay-pressed-colored-opacity);
+  }
+}
+
+a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
+  color: $white;
+}
+
+a.btn.disabled,
+fieldset:disabled a.btn {
+  pointer-events: none;
+}
+
+@each $color, $values in $theme-colors {
+  .btn-#{$color} {
+    background-color: theme-color($color);
+    color: color-yiq(theme-color($color));
+  }
+}
+
+[class*='bg-dark']:not([class*='bg-light']) .btn {
+
+  &.disabled,
+  &:disabled {
+    background-color: $btn-bg-disabled-inverse;
+    color: $btn-color-disabled-inverse;
+  }
+}
+
+[class*='bg-outline']:hover,
+[class*='bg-outline']:active {
+  box-shadow: none;
+  transition: background-color 100ms linear;
+}
+
+//
+// Button Sizes
+//
+
+.btn-lg,
+%btn-lg {
+  font-size: $btn-font-size-lg;
+  //padding: $btn-padding-y-lg $btn-padding-x-lg;
+  height: $btn-height-lg;
+}
+
+.btn-sm,
+%btn-sm {
+  font-size: $btn-font-size-sm;
+  //padding: $btn-padding-y-sm $btn-padding-x-sm;
+  height: $btn-height-sm;
+}
+
+//
+// Block button
+//
+
+.btn-block {
+  //display: block;
+  margin: 0;
+  width: 100%;
+
+  +.btn-block {
+    margin-left: 0;
+    margin-top: $btn-block-margin-y;
+  }
+}
+
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Link button
+
+.btn-link {
+  //background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  color: $link-color;
+  font-weight: $font-weight-medium;
+  text-decoration: $link-decoration;
+  text-transform: none;
+
+  @include hover-focus-active {
+    color: $link-color-hover;
+    text-decoration: $link-decoration-hover;
+  }
+
+  @include hover-focus {
+    background-image: none;
+    box-shadow: none;
+  }
+
+  &.active,
+  &:active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: transparent;
+    color: $btn-color-disabled;
+    text-decoration: none;
+  }
+}
+
+// No minimum width
+.btn-fluid {
+  min-width: 0;
+}
+
+// Material design addition
+
+.btn-shaped {
+  border-radius: $btn-height / 2;
+
+  &.btn-lg {
+    border-radius: $btn-height-lg / 2;
+  }
+
+  &.btn-sm {
+    border-radius: $btn-height-sm / 2;
+  }
+}

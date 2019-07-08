@@ -10,13 +10,15 @@
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
-  @include hover-focus-active {
+  @include hover-focus {
     text-decoration: none;
   }
 
+  // Disabled state lightens text
   &.disabled {
     color: $nav-link-color-disabled;
     cursor: default;
+    pointer-events: none;
   }
 }
 

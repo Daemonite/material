@@ -8,8 +8,10 @@
   position: relative;
   vertical-align: middle;
 
-  @each $color, $values in $theme-colors {
-    > .btn-#{$color} {
+  @each $color,
+  $values in $theme-colors {
+    >.btn-#{$color} {
+
       &.disabled,
       &:disabled {
         background-color: theme-color-light($color);
@@ -18,16 +20,26 @@
     }
   }
 
-  > .btn {
+  >.btn {
     @include transition-standard(border-color, opacity);
 
     box-shadow: none;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     min-width: 0;
+    padding-left: $btn-group-padding-x;
+    padding-right: $btn-group-padding-x;
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 1;
+    }
 
     &.active,
     &:active {
-      box-shadow: none;
+      background-color: rgba($black,$overlay-activated-white-opacity);
     }
 
     &.disabled,
@@ -50,8 +62,8 @@
     }
   }
 
-  > .btn-group,
-  > .btn-group-vertical {
+  >.btn-group,
+  >.btn-group-vertical {
     @include border-radius(0);
 
     background-color: transparent;
@@ -60,28 +72,28 @@
 }
 
 .btn-group {
-  &.show > .btn.dropdown-toggle {
+  &.show>.dropdown-toggle {
     box-shadow: none;
   }
 
-  > .btn,
-  > .btn-group {
+  >.btn,
+  >.btn-group {
     margin-left: ($btn-group-inner-spacer-x * -1);
   }
 
-  > .btn:first-child,
-  > .btn-group:first-child {
+  >.btn:first-child,
+  >.btn-group:first-child {
     margin-left: 0;
   }
 
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) > .btn {
+  >.btn:not(:first-child),
+  >.btn-group:not(:first-child)>.btn {
     @include border-left-radius(0);
   }
 
-  > .btn:not(:last-child):not(.dropdown-toggle),
-  > .btn-group:not(:last-child) > .btn,
-  > .dropdown-toggle:not(:last-of-type) {
+  >.btn:not(:last-child):not(.dropdown-toggle),
+  >.btn-group:not(:last-child)>.btn,
+  >.dropdown-toggle:not(:last-of-type) {
     @include border-right-radius(0);
   }
 }
@@ -91,26 +103,27 @@
   flex-direction: column;
   justify-content: center;
 
-  > .btn,
-  > .btn-group {
+  >.btn,
+  >.btn-group {
     margin-top: ($btn-group-inner-spacer-y * -1);
     margin-left: 0;
     width: 100%;
   }
 
-  > .btn:first-child,
-  > .btn-group:first-child {
+  >.btn:first-child,
+  >.btn-group:first-child {
     margin-top: 0;
   }
 
-  > .btn:not(:first-child),
-  > .btn-group:not(:first-child) > .btn {
+  // Reset rounded corners
+  >.btn:not(:first-child),
+  >.btn-group:not(:first-child)>.btn {
     @include border-top-radius(0);
   }
 
-  > .btn:not(:last-child):not(.dropdown-toggle),
-  > .btn-group:not(:last-child) > .btn,
-  > .dropdown-toggle:not(:last-of-type) {
+  >.btn:not(:last-child):not(.dropdown-toggle),
+  >.btn-group:not(:last-child)>.btn,
+  >.dropdown-toggle:not(:last-of-type) {
     @include border-bottom-radius(0);
   }
 }
@@ -120,19 +133,20 @@
   box-shadow: none;
 }
 
-.btn-group-lg > .btn {
-  @extend %btn-lg;
+.btn-group-sm>.btn {
+  @extend %btn-sm;
 }
 
-.btn-group-sm > .btn {
-  @extend %btn-sm;
+.btn-group-lg>.btn {
+  @extend %btn-lg;
 }
 
 // Checkbox and radio options
 
 [data-toggle='buttons'] {
-  > .btn,
-  > .btn-group > .btn {
+
+  >.btn,
+  >.btn-group>.btn {
     margin-bottom: 0;
 
     [type='checkbox'],
@@ -146,22 +160,32 @@
 
 // Split button dropdown
 
-.dropdown-toggle.dropdown-toggle-split {
+.dropdown-toggle-split {
   padding-right: $caret-spacer-x;
   padding-left: $caret-spacer-x;
 
-  &::after {
-    margin-right: 0;
+  &::after,
+  .dropup &::after,
+  .dropright &::after {
+    margin-right: 0; // Daemonite addition
     margin-left: 0;
   }
 
-  .dropleft & {
-    &::before {
-      margin-right: 0;
-      margin-left: 0;
-    }
+  .dropleft &::before {
+    margin-right: 0;
+    margin-left: 0; // Daemonite addition
   }
 }
+
+/*.btn-sm + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-sm * .75;
+  padding-left: $btn-padding-x-sm * .75;
+}
+
+.btn-lg + .dropdown-toggle-split {
+  padding-right: $btn-padding-x-lg * .75;
+  padding-left: $btn-padding-x-lg * .75;
+}*/
 
 // Toolbar
 
@@ -172,5 +196,21 @@
 
   .input-group {
     width: auto;
+  }
+}
+
+// Checkbox and radio options
+
+.btn-group-toggle {
+  > .btn,
+  > .btn-group > .btn {
+    margin-bottom: 0; // Override default `<label>` value
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+      pointer-events: none;
+    }
   }
 }

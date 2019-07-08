@@ -1,0 +1,185 @@
+.custom-range {
+  width: 100%;
+  height: 48px;
+  padding: 0; // Need to reset padding
+  background-color: transparent;
+  appearance: none;
+
+  &:hover {
+    cursor: $slider-track-cursor;
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-thumb { box-shadow: none; }
+    &::-moz-range-thumb     { box-shadow: none; }
+    &::-ms-thumb            { box-shadow: none; }
+  }
+
+  &:active {
+    outline: 0;
+
+    &::-webkit-slider-thumb { box-shadow: $slider-thumb-active-box-shadow; }
+    &::-moz-range-thumb, &::-ms-thumb { box-shadow: $slider-thumb-active-box-shadow; }
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &::-webkit-slider-thumb {
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
+    transition: $slider-thumb-transition;
+    appearance: none;
+
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-active-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: $slider-track-width;
+    height: $slider-track-height;
+    color: transparent; // Why?
+    cursor: $slider-track-cursor;
+    background-color: $slider-track-bg;
+    border-color: transparent;
+    border-radius: $slider-track-border-radius;
+  }
+
+  &::-moz-range-thumb {
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
+    transition: $slider-thumb-transition;
+    appearance: none;
+
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-active-box-shadow;
+      transition: $slider-thumb-transition;
+    }
+  }
+
+  &::-moz-range-track {
+    width: $slider-track-width;
+    height: $slider-track-height;
+    color: transparent;
+    cursor: $slider-track-cursor;
+    background-color: $slider-track-bg;
+    border-color: transparent; // Firefox specific?
+    border-radius: $slider-track-border-radius;
+  }
+
+  &::-moz-range-progress {
+    height: $slider-track-height;
+    background: theme-color(secondary);
+  }
+
+  &::-ms-thumb {
+    width: $slider-thumb-width;
+    height: $slider-thumb-height;
+    margin-top: 0; // Edge specific
+    margin-right: $slider-thumb-active-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
+    margin-left: $slider-thumb-active-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
+    background-color: theme-color(secondary);
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
+
+    &:hover {
+      box-shadow: $slider-thumb-hover-box-shadow;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:active {
+      background-color: $slider-thumb-active-bg;
+      box-shadow: $slider-thumb-active-box-shadow;
+    }
+  }
+
+  &::-ms-track {
+    width: $slider-track-width;
+    height: $slider-track-height;
+    color: transparent;
+    cursor: $slider-track-cursor;
+    background-color: transparent;
+    border-color: transparent;
+    border-width: $slider-thumb-height / 2;
+  }
+
+  &::-ms-fill-lower {
+    background-color: theme-color(secondary);
+    border-radius: $slider-track-border-radius;
+  }
+
+  &::-ms-fill-upper {
+    margin-right: 15px; // arbitrary?
+    background-color: $slider-track-bg;
+    border-radius: $slider-track-border-radius;
+  }
+
+  &:disabled {
+    cursor: default;
+
+    &::-webkit-slider-thumb {
+      background-color: $slider-thumb-disabled-bg;
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background: $slider-track-bg-disabled;
+      cursor: default;
+    }
+
+    &::-moz-range-thumb,
+    &:hover::-moz-range-thumb {
+      background-color: $slider-thumb-disabled-bg;
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    &::-moz-range-track {
+      background: $slider-track-bg-disabled;
+      cursor: default;
+    }
+
+    &::-moz-range-progress {
+      background: $slider-thumb-disabled-bg;
+    }
+    
+    &::-ms-thumb {
+      background: $slider-thumb-disabled-bg;
+    }
+
+    &::-ms-fill-lower {
+      background: $slider-thumb-disabled-bg;
+    }
+
+    &::-ms-fill-upper {
+      margin-right: 15px; // arbitrary?
+      background-color: $slider-track-bg-disabled;
+    }
+  }
+}

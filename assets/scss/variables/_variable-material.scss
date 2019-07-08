@@ -11,38 +11,44 @@ $btn-border-radius:           $border-radius !default;
 $btn-block-margin-y:          $spacer-xs !default;
 $btn-color:                   $black-primary !default;
 $btn-color-disabled:          rgba(0, 0, 0, .37) !default;
-$btn-color-disabled-inverse:  rgba(255, 255, 255, 0.3) !default;
+$btn-color-disabled-inverse:  rgba(255, 255, 255, .3) !default;
 $btn-elevation-shadow:        map-get($elevation-shadows, 2) !default;
-$btn-elevation-shadow-hover:  map-get($elevation-shadows, 4) !default; // djibe addition
+$btn-elevation-shadow-hover:  map-get($elevation-shadows, 4) !default;
 $btn-elevation-shadow-active: map-get($elevation-shadows, 8) !default;
 $btn-font-weight:             $font-weight-medium !default;
 $btn-line-height:             1 !default;
-$btn-min-width:               4rem !default; // modif from GMD
+$btn-min-width:               4rem !default; // 64px
 $btn-overlay:                 $black-divider !default;
-$btn-overlay-inverse:         rgba(red($white), green($white), blue($white), .08) !default; //$white-divider
+$btn-overlay-inverse:         rgba($white, .08) !default; //$white-divider
 
 $btn-font-size:               .875rem !default;
 $btn-font-size-lg:            .9375rem !default;
 $btn-font-size-sm:            .8125rem !default;
-$btn-height:                  2.25rem !default;
-$btn-height-lg:               2.5rem !default;
-$btn-height-sm:               2rem !default;
+$btn-height:                  2.25rem !default; // 36px
+$btn-height-lg:               2.5rem !default; // 40px not official
+$btn-height-sm:               2rem !default;  // 32px
 $btn-padding-x:               1rem !default;
-$btn-padding-x-lg:            $btn-padding-x !default;
-$btn-padding-x-sm:            $btn-padding-x !default;
-//$btn-padding-y:               (($btn-height - $btn-font-size * $btn-line-height) / 2) !default;
+$btn-flat-padding-x:          .5rem !default;
+$btn-group-padding-x:         .75rem !default;
+//$btn-padding-x-lg:            $btn-padding-x !default;
+//$btn-padding-x-sm:            $btn-padding-x !default;
 $btn-padding-y:               0 !default;
-$btn-padding-y-lg:            (($btn-height-lg - $btn-font-size-lg * $btn-line-height) / 2) !default;
-$btn-padding-y-sm:            (($btn-height-sm - $btn-font-size-sm * $btn-line-height) / 2) !default;
+//$btn-padding-y-lg:            0 !default; //(($btn-height-lg - $btn-font-size-lg * $btn-line-height) / 2) !default;
+//$btn-padding-y-sm:            0 !default; //(($btn-height-sm - $btn-font-size-sm * $btn-line-height) / 2) !default;
 
 // Button: floating action button
 // Based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
 
 $btn-float-dropdown-inner-spacer-y: 1rem !default;
 $btn-float-elevation-shadow:        map-get($elevation-shadows, 6) !default;
+$btn-float-elevation-shadow-hover:  map-get($elevation-shadows, 8) !default;
 $btn-float-elevation-shadow-active: map-get($elevation-shadows, 12) !default;
-$btn-float-size:                    3.5rem !default;
-$btn-float-size-sm:                 2.5rem !default;
+$btn-float-size:                    3.5rem !default; // 56px
+$btn-float-size-sm:                 2.5rem !default; // 40px
+$btn-float-extended-height:         3rem !default; // 48px
+$btn-float-extended-padding-x:      1.25rem !default; // 20px
+$btn-float-extended-border-radius:  1.5rem !default; // 24px
+$btn-float-extended-line-height:    2.25rem !default;
 
 // Button: toggle buttons (Boostrap button group)
 // Based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons
@@ -144,6 +150,7 @@ $table-sm-thead-padding-y:    (($table-sm-thead-cell-height - $table-thead-font-
 // Based on https://material.google.com/components/dialogs.html#dialogs-specs and https://material-components.github.io/material-components-web-catalog/#/component/dialog
 
 $dialog-backdrop-bg:                  $black-hint !default;
+$dialog-backdrop-opacity:             1 !default;
 $dialog-border-radius:                $border-radius !default;
 $dialog-content-bg:                   $white !default;
 $dialog-elevation-shadow:             map-get($elevation-shadows, 24) !default;
@@ -159,6 +166,7 @@ $dialog-margin-x:                     $spacer-lg !default;
 $dialog-margin-y:                     $spacer-lg !default;
 $dialog-padding-x:                    1.5rem !default;
 $dialog-padding-y:                    1.25rem !default;
+$dialog-show-transform:               scale(1) !default;
 $dialog-transition-scale:             $transition-scale !default;
 $dialog-width:                        35rem !default; // 560px
 $dialog-width-lg:                     52.5rem !default;
@@ -168,14 +176,17 @@ $dialog-width-sm:                     17.5rem !default; // 280px
 // Based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
 
 $expansion-panel-bg:                    $white !default;
-$expansion-panel-bg-active:             $material-color-grey-200 !default;
+$expansion-panel-bg-hover:             rgba($black, $overlay-hover-white-opacity) !default;
+$expansion-panel-bg-focus:             rgba($black, $overlay-focus-white-opacity) !default;
+$expansion-panel-bg-active:             rgba($black, $overlay-pressed-white-opacity) !default;
+$expansion-panel-bg-selected:           rgba(theme-color(primary), $overlay-activated-white-opacity) !default;
 $expansion-panel-border-color:          $border-color !default;
 $expansion-panel-border-radius:         $border-radius !default;
 $expansion-panel-border-width:          $border-width !default;
 $expansion-panel-color:                 $black-primary !default;
 $expansion-panel-color-disabled:        $black-hint !default;
 $expansion-panel-elevation-shadow:      map-get($elevation-shadows, 1) !default;
-$expansion-panel-font-size:             .9375rem !default;
+$expansion-panel-font-size:             $font-size-base !default;
 $expansion-panel-footer-btn-min-width:  4rem !default;
 $expansion-panel-footer-inner-spacer-x: .5rem !default;
 $expansion-panel-footer-inner-spacer-y: .25rem !default;
@@ -183,6 +194,7 @@ $expansion-panel-footer-padding-x:      .5rem !default;
 $expansion-panel-height:                3rem !default;
 $expansion-panel-inner-spacer-x:        1rem !default;
 $expansion-panel-inner-spacer-y:        1rem !default;
+$expansion-panel-letter-spacing:        $letter-spacing-subtitle-1 !default;
 $expansion-panel-line-height:           $line-height-base !default;
 $expansion-panel-margin-y:              $spacer !default;
 $expansion-panel-padding-x:             1.5rem !default;
@@ -202,17 +214,19 @@ $menu-header-color:             $black-primary !default;
 $menu-line-height:              1.5rem !default;
 $menu-line-height-cascading:    $menu-line-height !default;
 $menu-link-bg:                  transparent !default;
-$menu-link-bg-hover:            $material-color-grey-100 !default;
+$menu-link-bg-hover:            rgba($black, $overlay-hover-white-opacity) !default;
+$menu-link-bg-focus:            rgba($black, $overlay-focus-white-opacity) !default;
+$menu-link-bg-active:           rgba($black, $overlay-pressed-white-opacity) !default;
 $menu-link-color:               $black-primary !default;
 $menu-link-color-disabled:      $black-hint !default;
-$menu-link-height:              3rem !default;
-$menu-link-height-cascading:    2rem !default;
+$menu-link-height:              3rem !default; // 48px
+$menu-link-height-cascading:    2rem !default; // 32px
 $menu-link-padding-x:           1rem !default;
 $menu-link-padding-x-cascading: 1.5rem !default;
 $menu-link-padding-y:           (($menu-link-height - $menu-line-height) / 2) !default;
 $menu-link-padding-y-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) !default;
-$menu-min-width:                7rem !default;
-$menu-min-width-cascading:      20rem !default;
+$menu-min-width:                7rem !default; // 112px
+$menu-min-width-cascading:      17.5rem !default; // 20 - 320px ?
 $menu-padding-y:                .5rem !default;
 $menu-padding-y-cascading:      1rem !default;
 
@@ -278,13 +292,15 @@ $picker-weekday-color:        $black-hint !default;
 $progress-bar-bg:                      $material-color-indigo-500 !default;
 $progress-bar-border-radius:           .25rem !default;
 $progress-bar-buffer-width:            1.5rem !default;
-$progress-bar-height:                  .25rem !default;
+$progress-bar-height:                  .25rem !default; // 4px
 $progress-bg:                          $material-color-indigo-100 !default;
 
 $progress-circular-animation-duration: 5.332s !default;
 $progress-circular-bg:                 $material-color-indigo-500 !default;
 $progress-circular-height:             2.5rem !default;
+$progress-circular-height-sm:          1rem !default;
 $progress-circular-spinner-width:      .25rem !default;
+$progress-circular-spinner-width-sm:   .15rem !default;
 
 // Selection control (Bootstrap custom form control)
 // Based on https://material.google.com/components/selection-controls.html
@@ -314,6 +330,17 @@ $selection-control-track-opacity:               .5 !default;
 $selection-control-track-width:                 ($selection-control-indicator-size * 2) !default;
 $selection-control-border-width:                (($selection-control-indicator-size - $selection-control-track-height) / 2); // djibe
 
+$custom-control-gutter:                         1.75rem !default;
+$custom-control-indicator-size:                 1rem !default;
+$custom-control-indicator-border-width: 1.25rem !default;
+$custom-control-indicator-border-color: $material-color-grey-800 !default;
+$custom-control-indicator-bg:           $white-primary !default;
+$custom-switch-width:                           $custom-control-indicator-size * 1.75 !default;
+$custom-switch-indicator-border-radius:         $custom-control-indicator-size / 2 !default;
+$custom-switch-indicator-size:                  calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4}) !default;
+$custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
+
+
 // Slider (Bootstrap custom form control)
 // Based on https://material.io/guidelines/components/sliders.html#sliders-continuous-slider
 
@@ -326,40 +353,40 @@ $slider-track-border-radius: 3px !default;
 $slider-track-box-shadow: none !default;
 
 $slider-thumb-width: .75rem !default;
-$slider-thumb-height: .75rem !default;
+$slider-thumb-height: $slider-thumb-width !default;
 $slider-thumb-bg: theme-color(secondary) !default;
 $slider-thumb-border: 0 !default;
 $slider-thumb-border-radius: 50% !default;
 $slider-thumb-box-shadow: none !default;
-$slider-thumb-focus-box-shadow: 0 0 0 1.3334rem rgba(theme-color(secondary), .2) !default;
-$slider-thumb-focus-box-shadow-width: .2rem !default;
+$slider-thumb-hover-box-shadow: 0 0 0 $slider-thumb-width rgba(theme-color(secondary), .12) !default;
+$slider-thumb-active-box-shadow: 0 0 0 1.3334rem rgba(theme-color(secondary), .16) !default;
+$slider-thumb-active-box-shadow-width: .2rem !default;
 $slider-thumb-active-bg: $slider-thumb-bg !default;
 $slider-thumb-disabled-bg: #8c8c8c !default;
-$slider-thumb-hover-box-shadow: 0 0 0 .75rem rgba(theme-color(secondary), .12) !default;
 $slider-thumb-transition: box-shadow 100ms ease-out !default;
 
-// Snackbar
-// Based on https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs
 
-$snackbar-bg:                     #323232 !default;
+// Snackbars (Bootstrap toasts)
+// Based on https://material.io/design/components/snackbars.html
+
+$snackbar-bg:                     #333 !default;
 $snackbar-border-radius:          $border-radius !default;
 $snackbar-breakpoint:             sm !default;
-$snackbar-btn-color:              theme-color(secondary) !default;
-$snackbar-btn-color-hover:        theme-color-light(secondary) !default;
-$snackbar-color:                  $white-primary !default;
+$snackbar-btn-color:              theme-color-light(secondary)!default;
+$snackbar-color:                  rgba($white,.87) !default;
 $snackbar-elevation-shadow:       map-get($elevation-shadows, 6) !default;
-$snackbar-font-size:              .875rem !default;
+$snackbar-font-size:              $font-size-body-2 !default;
 $snackbar-height-multi:           5rem !default;
 $snackbar-inner-spacer-x:         1.5rem !default;
 $snackbar-inner-spacer-x-desktop: 3rem !default;
-$snackbar-line-height:            $line-height-base !default;
-$snackbar-margin-x:               $spacer-lg !default;
-$snackbar-margin-y:               $spacer-lg !default;
-$snackbar-max-width:              35.5rem !default;
-$snackbar-min-width:              18rem !default;
-$snackbar-padding-x:              1.5rem !default;
+$snackbar-line-height:            $line-height-body-2 !default;
+$snackbar-margin-x:               .5rem !default;
+$snackbar-max-width:              42rem !default;
+$snackbar-min-width:              21.5rem !default;
+$snackbar-padding-x:              1rem !default;
 $snackbar-padding-y:              .875rem !default;
 $snackbar-padding-y-multi:        1.25rem !default;
+
 
 // Stepper
 // Based on https://material.google.com/components/steppers.html#steppers-specs
@@ -381,6 +408,7 @@ $stepper-text-color-active: $black-primary !default;
 $stepper-text-font-size:    .875rem !default;
 $stepper-text-font-weight:  $font-weight-regular !default;
 
+
 // Tab (Bootstrap tab)
 // Based on https://material.google.com/components/tabs.html#tabs-specs
 
@@ -400,19 +428,23 @@ $nav-tab-link-opacity:     .7 !default;
 $nav-tab-link-padding-x:   .75rem !default;
 $nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-line-height) / 2) !default;
 
-// Text field (Bootstrap form control)
-// Based on https://material.io/guidelines/components/text-fields.html#text-fields-states
 
-$textfield-border-color:       rgba(0, 0, 0, .42) !default;
+// Text field (Bootstrap form control)
+// Based on https://material.io/guidelines/components/text-fields.html
+
+$textfield-border-color:       rgba($black, .42) !default;
+$textfield-textarea-border-color: rgba($black, .24) !default;
+$textfield-border-color-hover: $black-primary !default;
 $textfield-border-color-focus: theme-color(secondary) !default;
-$textfield-border-color-hover: rgba(0, 0, 0, .87) !default;
-$textfield-border-width:       $border-width !default;
+$textfield-border-width:       1px !default;
 $textfield-border-width-focus: ($textfield-border-width * 2) !default;
 $textfield-border-width-hover: ($textfield-border-width * 2) !default;
 $textfield-color:              $black-primary !default;
 $textfield-color-disabled:     $black-hint !default;
+$textfield-caption-color:      $black-caption !default;
 $textfield-hint-color:         $black-hint !default;
 $textfield-margin-x:           $spacer !default;
+$textfield-placeholder-color:  $black-secondary !default;
 $textfield-plaintext-color:    $body-color !default;
 
 $textfield-font-size:          1rem !default;
@@ -421,7 +453,8 @@ $textfield-font-size-sm:       .8125rem !default;
 $textfield-height:             2.25rem !default;
 $textfield-height-lg:          3.75rem !default;
 $textfield-height-sm:          2rem !default;
-$textfield-line-height:        1.5 !default;
+$textfield-letter-spacing:     $letter-spacing-subtitle-1 !default;
+$textfield-line-height:        1.5 !default; // 1.75rem
 $textfield-line-height-lg:     1.176471 !default;
 $textfield-line-height-sm:     1.538462 !default;
 $textfield-margin-y:           .5rem !default;
@@ -440,9 +473,11 @@ $textfield-select-bg-size:     ($material-icon-size / $textfield-font-size * 1em
 // Based on https://material.io/guidelines/components/text-fields.html#text-fields-text-field-boxes
 
 $textfield-box-bg:             #f5f5f5 !default;
-$textfield-box-border-radius:  4px !default;
+$textfield-box-bg-hover:       #ececec !default;
+$textfield-box-bg-focus:       #dcdcdc !default;
+$textfield-box-border-radius:  $border-radius !default;
 
-$textfield-box-height:         3.5rem !default;
+$textfield-box-height:         3.5rem !default; // 56px
 $textfield-box-height-lg:      4.25rem !default;
 $textfield-box-height-sm:      2.75rem !default;
 $textfield-box-label-spacer-y: .5rem !default;
@@ -452,11 +487,13 @@ $textfield-box-padding-x-sm:   .75rem !default;
 $textfield-box-padding-y:      (($textfield-box-height - $textfield-font-size * $textfield-line-height) / 2) !default;
 $textfield-box-padding-y-lg:   (($textfield-box-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
 $textfield-box-padding-y-sm:   (($textfield-box-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2) !default;
+$textfield-box-placeholder-color:  $black-caption !default;
 
 // Text field: floating label
 // Based on https://material.google.com/components/text-fields.html#text-fields-labels
 
-$floating-label-color:           $textfield-hint-color !default;
+$floating-label-color:           $black-secondary !default;
+$floating-label-color-box:       $black-caption !default;
 $floating-label-color-focus:     theme-color(secondary) !default;
 $floating-label-font-size:       .75rem !default;
 $floating-label-font-size-lg:    .875rem !default;
@@ -491,22 +528,23 @@ $toolbar-dark-element-bg:       $white-divider !default;
 // Tooltip (Bootstrap tooltip)
 // Based on https://material.google.com/components/tooltips.html#tooltips-tooltips-desktop
 
-$tooltip-bg:                #6c6c6c !default;
+$tooltip-bg:                #6d6d6d !default;
 $tooltip-border-radius:     $border-radius !default;
-$tooltip-breakpoint:        md !default;
+$tooltip-breakpoint:        lg !default;
 $tooltip-color:             $white-primary !default;
 $tooltip-font-size:         .875rem !default;
 $tooltip-font-size-desktop: .625rem !default;
-$tooltip-height:            2rem !default;
-$tooltip-height-desktop:    1.375rem !default;
+$tooltip-font-weight:       $font-weight-medium !default;
+$tooltip-height:            2rem !default; // 32px
+$tooltip-height-desktop:    1.5rem !default; // 24px
 $tooltip-line-height:       $line-height-base !default;
 $tooltip-margin:            1.5rem !default;
 $tooltip-margin-desktop:    .875rem !default;
-$tooltip-opacity:           1 !default; //.9
+$tooltip-opacity:           .9 !default;
 $tooltip-padding-x:         1rem !default;
 $tooltip-padding-x-desktop: .5rem !default;
-$tooltip-padding-y:         (($tooltip-height - $tooltip-font-size * $tooltip-line-height) / 2) !default;
-//$tooltip-padding-y-desktop: (($tooltip-height-desktop - $tooltip-font-size-desktop * $tooltip-line-height) / 2) !default;
-$tooltip-padding-y-desktop: 0;
+$tooltip-padding-y:         0; //(($tooltip-height - $tooltip-font-size * $tooltip-line-height) / 2) !default;
+// $tooltip-padding-y-desktop: (($tooltip-height-desktop - $tooltip-font-size-desktop * $tooltip-line-height) / 2) !default;
+$tooltip-padding-y-desktop: 0; // 6px
 $tooltip-scale:             .87 !default;
 $tooltip-zindex:            map-get($elevations, 24) !default;

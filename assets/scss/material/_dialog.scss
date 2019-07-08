@@ -33,7 +33,6 @@
     .modal-dialog {
       //@include transition-standard-complex(transform);
       @include transition-deceleration(transform);
-
       transform: scale($dialog-transition-scale);
     }
   }
@@ -284,4 +283,44 @@
 }
 
 // Scale up the modal
-// TODO
+/*@include media-breakpoint-up(sm) {
+  // sass-lint:disable-block border-zero
+  // Automatically set modal's width for larger viewports
+  .modal-dialog {
+    max-width: $modal-md;
+    margin: $modal-dialog-margin-y-sm-up auto;
+  }
+
+  .modal-dialog-scrollable {
+    max-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
+
+    .modal-content {
+      max-height: calc(100vh - #{$modal-dialog-margin-y-sm-up * 2});
+    }
+  }
+
+  .modal-dialog-centered {
+    min-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
+
+    &::before {
+      height: calc(100vh - #{$modal-dialog-margin-y-sm-up * 2});
+    }
+  }
+
+  .modal-content {
+    @include box-shadow($modal-content-box-shadow-sm-up);
+  }
+
+  .modal-sm { max-width: $modal-sm; }
+}
+
+@include media-breakpoint-up(lg) {
+  .modal-lg,
+  .modal-xl {
+    max-width: $modal-lg;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .modal-xl { max-width: $modal-xl; }
+}*/

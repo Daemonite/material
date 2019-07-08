@@ -1,11 +1,17 @@
+// https://material-components.github.io/material-components-web-catalog/#/component/fab
+
 .btn-float {
   border-radius: 50%;
   box-shadow: map-get($btn-float-elevation-shadow, shadow);
   height: $btn-float-size;
-  line-height: $btn-float-size;
+  //line-height: $btn-float-size;
   min-width: 0;
   padding: 0;
   width: $btn-float-size;
+
+  &:hover {
+    box-shadow: map-get($btn-float-elevation-shadow-hover, shadow);
+  }
 
   &.active,
   &:active {
@@ -21,6 +27,20 @@
     height: $btn-float-size-sm;
     line-height: $btn-float-size-sm;
     width: $btn-float-size-sm;
+  }
+
+  // Extended FAB
+  &-extended {
+    border-radius: $btn-float-extended-border-radius;
+    height: $btn-float-extended-height;
+    line-height: $btn-float-extended-line-height;
+    padding: 0 $btn-float-extended-padding-x;
+    width: auto;
+
+    .material-icons {
+      margin-left: -.5rem;
+      margin-right: .75rem;
+    }
   }
 }
 

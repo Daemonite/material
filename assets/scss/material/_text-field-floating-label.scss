@@ -21,19 +21,22 @@
   }
 
   label {
-    @include transition-standard(color, top, transform);
+    //@include transition-standard(color, top, transform);
+    transition: transform .15s cubic-bezier(.4,0,.2,1), color .15s cubic-bezier(.4,0,.2,1), top .15s cubic-bezier(.4,0,.2,1);
 
     color: $floating-label-color;
     display: block;
-    font-size: $textfield-font-size;
-    line-height: $textfield-line-height;
+    font-size: $textfield-font-size; // ok
+    letter-spacing: $letter-spacing-subtitle-1; // addition
+    line-height: 1.15; //$textfield-line-height;
     margin: 0;
     padding: 0;
     position: absolute;
     top: ($floating-label-font-size + $textfield-padding-y);
     left: 0;
-    transform-origin: 0 0;
+    transform-origin: left top;//0 0;
   }
+
 
   %form-control {
     position: relative;
@@ -133,6 +136,12 @@
 
   %form-control {
     padding-bottom: calc(#{$textfield-box-label-spacer-y} - #{$textfield-border-width});
+  }
+}
+
+.floating-label.textfield-box {
+  label {
+    color: $floating-label-color-box;
   }
 }
 

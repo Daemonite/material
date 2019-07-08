@@ -1,11 +1,14 @@
 //
 // Base styles
 //
+// Not sure it is OK to look like : https://material.io/design/components/banners.html#specs
 
 .alert {
   @include border-radius($alert-border-radius);
 
-  border: 0;
+  //border: 0;
+  border: 1px solid $black-divider;
+  color: $black-primary;
   display: block;
   margin-bottom: $alert-margin-y;
   padding: $alert-padding-y $alert-padding-x;
@@ -36,7 +39,7 @@
 
   // Adjust close link position
   .close {
-    color: inherit;
+    color: $black-hint;
     padding: ($alert-padding-y - ($close-font-size - $font-size-base * $line-height-base) / 2) $alert-padding-x;
     position: absolute;
     top: 0;
@@ -49,7 +52,8 @@
 // Generate contextual modifier classes for colorizing the alert.
 @each $color, $values in $theme-colors {
   .alert-#{$color} {
-    background-color: theme-color-light($color);
-    color: color-yiq(theme-color-light($color));
+    //background-color: theme-color-light($color);
+    border-left: 6px solid theme-color($color);
+    //color: color-yiq(theme-color-light($color));
   }
 }

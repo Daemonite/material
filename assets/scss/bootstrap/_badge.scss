@@ -8,7 +8,7 @@
   //@include transition($badge-transition);
 
   align-items: center;
-  display: flex;
+  display: inline-flex;
   font-size: inherit; //@include font-size($badge-font-size);
   font-weight: $badge-font-weight;
   line-height: inherit;
@@ -23,18 +23,23 @@
     }
   }
 
+  // Material addition : https://material.angular.io/components/badge/examples
+  .btn & {
+    position: absolute;
+    top: -$badge-width / 2;
+    right: -$badge-width / 2;
+    border-radius: 50%;
+    width: $badge-width;
+    height: $badge-width;
+    line-height: $badge-width;
+    display: inline-block;
+    font-weight: $badge-btn-font-weight;
+    font-size: $font-size-caption;
+  }
+
   // Empty badges collapse automatically
   &:empty {
     display: none;
-  }
-
-  .btn & {
-    /*margin-top: -1px;
-    margin-bottom: -1px;
-    padding-top: 1px;
-    padding-bottom: 1px;*/
-    position: relative;
-    top: -1px;
   }
 }
 
@@ -47,7 +52,8 @@
   //padding-left: $badge-pill-padding-x;
 }
 
-@each $color, $values in $theme-colors {
+@each $color,
+$values in $theme-colors {
   .badge-#{$color} {
     background-color: theme-color($color);
     color: color-yiq(theme-color($color));

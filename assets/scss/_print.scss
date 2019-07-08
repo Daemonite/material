@@ -2,37 +2,44 @@
 
 @if $enable-print-styles {
   @media print {
-    @page {
-      size: $print-page-size;
-    }
 
     *,
-    *::after,
-    *::before {
-      box-shadow: none !important;
+    *::before,
+    *::after {
       text-shadow: none !important;
+      box-shadow: none !important;
     }
 
     a:not(.btn) {
       text-decoration: underline;
     }
 
-    // stylelint-disable-next-line selector-no-qualifying-type
     abbr[title]::after {
-      content: ' (" attr(title) ") ';
+      content: " ("attr(title) ") ";
     }
 
+    pre {
+      white-space: pre-wrap !important;
+    }
+
+    pre,
     blockquote {
+      border: $border-width solid rgba($black, .12);
       page-break-inside: avoid;
     }
 
-    body {
-      min-width: $print-body-min-width !important;
+    thead {
+      display: table-header-group;
     }
 
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+
+    p,
     h2,
-    h3,
-    p {
+    h3 {
       orphans: 3;
       widows: 3;
     }
@@ -42,29 +49,65 @@
       page-break-inside: avoid;
     }
 
-    img {
-      page-break-inside: avoid;
+    @page {
+      size: $print-page-size;
     }
 
-    pre {
-      page-break-inside: avoid;
-      white-space: pre-wrap !important;
-    }
-
-    thead {
-      display: table-header-group;
-    }
-
-    tr {
-      page-break-inside: avoid;
-    }
-
-    .card {
-      border: $border-width solid $border-color-solid;
+    body {
+      min-width: $print-body-min-width !important;
     }
 
     .container {
       min-width: $print-body-min-width !important;
+    }
+
+    .navbar {
+      display: none;
+    }
+
+    .badge {
+      border: $border-width solid $black;
+    }
+
+    .table {
+      border-collapse: collapse !important;
+
+      td,
+      th {
+        background-color: $white !important;
+      }
+    }
+
+    .table-bordered {
+
+      th,
+      td {
+        border: 1px solid $border-color-solid;
+      }
+    }
+
+    .table-dark {
+      color: inherit;
+
+      th,
+      td,
+      thead th,
+      tbody+tbody {
+        border-color: $border-color-solid;
+      }
+    }
+
+    .table .thead-dark th {
+      color: inherit;
+      border-color: $border-color-solid;
+    }
+
+
+// ADDITIONS
+
+    .card {
+      border: $border-width solid $border-color-solid;
+      page-break-inside: avoid;
     }
 
     .dropdown-menu {
@@ -99,40 +142,8 @@
       border-bottom: $border-width solid $border-color-solid;
     }
 
-    .navbar {
-      display: none;
-    }
-
     .popover {
       border: $border-width solid $border-color-solid;
-    }
-
-    .table {
-      td,
-      th {
-        background-color: $white !important;
-      }
-    }
-
-    .table-bordered {
-      border: $border-width solid $border-color-solid;
-    }
-
-    .table-dark {
-      color: inherit;
-
-      td,
-      th,
-      .table {
-        border-color: $border-color-solid;
-      }
-    }
-
-    .table .thead-dark {
-      td,
-      th {
-        color: inherit;
-      }
     }
   }
 }

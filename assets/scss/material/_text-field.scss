@@ -9,13 +9,15 @@
   color: $textfield-color;
   display: block;
   font-size: $textfield-font-size;
+  letter-spacing: $textfield-letter-spacing;
   line-height: $textfield-line-height;
   padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
+  transition: border-color 150ms cubic-bezier(.4,0,.2,1);
   width: 100%;
 
   @include hover {
     border-color: $textfield-border-color-hover;
-    box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
+    //box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
 
   &::-ms-expand {
@@ -24,7 +26,7 @@
   }
 
   &::placeholder {
-    color: $textfield-hint-color;
+    color: $textfield-placeholder-color;
     opacity: 1;
   }
 
@@ -101,16 +103,19 @@
 }
 
 %form-textarea {
+  border-color: $textfield-textarea-border-color;
   border-radius: $textfield-box-border-radius;
   border-width: $textfield-border-width;
   min-height: $textfield-box-height;
   padding: calc(#{$textfield-box-padding-y} - #{$textfield-border-width}) $textfield-box-padding-x;
 
   @include hover {
-    box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
+    border-color: $textfield-border-color-hover;
+    //box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
 
   &:focus {
+    border-color: $textfield-border-color-focus;
     box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 ($textfield-border-width * -1) $textfield-border-color-focus, inset ($textfield-border-width-focus * -1) ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
   }
 }

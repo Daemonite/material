@@ -1,8 +1,9 @@
 .table {
   background-color: $table-bg;
   border: 0;
+  //color: $table-color;
   margin-bottom: $table-margin-y;
-  max-width: 100%;
+  //max-width: 100%;
   width: 100%;
 
   td,
@@ -58,6 +59,7 @@
       height: $table-thead-cell-height;
       padding-top: $table-thead-padding-y;
       padding-bottom: $table-thead-padding-y;
+      //vertical-align: bottom;
     }
   }
 
@@ -121,18 +123,18 @@
   }
 }
 
-.table-borderless {
-  td,
-  th,
-  .table {
-    border: 0;
-  }
-}
-
 .table-bordered {
   border: $table-border-width solid $table-border-color;
 
   .card > & {
+    border: 0;
+  }
+}
+
+.table-borderless {
+  td,
+  th,
+  .table {
     border: 0;
   }
 }
@@ -189,13 +191,14 @@
 
 .table-hover {
   tbody tr {
-    @include hover {
+    &:hover {
       background-color: $table-bg-hover;
+      //color: $table-hover-color;
     }
   }
 }
 
-// Table background
+// Table backgrounds
 
 @each $color, $values in $theme-colors {
   .table-#{$color} {
@@ -297,15 +300,19 @@
 
 .table-responsive {
   @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint);
-    $infix: breakpoint-infix($next);
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
         display: block;
         overflow-x: auto;
         width: 100%;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+
+        > .table-bordered {
+          border: 0;
+        }
       }
     }
   }

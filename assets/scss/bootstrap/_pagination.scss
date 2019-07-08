@@ -1,59 +1,60 @@
 .pagination {
-  //@include border-radius();
   background-color: $pagination-bg;
   display: flex;
   list-style: none;
-  padding: $pagination-padding-y $pagination-padding-x;
+  margin: $pagination-margin-x;
 }
 
 .page-link {
   @include border-radius($pagination-border-radius);
-  @include transition-standard(color);
-  // background-color: $pagination-bg;
-  // border: $pagination-border-width solid $pagination-border-color;
+  @include transition-standard(all);
+
+  align-items: center;
   color: $pagination-color;
-  display: block;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  line-height: $btn-line-height; // $pagination-line-height
-  margin-left: $pagination-inner-spacer-x; //-$pagination-border-width;
-  padding: $btn-padding-y $btn-padding-x; //$pagination-padding-y $pagination-padding-x
+  display: flex;
+  font-size: $pagination-font-size;
+  font-weight: $pagination-font-weight;
+  justify-content: center;
+  line-height: $pagination-line-height;
+  margin-left: $pagination-inner-spacer-x;
   position: relative;
   text-align: center;
+  width: $pagination-line-height * $pagination-font-size;
   white-space: nowrap;
 
   @include hover-focus-active {
+    background-color: rgba($black, $overlay-hover-white-opacity);
     color: $pagination-color;
     text-decoration: none;
-  }
-
-  @include hover-focus {
-    background-image: linear-gradient(to bottom, $btn-overlay, $btn-overlay);
-  }
-
-  &.active,
-  &:active {
-    background-color: $btn-bg-active;
-    background-image: none;
+    z-index: 2;
   }
 
   &:focus {
-    outline: 0;
+    background-color: rgba($black, $overlay-focus-white-opacity);
+  }
+
+  &:active {
+    background-color: rgba($black, $overlay-pressed-white-opacity);
   }
 
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
+}
 
-  .page-item:first-child & {
-    margin-left: 0;
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+    }
   }
 
-  .page-item.active & {
-    background-color: $btn-bg-active;
+  &.active .page-link {
+    background-color: theme-color(primary);
+    color: $white;
   }
 
-  .page-item.disabled & {
+  &.disabled .page-link {
     background-color: transparent;
     color: $pagination-color-disabled;
     cursor: auto;
@@ -61,16 +62,17 @@
   }
 }
 
+
 //
 // Sizing
 //
 
 .pagination-lg .page-link {
-  font-size: $btn-font-size-lg;
-  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $pagination-font-size-lg;
+  width: $pagination-line-height * $pagination-font-size-lg;
 }
 
 .pagination-sm .page-link {
-  font-size: $btn-font-size-sm;
-  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  font-size: $pagination-font-size-sm;
+  width: $pagination-line-height * $pagination-font-size-sm;
 }
