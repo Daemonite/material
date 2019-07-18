@@ -102,13 +102,43 @@ $embed-responsive-aspect-ratios: join(
 $custom-file-button-icon:     'attachment' !default;
 
 $form-check-inline-margin-x:  $spacer-sm !default;
+$form-check-inline-input-margin-x: .3125rem !default; // todo
 $form-check-input-gutter:     1.25rem !default;
-
 $form-feedback-invalid-color: theme-color(danger) !default;
+$form-feedback-icon-invalid-color: $form-feedback-invalid-color !default;
 $form-feedback-valid-color:   theme-color(success) !default;
+$form-feedback-icon-valid-color:   $form-feedback-valid-color !default;
+$form-feedback-icon-invalid:     str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-invalid-color}' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$form-feedback-icon-valid:          str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-valid-color}' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3e%3c/svg%3e"), "#", "%23") !default;
+
+$form-validation-states: () !default;
+@if $enable-validation-valid {
+  $form-validation-states: map-merge(
+  (
+    "valid": (
+      "color": $form-feedback-valid-color,
+      "icon":  $form-feedback-icon-valid
+    ),
+    "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon":  $form-feedback-icon-invalid
+    ),
+  ),
+  $form-validation-states
+  );
+}@else {
+  $form-validation-states: map-merge(
+  (
+    "invalid": (
+      "color": $form-feedback-invalid-color,
+      "icon":  $form-feedback-icon-invalid
+    ),
+  ),
+  $form-validation-states
+  );
+} 
 
 $form-group-margin-y:         $spacer !default;
-
 $input-group-inner-spacer-x:  1rem !default;
 
 // Jumbotron
@@ -130,7 +160,7 @@ $link-decoration-hover: underline !default;
 // Misc
 
 $blockquote-border-color:    theme-color(primary) !default;
-$blockquote-border-width:    0.3125rem !default;
+$blockquote-border-width:    .3125rem !default;
 $blockquote-small-color:     $black-hint !default;
 
 $dt-font-weight:             $font-weight-medium !default;
@@ -163,6 +193,9 @@ $thumbnail-box-shadow:       map-get($shadows, 2) !default;
 
 $webkit-tap-highlight-color: rgba($black, 0) !default;
 
+$stretched-link-pseudo-element:           after !default;
+$stretched-link-z-index:                  1 !default;
+
 // Nav
 
 $nav-link-color-disabled: $black-hint !default;
@@ -172,7 +205,7 @@ $nav-link-padding-y:      .5rem !default;
 $nav-pills-bg-hover:      $black-divider !default;
 $nav-pills-border-radius: $border-radius !default;
 $nav-pills-color:         $black-primary !default;
-$nav-pills-color-active:  theme-color(secondary) !default;
+$nav-pills-color-active:  selection-theme-color() !default;
 $nav-pills-link-opacity:  .7 !default;
 
 // Pagination
@@ -187,7 +220,7 @@ $pagination-font-size-lg:   1.25rem !default;
 $pagination-font-weight:    $font-weight-regular !default;
 $pagination-inner-spacer-x: .5em !default;
 $pagination-line-height:    2.25 !default; // 36px
-$pagination-margin-x:      .5rem !default;
+$pagination-margin-x:       .5rem !default;
 
 // Popover
 

@@ -10,8 +10,8 @@ $btn-bg-disabled-inverse:     $white-divider !default;
 $btn-border-radius:           $border-radius !default;
 $btn-block-margin-y:          $spacer-xs !default;
 $btn-color:                   $black-primary !default;
-$btn-color-disabled:          rgba(0, 0, 0, .37) !default;
-$btn-color-disabled-inverse:  rgba(255, 255, 255, .3) !default;
+$btn-color-disabled:          rgba($black, .37) !default;
+$btn-color-disabled-inverse:  rgba($white, .3) !default;
 $btn-elevation-shadow:        map-get($elevation-shadows, 2) !default;
 $btn-elevation-shadow-hover:  map-get($elevation-shadows, 4) !default;
 $btn-elevation-shadow-active: map-get($elevation-shadows, 8) !default;
@@ -27,8 +27,8 @@ $btn-font-size-sm:            .8125rem !default;
 $btn-height:                  2.25rem !default; // 36px
 $btn-height-lg:               2.5rem !default; // 40px not official
 $btn-height-sm:               2rem !default;  // 32px
-$btn-padding-x:               1rem !default;
-$btn-flat-padding-x:          .5rem !default;
+$btn-padding-x:               $spacer !default;
+$btn-flat-padding-x:          $spacer-sm !default;
 $btn-group-padding-x:         .75rem !default;
 //$btn-padding-x-lg:            $btn-padding-x !default;
 //$btn-padding-x-sm:            $btn-padding-x !default;
@@ -39,7 +39,7 @@ $btn-padding-y:               0 !default;
 // Button: floating action button
 // Based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
 
-$btn-float-dropdown-inner-spacer-y: 1rem !default;
+$btn-float-dropdown-inner-spacer-y: $spacer !default;
 $btn-float-elevation-shadow:        map-get($elevation-shadows, 6) !default;
 $btn-float-elevation-shadow-hover:  map-get($elevation-shadows, 8) !default;
 $btn-float-elevation-shadow-active: map-get($elevation-shadows, 12) !default;
@@ -47,8 +47,12 @@ $btn-float-size:                    3.5rem !default; // 56px
 $btn-float-size-sm:                 2.5rem !default; // 40px
 $btn-float-extended-height:         3rem !default; // 48px
 $btn-float-extended-padding-x:      1.25rem !default; // 20px
-$btn-float-extended-border-radius:  1.5rem !default; // 24px
+$btn-float-extended-border-radius:  $btn-float-extended-height / 2 !default; // 24px
 $btn-float-extended-line-height:    2.25rem !default;
+
+$btn-icon-height: $btn-float-extended-height !default;
+$btn-icon-width: $btn-float-extended-height !default;
+$btn-icon-padding: $btn-group-padding-x !default;
 
 // Button: toggle buttons (Boostrap button group)
 // Based on https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons
@@ -61,10 +65,10 @@ $btn-group-toggle-opacity: .7 !default;
 // Card (Bootstrap card)
 // Based on https://material.google.com/components/cards.html#cards-usage
 
-$card-action-inner-spacer-x:  .5rem !default;
-$card-action-inner-spacer-y:  .25rem !default;
-$card-action-padding-x:       .5rem !default;
-$card-action-padding-y:       .5rem !default;
+$card-action-inner-spacer-x:  $spacer-sm !default;
+$card-action-inner-spacer-y:  $spacer-xs !default;
+$card-action-padding-x:       $spacer-sm !default;
+$card-action-padding-y:       $card-action-padding-x !default;
 $card-bg:                     $white !default;
 $card-border-color:           $border-color !default;
 $card-border-radius:          $border-radius !default;
@@ -73,28 +77,30 @@ $card-columns-count:          2 !default;
 $card-columns-count-desktop:  3 !default;
 $card-elevation-shadow:       map-get($elevation-shadows, 1) !default;
 $card-elevation-shadow-hover: map-get($elevation-shadows, 8) !default;
-$card-inner-spacer-x:         1rem !default;
-$card-inner-spacer-y:         1rem !default;
+$card-inner-spacer-x:         $spacer !default;
+$card-inner-spacer-y:         $card-inner-spacer-x !default;
 $card-margin-x:               $spacer-sm !default;
-$card-margin-y:               $spacer-sm !default;
-$card-padding-x:              1rem !default;
-$card-padding-y:              1rem !default;
+$card-margin-y:               $card-margin-x !default;
+$card-padding-x:              $spacer !default;
+$card-padding-y:              $card-padding-x !default;
 
 // Chip
 // Based on https://material.google.com/components/chips.html#chips-specs
 
-$chip-bg:                     $material-color-grey-300 !default;
-$chip-bg-active:              $material-color-grey-400 !default;
+$chip-bg:                     #e0e0e0 !default;
+$chip-bg-hover:               #cfcfcf !default;
+$chip-bg-active:              #b3b3b3 !default;
 $chip-color:                  $black-primary !default;
-$chip-elevation-shadow-hover: map-get($elevation-shadows, 2) !default;
+//$chip-elevation-shadow-hover: map-get($elevation-shadows, 2) !default;
 $chip-font-size:              .875rem !default;
 $chip-font-weight:            $font-weight-regular !default;
 $chip-height:                 2rem !default;
 $chip-icon-bg:                theme-color(secondary) !default;
 $chip-icon-font-size:         1rem !default;
-$chip-inner-spacer-x:         .25rem !default;
-$chip-line-height:            1 !default;
+$chip-inner-spacer-x:         $spacer-xs !default;
+$chip-line-height:            1.25rem !default;
 $chip-padding-x:              .75rem !default;
+$chip-padding-y:              .4375rem !default;
 
 // Data table (Bootstrap table)
 // Based on https://material.google.com/components/data-tables.html#data-tables-structure
@@ -107,7 +113,7 @@ $table-bg-hover:              $material-color-grey-200 !default;
 $table-border-color:          $border-color-solid !default;
 $table-border-width:          $border-width !default;
 $table-cell-padding-x:        1.75rem !default;
-$table-cell-padding-x-alt:    1.5rem !default;
+$table-cell-padding-x-alt:    $spacer-lg !default;
 $table-line-height:           $line-height-base !default;
 $table-margin-y:              $spacer !default;
 $table-striped-order:         odd !default;
@@ -137,8 +143,8 @@ $table-thead-font-size:       $table-tfoot-font-size !default;
 $table-thead-font-weight:     $font-weight-medium !default;
 $table-thead-padding-y:       (($table-thead-cell-height - $table-thead-font-size * $table-line-height) / 2) !default;
 
-$table-sm-cell-padding-x:     1rem !default;
-$table-sm-cell-padding-x-alt: 1rem !default;
+$table-sm-cell-padding-x:     $spacer !default;
+$table-sm-cell-padding-x-alt: $table-sm-cell-padding-x !default;
 $table-sm-tbody-cell-height:  2.25rem !default;
 $table-sm-tbody-padding-y:    (($table-sm-tbody-cell-height - $table-tbody-font-size * $table-line-height) / 2) !default;
 $table-sm-tfoot-cell-height:  2.5rem !default;
@@ -159,25 +165,26 @@ $dialog-footer-btn-min-width:         4rem !default;
 $dialog-footer-btn-stacked-height:    3rem !default;
 $dialog-footer-btn-stacked-padding-x: 1rem !default;
 $dialog-footer-btn-stacked-padding-y: (($dialog-footer-btn-stacked-height - $btn-font-size * $btn-line-height) / 2) !default;
-$dialog-footer-inner-spacer-x:        .5rem !default;
-$dialog-footer-padding-x:             .5rem !default;
-$dialog-footer-padding-y:             .5rem !default;
+$dialog-footer-inner-spacer-x:        $spacer-sm !default;
+$dialog-footer-padding-x:             $spacer-sm !default;
+$dialog-footer-padding-y:             $spacer-sm !default;
 $dialog-margin-x:                     $spacer-lg !default;
-$dialog-margin-y:                     $spacer-lg !default;
-$dialog-padding-x:                    1.5rem !default;
-$dialog-padding-y:                    1.25rem !default;
+$dialog-margin-y:                     $spacer !default; //$spacer-lg
+$dialog-padding-x:                    $spacer-lg !default;
+$dialog-padding-y:                    $spacer-sm !default;
 $dialog-show-transform:               scale(1) !default;
 $dialog-transition-scale:             $transition-scale !default;
 $dialog-width:                        35rem !default; // 560px
-$dialog-width-lg:                     52.5rem !default;
+$dialog-width-lg:                     52.5rem !default; // 840px
 $dialog-width-sm:                     17.5rem !default; // 280px
+$dialog-width-xl:                     $dialog-width-lg !default;
 
 // Expansion panel (Bootstrap list group)
 // Based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
 
 $expansion-panel-bg:                    $white !default;
-$expansion-panel-bg-hover:             rgba($black, $overlay-hover-white-opacity) !default;
-$expansion-panel-bg-focus:             rgba($black, $overlay-focus-white-opacity) !default;
+$expansion-panel-bg-hover:              rgba($black, $overlay-hover-white-opacity) !default;
+$expansion-panel-bg-focus:              rgba($black, $overlay-focus-white-opacity) !default;
 $expansion-panel-bg-active:             rgba($black, $overlay-pressed-white-opacity) !default;
 $expansion-panel-bg-selected:           rgba(theme-color(primary), $overlay-activated-white-opacity) !default;
 $expansion-panel-border-color:          $border-color !default;
@@ -188,16 +195,16 @@ $expansion-panel-color-disabled:        $black-hint !default;
 $expansion-panel-elevation-shadow:      map-get($elevation-shadows, 1) !default;
 $expansion-panel-font-size:             $font-size-base !default;
 $expansion-panel-footer-btn-min-width:  4rem !default;
-$expansion-panel-footer-inner-spacer-x: .5rem !default;
-$expansion-panel-footer-inner-spacer-y: .25rem !default;
-$expansion-panel-footer-padding-x:      .5rem !default;
+$expansion-panel-footer-inner-spacer-x: $spacer-sm !default;
+$expansion-panel-footer-inner-spacer-y: $spacer-xs !default;
+$expansion-panel-footer-padding-x:      $spacer-sm !default;
 $expansion-panel-height:                3rem !default;
-$expansion-panel-inner-spacer-x:        1rem !default;
-$expansion-panel-inner-spacer-y:        1rem !default;
+$expansion-panel-inner-spacer-x:        $spacer !default;
+$expansion-panel-inner-spacer-y:        $expansion-panel-inner-spacer-x !default;
 $expansion-panel-letter-spacing:        $letter-spacing-subtitle-1 !default;
 $expansion-panel-line-height:           $line-height-base !default;
 $expansion-panel-margin-y:              $spacer !default;
-$expansion-panel-padding-x:             1.5rem !default;
+$expansion-panel-padding-x:             $spacer-lg !default;
 $expansion-panel-padding-y:             (($expansion-panel-height - $expansion-panel-font-size * $expansion-panel-line-height) / 2) !default;
 
 // Menu (Bootstrap dropdown)
@@ -221,14 +228,14 @@ $menu-link-color:               $black-primary !default;
 $menu-link-color-disabled:      $black-hint !default;
 $menu-link-height:              3rem !default; // 48px
 $menu-link-height-cascading:    2rem !default; // 32px
-$menu-link-padding-x:           1rem !default;
-$menu-link-padding-x-cascading: 1.5rem !default;
+$menu-link-padding-x:           $spacer !default;
+$menu-link-padding-x-cascading: $spacer-lg !default;
 $menu-link-padding-y:           (($menu-link-height - $menu-line-height) / 2) !default;
 $menu-link-padding-y-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) !default;
 $menu-min-width:                7rem !default; // 112px
 $menu-min-width-cascading:      17.5rem !default; // 20 - 320px ?
-$menu-padding-y:                .5rem !default;
-$menu-padding-y-cascading:      1rem !default;
+$menu-padding-y:                $spacer-sm !default;
+$menu-padding-y-cascading:      $spacer !default;
 
 // Navigation drawer
 // Based on https://material.google.com/patterns/navigation-drawer.html#navigation-drawer-specs
@@ -275,7 +282,7 @@ $picker-header-padding-x:     1.5rem !default;
 $picker-header-padding-y:     1rem !default;
 $picker-holder-bg:            $dialog-backdrop-bg !default;
 $picker-inner-spacer-x:       .5rem !default;
-$picker-inner-spacer-y:       .5rem !default;
+$picker-inner-spacer-y:       $picker-inner-spacer-x !default;
 $picker-margin-x:             $dialog-margin-x !default;
 $picker-margin-y:             $dialog-margin-y !default;
 $picker-nav-next-icon:        'keyboard_arrow_right' !default;
@@ -292,7 +299,7 @@ $picker-weekday-color:        $black-hint !default;
 $progress-bar-bg:                      $material-color-indigo-500 !default;
 $progress-bar-border-radius:           .25rem !default;
 $progress-bar-buffer-width:            1.5rem !default;
-$progress-bar-height:                  .25rem !default; // 4px
+$progress-bar-height:                  $progress-bar-border-radius !default; // 4px
 $progress-bg:                          $material-color-indigo-100 !default;
 
 $progress-circular-animation-duration: 5.332s !default;
@@ -310,8 +317,8 @@ $selection-control-checkbox-icon:               'check_box_outline_blank' !defau
 $selection-control-checkbox-icon-checked:       'check_box' !default;
 $selection-control-checkbox-icon-indeterminate: 'indeterminate_check_box' !default;
 $selection-control-color:                       $black-secondary !default;
-$selection-control-color-active:                theme-color(secondary) !default;
-$selection-control-color-disabled:              rgba(0, 0, 0, .26) !default;
+$selection-control-color-active:                selection-theme-color() !default; //theme-color(secondary)
+$selection-control-color-disabled:              rgba($black, .26) !default;
 $selection-control-gutter:                      .5rem !default; // addded djibe
 $selection-control-indicator-size:              $material-icon-size !default;
 
@@ -322,7 +329,7 @@ $selection-control-spacer-x:                    ($material-icon-size / 2) !defau
 $selection-control-spacer-y:                    ($material-icon-size / 2) !default;
 $selection-control-thumb-bg:                    $material-color-grey-050 !default;
 $selection-control-thumb-bg-disabled:           #bdbdbd !default;
-$selection-control-thumb-shadow:                0 1px 5px 0 rgba(0, 0, 0, $black-secondary-opacity) !default;
+$selection-control-thumb-shadow:                0 1px 5px 0 rgba($black, $black-secondary-opacity) !default;
 $selection-control-track-bg:                    $black-hint !default;
 $selection-control-track-bg-disabled:           $black-divider !default;
 $selection-control-track-height:                1rem !default;
@@ -332,9 +339,9 @@ $selection-control-border-width:                (($selection-control-indicator-s
 
 $custom-control-gutter:                         1.75rem !default;
 $custom-control-indicator-size:                 1rem !default;
-$custom-control-indicator-border-width: 1.25rem !default;
-$custom-control-indicator-border-color: $material-color-grey-800 !default;
-$custom-control-indicator-bg:           $white-primary !default;
+$custom-control-indicator-border-width:         1.25rem !default;
+$custom-control-indicator-border-color:         $material-color-grey-800 !default;
+$custom-control-indicator-bg:                   $white-primary !default;
 $custom-switch-width:                           $custom-control-indicator-size * 1.75 !default;
 $custom-switch-indicator-border-radius:         $custom-control-indicator-size / 2 !default;
 $custom-switch-indicator-size:                  calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4}) !default;
@@ -347,19 +354,19 @@ $custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5)
 $slider-track-width: 100% !default;
 $slider-track-height: .125rem !default;
 $slider-track-cursor: pointer !default;
-$slider-track-bg: rgba(theme-color(secondary), .26) !default;
+$slider-track-bg: rgba(selection-theme-color(), .26) !default;
 $slider-track-bg-disabled: #d7d7d7 !default;
 $slider-track-border-radius: 3px !default;
 $slider-track-box-shadow: none !default;
 
 $slider-thumb-width: .75rem !default;
 $slider-thumb-height: $slider-thumb-width !default;
-$slider-thumb-bg: theme-color(secondary) !default;
+$slider-thumb-bg: selection-theme-color() !default;
 $slider-thumb-border: 0 !default;
 $slider-thumb-border-radius: 50% !default;
 $slider-thumb-box-shadow: none !default;
-$slider-thumb-hover-box-shadow: 0 0 0 $slider-thumb-width rgba(theme-color(secondary), .12) !default;
-$slider-thumb-active-box-shadow: 0 0 0 1.3334rem rgba(theme-color(secondary), .16) !default;
+$slider-thumb-hover-box-shadow: 0 0 0 $slider-thumb-width rgba(selection-theme-color(), .12) !default;
+$slider-thumb-active-box-shadow: 0 0 0 1.3334rem rgba(selection-theme-color(), .16) !default;
 $slider-thumb-active-box-shadow-width: .2rem !default;
 $slider-thumb-active-bg: $slider-thumb-bg !default;
 $slider-thumb-disabled-bg: #8c8c8c !default;
@@ -415,17 +422,18 @@ $stepper-text-font-weight:  $font-weight-regular !default;
 $nav-tab-bg-hover:         $black-divider !default;
 $nav-tab-border-color:     $border-color !default;
 $nav-tab-border-width:     $border-width !default;
-$nav-tab-color:            $black-primary !default;
-$nav-tab-color-active:     theme-color(secondary) !default;
+$nav-tab-color:            $black-secondary !default; //$black-primary !default;
+$nav-tab-color-active:     selection-theme-color() !default;
 $nav-tab-color-disabled:   $black-hint !default;
 $nav-tab-font-size:        .875rem !default;
 $nav-tab-font-weight:      $font-weight-medium !default;
 $nav-tab-height:           3rem !default;
-$nav-tab-indicator-bg:     theme-color(secondary) !default;
+$nav-tab-indicator-bg:     selection-theme-color() !default;
 $nav-tab-indicator-height: .125rem !default;
-$nav-tab-line-height:      1 !default;
+$nav-tab-letter-spacing:   .0892857143em !default;
+$nav-tab-line-height:      1 !default; // 1
 $nav-tab-link-opacity:     .7 !default;
-$nav-tab-link-padding-x:   .75rem !default;
+$nav-tab-link-padding-x:   $spacer-lg !default; //.75rem
 $nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-line-height) / 2) !default;
 
 
@@ -435,10 +443,10 @@ $nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-lin
 $textfield-border-color:       rgba($black, .42) !default;
 $textfield-textarea-border-color: rgba($black, .24) !default;
 $textfield-border-color-hover: $black-primary !default;
-$textfield-border-color-focus: theme-color(secondary) !default;
+$textfield-border-color-focus: selection-theme-color() !default;
 $textfield-border-width:       1px !default;
-$textfield-border-width-focus: ($textfield-border-width * 2) !default;
 $textfield-border-width-hover: ($textfield-border-width * 2) !default;
+$textfield-border-width-focus: $textfield-border-width-hover !default;
 $textfield-color:              $black-primary !default;
 $textfield-color-disabled:     $black-hint !default;
 $textfield-caption-color:      $black-caption !default;
@@ -482,7 +490,7 @@ $textfield-box-height-lg:      4.25rem !default;
 $textfield-box-height-sm:      2.75rem !default;
 $textfield-box-label-spacer-y: .5rem !default;
 $textfield-box-padding-x:      1rem !default;
-$textfield-box-padding-x-lg:   1rem !default;
+$textfield-box-padding-x-lg:   $textfield-box-padding-x !default;
 $textfield-box-padding-x-sm:   .75rem !default;
 $textfield-box-padding-y:      (($textfield-box-height - $textfield-font-size * $textfield-line-height) / 2) !default;
 $textfield-box-padding-y-lg:   (($textfield-box-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
@@ -494,7 +502,7 @@ $textfield-box-placeholder-color:  $black-caption !default;
 
 $floating-label-color:           $black-secondary !default;
 $floating-label-color-box:       $black-caption !default;
-$floating-label-color-focus:     theme-color(secondary) !default;
+$floating-label-color-focus:     $selection-control-color !default;
 $floating-label-font-size:       .75rem !default;
 $floating-label-font-size-lg:    .875rem !default;
 $floating-label-font-size-sm:    .625rem !default;
@@ -545,6 +553,6 @@ $tooltip-padding-x:         1rem !default;
 $tooltip-padding-x-desktop: .5rem !default;
 $tooltip-padding-y:         0; //(($tooltip-height - $tooltip-font-size * $tooltip-line-height) / 2) !default;
 // $tooltip-padding-y-desktop: (($tooltip-height-desktop - $tooltip-font-size-desktop * $tooltip-line-height) / 2) !default;
-$tooltip-padding-y-desktop: 0; // 6px
+$tooltip-padding-y-desktop: $tooltip-padding-y; // 6px
 $tooltip-scale:             .87 !default;
 $tooltip-zindex:            map-get($elevations, 24) !default;
