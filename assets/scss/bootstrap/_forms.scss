@@ -7,15 +7,9 @@
   position: relative;
 }
 
-.form-check-inline {
-  display: inline-block;
-  margin-right: $form-check-inline-margin-x;
-  margin-bottom: 0;
-}
-
 .form-check-input {
-  margin-top: (($font-size-base * $line-height-base - $font-size-base) / 3 * 2);
-  margin-left: ($form-check-input-gutter * -1);
+  margin-top: (($font-size-base * $line-height-base - $font-size-base) / 3 * 2); //$form-check-input-margin-y;
+  margin-left: ($form-check-input-gutter * -1); //-$form-check-input-gutter;
   position: absolute;
 
   &:disabled ~ .form-check-label {
@@ -27,6 +21,22 @@
   color: inherit;
   font-size: inherit;
   line-height: inherit;
+  //margin-bottom: 0;
+}
+
+.form-check-inline {
+  align-items: center;
+  display: inline-flex;
+  margin-right: $form-check-inline-margin-x;
+  margin-bottom: 0;
+  //padding-left: 0;
+
+  .form-check-input {
+    position: static;
+    margin-top: 0;
+    margin-right: $form-check-inline-input-margin-x;
+    margin-left: 0;
+  }
 }
 
 // Form group
@@ -38,7 +48,7 @@
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: ($textfield-margin-x / -2);
+  margin-right: ($textfield-margin-x / -2); //-$form-grid-gutter-width / 2;
   margin-left: ($textfield-margin-x / -2);
 
   > .col,
@@ -55,37 +65,67 @@
   display: flex;
   flex-flow: row wrap;
 
-  .custom-file,
-  .custom-select {
-    width: auto;
-  }
-
   .form-check {
     margin-bottom: 0;
-    width: auto;
+    width: 100%; //auto
   }
 
-  .form-control,
-  .form-control-file {
-    display: inline-block;
-    vertical-align: middle;
-    width: auto;
-  }
+  @include media-breakpoint-up(sm) {
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
 
-  .form-control-plaintext {
-    display: inline-block;
-  }
+    // Inline-block all the things for "inline"
+    .form-group {
+      display: flex;
+      flex: 0 0 auto;
+      flex-flow: row wrap;
+      align-items: center;
+      margin-bottom: 0;
+    }
 
-  .form-group {
-    align-items: center;
-    display: flex;
-    flex: 0 0 auto;
-    flex-flow: row wrap;
-    margin-bottom: 0;
-  }
+    // Allow folks to *not* use `.form-group`
+    .form-control {
+      display: inline-block;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      vertical-align: middle;
+    }
 
-  .input-group {
-    width: auto;
+    // Make static controls behave like regular ones
+    .form-control-plaintext {
+      display: inline-block;
+    }
+
+    .input-group,
+    .custom-select {
+      width: auto;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      padding-left: 0;
+    }
+    .form-check-input {
+      position: relative;
+      flex-shrink: 0;
+      margin-top: 0;
+      margin-right: $form-check-input-gutter;
+      margin-left: 0;
+    }
+
+    .custom-control {
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-control-label {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -93,22 +133,23 @@
 
 .col-form-label {
   color: inherit;
-  font-size: $font-size-base;
-  line-height: ($textfield-font-size * $textfield-line-height / $font-size-base);
+  font-size: $font-size-base; // todo
+  line-height: ($textfield-font-size * $textfield-line-height / $font-size-base); //$input-line-height
+  // margin-bottom: 0;
   padding-top: $textfield-padding-y;
   padding-bottom: $textfield-padding-y;
 }
 
 .col-form-label-lg {
-  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-lg);
-  line-height: ($textfield-line-height-lg / ($font-size-base / $textfield-font-size));
+  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-lg); //@include font-size($input-font-size-lg)
+  line-height: ($textfield-line-height-lg / ($font-size-base / $textfield-font-size)); //$input-line-height-lg;
   padding-top: $textfield-padding-y-lg;
   padding-bottom: $textfield-padding-y-lg;
 }
 
 .col-form-label-sm {
-  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-sm);
-  line-height: ($textfield-line-height-sm / ($font-size-base / $textfield-font-size));
+  font-size: ($font-size-base / $textfield-font-size * $textfield-font-size-sm); //@include font-size($input-font-size-sm);
+  line-height: ($textfield-line-height-sm / ($font-size-base / $textfield-font-size)); //$input-line-height-sm;
   padding-top: $textfield-padding-y-sm;
   padding-bottom: $textfield-padding-y-sm;
 }
@@ -163,15 +204,15 @@
 
 .form-control-plaintext {
   background-color: transparent;
-  border-color: transparent;
+  border: solid transparent;
   border-radius: 0;
-  border-style: solid;
   border-width: 0 0 $textfield-border-width;
   box-shadow: none;
   color: $textfield-plaintext-color;
   display: block;
   font-size: $textfield-font-size;
   line-height: $textfield-line-height;
+  // margin-bottom: 0;
   padding: $textfield-padding-y 0 calc(#{$textfield-padding-y} - #{$textfield-border-width});
   width: 100%;
 

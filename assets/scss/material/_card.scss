@@ -102,9 +102,14 @@
 // Action
 
 .card-actions {
-  align-items: flex-start;
   display: flex;
-  padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
+  //padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
+  min-height: 3.25rem; // 52px
+  padding: 0 .5rem;
+
+  &:not(.flex-column) {
+    align-items: center;
+  }
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -115,14 +120,14 @@
   }
 
   .btn {
-    @include text-truncate;
+    //@include text-truncate;
 
     flex: 0 1 auto;
-    margin-right: $card-action-inner-spacer-x;
-    margin-bottom: $card-action-inner-spacer-y;
     min-width: 0;
-    padding-right: $card-action-inner-spacer-x;
-    padding-left: $card-action-inner-spacer-x;
+
+    &:not(.btn-icon) {
+      margin-right: $card-action-inner-spacer-x;
+    }
   }
 
   .dropdown-toggle::after {

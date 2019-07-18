@@ -1,6 +1,12 @@
-@mixin form-validation-state($state, $color) {
+@mixin form-validation-state($state, $color, $icon) {
+  [class*="valid-feedback"] {
+    @extend .form-text;
+    display: none;
+    width: 100%;
+  }
+
   .#{$state}-feedback {
-    @include typography-caption;
+    /*@include typography-caption;
 
     color: $color;
     display: none;
@@ -13,7 +19,12 @@
 
     .form-control-sm + & {
       margin-top: $textfield-margin-y-sm;
-    }
+    }*/
+
+    //@extend .form-text;
+    color: $color;
+    //display: none;
+    //width: 100%;
   }
 
   .#{$state}-tooltip {
@@ -121,6 +132,15 @@
     &.is-#{$state},
     .was-validated &:#{$state} {
       border-color: $color;
+
+      // todo
+      @if $enable-validation-icons {
+        padding-right: $textfield-padding-x;
+        background-image: $icon;
+        background-repeat: no-repeat;
+        background-position: center right; //center right $input-height-inner-quarter
+        background-size: 1.5rem 1.5rem; //$input-height-inner-half $input-height-inner-half
+      }
 
       @include hover-focus {
         border-color: $color;

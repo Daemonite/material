@@ -7,6 +7,7 @@
 }
 
 .nav-link {
+  color: selection-theme-color();
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
@@ -19,6 +20,11 @@
     color: $nav-link-color-disabled;
     cursor: default;
     pointer-events: none;
+  }
+
+  &:hover,
+  &.active {
+    color: darken(selection-theme-color(),16%);
   }
 }
 

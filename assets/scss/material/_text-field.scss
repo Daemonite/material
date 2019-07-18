@@ -9,16 +9,12 @@
   color: $textfield-color;
   display: block;
   font-size: $textfield-font-size;
+  // todo height: $input-height;
   letter-spacing: $textfield-letter-spacing;
   line-height: $textfield-line-height;
   padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
   transition: border-color 150ms cubic-bezier(.4,0,.2,1);
   width: 100%;
-
-  @include hover {
-    border-color: $textfield-border-color-hover;
-    //box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
-  }
 
   &::-ms-expand {
     background-color: transparent;
@@ -40,6 +36,10 @@
       border-color: $textfield-border-color;
       box-shadow: none;
     }
+  }
+
+  @include hover {
+    border-color: $textfield-border-color-hover;
   }
 
   &:focus {
@@ -65,6 +65,7 @@
 
 .form-control-lg {
   font-size: $textfield-font-size-lg;
+  // height: $input-height-lg;    todo
   line-height: $textfield-line-height-lg;
   padding: $textfield-padding-y-lg $textfield-padding-x-lg calc(#{$textfield-padding-y-lg} - #{$textfield-border-width});
 
@@ -75,6 +76,7 @@
 
 .form-control-sm {
   font-size: $textfield-font-size-sm;
+  // height: $input-height-sm;     todo
   line-height: $textfield-line-height-sm;
   padding: $textfield-padding-y-sm $textfield-padding-x-sm calc(#{$textfield-padding-y-sm} - #{$textfield-border-width});
 
@@ -128,6 +130,7 @@ select {
     &[multiple],
     &[size]:not([size='1']) {
       @extend %form-textarea;
+      //height: auto;  todo
     }
   }
 
@@ -149,6 +152,7 @@ select {
 textarea {
   &.form-control {
     min-height: $textfield-height;
+    //height: auto;
 
     &:not([rows='1']) {
       @extend %form-textarea;
@@ -276,5 +280,9 @@ textarea {
 
 // Validation
 
-@include form-validation-state('invalid', $form-feedback-invalid-color);
-@include form-validation-state('valid', $form-feedback-valid-color);
+//@include form-validation-state('invalid', $form-feedback-invalid-color);
+//@include form-validation-state('valid', $form-feedback-valid-color);
+
+@each $state, $data in $form-validation-states {
+  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+}

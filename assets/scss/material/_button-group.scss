@@ -1,3 +1,5 @@
+// todo : btn-group disabled
+
 .btn-group,
 .btn-group-vertical {
   @include border-radius($btn-border-radius);
@@ -37,10 +39,10 @@
       z-index: 1;
     }
 
-    &.active,
+    /*&.active,
     &:active {
       background-color: rgba($black,$overlay-activated-white-opacity);
-    }
+    }*/
 
     &.disabled,
     &:disabled {
@@ -53,6 +55,7 @@
       &.active,
       &:active {
         opacity: 1;
+        background-color: rgba($black,$overlay-activated-white-opacity);
       }
 
       &.disabled,

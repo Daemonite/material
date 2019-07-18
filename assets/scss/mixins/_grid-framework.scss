@@ -1,67 +1,66 @@
-@mixin make-grid-columns() {
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  // Common properties for all breakpoints
   %grid-column {
-    min-height: 1px;
-    padding-right: ($grid-gutter-width / 2);
-    padding-left: ($grid-gutter-width / 2);
     position: relative;
     width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
   }
 
-  // stylelint-disable-next-line order/order
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $infix: breakpoint-infix($breakpoint);
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-    @for $i from 1 through $grid-columns {
+    // Allow columns to stretch full width below their breakpoints
+    @for $i from 1 through $columns {
       .col#{$infix}-#{$i} {
         @extend %grid-column;
       }
     }
+    .col#{$infix},
+    .col#{$infix}-auto {
+      @extend %grid-column;
+    }
 
-    @include media-breakpoint-up($breakpoint) {
-      @for $i from 1 through $grid-columns {
-        .col#{$infix}-#{$i} {
-          @include make-col($i);
-        }
-      }
-
-      @for $i from 0 through ($grid-columns - 1) {
-        @if not ($infix == '' and $i == 0) {
-          .offset#{$infix}-#{$i} {
-            @include make-col-offset($i);
-          }
-        }
-      }
-
-      @for $i from 0 through $grid-columns {
-        .order#{$infix}-#{$i} {
-          order: $i;
-        }
-      }
-
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
         flex-basis: 0;
         flex-grow: 1;
         max-width: 100%;
       }
-
       .col#{$infix}-auto {
         flex: 0 0 auto;
-        max-width: none;
         width: auto;
+        max-width: 100%; // Reset earlier grid tiers
       }
 
-      .order#{$infix}-first {
-        order: -1;
+      @for $i from 1 through $columns {
+        .col#{$infix}-#{$i} {
+          @include make-col($i, $columns);
+        }
       }
 
-      .order#{$infix}-last {
-        order: $grid-columns + 1;
-      }
-    }
+      .order#{$infix}-first { order: -1; }
 
-    .col#{$infix},
-    .col#{$infix}-auto {
-      @extend %grid-column;
+      .order#{$infix}-last { order: $columns + 1; }
+
+      @for $i from 0 through $columns {
+        .order#{$infix}-#{$i} { order: $i; }
+      }
+
+      // `$columns - 1` because offsetting by the width of an entire row isn't possible
+      @for $i from 0 through ($columns - 1) {
+        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          .offset#{$infix}-#{$i} {
+            @include make-col-offset($i, $columns);
+          }
+        }
+      }
     }
   }
 }

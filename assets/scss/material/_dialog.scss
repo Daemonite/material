@@ -29,23 +29,20 @@
   &.fade {
     //@include transition-standard-complex(opacity);
     @include transition-deceleration(opacity);
-
-    .modal-dialog {
-      //@include transition-standard-complex(transform);
-      @include transition-deceleration(transform);
-      transform: scale($dialog-transition-scale);
-    }
   }
-
-  
 }
 
 .modal-dialog {
   margin: $dialog-margin-y auto; // $modal-dialog-margin
-  max-width: $dialog-width;
+  //max-width: $dialog-width;
   pointer-events: none;
   position: relative;
-  width: calc(100% - #{$dialog-margin-x} * 2); // auto
+  width: auto; //calc(100% - #{$dialog-margin-x} * 2);
+
+  .modal.fade & {
+    @include transition-deceleration(transform);
+    transform: scale($dialog-transition-scale);
+  }
 
   .modal.show & {
     transform: $dialog-show-transform;
@@ -55,7 +52,7 @@
 
 .modal-dialog-scrollable {
   display: flex; // IE10/11
-  max-height: calc(100vh - 32px); //calc(100% - #{$modal-dialog-margin * 2});
+  max-height: calc(100vh - #{$dialog-margin-y * 2}); //calc(100% - #{$modal-dialog-margin * 2});
 
   .modal-content {
     max-height: calc(100vh - #{$dialog-margin-y * 2}); // IE10/11 calc(100vh - #{$modal-dialog-margin * 2}); // IE10/11
@@ -145,7 +142,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 1rem $dialog-padding-x;
+  padding: $spacer $dialog-padding-x calc(#{$spacer} - 1px);
 
   &:first-child {
     @include border-top-radius($dialog-border-radius);
@@ -172,9 +169,10 @@
   // Enable `flex-grow: 1` so that the body take up as much space as possible
   // when should there be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
-  padding: $dialog-padding-y $dialog-padding-x;
+  padding: 1.25rem $dialog-padding-x;
   position: relative;
-  color: $black-secondary; // djibe added from GMD
+  @include typography-body-1();
+  color: rgba($black, $black-caption-opacity); // djibe added from GMD
 
   &:first-child {
     @include border-top-radius($dialog-border-radius);
@@ -185,7 +183,7 @@
   }
 
   .modal-header + & {
-    padding-top: 0;
+    padding: $dialog-padding-y $dialog-padding-x;
   }
 
   > :last-child {
@@ -197,7 +195,7 @@
   align-items: flex-end;
   display: flex;
   justify-content: flex-end;
-  padding: $dialog-footer-padding-y $dialog-footer-padding-x $dialog-footer-padding-y ($dialog-footer-padding-x - $dialog-footer-inner-spacer-x);
+  padding: $dialog-footer-padding-y $dialog-footer-padding-x;
 
   &:first-child {
     @include border-top-radius($dialog-border-radius);
@@ -274,31 +272,22 @@
   width: 50px;
 }
 
-.modal-lg {
-  max-width: $dialog-width-lg;
-}
-
-.modal-sm {
-  max-width: $dialog-width-sm;
-}
-
 // Scale up the modal
-/*@include media-breakpoint-up(sm) {
-  // sass-lint:disable-block border-zero
+@include media-breakpoint-up(sm) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
-    max-width: $modal-md;
-    margin: $modal-dialog-margin-y-sm-up auto;
+    max-width: $dialog-width;
+    //margin: $modal-dialog-margin-y-sm-up auto;
   }
 
-  .modal-dialog-scrollable {
+  /*.modal-dialog-scrollable {
     max-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
 
     .modal-content {
       max-height: calc(100vh - #{$modal-dialog-margin-y-sm-up * 2});
     }
-  }
-
+  }*/
+  /*
   .modal-dialog-centered {
     min-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
 
@@ -310,17 +299,17 @@
   .modal-content {
     @include box-shadow($modal-content-box-shadow-sm-up);
   }
-
-  .modal-sm { max-width: $modal-sm; }
+  */
+  .modal-sm { max-width: $dialog-width-sm; }
 }
 
 @include media-breakpoint-up(lg) {
   .modal-lg,
   .modal-xl {
-    max-width: $modal-lg;
+    max-width: $dialog-width-lg;
   }
 }
 
 @include media-breakpoint-up(xl) {
-  .modal-xl { max-width: $modal-xl; }
-}*/
+  .modal-xl { max-width: $dialog-width-xl; }
+}
