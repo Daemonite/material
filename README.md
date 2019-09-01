@@ -11,6 +11,7 @@
   <br>
   <a href="http://daemonite.github.io/material/docs/4.1/getting-started/introduction/" target="_blank"><strong>-- Browse the docs --</strong></a>
 </p>
+<hr>
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design.
 
