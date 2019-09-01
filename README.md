@@ -5,14 +5,14 @@
 </p>
 
 <h2 align="center">Material</h2>
-
 <p align="center">
   Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.
-  <br>
-  <a href="http://daemonite.github.io/material/docs/4.1/getting-started/introduction/" target="_blank"><strong>-- Browse the docs --</strong></a> <br>
-  <br>
-  [![Backers on Open Collective](https://opencollective.com/material/backers/badge.svg)](#backers)
+</p>
+
+[![Backers on Open Collective](https://opencollective.com/material/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/material/sponsors/badge.svg)](#sponsors) 
+<p align="center">
+  <a href="http://daemonite.github.io/material/docs/4.1/getting-started/introduction/" target="_blank"><strong>-- Browse the docs --</strong></a> 
 </p>
 <hr>
 
