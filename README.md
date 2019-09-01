@@ -1,10 +1,10 @@
 <p align="center">
   <a href="http://daemonite.github.io/material/">
-    <img src="http://daemonite.github.io/material/apple-touch-icon.png" width="150">
+    <img src="http://daemonite.github.io/material/apple-touch-icon.png" width="130">
   </a>
 </p>
 
-<h3 align="center">Material</h3>
+<h2 align="center">Material</h2>
 
 <p align="center">
   Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.
