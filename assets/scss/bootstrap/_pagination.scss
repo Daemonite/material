@@ -23,18 +23,18 @@
   white-space: nowrap;
 
   @include hover-focus-active {
-    background-color: rgba(0, 0, 0, $btn-hover-white-opacity); //linear-gradient(to bottom, rgba(0,0,0,$btn-hover-white-opacity), rgba(0,0,0,$btn-hover-white-opacity));
+    background-color: rgba($black, $overlay-hover-white-opacity);
     color: $pagination-color;
     text-decoration: none;
     z-index: 2;
   }
 
   &:focus {
-    background-color: rgba(0, 0, 0, $btn-focus-white-opacity);
+    background-color: rgba($black, $overlay-focus-white-opacity);
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, $btn-active-white-opacity);
+    background-color: rgba($black, $overlay-pressed-white-opacity);
   }
 
   &:not(:disabled):not(.disabled) {

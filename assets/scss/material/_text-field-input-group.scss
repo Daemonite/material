@@ -1,5 +1,5 @@
 .input-group {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -12,6 +12,7 @@
   > .form-control-file,
   > .textfield-box {
     flex: 1 1 auto;
+    position: relative;
     margin-bottom: 0;
     width: 1%;
 
@@ -24,22 +25,43 @@
       margin-left: $input-group-inner-spacer-x;
     }
   }
+
+  // Bring the "active" form control to the top of surrounding elements
+  > .form-control:focus,
+  > .custom-select:focus,
+  > .custom-file .custom-file-input:focus ~ .custom-file-label {
+    z-index: 3;
+  }
+
+  // Bring the custom file input above the label
+  > .custom-file .custom-file-input:focus {
+    z-index: 4;
+  }
 }
 
 // Addons
 
 .input-group-append,
 .input-group-prepend {
-  align-items: center;
+  align-items: center; // not in BS
   display: flex;
-  justify-content: center;
+  justify-content: center; // not in BS
 
   .btn {
     min-width: 0;
+    position: relative;
+    z-index: 2;
 
-    + .btn {
-      margin-left: ($btn-group-inner-spacer-x * -1);
+    &:focus {
+      z-index: 3;
     }
+  }
+
+  .btn + .btn,
+  .btn + .input-group-text,
+  .input-group-text + .input-group-text,
+  .input-group-text + .btn {
+    margin-left: ($btn-group-inner-spacer-x * -1);
   }
 }
 
@@ -52,10 +74,13 @@
 }
 
 .input-group-text {
+  align-items: center;
   color: inherit;
+  display: flex;
   font-size: $textfield-font-size;
   line-height: $textfield-line-height;
   margin-bottom: 0;
+  // text-align: center;
   white-space: nowrap;
 
   + .input-group-text {

@@ -1,3 +1,5 @@
+// todo : copy label position
+
 .floating-label {
   padding-top: $floating-label-font-size;
   position: relative;
@@ -6,10 +8,6 @@
   &.is-focused label {
     top: 0;
     transform: scale($floating-label-font-size / $textfield-font-size);
-  }
-
-  &.is-focused label {
-    color: $floating-label-color-focus;
   }
 
   &:not(.has-value):not(.is-focused) .form-control {
@@ -21,18 +19,22 @@
   }
 
   label {
-    @include transition-standard(color, top, transform);
+    //@include transition-standard(color, top, transform);
+    transition: transform .15s cubic-bezier(.4,0,.2,1),
+    color .15s cubic-bezier(.4,0,.2,1),
+    top .15s cubic-bezier(.4,0,.2,1);
 
     color: $floating-label-color;
     display: block;
-    font-size: $textfield-font-size;
-    line-height: $textfield-line-height;
+    font-size: $textfield-font-size; // ok
+    letter-spacing: $letter-spacing-subtitle-1; // addition
+    line-height: 1.15; //$textfield-line-height;
     margin: 0;
     padding: 0;
     position: absolute;
     top: ($floating-label-font-size + $textfield-padding-y);
     left: 0;
-    transform-origin: 0 0;
+    transform-origin: left top;//0 0;
   }
 
   %form-control {
@@ -134,6 +136,17 @@
   %form-control {
     padding-bottom: calc(#{$textfield-box-label-spacer-y} - #{$textfield-border-width});
   }
+}
+
+.floating-label.textfield-box {
+  label {
+    color: $floating-label-color-box;
+  }
+}
+
+// label color on focus
+.floating-label.is-focused label {
+  color: $floating-label-color-focus;
 }
 
 .floating-label-lg.textfield-box {

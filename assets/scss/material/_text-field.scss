@@ -1,3 +1,8 @@
+/* todos 
+*  merge select and custom select 
+*  input-group-prepend or input-group-icon ? : bring icon within field
+*/
+
 %form-control {
   background-clip: padding-box;
   background-color: transparent;
@@ -9,14 +14,12 @@
   color: $textfield-color;
   display: block;
   font-size: $textfield-font-size;
+  // todo height: $input-height;
+  letter-spacing: $textfield-letter-spacing;
   line-height: $textfield-line-height;
   padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
+  transition: border-color 150ms cubic-bezier(.4,0,.2,1);
   width: 100%;
-
-  @include hover {
-    border-color: $textfield-border-color-hover;
-    box-shadow: inset 0 ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
-  }
 
   &::-ms-expand {
     background-color: transparent;
@@ -24,7 +27,7 @@
   }
 
   &::placeholder {
-    color: $textfield-hint-color;
+    color: $textfield-placeholder-color;
     opacity: 1;
   }
 
@@ -38,6 +41,10 @@
       border-color: $textfield-border-color;
       box-shadow: none;
     }
+  }
+
+  @include hover {
+    border-color: $textfield-border-color-hover;
   }
 
   &:focus {
@@ -63,6 +70,7 @@
 
 .form-control-lg {
   font-size: $textfield-font-size-lg;
+  // height: $input-height-lg;    todo
   line-height: $textfield-line-height-lg;
   padding: $textfield-padding-y-lg $textfield-padding-x-lg calc(#{$textfield-padding-y-lg} - #{$textfield-border-width});
 
@@ -73,6 +81,7 @@
 
 .form-control-sm {
   font-size: $textfield-font-size-sm;
+  // height: $input-height-sm;     todo
   line-height: $textfield-line-height-sm;
   padding: $textfield-padding-y-sm $textfield-padding-x-sm calc(#{$textfield-padding-y-sm} - #{$textfield-border-width});
 
@@ -101,16 +110,19 @@
 }
 
 %form-textarea {
+  border-color: $textfield-textarea-border-color;
   border-radius: $textfield-box-border-radius;
   border-width: $textfield-border-width;
   min-height: $textfield-box-height;
   padding: calc(#{$textfield-box-padding-y} - #{$textfield-border-width}) $textfield-box-padding-x;
 
   @include hover {
-    box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
+    border-color: $textfield-border-color-hover;
+    //box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
 
   &:focus {
+    border-color: $textfield-border-color-focus;
     box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 ($textfield-border-width * -1) $textfield-border-color-focus, inset ($textfield-border-width-focus * -1) ($textfield-border-width-focus * -1) 0 ($textfield-border-width * -1) $textfield-border-color-focus;
   }
 }
@@ -123,6 +135,29 @@ select {
     &[multiple],
     &[size]:not([size='1']) {
       @extend %form-textarea;
+      //height: auto;  todo
+      padding: $spacer 0;
+
+      option {
+        padding: $spacer-xs $spacer-lg;
+      }
+    }
+
+    option {
+      font-size: .9375rem;
+      line-height: 1.5rem;
+
+      &:hover {
+        background: rgba($black,$overlay-hover-white-opacity);
+      }
+
+      &:active {
+        background: rgba($black,$overlay-activated-white-opacity);
+      }
+    }
+
+    &:not([multiple]):not([size]):focus {
+      background-image: url('data:image/svg+xml;charset=utf8,%3Csvg fill="%23000" fill-opacity=".54" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3CanimateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/%3E%3C/svg%3E');
     }
   }
 
@@ -144,6 +179,7 @@ select {
 textarea {
   &.form-control {
     min-height: $textfield-height;
+    //height: auto;
 
     &:not([rows='1']) {
       @extend %form-textarea;
@@ -271,5 +307,10 @@ textarea {
 
 // Validation
 
-@include form-validation-state('invalid', $form-feedback-invalid-color);
-@include form-validation-state('valid', $form-feedback-valid-color);
+@each $state, $data in $form-validation-states {
+  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
+}
+
+.form-control[class*="valid"] {
+  padding-right: calc(1.5rem + .5rem);
+}

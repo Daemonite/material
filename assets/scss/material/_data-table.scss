@@ -1,37 +1,34 @@
+// todo : table numeric cell
+
+.data-table {
+  border: $table-border-width solid $table-border-color;
+  border-radius: $border-radius;
+  display: inline-flex;
+  flex-direction: column;
+}
+
 .table {
   background-color: $table-bg;
   border: 0;
+  font-size: $table-font-size;
   margin-bottom: $table-margin-y;
-  max-width: 100%;
   width: 100%;
 
   td,
   th {
     border-top: $table-border-width solid $table-border-color;
-    line-height: $table-line-height;
+    font-weight: $font-weight-normal;
     padding-right: $table-cell-padding-x;
     padding-left: $table-cell-padding-x;
-    vertical-align: top;
-
-    &:first-child {
-      padding-left: $table-cell-padding-x-alt;
-    }
-
-    &:last-child {
-      padding-right: $table-cell-padding-x-alt;
-    }
+    vertical-align: middle;
   }
 
   tbody {
-    color: $table-tbody-color;
-
     td,
     th {
-      font-size: $table-tbody-font-size;
-      font-weight: $table-tbody-font-weight;
       height: $table-tbody-cell-height;
-      padding-top: $table-tbody-padding-y;
-      padding-bottom: $table-tbody-padding-y;
+      line-height: 1.25rem;
+      letter-spacing: .0178571429em;
     }
   }
 
@@ -43,21 +40,16 @@
       font-size: $table-tfoot-font-size;
       font-weight: $table-tfoot-font-weight;
       height: $table-tfoot-cell-height;
-      padding-top: $table-tfoot-padding-y;
-      padding-bottom: $table-tfoot-padding-y;
     }
   }
 
   thead {
-    color: $table-thead-color;
-
     td,
     th {
-      font-size: $table-thead-font-size;
       font-weight: $table-thead-font-weight;
       height: $table-thead-cell-height;
-      padding-top: $table-thead-padding-y;
-      padding-bottom: $table-thead-padding-y;
+      letter-spacing: $table-thead-letter-spacing;
+      line-height: 1.375rem;
     }
   }
 
@@ -70,7 +62,6 @@
       }
 
       > :first-child > tr:first-child {
-        // stylelint-disable selector-max-compound-selectors
         td,
         th {
           &:first-child {
@@ -81,7 +72,6 @@
             border-top-right-radius: $card-border-radius;
           }
         }
-        // stylelint-enable
       }
     }
 
@@ -93,7 +83,6 @@
       }
 
       > :last-child > tr:last-child {
-        // stylelint-disable selector-max-compound-selectors
         td,
         th {
           &:first-child {
@@ -104,7 +93,6 @@
             border-bottom-right-radius: $card-border-radius;
           }
         }
-        // stylelint-enable
       }
     }
   }
@@ -121,14 +109,6 @@
   }
 }
 
-.table-borderless {
-  td,
-  th,
-  .table {
-    border: 0;
-  }
-}
-
 .table-bordered {
   border: $table-border-width solid $table-border-color;
 
@@ -137,44 +117,28 @@
   }
 }
 
-.table-sm {
+.table-borderless {
   td,
-  th {
-    padding-right: $table-sm-cell-padding-x;
-    padding-left: $table-sm-cell-padding-x;
-
-    &:first-child {
-      padding-left: $table-sm-cell-padding-x-alt;
-    }
-
-    &:last-child {
-      padding-right: $table-sm-cell-padding-x-alt;
-    }
+  th,
+  .table {
+    border: 0;
   }
+}
+
+.table-sm {
 
   tbody {
     td,
     th {
       height: $table-sm-tbody-cell-height;
-      padding-top: $table-sm-tbody-padding-y;
-      padding-bottom: $table-sm-tbody-padding-y;
     }
   }
 
-  tfoot {
-    td,
-    th {
-      padding-top: $table-sm-tfoot-padding-y;
-      padding-bottom: $table-sm-tfoot-padding-y;
-    }
-  }
-
+  tfoot,
   thead {
     td,
     th {
       height: $table-sm-thead-cell-height;
-      padding-top: $table-sm-thead-padding-y;
-      padding-bottom: $table-sm-thead-padding-y;
     }
   }
 }
@@ -185,17 +149,7 @@
   }
 }
 
-// Placed here because it has to come after the striping styles
-
-.table-hover {
-  tbody tr {
-    &:hover {
-      background-color: $table-bg-hover;
-    }
-  }
-}
-
-// Table background
+// Table backgrounds
 
 @each $color, $values in $theme-colors {
   .table-#{$color} {
@@ -219,23 +173,22 @@
   }
 }
 
+// Placed here because it has to come after the striping styles
+
+.table-hover,
+.data-table {
+  tbody tr {
+    &:not(.table-active):hover {
+      background-color: $table-bg-hover;
+    }
+  }
+}
+
 .table-active {
   &,
   > td,
   > th {
     background-color: $table-bg-active;
-    color: color-yiq($table-bg-active);
-  }
-
-  .table-hover & {
-    @include hover {
-      &,
-      > td,
-      > th {
-        background-color: $table-bg-active-hover;
-        color: color-yiq($table-bg-active-hover);
-      }
-    }
   }
 }
 
@@ -253,7 +206,7 @@
     td,
     th {
       background-color: $table-thead-bg;
-      color: $table-thead-color;
+      //color: $table-thead-color;
     }
   }
 }
@@ -281,9 +234,12 @@
   }
 
   tbody,
-  tfoot,
-  thead {
+  tfoot {
     color: inherit;
+  }
+
+  thead {
+    color: rgba($white, .6);
   }
 
   td,
@@ -297,15 +253,19 @@
 
 .table-responsive {
   @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint);
-    $infix: breakpoint-infix($next);
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
         display: block;
         overflow-x: auto;
         width: 100%;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+
+        > .table-bordered {
+          border: 0;
+        }
       }
     }
   }

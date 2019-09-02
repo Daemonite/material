@@ -23,6 +23,7 @@
     }
   }
 
+  // Material addition : https://material.angular.io/components/badge/examples
   .btn & {
     position: absolute;
     top: -$badge-width / 2;
@@ -32,8 +33,12 @@
     height: $badge-width;
     line-height: $badge-width;
     display: inline-block;
-    font-weight: 600;
-    font-size: .75rem;
+    font-weight: $badge-btn-font-weight;
+    font-size: $font-size-caption;
+
+    &.badge-before {
+      left: -$badge-width / 2;
+    }
   }
 
   // Empty badges collapse automatically
@@ -66,3 +71,4 @@ $values in $theme-colors {
     }
   }
 }
+// @mixin badge-variant not used

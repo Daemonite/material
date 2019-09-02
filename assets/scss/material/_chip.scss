@@ -9,13 +9,23 @@
   font-weight: $chip-font-weight;
   height: $chip-height;
   justify-content: center;
+  letter-spacing: $letter-spacing-body-2;
   line-height: $chip-line-height;
-  padding-right: $chip-padding-x;
-  padding-left: $chip-padding-x;
+  margin: .25rem;
+  //padding-right: $chip-padding-x;
+  //padding-left: $chip-padding-x;
+  padding: $chip-padding-y $chip-padding-x;
   position: relative;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
+
+  > .material-icons {
+    color: $black-secondary;
+    font-size: 1.25rem;
+    margin: -.25rem .25rem -.25rem -.25rem;
+    width: 1.25rem;
+  }
 
   &:empty {
     display: none;
@@ -42,12 +52,17 @@
 // Misc
 
 .chip-action {
-  @include transition-standard(background-color, box-shadow);
+  //@include transition-standard(background-color);
+  transition: background-color 15ms linear;
 
   @include hover-focus-active {
-    box-shadow: map-get($chip-elevation-shadow-hover, shadow);
+    //box-shadow: map-get($chip-elevation-shadow-hover, shadow);
     color: $chip-color;
     text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $chip-bg-hover;
   }
 
   &:active {

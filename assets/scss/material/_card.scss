@@ -61,6 +61,10 @@
 // Accordion
 
 .accordion {
+  > .card {
+    overflow: hidden;
+  }
+
   .card:first-of-type {
     @include border-bottom-radius(0);
   }
@@ -102,9 +106,14 @@
 // Action
 
 .card-actions {
-  align-items: flex-start;
   display: flex;
-  padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
+  //padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
+  min-height: 3.25rem; // 52px
+  padding: 0 $spacer-sm;
+
+  &:not(.flex-column) {
+    align-items: center;
+  }
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -115,14 +124,14 @@
   }
 
   .btn {
-    @include text-truncate;
+    //@include text-truncate;
 
     flex: 0 1 auto;
-    margin-right: $card-action-inner-spacer-x;
-    margin-bottom: $card-action-inner-spacer-y;
     min-width: 0;
-    padding-right: $card-action-inner-spacer-x;
-    padding-left: $card-action-inner-spacer-x;
+
+    &:not(.btn-icon) {
+      margin-right: $card-action-inner-spacer-x;
+    }
   }
 
   .dropdown-toggle::after {
@@ -244,26 +253,28 @@
 }
 
 //
-// Columns : todo
+// Columns
 //
 
 .card-columns {
-  column-count: $card-columns-count;
-  column-gap: $card-margin-x;
-  margin-top: ($card-margin-y / -2);
-  margin-bottom: ($card-margin-y / 2);
-  orphans: 1;
-  widows: 1;
-
-  @include media-breakpoint-up(md) {
-    column-count: $card-columns-count-desktop;
+  .card {
+    margin-bottom: ($card-margin-y / 2);
   }
 
-  .card {
-    display: inline-flex;
-    margin-top: ($card-margin-y / 2);
-    margin-bottom: ($card-margin-y / 2);
-    width: 100%;
+  @include media-breakpoint-up(sm) {
+    column-count: $card-columns-count;
+    column-gap: $card-margin-x; // $card-columns-gap
+    orphans: 1;
+    widows: 1;
+
+    .card {
+      display: inline-block; // Don't let them vertically span multiple columns
+      width: 100%; // Don't let their width change
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    column-count: $card-columns-count-desktop;
   }
 }
 
@@ -275,7 +286,7 @@
     margin-bottom: $card-margin-y; //$card-deck-margin
   }
 
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(md) {
     flex-flow: row wrap;
     margin-right: ($card-margin-x / -2);
     margin-left: ($card-margin-x / -2);
@@ -292,17 +303,31 @@
   }
 }
 
+//
+// Card groups
+//
+
 .card-group {
-  @include media-breakpoint-up(sm) {
-    display: flex;
-    flex-flow: row wrap;
+  box-shadow: map-get($card-elevation-shadow, shadow);
+  display: flex;
+  flex-direction: column;
+
+  > .card {
+    box-shadow: none;
+    margin-bottom: $card-margin-y;
   }
 
-  .card {
-    margin-bottom: $card-margin-y;
+  @include media-breakpoint-up(md) {
+    flex-flow: row wrap;
 
-    @include media-breakpoint-up(sm) {
-      flex: 1 0 0;
+    > .card {
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 1px solid $black-divider; // 0
+      }
 
       &:first-child:not(:last-child) {
         @include border-right-radius(0);
@@ -352,10 +377,10 @@
 // Text and title
 
 .card-link {
-  font-weight: $font-weight-bold; //addition
+  //font-weight: $font-weight-bold; //addition
 
   @include hover-focus-active {
-    text-decoration: none;
+    //text-decoration: none;
   }
 
   + .card-link {
@@ -382,10 +407,16 @@
 
 .card-text {
   @include typography-body-2;
-
-  color: $black-secondary;
+  //color: $black-caption;
 
   &:last-child {
     margin-bottom: 0;
   }
+}
+
+// Primary action : https://material.io/design/components/cards.html#actions
+.card-primary-action:hover {
+	background: rgba($black, $overlay-hover-white-opacity);
+	cursor: pointer;
+	transition: background-color 15ms linear;
 }

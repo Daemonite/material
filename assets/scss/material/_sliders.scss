@@ -1,6 +1,6 @@
 .custom-range {
   width: 100%;
-  height: 48px;
+  height: 3rem; // 48px
   padding: 0; // Need to reset padding
   background-color: transparent;
   appearance: none;
@@ -32,7 +32,7 @@
     width: $slider-thumb-width;
     height: $slider-thumb-height;
     margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
-    background-color: theme-color(secondary);
+    background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
     transition: $slider-thumb-transition;
@@ -61,20 +61,23 @@
   }
 
   &::-moz-range-thumb {
+    /* autoprefixer: off */
     width: $slider-thumb-width;
     height: $slider-thumb-height;
-    background-color: theme-color(secondary);
+    background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
     transition: $slider-thumb-transition;
-    appearance: none;
+    -moz-appearance: none;
 
     &:hover {
+      /* autoprefixer: off */
       box-shadow: $slider-thumb-hover-box-shadow;
       transition: $slider-thumb-transition;
     }
 
     &:active {
+      /* autoprefixer: off */
       background-color: $slider-thumb-active-bg;
       box-shadow: $slider-thumb-active-box-shadow;
       transition: $slider-thumb-transition;
@@ -93,7 +96,7 @@
 
   &::-moz-range-progress {
     height: $slider-track-height;
-    background: theme-color(secondary);
+    background: $slider-thumb-bg;
   }
 
   &::-ms-thumb {
@@ -102,19 +105,22 @@
     margin-top: 0; // Edge specific
     margin-right: $slider-thumb-active-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
     margin-left: $slider-thumb-active-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
-    background-color: theme-color(secondary);
+    background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
 
     &:hover {
+      /* autoprefixer: off */
       box-shadow: $slider-thumb-hover-box-shadow;
     }
 
     &:focus {
+      /* autoprefixer: off */
       box-shadow: none;
     }
 
     &:active {
+      /* autoprefixer: off */
       background-color: $slider-thumb-active-bg;
       box-shadow: $slider-thumb-active-box-shadow;
     }
@@ -131,7 +137,7 @@
   }
 
   &::-ms-fill-lower {
-    background-color: theme-color(secondary);
+    background-color: $slider-thumb-bg;
     border-radius: $slider-track-border-radius;
   }
 
@@ -156,6 +162,7 @@
 
     &::-moz-range-thumb,
     &:hover::-moz-range-thumb {
+      /* autoprefixer: off */
       background-color: $slider-thumb-disabled-bg;
       box-shadow: 0 0 0 4px #fff;
     }

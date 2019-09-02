@@ -1,4 +1,14 @@
-// Btn flat and outlined : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
+// Btn flat and outlined
+// Material guidelines : https://material.io/design/components/buttons.html#specs
+// Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
+[class*='btn-flat'] {
+  padding: $btn-padding-y $btn-flat-padding-x;
+}
+
+[class*='btn-outline'] {
+  border: 1px solid currentColor;
+  padding: $btn-padding-y calc(#{$btn-padding-x} - 1px);
+}
 
 [class*='btn-flat'],
 [class*='btn-outline'] {
@@ -6,15 +16,15 @@
 
 @include hover-focus-active {
     box-shadow: none;
-    color: rgba($black, .87);
+    color: $black-primary;
   }
 
   &:hover {
-    background-color: rgba(0,0,0,$btn-hover-white-opacity);
+    background-color: rgba(0,0,0,$overlay-hover-white-opacity);
   }
 
   &:active {
-    background-color: rgba(0,0,0,$btn-active-white-opacity);
+    background-color: rgba(0,0,0,$overlay-pressed-white-opacity);
   }
 
   &.disabled,
@@ -31,15 +41,15 @@
     }
 
     &:hover {
-      background-color: rgba(theme-color($color), $btn-hover-white-opacity);
+      background-color: rgba(theme-color($color), $overlay-hover-white-opacity);
     }
 
     &:focus {
-      background-color: rgba(theme-color($color), $btn-focus-white-opacity);
+      background-color: rgba(theme-color($color), $overlay-focus-white-opacity);
     }
 
     &:active {
-      background-color: rgba(theme-color($color), $btn-active-white-opacity);
+      background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
     }
 
     &.disabled,
@@ -49,7 +59,7 @@
     }
   }
   .btn-outline-#{$color} {
-    border: 2px solid theme-color($color);
+    border-color: theme-color($color);
   }
 }
 
@@ -62,5 +72,18 @@
   &.active,
   &:active {
     background-color: $btn-bg-active-inverse;
+  }
+}
+
+// Btn-icon addition
+.btn-icon {
+  border-radius: 50%;
+  color: $black-hint;
+  height: $btn-icon-height;
+  padding: $btn-icon-padding;
+  width: $btn-icon-height;
+
+  &:hover {
+    color: $black-hint;
   }
 }

@@ -29,19 +29,29 @@
 // Box sizing
 
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/*
+// Dropped in latest BS commits
 html {
-  //font-family: sans-serif;
-  //line-height: 1.15;
-  //-webkit-text-size-adjust: 100%;
-  //-webkit-tap-highlight-color: $webkit-tap-highlight-color;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: $webkit-tap-highlight-color;
+}*/
+
+/*article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}*/
+
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+main {
   display: block;
 }
 
@@ -280,12 +290,12 @@ button,
   button,
   [type="button"],
   [type="reset"],
-  [type="submit"]{
+  [type="submit"] {
     &:not(:disabled) {
       cursor: pointer;
     }
   }
-  a.btn:not(.disabled) {
+  .btn:not(.disabled):not(:disabled) {
     cursor: pointer;
   }
 }
@@ -405,5 +415,5 @@ dfn {
 }
 
 ::selection {
-	background: rgba(theme-color(primary), .08); // Material Addition
+	background: rgba(theme-color(primary), $overlay-selected-white-opacity); // Material Addition
 }
