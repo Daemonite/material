@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI v4.3.1-1 (http://daemonite.github.io/material/)
+ * Daemonite Material UI v4.3.1-RC1 (http://daemonite.github.io/material/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -192,13 +192,13 @@ sup {
 }
 
 a {
-  color: #03dac5;
+  color: #6200ee;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 a:hover {
-  color: #03dac5;
+  color: #6200ee;
   text-decoration: underline;
 }
 
@@ -2009,6 +2009,9 @@ a.badge:hover, a.badge:focus {
   font-weight: 600;
   font-size: 0.75rem;
 }
+.btn .badge.badge-before {
+  left: -0.6875rem;
+}
 .badge:empty {
   display: none;
 }
@@ -3406,13 +3409,13 @@ fieldset:disabled a.btn {
   border-radius: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #03dac5;
+  color: #6200ee;
   font-weight: 500;
   text-decoration: none;
   text-transform: none;
 }
 .btn-link:hover, .btn-link:focus, .btn-link:active {
-  color: #03dac5;
+  color: #6200ee;
   text-decoration: underline;
 }
 .btn-link:hover, .btn-link:focus {
@@ -5298,6 +5301,7 @@ fieldset:disabled a.btn {
   transition: background-color 15ms linear;
   background-color: #fff;
   border: 0;
+  border-radius: 0 2rem 2rem 0;
   color: rgba(0, 0, 0, 0.87);
   display: block;
   font-size: 1rem;
@@ -5314,7 +5318,6 @@ fieldset:disabled a.btn {
 .list-group-item.active {
   color: rgba(0, 0, 0, 0.87);
   background-color: rgba(98, 0, 238, 0.12);
-  border-radius: 0 2rem 2rem 0;
   z-index: 2;
 }
 .list-group-item.disabled, .list-group-item:disabled {
@@ -5332,7 +5335,7 @@ fieldset:disabled a.btn {
   text-align: inherit;
   width: 100%;
 }
-.list-group-item-action:hover, .list-group-item-action:focus {
+.list-group-item-action:hover:not(.active), .list-group-item-action:focus:not(.active) {
   background-color: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.87);
   text-decoration: none;
@@ -5340,6 +5343,7 @@ fieldset:disabled a.btn {
 }
 .list-group-item-action:focus {
   background-color: rgba(0, 0, 0, 0.12);
+  outline: 0;
 }
 .list-group-item-action:active {
   background-color: rgba(0, 0, 0, 0.16);
@@ -5347,9 +5351,6 @@ fieldset:disabled a.btn {
 .list-group-item-action.disabled, .list-group-item-action:disabled {
   background-color: #fff;
   color: rgba(0, 0, 0, 0.38);
-}
-.list-group-item-action:focus {
-  outline: 0;
 }
 
 [class*='list-group-horizontal'] {
@@ -8643,32 +8644,25 @@ fieldset:disabled a.btn {
   border-radius: 3px;
 }
 .custom-range::-moz-range-thumb {
+  /* autoprefixer: off */
   width: 0.75rem;
   height: 0.75rem;
   background-color: #6200ee;
   border: 0;
   border-radius: 50%;
-  -webkit-transition: -webkit-box-shadow 100ms ease-out;
-  transition: -webkit-box-shadow 100ms ease-out;
   transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out, -webkit-box-shadow 100ms ease-out;
   -moz-appearance: none;
-       appearance: none;
 }
 .custom-range::-moz-range-thumb:hover {
+  /* autoprefixer: off */
   box-shadow: 0 0 0 0.75rem rgba(98, 0, 238, 0.12);
-  -webkit-transition: -webkit-box-shadow 100ms ease-out;
-  transition: -webkit-box-shadow 100ms ease-out;
   transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out, -webkit-box-shadow 100ms ease-out;
 }
 .custom-range::-moz-range-thumb:active {
+  /* autoprefixer: off */
   background-color: #6200ee;
   box-shadow: 0 0 0 1.3334rem rgba(98, 0, 238, 0.16);
-  -webkit-transition: -webkit-box-shadow 100ms ease-out;
-  transition: -webkit-box-shadow 100ms ease-out;
   transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out, -webkit-box-shadow 100ms ease-out;
 }
 .custom-range::-moz-range-track {
   width: 100%;
@@ -8694,12 +8688,15 @@ fieldset:disabled a.btn {
   border-radius: 50%;
 }
 .custom-range::-ms-thumb:hover {
+  /* autoprefixer: off */
   box-shadow: 0 0 0 0.75rem rgba(98, 0, 238, 0.12);
 }
 .custom-range::-ms-thumb:focus {
+  /* autoprefixer: off */
   box-shadow: none;
 }
 .custom-range::-ms-thumb:active {
+  /* autoprefixer: off */
   background-color: #6200ee;
   box-shadow: 0 0 0 1.3334rem rgba(98, 0, 238, 0.16);
 }
@@ -8734,6 +8731,7 @@ fieldset:disabled a.btn {
   cursor: default;
 }
 .custom-range:disabled::-moz-range-thumb, .custom-range:disabled:hover::-moz-range-thumb {
+  /* autoprefixer: off */
   background-color: #8c8c8c;
   box-shadow: 0 0 0 4px #fff;
 }
@@ -9446,20 +9444,6 @@ textarea.form-control-sm:not([rows='1']) {
 }
 
 .valid-feedback {
-    /*@include typography-caption;
-
-    color: $color;
-    display: none;
-    margin-top: $textfield-margin-y;
-    width: 100%;
-
-    .form-control-lg + & {
-      margin-top: $textfield-margin-y-lg;
-    }
-
-    .form-control-sm + & {
-      margin-top: $textfield-margin-y-sm;
-    }*/
   color: #61d800;
 }
 
@@ -9575,20 +9559,6 @@ select.is-valid.form-control[multiple]:hover, select.is-valid.form-control[size]
 }
 
 .invalid-feedback {
-    /*@include typography-caption;
-
-    color: $color;
-    display: none;
-    margin-top: $textfield-margin-y;
-    width: 100%;
-
-    .form-control-lg + & {
-      margin-top: $textfield-margin-y-lg;
-    }
-
-    .form-control-sm + & {
-      margin-top: $textfield-margin-y-sm;
-    }*/
   color: #b00020;
 }
 
@@ -15554,7 +15524,8 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
 
 .custom-scrollbar,
 .table-responsive,
-.modal-dialog-scrollable .modal-body {
+.modal-dialog-scrollable .modal-body,
+select {
   overflow: scroll;
   scrollbar-color: #e0dfe1 transparent;
   scrollbar-width: thin;
