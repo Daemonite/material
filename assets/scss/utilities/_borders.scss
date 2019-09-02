@@ -1,45 +1,27 @@
 // stylelint-disable declaration-no-important
 
+//
 // Border
+//
 
-.border {
-  border: $border-width solid $border-color !important;
-}
+.border         { border: $border-width solid $border-color !important; }
+.border-top     { border-top: $border-width solid $border-color !important; }
+.border-right   { border-right: $border-width solid $border-color !important; }
+.border-bottom  { border-bottom: $border-width solid $border-color !important; }
+.border-left    { border-left: $border-width solid $border-color !important; }
 
-.border-0 {
-  border: 0 !important;
-}
 
-.border-top {
-  border-top: $border-width solid $border-color !important;
-}
+.border-0        { border: 0 !important; }
+.border-top-0    { border-top: 0 !important; }
+.border-right-0  { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0   { border-left: 0 !important; }
 
-.border-top-0 {
-  border-top: 0 !important;
-}
 
-.border-right {
-  border-right: $border-width solid $border-color !important;
-}
-
-.border-right-0 {
-  border-right: 0 !important;
-}
-
-.border-bottom {
-  border-bottom: $border-width solid $border-color !important;
-}
-
-.border-bottom-0 {
-  border-bottom: 0 !important;
-}
-
-.border-left {
-  border-left: $border-width solid $border-color !important;
-}
-
-.border-left-0 {
-  border-left: 0 !important;
+@each $color, $values in $theme-colors {
+  .border-#{$color} {
+    border-color: theme-color($color) !important;
+  }
 }
 
 .border-black {
@@ -82,24 +64,16 @@
   border-color: $white-divider !important;
 }
 
-@each $color, $values in $theme-colors {
-  .border-#{$color} {
-    border-color: theme-color($color) !important;
-  }
-}
+//
+// Border-radius
+//
 
-// Border radius
+.rounded-sm {
+  border-radius: $border-radius-sm !important;
+}
 
 .rounded {
-  @include border-radius($border-radius);
-}
-
-.rounded-0 {
-  border-radius: 0;
-}
-
-.rounded-circle {
-  border-radius: 50%;
+  border-radius: $border-radius !important;
 }
 
 .rounded-top {
@@ -116,4 +90,20 @@
 
 .rounded-left {
   @include border-left-radius($border-radius);
+}
+
+.rounded-lg {
+  border-radius: $border-radius-lg !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-pill {
+  border-radius: $rounded-pill !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
 }

@@ -1,30 +1,24 @@
 // stylelint-disable declaration-no-important
 
 // Common values
-
-// stylelint-disable-next-line scss/dollar-variable-default
-$positions: absolute, fixed, relative, static, sticky;
-
 @each $position in $positions {
-  .position-#{$position} {
-    position: $position !important;
-  }
+  .position-#{$position} { position: $position !important; }
 }
 
 // Shorthand
-
-.fixed-bottom {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: map-get($toolbar-elevation-shadow, elevation);
-}
 
 .fixed-top {
   position: fixed;
   top: 0;
   right: 0;
+  left: 0;
+  z-index: map-get($toolbar-elevation-shadow, elevation);
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
   left: 0;
   z-index: map-get($toolbar-elevation-shadow, elevation);
 }

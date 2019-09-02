@@ -1,24 +1,45 @@
 // CSS Scrollbar for webkit/blink browsers
 
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 12px; //10
 	height: 8px;
-  }
-  
-::-webkit-scrollbar-thumb {
-	background: #e0dfe1;
-	border-radius: 50px;
 }
-  
-  ::-webkit-scrollbar-track {
+
+::-webkit-scrollbar-button {
+	display: block;
+	height: 4px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
 	background: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+	background: transparent none;
+	border: solid 4px transparent;
+	border-right-width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	border: solid 0 transparent;
+	border-right-width: 4px;
 	border-radius: 5px;
-  }
+	border-top-right-radius: 9px 5px;
+	border-bottom-right-radius: 9px 5px;
+	box-shadow: inset 0 0 0 6px #e0dfe1;
+}
 
+::-webkit-scrollbar-thumb:window-inactive {
+	box-shadow: inset 0 0 0 6px rgba(#e0dfe1,.5);
+}
 
-  // CSS Scrollbar for Firefox
-.scrollbar {
-	overflow-y: scroll;
+// CSS Scrollbar for overflow div in Firefox
+.custom-scrollbar,
+.table-responsive,
+.modal-dialog-scrollable .modal-body,
+select {
+	overflow: scroll;
 	scrollbar-color: #e0dfe1 transparent;
 	scrollbar-width: thin;
 }
