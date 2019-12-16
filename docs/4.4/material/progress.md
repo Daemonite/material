@@ -27,7 +27,7 @@ Circular progress is built with a group of HTML elements, below is a detailed ex
 {% endcapture %}
 {% include example.html content=example %}
 
-Add additional colour classes (e.g. brand colours: <code>-primary</code>, <code>-secondary</code>, or helper colours: <code>-danger</code>, <code>-info</code>, <code>-success</code>, <code>-warning</code>) to change the appearance of individual circular progress.
+Add additional colour classes (e.g. brand colors: <code>-primary</code>, <code>-secondary</code>, or helper colors: <code>-danger</code>, <code>-info</code>, <code>-success</code>, <code>-warning</code>) to change the appearance of individual circular progress.
 
 {% capture example %}
 <div class="progress-circular progress-circular-primary">

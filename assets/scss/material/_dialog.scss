@@ -3,7 +3,6 @@
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and stuff
 
-
 .modal-open {
   overflow: hidden;
 
@@ -37,16 +36,17 @@
   //max-width: $dialog-width;
   pointer-events: none;
   position: relative;
-  width: auto; //calc(100% - #{$dialog-margin-x} * 2);
+  width: calc(100% - #{$dialog-margin-x} * 2);
 
   .modal.fade & {
     @include transition-deceleration(transform);
+
     transform: scale($dialog-transition-scale);
   }
 
   .modal.show & {
-    transform: $dialog-show-transform;
     opacity: 1;
+    transform: $dialog-show-transform;
   }
 }
 
@@ -66,6 +66,7 @@
 
   .modal-header {
     border-bottom: 1px solid $black-divider;
+    padding-bottom: calc(#{$spacer} - 1px);
   }
 
   .modal-footer {
@@ -82,27 +83,29 @@
   display: flex;
   min-height: calc(100% - #{$dialog-margin-y} * 2); //calc(100% - #{$modal-dialog-margin * 2});
 
-    // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
+  // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
+  &::before {
+    content: '';
+    display: block; // IE10
+    height: calc(100vh - #{$dialog-margin-y * 2});
+  }
+
+  /* stylelint-disable */
+  // Ensure `.modal-body` shows scrollbar (IE10/11)
+  &.modal-dialog-scrollable {
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+
+    .modal-content {
+      max-height: none;
+    }
+
     &::before {
-      display: block; // IE10
-      height: calc(100vh - #{$dialog-margin-y * 2});
-      content: "";
+      content: none;
     }
-  
-    // Ensure `.modal-body` shows scrollbar (IE10/11)
-    &.modal-dialog-scrollable {
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-  
-      .modal-content {
-        max-height: none;
-      }
-  
-      &::before {
-        content: none;
-      }
-    }
+  }
+  /* stylelint-enable */
 }
 
 // Dialog
@@ -121,7 +124,6 @@
   vertical-align: baseline;
   width: 100%;
 }
-
 
 // Modal background
 .modal-backdrop {
@@ -143,38 +145,36 @@
   border-bottom: 1px solid transparent;
   display: flex;
   justify-content: space-between;
-  padding: $spacer $dialog-padding-x calc(.625rem - 1px);
+  padding: $spacer $dialog-padding-x calc(0.625rem - 1px);
 
   &:first-child {
     @include border-top-radius($dialog-border-radius);
-  }
-
-  .modal-dialog-scrollable & {
-    padding-bottom: calc(#{$spacer} - 1px);
   }
 }
 
 // Title text within header
 .modal-title {
   @include typography-headline-6();
+
   margin: 0;
 }
 
 // Modal body
 .modal-body {
+  @include typography-body-1();
+
+  color: rgba($black, $black-caption-opacity); // djibe added from GMD
   // Enable `flex-grow: 1` so that the body take up as much space as possible
   // when should there be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
   padding: $dialog-body-padding-y $dialog-padding-x;
   position: relative;
-  @include typography-body-1();
-  color: rgba($black, $black-caption-opacity); // djibe added from GMD
 
   .modal-header + & {
     padding: 0 $dialog-padding-x $dialog-body-padding-y;
   }
 
-  .modal-dialog-scrollable .modal-header+& {
+  .modal-dialog-scrollable .modal-header + & {
     padding: $dialog-padding-y $dialog-padding-x;
   }
 
@@ -207,7 +207,7 @@
   flex-direction: column;
 
   .btn + .btn {
-    margin-top: .75rem;
+    margin-top: 0.75rem;
   }
 }
 

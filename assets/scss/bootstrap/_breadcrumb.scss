@@ -11,12 +11,17 @@
   display: flex;
   font-size: $breadcrumb-font-size;
 
+  &:only-child {
+    padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  }
+
   a {
     @include transition-standard(background-color);
-    border-radius: .5rem;
+
+    border-radius: $spacer-sm;
     color: inherit;
+    padding: $breadcrumb-padding-y $breadcrumb-padding-x;
     text-decoration: none;
-    padding: .375rem $breadcrumb-padding-y;
 
     &:hover {
       background-color: $breadcrumb-bg-hover;
@@ -36,11 +41,9 @@
     }
   }
 
+  // stylelint-disable
   &.active::before {
-    margin-right: $breadcrumb-padding-y;
+    margin-right: $breadcrumb-padding-x;
   }
-
-  &:only-child {
-    padding: .375rem $breadcrumb-padding-y;
-  }
+  // stylelint-enable
 }

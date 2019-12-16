@@ -107,7 +107,7 @@ Material supports the latest versions of each major platform's default browsers.
 
 ## CSS variables
 
-Material includes [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) in its compiled CSS. These provide easy access to some commonly used values like our breakpoints, colours and font stacks.
+Material includes [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) in its compiled CSS. These provide easy access to some commonly used values like our breakpoints, colors and font stacks.
 
 ### Available variables
 
@@ -202,7 +202,7 @@ For example, you can create a `custom.scss` and import either all of Material's 
 // Option B: Include parts of Material
 
 // Required
-@import "node_modules/daemonite-material/assets/scss/colours";
+@import "node_modules/daemonite-material/assets/scss/colors";
 @import "node_modules/daemonite-material/assets/scss/functions";
 @import "node_modules/daemonite-material/assets/scss/mixins";
 @import "node_modules/daemonite-material/assets/scss/variables";
@@ -236,7 +236,7 @@ Repeat as necessary for any variable in Material.
 
 ### Maps
 
-Material includes a handful of Sass maps that make it easier to generate families of related CSS. We use Sass maps for our breakpoints, colours, and more. Just like Sass variables, all Sass maps include the `!default` flag and can be overridden and extended.
+Material includes a handful of Sass maps that make it easier to generate families of related CSS. We use Sass maps for our breakpoints, colors, and more. Just like Sass variables, all Sass maps include the `!default` flag and can be overridden and extended.
 
 Some of our Sass maps are merged into empty ones by default. This is done to allow easy expansion of a given Sass map, but comes at the cost of making _removing_ items from a map slightly more difficult.
 
@@ -270,7 +270,7 @@ To remove an item from a map, use `map-remove`. Be aware you must insert it betw
 
 {% highlight scss %}
 // Required
-@import "node_modules/daemonite-material/assets/scss/colours";
+@import "node_modules/daemonite-material/assets/scss/colors";
 @import "node_modules/daemonite-material/assets/scss/functions";
 @import "node_modules/daemonite-material/assets/scss/mixins";
 @import "node_modules/daemonite-material/assets/scss/variables";
@@ -290,13 +290,13 @@ However, please be aware that Material assumes the presence of some specific key
 
 For example, we use the `danger`, `success` and `warning` keys from `$theme-colors` for styling different states of some components. Removing the values of these keys may cause Sass compilation issues. In these instances, you'll need to modify the Sass code that makes use of those values.
 
-## Theme colours
+## Theme colors
 
-Many of Material's various components and utilities are built through a series of colours defined in a Sass map. This map can be looped over in Sass to quickly generate a series of rulesets.
+Many of Material's various components and utilities are built through a series of colors defined in a Sass map. This map can be looped over in Sass to quickly generate a series of rulesets.
 
-### All colours
+### All colors
 
-All colours available in Material, are available as Sass variables in our `assets/scss/_colors.scss` file.
+All colors available in Material, are available as Sass variables in our `assets/scss/_colors.scss` file.
 
 <div class="row">
 
@@ -344,15 +344,15 @@ Here's how you can use these in your Sass:
   color: map-get($purples, 500);
 }
 
-// With our `color()` function which return the 500 colours
+// With our `color()` function which return the 500 colors
 .class3 {
   color: color(purple);
 }
 {% endhighlight %}
 
-### Theme colours
+### Theme colors
 
-We use a subset of all colours to create a smaller colour palette for generating colour schemes, available in our `assets/scss/variables/_palette.scss` file.
+We use a subset of all colors to create a smaller colour palette for generating colour schemes, available in our `assets/scss/variables/_palette.scss` file.
 
 <div class="row">
 
@@ -426,8 +426,8 @@ $theme-colors: (
 Or
 
 {% highlight scss %}
-// Import Material colours
-@import "node_modules/daemonite-material/assets/scss/colours";
+// Import Material colors
+@import "node_modules/daemonite-material/assets/scss/colors";
 
 // Your variable overrides
 $custom-color: (

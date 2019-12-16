@@ -20,9 +20,6 @@
 
   label {
     //@include transition-standard(color, top, transform);
-    transition: transform .15s cubic-bezier(.4,0,.2,1),
-    color .15s cubic-bezier(.4,0,.2,1),
-    top .15s cubic-bezier(.4,0,.2,1);
 
     color: $floating-label-color;
     display: block;
@@ -35,6 +32,10 @@
     top: ($floating-label-font-size + $textfield-padding-y);
     left: 0;
     transform-origin: left top;//0 0;
+    transition:
+      transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+      color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+      top 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   %form-control {
@@ -124,6 +125,7 @@
   }
 
   label {
+    color: $floating-label-color-box;
     top: $textfield-box-padding-y;
     left: $textfield-box-padding-x;
   }
@@ -135,12 +137,6 @@
 
   %form-control {
     padding-bottom: calc(#{$textfield-box-label-spacer-y} - #{$textfield-border-width});
-  }
-}
-
-.floating-label.textfield-box {
-  label {
-    color: $floating-label-color-box;
   }
 }
 

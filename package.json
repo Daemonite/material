@@ -33,32 +33,32 @@
   "dependencies": {},
   "description": "Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.46",
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/preset-env": "^7.0.0-beta.46",
-    "autoprefixer": "^8.4.1",
-    "babel-eslint": "^8.2.3",
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "bundlesize": "^0.17.0",
-    "cssnano": "^4.0.0-rc.2",
-    "eslint": "^4.19.1",
-    "eslint-plugin-compat": "^2.2.0",
+    "bundlesize": "^0.18.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.7.2",
+    "eslint-plugin-compat": "^3.3.0",
     "htmllint-cli": "0.0.7",
-    "node-sass": "^4.9.0",
-    "npm-run-all": "^4.1.2",
-    "pickadate": "^3.5.6",
-    "postcss-cli": "^5.0.0",
-    "rollup": "^0.58.2",
-    "rollup-plugin-babel": "^4.0.0-beta.4",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "stylelint": "^9.2.0",
-    "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^0.8.1",
-    "stylelint-scss": "^3.1.0",
-    "uglify-js": "^3.3.23",
-    "vnu-jar": "^18.3.0"
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "pickadate": "^3.6.4",
+    "postcss-cli": "^6.1.3",
+    "rollup": "^1.27.11",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-scss": "^3.13.0",
+    "uglify-js": "^3.7.2",
+    "vnu-jar": "^19.9.4"
   },
   "engines": {
     "node": ">=6"
@@ -77,13 +77,14 @@
     "html",
     "js",
     "material",
+    "material design",
     "sass"
   ],
   "license": "MIT",
   "main": "js/material.js",
   "peerDependencies": {
     "jquery": "1.9.1 - 3",
-    "pickadate": "^3.5.6"
+    "pickadate": "^3.6.4"
   },
   "repository": {
     "type": "git",
@@ -115,11 +116,11 @@
     "js-build": "npm-run-all js-lint js-compile js-minify",
     "js-build-docs": "npm-run-all js-lint-docs js-minify-docs",
     "js-compile": "rollup --config build/rollup.config.js --sourcemap",
-    "js-lint": "eslint --config build/.eslintrc.json assets/js/addons && eslint --config build/.eslintrc.json assets/js/src/",
-    "js-lint-docs": "eslint --config build/.eslintrc.addon.json docs-assets/js/",
+    "js-lint": "eslint --config build/.eslintrc.json assets/js/src/",
+    "js-lint-docs": "eslint --config build/.eslintrc.doc.json docs-assets/js/",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/material.js.map,includeSources,url=material.min.js.map\" --output js/material.min.js js/material.js",
     "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js"
   },
   "style": "css/material.css",
-  "version": "4.1.1"
+  "version": "4.4.1"
 }

@@ -8,10 +8,11 @@
 }
 
 .form-check-input {
-  margin-top: (($font-size-base * $line-height-base - $font-size-base) / 3 * 2); //$form-check-input-margin-y;
-  margin-left: ($form-check-input-gutter * -1); //-$form-check-input-gutter;
+  margin-top: ($font-size-base * $line-height-base - $font-size-base) / 3 * 2; //$form-check-input-margin-y;
+  margin-left: -$form-check-input-gutter;
   position: absolute;
 
+  &[disabled] ~ .form-check-label,
   &:disabled ~ .form-check-label {
     color: $textfield-color-disabled;
   }
@@ -29,13 +30,12 @@
   display: inline-flex;
   margin-right: $form-check-inline-margin-x;
   margin-bottom: 0;
-  //padding-left: 0;
 
   .form-check-input {
-    position: static;
     margin-top: 0;
     margin-right: $form-check-inline-input-margin-x;
     margin-left: 0;
+    position: static;
   }
 }
 
@@ -70,28 +70,29 @@
     width: 100%; //auto
   }
 
+  /* stylelint-disable */
   @include media-breakpoint-up(sm) {
     label {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
       margin-bottom: 0;
     }
 
-    // Inline-block all the things for "inline"
+    // Inline-block all the things for 'inline'
     .form-group {
+      align-items: center;
       display: flex;
       flex: 0 0 auto;
       flex-flow: row wrap;
-      align-items: center;
       margin-bottom: 0;
     }
 
     // Allow folks to *not* use `.form-group`
     .form-control {
       display: inline-block;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
       vertical-align: middle;
+      width: auto; // Prevent labels from stacking above inputs in `.form-group`
     }
 
     // Make static controls behave like regular ones
@@ -105,28 +106,31 @@
     }
 
     .form-check {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
-      width: auto;
       padding-left: 0;
+      width: auto;
     }
+
     .form-check-input {
-      position: relative;
       flex-shrink: 0;
       margin-top: 0;
       margin-right: $form-check-input-gutter;
       margin-left: 0;
+      position: relative;
     }
 
     .custom-control {
       align-items: center;
       justify-content: center;
     }
+
     .custom-control-label {
       margin-bottom: 0;
     }
   }
+  /* stylelint-enable */
 }
 
 // Label
@@ -157,47 +161,26 @@
 // Misc
 
 .form-text {
+  color: $textfield-caption-color;
+  display: block;
   font-size: $font-size-caption;
   font-weight: $font-weight-caption;
   letter-spacing: $letter-spacing-caption;
   line-height: normal;
-  color: $textfield-caption-color;
-  display: block;
-  //margin-top: $textfield-margin-y;
-
-  /*.custom-select-lg + &,
-  .floating-label-lg + &,
-  .floating-label-lg .custom-select + &,
-  .floating-label-lg .form-control + &,
-  .floating-label-lg .form-control-file + &,
-  .form-control-lg + &,
-  .textfield-box-lg + &,
-  .textfield-box-lg .custom-select + &,
-  .textfield-box-lg .form-control + &,
-  .textfield-box-lg .form-control-file + & {
-    margin-top: $textfield-margin-y-lg;
-  }
-
-  .custom-select-sm + &,
-  .floating-label-sm + &,
-  .floating-label-sm .custom-select + &,
-  .floating-label-sm .form-control + &,
-  .floating-label-sm .form-control-file + &,
-  .form-control-sm + &,
-  .textfield-box-sm + &,
-  .textfield-box-sm .custom-select + &,
-  .textfield-box-sm .form-control + &,
-  .textfield-box-sm .form-control-file + & {
-    margin-top: $textfield-margin-y-sm;
-  }*/
+  padding-left: $textfield-box-padding-x;
 
   &::before {
+    content: '';
     display: inline-block;
-    width: 0;
     height: 1rem;
-    content: "";
     vertical-align: 0;
+    width: 0;
   }
+
+  /* [class~='textfield-box'] &,
+  [class~='textfield-box'] ~ & {
+    padding-left: $textfield-box-padding-x;
+  } */
 }
 
 // Readonly control as plain text
@@ -212,7 +195,6 @@
   display: block;
   font-size: $textfield-font-size;
   line-height: $textfield-line-height;
-  // margin-bottom: 0;
   padding: $textfield-padding-y 0 calc(#{$textfield-padding-y} - #{$textfield-border-width});
   width: 100%;
 

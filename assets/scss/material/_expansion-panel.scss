@@ -1,4 +1,4 @@
-// Todo: expansion panel with different background colours
+// Todo: expansion panel with different background colors
 // Todo : lga.active:hover/focus/active
 // Todo : li divider
 
@@ -8,13 +8,10 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
-  padding: .5rem 0;
+  padding: $spacer-sm 0;
 }
 
 .list-group-item {
-  //@include transition-standard(background-color, color);
-  transition: background-color 15ms linear;
-
   background-color: $expansion-panel-bg;
   border: 0;
   border-radius: 0 2rem 2rem 0;
@@ -27,6 +24,7 @@
   min-height: $expansion-panel-height;
   padding: $expansion-panel-padding-y $expansion-panel-padding-x;
   position: relative;
+  transition: background-color 15ms linear;
 
   @include hover-focus-active {
     color: $expansion-panel-color;
@@ -34,9 +32,8 @@
   }
 
   &.active {
-    color: $expansion-panel-color;
     background-color: $expansion-panel-bg-selected;
-    //border-radius: 0 2rem 2rem 0;
+    color: $expansion-panel-color;
     z-index: 2;
   }
 
@@ -77,8 +74,8 @@
     background-color: $expansion-panel-bg-active;
   }
 
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: $expansion-panel-bg;
     color: $expansion-panel-color-disabled;
   }
@@ -88,20 +85,18 @@
   padding: 0;
 
   .list-group-item {
-    //margin-right: -$list-group-border-width;
-    margin-bottom: 0;
     border-right: 1px solid $black-divider;
+    margin-bottom: 0;
 
     &:first-child {
       @include border-left-radius($expansion-panel-border-radius);
-      border-top-right-radius: 0;
     }
 
     &:last-child {
-      margin-right: 0;
       @include border-right-radius($expansion-panel-border-radius);
-      border-bottom-left-radius: 0;
+
       border-right: 0;
+      margin-right: 0;
     }
   }
 }
@@ -275,7 +270,7 @@
 // Flush
 
 .list-group-flush {
-  padding: 0;
   border: 0;
   border-radius: 0;
+  padding: 0;
 }

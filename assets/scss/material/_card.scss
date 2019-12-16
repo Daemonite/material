@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
+  overflow: auto;
   position: relative;
   word-wrap: break-word;
 
@@ -55,7 +56,7 @@
 
 // Addition
 .card-shaped {
-  border-radius: 24px 8px;
+  border-radius: 1.5rem 0.5rem;
 }
 
 // Accordion
@@ -65,6 +66,7 @@
     overflow: hidden;
   }
 
+  // stylelint-disable-next-line
   .card:first-of-type {
     @include border-bottom-radius(0);
   }
@@ -107,7 +109,6 @@
 
 .card-actions {
   display: flex;
-  //padding: $card-action-padding-y ($card-action-padding-x - $card-action-inner-spacer-x) ($card-action-padding-y - $card-action-inner-spacer-y) $card-action-padding-x;
   min-height: 3.25rem; // 52px
   padding: 0 $spacer-sm;
 
@@ -162,7 +163,6 @@
 // Footer
 
 .card-footer {
-  // background-color: $card-cap-bg;
   border-top: $card-border-width solid $card-border-color;
   padding: $card-padding-y $card-padding-x;
 
@@ -173,7 +173,7 @@
   }
 
   &:last-child {
-    @include border-bottom-radius($card-border-radius); //@include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
+    @include border-bottom-radius($card-border-radius);
   }
 
   > :last-child {
@@ -194,17 +194,15 @@
     @include border-top-radius($card-border-radius); //@include border-radius($card-inner-border-radius $card-inner-border-radius 0 0)
   }
 
-  + .list-group .list-group-item:first-child {
-    border-top: 0;
-  }
-
   &:last-child {
     @include border-bottom-radius($card-border-radius);
 
     border-bottom: 0;
   }
 
-  
+  + .list-group .list-group-item:first-child {
+    border-top: 0;
+  }
 }
 
 .card-header-pills {
@@ -228,16 +226,19 @@
 
 .card-img {
   @include border-radius($card-border-radius);
+
   width: 100%;
 }
 
 .card-img-bottom {
   @include border-bottom-radius($card-border-radius);
+
   width: 100%;
 }
 
 .card-img-top {
   @include border-top-radius($card-border-radius);
+
   width: 100%;
 }
 
@@ -257,10 +258,6 @@
 //
 
 .card-columns {
-  .card {
-    margin-bottom: ($card-margin-y / 2);
-  }
-
   @include media-breakpoint-up(sm) {
     column-count: $card-columns-count;
     column-gap: $card-margin-x; // $card-columns-gap
@@ -276,15 +273,15 @@
   @include media-breakpoint-up(lg) {
     column-count: $card-columns-count-desktop;
   }
+
+  .card {
+    margin-bottom: ($card-margin-y / 2);
+  }
 }
 
 .card-deck {
   display: flex;
   flex-direction: column;
-
-  .card {
-    margin-bottom: $card-margin-y; //$card-deck-margin
-  }
 
   @include media-breakpoint-up(md) {
     flex-flow: row wrap;
@@ -301,6 +298,10 @@
       margin-left: ($card-margin-x / 2);
     }
   }
+
+  .card {
+    margin-bottom: $card-margin-y; //$card-deck-margin
+  }
 }
 
 //
@@ -312,22 +313,12 @@
   display: flex;
   flex-direction: column;
 
-  > .card {
-    box-shadow: none;
-    margin-bottom: $card-margin-y;
-  }
-
   @include media-breakpoint-up(md) {
     flex-flow: row wrap;
 
     > .card {
       flex: 1 0 0%;
       margin-bottom: 0;
-
-      + .card {
-        margin-left: 0;
-        border-left: 1px solid $black-divider; // 0
-      }
 
       &:first-child:not(:last-child) {
         @include border-right-radius(0);
@@ -370,7 +361,17 @@
           @include border-radius(0);
         }
       }
+
+      + .card {
+        border-left: 1px solid $black-divider;
+        margin-left: 0;
+      }
     }
+  }
+
+  > .card {
+    box-shadow: none;
+    margin-bottom: $card-margin-y;
   }
 }
 
@@ -416,7 +417,7 @@
 
 // Primary action : https://material.io/design/components/cards.html#actions
 .card-primary-action:hover {
-	background: rgba($black, $overlay-hover-white-opacity);
-	cursor: pointer;
-	transition: background-color 15ms linear;
+  background: rgba($black, $overlay-hover-white-opacity);
+  cursor: pointer;
+  transition: background-color 15ms linear;
 }

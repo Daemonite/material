@@ -13,23 +13,18 @@
     box-shadow: map-get($btn-float-elevation-shadow-hover, shadow);
   }
 
-  &.active,
-  &:active {
+  &:active,
+  &.active {
     box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
   }
 
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     box-shadow: none;
   }
 
-  &.btn-sm {
-    height: $btn-float-size-sm;
-    line-height: $btn-float-size-sm;
-    width: $btn-float-size-sm;
-  }
-
   // Extended FAB
+  /* stylelint-disable */
   &-extended {
     border-radius: $btn-float-extended-border-radius;
     height: $btn-float-extended-height;
@@ -38,9 +33,16 @@
     width: auto;
 
     .material-icons {
-      margin-left: -.5rem;
-      margin-right: .75rem;
+      margin-right: 0.75rem;
+      margin-left: -0.5rem;
     }
+  }
+  /* stylelint-enable */
+
+  &.btn-sm {
+    height: $btn-float-size-sm;
+    line-height: $btn-float-size-sm;
+    width: $btn-float-size-sm;
   }
 }
 

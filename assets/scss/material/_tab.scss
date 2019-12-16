@@ -9,49 +9,22 @@
   .nav-link {
     @include transition-standard(background-color, color, opacity);
 
+    align-items: center;
     color: $nav-tab-color;
+    display: flex;
+    flex: 1 0 auto;
     font-size: $nav-tab-font-size;
     font-weight: $nav-tab-font-weight;
+    height: $nav-tab-height;
+    justify-content: center;
     letter-spacing: $nav-tab-letter-spacing;
     line-height: 2.25rem; //$nav-tab-line-height;
     //opacity: $nav-tab-link-opacity;
+    max-width: 22.5rem;
+    min-width: 5.625rem;
     padding: 0 $nav-tab-link-padding-x;//$nav-tab-link-padding-y $nav-tab-link-padding-x;
     position: relative;
     text-transform: uppercase;
-    height: $nav-tab-height;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 0 auto;
-    min-width: 5.625rem;
-    max-width: 22.5rem;
-
-    &:hover {
-      background-color: rgba(selection-theme-color(), $overlay-hover-white-opacity);
-    }
-
-    &:focus {
-      background-color: rgba(selection-theme-color(), $overlay-focus-white-opacity);
-    }
-
-    &:active {
-      opacity: 1;
-      background-color: rgba(selection-theme-color(), $overlay-pressed-white-opacity);
-    }
-
-    &.active {
-      color: $nav-tab-color-active;
-
-      &::before {
-        opacity: 1;
-      }
-    }
-
-    &.disabled {
-      background-color: transparent;
-      color: $nav-tab-color-disabled;
-      //opacity: 1;
-    }
 
     &::before {
       @include transition-standard(opacity);
@@ -65,6 +38,35 @@
       right: 0;
       bottom: 0;
       left: 0;
+    }
+
+    &:hover {
+      background-color: rgba(selection-theme-color(), $overlay-hover-white-opacity);
+    }
+
+    &:focus {
+      background-color: rgba(selection-theme-color(), $overlay-focus-white-opacity);
+    }
+
+    &:active {
+      background-color: rgba(selection-theme-color(), $overlay-pressed-white-opacity);
+      opacity: 1;
+    }
+
+    /* stylelint-disable */
+    &.active {
+      color: $nav-tab-color-active;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+    /* stylelint-enable */
+
+    &.disabled {
+      background-color: transparent;
+      color: $nav-tab-color-disabled;
+      //opacity: 1;
     }
 
     i,

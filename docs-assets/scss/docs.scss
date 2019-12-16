@@ -70,7 +70,7 @@
   }
 
   > tbody {
-    color: $table-tbody-color;
+    //color: $table-tbody-color;
 
     > tr {
       &:nth-of-type(#{$table-striped-order}) {
@@ -80,10 +80,10 @@
       > td,
       > th {
         font-size: $table-tbody-font-size;
-        font-weight: $table-tbody-font-weight;
+        //font-weight: $table-tbody-font-weight;
         height: $table-tbody-cell-height;
-        padding-top: $table-tbody-padding-y;
-        padding-bottom: $table-tbody-padding-y;
+        //padding-top: $table-tbody-padding-y;
+        //padding-bottom: $table-tbody-padding-y;
       }
     }
   }
@@ -97,23 +97,23 @@
         font-size: $table-tfoot-font-size;
         font-weight: $table-tfoot-font-weight;
         height: $table-tfoot-cell-height;
-        padding-top: $table-tfoot-padding-y;
-        padding-bottom: $table-tfoot-padding-y;
+        //padding-top: $table-tfoot-padding-y;
+        //padding-bottom: $table-tfoot-padding-y;
       }
     }
   }
 
   > thead {
-    color: $table-thead-color;
+    //color: $table-thead-color;
 
     > tr {
       > td,
       > th {
-        font-size: $table-thead-font-size;
+        //font-size: $table-thead-font-size;
         font-weight: $table-thead-font-weight;
         height: $table-thead-cell-height;
-        padding-top: $table-thead-padding-y;
-        padding-bottom: $table-thead-padding-y;
+        //padding-top: $table-thead-padding-y;
+        //padding-bottom: $table-thead-padding-y;
       }
     }
   }
@@ -194,7 +194,7 @@
     opacity: $nav-pills-link-opacity;
     padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $spacer;
 
-    @include active-focus-hover {
+    @include hover-focus-active {
       color: $nav-pills-color;
       opacity: 1;
     }
@@ -228,7 +228,7 @@
   .card-body {
     @each $color, $values in $theme-colors {
       .btn-#{$color} {
-        @include plain-active-focus-hover {
+        @include hover-focus-active {
           color: theme-color($color);
         }
 
@@ -250,7 +250,7 @@
     .btn {
       background-color: transparent;
       box-shadow: none;
-      min-width: $dialog-footer-btn-min-width;
+      //min-width: $dialog-footer-btn-min-width;
       padding-right: $dialog-footer-inner-spacer-x;
       padding-left: $dialog-footer-inner-spacer-x;
 
@@ -336,7 +336,7 @@
 
   @include media-breakpoint-down(sm) {
     h1 {
-      @include typography-display-3;
+      @include typography-headline-3;
     }
   }
 
@@ -353,7 +353,7 @@
 }
 
 .doc-logo {
-  @include typography-title;
+  @include typography-headline-6;
 
   align-items: center;
   background-color: rgba(theme-color(secondary), $black-divider-opacity);
@@ -361,7 +361,7 @@
   box-shadow: inset 0 0 0 $border-width currentColor;
   color: inherit;
   display: inline-flex;
-  font-family: $font-family-serif;
+  //font-family: $font-family-serif;
   font-weight: 700;
   height: $toolbar-element-height;
   justify-content: center;
@@ -374,7 +374,7 @@
   z-index: 1;
 
   &[href] {
-    @include active-focus-hover {
+    @include hover-focus-active {
       color: inherit;
       text-decoration: none;
 

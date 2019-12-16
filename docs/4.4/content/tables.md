@@ -549,8 +549,7 @@ Use contextual classes to color table rows or individual cells.
 <!-- On cells (`td` or `th`) -->
 <tr>
   <td class="table-active">...</td>
-  {% for color in site.data.theme-colors %}
-  <td class="table-{{ color.name }}">...</td>{% endfor %}
+  {% for color in site.data.theme-colors %}<td class="table-{{ color.name }}">...</td>{% endfor %}
 </tr>
 {% endhighlight %}
 

@@ -1,13 +1,16 @@
 @mixin form-validation-state($state, $color, $icon) {
-  [class*="valid-feedback"] {
+  [class*='valid-feedback'] {
     @extend .form-text;
+
     display: none;
     width: 100%;
   }
 
+  /* stylelint-disable */
   .#{$state}-feedback {
     color: $color;
   }
+  /* stylelint-enable */
 
   .#{$state}-tooltip {
     @include border-radius($border-radius);
@@ -117,11 +120,11 @@
 
       // todo
       @if $enable-validation-icons {
-        padding-right: $textfield-padding-x;
         background-image: $icon;
-        background-repeat: no-repeat;
         background-position: center right; //center right $input-height-inner-quarter
+        background-repeat: no-repeat;
         background-size: 1.5rem 1.5rem; //$input-height-inner-half $input-height-inner-half
+        padding-right: $textfield-padding-x;
       }
 
       @include hover-focus {

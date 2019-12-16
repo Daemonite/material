@@ -19,8 +19,8 @@
   list-style: none;
   margin: 0;
   max-height: calc(100vh - 32px);
-  min-width: $menu-min-width;
   max-width: calc(100vw - 32px);
+  min-width: $menu-min-width;
   padding: $menu-padding-y 0;
   position: absolute;
   top: 100%;
@@ -36,10 +36,10 @@
 
     &::before,
     > * {
-      animation-duration: .12s;//$transition-duration-mobile;
+      animation-duration: 0.12s;//$transition-duration-mobile;
       animation-timing-function: $transition-timing-function-standard;
 
-      /*@include media-breakpoint-up(sm) {
+      /* @include media-breakpoint-up(sm) {
         animation-duration: $transition-duration-tablet;
       }
 
@@ -49,7 +49,7 @@
 
       @media screen and (prefers-reduced-motion: reduce) {
         animation: none;
-      }*/
+      } */
     }
 
     &::before {
@@ -76,8 +76,8 @@
   &::before {
     @include border-radius($menu-border-radius);
 
-    background-color: $menu-bg;
     background-clip: padding-box;
+    background-color: $menu-bg;
     box-shadow: map-get($menu-elevation-shadow, shadow);
     content: '';
     display: block;
@@ -200,8 +200,6 @@
   }
 }
 
-
-
 .dropdown-menu[x-placement='bottom-end']::before,
 .dropdown-menu[x-placement='left-start']::before {
   transform-origin: 100% 0;
@@ -323,7 +321,7 @@
   }
 }
 
-/*@keyframes dropdown-menu-show {
+/* @keyframes dropdown-menu-show {
   0% {
     transform: scale(0, 0);
   }
@@ -347,7 +345,7 @@
   100% {
     transform: scale(1, 1);
   }
-}*/
+} */
 
 @keyframes dropdown-menu-show {
   0% {
@@ -420,10 +418,10 @@
 // When enabled Popper.js, reset basic dropdown position
 // stylelint-disable-next-line no-duplicate-selectors
 .dropdown-menu {
-  &[x-placement^="top"],
-  &[x-placement^="right"],
-  &[x-placement^="bottom"],
-  &[x-placement^="left"] {
+  &[x-placement^='top'],
+  &[x-placement^='right'],
+  &[x-placement^='bottom'],
+  &[x-placement^='left'] {
     right: auto;
     bottom: auto;
   }
@@ -494,8 +492,8 @@
     background-color: $menu-link-bg-active;
   }
 
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: transparent;
     color: $menu-link-color-disabled;
     pointer-events: none;

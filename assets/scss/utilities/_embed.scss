@@ -1,15 +1,15 @@
 // Credit: Nicolas Gallagher and SUIT CSS.
 
 .embed-responsive {
-  position: relative;
   display: block;
-  width: 100%;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
 
   &::before {
+    content: '';
     display: block;
-    content: "";
   }
 
   .embed-responsive-item,
@@ -17,13 +17,13 @@
   embed,
   object,
   video {
+    border: 0;
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    border: 0;
   }
 }
 

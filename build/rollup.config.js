@@ -22,13 +22,14 @@ const plugins  = [
     externalHelpersWhitelist: [
       'createClass',
       'defineProperty',
-      'objectSpread'
+      'objectSpread',
+      'objectSpread2',
     ]
   }),
   commonjs({
-    sourceMap: false
+    sourceMap: false,
   }),
-  resolve()
+  resolve(),
 ]
 
 module.exports = {

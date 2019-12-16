@@ -3,7 +3,7 @@ layout: docs
 title: Buttons
 description: Buttons communicate the action that will occur when the user touches them.
 group: material
-redirect_from: "/docs/4.1/material/"
+redirect_from: "/docs/4.4/material/"
 toc: true
 ---
 
@@ -48,7 +48,7 @@ A floating action button represents the primary action in an application, it is 
 {% endcapture %}
 {% include example.html content=example %}
 
-### Colours
+### Colors
 
 {% capture example %}
 {% for color in site.data.theme-colors %}

@@ -33,7 +33,8 @@
 }
 
 .picker-frame {
-  margin: $picker-margin-y $picker-margin-x;
+  //margin: $picker-margin-y $picker-margin-x;
+  max-width: calc(100vw - 2 * #{$spacer});
 }
 
 .picker-holder {
@@ -144,6 +145,8 @@
 
 .picker-nav-next,
 .picker-nav-prev {
+  border-radius: 50%;
+  color: $black-secondary;
   height: $picker-cell-size;
   margin-top: ($picker-cell-size / -2);
   position: absolute;
@@ -153,6 +156,15 @@
   &,
   &.material-icons {
     line-height: $picker-cell-size;
+  }
+
+  &:not(.picker-nav-disabled):hover {
+    background-image: linear-gradient(to bottom, rgba($black, $overlay-hover-white-opacity), rgba($black, $overlay-hover-white-opacity));
+    cursor: pointer;
+  }
+
+  &:not(.picker-nav-disabled):active {
+    background-image: linear-gradient(to bottom, rgba($black, $overlay-focus-white-opacity), rgba($black, $overlay-focus-white-opacity));
   }
 }
 
@@ -165,11 +177,16 @@
 }
 
 .picker-nav-prev {
-  left: 0;
+  //left: 0;
+  right: $picker-cell-size;
 
   &::before {
     content: $picker-nav-prev-icon;
   }
+}
+
+.picker-nav-disabled {
+  color: $picker-day-color-disabled;
 }
 
 // Material date display
@@ -193,9 +210,11 @@
 .picker-date-display-bottom {
   @include text-truncate;
   @include typography-headline-4;
+
+  font-weight: 300;
 }
 
-.picker-day-display {
+.picker-month-display {
   margin-right: $picker-inner-spacer-x;
 }
 
@@ -229,13 +248,20 @@
 
 .picker-input {
   &.form-control[readonly] {
-    border-bottom-style: solid;
+    border-bottom-style: inherit;
     color: inherit;
     cursor: text;
   }
 
+  &[readonly].form-control:hover,
   &.picker-input-active {
-    border-bottom-color: $textfield-border-color-focus;
+    border-color: $textfield-border-color-hover;
+  }
+
+  &.form-control[disabled] {
+    border-style: dotted;
+    color: $textfield-color-disabled;
+    cursor: default;
   }
 }
 
@@ -259,6 +285,10 @@
     background-color: $picker-day-bg-selected;
     color: color-yiq($picker-day-bg-selected);
   }
+
+  &:not(.picker-day-disabled):hover {
+    cursor: pointer;
+  }
 }
 
 .picker-day-disabled {
@@ -270,8 +300,7 @@
 }
 
 .picker-day-today {
-  color: $picker-day-color-today;
-  font-weight: bolder;
+  border: 1px solid #a4a4a4;
 }
 
 .picker-table {

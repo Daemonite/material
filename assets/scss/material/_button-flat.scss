@@ -14,26 +14,27 @@
 [class*='btn-outline'] {
   box-shadow: none;
 
-@include hover-focus-active {
+  @include hover-focus-active {
     box-shadow: none;
     color: $black-primary;
   }
 
   &:hover {
-    background-color: rgba(0,0,0,$overlay-hover-white-opacity);
+    background-color: rgba(0, 0, 0, $overlay-hover-white-opacity);
   }
 
   &:active {
-    background-color: rgba(0,0,0,$overlay-pressed-white-opacity);
+    background-color: rgba(0, 0, 0, $overlay-pressed-white-opacity);
   }
 
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: transparent;
   }
 }
 
-@each $color, $values in $theme-colors {
+@each $color,
+  $values in $theme-colors {
   .btn-flat-#{$color},
   .btn-outline-#{$color} {
     @include plain-hover-focus {
@@ -52,12 +53,13 @@
       background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
     }
 
-    &.disabled,
-    &:disabled {
+    &:disabled,
+    &.disabled {
       background-color: $btn-bg-disabled;
       color: $btn-color-disabled;
     }
   }
+
   .btn-outline-#{$color} {
     border-color: theme-color($color);
   }

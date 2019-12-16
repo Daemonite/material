@@ -1,252 +1,246 @@
 // Alert
 
-$alert-border-radius:    $border-radius !default;
+$alert-border-radius: $border-radius !default;
 $alert-link-font-weight: $font-weight-medium !default;
-$alert-margin-y:         $spacer !default;
-$alert-padding-x:        $spacer !default;
-$alert-padding-y:        $spacer !default;
+$alert-margin-y: $spacer !default;
+$alert-padding-x: $spacer !default;
+$alert-padding-y: $spacer !default;
 
 // Badge
 
 $badge-border-radius: $border-radius !default;
-$badge-font-weight:   $font-weight-bold !default;
-$badge-btn-font-weight:   $font-weight-bolder !default;
-$badge-padding-x:     .5em !default;
-$badge-width:         1.375rem !default; // 22px
+$badge-font-weight: $font-weight-bold !default;
+$badge-btn-font-weight: $font-weight-bolder !default;
+$badge-padding-x: 0.5em !default;
+$badge-width: 1.375rem !default; // 22px
 
-$rounded-pill:   50rem !default;
+$rounded-pill: 50rem !default;
 
 // Body
 
-$body-bg:    $white-primary !default;
+$body-bg: $white-primary !default;
 $body-color: $black-primary !default;
 
 // Breadcrumb
 
-$breadcrumb-bg:               $white-primary !default;
-$breadcrumb-bg-hover:         rgba($black, .04) !default;
-$breadcrumb-border-radius:    $border-radius !default;
-$breadcrumb-font-size:        $font-size-base !default;
-$breadcrumb-inner-spacer-x:   0 !default;
-$breadcrumb-item-color:       $black !default;
-$breadcrumb-item-icon:        'chevron_right' !default;
-$breadcrumb-margin-y:         $spacer !default;
-$breadcrumb-padding-x:        $spacer !default;
-$breadcrumb-padding-y:        $spacer-sm !default;
+$breadcrumb-bg: $white-primary !default;
+$breadcrumb-bg-hover: rgba($black, $overlay-hover-white-opacity) !default;
+//$breadcrumb-border-radius:    $border-radius !default;
+$breadcrumb-font-size: $font-size-base !default;
+$breadcrumb-inner-spacer-x: 0 !default;
+$breadcrumb-item-color: $black !default;
+$breadcrumb-item-icon: 'chevron_right' !default;
+$breadcrumb-padding-x: $spacer-sm !default;
+$breadcrumb-padding-y: 0.375rem !default;
 
 // Caret
 
-$caret-bg:         str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg fill="#{$black}" fill-opacity="#{$black-secondary-opacity}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E'), '#', '%23') !default;
-$caret-icon:       'arrow_drop_down' !default;
-$caret-icon-left:  'arrow_left' !default;
+$caret-bg: str-replace(url('data:image/svg+xml;charset=utf8,%3Csvg fill="#{$black}" fill-opacity="#{$black-secondary-opacity}" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E'), '#', '%23') !default;
+$caret-icon: 'arrow_drop_down' !default;
+$caret-icon-left: 'arrow_left' !default;
 $caret-icon-right: 'arrow_right' !default;
-$caret-icon-up:    'arrow_drop_up' !default;
-$caret-spacer-x:   .2em !default;
+$caret-icon-up: 'arrow_drop_up' !default;
+$caret-spacer-x: 0.2em !default;
 
 // Carousel
 
-$carousel-caption-color:                   $white-primary !default;
-$carousel-caption-width:                   50% !default;
-$carousel-control-bg:                      $white-divider !default;
-$carousel-control-bg-hover:                rgba(204, 204, 204, 0.25) !default;
-$carousel-control-color:                   $white-primary !default;
-$carousel-control-elevation-shadow:        map-get($elevation-shadows, 6) !default;
+$carousel-caption-color: $white-primary !default;
+$carousel-caption-width: 50% !default;
+$carousel-control-bg: $white-divider !default;
+$carousel-control-bg-hover: rgba(204, 204, 204, 0.25) !default;
+$carousel-control-color: $white-primary !default;
+$carousel-control-elevation-shadow: map-get($elevation-shadows, 6) !default;
 $carousel-control-elevation-shadow-active: map-get($elevation-shadows, 12) !default;
-$carousel-control-font-size:               .8125rem !default;
-$carousel-control-icon-width:              $spacer-lg !default;
-$carousel-control-next-icon:               'chevron_right' !default;
-$carousel-control-opacity:                 .5 !default;
-$carousel-control-hover-opacity:           .9 !default;
-$carousel-control-prev-icon:               'chevron_left' !default;
-$carousel-control-prev-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"), "#", "%23") !default;
-$carousel-control-next-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"), "#", "%23") !default;
-$carousel-control-size:                    2.5rem !default;
-$carousel-indicator-bg:                    rgba(204, 204, 204, 0.25) !default;
-$carousel-indicator-border-color:          $white-divider !default;
-$carousel-indicator-border-width:          $border-width !default;
-$carousel-indicator-size:                  .5rem !default;
+$carousel-control-font-size: 0.8125rem !default;
+$carousel-control-next-icon: 'chevron_right' !default;
+$carousel-control-prev-icon: 'chevron_left' !default;
+//$carousel-control-prev-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e"), "#", "%23") !default;
+//$carousel-control-next-icon-bg:      str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$carousel-control-color}' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$carousel-control-size: 2.5rem !default;
+$carousel-indicator-bg: rgba(204, 204, 204, 0.25) !default;
+$carousel-indicator-border-color: $white-divider !default;
+$carousel-indicator-border-width: $border-width !default;
+$carousel-indicator-size: 0.5rem !default;
 
 // Close
 
-$close-color:       $black-hint !default;
+$close-color: $black-hint !default;
 $close-color-hover: $black-primary !default;
-$close-font-size:   $material-icon-size !default;
+$close-font-size: $material-icon-size !default;
 $close-font-weight: $font-weight-light !default;
 
 // Code
 
-$code-bg:                   $material-color-grey-100 !default;
-$code-border-radius:        $border-radius !default;
-$code-color:                #bd4147 !default;
-$code-font-size:            87.5% !default;
-$code-padding-x:            .4rem !default;
-$code-padding-y:            .2rem !default;
+$code-bg: $material-color-grey-100 !default;
+$code-border-radius: $border-radius !default;
+$code-color: #bd4147 !default;
+$code-font-size: 87.5% !default;
+$code-padding-x: 0.4rem !default;
+$code-padding-y: 0.2rem !default;
 
-$kbd-bg:                    $black-primary !default;
-$kbd-color:                 $white-primary !default;
+$kbd-bg: $black-primary !default;
+$kbd-color: $white-primary !default;
 
-$pre-color:                 $black-primary !default;
-$pre-margin-y:              $spacer !default;
+$pre-color: $black-primary !default;
+$pre-margin-y: $spacer !default;
 $pre-scrollable-max-height: 340px !default;
 
 // Embed
 $embed-responsive-aspect-ratios: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$embed-responsive-aspect-ratios: join(
-  (
-    (21 9),
-    (16 9),
-    (4 3),
-    (1 1),
-  ),
-  $embed-responsive-aspect-ratios
-);
+$embed-responsive-aspect-ratios: join(((21 9), (16 9), (4 3), (1 1)), $embed-responsive-aspect-ratios);
 
 // Form
 
-$custom-file-button-icon:     'attachment' !default;
+$custom-file-button-icon: 'attachment' !default;
 
-$form-check-inline-margin-x:  $spacer-sm !default;
-$form-check-inline-input-margin-x: .3125rem !default; // todo
-$form-check-input-gutter:     1.25rem !default;
-$form-feedback-invalid-color: theme-color(danger) !default;
+$form-check-inline-margin-x: $spacer-sm !default;
+$form-check-inline-input-margin-x: 0.3125rem !default; // todo
+$form-check-input-gutter: 1.25rem !default;
+$form-feedback-invalid-color: theme-color('danger') !default;
 $form-feedback-icon-invalid-color: $form-feedback-invalid-color !default;
-$form-feedback-valid-color:   theme-color(success) !default;
-$form-feedback-icon-valid-color:   $form-feedback-valid-color !default;
-$form-feedback-icon-invalid:     str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-invalid-color}' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3e%3c/svg%3e"), "#", "%23") !default;
-$form-feedback-icon-valid:          str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-valid-color}' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3e%3c/svg%3e"), "#", "%23") !default;
+$form-feedback-valid-color: theme-color('success') !default;
+$form-feedback-icon-valid-color: $form-feedback-valid-color !default;
+$form-feedback-icon-invalid: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-invalid-color}' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3e%3c/svg%3e"), '#', '%23') !default;
+$form-feedback-icon-valid: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3e%3cpath d='M0 0h24v24H0z' fill='none'/%3e%3cpath fill='#{$form-feedback-icon-valid-color}' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3e%3c/svg%3e"), '#', '%23') !default;
 
 $form-validation-states: () !default;
+
 @if $enable-validation-valid {
   $form-validation-states: map-merge(
-  (
-    "valid": (
-      "color": $form-feedback-valid-color,
-      "icon":  $form-feedback-icon-valid
-    ),
-    "invalid": (
-      "color": $form-feedback-invalid-color,
-      "icon":  $form-feedback-icon-invalid
-    ),
-  ),
-  $form-validation-states
+    ('valid': ('color': $form-feedback-valid-color, 'icon': $form-feedback-icon-valid),
+    'invalid': ('color': $form-feedback-invalid-color, 'icon': $form-feedback-icon-invalid)),
+    $form-validation-states
   );
-}@else {
-  $form-validation-states: map-merge(
-  (
-    "invalid": (
-      "color": $form-feedback-invalid-color,
-      "icon":  $form-feedback-icon-invalid
-    ),
-  ),
-  $form-validation-states
-  );
-} 
+}
 
-$form-group-margin-y:         $spacer !default;
-$input-group-inner-spacer-x:  $spacer !default;
+@else {
+  $form-validation-states: map-merge(
+    ('invalid': ('color': $form-feedback-invalid-color,
+    'icon': $form-feedback-icon-invalid)),
+    $form-validation-states
+  );
+}
+
+$form-group-margin-y: $spacer !default;
+$input-group-inner-spacer-x: $spacer !default;
 
 // Jumbotron
 
-$jumbotron-bg:               $white-primary !default;
-$jumbotron-border-radius:    $border-radius !default;
-$jumbotron-color:            $black-primary !default;
+$jumbotron-bg: $white-primary !default;
+$jumbotron-border-radius: $border-radius !default;
+$jumbotron-color: $black-primary !default;
 $jumbotron-elevation-shadow: map-get($elevation-shadows, 2) !default;
-$jumbotron-padding-x:        2rem !default;
-$jumbotron-padding-y:        $spacer-xl !default;
+$jumbotron-padding-x: 2rem !default;
+$jumbotron-padding-y: $spacer-xl !default;
 
 // Link
 
-$link-color:            selection-theme-color() !default;
-$link-color-hover:      selection-theme-color() !default;
-$link-decoration:       none !default;
+$link-color: selection-theme-color() !default;
+$link-color-hover: selection-theme-color() !default;
+$link-decoration: none !default;
 $link-decoration-hover: underline !default;
 
 // Misc
 
-$blockquote-border-color:    theme-color(primary) !default;
-$blockquote-border-width:    .3125rem !default;
-$blockquote-small-color:     $black-hint !default;
+$blockquote-border-color: theme-color(primary) !default;
+$blockquote-border-width: 0.3125rem !default;
+$blockquote-small-color: $black-hint !default;
 
-$dt-font-weight:             $font-weight-medium !default;
+$dt-font-weight: $font-weight-medium !default;
 
-$figure-caption-color:       $black-hint !default;
-$figure-img-margin-y:        $spacer-sm !default;
+$figure-caption-color: $black-hint !default;
+$figure-img-margin-y: $spacer-sm !default;
 
-$headings-color:             inherit !default;
-$headings-font-family:       inherit !default;
-$headings-margin-y:          $spacer-sm !default;
+$headings-color: inherit !default;
+$headings-font-family: inherit !default;
+$headings-margin-y: $spacer-sm !default;
 
-$hr-border-color:            $border-color !default;
-$hr-border-width:            $border-width !default;
+$hr-border-color: $border-color !default;
+$hr-border-width: $border-width !default;
 
 $list-inline-inner-spacer-x: $spacer-sm !default;
 
-$mark-bg:                    $material-color-yellow-500 !default;
-$mark-color:                 $black-primary !default;
-$mark-padding:               .2em !default;
+$mark-bg: $material-color-yellow-500 !default;
+$mark-color: $black-primary !default;
+$mark-padding: 0.2em !default;
 
-$paragraph-margin-y:         $spacer !default;
+$paragraph-margin-y: $spacer !default;
 
-$small-font-size:            80% !default;
+$small-font-size: 80% !default;
 
-$table-caption-color:        $black-hint !default;
+$table-caption-color: $black-hint !default;
 
-$text-muted:                 $black-hint !default;
+$text-muted: $black-hint !default;
 
-$thumbnail-box-shadow:       map-get($shadows, 2) !default;
+$thumbnail-box-shadow: map-get($shadows, 2) !default;
 
 $webkit-tap-highlight-color: rgba($black, 0) !default;
 
-$stretched-link-pseudo-element:           after !default;
-$stretched-link-z-index:                  1 !default;
+$stretched-link-pseudo-element: after !default;
+$stretched-link-z-index: 1 !default;
 
 // Nav
 
 $nav-link-color-disabled: $black-hint !default;
-$nav-link-padding-x:      $spacer !default;
-$nav-link-padding-y:      $spacer-sm !default;
+$nav-link-padding-x: $spacer !default;
+$nav-link-padding-y: $spacer-sm !default;
 
-$nav-pills-bg-hover:      $black-divider !default;
+$nav-pills-bg-hover: $black-divider !default;
 $nav-pills-border-radius: $border-radius !default;
-$nav-pills-color:         $black-primary !default;
-$nav-pills-color-active:  selection-theme-color() !default;
-$nav-pills-link-opacity:  .7 !default;
+$nav-pills-color: $black-primary !default;
+$nav-pills-color-active: selection-theme-color() !default;
+$nav-pills-link-opacity: 0.7 !default;
 
 // Pagination
 
-$pagination-bg:             transparent !default;
-$pagination-border-radius:  50% !default;
-$pagination-color:          $black-primary !default;
+$pagination-bg: transparent !default;
+$pagination-border-radius: 2.25rem !default;
+$pagination-color: $black-primary !default;
 $pagination-color-disabled: $black-hint !default;
-$pagination-font-size:      $font-size-base !default;
-$pagination-font-size-sm:   .875rem !default;
-$pagination-font-size-lg:   1.25rem !default;
-$pagination-font-weight:    $font-weight-regular !default;
-$pagination-inner-spacer-x: .5em !default;
-$pagination-line-height:    2.25 !default; // 36px
-$pagination-margin-x:       $spacer-sm !default;
+$pagination-font-size: $font-size-base !default;
+$pagination-font-size-sm: 0.875rem !default;
+$pagination-font-size-lg: 1.25rem !default;
+$pagination-font-weight: $font-weight-regular !default;
+$pagination-inner-spacer-x: 0.5em !default;
+$pagination-line-height: 2.25 !default; // 36px
+$pagination-margin-x: $spacer-sm !default;
 
 // Popover
 
-$popover-bg:               $white !default;
-$popover-border-radius:    $border-radius !default;
-$popover-breakpoint:       md !default;
+$popover-bg: $white !default;
+$popover-border-radius: $border-radius !default;
+$popover-breakpoint: md !default;
 $popover-elevation-shadow: map-get($elevation-shadows, 24) !default;
-$popover-font-size:        $font-size-body-2 !default;
-$popover-margin:           $spacer-lg !default;
-$popover-margin-desktop:   .875rem !default;
-$popover-max-width:        21.25rem !default; // 17.5rem 280px
-$popover-padding-x:        1.375rem !default; 
-$popover-padding-y:        .875rem !default;
+$popover-font-size: $font-size-body-2 !default;
+$popover-margin: $spacer-lg !default;
+$popover-margin-desktop: 0.875rem !default;
+$popover-max-width: 21.25rem !default; // 17.5rem 280px
+$popover-padding-x: 1.375rem !default;
+$popover-padding-y: 0.875rem !default;
 
 // Utilities
 
-$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
-$overflows: auto, hidden !default;
-$positions: static, relative, absolute, fixed, sticky !default;
+$displays: none,
+  inline,
+  inline-block,
+  block,
+  table,
+  table-row,
+  table-cell,
+  flex,
+  inline-flex !default;
+
+$overflows: auto,
+  hidden !default;
+
+$positions: static,
+  relative,
+  absolute,
+  fixed,
+  sticky !default;
 
 // Printing
 
-$print-page-size:      a3 !default;
-$print-body-min-width: map-get($grid-breakpoints, "lg") !default;
+$print-page-size: a3 !default;
+$print-body-min-width: map-get($grid-breakpoints, 'lg') !default;

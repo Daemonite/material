@@ -1,9 +1,9 @@
 .custom-range {
-  width: 100%;
+  appearance: none;
+  background-color: transparent;
   height: 3rem; // 48px
   padding: 0; // Need to reset padding
-  background-color: transparent;
-  appearance: none;
+  width: 100%;
 
   &:hover {
     cursor: $slider-track-cursor;
@@ -13,15 +13,17 @@
     outline: 0;
 
     &::-webkit-slider-thumb { box-shadow: none; }
-    &::-moz-range-thumb     { box-shadow: none; }
-    &::-ms-thumb            { box-shadow: none; }
+    &::-moz-range-thumb { box-shadow: none; }
+    &::-ms-thumb { box-shadow: none; }
   }
 
   &:active {
     outline: 0;
 
     &::-webkit-slider-thumb { box-shadow: $slider-thumb-active-box-shadow; }
-    &::-moz-range-thumb, &::-ms-thumb { box-shadow: $slider-thumb-active-box-shadow; }
+
+    &::-moz-range-thumb,
+    &::-ms-thumb { box-shadow: $slider-thumb-active-box-shadow; }
   }
 
   &::-moz-focus-outer {
@@ -29,14 +31,14 @@
   }
 
   &::-webkit-slider-thumb {
-    width: $slider-thumb-width;
-    height: $slider-thumb-height;
-    margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
+    appearance: none;
     background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
+    height: $slider-thumb-height;
+    margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
     transition: $slider-thumb-transition;
-    appearance: none;
+    width: $slider-thumb-width;
 
     &:hover {
       box-shadow: $slider-thumb-hover-box-shadow;
@@ -51,33 +53,30 @@
   }
 
   &::-webkit-slider-runnable-track {
-    width: $slider-track-width;
-    height: $slider-track-height;
-    color: transparent; // Why?
-    cursor: $slider-track-cursor;
     background-color: $slider-track-bg;
     border-color: transparent;
     border-radius: $slider-track-border-radius;
+    color: transparent;
+    cursor: $slider-track-cursor;
+    height: $slider-track-height;
+    width: $slider-track-width;
   }
 
   &::-moz-range-thumb {
-    /* autoprefixer: off */
-    width: $slider-thumb-width;
-    height: $slider-thumb-height;
+    -moz-appearance: none; // stylelint-disable-line
     background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
+    height: $slider-thumb-height;
     transition: $slider-thumb-transition;
-    -moz-appearance: none;
+    width: $slider-thumb-width;
 
     &:hover {
-      /* autoprefixer: off */
       box-shadow: $slider-thumb-hover-box-shadow;
       transition: $slider-thumb-transition;
     }
 
     &:active {
-      /* autoprefixer: off */
       background-color: $slider-thumb-active-bg;
       box-shadow: $slider-thumb-active-box-shadow;
       transition: $slider-thumb-transition;
@@ -85,55 +84,52 @@
   }
 
   &::-moz-range-track {
-    width: $slider-track-width;
-    height: $slider-track-height;
-    color: transparent;
-    cursor: $slider-track-cursor;
     background-color: $slider-track-bg;
     border-color: transparent; // Firefox specific?
     border-radius: $slider-track-border-radius;
+    color: transparent;
+    cursor: $slider-track-cursor;
+    height: $slider-track-height;
+    width: $slider-track-width;
   }
 
   &::-moz-range-progress {
-    height: $slider-track-height;
     background: $slider-thumb-bg;
+    height: $slider-track-height;
   }
 
   &::-ms-thumb {
-    width: $slider-thumb-width;
+    background-color: $slider-thumb-bg;
+    border: $slider-thumb-border;
+    border-radius: $slider-thumb-border-radius;
     height: $slider-thumb-height;
     margin-top: 0; // Edge specific
     margin-right: $slider-thumb-active-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
     margin-left: $slider-thumb-active-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
-    background-color: $slider-thumb-bg;
-    border: $slider-thumb-border;
-    border-radius: $slider-thumb-border-radius;
+    width: $slider-thumb-width;
 
     &:hover {
-      /* autoprefixer: off */
       box-shadow: $slider-thumb-hover-box-shadow;
     }
 
     &:focus {
-      /* autoprefixer: off */
       box-shadow: none;
     }
 
     &:active {
-      /* autoprefixer: off */
       background-color: $slider-thumb-active-bg;
       box-shadow: $slider-thumb-active-box-shadow;
     }
   }
 
   &::-ms-track {
-    width: $slider-track-width;
-    height: $slider-track-height;
-    color: transparent;
-    cursor: $slider-track-cursor;
     background-color: transparent;
     border-color: transparent;
     border-width: $slider-thumb-height / 2;
+    color: transparent;
+    cursor: $slider-track-cursor;
+    height: $slider-track-height;
+    width: $slider-track-width;
   }
 
   &::-ms-fill-lower {
@@ -142,9 +138,9 @@
   }
 
   &::-ms-fill-upper {
-    margin-right: 15px; // arbitrary?
     background-color: $slider-track-bg;
     border-radius: $slider-track-border-radius;
+    margin-right: 15px; // arbitrary?
   }
 
   &:disabled {
@@ -152,7 +148,7 @@
 
     &::-webkit-slider-thumb {
       background-color: $slider-thumb-disabled-bg;
-      box-shadow: 0 0 0 4px #fff;
+      box-shadow: 0 0 0 4px #ffffff;
     }
 
     &::-webkit-slider-runnable-track {
@@ -162,9 +158,8 @@
 
     &::-moz-range-thumb,
     &:hover::-moz-range-thumb {
-      /* autoprefixer: off */
       background-color: $slider-thumb-disabled-bg;
-      box-shadow: 0 0 0 4px #fff;
+      box-shadow: 0 0 0 4px #ffffff;
     }
 
     &::-moz-range-track {
@@ -175,7 +170,7 @@
     &::-moz-range-progress {
       background: $slider-thumb-disabled-bg;
     }
-    
+
     &::-ms-thumb {
       background: $slider-thumb-disabled-bg;
     }
@@ -185,8 +180,8 @@
     }
 
     &::-ms-fill-upper {
-      margin-right: 15px; // arbitrary?
       background-color: $slider-track-bg-disabled;
+      margin-right: 15px; // arbitrary?
     }
   }
 }

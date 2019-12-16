@@ -1,5 +1,5 @@
-/* todos 
-*  merge select and custom select 
+/* TODO
+*  merge select and custom select
 *  input-group-prepend or input-group-icon ? : bring icon within field
 */
 
@@ -18,12 +18,17 @@
   letter-spacing: $textfield-letter-spacing;
   line-height: $textfield-line-height;
   padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
-  transition: border-color 150ms cubic-bezier(.4,0,.2,1);
+  transition: border-color 15ms linear;
   width: 100%;
 
   &::-ms-expand {
     background-color: transparent;
     border: 0;
+  }
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $textfield-color; // todo
   }
 
   &::placeholder {
@@ -43,9 +48,11 @@
     }
   }
 
+  // stylelint-disable
   @include hover {
     border-color: $textfield-border-color-hover;
   }
+  // stylelint-enable/
 
   &:focus {
     border-color: $textfield-border-color-focus;
@@ -118,7 +125,6 @@
 
   @include hover {
     border-color: $textfield-border-color-hover;
-    //box-shadow: inset $textfield-border-width-hover $textfield-border-width-hover 0 ($textfield-border-width * -1) $textfield-border-color-hover, inset ($textfield-border-width-hover * -1) ($textfield-border-width-hover * -1) 0 ($textfield-border-width * -1) $textfield-border-color-hover;
   }
 
   &:focus {
@@ -136,23 +142,27 @@ select {
     &[size]:not([size='1']) {
       @extend %form-textarea;
       //height: auto;  todo
-      padding: $spacer 0;
+      padding: $spacer-sm 0;
 
       option {
-        padding: $spacer-xs $spacer-lg;
+        padding: 0 $spacer-lg;
       }
     }
 
     option {
-      font-size: .9375rem;
-      line-height: 1.5rem;
+      align-items: center;
+      display: flex;
+      font-size: $expansion-panel-font-size;
+      height: $expansion-panel-height;
+      letter-spacing: $expansion-panel-letter-spacing;
+      //line-height: 1.5rem !important;
 
       &:hover {
-        background: rgba($black,$overlay-hover-white-opacity);
+        background: rgba($black, $overlay-hover-white-opacity);
       }
 
       &:active {
-        background: rgba($black,$overlay-activated-white-opacity);
+        background: rgba($black, $overlay-activated-white-opacity) !important;
       }
     }
 
@@ -160,6 +170,7 @@ select {
       background-image: url('data:image/svg+xml;charset=utf8,%3Csvg fill="%23000" fill-opacity=".54" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3CanimateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/%3E%3C/svg%3E');
     }
   }
+  // stylelint-enable
 
   &.form-control-lg {
     &[multiple],
@@ -211,14 +222,14 @@ textarea {
 
 .custom-file {
   display: inline-block;
-  height: $textfield-height; //$custom-file-height
+  height: $textfield-height;
   margin-bottom: 0;
   position: relative;
   width: 100%;
 }
 
 .custom-file-input {
-  height: $textfield-height; //$custom-file-height
+  height: $textfield-height;
   margin: 0;
   opacity: 0;
   position: relative;
@@ -240,8 +251,8 @@ textarea {
   border-bottom: $textfield-border-width solid $textfield-border-color;
   color: $textfield-hint-color;
   font-size: $textfield-font-size;
-  height: $textfield-height; //$custom-file-height
-  line-height: $textfield-line-height; //$custom-file-line-height
+  height: $textfield-height;
+  line-height: $textfield-line-height;
   padding: $textfield-padding-y ($material-icon-size + $selection-control-spacer-x) calc(#{$textfield-padding-y} - #{$textfield-border-width}) $textfield-padding-x;
   position: absolute;
   top: 0;
@@ -311,6 +322,6 @@ textarea {
   @include form-validation-state($state, map-get($data, color), map-get($data, icon));
 }
 
-.form-control[class*="valid"] {
-  padding-right: calc(1.5rem + .5rem);
+.form-control[class*='valid'] {
+  padding-right: calc(1.5rem + 0.5rem);
 }

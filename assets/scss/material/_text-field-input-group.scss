@@ -5,16 +5,17 @@
   position: relative;
   width: 100%;
 
+  // todo
   > .custom-file,
   > .custom-select,
   > .floating-label,
   > .form-control,
   > .form-control-file,
   > .textfield-box {
-    flex: 1 1 auto;
-    position: relative;
+    flex: 1 1 0%;
     margin-bottom: 0;
-    width: 1%;
+    min-width: 0;
+    position: relative;
 
     + .custom-file,
     + .custom-select,
@@ -22,7 +23,7 @@
     + .form-control,
     + .form-control-file,
     + .textfield-box {
-      margin-left: $input-group-inner-spacer-x;
+      margin-left: $input-group-inner-spacer-x; // todo -value ?
     }
   }
 

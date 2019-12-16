@@ -23,27 +23,27 @@
     }
   }
 
+  // Empty badges collapse automatically
+  &:empty {
+    display: none;
+  }
+
   // Material addition : https://material.angular.io/components/badge/examples
   .btn & {
+    border-radius: 50%;
+    display: inline-block;
+    font-size: $font-size-caption;
+    font-weight: $badge-btn-font-weight;
+    height: $badge-width;
+    line-height: $badge-width;
     position: absolute;
     top: -$badge-width / 2;
     right: -$badge-width / 2;
-    border-radius: 50%;
     width: $badge-width;
-    height: $badge-width;
-    line-height: $badge-width;
-    display: inline-block;
-    font-weight: $badge-btn-font-weight;
-    font-size: $font-size-caption;
 
     &.badge-before {
       left: -$badge-width / 2;
     }
-  }
-
-  // Empty badges collapse automatically
-  &:empty {
-    display: none;
   }
 }
 
@@ -56,8 +56,7 @@
   //padding-left: $badge-pill-padding-x;
 }
 
-@each $color,
-$values in $theme-colors {
+@each $color, $values in $theme-colors {
   .badge-#{$color} {
     background-color: theme-color($color);
     color: color-yiq(theme-color($color));

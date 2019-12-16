@@ -8,7 +8,7 @@
   padding-left: $selection-control-spacer-x + $selection-control-indicator-size;
   position: relative;
 
-  +.custom-control {
+  + .custom-control {
     margin-top: $selection-control-spacer-y;
   }
 }
@@ -17,7 +17,7 @@
   display: inline-flex;
   margin-right: $selection-control-spacer-x * 2; //$custom-control-spacer-x
 
-  +.custom-control-inline {
+  + .custom-control-inline {
     margin-top: 0;
   }
 }
@@ -49,7 +49,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: scale(.87, .87) translateZ(0);
+    transform: scale(0.87, 0.87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
   }
 
@@ -68,34 +68,8 @@
   position: absolute;
   z-index: -1;
 
-  &:not([disabled]):hover {
-    ~.custom-control-label {
-      cursor: pointer; // djibe addition
-    }
-  }
-
-  &.focus,
-  &:active {
-    ~.custom-control-label::before {
-      opacity: $selection-control-radial-opacity;
-      transform: scale(1, 1) translateZ(0);
-    }
-  }
-
-  &:checked~ {
-    .custom-control-label {
-      &::after {
-        color: $selection-control-color-active;
-      }
-
-      &::before {
-        background-color: $selection-control-color-active;
-      }
-    }
-  }
-
-  &:disabled~ {
-    .custom-control-label {
+  &[disabled] {
+    ~ .custom-control-label {
       color: $selection-control-color-disabled;
 
       &::after {
@@ -104,6 +78,32 @@
 
       &::before {
         display: none;
+      }
+    }
+  }
+
+  &:not([disabled]):hover {
+    ~ .custom-control-label {
+      cursor: pointer; // djibe addition
+    }
+  }
+
+  &:active,
+  &.focus {
+    ~ .custom-control-label::before {
+      opacity: $selection-control-radial-opacity;
+      transform: scale(1, 1) translateZ(0);
+    }
+  }
+
+  &:checked ~ {
+    .custom-control-label {
+      &::after {
+        color: $selection-control-color-active;
+      }
+
+      &::before {
+        background-color: $selection-control-color-active;
       }
     }
   }
@@ -123,12 +123,16 @@
   }
 
   .custom-control-input {
-    &:checked~.custom-control-label::after {
+    &:checked ~ .custom-control-label::after {
       content: $selection-control-checkbox-icon-checked;
     }
 
-    &:indeterminate~.custom-control-label::after {
+    &:indeterminate ~ .custom-control-label::after {
       content: $selection-control-checkbox-icon-indeterminate;
+    }
+
+    &:indeterminate:not([disabled]) ~ .custom-control-label::after {
+      color: $selection-control-color-active;
     }
   }
 }
@@ -144,7 +148,7 @@
     vertical-align: middle;
   }
 
-  .custom-control-input:checked~.custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::after {
       content: $selection-control-radio-icon-checked;
       // background-image: $custom-radio-indicator-icon-checked;
@@ -223,7 +227,7 @@
   }
 }
 
-/*.custom-switch {
+/* .custom-switch {
   padding-left: $custom-switch-width + $custom-control-gutter;
 
   .custom-control-label {
@@ -257,4 +261,4 @@
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
-}*/
+} */

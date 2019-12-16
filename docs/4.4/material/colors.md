@@ -1,12 +1,12 @@
 ---
 layout: docs
-title: Colours
-description: You can customise your app’s colour scheme to match your brand colours. Alternatively, you can create an entirely new colour scheme using the Material Design colour palette.
+title: colors
+description: You can customise your app’s colour scheme to match your brand colors. Alternatively, you can create an entirely new colour scheme using the Material Design colour palette.
 group: material
 toc: true
 ---
 
-Please visit [theming]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/#theme-colours) for detailed information about all Material Design colours and how to customise theme colours.
+Please visit [theming]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/#theme-colors) for detailed information about all Material Design colors and how to customise theme colors.
 
 ## Colour scheme
 
@@ -42,7 +42,7 @@ A primary colour is the colour displayed most frequently across your app’s scr
 
 A secondary colour is used to accent select parts of your UI. It can be analogous or complementary to your primary colour, but it should not simply be a light or dark variation of your primary colour. It should contrast with elements that surround it and be applied sparingly as an accent.
 
-Secondary colours are best used for:
+Secondary colors are best used for:
 
 - Buttons and floating action buttons
 - Headlines

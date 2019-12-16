@@ -17,9 +17,9 @@
   justify-content: center;
   line-height: $pagination-line-height;
   margin-left: $pagination-inner-spacer-x;
+  min-width: $pagination-line-height * $pagination-font-size;
   position: relative;
   text-align: center;
-  width: $pagination-line-height * $pagination-font-size;
   white-space: nowrap;
 
   @include hover-focus-active {
@@ -49,6 +49,7 @@
     }
   }
 
+  // stylelint-disable
   &.active .page-link {
     background-color: theme-color(primary);
     color: $white;
@@ -60,8 +61,8 @@
     cursor: auto;
     pointer-events: none;
   }
+  // stylelint-enable
 }
-
 
 //
 // Sizing

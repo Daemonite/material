@@ -6,7 +6,7 @@ group: material
 toc: true
 ---
 
-## Colours
+## colors
 
 ### Black and white variations
 
@@ -32,7 +32,7 @@ toc: true
 {% endcapture %}
 {% include example.html content=example %}
 
-### Theme colours
+### Theme colors
 
 {% capture example %}
 <div class="bg-light-4 card card-body">
@@ -61,15 +61,19 @@ By default, Material utilises 4 weights, `300` (light), `400` (regular), `500` (
 The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34.
 
 {% capture example %}
-<p class="typography-display-4">Display 4 - Light 112sp</p>
-<p class="typography-display-3">Display 3 - Regular 56sp</p>
-<p class="typography-display-2">Display 2 - Regular 45sp</p>
-<p class="typography-display-1">Display 1 - Regular 34sp</p>
-<p class="typography-headline">Headline - Regular 24sp</p>
-<p class="typography-title">Title - Medium 20sp</p>
-<p class="typography-subheading">Subheading - Regular 16sp</p>
-<p class="typography-body-2">Body 2 - Medium 14sp</p>
-<p class="typography-body-1">Body 1 - Regular 14sp</p>
-<p class="typography-caption">Caption - Regular 12sp</p>
+<p class="typography-headline-1">Headline 1</p>
+<p class="typography-headline-2">Headline 2</p>
+<p class="typography-headline-3">Headline 3</p>
+<p class="typography-headline-4">Headline 4</p>
+<p class="typography-headline-5">Headline 5</p>
+<p class="typography-headline-6">Headline 6</p>
+<p class="typography-subtitle-1">Subtitle 1</p>
+<p class="typography-subtitle-2">Subtitle 2</p>
+<p class="typography-body-1">Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.</p>
+<p class="typography-body-2">Body 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae.</p>
+<p class="typography-caption">Caption text
+</p>
+<p class="typography-overline">OVERLINE TEXT
+</p>
 {% endcapture %}
 {% include example.html content=example %}

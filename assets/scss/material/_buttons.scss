@@ -1,12 +1,10 @@
 // Btn raised : https://material.io/design/components/buttons.html#
-// Todo btn-light color, btn-link, btn-light-outline
-
+// Todo btn-light color, btn-light-outline
 
 .btn {
   @include border-radius($btn-border-radius);
   @include transition-standard(all);
 
-  -webkit-font-smoothing: antialiased;
   align-items: center;
   background-color: transparent;
   background-image: none;
@@ -15,10 +13,11 @@
   color: $btn-color;
   display: inline-flex;
   font-size: $btn-font-size;
+  -webkit-font-smoothing: antialiased;
   font-weight: $btn-font-weight;
   height: $btn-height;
   justify-content: center;
-  letter-spacing: .0892857143em;
+  letter-spacing: 0.0892857143em;
   line-height: inherit;
   margin: 0;
   max-width: 100%;
@@ -43,34 +42,41 @@
     background-image: linear-gradient(to bottom, rgba($white, $overlay-focus-colored-opacity), rgba($white, $overlay-focus-colored-opacity));
   }
 
-  &:active,
-  &.active {
-    background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
-    box-shadow: map-get($btn-elevation-shadow-active, shadow);
-  }
-
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: $btn-bg-disabled;
     background-image: none;
     box-shadow: none;
     color: $btn-color-disabled;
   }
 
-  // todo : verify
-  .show>&.dropdown-toggle {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+  }
+
+  // TODO: verify
+  .show > &.dropdown-toggle {
     background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
   }
 }
 
+/* stylelint-disable */
 a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   color: $white;
 }
 
+// Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none;
 }
+/* stylelint-enable */
+
+//
+// Alternate buttons
+//
 
 @each $color, $values in $theme-colors {
   .btn-#{$color} {
@@ -80,9 +86,8 @@ fieldset:disabled a.btn {
 }
 
 [class*='bg-dark']:not([class*='bg-light']) .btn {
-
-  &.disabled,
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: $btn-bg-disabled-inverse;
     color: $btn-color-disabled-inverse;
   }
@@ -117,16 +122,16 @@ fieldset:disabled a.btn {
 //
 
 .btn-block {
-  //display: block;
   margin: 0;
   width: 100%;
 
-  +.btn-block {
-    margin-left: 0;
+  + .btn-block {
     margin-top: $btn-block-margin-y;
+    margin-left: 0;
   }
 }
 
+// Specificity overrides
 [type='button'],
 [type='reset'],
 [type='submit'] {

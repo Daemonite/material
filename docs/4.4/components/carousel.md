@@ -79,9 +79,9 @@ You can also add the indicators to the carousel, alongside the controls, too.
 {% capture example %}
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"> </li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"> </li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"> </li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -113,9 +113,9 @@ Add captions to your slides easily with the `.carousel-caption` element within a
 <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"> </li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"> </li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"> </li>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">

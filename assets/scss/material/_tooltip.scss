@@ -1,5 +1,5 @@
+// Todo ellipsis tooltip
 .tooltip {
-  //@include reset-text; // to check
   display: block;
   font-size: $tooltip-font-size;
   font-weight: $tooltip-font-weight;
@@ -20,33 +20,30 @@
     opacity: $tooltip-opacity;
 
     .tooltip-inner {
-      transform: scale(1);
       @include transition-deceleration(transform);
+
+      transform: scale(1);
     }
   }
 }
 
 .tooltip-inner {
   @include border-radius($tooltip-border-radius);
-  //@include transition-deceleration(transform);
-  //@include transition-standard(transform);
-  transition: transform 75ms $transition-timing-function-acceleration;
 
   align-items: center;
   background-color: $tooltip-bg;
   color: $tooltip-color;
   display: flex;
+  height: $tooltip-height; // 24px
   margin: auto;
-  height: $tooltip-height; // added 24px
+  max-width: 250px - (2*8px);
+  overflow: hidden;
   padding: $tooltip-padding-y $tooltip-padding-x;
+  text-overflow: clip;
   transform: scale($tooltip-scale);
   transform-origin: center top;
-
-  // How to ellipsis tooltip ???
-  max-width: 250px - (2*8px);
+  transition: transform 75ms $transition-timing-function-acceleration;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: clip;
 
   @include media-breakpoint-up($tooltip-breakpoint) {
     height: $tooltip-height-desktop;

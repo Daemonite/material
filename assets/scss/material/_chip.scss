@@ -1,8 +1,12 @@
+// todo disabled
+// todo hyperlink hover
+// todo icon position
+
 .chip {
   align-items: center;
   background-color: $chip-bg;
   border: 0;
-  border-radius: ($chip-height / 2);
+  border-radius: $chip-height / 2;
   color: $chip-color;
   display: inline-flex;
   font-size: $chip-font-size;
@@ -11,34 +15,31 @@
   justify-content: center;
   letter-spacing: $letter-spacing-body-2;
   line-height: $chip-line-height;
-  margin: .25rem;
-  //padding-right: $chip-padding-x;
-  //padding-left: $chip-padding-x;
+  margin: $spacer-xs;
   padding: $chip-padding-y $chip-padding-x;
   position: relative;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
 
-  > .material-icons {
-    color: $black-secondary;
-    font-size: 1.25rem;
-    margin: -.25rem .25rem -.25rem -.25rem;
-    width: 1.25rem;
-  }
-
   &:empty {
     display: none;
   }
 
   .close {
-    font-size: inherit;
-    line-height: inherit;
-    margin-right: ($chip-inner-spacer-x - $chip-padding-x);
-    margin-left: $chip-inner-spacer-x;
-    min-height: $material-icon-size;
-    min-width: $material-icon-size;
+    background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%23666" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
+    height: 18px;
+    margin-right: ($chip-inner-spacer-x * 2) - $chip-padding-x;
+    margin-left: $chip-inner-spacer-x * 2;
     order: 1;
+    width: 18px;
+  }
+
+  > .material-icons {
+    color: $black-secondary;
+    font-size: 1.25rem;
+    margin: 0 $chip-inner-spacer-x 0 -$chip-inner-spacer-x;
+    width: 1.25rem;
   }
 }
 
@@ -49,8 +50,17 @@
   }
 }
 
-// Misc
+// Addition
+.chip-outline {
+  background: transparent;
+  border: 1px solid $black-divider;
 
+  .close {
+    background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%239e9e9e" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
+  }
+}
+
+// Misc
 .chip-action {
   //@include transition-standard(background-color);
   transition: background-color 15ms linear;
@@ -61,46 +71,96 @@
     text-decoration: none;
   }
 
-  &:hover {
-    background-color: $chip-bg-hover;
-  }
+  &:not(.disabled) {
+    &.chip-outline {
+      &:hover {
+        background-color: $chip-outline-bg-hover;
+      }
 
-  &:active {
-    background-color: $chip-bg-active;
-  }
+      &:active {
+        background-color: $chip-outline-bg-active;
+      }
+    }
 
-  &:focus {
-    outline: 0;
+    &:hover {
+      background-color: $chip-bg-hover;
+    }
+
+    &:active {
+      background-color: $chip-bg-active;
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 }
 
+// Chip choice
+[type='radio']:checked + .chip-choice {
+  background-color: rgba(theme-color(primary), $overlay-activated-colored-opacity);
+  color: theme-color(primary);
+}
+
+[type='radio']:checked + .chip-choice.chip-outline {
+  background-color: rgba(theme-color(primary), $overlay-activated-white-opacity);
+}
+
+// Chip filter
+[type='checkbox'] + .chip-filter:not(.chip-outline) {
+  color: $black-secondary;
+}
+
+[type='checkbox']:checked + .chip-filter {
+  background-color: rgba($black, $overlay-selected-colored-opacity);
+  color: $black-primary;
+}
+
+[type='checkbox']:checked + .chip-filter.chip-outline {
+  background-color: rgba($black, $overlay-selected-white-opacity);
+}
+
+[type='checkbox'] + .chip-filter::before {
+  content: '';
+  font-family: 'Material Icons'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+  transition: margin 100ms ease-in;
+}
+
+[type='checkbox']:checked + .chip-filter::before {
+  content: '\e5ca';
+  font-size: 1.125rem;
+  margin-right: $chip-inner-spacer-x;
+  transform: translateX(-$chip-inner-spacer-x);
+  transition: margin 100ms ease-in;
+}
+
+.chip-img {
+  border-radius: $chip-icon-size / 2;
+  flex-shrink: 0;
+  height: $chip-icon-size;
+  margin-right: $chip-inner-spacer-x * 2;
+  margin-left: -$chip-inner-spacer-x * 2;
+  order: -1;
+  width: $chip-icon-size;
+}
+
 .chip-icon {
+  @extend .chip-img;
+
   @include text-truncate;
 
   align-items: center;
   background-color: $chip-icon-bg;
-  border-radius: ($chip-height / 2);
   color: color-yiq($chip-icon-bg);
   display: inline-flex;
-  flex-shrink: 0;
   font-size: $chip-icon-font-size;
   font-style: normal;
   font-weight: $chip-font-weight;
-  height: $chip-height;
   justify-content: center;
-  margin-right: ($chip-inner-spacer-x * 2);
-  margin-left: ($chip-padding-x * -1);
-  order: -1;
-  text-align: center;
-  width: $chip-height;
 }
 
-.chip-img {
-  border-radius: ($chip-height / 2);
-  flex-shrink: 0;
-  height: $chip-height;
-  margin-right: ($chip-inner-spacer-x * 2);
-  margin-left: ($chip-padding-x * -1);
-  order: -1;
-  width: auto;
+// Disabled
+.chip.disabled,
+input:disabled + .chip {
+  opacity: 0.38;
 }

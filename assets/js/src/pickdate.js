@@ -27,9 +27,9 @@ const PickDate = (($) => {
     hiddenSuffix     : '',
     klass            : {
       // button
-      buttonClear    : 'btn btn-outline-primary picker-button-clear',
-      buttonClose    : 'btn btn-outline-primary picker-button-close',
-      buttonToday    : 'btn btn-outline-primary picker-button-today',
+      buttonClear    : 'btn btn-flat-primary picker-button-clear',
+      buttonClose    : 'btn btn-flat-primary picker-button-close',
+      buttonToday    : 'btn btn-flat-primary picker-button-today',
 
       // day
       day            : 'picker-day',
@@ -70,8 +70,8 @@ const PickDate = (($) => {
     },
     labelMonthNext   : 'Next month',
     labelMonthPrev   : 'Previous month',
-    labelMonthSelect : 'Select a month',
-    labelYearSelect  : 'Select a year',
+    labelMonthSelect : 'Choose a month',
+    labelYearSelect  : 'Choose a year',
     max              : false,
     min              : false,
     monthsFull       : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -147,7 +147,7 @@ const PickDate = (($) => {
     display(datepickerApi, datepickerRoot, datepickerValue) {
       $('.picker-date-display', datepickerRoot).remove()
 
-      $('.picker-wrap', datepickerRoot).prepend(`<div class="picker-date-display"><div class="picker-date-display-top"><span class="picker-year-display">${datepickerApi.get(datepickerValue, 'yyyy')}</span></div><div class="picker-date-display-bottom"><span class="picker-weekday-display">${datepickerApi.get(datepickerValue, 'dddd')}</span><span class="picker-day-display">${datepickerApi.get(datepickerValue, 'd')}</span><span class="picker-month-display">${datepickerApi.get(datepickerValue, 'mmm')}</span></div></div>`)
+      $('.picker-wrap', datepickerRoot).prepend(`<div class="picker-date-display"><div class="picker-date-display-top"><span class="picker-year-display">${datepickerApi.get(datepickerValue, 'yyyy')}</span></div><div class="picker-date-display-bottom"><span class="picker-weekday-display">${datepickerApi.get(datepickerValue, 'dddd')}</span><span class="picker-month-display">${datepickerApi.get(datepickerValue, 'mmm')}</span><span class="picker-day-display">${datepickerApi.get(datepickerValue, 'd')}</span></div></div>`)
     }
 
     show() {

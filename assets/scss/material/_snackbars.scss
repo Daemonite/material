@@ -2,27 +2,25 @@
 
 .toast {
   @include border-radius($snackbar-border-radius);
+  @include typography-body-2;
 
   align-items: center;
-  background-color: $snackbar-bg;
   background-clip: padding-box;
+  background-color: $snackbar-bg;
   box-shadow: map-get($snackbar-elevation-shadow, shadow);
   color: $snackbar-color;
   display: flex;
   flex-wrap: wrap;
-  font-size: $snackbar-font-size;
-  justify-content: center;
-  line-height: $snackbar-line-height;
+  justify-content: space-between;
   margin: $snackbar-margin-x;
   max-width: $snackbar-max-width;
+  min-height: 48px;
   min-width: $snackbar-min-width;
   opacity: 0;
   overflow: hidden; // cheap rounded corners on nested items
+  transform: scale(0.8);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
   z-index: map-get($dialog-elevation-shadow, elevation);
-  //backdrop-filter: blur(10px);
-  
-  transition: opacity .15s cubic-bezier(0,0,.2,1),transform .15s cubic-bezier(0,0,.2,1);
-  transform: scale(.8);
 
   &.showing {
     opacity: 1;
@@ -39,15 +37,15 @@
 
   .close {
     align-items: flex-start;
+    border-radius: 50%;
+    color: rgba($white, 0.87);
     display: flex;
-	  justify-content: center;
-		color: rgba($white,.87);
-		width: 36px;
-		height: 36px;
-		padding: 9px;
-		line-height: 0;
-		border-radius: 50%;
-		margin-right: $snackbar-padding-x;
+    height: 36px;
+    justify-content: center;
+    line-height: 0;
+    margin-right: $snackbar-padding-x;
+    padding: 9px;
+    width: 36px;
   }
 
   .btn {
@@ -74,16 +72,30 @@
 }
 
 .toast-header {
-  display: flex;
   align-items: center;
-  padding: $snackbar-padding-y $snackbar-padding-x;
+  background-clip: padding-box;
+  display: flex;
+  flex-grow: 1;
+  padding: 14px 16px;
   //color: $toast-header-color;
   //background-color: $toast-header-background-color;
-  background-clip: padding-box;
-  //border-bottom: $toast-border-width solid $toast-header-border-color;
 }
 
 .toast-body {
-  flex-grow: 1;
-  padding: $snackbar-padding-y $snackbar-padding-x;
+  flex-grow: 0;
+  flex-shrink: 0;
+  //padding: 0;
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+// Addition
+.toast-stacked {
+  align-items: flex-start;
+  flex-direction: column;
+
+  & .toast-body {
+    align-self: flex-end;
+    margin-bottom: 8px;
+  }
 }

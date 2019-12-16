@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
@@ -6,10 +8,10 @@
 @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
-    position: relative;
-    width: 100%;
     padding-right: $gutter / 2;
     padding-left: $gutter / 2;
+    position: relative;
+    width: 100%;
   }
 
   @each $breakpoint in map-keys($breakpoints) {
@@ -21,6 +23,7 @@
         @extend %grid-column;
       }
     }
+
     .col#{$infix},
     .col#{$infix}-auto {
       @extend %grid-column;
@@ -33,10 +36,11 @@
         flex-grow: 1;
         max-width: 100%;
       }
+
       .col#{$infix}-auto {
         flex: 0 0 auto;
-        width: auto;
         max-width: 100%; // Reset earlier grid tiers
+        width: auto;
       }
 
       @for $i from 1 through $columns {
@@ -55,7 +59,7 @@
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
-        @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+        @if not ($infix == '''' and $i == 0) { // Avoid emitting useless .offset-0
           .offset#{$infix}-#{$i} {
             @include make-col-offset($i, $columns);
           }
@@ -64,3 +68,4 @@
     }
   }
 }
+/* stylelint-enable */

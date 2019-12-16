@@ -269,9 +269,9 @@ A persistent navigation drawer can be closed and opened, but unlike a default dr
 </div>
 
 {% highlight html %}
-<button data-target="#navdrawerPersistent" data-toggle="navdrawer" data-type="persistent" type="button">Launch persistent drawer</button>
+<button data-target="#navdrawerPersistent" data-toggle="navdrawer" type="button">Launch persistent drawer</button>
 
-<div aria-hidden="true" class="navdrawer navdrawer-persistent" id="navdrawerPersistent" tabindex="-1">...</div>
+<div aria-hidden="true" class="navdrawer navdrawer-persistent" data-type="persistent" id="navdrawerPersistent" tabindex="-1">...</div>
 {% endhighlight %}
 
 You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.
