@@ -2846,7 +2846,6 @@ tr.collapse.show {
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 0.875rem;
-  -webkit-font-smoothing: antialiased;
   font-weight: 500;
   height: 2.25rem;
   -ms-flex-pack: center;
@@ -2897,35 +2896,33 @@ tr.collapse.show {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
 }
 
+.btn:active, .btn.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
 .btn:disabled, .btn.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   background-image: none;
   box-shadow: none;
   color: rgba(0, 0, 0, 0.37);
-}
-
-.btn:not(:disabled):not(.disabled):active, .btn:not(:disabled):not(.disabled).active {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
-  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
 }
 
 .show > .btn.dropdown-toggle {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
 }
 
-/* stylelint-disable */
 a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   color: #ffffff;
 }
 
-a.btn.disabled,
-fieldset:disabled a.btn {
-  pointer-events: none;
-}
-
-/* stylelint-enable */
 .btn-primary {
   background-color: #6200ee;
+  color: white;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: white;
 }
 
@@ -2934,8 +2931,16 @@ fieldset:disabled a.btn {
   color: white;
 }
 
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+  color: white;
+}
+
 .btn-danger {
   background-color: #b00020;
+  color: white;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active {
   color: white;
 }
 
@@ -2944,8 +2949,16 @@ fieldset:disabled a.btn {
   color: white;
 }
 
+.btn-info:hover, .btn-info:focus, .btn-info:active {
+  color: white;
+}
+
 .btn-success {
   background-color: #61d800;
+  color: white;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active {
   color: white;
 }
 
@@ -2954,8 +2967,16 @@ fieldset:disabled a.btn {
   color: white;
 }
 
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
+  color: white;
+}
+
 .btn-dark {
   background-color: #424242;
+  color: white;
+}
+
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active {
   color: white;
 }
 
@@ -2964,7 +2985,11 @@ fieldset:disabled a.btn {
   color: rgba(0, 0, 0, 0.87);
 }
 
-[class*='bg-dark']:not([class*='bg-light']) .btn:disabled, [class*='bg-dark']:not([class*='bg-light']) .btn.disabled {
+.btn-light:hover, .btn-light:focus, .btn-light:active {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+[class*='bg-dark'] .btn:disabled, [class*='bg-dark'] .btn.disabled {
   background-color: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.3);
 }

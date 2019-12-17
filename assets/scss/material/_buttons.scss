@@ -13,7 +13,6 @@
   color: $btn-color;
   display: inline-flex;
   font-size: $btn-font-size;
-  -webkit-font-smoothing: antialiased;
   font-weight: $btn-font-weight;
   height: $btn-height;
   justify-content: center;
@@ -42,18 +41,19 @@
     background-image: linear-gradient(to bottom, rgba($white, $overlay-focus-colored-opacity), rgba($white, $overlay-focus-colored-opacity));
   }
 
+  &:active,
+  &.active {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+  }
+
   &:disabled,
   &.disabled {
     background-color: $btn-bg-disabled;
     background-image: none;
     box-shadow: none;
     color: $btn-color-disabled;
-  }
-
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active {
-    background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
-    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+    pointer-events: none;
   }
 
   // TODO: verify
@@ -62,7 +62,7 @@
   }
 }
 
-/* stylelint-disable */
+// stylelint-disable
 a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   color: $white;
 }
@@ -70,9 +70,9 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 // Future-proof disabling of clicks on `<a>` elements
 a.btn.disabled,
 fieldset:disabled a.btn {
-  pointer-events: none;
+  // pointer-events: none;
 }
-/* stylelint-enable */
+// stylelint-enable
 
 //
 // Alternate buttons
@@ -82,10 +82,17 @@ fieldset:disabled a.btn {
   .btn-#{$color} {
     background-color: theme-color($color);
     color: color-yiq(theme-color($color));
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: color-yiq(theme-color($color));
+    }
   }
 }
 
-[class*='bg-dark']:not([class*='bg-light']) .btn {
+// TODO: make sure still useful
+[class*='bg-dark'] .btn {
   &:disabled,
   &.disabled {
     background-color: $btn-bg-disabled-inverse;
