@@ -3482,7 +3482,7 @@
 
   /*
    * Tab indicator animation
-   * Requires Bootstrap's (v4.1.X) `tab.js`
+   * Requires Bootstrap's (v4.4.X) `tab.js`
    */
 
   var TabSwitch = function ($) {

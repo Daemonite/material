@@ -61,7 +61,7 @@
     // Docsearch
     docsearch({
       algoliaOptions: {
-        facetFilters: ['version: 4.1']
+        facetFilters: ['version: 4.4']
       },
       apiKey: 'c1af50add5aa791153ec947a3035b0c4',
       debug: false,

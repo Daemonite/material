@@ -12,6 +12,12 @@ Material monitors the changes in the Bootstrap project so the exact same Bootstr
 
 **This page will focus on the changes that are unique to Material.**
 
+## v4.4.1 - alpha
+This release consisted of reviving the project, upgrading it to latest Bootstrap 4.4.1 version and adding latest Material styles.
+
+## v4.3.1 - Unreleased
+This work focused on upgrading Components look according to Material design v2.
+
 ## v4.1.1
 
 This release mainly focuses on bug fixes, especially styles related to [form controls]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/text-fields).
