@@ -58,7 +58,7 @@ toc: true
 
 By default, Material utilises 4 weights, `300` (light), `400` (regular), `500` (medium) and `700` (bold), of Roboto, but you may need to include fewer or more weights based on your specific usage. In addition, `300i`, `400i`, `500i` and `700i` are also included in the above code, but can be safely removed in some cases to speed up page load time.
 
-The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34.
+The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34 px.
 
 {% capture example %}
 <p class="typography-headline-1">Headline 1</p>
@@ -71,9 +71,7 @@ The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 
 <p class="typography-subtitle-2">Subtitle 2</p>
 <p class="typography-body-1">Body 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.</p>
 <p class="typography-body-2">Body 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae.</p>
-<p class="typography-caption">Caption text
-</p>
-<p class="typography-overline">OVERLINE TEXT
-</p>
+<p class="typography-caption">Caption text</p>
+<p class="typography-overline">OVERLINE TEXT</p>
 {% endcapture %}
 {% include example.html content=example %}

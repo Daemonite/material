@@ -12,7 +12,7 @@ The basic idea behind this project is to combine the front-end technology of the
 > A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
 > https://material.io/design/introduction/
 
-Feel free to check out our [documentation site](http://djibe.github.io/material2/) or let us know what you think in the Issues tab of this repository.
+Feel free to check out our [documentation site](http://djibe.github.io/material/) or let us know what you think in the Issues tab of this repository.
 
 The primary goal of this project is to give all Bootstrap components and elements a Google Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents them a final outcome that is in line with the principles and specifics of Google Material Design.
 
@@ -58,7 +58,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 Within the download you will find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```
-daemonite-material/
+djibe-material/
 ├── css/
 │   ├── material.css
 │   ├── material.css.map
@@ -76,7 +76,7 @@ We provide compiled CSS and JavaScript (`material.*`), as well as compiled and m
 The Material source code download includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
 
 ```
-daemonite-material/
+djibe-material/
 ├── assets/
 │   ├── js/
 │   └── scss/
@@ -96,21 +96,21 @@ daemonite-material/
 
 ## Documentation
 
-Material's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <http://djibe.github.io/material2/>. The docs may also be run locally.
+Material's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <http://djibe.github.io/material/>. The docs may also be run locally.
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](http://djibe.github.io/material2/docs/4.4/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](http://djibe.github.io/material/docs/4.4/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies.
 3. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
-4. From the root `/material2` directory, run `npm run docs-serve` in the command line.
-5. Open `http://localhost:9999/material2` in your browser, and voilà.
+4. From the root `/material` directory, run `npm run docs-serve` in the command line.
+5. Open `http://localhost:9999/material` in your browser, and voilà.
 
 ## Quick start
 
 Several quick start options are available:
 
-- Clone the repo: `git clone https://github.com/djibe/material2.git`
+- Clone the repo: `git clone https://github.com/djibe/material.git`
 - Download the [latest release](https://github.com/Daemonite/material/releases)
 - Install with [bower](https://bower.io/): **TODO**
 - Install with [npm](https://www.npmjs.com/): **TODO**
