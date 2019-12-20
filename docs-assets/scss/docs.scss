@@ -216,58 +216,9 @@
 // CSS to flatten buttons in card examples
 
 // stylelint-disable selector-max-class
-.bd-example .card {
-  &.text-right .card-body .btn {
-    margin-right: ($card-action-padding-x - $card-padding-x);
-  }
-
-  &:not(.text-center):not(.text-right) .card-body .btn {
-    margin-left: ($card-action-padding-x - $card-padding-x);
-  }
-
-  .card-body {
-    @each $color, $values in $theme-colors {
-      .btn-#{$color} {
-        @include hover-focus-active {
-          color: theme-color($color);
-        }
-
-        &.disabled,
-        &:disabled {
-          color: $btn-color-disabled;
-        }
-      }
-    }
-
-    &:last-child .btn:last-child {
-      margin-bottom: ($card-action-padding-y - $card-padding-y);
-    }
-
-    &:not(:last-child) .btn:last-child {
-      margin-bottom: ($card-action-padding-y - $card-inner-spacer-y);
-    }
-
-    .btn {
-      background-color: transparent;
-      box-shadow: none;
-      //min-width: $dialog-footer-btn-min-width;
-      padding-right: $dialog-footer-inner-spacer-x;
-      padding-left: $dialog-footer-inner-spacer-x;
-
-      &.active,
-      &:active {
-        background-color: $btn-bg-active;
-        box-shadow: none;
-      }
-
-      &.disabled,
-      &:disabled {
-        background-color: transparent;
-      }
-    }
-  }
+.card {
+  margin-bottom: 1rem;
 }
-// stylelint-enable
 
 // CSS to limit `.form-control` width in `.navbar` examples
 

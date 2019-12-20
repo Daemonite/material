@@ -42,7 +42,7 @@ Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that 
 
 {% capture example %}
 <ul class="list-group">
-  <li class="list-group-item disabled">Cras justo odio</li>
+  <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
   <li class="list-group-item">Dapibus ac facilisis in</li>
   <li class="list-group-item">Morbi leo risus</li>
   <li class="list-group-item">Porta ac consectetur ac</li>
@@ -65,7 +65,7 @@ Be sure to **not use the standard `.btn` classes here**.
   <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
   <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
   <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+  <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -100,6 +100,22 @@ Add `.list-group-flush` to remove some borders and rounded corners to render lis
 {% endcapture %}
 {% include example.html content=example %}
 
+## Horizontal
+
+Add `.list-group-horizontal` to change the layout of list group items from vertical to horizontal across all breakpoints. Alternatively, choose a responsive variant `.list-group-horizontal-{sm|md|lg|xl}` to make a list group horizontal starting at that breakpoint's `min-width`. Currently **horizontal list groups cannot be combined with flush list groups.**
+
+**ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
+
+{% for bp in site.data.breakpoints %}
+{% capture example %}
+<ul class="list-group list-group-horizontal{{ bp.abbr }}">
+  <li class="list-group-item">Cras justo odio</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+</ul>
+{% endcapture %}
+{% include example.html content=example %}{% endfor %}
+
 ## Contextual classes
 
 Use contextual classes to style list items with a stateful background and color.
@@ -107,7 +123,10 @@ Use contextual classes to style list items with a stateful background and color.
 {% capture example %}
 <ul class="list-group">
   <li class="list-group-item">Dapibus ac facilisis in</li>
-  {% for color in site.data.theme-colors %}<li class="list-group-item list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</li>{% endfor %}
+
+{% for color in site.data.theme-colors %}
+
+  <li class="list-group-item list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</li>{% endfor %}
 </ul>
 {% endcapture %}
 {% include example.html content=example %}
@@ -117,7 +136,10 @@ Contextual classes also work with `.list-group-item-action`. Note the addition o
 {% capture example %}
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  {% for color in site.data.theme-colors %}<a href="#" class="list-group-item list-group-item-action list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</a>{% endfor %}
+
+{% for color in site.data.theme-colors %}
+<a href="#" class="list-group-item list-group-item-action list-group-item-{{ color.name }}">A simple {{ color.name }} list group item</a>{% endfor %}
+
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -152,7 +174,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 {% capture example %}
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+  <a href="#" class="list-group-item list-group-item-action active">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small>3 days ago</small>
@@ -160,7 +182,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
     <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
     <small>Donec id elit non mi porta.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+  <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small class="text-muted">3 days ago</small>
@@ -168,7 +190,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
     <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
     <small class="text-muted">Donec id elit non mi porta.</small>
   </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+  <a href="#" class="list-group-item list-group-item-action">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">List group item heading</h5>
       <small class="text-muted">3 days ago</small>
@@ -293,7 +315,7 @@ To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane 
 
 ### Methods
 
-#### $().tab
+#### \$().tab
 
 Activates a list item element and content container. Tab should have either a `data-target` or an `href` targeting a container node in the DOM.
 
@@ -324,7 +346,7 @@ Activates a list item element and content container. Tab should have either a `d
 Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
 
 {% highlight js %}
-$('#someListItem').tab('show')
+\$('#someListItem').tab('show')
 {% endhighlight %}
 
 ### Events
@@ -366,8 +388,8 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
 </table>
 
 {% highlight js %}
-$('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
-  e.target // newly activated tab
-  e.relatedTarget // previous active tab
+\$('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
+e.target // newly activated tab
+e.relatedTarget // previous active tab
 })
 {% endhighlight %}

@@ -357,6 +357,7 @@ Cards include a few options for working with images. Choose from appending "imag
 Similar to headers and footers, cards can include top and bottom "image caps"—images at the top or bottom of a card.
 
 {% capture example %}
+
 <div class="card mb-3">
   <img class="card-img-top" data-src="holder.js/100px180/" alt="Image cap">
   <div class="card-body">
@@ -381,6 +382,7 @@ Similar to headers and footers, cards can include top and bottom "image caps"—
 Turn an image into a card background and overlay your card's text. Depending on the image, you may or may not need additional styles or utilities.
 
 {% capture example %}
+
 <div class="card bg-dark text-white">
   <img class="card-img" data-src="holder.js/100px270/#55595c:#373a3c/text:Card image" alt="Card image">
   <div class="card-img-overlay">
@@ -405,7 +407,7 @@ Using a combination of grid and utility classes, cards can be made horizontal in
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-	  <img class="" data-src="holder.js/100px250/" alt="Image">
+    <img class="" data-src="holder.js/100px250/" alt="Image">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -629,7 +631,7 @@ Use the Bootstrap grid system and its [`.row-cols` classes]({{ site.baseurl }}/d
 <div class="row row-cols-1 row-cols-md-2">
   <div class="col mb-4">
     <div class="card">
-	  <img class="card-img-top" data-src="holder.js/100px180/" alt="Image cap">
+    <img class="card-img-top" data-src="holder.js/100px180/" alt="Image cap">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -833,11 +835,11 @@ Card columns can also be extended and customized with some additional code. Show
 
 {% highlight scss %}
 .card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
+@include media-breakpoint-only(lg) {
+column-count: 4;
+}
+@include media-breakpoint-only(xl) {
+column-count: 5;
+}
 }
 {% endhighlight %}

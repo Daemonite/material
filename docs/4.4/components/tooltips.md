@@ -19,6 +19,9 @@ Things to know when using the tooltip plugin:
 - Tooltips for `.disabled` or `disabled` elements must be triggered on a wrapper element.
 - When triggered from hyperlinks that span multiple lines, tooltips will be centered. Use `white-space: nowrap;` on your `<a>`s to avoid this behavior.
 - Tooltips must be hidden before their corresponding elements have been removed from the DOM.
+- Tooltips can be triggered thanks to an element inside a shadow DOM.  
+
+{% include callout-info-prefersreducedmotion.md %}
 
 Got all that? Great, let's see how they work with some examples.
 
@@ -86,6 +89,17 @@ Trigger the tooltip via JavaScript:
 $('#example').tooltip(options)
 {% endhighlight %}
 
+{% capture callout %}
+##### Overflow `auto` and `scroll`
+
+Tooltip position attempts to automatically change when a parent container has `overflow: auto` or `overflow: scroll` like our `.table-responsive`, but still keeps the original placement's positioning. To resolve, set the `boundary` option to anything other than default value, `'scrollParent'`, such as `'window'`:
+
+{% highlight js %}
+$('#example').tooltip({ boundary: 'window' })
+{% endhighlight %}
+{% endcapture %}
+{% include callout.html content=callout type="warning" %}
+
 ### Markup
 
 The required markup for a tooltip is only a `data` attribute and `title` on the HTML element you wish to have a tooltip. The generated markup of a tooltip is rather simple, though it does require a position (by default, set to `top` by the plugin).
@@ -93,9 +107,7 @@ The required markup for a tooltip is only a `data` attribute and `title` on the 
 {% capture callout %}
 ##### Making tooltips work for keyboard and assistive technology users
 
-You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users. In addition, most assistive technologies currently do not announce the tooltip in this situation.
-
-Additionally, do not rely solely on `hover` as the trigger for your tooltip, as this will make your tooltips impossible to trigger for keyboard users.
+You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users, and most assistive technologies currently do not announce the tooltip in this situation. Additionally, do not rely solely on `hover` as the trigger for your tooltip, as this will make your tooltips impossible to trigger for keyboard users.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
@@ -128,6 +140,11 @@ Elements with the `disabled` attribute aren't interactive, meaning users cannot 
 ### Options
 
 Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-animation=""`.
+
+{% capture callout %}
+Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` options cannot be supplied using data attributes.
+{% endcapture %}
+{% include callout.html content=callout type="warning" %}
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -186,7 +203,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>selector</td>
       <td>string | false</td>
       <td>false</td>
-      <td>If a selector is provided, tooltip objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See <a href="https://github.com/twbs/bootstrap/issues/4215">this</a> and <a href="https://jsbin.com/zopod/1/edit">an informative example</a>.</td>
+      <td>If a selector is provided, tooltip objects will be delegated to the specified targets. In practice, this is used to also apply tooltips to dynamically added DOM elements (<code>jQuery.on</code> support). See <a href="{{ site.repo }}/issues/4215">this</a> and <a href="https://codepen.io/Johann-S/pen/djJYPb">an informative example</a>.</td>
     </tr>
     <tr>
       <td>template</td>
@@ -220,10 +237,14 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
     </tr>
     <tr>
       <td>offset</td>
-      <td>number | string</td>
+      <td>number | string | function</td>
       <td>0</td>
-      <td>Offset of the tooltip relative to its target. For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..offset.offset">offset docs</a>.</td>
-    </tr>
+    <td>
+        <p>Offset of the tooltip relative to its target.</p>
+        <p>When a function is used to determine the offset, it is called with an object containing the offset data as its first argument. The function must return an object with the same structure. The triggering element DOM node is passed as the second argument.</p>
+        <p>For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..offset.offset">offset docs</a>.</p>
+      </td>
+  </tr>
     <tr>
       <td>fallbackPlacement</td>
       <td>string | array</td>
@@ -236,6 +257,30 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>string | element</td>
       <td>'scrollParent'</td>
       <td>Overflow constraint boundary of the tooltip. Accepts the values of <code>'viewport'</code>, <code>'window'</code>, <code>'scrollParent'</code>, or an HTMLElement reference (JavaScript only). For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement">preventOverflow docs</a>.</td>
+    </tr>
+    <tr>
+      <td>sanitize</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Enable or disable the sanitization. If activated <code>'template'</code> and <code>'title'</code> options will be sanitized.</td>
+    </tr>
+    <tr>
+      <td>whiteList</td>
+      <td>object</td>
+      <td><a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#sanitizer">Default value</a></td>
+      <td>Object which contains allowed attributes and tags</td>
+    </tr>
+    <tr>
+      <td>sanitizeFn</td>
+      <td>null | function</td>
+      <td>null</td>
+      <td>Here you can supply your own sanitize function. This can be useful if you prefer to use a dedicated library to perform sanitization.</td>
+    </tr>
+    <tr>
+      <td>popperConfig</td>
+      <td>null | object</td>
+      <td>null</td>
+      <td>To change Bootstrap's default Popper.js config, see <a href="https://popper.js.org/popper-documentation.html#Popper.Defaults">Popper.js's configuration</a></td>
     </tr>
   </tbody>
 </table>
@@ -338,6 +383,6 @@ Updates the position of an element's tooltip.
 
 {% highlight js %}
 $('#myTooltip').on('hidden.bs.tooltip', function () {
-  // do something…
+  // do something...
 })
 {% endhighlight %}
