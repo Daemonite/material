@@ -21,6 +21,10 @@ Bootstrap includes several predefined button styles, each serving its own semant
 
 {% include callout-warning-color-assistive-technologies.md %}
 
+## Disable text wrapping
+
+If you don't want the button text to wrap, you can add the `.text-nowrap` class to the button. In Sass, you can set `$btn-white-space: nowrap` to disable text wrapping for each button.
+
 ## Button tags
 
 The `.btn` classes are designed to be used with the `<button>` element. However, you can also use these classes on `<a>` or `<input>` elements (though some browsers may apply a slightly different rendering).
@@ -118,7 +122,7 @@ Do more with buttons. Control button states or create groups of buttons for more
 Add `data-toggle="button"` to toggle a button's `active` state. If you're pre-toggling a button, you must manually add the `.active` class **and** `aria-pressed="true"` to the `<button>`.
 
 {% capture example %}
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
   Single toggle
 </button>
 {% endcapture %}
@@ -135,7 +139,7 @@ Note that pre-checked buttons require you to manually add the `.active` class to
 {% capture example %}
 <div class="btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="checkbox" checked autocomplete="off"> Checked
+    <input type="checkbox" checked> Checked
   </label>
 </div>
 {% endcapture %}
@@ -144,13 +148,13 @@ Note that pre-checked buttons require you to manually add the `.active` class to
 {% capture example %}
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
+    <input type="radio" name="options" id="option1" checked> Active
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+    <input type="radio" name="options" id="option2"> Radio
   </label>
   <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+    <input type="radio" name="options" id="option3"> Radio
   </label>
 </div>
 {% endcapture %}

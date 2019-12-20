@@ -23,14 +23,15 @@ Use title bar alerts for high-risk situations, such as the potential loss of con
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Use Google's location services?</h5>
+          <h5 class="modal-title">Use location service?</h5>
         </div>
         <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
+          <p class="text-black-secondary typography-subheading">Let us help apps to determine location. This means sending anonymous location data to us, even when no apps are running.</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Disagree</button>
-          <button class="btn btn-flat-primary" type="button">Agree</button>
+          <button class="btn btn-flat-primary" type="button">Turn on speed boost</button>
+          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Remind me later</button>
+          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No thanks</button>
         </div>
       </div>
     </div>
@@ -39,17 +40,20 @@ Use title bar alerts for high-risk situations, such as the potential loss of con
 
 {% highlight html %}
 <div class="modal">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Use Google's location services?</h5>
-      </div>
-      <div class="modal-body">
-        <p class="text-black-secondary typography-subheading">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Disagree</button>
-        <button class="btn btn-flat-primary" type="button">Agree</button>
+  <div class="modal">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Use location service?</h5>
+        </div>
+        <div class="modal-body">
+          <p class="text-black-secondary typography-subheading">Let us help apps to determine location. This means sending anonymous location data to us, even when no apps are running.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-flat-primary" type="button">Turn on speed boost</button>
+          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Remind me later</button>
+          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No thanks</button>
+        </div>
       </div>
     </div>
   </div>
