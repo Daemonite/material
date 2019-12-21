@@ -1,7 +1,8 @@
 // Btn flat and outlined
 // Material guidelines : https://material.io/design/components/buttons.html#specs
 // Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
-[class*='btn-flat'] {
+[class*='btn-flat'],
+.card .btn {
   padding: $btn-padding-y $btn-flat-padding-x;
 }
 
@@ -11,7 +12,9 @@
 }
 
 [class*='btn-flat'],
-[class*='btn-outline'] {
+[class*='btn-outline'],
+.card .btn {
+  background: transparent;
   box-shadow: none;
 
   @include hover-focus-active {
@@ -36,7 +39,8 @@
 @each $color,
   $values in $theme-colors {
   .btn-flat-#{$color},
-  .btn-outline-#{$color} {
+  .btn-outline-#{$color},
+  .card .btn-#{$color} {
     @include plain-hover-focus {
       color: theme-color($color);
     }

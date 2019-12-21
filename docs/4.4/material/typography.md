@@ -6,7 +6,11 @@ group: material
 toc: true
 ---
 
-## colors
+You can read [Material Design documentation for typography](https://material.io/design/typography/the-type-system.html) for more information.
+
+Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/typography)
+
+## Colors
 
 ### Black and white variations
 

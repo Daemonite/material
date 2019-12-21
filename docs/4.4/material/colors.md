@@ -1,20 +1,20 @@
 ---
 layout: docs
-title: colors
-description: You can customise your app’s colour scheme to match your brand colors. Alternatively, you can create an entirely new colour scheme using the Material Design colour palette.
+title: Colors
+description: You can customise your app’s color scheme to match your brand colors. Alternatively, you can create an entirely new color scheme using the Material Design color palette.
 group: material
 toc: true
 ---
 
 Please visit [theming]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/#theme-colors) for detailed information about all Material Design colors and how to customise theme colors.
 
-## Colour scheme
+## color scheme
 
-In Material Design, a primary colour refers to a colour that appears most frequently in your app. A secondary colour refers to a colour used to accent key parts of your UI.
+In Material Design, a primary color refers to a color that appears most frequently in your app. A secondary color refers to a color used to accent key parts of your UI.
 
-### Primary colour
+### Primary color
 
-A primary colour is the colour displayed most frequently across your app’s screens and components. To create contrast between elements, you can use lighter or darker tones of your primary colour. The contrast between lighter and darker tones helps show division.
+A primary color is the color displayed most frequently across your app’s screens and components. To create contrast between elements, you can use lighter or darker tones of your primary color. The contrast between lighter and darker tones helps show division.
 
 <div class="row">
   <div class="col-md-6 mb-4">
@@ -38,9 +38,9 @@ A primary colour is the colour displayed most frequently across your app’s scr
   </div>
 </div>
 
-### Secondary colour
+### Secondary color
 
-A secondary colour is used to accent select parts of your UI. It can be analogous or complementary to your primary colour, but it should not simply be a light or dark variation of your primary colour. It should contrast with elements that surround it and be applied sparingly as an accent.
+A secondary color is used to accent select parts of your UI. It can be analogous or complementary to your primary color, but it should not simply be a light or dark variation of your primary color. It should contrast with elements that surround it and be applied sparingly as an accent.
 
 Secondary colors are best used for:
 

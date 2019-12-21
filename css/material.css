@@ -3078,7 +3078,8 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   border-radius: 1rem;
 }
 
-[class*='btn-flat'] {
+[class*='btn-flat'],
+.card .btn {
   padding: 0 0.5rem;
 }
 
@@ -3088,59 +3089,76 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 }
 
 [class*='btn-flat'],
-[class*='btn-outline'] {
+[class*='btn-outline'],
+.card .btn {
+  background: transparent;
   box-shadow: none;
 }
 
 [class*='btn-flat']:hover, [class*='btn-flat']:focus, [class*='btn-flat']:active,
 [class*='btn-outline']:hover,
 [class*='btn-outline']:focus,
-[class*='btn-outline']:active {
+[class*='btn-outline']:active,
+.card .btn:hover,
+.card .btn:focus,
+.card .btn:active {
   box-shadow: none;
   color: rgba(0, 0, 0, 0.87);
 }
 
 [class*='btn-flat']:hover,
-[class*='btn-outline']:hover {
+[class*='btn-outline']:hover,
+.card .btn:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
 [class*='btn-flat']:active,
-[class*='btn-outline']:active {
+[class*='btn-outline']:active,
+.card .btn:active {
   background-color: rgba(0, 0, 0, 0.16);
 }
 
 [class*='btn-flat']:disabled, [class*='btn-flat'].disabled,
 [class*='btn-outline']:disabled,
-[class*='btn-outline'].disabled {
+[class*='btn-outline'].disabled,
+.card .btn:disabled,
+.card .btn.disabled {
   background-color: transparent;
 }
 
 .btn-flat-primary, .btn-flat-primary:hover, .btn-flat-primary:focus,
 .btn-outline-primary,
 .btn-outline-primary:hover,
-.btn-outline-primary:focus {
+.btn-outline-primary:focus,
+.card .btn-primary,
+.card .btn-primary:hover,
+.card .btn-primary:focus {
   color: #6200ee;
 }
 
 .btn-flat-primary:hover,
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.card .btn-primary:hover {
   background-color: rgba(98, 0, 238, 0.04);
 }
 
 .btn-flat-primary:focus,
-.btn-outline-primary:focus {
+.btn-outline-primary:focus,
+.card .btn-primary:focus {
   background-color: rgba(98, 0, 238, 0.12);
 }
 
 .btn-flat-primary:active,
-.btn-outline-primary:active {
+.btn-outline-primary:active,
+.card .btn-primary:active {
   background-color: rgba(98, 0, 238, 0.16);
 }
 
 .btn-flat-primary:disabled, .btn-flat-primary.disabled,
 .btn-outline-primary:disabled,
-.btn-outline-primary.disabled {
+.btn-outline-primary.disabled,
+.card .btn-primary:disabled,
+.card .btn-primary.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3152,28 +3170,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-secondary, .btn-flat-secondary:hover, .btn-flat-secondary:focus,
 .btn-outline-secondary,
 .btn-outline-secondary:hover,
-.btn-outline-secondary:focus {
+.btn-outline-secondary:focus,
+.card .btn-secondary,
+.card .btn-secondary:hover,
+.card .btn-secondary:focus {
   color: #03dac6;
 }
 
 .btn-flat-secondary:hover,
-.btn-outline-secondary:hover {
+.btn-outline-secondary:hover,
+.card .btn-secondary:hover {
   background-color: rgba(3, 218, 198, 0.04);
 }
 
 .btn-flat-secondary:focus,
-.btn-outline-secondary:focus {
+.btn-outline-secondary:focus,
+.card .btn-secondary:focus {
   background-color: rgba(3, 218, 198, 0.12);
 }
 
 .btn-flat-secondary:active,
-.btn-outline-secondary:active {
+.btn-outline-secondary:active,
+.card .btn-secondary:active {
   background-color: rgba(3, 218, 198, 0.16);
 }
 
 .btn-flat-secondary:disabled, .btn-flat-secondary.disabled,
 .btn-outline-secondary:disabled,
-.btn-outline-secondary.disabled {
+.btn-outline-secondary.disabled,
+.card .btn-secondary:disabled,
+.card .btn-secondary.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3185,28 +3211,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-danger, .btn-flat-danger:hover, .btn-flat-danger:focus,
 .btn-outline-danger,
 .btn-outline-danger:hover,
-.btn-outline-danger:focus {
+.btn-outline-danger:focus,
+.card .btn-danger,
+.card .btn-danger:hover,
+.card .btn-danger:focus {
   color: #b00020;
 }
 
 .btn-flat-danger:hover,
-.btn-outline-danger:hover {
+.btn-outline-danger:hover,
+.card .btn-danger:hover {
   background-color: rgba(176, 0, 32, 0.04);
 }
 
 .btn-flat-danger:focus,
-.btn-outline-danger:focus {
+.btn-outline-danger:focus,
+.card .btn-danger:focus {
   background-color: rgba(176, 0, 32, 0.12);
 }
 
 .btn-flat-danger:active,
-.btn-outline-danger:active {
+.btn-outline-danger:active,
+.card .btn-danger:active {
   background-color: rgba(176, 0, 32, 0.16);
 }
 
 .btn-flat-danger:disabled, .btn-flat-danger.disabled,
 .btn-outline-danger:disabled,
-.btn-outline-danger.disabled {
+.btn-outline-danger.disabled,
+.card .btn-danger:disabled,
+.card .btn-danger.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3218,28 +3252,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-info, .btn-flat-info:hover, .btn-flat-info:focus,
 .btn-outline-info,
 .btn-outline-info:hover,
-.btn-outline-info:focus {
+.btn-outline-info:focus,
+.card .btn-info,
+.card .btn-info:hover,
+.card .btn-info:focus {
   color: #714cfe;
 }
 
 .btn-flat-info:hover,
-.btn-outline-info:hover {
+.btn-outline-info:hover,
+.card .btn-info:hover {
   background-color: rgba(113, 76, 254, 0.04);
 }
 
 .btn-flat-info:focus,
-.btn-outline-info:focus {
+.btn-outline-info:focus,
+.card .btn-info:focus {
   background-color: rgba(113, 76, 254, 0.12);
 }
 
 .btn-flat-info:active,
-.btn-outline-info:active {
+.btn-outline-info:active,
+.card .btn-info:active {
   background-color: rgba(113, 76, 254, 0.16);
 }
 
 .btn-flat-info:disabled, .btn-flat-info.disabled,
 .btn-outline-info:disabled,
-.btn-outline-info.disabled {
+.btn-outline-info.disabled,
+.card .btn-info:disabled,
+.card .btn-info.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3251,28 +3293,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-success, .btn-flat-success:hover, .btn-flat-success:focus,
 .btn-outline-success,
 .btn-outline-success:hover,
-.btn-outline-success:focus {
+.btn-outline-success:focus,
+.card .btn-success,
+.card .btn-success:hover,
+.card .btn-success:focus {
   color: #61d800;
 }
 
 .btn-flat-success:hover,
-.btn-outline-success:hover {
+.btn-outline-success:hover,
+.card .btn-success:hover {
   background-color: rgba(97, 216, 0, 0.04);
 }
 
 .btn-flat-success:focus,
-.btn-outline-success:focus {
+.btn-outline-success:focus,
+.card .btn-success:focus {
   background-color: rgba(97, 216, 0, 0.12);
 }
 
 .btn-flat-success:active,
-.btn-outline-success:active {
+.btn-outline-success:active,
+.card .btn-success:active {
   background-color: rgba(97, 216, 0, 0.16);
 }
 
 .btn-flat-success:disabled, .btn-flat-success.disabled,
 .btn-outline-success:disabled,
-.btn-outline-success.disabled {
+.btn-outline-success.disabled,
+.card .btn-success:disabled,
+.card .btn-success.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3284,28 +3334,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-warning, .btn-flat-warning:hover, .btn-flat-warning:focus,
 .btn-outline-warning,
 .btn-outline-warning:hover,
-.btn-outline-warning:focus {
+.btn-outline-warning:focus,
+.card .btn-warning,
+.card .btn-warning:hover,
+.card .btn-warning:focus {
   color: #ff8d00;
 }
 
 .btn-flat-warning:hover,
-.btn-outline-warning:hover {
+.btn-outline-warning:hover,
+.card .btn-warning:hover {
   background-color: rgba(255, 141, 0, 0.04);
 }
 
 .btn-flat-warning:focus,
-.btn-outline-warning:focus {
+.btn-outline-warning:focus,
+.card .btn-warning:focus {
   background-color: rgba(255, 141, 0, 0.12);
 }
 
 .btn-flat-warning:active,
-.btn-outline-warning:active {
+.btn-outline-warning:active,
+.card .btn-warning:active {
   background-color: rgba(255, 141, 0, 0.16);
 }
 
 .btn-flat-warning:disabled, .btn-flat-warning.disabled,
 .btn-outline-warning:disabled,
-.btn-outline-warning.disabled {
+.btn-outline-warning.disabled,
+.card .btn-warning:disabled,
+.card .btn-warning.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3317,28 +3375,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-dark, .btn-flat-dark:hover, .btn-flat-dark:focus,
 .btn-outline-dark,
 .btn-outline-dark:hover,
-.btn-outline-dark:focus {
+.btn-outline-dark:focus,
+.card .btn-dark,
+.card .btn-dark:hover,
+.card .btn-dark:focus {
   color: #424242;
 }
 
 .btn-flat-dark:hover,
-.btn-outline-dark:hover {
+.btn-outline-dark:hover,
+.card .btn-dark:hover {
   background-color: rgba(66, 66, 66, 0.04);
 }
 
 .btn-flat-dark:focus,
-.btn-outline-dark:focus {
+.btn-outline-dark:focus,
+.card .btn-dark:focus {
   background-color: rgba(66, 66, 66, 0.12);
 }
 
 .btn-flat-dark:active,
-.btn-outline-dark:active {
+.btn-outline-dark:active,
+.card .btn-dark:active {
   background-color: rgba(66, 66, 66, 0.16);
 }
 
 .btn-flat-dark:disabled, .btn-flat-dark.disabled,
 .btn-outline-dark:disabled,
-.btn-outline-dark.disabled {
+.btn-outline-dark.disabled,
+.card .btn-dark:disabled,
+.card .btn-dark.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -3350,28 +3416,36 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-flat-light, .btn-flat-light:hover, .btn-flat-light:focus,
 .btn-outline-light,
 .btn-outline-light:hover,
-.btn-outline-light:focus {
+.btn-outline-light:focus,
+.card .btn-light,
+.card .btn-light:hover,
+.card .btn-light:focus {
   color: #f5f5f5;
 }
 
 .btn-flat-light:hover,
-.btn-outline-light:hover {
+.btn-outline-light:hover,
+.card .btn-light:hover {
   background-color: rgba(245, 245, 245, 0.04);
 }
 
 .btn-flat-light:focus,
-.btn-outline-light:focus {
+.btn-outline-light:focus,
+.card .btn-light:focus {
   background-color: rgba(245, 245, 245, 0.12);
 }
 
 .btn-flat-light:active,
-.btn-outline-light:active {
+.btn-outline-light:active,
+.card .btn-light:active {
   background-color: rgba(245, 245, 245, 0.16);
 }
 
 .btn-flat-light:disabled, .btn-flat-light.disabled,
 .btn-outline-light:disabled,
-.btn-outline-light.disabled {
+.btn-outline-light.disabled,
+.card .btn-light:disabled,
+.card .btn-light.disabled {
   background-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.37);
 }
@@ -14837,6 +14911,7 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
 .stretched-link::after {
   background-color: rgba(0, 0, 0, 0);
   content: '';
+  pointer-events: auto;
   position: absolute;
   top: 0;
   right: 0;

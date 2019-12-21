@@ -3,15 +3,16 @@
 //
 
 .stretched-link {
-  &::#{$stretched-link-pseudo-element} {
+  &::after {
     // IE10 bugfix, see https://stackoverflow.com/questions/16947967/ie10-hover-pseudo-class-doesnt-work-without-background-color
     background-color: rgba(0, 0, 0, 0);
     content: '';
+    pointer-events: auto;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: $stretched-link-z-index;
+    z-index: 1;
   }
 }

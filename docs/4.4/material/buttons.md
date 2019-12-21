@@ -9,6 +9,10 @@ toc: true
 
 Flat, outlined and raised buttons are the most commonly used types.
 
+You can read [Material Design documentation for buttons](https://material.io/components/buttons/) for more information.
+
+Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/button)
+
 ## Buttons
 
 ### Flat buttons
@@ -140,17 +144,17 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
     <div aria-labelledby="toggleBtnDrop1" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item" href="#">Colour 1</a>
-      <a class="dropdown-item" href="#">Colour 2</a>
-      <a class="dropdown-item" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">color 1</a>
+      <a class="dropdown-item" href="#">color 2</a>
+      <a class="dropdown-item" href="#">color 3</a>
     </div>
   </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
     <div aria-labelledby="toggleBtnDrop2" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item" href="#">Colour 1</a>
-      <a class="dropdown-item" href="#">Colour 2</a>
-      <a class="dropdown-item" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">color 1</a>
+      <a class="dropdown-item" href="#">color 2</a>
+      <a class="dropdown-item" href="#">color 3</a>
     </div>
   </div>
 </div>
@@ -201,17 +205,17 @@ Vertical variation is also supported
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop3" type="button"><i class="material-icons">format_color_text</i></button>
     <div aria-labelledby="toggleBtnDrop3" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item" href="#">Colour 1</a>
-      <a class="dropdown-item" href="#">Colour 2</a>
-      <a class="dropdown-item" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">color 1</a>
+      <a class="dropdown-item" href="#">color 2</a>
+      <a class="dropdown-item" href="#">color 3</a>
     </div>
   </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop4" type="button"><i class="material-icons">format_color_fill</i></button>
     <div aria-labelledby="toggleBtnDrop4" class="dropdown-menu dropdown-menu-sm">
-      <a class="dropdown-item" href="#">Colour 1</a>
-      <a class="dropdown-item" href="#">Colour 2</a>
-      <a class="dropdown-item" href="#">Colour 3</a>
+      <a class="dropdown-item" href="#">color 1</a>
+      <a class="dropdown-item" href="#">color 2</a>
+      <a class="dropdown-item" href="#">color 3</a>
     </div>
   </div>
 </div>
