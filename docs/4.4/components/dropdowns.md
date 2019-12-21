@@ -8,7 +8,7 @@ toc: true
 
 ## Overview
 
-Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision.](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/)
+Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They're made interactive with the included Bootstrap dropdown JavaScript plugin. They're toggled by clicking, not by hovering; this is [an intentional design decision](http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/).
 
 Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/), which provides dynamic positioning and viewport detection. Be sure to include [popper.min.js]({{ site.cdn.popper }}) before Bootstrap's JavaScript or use `bootstrap.bundle.min.js` / `bootstrap.bundle.js` which contains Popper.js. Popper.js isn't used to position dropdowns in navbars though as dynamic positioning isn't required.
 
@@ -436,7 +436,7 @@ Trigger dropdown menus at the right of the elements by adding `.dropright` to th
       Split dropright
     </button>
     <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="sr-only">Toggle Dropdright</span>
+      <span class="sr-only">Toggle Dropright</span>
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Action</a>
@@ -587,7 +587,7 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 {% capture example %}
 <div class="dropdown-menu">
   <a class="dropdown-item" href="#">Regular link</a>
-  <a class="dropdown-item disabled" href="#">Disabled link</a>
+  <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Disabled link</a>
   <a class="dropdown-item" href="#">Another link</a>
 </div>
 {% endcapture %}
@@ -615,6 +615,44 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+### Responsive alignment
+
+If you want to use responsive alignment, disable dynamic positioning by adding the `data-display="static"` attribute and use the responsive variation classes.
+
+To align **right** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu{-sm|-md|-lg|-xl}-right`.
+
+{% capture example %}
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+    Left-aligned but right aligned when large screen
+  </button>
+  <div class="dropdown-menu dropdown-menu-lg-right">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+To align **left** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu-right` and `.dropdown-menu{-sm|-md|-lg|-xl}-left`.
+
+{% capture example %}
+<div class="btn-group">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+    Right-aligned but left aligned when large screen
+  </button>
+  <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Note that you don't need to add a `data-display="static"` attribute to dropdown buttons in navbars, since Popper.js isn't used in navbars.
 
 ## Menu content
 
@@ -677,11 +715,13 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
       <label for="exampleDropdownFormPassword1">Password</label>
       <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="dropdownCheck">
-      <label class="form-check-label" for="dropdownCheck">
-        Remember me
-      </label>
+    <div class="form-group">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Remember me
+        </label>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
@@ -702,11 +742,13 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
     <label for="exampleDropdownFormPassword2">Password</label>
     <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-    <label class="form-check-label" for="dropdownCheck2">
-      Remember me
-    </label>
+  <div class="form-group">
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+      <label class="form-check-label" for="dropdownCheck2">
+        Remember me
+      </label>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
@@ -803,7 +845,11 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>offset</td>
       <td>number | string | function</td>
       <td>0</td>
-      <td>Offset of the dropdown relative to its target. For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..offset.offset">offset docs</a>.</td>
+      <td>
+        <p>Offset of the dropdown relative to its target.</p>
+        <p>When a function is used to determine the offset, it is called with an object containing the offset data as its first argument. The function must return an object with the same structure. The triggering element DOM node is passed as the second argument.</p>
+        <p>For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..offset.offset">offset docs</a>.</p>
+      </td>
     </tr>
     <tr>
       <td>flip</td>
@@ -827,7 +873,13 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>display</td>
       <td>string</td>
       <td>'dynamic'</td>
-      <td>By default, we use Popper.js for dynamic positioning. Disable this with `static`.</td>
+      <td>By default, we use Popper.js for dynamic positioning. Disable this with <code>static</code>.</td>
+    </tr>
+    <tr>
+      <td>popperConfig</td>
+      <td>null | object</td>
+      <td>null</td>
+      <td>To change Bootstrap's default Popper.js config, see <a href="https://popper.js.org/popper-documentation.html#Popper.Defaults">Popper.js's configuration</a></td>
     </tr>
   </tbody>
 </table>
@@ -839,12 +891,15 @@ Note when `boundary` is set to any value other than `'scrollParent'`, the style 
 | Method | Description |
 | --- | --- |
 | `$().dropdown('toggle')` | Toggles the dropdown menu of a given navbar or tabbed navigation. |
+| `$().dropdown('show')` | Shows the dropdown menu of a given navbar or tabbed navigation. |
+| `$().dropdown('hide')` | Hides the dropdown menu of a given navbar or tabbed navigation. |
 | `$().dropdown('update')` | Updates the position of an element's dropdown. |
 | `$().dropdown('dispose')` | Destroys an element's dropdown. |
 
 ### Events
 
 All dropdown events are fired at the `.dropdown-menu`'s parent element and have a `relatedTarget` property, whose value is the toggling anchor element.
+`hide.bs.dropdown` and `hidden.bs.dropdown` events have a `clickEvent` property (only when the original event type is `click`) that contains an Event Object for the click event.
 
 | Event | Description |
 | --- | --- |
@@ -855,6 +910,6 @@ All dropdown events are fired at the `.dropdown-menu`'s parent element and have 
 
 {% highlight js %}
 $('#myDropdown').on('show.bs.dropdown', function () {
-  // do something…
+  // do something...
 })
 {% endhighlight %}

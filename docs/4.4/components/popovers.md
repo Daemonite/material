@@ -18,8 +18,11 @@ Things to know when using the popover plugin:
 - Specify `container: 'body'` to avoid rendering problems in more complex components (like our input groups, button groups, etc).
 - Triggering popovers on hidden elements will not work.
 - Popovers for `.disabled` or `disabled` elements must be triggered on a wrapper element.
-- When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use `white-space: nowrap;` on your `<a>`s to avoid this behavior.
+- When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use `.text-nowrap` on your `<a>`s to avoid this behavior.
 - Popovers must be hidden before their corresponding elements have been removed from the DOM.
+- Popovers can be triggered thanks to an element inside a shadow DOM.
+
+{% include callout-info-prefersreducedmotion.md %}
 
 Keep reading to see how popovers work with some examples.
 
@@ -133,9 +136,25 @@ Enable popovers via JavaScript:
 
 {% highlight js %}$('#example').popover(options){% endhighlight %}
 
+{% capture callout %}
+### Making popovers work for keyboard and assistive technology users
+
+To allow keyboard users to activate your popovers, you should only add them to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users, and most assistive technologies currently do not announce the popover's content in this situation. Additionally, do not rely solely on `hover` as the trigger for your popovers, as this will make them impossible to trigger for keyboard users.
+
+While you can insert rich, structured HTML in popovers with the `html` option, we strongly recommend that you avoid adding an excessive amount of content. The way popovers currently work is that, once displayed, their content is tied to the trigger element with the `aria-describedby` attribute. As a result, the entirety of the popover's content will be announced to assistive technology users as one long, uninterrupted stream.
+
+Additionally, while it is possible to also include interactive controls (such as form elements or links) in your popover (by adding these elements to the `whiteList` or allowed attributes and tags), be aware that currently the popover does not manage keyboard focus order. When a keyboard user opens a popover, focus remains on the triggering element, and as the popover usually does not immediately follow the trigger in the document's structure, there is no guarantee that moving forward/pressing <kbd>TAB</kbd> will move a keyboard user into the popover itself. In short, simply adding interactive controls to a popover is likely to make these controls unreachable/unusable for keyboard users and users of assistive technologies, or at the very least make for an illogical overall focus order. In these cases, consider using a modal dialog instead.
+{% endcapture %}
+{% include callout.html content=callout type="warning" %}
+
 ### Options
 
 Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-`, as in `data-animation=""`.
+
+{% capture callout %}
+Note that for security reasons the `sanitize`, `sanitizeFn` and `whiteList` options cannot be supplied using data attributes.
+{% endcapture %}
+{% include callout.html content=callout type="warning" %}
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -199,7 +218,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>selector</td>
       <td>string | false</td>
       <td>false</td>
-      <td>If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See <a href="https://github.com/twbs/bootstrap/issues/4215">this</a> and <a href="https://jsbin.com/zopod/1/edit">an informative example</a>.</td>
+      <td>If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have popovers added. See <a href="{{ site.repo }}/issues/4215">this</a> and <a href="https://codepen.io/Johann-S/pen/djJYPb">an informative example</a>.</td>
     </tr>
     <tr>
       <td>template</td>
@@ -226,7 +245,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>trigger</td>
       <td>string</td>
       <td>'click'</td>
-      <td>How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space. `manual` cannot be combined with any other trigger.</td>
+      <td>How popover is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space. <code>manual</code> cannot be combined with any other trigger.</td>
     </tr>
     <tr>
       <td>offset</td>
@@ -246,6 +265,30 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>string | element</td>
       <td>'scrollParent'</td>
       <td>Overflow constraint boundary of the popover. Accepts the values of <code>'viewport'</code>, <code>'window'</code>, <code>'scrollParent'</code>, or an HTMLElement reference (JavaScript only). For more information refer to Popper.js's <a href="https://popper.js.org/popper-documentation.html#modifiers..preventOverflow.boundariesElement">preventOverflow docs</a>.</td>
+    </tr>
+    <tr>
+      <td>sanitize</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Enable or disable the sanitization. If activated <code>'template'</code>, <code>'content'</code> and <code>'title'</code> options will be sanitized.</td>
+    </tr>
+    <tr>
+      <td>whiteList</td>
+      <td>object</td>
+      <td><a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#sanitizer">Default value</a></td>
+      <td>Object which contains allowed attributes and tags</td>
+    </tr>
+    <tr>
+      <td>sanitizeFn</td>
+      <td>null | function</td>
+      <td>null</td>
+      <td>Here you can supply your own sanitize function. This can be useful if you prefer to use a dedicated library to perform sanitization.</td>
+    </tr>
+    <tr>
+      <td>popperConfig</td>
+      <td>null | object</td>
+      <td>null</td>
+      <td>To change Bootstrap's default Popper.js config, see <a href="https://popper.js.org/popper-documentation.html#Popper.Defaults">Popper.js's configuration</a></td>
     </tr>
   </tbody>
 </table>
@@ -267,7 +310,7 @@ Initializes popovers for an element collection.
 
 #### `.popover('show')`
 
-Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose both title and content are zero-length are never displayed.
+Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose title and content are both zero-length are never displayed.
 
 {% highlight js %}$('#element').popover('show'){% endhighlight %}
 
@@ -348,6 +391,6 @@ Updates the position of an element's popover.
 
 {% highlight js %}
 $('#myPopover').on('hidden.bs.popover', function () {
-  // do something…
+  // do something...
 })
 {% endhighlight %}

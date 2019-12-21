@@ -31,6 +31,15 @@ For left, right, and center alignment, responsive classes are available that use
 
 ## Text wrapping and overflow
 
+Wrap text with a `.text-wrap` class.
+
+{% capture example %}
+<div class="badge badge-primary text-wrap" style="width: 6rem;">
+  This text should wrap.
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
 Prevent text from wrapping with a `.text-nowrap` class.
 
 {% capture example %}
@@ -57,6 +66,15 @@ For longer content, you can add a `.text-truncate` class to truncate the text wi
 {% endcapture %}
 {% include example.html content=example %}
 
+## Word break
+
+Prevent long strings of text from breaking your components' layout by using `.text-break` to set `overflow-wrap: break-word` (and `word-break: break-word` for IE & Edge compatibility).
+
+{% capture example %}
+<p class="text-break">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+{% endcapture %}
+{% include example.html content=example %}
+
 ## Text transform
 
 Transform text in components with text capitalization classes.
@@ -68,7 +86,7 @@ Transform text in components with text capitalization classes.
 {% endcapture %}
 {% include example.html content=example %}
 
-Note how `text-capitalize` only changes the first letter of each word, leaving the case of any other letters unaffected.
+Note how `.text-capitalize` only changes the first letter of each word, leaving the case of any other letters unaffected.
 
 ## Font weight and italics
 
@@ -76,8 +94,10 @@ Quickly change the weight (boldness) of text or italicize text.
 
 {% capture example %}
 <p class="font-weight-bold">Bold text.</p>
+<p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
 <p class="font-weight-normal">Normal weight text.</p>
 <p class="font-weight-light">Light weight text.</p>
+<p class="font-weight-lighter">Lighter weight text (relative to the parent element).</p>
 <p class="font-italic">Italic text.</p>
 {% endcapture %}
 {% include example.html content=example %}
@@ -88,5 +108,25 @@ Change a selection to our monospace font stack with `.text-monospace`.
 
 {% capture example %}
 <p class="text-monospace">This is in monospace</p>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Reset color
+
+Reset a text or link's color with `.text-reset`, so that it inherits the color from its parent.
+
+{% capture example %}
+<p class="text-muted">
+  Muted text with a <a href="#" class="text-reset">reset link</a>.
+</p>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Text decoration
+
+Remove a text decoration with a `.text-decoration-none` class.
+
+{% capture example %}
+<a href="#" class="text-decoration-none">Non-underlined link</a>
 {% endcapture %}
 {% include example.html content=example %}

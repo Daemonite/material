@@ -31,6 +31,8 @@ Where *value* is one of:
 * `flex`
 * `inline-flex`
 
+The display values can be altered by changing the `$displays` variable and recompiling the SCSS.
+
 The media queries effect screen widths with the given breakpoint *or larger*. For example, `.d-lg-none` sets `display: none;` on both `lg` and `xl` screens.
 
 ## Examples
@@ -49,7 +51,7 @@ The media queries effect screen widths with the given breakpoint *or larger*. Fo
 
 ## Hiding elements
 
-For faster mobile-friendly development, use responsive display classes for showing and hiding elements by device. Avoid creating entirely different versions of the same site, instead hide element responsively for each screen size.
+For faster mobile-friendly development, use responsive display classes for showing and hiding elements by device. Avoid creating entirely different versions of the same site, instead hide elements responsively for each screen size.
 
 To hide elements simply use the `.d-none` class or one of the `.d-{sm,md,lg,xl}-none` classes for any responsive screen variation.
 
@@ -71,7 +73,7 @@ To show an element only on a given interval of screen sizes you can combine one 
 | Visible only on xl | `.d-none .d-xl-block` |
 
 {% capture example %}
-<div class="d-lg-none">hide on screens wider than lg</div>
+<div class="d-lg-none">hide on lg and wider screens</div>
 <div class="d-none d-lg-block">hide on screens smaller than lg</div>
 {% endcapture %}
 {% include example.html content=example %}

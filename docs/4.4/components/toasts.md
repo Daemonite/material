@@ -30,7 +30,7 @@ Toasts are as flexible as you need and have very little required markup. At a mi
 {% capture example %}
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
-    <img class="rounded mr-2" data-src="holder.js/20x20?&bg=007aff&text= " title=" " alt="Placeholder">
+    {% include icons/placeholder.svg width="20" height="20" background="#007aff" class="rounded mr-2" text=" " title=" " %}
     <strong class="mr-auto">Bootstrap</strong>
     <small>11 mins ago</small>
     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">

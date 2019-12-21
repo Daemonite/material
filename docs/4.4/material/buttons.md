@@ -7,15 +7,13 @@ redirect_from: "/docs/4.4/material/"
 toc: true
 ---
 
-Flat buttons and raised buttons are the most commonly used types.
+Flat, outlined and raised buttons are the most commonly used types.
 
 ## Buttons
 
 ### Flat buttons
 
 Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.
-
-**Outline buttons, i.e. `.btn-outline-*`, are the equivalent of Material flat buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#outline-buttons).**
 
 {% capture example %}
 <button class="btn btn-flat" type="button">Flat</button>
