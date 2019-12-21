@@ -9,6 +9,7 @@ toc: true
 ## Usage
 
 Chips can be used for various types of entities, including brief information, free form text, or short title. Chips may also contain icons or photos.
+
 You can read [Material Design documentation for chips](https://material.io/components/chips/) for more information.
 
 Chips exist in an outline variant : just add `chip-outline` class to your chip.
@@ -36,7 +37,7 @@ Chips can be deletable. A delete icon can be displayed if a chip is deletable.
 {% endcapture %}
 {% include example.html content=example %}
 
-### Choice chips
+## Choice chips
 
 Choice chips allow selection of a single chip from a set of options.
 
@@ -82,7 +83,7 @@ They also exist in their outline variant.
 {% endcapture %}
 {% include example.html content=example %}
 
-### Filter chips
+## Filter chips
 
 Filter chips use tags or descriptive words to filter content.
 
@@ -132,7 +133,7 @@ They also exist in their outline variant.
 {% endcapture %}
 {% include example.html content=example %}
 
-### Action chips
+## Action chips
 
 Action chips offer actions related to primary content. They should appear dynamically and contextually in a UI.
 
