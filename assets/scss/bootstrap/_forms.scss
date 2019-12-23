@@ -12,8 +12,9 @@
   margin-left: -$form-check-input-gutter;
   position: absolute;
 
-  &[disabled] ~ .form-check-label,
-  &:disabled ~ .form-check-label {
+  // Use disabled attribute instead of :disabled pseudo-class
+  // Workaround for: https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/11295231
+  &[disabled] ~ .form-check-label {
     color: $textfield-color-disabled;
   }
 }

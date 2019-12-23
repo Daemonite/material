@@ -6,32 +6,40 @@ group: material
 toc: true
 ---
 
-Dialogs contain text and UI controls. They retain focus until dismissed or a required action has been taken. Use dialogs sparingly because they are interruptive.
+Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
 
 **Most of the details about dialogs have been covered in Components/Modal documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/modal/) for more details.**
 
+You can read [Material Design documentation for dialogs](https://material.io/components/dialogs/) for more information.
+
+Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/dialog).
+
 ## Alerts
 
-Alerts are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
+Alert dialogs interrupt users with urgent information, details, or actions.
 
-### Alerts with title bars
+### Alerts with title
 
-Use title bar alerts for high-risk situations, such as the potential loss of connectivity. Users should be able to understand the choices based on the title and button text alone.
+A dialog’s purpose should be communicated by its title and button text.
+
+Titles should:
+
+- Contain a brief, clear statement or question
+- Avoid apologies (“Sorry for the interruption”), alarm (“Warning!”), or ambiguity (“Are you sure?”)
 
 <div class="bd-example bd-example-modal">
   <div class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Use location service?</h5>
+          <h5 class="modal-title">Get this party started?</h5>
         </div>
         <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Let us help apps to determine location. This means sending anonymous location data to us, even when no apps are running.</p>
+          <p class="text-black-secondary typography-subheading">Turn up the jams and have a good time.</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-flat-primary" type="button">Turn on speed boost</button>
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Remind me later</button>
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No thanks</button>
+          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Decline</button>
+          <button class="btn btn-flat-primary" type="button">Accept</button>
         </div>
       </div>
     </div>
@@ -39,28 +47,26 @@ Use title bar alerts for high-risk situations, such as the potential loss of con
 </div>
 
 {% highlight html %}
+
 <div class="modal">
-  <div class="modal">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Use location service?</h5>
-        </div>
-        <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Let us help apps to determine location. This means sending anonymous location data to us, even when no apps are running.</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-flat-primary" type="button">Turn on speed boost</button>
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Remind me later</button>
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No thanks</button>
-        </div>
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Get this party started?</h5>
+      </div>
+      <div class="modal-body">
+        <p class="text-black-secondary typography-body-1">Turn up the jams and have a good time.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Decline</button>
+        <button class="btn btn-flat-primary" type="button">Accept</button>
       </div>
     </div>
   </div>
 </div>
 {% endhighlight %}
 
-### Alerts without title bars
+### Alerts without title
 
 Most alerts don't need titles. They summarize a decision in a sentence or two by either asking a question or making a statement related to the action buttons.
 
@@ -81,6 +87,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 </div>
 
 {% highlight html %}
+
 <div class="modal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -126,6 +133,7 @@ The Wonderful Wizard of Oz</h5>
 </div>
 
 {% highlight html %}
+
 <div class="modal">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
@@ -162,8 +170,8 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
   <div class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
-        <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Discard draft?</p>
+        <div class="modal-body typography-body-1">
+          Discard draft?
         </div>
         <div class="modal-footer">
           <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
@@ -175,11 +183,12 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 </div>
 
 {% highlight html %}
+
 <div class="modal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
-      <div class="modal-body">
-        <p class="text-black-secondary typography-subheading">Discard draft?</p>
+      <div class="modal-body typography-body-1">
+        Discard draft?
       </div>
       <div class="modal-footer">
         <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
@@ -192,17 +201,17 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 
 ### Stacked full-width buttons
 
-When text labels contain too many characters, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+Stacked buttons accommodate longer button text. Confirming actions appear above dismissive actions.
 
 <div class="bd-example bd-example-modal">
   <div class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Lorem ipsum dolor sit amet</h5>
+          <h5 class="modal-title">Use location service?</h5>
         </div>
         <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="text-black-secondary typography-subheading">Let us help apps determine location. This means sending anonymous location data to us, even when no apps are running.</p>
         </div>
         <div class="modal-footer modal-footer-stacked">
           <button class="btn btn-flat-primary" type="button">Turn on Speed Boost</button>
@@ -214,21 +223,21 @@ When text labels contain too many characters, use stacked buttons to accommodate
 </div>
 
 {% highlight html %}
+
 <div class="modal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Lorem ipsum dolor sit amet</h5>
+        <h5 class="modal-title">Use location service?</h5>
       </div>
       <div class="modal-body">
-        <p class="text-black-secondary typography-subheading">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="text-black-secondary typography-subheading">Let us help apps determine cation. This means sending anonymous location data to us, even when no apps are nning.</p>
       </div>
       <div class="modal-footer modal-footer-stacked">
         <button class="btn btn-flat-primary" type="button">Turn on Speed Boost</button>
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No Thanks</button>
+        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No Thanks</tton>
       </div>
     </div>
   </div>
 </div>
 {% endhighlight %}
-

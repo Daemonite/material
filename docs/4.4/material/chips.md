@@ -12,7 +12,7 @@ Chips can be used for various types of entities, including brief information, fr
 
 You can read [Material Design documentation for chips](https://material.io/components/chips/) for more information.
 
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/chips)
+Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/chips).
 
 Chips exist in an outline variant : just add `chip-outline` class to your chip.
 

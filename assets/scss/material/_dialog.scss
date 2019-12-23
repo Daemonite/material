@@ -81,7 +81,7 @@
 .modal-dialog-centered {
   align-items: center;
   display: flex;
-  min-height: calc(100% - #{$dialog-margin-y} * 2); //calc(100% - #{$modal-dialog-margin * 2});
+  min-height: calc(100% - #{$dialog-margin-y} * 2);
 
   // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
   &::before {
@@ -90,22 +90,22 @@
     height: calc(100vh - #{$dialog-margin-y * 2});
   }
 
-  /* stylelint-disable */
+  // stylelint-disable
   // Ensure `.modal-body` shows scrollbar (IE10/11)
   &.modal-dialog-scrollable {
     flex-direction: column;
     height: 100%;
     justify-content: center;
 
-    .modal-content {
-      max-height: none;
-    }
-
     &::before {
       content: none;
     }
+
+    .modal-content {
+      max-height: none;
+    }
   }
-  /* stylelint-enable */
+  // stylelint-enable
 }
 
 // Dialog
@@ -115,7 +115,6 @@
   background-clip: padding-box;
   background-color: $dialog-content-bg;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
-  //color: $modal-content-color;
   display: flex;
   flex-direction: column;
   outline: 0;
@@ -163,7 +162,7 @@
 .modal-body {
   @include typography-body-1();
 
-  color: rgba($black, $black-caption-opacity); // djibe added from GMD
+  color: $dialog-color; // djibe added from GMD
   // Enable `flex-grow: 1` so that the body take up as much space as possible
   // when should there be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;

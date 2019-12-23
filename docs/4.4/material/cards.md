@@ -27,8 +27,8 @@ Supplemental actions within the card are explicitly called out using icons, text
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="card-actions">
-    <a class="btn btn-outline-primary" href="#">Action</a>
-    <a class="btn btn-outline-primary" href="#">Action</a>
+    <a class="btn btn-flat-primary" href="#">Action</a>
+    <a class="btn btn-flat-primary" href="#">Action</a>
   </div>
 </div>
 {% endcapture %}
@@ -44,8 +44,8 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="card-actions flex-column">
-    <a class="btn btn-outline-primary" href="#">Action</a>
-    <a class="btn btn-outline-primary" href="#">Action</a>
+    <a class="btn btn-flat-primary" href="#">Action</a>
+    <a class="btn btn-flat-primary" href="#">Action</a>
   </div>
 </div>
 {% endcapture %}

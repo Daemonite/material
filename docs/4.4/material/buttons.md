@@ -11,7 +11,7 @@ Flat, outlined and raised buttons are the most commonly used types.
 
 You can read [Material Design documentation for buttons](https://material.io/components/buttons/) for more information.
 
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/button)
+Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/button).
 
 ## Buttons
 

@@ -8,7 +8,7 @@ toc: true
 
 Please visit [theming]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/#theme-colors) for detailed information about all Material Design colors and how to customise theme colors.
 
-## color scheme
+## Color scheme
 
 In Material Design, a primary color refers to a color that appears most frequently in your app. A secondary color refers to a color used to accent key parts of your UI.
 

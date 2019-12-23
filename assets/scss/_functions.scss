@@ -1,16 +1,17 @@
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
 @mixin _assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
 
   @each $key, $num in $map {
-    @if $prev-num == null or unit($num) == '%' {
+    @if $prev-num == null or unit($num) == '%' or unit($prev-num) == '%' {
       // Do nothing
-    } @else if not comparable($num, $prev-num) {
-      @warn 'Potentially invalid value for #{$map-name}: This map must be in ascending order, but key "#{$key}" has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key "#{$prev-key}"!';
-    } @else if $num <= $prev-num {
-      @warn 'Invalid value for #{$map-name}: This map must be in ascending order, but key "#{$key}" has value #{$num} which is not greater than #{$prev-num}, the value of the previous key "#{$prev-key}"!';
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
     }
-
     $prev-key: $key;
     $prev-num: $num;
   }
@@ -27,7 +28,7 @@
   }
 }
 
-// Colour contrast
+// Color contrast
 
 @function color-yiq($color) {
   $r: red($color);
@@ -44,6 +45,7 @@
 }
 
 // Replace `$key` with `$replace` in `$content`
+// Different from BS 4.4.1
 
 @function str-replace($content, $key, $replace: '') {
   $index: str-index($content, $key);
