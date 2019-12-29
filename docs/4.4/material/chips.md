@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Chips
-description: Chips represent complex entities in small blocks, such as a contact.
+description: Chips are compact elements that represent an input, attribute, or action.
 group: material
 toc: true
 ---
@@ -10,9 +10,10 @@ toc: true
 
 Chips can be used for various types of entities, including brief information, free form text, or short title. Chips may also contain icons or photos.
 
-You can read [Material Design documentation for chips](https://material.io/components/chips/) for more information.
-
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/chips).
+<div class="list-group my-lg-5">
+    <a href="https://material.io/components/chips/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Chips</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Chips</a>
+</div>
 
 Chips exist in an outline variant : just add `chip-outline` class to your chip.
 
@@ -54,7 +55,7 @@ This component uses a standard radio input and styles the label. Just add `chip-
 <input type="radio" id="myRadio2" name="chip-radio" class="d-none">
 <label for="myRadio2" class="chip chip-action chip-choice">Soft</label>
 
-<input type="radio" id="myRadio3" name="chip-radio" class="d-none">
+<input type="radio" id="myRadio3" name="chip-radio" class="d-none" checked>
 <label for="myRadio3" class="chip chip-action chip-choice">Medium</label>
 
 <input type="radio" id="myRadio4" name="chip-radio" class="d-none">
@@ -74,7 +75,7 @@ They also exist in their outline variant.
 <input type="radio" id="radio-2" name="chip-radio-outline" class="d-none">
 <label for="radio-2" class="chip chip-action chip-outline chip-choice">Soft</label>
 
-<input type="radio" id="radio-3" name="chip-radio-outline" class="d-none">
+<input type="radio" id="radio-3" name="chip-radio-outline" class="d-none" checked>
 <label for="radio-3" class="chip chip-action chip-outline chip-choice">Medium</label>
 
 <input type="radio" id="radio-4" name="chip-radio-outline" class="d-none">

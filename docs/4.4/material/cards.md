@@ -1,13 +1,19 @@
 ---
 layout: docs
 title: Cards
-description: A card is a sheet of material that serves as an entry point to more detailed information.
+description: Cards contain content and actions about a single subject.
 group: material
 ---
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
-**Most of the details about cards have been covered in Components/Cards documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/) for more details.**
+<div class="list-group my-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Card
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/cards/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Cards</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/card" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Card</a>
+</div>
 
 **N.B.** According to Material Design, flat buttons should be used in cards.
 

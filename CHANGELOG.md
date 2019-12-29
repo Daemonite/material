@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## What's in next version 4.4.1 - alpha 2
+## 4.4.1 - alpha 2
 Full Bootstrap 4.4.1 support
 Expansion panels according to MD v2
 Updated dependencies
@@ -11,7 +11,6 @@ FIXED Links used as buttons aspect on hover
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
 todo #29077: Use escape-svg() function
 todo #29095: Add responsive containers
-en cours #29095: Add responsive containers
 
 ## 4.4.1 - alpha 1
 + NPM support by @tiberiumihai

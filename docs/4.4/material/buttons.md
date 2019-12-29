@@ -1,7 +1,8 @@
 ---
 layout: docs
-title: Buttons
-description: Buttons communicate the action that will occur when the user touches them.
+title: Material design Buttons for Bootstrap 4
+meta_description: Test of a meta description
+description: Buttons allow users to take actions, and make choices, with a single tap.
 group: material
 redirect_from: "/docs/4.4/material/"
 toc: true
@@ -9,9 +10,13 @@ toc: true
 
 Flat, outlined and raised buttons are the most commonly used types.
 
-You can read [Material Design documentation for buttons](https://material.io/components/buttons/) for more information.
-
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/button).
+<div class="list-group mt-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Buttons
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Buttons</a>
+</div>
 
 ## Buttons
 

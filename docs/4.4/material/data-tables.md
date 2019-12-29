@@ -1,11 +1,17 @@
 ---
 layout: docs
 title: Data tables
-description: Data tables display sets of raw data.
+description: Data tables display sets of data across rows and columns.
 group: material
 ---
 
-**Most of the details about data tables have been covered in Content/Tables documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/) for more details.**
+<div class="list-group mt-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Tables
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/data-tables/" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Data tables</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Data table</a>
+</div>
 
 ## Tables within cards
 

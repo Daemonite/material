@@ -5,10 +5,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * Material UI by Maya, Geoff Bowers, Alex Skinner and djibe
  */
-/* stylelint-disable */
-/* stylelint-enable */
-/* stylelint-disable */
-/* stylelint-enable */
 :root {
   --amber: #ffc107;
   --blue: #2196f3;
@@ -2462,7 +2458,6 @@ a.badge:hover, a.badge:focus {
   cursor: pointer;
 }
 
-/* stylelint-disable */
 button.close {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2476,7 +2471,6 @@ a.close.disabled {
   pointer-events: none;
 }
 
-/* stylelint-enable */
 code {
   border-radius: 4px;
   background-color: #f5f5f5;
@@ -2590,8 +2584,6 @@ pre code {
   display: flex;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 
 .form-inline .form-check {
@@ -3795,8 +3787,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   min-width: 0;
   padding: 0;
   width: 3.5rem;
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 
 .btn-float:hover {
@@ -3934,8 +3924,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
     &:active {
       background-color: rgba($black,$overlay-activated-white-opacity);
     } */
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 
 @media (min-width: 576px) {
@@ -4680,6 +4668,18 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   text-decoration: none;
 }
 
+.chip-action:not(.disabled):hover {
+  background-color: rgba(0, 0, 0, 0.24);
+}
+
+.chip-action:not(.disabled):active {
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+.chip-action:not(.disabled):focus {
+  outline: 0;
+}
+
 .chip-action:not(.disabled).chip-outline:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
@@ -4688,25 +4688,21 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   background-color: rgba(0, 0, 0, 0.16);
 }
 
-.chip-action:not(.disabled):hover {
-  background-color: #cfcfcf;
-}
-
-.chip-action:not(.disabled):active {
-  background-color: #b3b3b3;
-}
-
-.chip-action:not(.disabled):focus {
-  outline: 0;
-}
-
 [type='radio']:checked + .chip-choice {
   background-color: rgba(98, 0, 238, 0.24);
   color: #6200ee;
 }
 
+[type='radio']:checked + .chip-choice:hover, [type='radio']:checked + .chip-choice:active {
+  background-color: rgba(98, 0, 238, 0.32);
+}
+
 [type='radio']:checked + .chip-choice.chip-outline {
   background-color: rgba(98, 0, 238, 0.12);
+}
+
+[type='radio']:checked + .chip-choice.chip-outline:hover, [type='radio']:checked + .chip-choice.chip-outline:active {
+  background-color: rgba(98, 0, 238, 0.16);
 }
 
 [type='checkbox'] + .chip-filter:not(.chip-outline) {
@@ -4788,7 +4784,6 @@ input:disabled + .chip {
   font-size: 0.875rem;
   margin-bottom: 1rem;
   width: 100%;
-  /* stylelint-disable */
 }
 
 .table td,
@@ -4824,10 +4819,6 @@ input:disabled + .chip {
   height: 3.5rem;
   letter-spacing: 0.007143em;
   line-height: 1.375rem;
-}
-
-.card > .table {
-  /* stylelint-enable */
 }
 
 .card > .table:first-child,
@@ -6777,8 +6768,9 @@ input:disabled + .chip {
   color: rgba(0, 0, 0, 0.87);
   font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1;
-  padding: 1.0625rem 1rem;
+  line-height: 1.125rem;
+  padding: 0.75rem 3rem;
+  padding-left: 24px;
 }
 
 @media (min-width: 576px) {
@@ -6805,6 +6797,7 @@ input:disabled + .chip {
 
 .navdrawer-nav .nav-link.active, .navdrawer-nav .nav-link:active {
   color: #6200ee;
+  font-weight: 500;
 }
 
 .navdrawer-nav .nav-link.disabled {
@@ -9409,8 +9402,6 @@ input:disabled + .chip {
   padding: 0 1.5rem;
   position: relative;
   text-transform: uppercase;
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 
 @media (min-width: 576px) {
@@ -9904,12 +9895,10 @@ textarea.form-control-sm:not([rows='1']) {
   width: 100%;
 }
 
-/* stylelint-disable */
 .valid-feedback {
   color: #61d800;
 }
 
-/* stylelint-enable */
 .valid-tooltip {
   border-radius: 4px;
   background-color: #61d800;
@@ -10076,12 +10065,10 @@ select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover
   width: 100%;
 }
 
-/* stylelint-disable */
 .invalid-feedback {
   color: #b00020;
 }
 
-/* stylelint-enable */
 .invalid-tooltip {
   border-radius: 4px;
   background-color: #b00020;
@@ -11378,8 +11365,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     flex-flow: row nowrap;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    /* stylelint-disable */
-    /* stylelint-enable */
   }
   .navbar-expand-sm .navbar-nav {
     -ms-flex-direction: row;
@@ -11430,8 +11415,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     flex-flow: row nowrap;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    /* stylelint-disable */
-    /* stylelint-enable */
   }
   .navbar-expand-md .navbar-nav {
     -ms-flex-direction: row;
@@ -11482,8 +11465,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     flex-flow: row nowrap;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    /* stylelint-disable */
-    /* stylelint-enable */
   }
   .navbar-expand-lg .navbar-nav {
     -ms-flex-direction: row;
@@ -11534,8 +11515,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     flex-flow: row nowrap;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    /* stylelint-disable */
-    /* stylelint-enable */
   }
   .navbar-expand-xl .navbar-nav {
     -ms-flex-direction: row;
@@ -11573,8 +11552,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   flex-flow: row nowrap;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  /* stylelint-disable */
-  /* stylelint-enable */
 }
 
 .navbar-expand > .container,
@@ -12166,7 +12143,7 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
 }
 
 .rounded-sm {
-  border-radius: 4px !important;
+  border-radius: 2px !important;
 }
 
 .rounded {
@@ -13450,7 +13427,6 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
   height: 100vh !important;
 }
 
-/* stylelint-disable */
 .m-0 {
   margin: 0 !important;
 }
@@ -15263,7 +15239,6 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
   }
 }
 
-/* stylelint-enable */
 .stretched-link::after {
   background-color: rgba(0, 0, 0, 0);
   content: '';

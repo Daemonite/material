@@ -1,14 +1,23 @@
 ---
 layout: docs
 title: Pickers
-description: Pickers provide a simple way to select a single value from a pre-determined set.
+description: Date pickers let users select a date, or a range of dates.
 group: material
 toc: true
 ---
 
 ## Date pickers
 
-Date pickers use a dialog window to select a single date on mobile.
+Date pickers let users select a date or range of dates. They should be suitable for the context in which they appear.
+
+Date pickers can be embedded into:
+
+* Dialogs on mobile
+* Text field dropdowns on desktop
+
+<div class="list-group my-lg-5">
+    <a href="https://material.io/components/pickers/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Pickers</a>
+</div>
 
 A date picker has to be activated via JavaScript.
 

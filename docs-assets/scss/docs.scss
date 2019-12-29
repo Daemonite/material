@@ -118,6 +118,7 @@
     }
   }
 }
+
 // stylelint-enable
 
 .bd-example {
@@ -211,6 +212,7 @@
     }
   }
 }
+
 // stylelint-enable
 
 // CSS for accordion examples
@@ -274,6 +276,7 @@
     background-color: $menu-link-bg-hover !important;
   }
 }
+
 // stylelint-enable
 
 .doc-search:focus {
@@ -419,4 +422,36 @@
 
 .doc-swatch-text {
   font-family: $font-family-monospace;
+}
+
+// Links to Material documentation
+// stylelint-disable
+[class*="lgi-icon"] {
+  font-weight: 500;
+  padding-left: 72px;
+
+  &::before {
+    background-size: 24px;
+    border-radius: 50%;
+    content: ' ';
+    display: inline-block;
+    height: 24px;
+    position: absolute;
+    left: 1rem;
+    top: 12px;
+    margin-right: 32px;
+    min-width: 24px;
+  }
+}
+
+.lgi-icon-bs::before {
+  background-image: url(https://djibe.github.io/material/apple-touch-icon.png);
+}
+
+.lgi-icon-md::before {
+  background-image: url(https://material.io/develop/images/icons/item_links/ic_material_design_24px.svg);
+}
+
+.lgi-icon-mdc::before {
+  background-image: url(https://material-components.github.io/material-components-web-catalog/static/media/mdc_web_48dp.png);
 }

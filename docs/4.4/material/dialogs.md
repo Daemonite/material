@@ -6,13 +6,17 @@ group: material
 toc: true
 ---
 
-Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
+A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
 
-**Most of the details about dialogs have been covered in Components/Modal documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/modal/) for more details.**
+Dialogs are purposefully interruptive, so they should be used sparingly.
 
-You can read [Material Design documentation for dialogs](https://material.io/components/dialogs/) for more information.
-
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/dialog).
+<div class="list-group mt-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/modal/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Modal
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/dialogs/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Dialogs</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/dialog" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Dialogs</a>
+</div>
 
 ## Alerts
 

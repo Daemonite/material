@@ -118,8 +118,9 @@
     color: $navdrawer-nav-link-color;
     font-size: $navdrawer-nav-link-font-size;
     font-weight: $navdrawer-nav-link-font-weight;
-    line-height: 1;
-    padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
+    line-height: 1.125rem;
+    padding: 0.75rem 3rem; //(($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
+    padding-left: 24px;
 
     @include hover-focus-active {
       background-color: $navdrawer-nav-link-bg-hover;
@@ -128,6 +129,7 @@
     &.active,
     &:active {
       color: $navdrawer-nav-link-color-active;
+      font-weight: $navdrawer-nav-link-font-weight;
     }
 
     &.disabled {

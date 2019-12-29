@@ -1,7 +1,14 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1, shrink-to-fit=no, width=device-width">
-<title>{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.title }}</title>
+<meta name="description" content="{% if page.meta_description %}{{ page.meta_description }} &middot; {% endif %}">
+<meta name="author" content="{{ site.authors }}">
+<meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="{{ site.docs_version }}">
+
+<title>{% if page.title %}{{ page.title }}{% endif %}{{ site.title }}</title>
 
 <!-- CSS -->
 <!-- Add Material font (Roboto) and Material icon as needed -->
