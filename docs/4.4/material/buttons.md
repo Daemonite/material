@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: Material design Buttons for Bootstrap 4
-meta_description: Test of a meta description
+title: Buttons
+meta_description: Material design Buttons for Bootstrap 4
 description: Buttons allow users to take actions, and make choices, with a single tap.
 group: material
 redirect_from: "/docs/4.4/material/"

@@ -1,14 +1,19 @@
 ---
 layout: docs
-title: Typography
+title: The type system
+meta_description: Material design typegraphy for Bootstrap 4
 description: Material's typographic scale has a set of type sizes that balances content density and reading comfort under typical usage conditions.
 group: material
 toc: true
 ---
 
-You can read [Material Design documentation for typography](https://material.io/design/typography/the-type-system.html) for more information.
-
-Or compare with [Material components for the web](https://material-components.github.io/material-components-web-catalog/#/component/typography).
+<div class="list-group mt-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/typography/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Typography
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/design/typography/the-type-system.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: The type system</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/typography" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Typography</a>
+</div>
 
 ## Colors
 

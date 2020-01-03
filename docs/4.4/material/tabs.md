@@ -1,7 +1,8 @@
 ---
 layout: docs
 title: Tabs
-description: Tabs make it easy to explore and switch between different views.
+meta_description: Material design tabs for Bootstrap 4
+description: Tabs organize content across different screens, data sets, and other interactions.
 group: material
 toc: true
 ---
@@ -9,6 +10,14 @@ toc: true
 Tabs enable content organization at a high level, such as switching between views.
 
 Present tabs as a single row above their associated content. Tab labels should succinctly describe the content within.
+
+<div class="list-group mt-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Navs
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/tabs/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Tabs</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Tab Bar</a>
+</div>
 
 ## Default tabs
 
