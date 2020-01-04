@@ -8,6 +8,11 @@ toc: true
 
 All the available elevation and shadow variables are defined in `daemonite-material/assets/scss/variables/_elevation-shadow.scss`. This page summarises the default elevation and shadow values used by Material components.
 
+<div class="list-group mt-lg-5">
+    <a href="https://material.io/design/environment/elevation.html#elevation-in-material-design" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Elevation</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/elevation" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Elevation</a>
+</div>
+
 ## Elevation
 
 Elevation is the relative depth, or distance, between two surfaces along the z-axis.

@@ -13,45 +13,67 @@ group: material
     <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Data table</a>
 </div>
 
-## Tables within cards
+Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.
 
-Tables may be embedded within a card.
+Data tables can contain:
+
+* Interactive components (such as chips, buttons, or menus)
+* Non-interactive elements (such as badges)
+* Tools to query and manipulate data
+
+## Data Table Standard
+
+Wrap your table within a div and add ```data-table``` class to this div.
+
+It will add rounded borders and hover effect for each line.
 
 {% capture example %}
-<div class="card">
+<div class="data-table">
   <table class="table mb-0">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Username</th>
+        <th scope="col">Dessert</th>
+        <th scope="col">Calories</th>
+        <th scope="col">Fat</th>
+        <th scope="col">Carbs</th>
+        <th scope="col">Protein (g)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <th scope="row">Frozen yogurt</th>
+        <td>159</td>
+        <td>6</td>
+        <td>24</td>
+        <td>4</td>
       </tr>
       <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
+        <th scope="row">Ice cream sandwich</th>
+        <td>237</td>
+        <td>9</td>
+        <td>37</td>
+        <td>4.3</td>
       </tr>
       <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+        <th scope="row">Eclair</th>
+        <td>262</td>
+        <td>16</td>
+        <td>24</td>
+        <td>6</td>
       </tr>
     </tbody>
   </table>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+## Data Table with Row Selection
+
+Hope to add it in next version.
+
+## Pagination
+
+WIP.
 
 Data manipulation tools and table navigation can be added using card components.
 

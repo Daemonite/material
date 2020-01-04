@@ -46,6 +46,17 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 {% endcapture %}
 {% include example.html content=example %}
 
+### Shaped buttons
+
+For rounded buttons, add ```btn-shaped``` class to your button. it also works for ssmall and large buttons.
+
+{% capture example %}
+<button class="btn btn-shaped" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-sm btn-shaped" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-lg btn-shaped" type="button"><i class="material-icons">add</i></button>
+{% endcapture %}
+{% include example.html content=example %}
+
 ## Floating action buttons
 
 A floating action button represents the primary action in an application, it is used for a promoted action.

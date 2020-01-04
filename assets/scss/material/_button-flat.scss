@@ -2,7 +2,7 @@
 // Material guidelines : https://material.io/design/components/buttons.html#specs
 // Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
 [class*='btn-flat'],
-.card .btn {
+.modal .btn {
   padding: $btn-padding-y $btn-flat-padding-x;
 }
 
@@ -13,7 +13,7 @@
 
 [class*='btn-flat'],
 [class*='btn-outline'],
-.card .btn {
+.modal .btn {
   background: transparent;
   box-shadow: none;
 
@@ -40,7 +40,7 @@
   $values in $theme-colors {
   .btn-flat-#{$color},
   .btn-outline-#{$color},
-  .card .btn-#{$color} {
+  .modal .btn-#{$color} {
     @include plain-hover-focus {
       color: theme-color($color);
     }

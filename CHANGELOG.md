@@ -1,15 +1,15 @@
 # CHANGELOG
 
 ## 4.4.1 - alpha 2
-Full Bootstrap 4.4.1 support
-Expansion panels according to MD v2
-Updated dependencies
-Improved documentation
++ Full Bootstrap 4.4.1 support
++ Expansion panels according to MD v2
++ Dialog buttons are always flat
++ Improved documentation (faster, up to date)
+UPDATED dependencies
 FIXED Links used as buttons aspect on hover
 
 4.4.0 CSS
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
-todo #29077: Use escape-svg() function
 todo #29095: Add responsive containers
 
 ## 4.4.1 - alpha 1
