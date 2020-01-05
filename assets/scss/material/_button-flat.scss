@@ -2,6 +2,7 @@
 // Material guidelines : https://material.io/design/components/buttons.html#specs
 // Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
 [class*='btn-flat'],
+.btn-link,
 .modal .btn {
   padding: $btn-padding-y $btn-flat-padding-x;
 }
@@ -9,10 +10,16 @@
 [class*='btn-outline'] {
   border: 1px solid currentColor;
   padding: $btn-padding-y calc(#{$btn-padding-x} - 1px);
+
+  &:disabled,
+  &.disabled {
+    border: 1px solid $btn-color-disabled;
+  }
 }
 
 [class*='btn-flat'],
 [class*='btn-outline'],
+.btn-link,
 .modal .btn {
   background: transparent;
   box-shadow: none;
@@ -59,7 +66,7 @@
 
     &:disabled,
     &.disabled {
-      background-color: $btn-bg-disabled;
+      background-color: transparent; //$btn-bg-disabled;
       color: $btn-color-disabled;
     }
   }
@@ -67,6 +74,11 @@
   .btn-outline-#{$color} {
     border-color: theme-color($color);
   }
+}
+
+.btn-link {
+  //color: theme-color(primary);
+  @extend .btn-flat-primary;
 }
 
 .btn-flat-light,

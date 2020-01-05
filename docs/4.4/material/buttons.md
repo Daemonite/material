@@ -48,12 +48,12 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 
 ### Shaped buttons
 
-For rounded buttons, add ```btn-shaped``` class to your button. it also works for ssmall and large buttons.
+For rounded buttons, add ```btn-shaped``` class to your button. it also works for small and large buttons.
 
 {% capture example %}
-<button class="btn btn-shaped" type="button"><i class="material-icons">add</i></button>
-<button class="btn btn-sm btn-shaped" type="button"><i class="material-icons">add</i></button>
-<button class="btn btn-lg btn-shaped" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-primary btn-shaped" type="button">Normal</button>
+<button class="btn btn-primary btn-sm btn-shaped" type="button">Small</button>
+<button class="btn btn-primary btn-lg btn-shaped" type="button">Large</button>
 {% endcapture %}
 {% include example.html content=example %}
 
