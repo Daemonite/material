@@ -484,3 +484,37 @@ Icons describe the type of input a text field requires. They are displayed to th
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+## Input icons for Webkit browsers
+
+If you use **Chrome** or **Safari**, in the examples below, you will see calendar icon for suitable fields and erase icon for search and calendar based inputs.
+
+To disable this add-on, in ```_utilities.scss```, comment the last line like this : ```// _webkit-custom.scss``` and recompile SCSS sources.
+
+{% capture example %}
+<div class="form-group">
+  <label for="exampleInput4">Search</label>
+  <input class="form-control" id="exampleInput4" placeholder="Search" type="search">
+</div>
+<div class="form-group">
+  <label for="exampleInput2">Date and time</label>
+  <input class="form-control" id="exampleInput2" placeholder="Date and time" type="datetime-local">
+</div>
+<div class="form-group">
+  <label for="exampleInput2bis">Date</label>
+  <input class="form-control" id="exampleInput2bis" placeholder="Date" type="date">
+</div>
+<div class="form-group">
+  <label for="exampleInput24">Time</label>
+  <input class="form-control" id="exampleInput24" placeholder="Time" type="time">
+</div>
+<div class="form-group">
+  <label for="exampleInput2ter">Month</label>
+  <input class="form-control" id="exampleInput2ter" placeholder="Month" type="month">
+</div>
+<div class="form-group">
+  <label for="exampleInput25">Week</label>
+  <input class="form-control" id="exampleInput25" placeholder="Week" type="week">
+</div>
+{% endcapture %}
+{% include example.html content=example %}

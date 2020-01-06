@@ -3,6 +3,7 @@
 // Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
 [class*='btn-flat'],
 .btn-link,
+.card-link,
 .modal .btn {
   padding: $btn-padding-y $btn-flat-padding-x;
 }
@@ -20,6 +21,7 @@
 [class*='btn-flat'],
 [class*='btn-outline'],
 .btn-link,
+.card-link,
 .modal .btn {
   background: transparent;
   box-shadow: none;
@@ -66,7 +68,7 @@
 
     &:disabled,
     &.disabled {
-      background-color: transparent; //$btn-bg-disabled;
+      background-color: transparent;
       color: $btn-color-disabled;
     }
   }
@@ -76,8 +78,8 @@
   }
 }
 
-.btn-link {
-  //color: theme-color(primary);
+.btn-link,
+.card-link {
   @extend .btn-flat-primary;
 }
 
