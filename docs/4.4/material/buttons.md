@@ -22,13 +22,14 @@ Flat, outlined and raised buttons are the most commonly used types.
 
 ### Flat buttons
 
-Flat buttons are text-only buttons. They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.
+Flat buttons are text-only buttons (now called Text Button in MD). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.
 
 {% capture example %}
 <button class="btn btn-flat" type="button">Flat</button>
 {% for color in site.data.theme-colors %}
 <button class="btn btn-flat-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
+<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -43,12 +44,39 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 {% for color in site.data.theme-colors %}
 <button class="btn btn-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
+<button class="btn btn-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Unelevated buttons
+
+Unelevated buttons are easy to obtain : just add `.shadow-none` to your default button.
+
+{% capture example %}
+<button class="btn shadow-none my-1" type="button">Raised</button>
+{% for color in site.data.theme-colors %}
+<button class="btn btn-{{ color.name }} shadow-none my-1" type="button">{{ color.name | capitalize }}</button>
+{% endfor %}
+<button class="btn btn-primary shadow-none my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Outlined buttons
+
+**Outlined buttons have already been covered in the documentation. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
+
+{% capture example %}
+<button class="btn btn-outline my-1" type="button">Raised</button>
+{% for color in site.data.theme-colors %}
+<button class="btn btn-outline-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+{% endfor %}
+<button class="btn btn-outline-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 ### Shaped buttons
 
-For rounded buttons, add ```btn-shaped``` class to your button. it also works for small and large buttons.
+For rounded buttons, add `btn-shaped` class to your button. it also works for small and large buttons.
 
 {% capture example %}
 <button class="btn btn-primary btn-shaped" type="button">Normal</button>
@@ -62,15 +90,16 @@ For rounded buttons, add ```btn-shaped``` class to your button. it also works fo
 A floating action button represents the primary action in an application, it is used for a promoted action.
 
 {% capture example %}
-<button class="btn btn-float" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-secondary btn-float" type="button"><i class="material-icons">favorite_border</i></button>
 {% endcapture %}
 {% include example.html content=example %}
 
 ### Colors
 
 {% capture example %}
+<button class="btn btn-float my-1" type="button"><i class="material-icons">favorite_border</i></button>
 {% for color in site.data.theme-colors %}
-<button class="btn btn-float btn-{{ color.name }} my-1" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-float btn-{{ color.name }} my-1" type="button"><i class="material-icons">favorite_border</i></button>
 {% endfor %}
 {% endcapture %}
 {% include example.html content=example %}
@@ -110,7 +139,22 @@ Or flinging them upwards:
 A smaller sized, i.e. mini floating action button, is also available.
 
 {% capture example %}
-<button class="btn btn-float btn-sm" type="button"><i class="material-icons">add</i></button>
+<button class="btn btn-secondary btn-float btn-sm" type="button"><i class="material-icons">favorite_border</i></button>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Extended FAB
+
+A larger FAB button has been introduced in recent Material guidelines. Add `btn-float-extended` class to your actual FAB.
+
+{% capture example %}
+<button class="btn btn-secondary btn-float btn-float-extended" type="button"><i class="material-icons">add</i>Create</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+Extended FAB (without Icon)
+{% capture example %}
+<button class="btn btn-secondary btn-float btn-float-extended" type="button">Create</button>
 {% endcapture %}
 {% include example.html content=example %}
 

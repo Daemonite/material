@@ -104,7 +104,7 @@ Users may enter text, numbers, or mixed-format types of input.
 
 ## Floating label text fields
 
-When the user engages with the text input field, the floating inline labels move to float above the field. 
+When the user engages with the text input field, the floating inline labels move to float above the field.
 
 **N.B.** Implementation of floating label text fields requires `material.js` or `material.min.js`. Floating label also requires the pairing `label` and `.form-control` placed in the same `.floating-label` as its first two children.
 
@@ -489,16 +489,16 @@ Icons describe the type of input a text field requires. They are displayed to th
 
 If you use **Chrome** or **Safari**, in the examples below, you will see calendar icon for suitable fields and erase icon for search and calendar based inputs.
 
-To disable this add-on, in ```_utilities.scss```, comment the last line like this : ```// _webkit-custom.scss``` and recompile SCSS sources.
+To disable this add-on, in `_utilities.scss`, comment the last line like this : `// _webkit-custom.scss` and recompile SCSS sources.
 
 {% capture example %}
 <div class="form-group">
-  <label for="exampleInput4">Search</label>
-  <input class="form-control" id="exampleInput4" placeholder="Search" type="search">
+  <label for="exampleInputSearch">Search</label>
+  <input class="form-control" id="exampleInputSearch" placeholder="Search" type="search">
 </div>
 <div class="form-group">
-  <label for="exampleInput2">Date and time</label>
-  <input class="form-control" id="exampleInput2" placeholder="Date and time" type="datetime-local">
+  <label for="exampleInputDateTime">Date and time</label>
+  <input class="form-control" id="exampleInputDateTime" placeholder="Date and time" type="datetime-local">
 </div>
 <div class="form-group">
   <label for="exampleInput2bis">Date</label>

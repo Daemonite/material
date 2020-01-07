@@ -23,7 +23,7 @@ Data tables can contain:
 
 ## Data Table Standard
 
-Wrap your table within a div and add ```data-table``` class to this div.
+Wrap your table within a div and add `data-table` class to this div.
 
 It will add rounded borders and hover effect for each line.
 
