@@ -2101,8 +2101,6 @@ a.badge:hover, a.badge:focus {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -2344,8 +2342,6 @@ a.badge:hover, a.badge:focus {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -3167,6 +3163,15 @@ tr.collapse.show {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  /* &:not(.btn-float) > i,
+  &:not(.btn-float) > .material-icons {
+    font-size: $btn-icon-size;
+    height: $btn-icon-size;
+    line-height: $btn-icon-size;
+    margin-right: $spacer-sm;
+    margin-left: 0;
+    width: $btn-icon-size;
+  } */
 }
 
 @media (min-width: 576px) {
@@ -3209,17 +3214,6 @@ tr.collapse.show {
   box-shadow: none;
   color: rgba(0, 0, 0, 0.37);
   pointer-events: none;
-}
-
-.btn:not(.btn-float) > i, .card-link:not(.btn-float) > i,
-.btn:not(.btn-float) > .material-icons,
-.card-link:not(.btn-float) > .material-icons {
-  font-size: 1.125rem;
-  height: 1.125rem;
-  line-height: 1.125rem;
-  margin-right: 0.5rem;
-  margin-left: 0;
-  width: 1.125rem;
 }
 
 .show > .btn.dropdown-toggle, .show > .dropdown-toggle.card-link {
@@ -3859,9 +3853,16 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   width: auto;
 }
 
+.btn-float-extended i,
 .btn-float-extended .material-icons {
   margin-right: 0.75rem;
   margin-left: -0.5rem;
+}
+
+.btn-float-extended i[class*="order-"],
+.btn-float-extended .material-icons[class*="order-"] {
+  margin-right: -0.5rem;
+  margin-left: 0.75rem;
 }
 
 .btn-float.btn-sm {
@@ -3898,7 +3899,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
-  vertical-align: middle;
 }
 
 .btn-group > .btn-primary.disabled, .btn-group > .btn-primary:disabled,
@@ -4025,7 +4025,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .btn-group-vertical > .btn[class*='btn-outline'],
 .btn-group-vertical > .card-link[class*='btn-outline'] {
   border: 0;
-  opacity: 0.7;
 }
 
 .btn-group > .btn[class*='btn-outline'].active, .btn-group > .card-link[class*='btn-outline'].active, .btn-group > .btn[class*='btn-outline']:active, .btn-group > .card-link[class*='btn-outline']:active,
@@ -4034,15 +4033,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .btn-group-vertical > .btn[class*='btn-outline']:active,
 .btn-group-vertical > .card-link[class*='btn-outline']:active {
   background-color: rgba(0, 0, 0, 0.12);
-  opacity: 1;
-}
-
-.btn-group > .btn[class*='btn-outline'].disabled, .btn-group > .card-link[class*='btn-outline'].disabled, .btn-group > .btn[class*='btn-outline']:disabled, .btn-group > .card-link[class*='btn-outline']:disabled,
-.btn-group-vertical > .btn[class*='btn-outline'].disabled,
-.btn-group-vertical > .card-link[class*='btn-outline'].disabled,
-.btn-group-vertical > .btn[class*='btn-outline']:disabled,
-.btn-group-vertical > .card-link[class*='btn-outline']:disabled {
-  opacity: 1;
 }
 
 .btn-group > .btn-group,
@@ -5527,7 +5517,6 @@ input:disabled + .chip {
 .list-group-item {
   background-color: #ffffff;
   border: 0;
-  border-radius: 0 2rem 2rem 0;
   color: rgba(0, 0, 0, 0.87);
   display: block;
   font-size: 1rem;
@@ -6589,8 +6578,6 @@ input:disabled + .chip {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6628,8 +6615,6 @@ input:disabled + .chip {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -8795,8 +8780,6 @@ input:disabled + .chip {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -8828,8 +8811,6 @@ input:disabled + .chip {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -9926,8 +9907,6 @@ textarea.form-control-sm:not([rows='1']) {
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -11771,8 +11750,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   font-family: 'Material Icons';
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -15685,6 +15662,18 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
+}
+
+.material-icons.md-18 {
+  font-size: 1.125rem;
+}
+
+.material-icons.md-36 {
+  font-size: 2.25rem;
+}
+
+.material-icons.md-48 {
+  font-size: 3rem;
 }
 
 .material-icons-inline {

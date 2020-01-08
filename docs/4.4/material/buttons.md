@@ -29,7 +29,8 @@ Flat buttons are text-only buttons (now called Text Button in MD). They may be u
 {% for color in site.data.theme-colors %}
 <button class="btn btn-flat-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
+<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 order-2 ml-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -146,8 +147,11 @@ A smaller sized, i.e. mini floating action button, is also available.
 
 A larger FAB button has been introduced in recent Material guidelines. Add `btn-float-extended` class to your actual FAB.
 
+To place icon after the label, use Bootstrap's flex utily `order-2`.
+
 {% capture example %}
 <button class="btn btn-secondary btn-float btn-float-extended" type="button"><i class="material-icons">add</i>Create</button>
+<button class="btn btn-secondary btn-float btn-float-extended" type="button"><i class="material-icons order-2">add</i>Create</button>
 {% endcapture %}
 {% include example.html content=example %}
 

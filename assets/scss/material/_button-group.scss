@@ -5,10 +5,11 @@
   @include border-radius($btn-border-radius);
 
   background-color: $btn-group-bg;
+  //border: 1px solid $black-divider;
   box-shadow: map-get($btn-elevation-shadow, shadow);
   display: inline-flex;
   position: relative;
-  vertical-align: middle;
+  //vertical-align: middle;
 
   @each $color,
     $values in $theme-colors {
@@ -51,17 +52,17 @@
     // stylelint-disable
     &[class*='btn-outline'] {
       border: 0;
-      opacity: $btn-group-toggle-opacity;
+      //opacity: $btn-group-toggle-opacity;
 
       &.active,
       &:active {
         background-color: rgba($black, $overlay-activated-white-opacity);
-        opacity: 1;
+        //opacity: 1;
       }
 
       &.disabled,
       &:disabled {
-        opacity: 1;
+        //opacity: 1;
       }
     }
     // stylelint-enable
