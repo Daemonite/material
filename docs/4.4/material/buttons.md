@@ -66,7 +66,6 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your def
 **Outlined buttons have already been covered in the documentation. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
-<button class="btn btn-outline my-1" type="button">Raised</button>
 {% for color in site.data.theme-colors %}
 <button class="btn btn-outline-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
