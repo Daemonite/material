@@ -87,17 +87,16 @@
 // Misc
 
 .stepper-icon {
+  align-items: center;
   background-color: $stepper-icon-bg;
   border-radius: 50%;
   color: $stepper-icon-color;
+  display: inline-flex;
   font-size: $stepper-icon-font-size;
-  font-weight: $stepper-icon-font-weight;
   height: $stepper-icon-height;
-  line-height: $stepper-icon-height;
+  justify-content: center;
   margin-right: $stepper-inner-spacer;
   position: relative;
-  text-align: center;
-  vertical-align: middle;
   width: $stepper-icon-height;
 
   .stepper.active &,
@@ -106,8 +105,10 @@
     color: color-yiq($stepper-icon-bg-active);
   }
 
+  // stylelint-disable-next-line
+  i,
   .material-icons {
-    font-size: 1.333em;
+    font-size: $stepper-icon-icon-size;
   }
 }
 
@@ -123,6 +124,6 @@
   }
 
   .stepper.active & {
-    font-weight: bolder;
+    font-weight: $font-weight-medium;
   }
 }

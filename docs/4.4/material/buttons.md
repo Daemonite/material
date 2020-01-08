@@ -50,7 +50,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 
 ### Unelevated buttons
 
-Unelevated buttons are easy to obtain : just add `.shadow-none` to your default button.
+Unelevated buttons are easy to obtain : just add `shadow-none` class to your default button.
 
 {% capture example %}
 <button class="btn shadow-none my-1" type="button">Raised</button>

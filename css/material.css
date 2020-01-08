@@ -9340,7 +9340,7 @@ input:disabled + .chip {
 }
 
 .stepper::after, .stepper::before {
-  border-top: 1px solid #bdbdbd;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   content: '';
   display: block;
   position: absolute;
@@ -9366,7 +9366,7 @@ input:disabled + .chip {
 }
 
 .stepper-horiz::before {
-  border-top: 1px solid #bdbdbd;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   content: '';
   display: block;
   position: absolute;
@@ -9376,7 +9376,7 @@ input:disabled + .chip {
 }
 
 .stepper-horiz .stepper::after, .stepper-horiz .stepper::before {
-  border-top: 1px solid #bdbdbd;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   top: 50%;
   width: 1rem;
 }
@@ -9395,7 +9395,7 @@ input:disabled + .chip {
 }
 
 .stepper-vert .stepper::after, .stepper-vert .stepper::before {
-  border-left: 1px solid #bdbdbd;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
   height: 1rem;
   left: 2.25rem;
 }
@@ -9409,17 +9409,19 @@ input:disabled + .chip {
 }
 
 .stepper-icon {
+  -ms-flex-align: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.38);
   border-radius: 50%;
   color: white;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 0.75rem;
-  font-weight: 400;
   height: 1.5rem;
-  line-height: 1.5rem;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-right: 0.5rem;
   position: relative;
-  text-align: center;
-  vertical-align: middle;
   width: 1.5rem;
 }
 
@@ -9429,8 +9431,9 @@ input:disabled + .chip {
   color: white;
 }
 
+.stepper-icon i,
 .stepper-icon .material-icons {
-  font-size: 1.333em;
+  font-size: 1rem;
 }
 
 .stepper-text {
@@ -9446,7 +9449,7 @@ input:disabled + .chip {
 }
 
 .stepper.active .stepper-text {
-  font-weight: bolder;
+  font-weight: 500;
 }
 
 .nav-tabs {
