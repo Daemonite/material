@@ -22,16 +22,16 @@ Flat, outlined and raised buttons are the most commonly used types.
 
 ### Flat buttons
 
-Flat buttons are text-only buttons (now called Text Button in MD). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.
+Flat buttons are text-only buttons (now called Text Buttons in MD). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press. Material adds `.btn-flat-*` buttons in order to own these elements.
+
+Bootstrap's `.btn-link` is styled as a primary flat/text button.
 
 {% capture example %}
 <button class="btn btn-flat" type="button">Flat</button>
+<button class="btn btn-link" type="button">Btn-link</button>
 {% for color in site.data.theme-colors %}
-<button class="btn btn-flat-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+<button class="btn btn-flat-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
-
-<button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 order-2 ml-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -42,24 +42,22 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
-<button class="btn my-1" type="button">Raised</button>
+<button class="btn" type="button">Raised</button>
 {% for color in site.data.theme-colors %}
-<button class="btn btn-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+<button class="btn btn-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 ### Unelevated buttons
 
-Unelevated buttons are easy to obtain : just add `shadow-none` class to your default button.
+Unelevated buttons are easy to obtain : just add `shadow-none` class to your button.
 
 {% capture example %}
-<button class="btn shadow-none my-1" type="button">Raised</button>
+<button class="btn shadow-none" type="button">Raised</button>
 {% for color in site.data.theme-colors %}
-<button class="btn btn-{{ color.name }} shadow-none my-1" type="button">{{ color.name | capitalize }}</button>
+<button class="btn btn-{{ color.name }} shadow-none" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-primary shadow-none my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -69,9 +67,8 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your def
 
 {% capture example %}
 {% for color in site.data.theme-colors %}
-<button class="btn btn-outline-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
+<button class="btn btn-outline-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-outline-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -82,7 +79,68 @@ For rounded buttons, add `btn-shaped` class to your button. it also works for sm
 {% capture example %}
 <button class="btn btn-primary btn-shaped" type="button">Normal</button>
 <button class="btn btn-primary btn-sm btn-shaped" type="button">Small</button>
+<button class="btn btn-primary btn-xs btn-shaped" type="button">XSmall</button>
 <button class="btn btn-primary btn-lg btn-shaped" type="button">Large</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Density and icons
+
+Recently, Google introduced **Density guidelines**, you can <a href="https://material-density.glitch.me/" target="_blank">read more here</a>.
+
+To reflect these changes with lowest impact on Bootstrap, here are our choices :
+
+* btn is equivalent to **Default** button size
+* btn-sm is equivalent to **Comfortable** button size
+* btn-xs is introduced to represent **Compact** button size
+
+At the same time, for easier icon integration within buttons (Material icons, Fontawesome or any other), `btn-icon-prepend` class has been created. Just add this class to your `.btn` for a proper icon's sizing and positioning.
+
+<p class="typography-overline">Default</p>
+{% capture example %}
+<button class="btn btn-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Default shaped</p>
+{% capture example %}
+<button class="btn btn-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Confortable standard</p>
+{% capture example %}
+<button class="btn btn-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Confortable shaped</p>
+{% capture example %}
+<button class="btn btn-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Compact standard</p>
+{% capture example %}
+<button class="btn btn-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Compact shaped</p>
+{% capture example %}
+<button class="btn btn-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-flat-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-outline-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
