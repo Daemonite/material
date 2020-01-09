@@ -30,6 +30,7 @@ Flat buttons are text-only buttons (now called Text Button in MD). They may be u
 <button class="btn btn-flat-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
 <button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
+
 <button class="btn btn-flat-primary my-1" type="button"><i class="material-icons md-18 order-2 ml-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
@@ -45,7 +46,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 {% for color in site.data.theme-colors %}
 <button class="btn btn-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+<button class="btn btn-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -58,7 +59,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your def
 {% for color in site.data.theme-colors %}
 <button class="btn btn-{{ color.name }} shadow-none my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-primary shadow-none my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+<button class="btn btn-primary shadow-none my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -70,7 +71,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your def
 {% for color in site.data.theme-colors %}
 <button class="btn btn-outline-{{ color.name }} my-1" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
-<button class="btn btn-outline-primary my-1" type="button"><i class="material-icons">favorite</i>Icon</button>
+<button class="btn btn-outline-primary my-1" type="button"><i class="material-icons md-18 mr-2">favorite</i>Icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
