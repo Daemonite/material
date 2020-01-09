@@ -30,10 +30,14 @@
   white-space: nowrap;
 
   @include hover-focus {
-    background-image: linear-gradient(to bottom, rgba($white, $overlay-hover-colored-opacity), rgba($white, $overlay-hover-colored-opacity));
     box-shadow: map-get($btn-elevation-shadow-hover, shadow);
     outline: 0;
     text-decoration: none;
+  }
+
+  &:hover,
+  &.hover {
+    background-image: linear-gradient(to bottom, rgba($white, $overlay-hover-colored-opacity), rgba($white, $overlay-hover-colored-opacity));
   }
 
   &:focus,
@@ -108,15 +112,17 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 .btn-lg,
 %btn-lg {
   font-size: $btn-font-size-lg;
-  //padding: $btn-padding-y-lg $btn-padding-x-lg;
   height: $btn-height-lg;
 }
 
 .btn-sm,
 %btn-sm {
-  font-size: $btn-font-size-sm;
-  //padding: $btn-padding-y-sm $btn-padding-x-sm;
   height: $btn-height-sm;
+}
+
+.btn-xs,
+%btn-xs {
+  height: $btn-height-xs;
 }
 
 //
@@ -194,4 +200,24 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   &.btn-sm {
     border-radius: $btn-height-sm / 2;
   }
+
+  &.btn-xs {
+    border-radius: $btn-height-xs / 2;
+  }
+}
+
+// Add icon to a button
+.btn-icon-prepend > i,
+.btn-icon-prepend > .material-icons {
+  font-size: $btn-icon-size;
+  margin-right: $spacer-sm;
+  margin-left: -$spacer-xs;
+}
+
+// stylelint-disable
+.btn-icon-prepend[class*='btn-flat'] > i,
+.btn-icon-prepend.btn-link > i,
+.btn-icon-prepend[class*='btn-flat'] > .material-icons
+.btn-icon-prepend.btn-link > .material-icons {
+  margin-left: 0;
 }

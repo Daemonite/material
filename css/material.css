@@ -3184,10 +3184,13 @@ tr.collapse.show {
 }
 
 .btn:hover, .card-link:hover, .btn:focus, .card-link:focus {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   outline: 0;
   text-decoration: none;
+}
+
+.btn:hover, .card-link:hover, .btn.hover, .hover.card-link {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
 }
 
 .btn:focus, .card-link:focus, .btn.focus, .focus.card-link {
@@ -3316,8 +3319,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .input-group-sm > .input-group-append > .card-link,
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-prepend > .card-link {
-  font-size: 0.8125rem;
-  height: 2rem;
+  height: 1.75rem;
+}
+
+.btn-xs {
+  height: 1.5rem;
 }
 
 .btn-block {
@@ -3381,7 +3387,24 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .btn-shaped.btn-sm {
-  border-radius: 1rem;
+  border-radius: 0.875rem;
+}
+
+.btn-shaped.btn-xs {
+  border-radius: 0.75rem;
+}
+
+.btn-icon-prepend > i,
+.btn-icon-prepend > .material-icons {
+  font-size: 1.125rem;
+  margin-right: 0.5rem;
+  margin-left: -0.25rem;
+}
+
+.btn-icon-prepend[class*='btn-flat'] > i,
+.btn-icon-prepend.btn-link > i,
+.btn-icon-prepend[class*='btn-flat'] > .material-icons .btn-icon-prepend.btn-link > .material-icons {
+  margin-left: 0;
 }
 
 [class*='btn-flat'],
