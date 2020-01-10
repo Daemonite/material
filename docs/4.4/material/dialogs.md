@@ -42,8 +42,8 @@ Titles should:
           <p class="text-black-secondary typography-subheading">Turn up the jams and have a good time.</p>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Decline</button>
-          <button class="btn btn-flat-primary" type="button">Accept</button>
+          <button class="btn btn-primary" data-dismiss="modal" type="button">Decline</button>
+          <button class="btn btn-primary" type="button">Accept</button>
         </div>
       </div>
     </div>
@@ -62,8 +62,8 @@ Titles should:
         <p class="text-black-secondary typography-body-1">Turn up the jams and have a good time.</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Decline</button>
-        <button class="btn btn-flat-primary" type="button">Accept</button>
+        <button class="btn btn-primary" data-dismiss="modal" type="button">Decline</button>
+        <button class="btn btn-primary" type="button">Accept</button>
       </div>
     </div>
   </div>
@@ -128,8 +128,8 @@ The Wonderful Wizard of Oz</h5>
         <p>From the far north they heard a low wail of the wind, and Uncle Henry and Dorothy could see where the long grass bowed in waves before the coming storm. There now came a sharp whistling in the air from the south, and as they turned their eyes that way they saw ripples in the grass coming from that direction also.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-flat-primary" data-dismiss="modal">Decline</button>
-        <button type="button" class="btn btn-flat-primary">Accept</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Decline</button>
+        <button type="button" class="btn btn-primary">Accept</button>
       </div>
       </div>
     </div>

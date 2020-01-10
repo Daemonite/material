@@ -23,9 +23,7 @@ Data tables can contain:
 
 ## Data Table Standard
 
-Wrap your table within a div and add `data-table` class to this div.
-
-It will add rounded borders and hover effect for each line.
+Wrap your table within a div and add `data-table` class to this div. It will add rounded borders and hover effect for each line.
 
 {% capture example %}
 <div class="data-table">
@@ -69,12 +67,11 @@ It will add rounded borders and hover effect for each line.
 
 ## Data Table with Row Selection
 
-Hope to add it in next version.
+*Hope to add it in next version.*
 
 ## Pagination
 
-WIP.
-
+**WIP**
 Data manipulation tools and table navigation can be added using card components.
 
 {% capture example %}

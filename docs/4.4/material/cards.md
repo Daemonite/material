@@ -7,7 +7,7 @@ group: material
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
-<div class="list-group my-lg-5">
+<div class="list-group my-2 my-lg-5">
     <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Card
       <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
     </a>

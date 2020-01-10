@@ -10,11 +10,12 @@ toc: true
 
 Flat, outlined and raised buttons are the most commonly used types.
 
-<div class="list-group mt-lg-5">
+<div class="list-group mt-2 mt-lg-5">
     <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Buttons
       <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
     </a>
     <a href="https://material.io/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons</a>
+    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Applying density</a>
     <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Buttons</a>
 </div>
 
@@ -27,8 +28,11 @@ Flat buttons are text-only buttons (now called Text Buttons in MD). They may be 
 Bootstrap's `.btn-link` is styled as a primary flat/text button.
 
 {% capture example %}
-<button class="btn btn-flat" type="button">Flat</button>
+
 <button class="btn btn-link" type="button">Btn-link</button>
+
+<button class="btn btn-flat" type="button">Flat</button>
+
 {% for color in site.data.theme-colors %}
 <button class="btn btn-flat-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
@@ -42,6 +46,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 **Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
+
 <button class="btn" type="button">Raised</button>
 {% for color in site.data.theme-colors %}
 <button class="btn btn-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
@@ -54,6 +59,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 Unelevated buttons are easy to obtain : just add `shadow-none` class to your button.
 
 {% capture example %}
+
 <button class="btn shadow-none" type="button">Raised</button>
 {% for color in site.data.theme-colors %}
 <button class="btn btn-{{ color.name }} shadow-none" type="button">{{ color.name | capitalize }}</button>
@@ -66,6 +72,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 **Outlined buttons have already been covered in the documentation. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
+
 {% for color in site.data.theme-colors %}
 <button class="btn btn-outline-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
@@ -77,6 +84,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 For rounded buttons, add `btn-shaped` class to your button. it also works for small and large buttons.
 
 {% capture example %}
+
 <button class="btn btn-primary btn-shaped" type="button">Normal</button>
 <button class="btn btn-primary btn-sm btn-shaped" type="button">Small</button>
 <button class="btn btn-primary btn-xs btn-shaped" type="button">XSmall</button>
@@ -92,12 +100,13 @@ To reflect these changes with lowest impact on Bootstrap, here are our choices :
 
 * btn is equivalent to **Default** button size
 * btn-sm is equivalent to **Comfortable** button size
-* btn-xs is introduced to represent **Compact** button size
+* `btn-xs` is introduced to represent **Compact** button size
 
 At the same time, for easier icon integration within buttons (Material icons, Fontawesome or any other), `btn-icon-prepend` class has been created. Just add this class to your `.btn` for a proper icon's sizing and positioning.
 
 <p class="typography-overline">Default</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
@@ -106,6 +115,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 
 <p class="typography-overline">Default shaped</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
@@ -114,6 +124,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 
 <p class="typography-overline">Confortable standard</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
@@ -122,6 +133,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 
 <p class="typography-overline">Confortable shaped</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
@@ -130,6 +142,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 
 <p class="typography-overline">Compact standard</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
@@ -138,6 +151,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 
 <p class="typography-overline">Compact shaped</p>
 {% capture example %}
+
 <button class="btn btn-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-flat-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
 <button class="btn btn-outline-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
@@ -149,6 +163,7 @@ At the same time, for easier icon integration within buttons (Material icons, Fo
 A floating action button represents the primary action in an application, it is used for a promoted action.
 
 {% capture example %}
+
 <button class="btn btn-secondary btn-float" type="button"><i class="material-icons">favorite_border</i></button>
 {% endcapture %}
 {% include example.html content=example %}
@@ -156,6 +171,7 @@ A floating action button represents the primary action in an application, it is 
 ### Colors
 
 {% capture example %}
+
 <button class="btn btn-float my-1" type="button"><i class="material-icons">favorite_border</i></button>
 {% for color in site.data.theme-colors %}
 <button class="btn btn-float btn-{{ color.name }} my-1" type="button"><i class="material-icons">favorite_border</i></button>
@@ -168,6 +184,7 @@ A floating action button represents the primary action in an application, it is 
 Floating action buttons can also work with dropdown menus to fling out related actions:
 
 {% capture example %}
+
 <div class="btn-float-dropdown dropdown">
   <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
   <div class="dropdown-menu">
@@ -182,6 +199,7 @@ Floating action buttons can also work with dropdown menus to fling out related a
 Or flinging them upwards:
 
 {% capture example %}
+
 <div class="btn-float-dropdown dropup">
   <button aria-expanded="false" aria-haspopup="true" class="btn btn-float btn-primary" data-toggle="dropdown" type="button"><i class="material-icons">add</i></button>
   <div class="dropdown-menu">
@@ -198,6 +216,7 @@ Or flinging them upwards:
 A smaller sized, i.e. mini floating action button, is also available.
 
 {% capture example %}
+
 <button class="btn btn-secondary btn-float btn-sm" type="button"><i class="material-icons">favorite_border</i></button>
 {% endcapture %}
 {% include example.html content=example %}
@@ -209,6 +228,7 @@ A larger FAB button has been introduced in recent Material guidelines. Add `btn-
 To place icon after the label, use Bootstrap's flex utily `order-2`.
 
 {% capture example %}
+
 <button class="btn btn-secondary btn-float btn-float-extended" type="button"><i class="material-icons">add</i>Create</button>
 <button class="btn btn-secondary btn-float btn-float-extended" type="button"><i class="material-icons order-2">add</i>Create</button>
 {% endcapture %}
@@ -216,6 +236,7 @@ To place icon after the label, use Bootstrap's flex utily `order-2`.
 
 Extended FAB (without Icon)
 {% capture example %}
+
 <button class="btn btn-secondary btn-float btn-float-extended" type="button">Create</button>
 {% endcapture %}
 {% include example.html content=example %}
@@ -225,6 +246,7 @@ Extended FAB (without Icon)
 Toggle buttons may be used to group related options, similar to [Components/Button group]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/button-group/). Use flat buttons (i.e. `.btn-outline`s or `.btn-outline-*`s) instead of raised buttons to achieve a look that is more in line with the specifications laid out in Material Design Guidelines.
 
 {% capture example %}
+
 <div class="btn-group" data-toggle="buttons" role="group">
   <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options1" type="radio">
@@ -249,6 +271,7 @@ Toggle buttons may be used to group related options, similar to [Components/Butt
 Logically-grouped options, like Bold, Italic, and Underline, allow multiple options to be selected.
 
 {% capture example %}
+
 <div class="btn-group" data-toggle="buttons" role="group">
   <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
   <label class="btn btn-outline btn-sm active">
@@ -286,6 +309,7 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
 Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
 
 {% capture example %}
+
 <div class="btn-group btn-group-fluid" data-toggle="buttons" role="group">
   <label class="btn btn-outline btn-sm active">
     <input autocomplete="off" checked name="options3" type="radio">
@@ -310,6 +334,7 @@ Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
 Vertical variation is also supported
 
 {% capture example %}
+
 <div class="btn-group-vertical" data-toggle="buttons" role="group">
   <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
   <label class="btn btn-outline btn-sm active">

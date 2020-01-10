@@ -24,16 +24,16 @@ A primary color is the color displayed most frequently across your app’s scree
       </p>
       <div class="d-flex justify-content-between">
         <span class="doc-swatch-text">.bg-primary</span>
-        <span class="doc-swatch-text">#9c27b0</span>
+        <span class="doc-swatch-text">#6200ee</span>
       </div>
     </div>
     <div class="bg-primary-dark d-flex justify-content-between p-3 text-white-primary">
       <span class="doc-swatch-text">.bg-primary-dark</span>
-      <span class="doc-swatch-text">#7b1fa2</span>
+      <span class="doc-swatch-text">#3700b3</span>
     </div>
     <div class="bg-primary-light d-flex justify-content-between p-3 text-dark-primary">
       <span class="doc-swatch-text">.bg-primary-light</span>
-      <span class="doc-swatch-text">#e1bee7</span>
+      <span class="doc-swatch-text">#bb86fc</span>
     </div>
   </div>
 </div>
@@ -59,16 +59,16 @@ Secondary colors are best used for:
       </p>
       <div class="d-flex justify-content-between">
         <span class="doc-swatch-text">.bg-secondary</span>
-        <span class="doc-swatch-text">#ff4081</span>
+        <span class="doc-swatch-text">#03dac6</span>
       </div>
     </div>
     <div class="bg-secondary-dark d-flex justify-content-between p-3 text-white-primary">
       <span class="doc-swatch-text">.bg-secondary-dark</span>
-      <span class="doc-swatch-text">#f50057</span>
+      <span class="doc-swatch-text">#018786</span>
     </div>
     <div class="bg-secondary-light d-flex justify-content-between p-3 text-dark-primary">
       <span class="doc-swatch-text">.bg-secondary-light</span>
-      <span class="doc-swatch-text">#ff80ab</span>
+      <span class="doc-swatch-text">#66fff8</span>
     </div>
   </div>
 </div>
@@ -93,7 +93,7 @@ Themes let you apply a consistent tone to an app. The theme specifies the darkne
     </div>
     <div class="bg-dark-4 d-flex justify-content-between p-3 text-white-primary">
       <span class="doc-swatch-text">.bg-dark-4</span>
-      <span class="doc-swatch-text">#424242</span>
+      <span class="doc-swatch-text">#3c3c46</span>
     </div>
   </div>
   <div class="col-md-6 mb-4">

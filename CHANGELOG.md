@@ -1,9 +1,14 @@
 # CHANGELOG
 
 ## 4.4.1 - alpha 2
+
 + Full Bootstrap 4.4.1 support
 + Expansion panels according to MD v2
 + Dialog buttons are always flat
++ Btn-link styled as btn-flat-primary
++ Added btn-xs and btn-icon-prepend
++ Improved buttons
++ Improved Steppers
 + Improved documentation (faster, up to date)
 UPDATED dependencies
 FIXED Links used as buttons aspect on hover
@@ -13,9 +18,10 @@ todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35
 todo #29095: Add responsive containers
 
 ## 4.4.1 - alpha 1
+
 + NPM support by @tiberiumihai
 + BS 4.4.1 grid support
-+ Enhenced date picker
++ Enhance date picker
 
 FIXED Datepicker autoclosing
 FIXED Helper text left padding for textfield-box inputs
@@ -38,7 +44,7 @@ FIXED Buttons on links hover effect
 
 ### Bug fixes
 
-* Modal margins enhenced
+* Modal margins enhanced
 * Primary color tweaked
 * Tables overflowing of container
 
