@@ -1,6 +1,6 @@
 /*!
  * Daemonite Material v4.1.1 (http://daemonite.github.io/material/)
- * Copyright 2011-2019 Daemon Pty Ltd
+ * Copyright 2011-2020 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
 
@@ -8,7 +8,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
   (global = global || self, factory(global.material = {}, global.jQuery));
-}(this, function (exports, $) { 'use strict';
+}(this, (function (exports, $) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -30,9 +30,9 @@
     };
     var Selector = {
       PANEL: '.expansion-panel',
-      PANEL_BODY: '.expansion-panel .collapse' // <<< constants
+      PANEL_BODY: '.expansion-panel .collapse'
+    }; // <<< constants
 
-    };
     $(document).on("" + Event.HIDE, Selector.PANEL_BODY, function () {
       var target = $(this).closest(Selector.PANEL);
       target.removeClass(ClassName.SHOW);
@@ -74,9 +74,8 @@
     };
     var Selector = {
       DATA_PARENT: '.floating-label',
-      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control' // <<< constants
-
-    };
+      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control'
+    }; // <<< constants
 
     var FloatingLabel =
     /*#__PURE__*/
@@ -173,20 +172,35 @@
     return obj;
   }
 
-  function _objectSpread(target) {
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
 
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
       }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
     }
 
     return target;
@@ -352,9 +366,8 @@
     var Selector = {
       CONTENT: '.navdrawer-content',
       DATA_DISMISS: '[data-dismiss="navdrawer"]',
-      DATA_TOGGLE: '[data-toggle="navdrawer"]' // <<< constants
-
-    };
+      DATA_TOGGLE: '[data-toggle="navdrawer"]'
+    }; // <<< constants
 
     var NavDrawer =
     /*#__PURE__*/
@@ -460,7 +473,7 @@
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread({}, Default, config);
+        config = _objectSpread2({}, Default, {}, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
@@ -558,7 +571,7 @@
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var _config = _objectSpread({}, Default, $(this).data(), typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
 
           var data = $(this).data(DATA_KEY);
 
@@ -599,7 +612,7 @@
         target = $(selector)[0];
       }
 
-      var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread({}, $(target).data(), $(this).data());
+      var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2({}, $(target).data(), {}, $(this).data());
 
       if (this.tagName === 'A' || this.tagName === 'AREA') {
         event.preventDefault();
@@ -636,7 +649,7 @@
 
   var picker = createCommonjsModule(function (module, exports) {
   /*!
-   * pickadate.js v3.6.3, 2019/04/03
+   * pickadate.js v3.6.4, 2019/05/25
    * By Amsul, http://amsul.ca
    * Hosted on http://amsul.github.io/pickadate.js
    * Licensed under MIT
@@ -1269,10 +1282,11 @@
 
               // On focus/click, open the picker.
               on( 'focus.' + STATE.id + ' click.' + STATE.id,
-              debounce(function(event) {
-                  event.preventDefault();
-                  P.open();
-              }, 100))
+                  function(event) {
+                      event.preventDefault();
+                      P.open();
+                  }
+              )
 
               // Mousedown handler to capture when the user starts interacting
               // with the picker. This is used in working around a bug in Chrome 73.
@@ -1645,22 +1659,6 @@
       return event.target
   }
 
-  // taken from https://davidwalsh.name/javascript-debounce-function
-  function debounce(func, wait, immediate) {
-      var timeout;
-      return function() {
-          var context = this, args = arguments;
-          var later = function() {
-              timeout = null;
-              if (!immediate) func.apply(context, args);
-          };
-          var callNow = immediate && !timeout;
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
-          if (callNow) func.apply(context, args);
-      };
-  }
-
   /**
    * PickerConstructor helper methods.
    */
@@ -1866,7 +1864,7 @@
 
   var picker_date = createCommonjsModule(function (module, exports) {
   /*!
-   * Date picker for pickadate.js v3.6.3
+   * Date picker for pickadate.js v3.6.4
    * http://amsul.github.io/pickadate.js/date.htm
    */
 
@@ -3409,14 +3407,14 @@
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread({}, Default, config);
+        config = _objectSpread2({}, Default, {}, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
       PickDate._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var _config = _objectSpread({}, Default, $(this).data(), typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
 
           var data = $(this).data(DATA_KEY);
 
@@ -3464,9 +3462,9 @@
     };
     var Selector = {
       CONTROL: '.custom-control',
-      INPUT: '.custom-control-input' // <<< constants
+      INPUT: '.custom-control-input'
+    }; // <<< constants
 
-    };
     $(document).on("" + Event.BLUR, Selector.INPUT, function () {
       $(this).removeClass(ClassName.FOCUS);
     }).on("" + Event.FOCUS, Selector.INPUT, function () {
@@ -3506,9 +3504,8 @@
     var Selector = {
       DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
       DROPDOWN: '.dropdown',
-      NAV: '.nav-tabs' // <<< constants
-
-    };
+      NAV: '.nav-tabs'
+    }; // <<< constants
 
     var TabSwitch =
     /*#__PURE__*/
@@ -3620,5 +3617,5 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=material.js.map
