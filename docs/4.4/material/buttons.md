@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Buttons
-meta_description: Material design Buttons for Bootstrap 4
+meta_description: Material design Buttons for Bootstrap 4 using some extra CSS classes for a perfect imitation.
 description: Buttons allow users to take actions, and make choices, with a single tap.
 group: material
 redirect_from: "/docs/4.4/material/"
@@ -32,7 +32,6 @@ Bootstrap's `.btn-link` is styled as a primary flat/text button.
 <button class="btn btn-link" type="button">Btn-link</button>
 
 <button class="btn btn-flat" type="button">Flat</button>
-
 {% for color in site.data.theme-colors %}
 <button class="btn btn-flat-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
@@ -94,7 +93,7 @@ For rounded buttons, add `btn-shaped` class to your button. it also works for sm
 
 ### Density and icons
 
-Recently, Google introduced **Density guidelines**, you can <a href="https://material-density.glitch.me/" target="_blank">read more here</a>.
+Recently, Google introduced **Density guidelines**, see the references at the top of page.
 
 To reflect these changes with lowest impact on Bootstrap, here are our choices :
 
@@ -102,7 +101,7 @@ To reflect these changes with lowest impact on Bootstrap, here are our choices :
 * btn-sm is equivalent to **Comfortable** button size
 * `btn-xs` is introduced to represent **Compact** button size
 
-At the same time, for easier icon integration within buttons (Material icons, Fontawesome or any other), `btn-icon-prepend` class has been created. Just add this class to your `.btn` for a proper icon's sizing and positioning.
+At the same time, for easier icon integration within buttons (*Material icons*, *Fontawesome* or any other), `btn-icon-prepend` class has been created. Just add this class to your `.btn` for a proper icon's sizing and positioning.
 
 <p class="typography-overline">Default</p>
 {% capture example %}

@@ -98,12 +98,38 @@
 // Btn-icon addition
 .btn-icon {
   border-radius: 50%;
-  color: $black-hint;
+  box-shadow: none;
+  color: initial;
+  font-size: 1.5rem;
   height: $btn-icon-width;
-  padding: $btn-icon-padding;
+  min-width: 0;
+  padding: 0;
+  transition: background-color 15ms linear;
   width: $btn-icon-width;
 
-  &:hover {
-    color: $black-hint;
+  &.btn-sm {
+    height: $btn-icon-width-sm;
+    width: $btn-icon-width-sm;
+  }
+
+  &.btn-xs {
+    height: $btn-icon-width-xs;
+    width: $btn-icon-width-xs;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: rgba($black, $overlay-hover-white-opacity);
+    box-shadow: none;
+    color: initial;
+  }
+
+  &:focus {
+    background: rgba($black, $overlay-focus-white-opacity);
+  }
+
+  &:active {
+    background: rgba($black, $overlay-pressed-white-opacity);
   }
 }

@@ -116,16 +116,20 @@
     align-items: center;
   }
 
-  &:first-child {
+  .card-body + & {
+    margin-top: -$spacer-sm;
+  }
+
+  /* &:first-child {
     @include border-top-radius($card-border-radius);
   }
 
   &:last-child {
     @include border-bottom-radius($card-border-radius);
-  }
+  } */
 
   .btn {
-    //@include text-truncate;
+    @include text-truncate;
 
     flex: 0 1 auto;
     min-width: 0;
@@ -133,6 +137,10 @@
     &:not(.btn-icon) {
       margin-right: $card-action-inner-spacer-x;
     }
+  }
+
+  .btn-icon:not(:disabled) {
+    color: $black-caption;
   }
 
   .dropdown-toggle::after {
@@ -198,6 +206,10 @@
     @include border-bottom-radius($card-border-radius);
 
     border-bottom: 0;
+  }
+
+  + .card-body {
+    padding-top: 0;
   }
 
   + .list-group .list-group-item:first-child {
@@ -382,10 +394,6 @@
   //font-weight: $font-weight-bold; //addition
   @extend .btn;
 
-  @include hover-focus-active {
-    //text-decoration: none;
-  }
-
   + .card-link {
     margin-left: $card-inner-spacer-x;
   }
@@ -394,18 +402,30 @@
 .card-title {
   @include typography-headline-6;
 
-  margin-bottom: $card-inner-spacer-y;
+  margin: 0;
 
-  &:last-child {
-    margin-bottom: 0;
+  .card-body & {
+    margin-bottom: $spacer;
+
+    + .card-subtitle {
+      margin-top: -$spacer;
+    }
+  }
+
+  // To fix Bootstrap documentation
+  .card-header + .card-body > & {
+    margin-top: $spacer;
   }
 }
 
 .card-subtitle {
   @include typography-subtitle-2;
 
-  margin-top: ($card-inner-spacer-y * -1);
   margin-bottom: 0;
+
+  .card-body & {
+    padding-bottom: $spacer;
+  }
 }
 
 .card-text {
