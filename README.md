@@ -3,7 +3,7 @@
 [![Backers on Open Collective](https://opencollective.com/material/backers/badge.svg)](#backers)
 [![Sponsors on Open Collective](https://opencollective.com/material/sponsors/badge.svg)](#sponsors)
 
-> **DISCLAIMER**: This framework has been created by [Daemonite team](http://daemonite.github.io/material/). As they are not active for now, we enhence this framework until they come back to maintain the project.
+> **DISCLAIMER**: This framework has been created by [Daemonite team](http://daemonite.github.io/material/). As they are not active for now, we enhance this framework until they come back to maintain the project.
 
 Daemonite's Material UI 2 is a cross-platform and fully responsive front-end interface based on Google Material Design 2 developed using Bootstrap 4.
 
