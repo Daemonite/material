@@ -202,7 +202,7 @@ For example, you can create a `custom.scss` and import either all of Material's 
 // Option B: Include parts of Material
 
 // Required
-@import "node_modules/daemonite-material/assets/scss/colours";
+@import "node_modules/daemonite-material/assets/scss/colors";
 @import "node_modules/daemonite-material/assets/scss/functions";
 @import "node_modules/daemonite-material/assets/scss/mixins";
 @import "node_modules/daemonite-material/assets/scss/variables";
@@ -270,7 +270,7 @@ To remove an item from a map, use `map-remove`. Be aware you must insert it betw
 
 {% highlight scss %}
 // Required
-@import "node_modules/daemonite-material/assets/scss/colours";
+@import "node_modules/daemonite-material/assets/scss/colors";
 @import "node_modules/daemonite-material/assets/scss/functions";
 @import "node_modules/daemonite-material/assets/scss/mixins";
 @import "node_modules/daemonite-material/assets/scss/variables";

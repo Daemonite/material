@@ -103,7 +103,7 @@ html {
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 [tabindex='-1']:focus {
@@ -8174,6 +8174,7 @@ fieldset:disabled a.btn {
 
 .custom-range::-moz-range-thumb {
   transition-duration: 0.3s;
+  -moz-transition-property: box-shadow, height, width;
   transition-property: box-shadow, height, width;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   -moz-appearance: none;
@@ -8199,6 +8200,7 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-moz-range-thumb {
+    -moz-transition: none;
     transition: none;
   }
 }
@@ -8215,6 +8217,7 @@ fieldset:disabled a.btn {
 
 .custom-range::-moz-range-track {
   transition-duration: 0.3s;
+  -moz-transition-property: background-color;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(0, 0, 0, 0.26);
@@ -8240,6 +8243,7 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-moz-range-track {
+    -moz-transition: none;
     transition: none;
   }
 }
@@ -8260,6 +8264,7 @@ fieldset:disabled a.btn {
 
 .custom-range::-ms-thumb {
   transition-duration: 0.3s;
+  -ms-transition-property: box-shadow;
   transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   appearance: none;
@@ -8286,6 +8291,7 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-ms-thumb {
+    -ms-transition: none;
     transition: none;
   }
 }
@@ -8300,6 +8306,7 @@ fieldset:disabled a.btn {
 
 .custom-range::-ms-track {
   transition-duration: 0.3s;
+  -ms-transition-property: background-color;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
@@ -8325,12 +8332,14 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-ms-track {
+    -ms-transition: none;
     transition: none;
   }
 }
 
 .custom-range::-webkit-slider-runnable-track {
   transition-duration: 0.3s;
+  -webkit-transition-property: background-color;
   transition-property: background-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(0, 0, 0, 0.26);
@@ -8356,12 +8365,14 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-webkit-slider-runnable-track {
+    -webkit-transition: none;
     transition: none;
   }
 }
 
 .custom-range::-webkit-slider-thumb {
   transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
   transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-appearance: none;
@@ -8388,6 +8399,7 @@ fieldset:disabled a.btn {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .custom-range::-webkit-slider-thumb {
+    -webkit-transition: none;
     transition: none;
   }
 }
@@ -9678,6 +9690,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 
 .floating-label .form-control::-webkit-input-placeholder, .floating-label .custom-select::-webkit-input-placeholder, .floating-label .form-control-file::-webkit-input-placeholder {
   transition-duration: 0.3s;
+  -webkit-transition-property: opacity;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: transparent;
@@ -9686,6 +9699,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 
 .floating-label .form-control::-moz-placeholder, .floating-label .custom-select::-moz-placeholder, .floating-label .form-control-file::-moz-placeholder {
   transition-duration: 0.3s;
+  -moz-transition-property: opacity;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: transparent;
@@ -9694,6 +9708,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 
 .floating-label .form-control:-ms-input-placeholder, .floating-label .custom-select:-ms-input-placeholder, .floating-label .form-control-file:-ms-input-placeholder {
   transition-duration: 0.3s;
+  -ms-transition-property: opacity;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: transparent;
@@ -9702,6 +9717,7 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 
 .floating-label .form-control::-ms-input-placeholder, .floating-label .custom-select::-ms-input-placeholder, .floating-label .form-control-file::-ms-input-placeholder {
   transition-duration: 0.3s;
+  -ms-transition-property: opacity;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: transparent;
@@ -9754,15 +9770,19 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
 
 @media screen and (prefers-reduced-motion: reduce) {
   .floating-label .form-control::-webkit-input-placeholder, .floating-label .custom-select::-webkit-input-placeholder, .floating-label .form-control-file::-webkit-input-placeholder {
+    -webkit-transition: none;
     transition: none;
   }
   .floating-label .form-control::-moz-placeholder, .floating-label .custom-select::-moz-placeholder, .floating-label .form-control-file::-moz-placeholder {
+    -moz-transition: none;
     transition: none;
   }
   .floating-label .form-control:-ms-input-placeholder, .floating-label .custom-select:-ms-input-placeholder, .floating-label .form-control-file:-ms-input-placeholder {
+    -ms-transition: none;
     transition: none;
   }
   .floating-label .form-control::-ms-input-placeholder, .floating-label .custom-select::-ms-input-placeholder, .floating-label .form-control-file::-ms-input-placeholder {
+    -ms-transition: none;
     transition: none;
   }
   .floating-label .form-control::placeholder, .floating-label .custom-select::placeholder, .floating-label .form-control-file::placeholder {
@@ -10309,23 +10329,19 @@ select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-.navbar-dark .form-control::-webkit-input-placeholder,
-.navbar-dark .navbar-nav .nav-link.disabled {
+.navbar-dark .form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.navbar-dark .form-control::-moz-placeholder,
-.navbar-dark .navbar-nav .nav-link.disabled {
+.navbar-dark .form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.navbar-dark .form-control:-ms-input-placeholder,
-.navbar-dark .navbar-nav .nav-link.disabled {
+.navbar-dark .form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.navbar-dark .form-control::-ms-input-placeholder,
-.navbar-dark .navbar-nav .nav-link.disabled {
+.navbar-dark .form-control::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
