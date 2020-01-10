@@ -23,18 +23,120 @@ The primary action in a card is typically the card itself.
 
 Supplemental actions can vary from card to card in a collection, depending on the content type and expected outcome.
 
-Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
+Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card. Keep the classic card layout with `card-header` and `card-body`, but make sure you group all buttons in a `card-actions` div for proper alignment and spacing.
+
+You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` are right-aligned thanks to flex utility `.ml-auto` (*margin-left: auto*).
+
+**NB.** `.text-black-secondary` has been added to the following example to copy MDComponents card examples (0.54 opacity). However you don't require these as `.card-subtitle` and `.card-text` have been styled as in Google's guidelines, with a 0.6 opacity.
 
 {% capture example %}
-<div class="card" style="width: 20rem;">
-  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
+<div class="card" style="max-width: 350px;">
+  <img alt="100%x180" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+  <div class="card-header border-0">
+    <h2 class="card-title">Our Changing Planet</h2>
+    <h3 class="card-subtitle text-black-secondary">by Kurt Wagner</h3>
+  </div>
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
-    <a class="btn btn-flat-primary" href="#">Action</a>
-    <a class="btn btn-flat-primary" href="#">Action</a>
+    <a class="btn btn-flat-primary" href="#">read</a>
+    <a class="btn btn-flat-primary" href="#">bookmark</a>
+    <button class="btn btn-icon ml-auto" type="button"><i class="material-icons">favorite_border</i></button>
+    <button class="btn btn-icon" type="button"><i class="material-icons">share</i></button>
+    <button class="btn btn-icon" type="button"><i class="material-icons">more_vert</i></button>
+ </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Example without `card-actions` div. Apply `border-0` utility to the card-header in order to remove border.
+
+{% capture example %}
+<div class="card" style="max-width: 350px;">
+  <img alt="100%x180" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+  <div class="card-header border-0">
+    <h2 class="card-title">Our Changing Planet</h2>
+    <h3 class="card-subtitle">by Kurt Wagner</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+   </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Another card without image banner and buttons pushed to the end with `.justify-content-end` flex utility.
+
+Buttons are still separated thanks to a flex utility `.ml-auto` applied to the first of the icon buttons.
+
+{% capture example %}
+<div class="card" style="max-width: 350px;">
+  <div class="card-header border-0">
+    <h2 class="card-title">Our Changing Planet</h2>
+    <h3 class="card-subtitle">by Kurt Wagner</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+  </div>
+  <div class="card-actions justify-content-end">
+    <button class="btn btn-flat-primary" type="button">read</button>
+    <button class="btn btn-flat-primary" type="button">bookmark</button>
+    <button class="btn btn-icon ml-auto" type="button"><i class="material-icons">favorite_border</i></button>
+    <button class="btn btn-icon" type="button"><i class="material-icons">share</i></button>
+    <button class="btn btn-icon" type="button"><i class="material-icons">more_vert</i></button>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+You can use a simplified HTML markup and omit `.card-header` container to obtain the same result.
+
+This card is styled in shape with `card-shaped` class you can apply to the `.card` container.
+
+{% capture example %}
+<div class="card card-shaped" style="max-width: 350px;">
+  <div class="card-body">
+    <h2 class="card-title">Our Changing Planet</h2>
+    <h3 class="card-subtitle">by Kurt Wagner</h3>
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+  </div>
+  <div class="card-actions">
+    <a class="btn btn-flat-primary" href="#">read</a>
+    <a class="btn btn-flat-primary" href="#">bookmark</a>
+    <a class="btn btn-flat-primary ml-auto" href="#"><i class="material-icons">favorite_border</i></a>
+    <a class="btn btn-flat-primary" href="#"><i class="material-icons">share</i></a>
+    <a class="btn btn-flat-primary" href="#"><i class="material-icons">more_vert</i></a>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Outlined card obtained by using standard Bootstrap utilities : `.shadow-none` to remove card's shading and `border` to apply a slight border around the card.
+
+This card uses a simplified HTML markup without `.card-header` container. We can't make it simpler ;-&#41;
+
+{% capture example %}
+<div class="card shadow-none border" style="max-width: 350px;">
+  <div class="card-body">
+   <h2 class="card-title">Card title</h2>
+   <h3 class="card-subtitle">Secondary text</h3>
+   <p class="card-text">Greyhound divisively hello coldly wonderfully marginally far upon excluding.</p>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+And the exact same Outlined card with a `card-header` container. Your choice !
+
+{% capture example %}
+<div class="card shadow-none border" style="max-width: 350px;">
+  <div class="card-header border-0">
+   <h2 class="card-title">Card title</h2>
+   <h3 class="card-subtitle">Secondary text</h3>
+  </div>
+  <div class="card-body">
+   <p class="card-text">Greyhound divisively hello coldly wonderfully marginally far upon excluding.</p>
   </div>
 </div>
 {% endcapture %}
