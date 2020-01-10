@@ -1,6 +1,6 @@
 /*!
  * Daemonite Material v4.1.1 (http://daemonite.github.io/material/)
- * Copyright 2011-2019 Daemon Pty Ltd
+ * Copyright 2011-2020 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
 
@@ -8,7 +8,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
   (global = global || self, factory(global.material = {}, global.jQuery));
-}(this, function (exports, $) { 'use strict';
+}(this, (function (exports, $) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -16,7 +16,7 @@
    * Expansion panel plugins expands a collapsed panel in full upon selecting
    */
 
-  var ExpansionPanel = function ($$$1) {
+  var ExpansionPanel = function ($) {
     // constants >>>
     var DATA_KEY = 'bs.collapse';
     var EVENT_KEY = "." + DATA_KEY;
@@ -30,11 +30,11 @@
     };
     var Selector = {
       PANEL: '.expansion-panel',
-      PANEL_BODY: '.expansion-panel .collapse' // <<< constants
+      PANEL_BODY: '.expansion-panel .collapse'
+    }; // <<< constants
 
-    };
-    $$$1(document).on("" + Event.HIDE, Selector.PANEL_BODY, function () {
-      var target = $$$1(this).closest(Selector.PANEL);
+    $(document).on("" + Event.HIDE, Selector.PANEL_BODY, function () {
+      var target = $(this).closest(Selector.PANEL);
       target.removeClass(ClassName.SHOW);
       var predecessor = target.prev(Selector.PANEL);
 
@@ -42,7 +42,7 @@
         predecessor.removeClass(ClassName.SHOW_PREDECESSOR);
       }
     }).on("" + Event.SHOW, Selector.PANEL_BODY, function () {
-      var target = $$$1(this).closest(Selector.PANEL);
+      var target = $(this).closest(Selector.PANEL);
       target.addClass(ClassName.SHOW);
       var predecessor = target.prev(Selector.PANEL);
 
@@ -57,12 +57,12 @@
    * when a user engages with the assosciated text input field
    */
 
-  var FloatingLabel = function ($$$1) {
+  var FloatingLabel = function ($) {
     // constants >>>
     var DATA_KEY = 'md.floatinglabel';
     var EVENT_KEY = "." + DATA_KEY;
     var NAME = 'floatinglabel';
-    var NO_CONFLICT = $$$1.fn[NAME];
+    var NO_CONFLICT = $.fn[NAME];
     var ClassName = {
       IS_FOCUSED: 'is-focused',
       HAS_VALUE: 'has-value'
@@ -74,45 +74,44 @@
     };
     var Selector = {
       DATA_PARENT: '.floating-label',
-      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control' // <<< constants
-
-    };
+      DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control'
+    }; // <<< constants
 
     var FloatingLabel =
     /*#__PURE__*/
     function () {
       function FloatingLabel(element) {
         this._element = element;
-        this._parent = $$$1(element).closest(Selector.DATA_PARENT)[0];
+        this._parent = $(element).closest(Selector.DATA_PARENT)[0];
       }
 
       var _proto = FloatingLabel.prototype;
 
       _proto.change = function change() {
-        if ($$$1(this._element).val() || $$$1(this._element).is('select') && $$$1('option:first-child', $$$1(this._element)).html().replace(' ', '') !== '') {
-          $$$1(this._parent).addClass(ClassName.HAS_VALUE);
+        if ($(this._element).val() || $(this._element).is('select') && $('option:first-child', $(this._element)).html().replace(' ', '') !== '') {
+          $(this._parent).addClass(ClassName.HAS_VALUE);
         } else {
-          $$$1(this._parent).removeClass(ClassName.HAS_VALUE);
+          $(this._parent).removeClass(ClassName.HAS_VALUE);
         }
       };
 
       _proto.focusin = function focusin() {
-        $$$1(this._parent).addClass(ClassName.IS_FOCUSED);
+        $(this._parent).addClass(ClassName.IS_FOCUSED);
       };
 
       _proto.focusout = function focusout() {
-        $$$1(this._parent).removeClass(ClassName.IS_FOCUSED);
+        $(this._parent).removeClass(ClassName.IS_FOCUSED);
       };
 
       FloatingLabel._jQueryInterface = function _jQueryInterface(event) {
         return this.each(function () {
           var _event = event ? event : 'change';
 
-          var data = $$$1(this).data(DATA_KEY);
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new FloatingLabel(this);
-            $$$1(this).data(DATA_KEY, data);
+            $(this).data(DATA_KEY, data);
           }
 
           if (typeof _event === 'string') {
@@ -128,14 +127,14 @@
       return FloatingLabel;
     }();
 
-    $$$1(document).on(Event.CHANGE + " " + Event.FOCUSIN + " " + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
-      FloatingLabel._jQueryInterface.call($$$1(this), event.type);
+    $(document).on(Event.CHANGE + " " + Event.FOCUSIN + " " + Event.FOCUSOUT, Selector.DATA_TOGGLE, function (event) {
+      FloatingLabel._jQueryInterface.call($(this), event.type);
     });
-    $$$1.fn[NAME] = FloatingLabel._jQueryInterface;
-    $$$1.fn[NAME].Constructor = FloatingLabel;
+    $.fn[NAME] = FloatingLabel._jQueryInterface;
+    $.fn[NAME].Constructor = FloatingLabel;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = NO_CONFLICT;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
       return FloatingLabel._jQueryInterface;
     };
 
@@ -173,20 +172,35 @@
     return obj;
   }
 
-  function _objectSpread(target) {
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
 
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
       }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
     }
 
     return target;
@@ -197,7 +211,7 @@
    * Based on Bootstrap's (v4.1.X) `util.js`
    */
 
-  var Util = function ($$$1) {
+  var Util = function ($) {
     var MAX_UID = 1000000;
     var MILLISECONDS_MULTIPLIER = 1000;
     var TRANSITION_END = 'transitionend';
@@ -207,7 +221,7 @@
         bindType: TRANSITION_END,
         delegateType: TRANSITION_END,
         handle: function handle(event) {
-          if ($$$1(event.target).is(this)) {
+          if ($(event.target).is(this)) {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
           }
 
@@ -217,8 +231,8 @@
     }
 
     function setTransitionEndSupport() {
-      $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+      $.fn.emulateTransitionEnd = transitionEndEmulator;
+      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
 
     function toType(obj) {
@@ -229,7 +243,7 @@
       var _this = this;
 
       var called = false;
-      $$$1(this).one(Util.TRANSITION_END, function () {
+      $(this).one(Util.TRANSITION_END, function () {
         called = true;
       });
       setTimeout(function () {
@@ -250,7 +264,7 @@
         }
 
         try {
-          var $selector = $$$1(document).find(selector);
+          var $selector = $(document).find(selector);
           return $selector.length > 0 ? selector : null;
         } catch (err) {
           return null;
@@ -261,7 +275,7 @@
           return 0;
         }
 
-        var transitionDuration = $$$1(element).css('transition-duration');
+        var transitionDuration = $(element).css('transition-duration');
 
         if (!transitionDuration) {
           return 0;
@@ -288,7 +302,7 @@
         return Boolean(TRANSITION_END);
       },
       triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(TRANSITION_END);
+        $(element).trigger(TRANSITION_END);
       },
       typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
         for (var property in configTypes) {
@@ -313,14 +327,14 @@
    * Based on Bootstrap's (v4.1.X) `modal.js`
    */
 
-  var NavDrawer = function ($$$1) {
+  var NavDrawer = function ($) {
     // constants >>>
     var DATA_API_KEY = '.data-api';
     var DATA_KEY = 'md.navdrawer';
     var ESCAPE_KEYCODE = 27;
     var EVENT_KEY = "." + DATA_KEY;
     var NAME = 'navdrawer';
-    var NO_CONFLICT = $$$1.fn[NAME];
+    var NO_CONFLICT = $.fn[NAME];
     var ClassName = {
       BACKDROP: 'navdrawer-backdrop',
       OPEN: 'navdrawer-open',
@@ -352,9 +366,8 @@
     var Selector = {
       CONTENT: '.navdrawer-content',
       DATA_DISMISS: '[data-dismiss="navdrawer"]',
-      DATA_TOGGLE: '[data-toggle="navdrawer"]' // <<< constants
-
-    };
+      DATA_TOGGLE: '[data-toggle="navdrawer"]'
+    }; // <<< constants
 
     var NavDrawer =
     /*#__PURE__*/
@@ -362,7 +375,7 @@
       function NavDrawer(element, config) {
         this._backdrop = null;
         this._config = this._getConfig(config);
-        this._content = $$$1(element).find(Selector.CONTENT)[0];
+        this._content = $(element).find(Selector.CONTENT)[0];
         this._element = element;
         this._ignoreBackdropClick = false;
         this._isShown = false;
@@ -382,8 +395,8 @@
           return;
         }
 
-        var hideEvent = $$$1.Event(Event.HIDE);
-        $$$1(this._element).trigger(hideEvent);
+        var hideEvent = $.Event(Event.HIDE);
+        $(this._element).trigger(hideEvent);
 
         if (!this._isShown || hideEvent.isDefaultPrevented()) {
           return;
@@ -394,13 +407,13 @@
 
         this._setEscapeEvent();
 
-        $$$1(document).off(Event.FOCUSIN);
-        $$$1(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
-        $$$1(this._element).removeClass(ClassName.SHOW);
-        $$$1(this._element).off(Event.CLICK_DISMISS);
-        $$$1(this._content).off(Event.MOUSEDOWN_DISMISS);
+        $(document).off(Event.FOCUSIN);
+        $(document.body).removeClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
+        $(this._element).removeClass(ClassName.SHOW);
+        $(this._element).off(Event.CLICK_DISMISS);
+        $(this._content).off(Event.MOUSEDOWN_DISMISS);
         var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-        $$$1(this._content).one(Util.TRANSITION_END, function (event) {
+        $(this._content).one(Util.TRANSITION_END, function (event) {
           return _this._hideNavdrawer(event);
         }).emulateTransitionEnd(transitionDuration);
 
@@ -415,10 +428,10 @@
         }
 
         this._isTransitioning = true;
-        var showEvent = $$$1.Event(Event.SHOW, {
+        var showEvent = $.Event(Event.SHOW, {
           relatedTarget: relatedTarget
         });
-        $$$1(this._element).trigger(showEvent);
+        $(this._element).trigger(showEvent);
 
         if (this._isShown || showEvent.isDefaultPrevented()) {
           return;
@@ -428,13 +441,13 @@
 
         this._setEscapeEvent();
 
-        $$$1(this._element).addClass(NAME + "-" + this._config.type + this._typeBreakpoint);
-        $$$1(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
+        $(this._element).addClass(NAME + "-" + this._config.type + this._typeBreakpoint);
+        $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
           return _this2.hide(event);
         });
-        $$$1(this._content).on(Event.MOUSEDOWN_DISMISS, function () {
-          $$$1(_this2._element).one(Event.MOUSEUP_DISMISS, function (event) {
-            if ($$$1(event.target).is(_this2._element)) {
+        $(this._content).on(Event.MOUSEDOWN_DISMISS, function () {
+          $(_this2._element).one(Event.MOUSEUP_DISMISS, function (event) {
+            if ($(event.target).is(_this2._element)) {
               _this2._ignoreBackdropClick = true;
             }
           });
@@ -452,15 +465,15 @@
       _proto._enforceFocus = function _enforceFocus() {
         var _this3 = this;
 
-        $$$1(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
-          if (document !== event.target && _this3._element !== event.target && $$$1(_this3._element).has(event.target).length === 0) {
+        $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
+          if (document !== event.target && _this3._element !== event.target && $(_this3._element).has(event.target).length === 0) {
             _this3._element.focus();
           }
         });
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread({}, Default, config);
+        config = _objectSpread2({}, Default, {}, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
@@ -471,12 +484,12 @@
         this._element.setAttribute('aria-hidden', true);
 
         this._isTransitioning = false;
-        $$$1(this._element).trigger(Event.HIDDEN);
+        $(this._element).trigger(Event.HIDDEN);
       };
 
       _proto._removeBackdrop = function _removeBackdrop() {
         if (this._backdrop) {
-          $$$1(this._backdrop).remove();
+          $(this._backdrop).remove();
           this._backdrop = null;
         }
       };
@@ -485,7 +498,7 @@
         var _this4 = this;
 
         if (this._isShown && this._config.keyboard) {
-          $$$1(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
+          $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
             if (event.which === ESCAPE_KEYCODE) {
               event.preventDefault();
 
@@ -493,7 +506,7 @@
             }
           });
         } else if (!this._isShown) {
-          $$$1(this._element).off(Event.KEYDOWN_DISMISS);
+          $(this._element).off(Event.KEYDOWN_DISMISS);
         }
       };
 
@@ -502,8 +515,8 @@
 
         if (this._isShown) {
           this._backdrop = document.createElement('div');
-          $$$1(this._backdrop).addClass(ClassName.BACKDROP).addClass(ClassName.BACKDROP + "-" + this._config.type + this._typeBreakpoint).appendTo(document.body);
-          $$$1(this._element).on(Event.CLICK_DISMISS, function (event) {
+          $(this._backdrop).addClass(ClassName.BACKDROP).addClass(ClassName.BACKDROP + "-" + this._config.type + this._typeBreakpoint).appendTo(document.body);
+          $(this._element).on(Event.CLICK_DISMISS, function (event) {
             if (_this5._ignoreBackdropClick) {
               _this5._ignoreBackdropClick = false;
               return;
@@ -516,9 +529,9 @@
             _this5.hide();
           });
           Util.reflow(this._backdrop);
-          $$$1(this._backdrop).addClass(ClassName.SHOW);
+          $(this._backdrop).addClass(ClassName.SHOW);
         } else if (!this._isShown && this._backdrop) {
-          $$$1(this._backdrop).removeClass(ClassName.SHOW);
+          $(this._backdrop).removeClass(ClassName.SHOW);
 
           this._removeBackdrop();
         }
@@ -536,12 +549,12 @@
         this._element.removeAttribute('aria-hidden');
 
         Util.reflow(this._element);
-        $$$1(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
-        $$$1(this._element).addClass(ClassName.SHOW);
+        $(document.body).addClass(ClassName.OPEN + "-" + this._config.type + this._typeBreakpoint);
+        $(this._element).addClass(ClassName.SHOW);
 
         this._enforceFocus();
 
-        var shownEvent = $$$1.Event(Event.SHOWN, {
+        var shownEvent = $.Event(Event.SHOWN, {
           relatedTarget: relatedTarget
         });
 
@@ -549,22 +562,22 @@
           _this6._element.focus();
 
           _this6._isTransitioning = false;
-          $$$1(_this6._element).trigger(shownEvent);
+          $(_this6._element).trigger(shownEvent);
         };
 
         var transitionDuration = Util.getTransitionDurationFromElement(this._content);
-        $$$1(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
+        $(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
       };
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
 
-          var data = $$$1(this).data(DATA_KEY);
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new NavDrawer(this, _config);
-            $$$1(this).data(DATA_KEY, data);
+            $(this).data(DATA_KEY, data);
           }
 
           if (typeof config === 'string') {
@@ -589,41 +602,41 @@
       return NavDrawer;
     }();
 
-    $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
       var _this7 = this;
 
       var selector = Util.getSelectorFromElement(this);
       var target;
 
       if (selector) {
-        target = $$$1(selector)[0];
+        target = $(selector)[0];
       }
 
-      var config = $$$1(target).data(DATA_KEY) ? 'toggle' : _objectSpread({}, $$$1(target).data(), $$$1(this).data());
+      var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2({}, $(target).data(), {}, $(this).data());
 
       if (this.tagName === 'A' || this.tagName === 'AREA') {
         event.preventDefault();
       }
 
-      var $target = $$$1(target).one(Event.SHOW, function (showEvent) {
+      var $target = $(target).one(Event.SHOW, function (showEvent) {
         if (showEvent.isDefaultPrevented()) {
           return;
         }
 
         $target.one(Event.HIDDEN, function () {
-          if ($$$1(_this7).is(':visible')) {
+          if ($(_this7).is(':visible')) {
             _this7.focus();
           }
         });
       });
 
-      NavDrawer._jQueryInterface.call($$$1(target), config, this);
+      NavDrawer._jQueryInterface.call($(target), config, this);
     });
-    $$$1.fn[NAME] = NavDrawer._jQueryInterface;
-    $$$1.fn[NAME].Constructor = NavDrawer;
+    $.fn[NAME] = NavDrawer._jQueryInterface;
+    $.fn[NAME].Constructor = NavDrawer;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = NO_CONFLICT;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
       return NavDrawer._jQueryInterface;
     };
 
@@ -636,7 +649,7 @@
 
   var picker = createCommonjsModule(function (module, exports) {
   /*!
-   * pickadate.js v3.5.6, 2015/04/20
+   * pickadate.js v3.6.4, 2019/05/25
    * By Amsul, http://amsul.ca
    * Hosted on http://amsul.github.io/pickadate.js
    * Licensed under MIT
@@ -647,11 +660,11 @@
       // AMD.
       module.exports = factory( $ );
 
-  }(function( $$$1 ) {
+  }(function( $ ) {
 
-  var $window = $$$1( window );
-  var $document = $$$1( document );
-  var $html = $$$1( document.documentElement );
+  var $window = $( window );
+  var $document = $( document );
+  var $html = $( document.documentElement );
   var supportsTransitions = document.documentElement.style.transition != null;
 
 
@@ -670,20 +683,21 @@
 
           // The state of the picker.
           STATE = {
-              id: ELEMENT.id || 'P' + Math.abs( ~~(Math.random() * new Date()) )
+              id: ELEMENT.id || 'P' + Math.abs( ~~(Math.random() * new Date()) ),
+              handlingOpen: false,
           },
 
 
           // Merge the defaults and options passed.
-          SETTINGS = COMPONENT ? $$$1.extend( true, {}, COMPONENT.defaults, OPTIONS ) : OPTIONS || {},
+          SETTINGS = COMPONENT ? $.extend( true, {}, COMPONENT.defaults, OPTIONS ) : OPTIONS || {},
 
 
           // Merge the default classes with the settings classes.
-          CLASSES = $$$1.extend( {}, PickerConstructor.klasses(), SETTINGS.klass ),
+          CLASSES = $.extend( {}, PickerConstructor.klasses(), SETTINGS.klass ),
 
 
           // The element node wrapper into a jQuery object.
-          $ELEMENT = $$$1( ELEMENT ),
+          $ELEMENT = $( ELEMENT ),
 
 
           // Pseudo picker constructor.
@@ -731,12 +745,12 @@
 
 
                   // Create the picker root and then prepare it.
-                  P.$root = $$$1( '<div class="' + CLASSES.picker + '" id="' + ELEMENT.id + '_root" />' );
+                  P.$root = $( '<div class="' + CLASSES.picker + '" id="' + ELEMENT.id + '_root" />' );
                   prepareElementRoot();
 
 
                   // Create the picker holder and then prepare it.
-                  P.$holder = $$$1( createWrappedComponent() ).appendTo( P.$root );
+                  P.$holder = $( createWrappedComponent() ).appendTo( P.$root );
                   prepareElementHolder();
 
 
@@ -751,12 +765,12 @@
 
 
                   // Insert the hidden input as specified in the settings.
-                  if ( SETTINGS.containerHidden ) $$$1( SETTINGS.containerHidden ).append( P._hidden );
+                  if ( SETTINGS.containerHidden ) $( SETTINGS.containerHidden ).append( P._hidden );
                   else $ELEMENT.after( P._hidden );
 
 
                   // Insert the root as specified in the settings.
-                  if ( SETTINGS.container ) $$$1( SETTINGS.container ).append( P.$root );
+                  if ( SETTINGS.container ) $( SETTINGS.container ).append( P.$root );
                   else $ELEMENT.after( P.$root );
 
 
@@ -800,7 +814,7 @@
 
                   // Insert a new component holder in the root or box.
                   if ( entireComponent ) {
-                      P.$holder = $$$1( createWrappedComponent() );
+                      P.$holder = $( createWrappedComponent() );
                       prepareElementHolder();
                       P.$root.html( P.$holder );
                   }
@@ -883,7 +897,7 @@
 
                       // Prevent the page from scrolling.
                       if ( IS_DEFAULT_THEME ) {
-                          $html.
+                          $('body').
                               css( 'overflow', 'hidden' ).
                               css( 'padding-right', '+=' + getScrollbarWidth() );
                       }
@@ -893,8 +907,19 @@
 
                       // Bind the document events.
                       $document.on( 'click.' + STATE.id + ' focusin.' + STATE.id, function( event ) {
+                          // If the picker is currently midway through processing
+                          // the opening sequence of events then don't handle clicks
+                          // on any part of the DOM. This is caused by a bug in Chrome 73
+                          // where a click event is being generated with the incorrect
+                          // path in it.
+                          // In short, if someone does a click that finishes after the
+                          // new element is created then the path contains only the
+                          // parent element and not the input element itself.
+                          if (STATE.handlingOpen) {
+                            return;
+                          }
 
-                          var target = event.target;
+                          var target = getRealEventTarget( event, ELEMENT );
 
                           // If the target of the event is not the element, close the picker picker.
                           // * Don’t worry about clicks or focusins on the root because those don’t bubble up.
@@ -903,7 +928,9 @@
                           // * In Firefox stopPropagation() doesn’t prevent right-click events from bubbling,
                           //   which causes the picker to unexpectedly close when right-clicking it. So make
                           //   sure the event wasn’t a right-click.
-                          if ( target != ELEMENT && target != document && event.which != 3 ) {
+                          // * In Chrome 62 and up, password autofill causes a simulated focusin event which
+                          //   closes the picker.
+                          if ( ! event.isSimulated && target != ELEMENT && target != document && event.which != 3 ) {
 
                               // If the target was the holder that covers the screen,
                               // keep the element focused to maintain tabindex.
@@ -920,7 +947,7 @@
                               keycodeToMove = P.component.key[ keycode ],
 
                               // Grab the target.
-                              target = event.target;
+                              target = getRealEventTarget( event, ELEMENT );
 
 
                           // On escape, close the picker and give focus.
@@ -952,7 +979,7 @@
 
                           // If the target is within the root and “enter” is pressed,
                           // prevent the default action and trigger a click on the target instead.
-                          else if ( $$$1.contains( P.$root[0], target ) && keycode == 13 ) {
+                          else if ( $.contains( P.$root[0], target ) && keycode == 13 ) {
                               event.preventDefault();
                               target.click();
                           }
@@ -1008,7 +1035,7 @@
 
                   // Allow the page to scroll.
                   if ( IS_DEFAULT_THEME ) {
-                      $html.
+                      $('body').
                           css( 'overflow', '' ).
                           css( 'padding-right', '-=' + getScrollbarWidth() );
                   }
@@ -1035,11 +1062,11 @@
               set: function( thing, value, options ) {
 
                   var thingItem, thingValue,
-                      thingIsObject = $$$1.isPlainObject( thing ),
+                      thingIsObject = $.isPlainObject( thing ),
                       thingObject = thingIsObject ? thing : {};
 
                   // Make sure we have usable options.
-                  options = thingIsObject && $$$1.isPlainObject( value ) ? value : options || {};
+                  options = thingIsObject && $.isPlainObject( value ) ? value : options || {};
 
                   if ( thing ) {
 
@@ -1061,7 +1088,7 @@
                           }
 
                           // Then, check to update the element value and broadcast a change.
-                          if ( thingItem == 'select' || thingItem == 'clear' ) {
+                          if ( ( thingItem == 'select' || thingItem == 'clear' ) && SETTINGS.updateInput ) {
                               $ELEMENT.
                                   val( thingItem == 'clear' ? '' : P.get( thingItem, SETTINGS.format ) ).
                                   trigger( 'change' );
@@ -1126,7 +1153,7 @@
               on: function( thing, method, internal ) {
 
                   var thingName, thingMethod,
-                      thingIsObject = $$$1.isPlainObject( thing ),
+                      thingIsObject = $.isPlainObject( thing ),
                       thingObject = thingIsObject ? thing : {};
 
                   if ( thing ) {
@@ -1234,8 +1261,6 @@
           ) //endreturn
       } //createWrappedComponent
 
-
-
       /**
        * Prepare the input element with all bindings.
        */
@@ -1253,19 +1278,37 @@
               val( $ELEMENT.data('value') ?
                   P.get('select', SETTINGS.format) :
                   ELEMENT.value
-              );
+              ).
+
+              // On focus/click, open the picker.
+              on( 'focus.' + STATE.id + ' click.' + STATE.id,
+                  function(event) {
+                      event.preventDefault();
+                      P.open();
+                  }
+              )
+
+              // Mousedown handler to capture when the user starts interacting
+              // with the picker. This is used in working around a bug in Chrome 73.
+              .on('mousedown', function() {
+                STATE.handlingOpen = true;
+                var handler = function() {
+                  // By default mouseup events are fired before a click event.
+                  // By using a timeout we can force the mouseup to be handled
+                  // after the corresponding click event is handled.
+                  setTimeout(function() {
+                    $(document).off('mouseup', handler);
+                    STATE.handlingOpen = false;
+                  }, 0);
+                };
+                $(document).on('mouseup', handler);
+              });
 
 
           // Only bind keydown events if the element isn’t editable.
           if ( !SETTINGS.editable ) {
 
               $ELEMENT.
-
-                  // On focus/click, open the picker.
-                  on( 'focus.' + STATE.id + ' click.' + STATE.id, function(event) {
-                      event.preventDefault();
-                      P.open();
-                  }).
 
                   // Handle keyboard event based on the picker being opened or not.
                   on( 'keydown.' + STATE.id, handleKeydownEvent );
@@ -1320,7 +1363,7 @@
                   // from bubbling to the doc.
                   'mousedown click': function( event ) {
 
-                      var target = event.target;
+                      var target = getRealEventTarget( event, ELEMENT );
 
                       // Make sure the target isn’t the root holder so it can bubble up.
                       if ( target != P.$holder[0] ) {
@@ -1331,13 +1374,13 @@
                           //   prevent cases where focus is shifted onto external elements
                           //   when using things like jQuery mobile or MagnificPopup (ref: #249 & #120).
                           //   Also, for Firefox, don’t prevent action on the `option` element.
-                          if ( event.type == 'mousedown' && !$$$1( target ).is( 'input, select, textarea, button, option' )) {
+                          if ( event.type == 'mousedown' && !$( target ).is( 'input, select, textarea, button, option' )) {
 
                               event.preventDefault();
 
                               // Re-focus onto the holder so that users can click away
                               // from elements focused within the picker.
-                              P.$holder[0].focus();
+                              P.$holder.eq(0).focus();
                           }
                       }
                   }
@@ -1347,18 +1390,18 @@
               // If there’s a click on an actionable element, carry out the actions.
               on( 'click', '[data-pick], [data-nav], [data-clear], [data-close]', function() {
 
-                  var $target = $$$1( this ),
+                  var $target = $( this ),
                       targetData = $target.data(),
                       targetDisabled = $target.hasClass( CLASSES.navDisabled ) || $target.hasClass( CLASSES.disabled ),
 
                       // * For IE, non-focusable elements can be active elements as well
                       //   (http://stackoverflow.com/a/2684561).
                       activeElement = getActiveElement();
-                      activeElement = activeElement && ( activeElement.type || activeElement.href );
+                      activeElement = activeElement && ( (activeElement.type || activeElement.href ) ? activeElement : null);
 
                   // If it’s disabled or nothing inside is actively focused, re-focus the element.
-                  if ( targetDisabled || activeElement && !$$$1.contains( P.$root[0], activeElement ) ) {
-                      P.$holder[0].focus();
+                  if ( targetDisabled || activeElement && !$.contains( P.$root[0], activeElement ) ) {
+                      P.$holder.eq(0).focus();
                   }
 
                   // If something is superficially changed, update the `highlight` based on the `nav`.
@@ -1410,7 +1453,7 @@
               name = name[0] + ELEMENT.name + name[1];
           }
 
-          P._hidden = $$$1(
+          P._hidden = $(
               '<input ' +
               'type=hidden ' +
 
@@ -1443,11 +1486,13 @@
 
           if (IS_DEFAULT_THEME && supportsTransitions) {
               P.$holder.find('.' + CLASSES.frame).one('transitionend', function() {
-                  P.$holder[0].focus();
+                  P.$holder.eq(0).focus();
               });
           }
           else {
-              P.$holder[0].focus();
+              setTimeout(function() {
+                  P.$holder.eq(0).focus();
+              }, 0);
           }
       }
 
@@ -1562,7 +1607,7 @@
           return 0
       }
 
-      var $outer = $$$1( '<div style="visibility:hidden;width:100px" />' ).
+      var $outer = $( '<div style="visibility:hidden;width:100px" />' ).
           appendTo( 'body' );
 
       // Get the width without scrollbars.
@@ -1572,7 +1617,7 @@
       $outer.css( 'overflow', 'scroll' );
 
       // Add the inner div.
-      var $inner = $$$1( '<div style="width:100%" />' ).appendTo( $outer );
+      var $inner = $( '<div style="width:100%" />' ).appendTo( $outer );
 
       // Get the width with scrollbars.
       var widthWithScroll = $inner[0].offsetWidth;
@@ -1585,6 +1630,34 @@
   }
 
 
+
+  /**
+   * Get the target element from the event.
+   * If ELEMENT is supplied and present in the event path (ELEMENT is ancestor of the target),
+   * returns ELEMENT instead
+   */
+  function getRealEventTarget( event, ELEMENT ) {
+
+      var path = [];
+
+      if ( event.path ) {
+          path = event.path;
+      }
+
+      if ( event.originalEvent && event.originalEvent.path ) {
+          path = event.originalEvent.path;
+      }
+
+      if ( path && path.length > 0 ) {
+          if ( ELEMENT && path.indexOf( ELEMENT ) >= 0 ) {
+              return ELEMENT
+          } else {
+              return path[0]
+          }
+      }
+
+      return event.target
+  }
 
   /**
    * PickerConstructor helper methods.
@@ -1645,7 +1718,7 @@
           if ( !item ) return ''
 
           // If the item is an array, do a join
-          item = $$$1.isArray( item ) ? item.join( '' ) : item;
+          item = $.isArray( item ) ? item.join( '' ) : item;
 
           // Check for the class
           klass = klass ? ' class="' + klass + '"' : '';
@@ -1712,7 +1785,7 @@
   PickerConstructor.extend = function( name, Component ) {
 
       // Extend jQuery.
-      $$$1.fn[ name ] = function( options, action ) {
+      $.fn[ name ] = function( options, action ) {
 
           // Grab the component data.
           var componentData = this.data( name );
@@ -1731,7 +1804,7 @@
           // doesn’t exist, create a new picker using `this` element
           // and merging the defaults and options with a deep copy.
           return this.each( function() {
-              var $this = $$$1( this );
+              var $this = $( this );
               if ( !$this.data( name ) ) {
                   new PickerConstructor( this, name, Component, options );
               }
@@ -1739,13 +1812,13 @@
       };
 
       // Set the defaults.
-      $$$1.fn[ name ].defaults = Component.defaults;
+      $.fn[ name ].defaults = Component.defaults;
   }; //PickerConstructor.extend
 
 
 
   function aria(element, attribute, value) {
-      if ( $$$1.isPlainObject(attribute) ) {
+      if ( $.isPlainObject(attribute) ) {
           for ( var key in attribute ) {
               ariaSet(element, key, attribute[key]);
           }
@@ -1761,7 +1834,7 @@
       );
   }
   function ariaAttr(attribute, data) {
-      if ( !$$$1.isPlainObject(attribute) ) {
+      if ( !$.isPlainObject(attribute) ) {
           attribute = { attribute: data };
       }
       data = '';
@@ -1791,7 +1864,7 @@
 
   var picker_date = createCommonjsModule(function (module, exports) {
   /*!
-   * Date picker for pickadate.js v3.5.6
+   * Date picker for pickadate.js v3.6.4
    * http://amsul.github.io/pickadate.js/date.htm
    */
 
@@ -1800,7 +1873,7 @@
       // AMD.
       module.exports = factory( picker, $ );
 
-  }(function( Picker, $$$1 ) {
+  }(function( Picker, $ ) {
 
 
   /**
@@ -2001,13 +2074,13 @@
       }
 
       // If it’s an object, use the native date object.
-      else if ( $$$1.isPlainObject( value ) && _.isInteger( value.pick ) ) {
+      else if ( $.isPlainObject( value ) && _.isInteger( value.pick ) ) {
           value = value.obj;
       }
 
       // If it’s an array, convert it into a date and make sure
       // that it’s a valid date – otherwise default to today.
-      else if ( $$$1.isArray( value ) ) {
+      else if ( $.isArray( value ) ) {
           value = new Date( value[ 0 ], value[ 1 ], value[ 2 ] );
           value = _.isDate( value ) ? value : calendar.create().obj;
       }
@@ -2042,7 +2115,7 @@
 
       var calendar = this,
           createDate = function( date ) {
-              if ( date === true || $$$1.isArray( date ) || _.isDate( date ) ) {
+              if ( date === true || $.isArray( date ) || _.isDate( date ) ) {
                   return calendar.create( date )
               }
               return date
@@ -2057,10 +2130,10 @@
       }
 
       // Create relative dates.
-      if ( _.isInteger( from ) && $$$1.isPlainObject( to ) ) {
+      if ( _.isInteger( from ) && $.isPlainObject( to ) ) {
           from = [ to.year, to.month, to.date + from ];
       }
-      else if ( _.isInteger( to ) && $$$1.isPlainObject( from ) ) {
+      else if ( _.isInteger( to ) && $.isPlainObject( from ) ) {
           to = [ from.year, from.month, from.date + to ];
       }
 
@@ -2117,8 +2190,8 @@
           targetYear,
           targetMonth,
           targetDate,
-          isTargetArray = $$$1.isArray( value ),
-          isTargetObject = $$$1.isPlainObject( value ),
+          isTargetArray = $.isArray( value ),
+          isTargetObject = $.isPlainObject( value ),
           viewsetObject = this.item.view;/*,
           safety = 100*/
 
@@ -2180,20 +2253,20 @@
   DatePicker.prototype.measure = function( type, value/*, options*/ ) {
 
       var calendar = this;
+      
+      // If it's an integer, get a date relative to today.
+      if ( _.isInteger( value ) ) {
+          value = calendar.now( type, value, { rel: value } );
+      }
 
       // If it’s anything false-y, remove the limits.
-      if ( !value ) {
+      else if ( !value ) {
           value = type == 'min' ? -Infinity : Infinity;
       }
 
       // If it’s a string, parse it.
       else if ( typeof value == 'string' ) {
           value = calendar.parse( type, value );
-      }
-
-      // If it's an integer, get a date relative to today.
-      else if ( _.isInteger( value ) ) {
-          value = calendar.now( type, value, { rel: value } );
       }
 
       return value
@@ -2238,7 +2311,7 @@
           hasEnabledWeekdays = isFlippedBase && calendar.item.disable.filter( function( value ) {
 
               // If there’s a date, check where it is relative to the target.
-              if ( $$$1.isArray( value ) ) {
+              if ( $.isArray( value ) ) {
                   var dateTime = calendar.create( value ).pick;
                   if ( dateTime < dateObject.pick ) hasEnabledBeforeTarget = true;
                   else if ( dateTime > dateObject.pick ) hasEnabledAfterTarget = true;
@@ -2348,20 +2421,20 @@
               }
 
               // If it’s an array or a native JS date, create and match the exact date.
-              if ( $$$1.isArray( dateToDisable ) || _.isDate( dateToDisable ) ) {
+              if ( $.isArray( dateToDisable ) || _.isDate( dateToDisable ) ) {
                   return dateToVerify.pick === calendar.create( dateToDisable ).pick
               }
 
               // If it’s an object, match a date within the “from” and “to” range.
-              if ( $$$1.isPlainObject( dateToDisable ) ) {
+              if ( $.isPlainObject( dateToDisable ) ) {
                   return calendar.withinRange( dateToDisable, dateToVerify )
               }
           });
 
       // If this date matches a disabled date, confirm it’s not inverted.
       isDisabledMatch = isDisabledMatch.length && !isDisabledMatch.filter(function( dateToDisable ) {
-          return $$$1.isArray( dateToDisable ) && dateToDisable[3] == 'inverted' ||
-              $$$1.isPlainObject( dateToDisable ) && dateToDisable.inverted
+          return $.isArray( dateToDisable ) && dateToDisable[3] == 'inverted' ||
+              $.isPlainObject( dateToDisable ) && dateToDisable.inverted
       }).length;
 
       // Check the calendar “enabled” flag and respectively flip the
@@ -2548,14 +2621,14 @@
 
       // When we’re working with date representations, compare the “pick” value.
       if (
-          ( _.isDate( one ) || $$$1.isArray( one ) ) &&
-          ( _.isDate( two ) || $$$1.isArray( two ) )
+          ( _.isDate( one ) || $.isArray( one ) ) &&
+          ( _.isDate( two ) || $.isArray( two ) )
       ) {
           return calendar.create( one ).pick === calendar.create( two ).pick
       }
 
       // When we’re working with range objects, compare the “from” and “to”.
-      if ( $$$1.isPlainObject( one ) && $$$1.isPlainObject( two ) ) {
+      if ( $.isPlainObject( one ) && $.isPlainObject( two ) ) {
           return calendar.isDateExact( one.from, two.from ) && calendar.isDateExact( one.to, two.to )
       }
 
@@ -2572,17 +2645,17 @@
           firstDay = calendar.settings.firstDay ? 1 : 0;
 
       // When we’re working with a weekday index, compare the days.
-      if ( _.isInteger( one ) && ( _.isDate( two ) || $$$1.isArray( two ) ) ) {
+      if ( _.isInteger( one ) && ( _.isDate( two ) || $.isArray( two ) ) ) {
           one = one % 7 + firstDay;
           return one === calendar.create( two ).day + 1
       }
-      if ( _.isInteger( two ) && ( _.isDate( one ) || $$$1.isArray( one ) ) ) {
+      if ( _.isInteger( two ) && ( _.isDate( one ) || $.isArray( one ) ) ) {
           two = two % 7 + firstDay;
           return two === calendar.create( one ).day + 1
       }
 
       // When we’re working with range objects, check if the ranges overlap.
-      if ( $$$1.isPlainObject( one ) && $$$1.isPlainObject( two ) ) {
+      if ( $.isPlainObject( one ) && $.isPlainObject( two ) ) {
           return calendar.overlapRanges( one, two )
       }
 
@@ -2644,8 +2717,8 @@
                   if (
                       _.isInteger( unitToDisable ) ||
                       _.isDate( unitToDisable ) ||
-                      $$$1.isArray( unitToDisable ) ||
-                      ( $$$1.isPlainObject( unitToDisable ) && unitToDisable.from && unitToDisable.to )
+                      $.isArray( unitToDisable ) ||
+                      ( $.isPlainObject( unitToDisable ) && unitToDisable.from && unitToDisable.to )
                   ) {
                       disabledItems.push( unitToDisable );
                   }
@@ -2706,11 +2779,11 @@
 
                   // When an overlapped match is found, add the “inverted” state to it.
                   else if ( calendar.isDateOverlap( disabledUnit, unitToEnable ) ) {
-                      if ( $$$1.isPlainObject( unitToEnable ) ) {
+                      if ( $.isPlainObject( unitToEnable ) ) {
                           unitToEnable.inverted = true;
                           matchFound = unitToEnable;
                       }
-                      else if ( $$$1.isArray( unitToEnable ) ) {
+                      else if ( $.isArray( unitToEnable ) ) {
                           matchFound = unitToEnable;
                           if ( !matchFound[3] ) matchFound.push( 'inverted' );
                       }
@@ -3083,6 +3156,9 @@
           closeOnSelect: true,
           closeOnClear: true,
 
+          // Update input value on select/clear
+          updateInput: true,
+
           // The format to show on the `input` element
           format: 'd mmmm, yyyy',
 
@@ -3139,11 +3215,11 @@
    * Date picker plugin extends `pickadate.js` by Amsul
    */
 
-  var PickDate = function ($$$1) {
+  var PickDate = function ($) {
     // constants >>>
     var DATA_KEY = 'md.pickdate';
     var NAME = 'pickdate';
-    var NO_CONFLICT = $$$1.fn[NAME];
+    var NO_CONFLICT = $.fn[NAME];
     var Default = {
       cancel: 'Cancel',
       closeOnCancel: true,
@@ -3269,14 +3345,14 @@
       var _proto = PickDate.prototype;
 
       _proto.display = function display(datepickerApi, datepickerRoot, datepickerValue) {
-        $$$1('.picker-date-display', datepickerRoot).remove();
-        $$$1('.picker-wrap', datepickerRoot).prepend("<div class=\"picker-date-display\"><div class=\"picker-date-display-top\"><span class=\"picker-year-display\">" + datepickerApi.get(datepickerValue, 'yyyy') + "</span></div><div class=\"picker-date-display-bottom\"><span class=\"picker-weekday-display\">" + datepickerApi.get(datepickerValue, 'dddd') + "</span><span class=\"picker-day-display\">" + datepickerApi.get(datepickerValue, 'd') + "</span><span class=\"picker-month-display\">" + datepickerApi.get(datepickerValue, 'mmm') + "</span></div></div>");
+        $('.picker-date-display', datepickerRoot).remove();
+        $('.picker-wrap', datepickerRoot).prepend("<div class=\"picker-date-display\"><div class=\"picker-date-display-top\"><span class=\"picker-year-display\">" + datepickerApi.get(datepickerValue, 'yyyy') + "</span></div><div class=\"picker-date-display-bottom\"><span class=\"picker-weekday-display\">" + datepickerApi.get(datepickerValue, 'dddd') + "</span><span class=\"picker-day-display\">" + datepickerApi.get(datepickerValue, 'd') + "</span><span class=\"picker-month-display\">" + datepickerApi.get(datepickerValue, 'mmm') + "</span></div></div>");
       };
 
       _proto.show = function show() {
         var _this = this;
 
-        $$$1(this._element).pickadate({
+        $(this._element).pickadate({
           clear: this._config.cancel,
           close: this._config.ok,
           closeOnClear: this._config.closeOnCancel,
@@ -3311,14 +3387,14 @@
           weekdaysFull: this._config.weekdaysFull,
           weekdaysShort: this._config.weekdaysShort
         });
-        var datepickerApi = $$$1(this._element).pickadate('picker');
+        var datepickerApi = $(this._element).pickadate('picker');
         var datepickerRoot = datepickerApi.$root;
         datepickerApi.on({
           close: function close() {
-            $$$1(document.activeElement).blur();
+            $(document.activeElement).blur();
           },
           open: function open() {
-            if (!$$$1('.picker__date-display', datepickerRoot).length) {
+            if (!$('.picker__date-display', datepickerRoot).length) {
               _this.display(datepickerApi, datepickerRoot, 'highlight');
             }
           },
@@ -3331,20 +3407,20 @@
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread({}, Default, config);
+        config = _objectSpread2({}, Default, {}, config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
       PickDate._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var _config = _objectSpread({}, Default, $$$1(this).data(), typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
 
-          var data = $$$1(this).data(DATA_KEY);
+          var data = $(this).data(DATA_KEY);
 
           if (!data) {
             data = new PickDate(this, _config);
-            $$$1(this).data(DATA_KEY, data);
+            $(this).data(DATA_KEY, data);
           }
 
           data.show();
@@ -3354,11 +3430,11 @@
       return PickDate;
     }();
 
-    $$$1.fn[NAME] = PickDate._jQueryInterface;
-    $$$1.fn[NAME].Constructor = PickDate;
+    $.fn[NAME] = PickDate._jQueryInterface;
+    $.fn[NAME].Constructor = PickDate;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = NO_CONFLICT;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
       return PickDate._jQueryInterface;
     };
   }($);
@@ -3368,7 +3444,7 @@
    * Chrome persisting focus state on checkboxes/radio buttons after clicking
    */
 
-  var SelectionControlFocus = function ($$$1) {
+  var SelectionControlFocus = function ($) {
     // constants >>>
     var DATA_KEY = 'md.selectioncontrolfocus';
     var EVENT_KEY = "." + DATA_KEY;
@@ -3386,14 +3462,14 @@
     };
     var Selector = {
       CONTROL: '.custom-control',
-      INPUT: '.custom-control-input' // <<< constants
+      INPUT: '.custom-control-input'
+    }; // <<< constants
 
-    };
-    $$$1(document).on("" + Event.BLUR, Selector.INPUT, function () {
-      $$$1(this).removeClass(ClassName.FOCUS);
+    $(document).on("" + Event.BLUR, Selector.INPUT, function () {
+      $(this).removeClass(ClassName.FOCUS);
     }).on("" + Event.FOCUS, Selector.INPUT, function () {
       if (LastInteraction.IS_MOUSEDOWN === false) {
-        $$$1(this).addClass(ClassName.FOCUS);
+        $(this).addClass(ClassName.FOCUS);
       }
     }).on("" + Event.MOUSEDOWN, Selector.CONTROL, function () {
       LastInteraction.IS_MOUSEDOWN = true;
@@ -3409,11 +3485,11 @@
    * Requires Bootstrap's (v4.1.X) `tab.js`
    */
 
-  var TabSwitch = function ($$$1) {
+  var TabSwitch = function ($) {
     // constants >>>
     var DATA_KEY = 'md.tabswitch';
     var NAME = 'tabswitch';
-    var NO_CONFLICT = $$$1.fn[NAME];
+    var NO_CONFLICT = $.fn[NAME];
     var ClassName = {
       ANIMATE: 'animate',
       DROPDOWN_ITEM: 'dropdown-item',
@@ -3428,9 +3504,8 @@
     var Selector = {
       DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
       DROPDOWN: '.dropdown',
-      NAV: '.nav-tabs' // <<< constants
-
-    };
+      NAV: '.nav-tabs'
+    }; // <<< constants
 
     var TabSwitch =
     /*#__PURE__*/
@@ -3445,70 +3520,70 @@
       _proto.switch = function _switch(element, relatedTarget) {
         var _this = this;
 
-        var navLeft = $$$1(this._nav).offset().left;
-        var navScrollLeft = $$$1(this._nav).scrollLeft();
-        var navWidth = $$$1(this._nav).outerWidth();
+        var navLeft = $(this._nav).offset().left;
+        var navScrollLeft = $(this._nav).scrollLeft();
+        var navWidth = $(this._nav).outerWidth();
 
         if (!this._navindicator) {
           this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
         }
 
-        if ($$$1(element).hasClass(ClassName.DROPDOWN_ITEM)) {
-          element = $$$1(element).closest(Selector.DROPDOWN);
+        if ($(element).hasClass(ClassName.DROPDOWN_ITEM)) {
+          element = $(element).closest(Selector.DROPDOWN);
         }
 
-        var elLeft = $$$1(element).offset().left;
-        var elWidth = $$$1(element).outerWidth();
-        $$$1(this._navindicator).addClass(ClassName.SHOW);
+        var elLeft = $(element).offset().left;
+        var elWidth = $(element).outerWidth();
+        $(this._navindicator).addClass(ClassName.SHOW);
         Util.reflow(this._navindicator);
-        $$$1(this._nav).addClass(ClassName.ANIMATE);
-        $$$1(this._navindicator).css({
+        $(this._nav).addClass(ClassName.ANIMATE);
+        $(this._navindicator).css({
           left: elLeft + navScrollLeft - navLeft,
           right: navWidth - (elLeft + navScrollLeft - navLeft + elWidth)
         });
 
         var complete = function complete() {
-          $$$1(_this._nav).removeClass(ClassName.ANIMATE);
-          $$$1(_this._navindicator).removeClass(ClassName.SHOW);
+          $(_this._nav).removeClass(ClassName.ANIMATE);
+          $(_this._navindicator).removeClass(ClassName.SHOW);
         };
 
         var transitionDuration = Util.getTransitionDurationFromElement(this._navindicator);
-        $$$1(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+        $(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
       };
 
       _proto._createIndicator = function _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
         this._navindicator = document.createElement('div');
-        $$$1(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
+        $(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
 
         if (typeof relatedTarget !== 'undefined') {
-          if ($$$1(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
-            relatedTarget = $$$1(relatedTarget).closest(Selector.DROPDOWN);
+          if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
+            relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN);
           }
 
-          var relatedLeft = $$$1(relatedTarget).offset().left;
-          var relatedWidth = $$$1(relatedTarget).outerWidth();
-          $$$1(this._navindicator).css({
+          var relatedLeft = $(relatedTarget).offset().left;
+          var relatedWidth = $(relatedTarget).outerWidth();
+          $(this._navindicator).css({
             left: relatedLeft + navScrollLeft - navLeft,
             right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
           });
         }
 
-        $$$1(this._nav).addClass(ClassName.MATERIAL);
+        $(this._nav).addClass(ClassName.MATERIAL);
       };
 
       TabSwitch._jQueryInterface = function _jQueryInterface(relatedTarget) {
         return this.each(function () {
-          var nav = $$$1(this).closest(Selector.NAV)[0];
+          var nav = $(this).closest(Selector.NAV)[0];
 
           if (!nav) {
             return;
           }
 
-          var data = $$$1(nav).data(DATA_KEY);
+          var data = $(nav).data(DATA_KEY);
 
           if (!data) {
             data = new TabSwitch(nav);
-            $$$1(nav).data(DATA_KEY, data);
+            $(nav).data(DATA_KEY, data);
           }
 
           data.switch(this, relatedTarget);
@@ -3518,27 +3593,27 @@
       return TabSwitch;
     }();
 
-    $$$1(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
-      TabSwitch._jQueryInterface.call($$$1(this), event.relatedTarget);
+    $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
+      TabSwitch._jQueryInterface.call($(this), event.relatedTarget);
     });
-    $$$1.fn[NAME] = TabSwitch._jQueryInterface;
-    $$$1.fn[NAME].Constructor = TabSwitch;
+    $.fn[NAME] = TabSwitch._jQueryInterface;
+    $.fn[NAME].Constructor = TabSwitch;
 
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = NO_CONFLICT;
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = NO_CONFLICT;
       return TabSwitch._jQueryInterface;
     };
 
     return TabSwitch;
   }($);
 
-  exports.Util = Util;
   exports.ExpansionPanel = ExpansionPanel;
   exports.FloatingLabel = FloatingLabel;
   exports.NavDrawer = NavDrawer;
   exports.PickDate = PickDate;
   exports.SelectionControlFocus = SelectionControlFocus;
   exports.TabSwitch = TabSwitch;
+  exports.Util = Util;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

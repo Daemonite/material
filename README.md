@@ -1,5 +1,8 @@
 # Material
 
+[![Backers on Open Collective](https://opencollective.com/material/backers/badge.svg)](#backers)
+[![Sponsors on Open Collective](https://opencollective.com/material/sponsors/badge.svg)](#sponsors) 
+
 Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design developed using Bootstrap 4.
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design.
@@ -14,6 +17,33 @@ The primary goal of this project is to give all Bootstrap components and element
 A secondary goal of this project is to add support for some unique Google Material Design components such as floating buttons, pickers, and steppers, to name a few, which cannot be achieved by transforming existing Bootstrap components.
 
 Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation.
+
+## :pray:
+
+This project exists thanks to all the people who contribute.
+
+<a href="https://github.com/Daemonite/material/graphs/contributors"><img src="https://opencollective.com/material/contributors.svg?width=890&button=false" /></a>
+
+### Backers
+
+Thank you to all our backers! [[Become a backer](https://opencollective.com/material#backer)]
+
+<a href="https://opencollective.com/material#backers" target="_blank"><img src="https://opencollective.com/material/backers.svg?width=890"></a>
+
+### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/material#sponsor)]
+
+<a href="https://opencollective.com/material/sponsor/0/website" target="_blank"><img src="https://opencollective.com/material/sponsor/0/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/1/website" target="_blank"><img src="https://opencollective.com/material/sponsor/1/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/2/website" target="_blank"><img src="https://opencollective.com/material/sponsor/2/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/3/website" target="_blank"><img src="https://opencollective.com/material/sponsor/3/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/4/website" target="_blank"><img src="https://opencollective.com/material/sponsor/4/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/5/website" target="_blank"><img src="https://opencollective.com/material/sponsor/5/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/6/website" target="_blank"><img src="https://opencollective.com/material/sponsor/6/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/7/website" target="_blank"><img src="https://opencollective.com/material/sponsor/7/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/8/website" target="_blank"><img src="https://opencollective.com/material/sponsor/8/avatar.svg"></a>
+<a href="https://opencollective.com/material/sponsor/9/website" target="_blank"><img src="https://opencollective.com/material/sponsor/9/avatar.svg"></a>
 
 ## Table of contents
 
