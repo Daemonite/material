@@ -12,6 +12,7 @@ Chips can be used for various types of entities, including brief information, fr
 
 <div class="list-group my-lg-5">
     <a href="https://material.io/components/chips/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Chips</a>
+    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Applying density</a>
     <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Chips</a>
 </div>
 
@@ -174,5 +175,21 @@ And in their outline variant.
 <a class="chip chip-action chip-outline" href="#"><i class="material-icons">event</i> Add to calendar</a>
 
 <a class="chip chip-action chip-outline disabled" href="#"><i class="material-icons">sync_disabled</i> Disabled</a>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Sizing and density
+
+More dense chips are avilable to reflect the Comfortable and Compact ones from Material design guidelines.
+Use `.chip-sm` for Comfortable chips and `.chip-xs` for Compact ones.
+
+{% capture example %}
+<button class="chip chip-action chip-sm" type="button"><i class='material-icons'>wb_sunny</i> Turn on lights</button>
+
+<button class="chip chip-action chip-outline chip-sm" type="button"><i class="material-icons">alarm</i>Set alarm</button>
+
+<a class="chip chip-action chip-xs" href="#"><i class="material-icons">music_note</i>Play music</a>
+
+<a class="chip chip-action chip-outline chip-xs" href="#"><i class="material-icons">directions</i>Get directions</a>
 {% endcapture %}
 {% include example.html content=example %}
