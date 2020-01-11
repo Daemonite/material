@@ -391,12 +391,7 @@
 
 // Style in button-flat
 .card-link {
-  //font-weight: $font-weight-bold; //addition
   @extend .btn;
-
-  + .card-link {
-    margin-left: $card-inner-spacer-x;
-  }
 }
 
 .card-title {
@@ -439,9 +434,15 @@
   }
 }
 
-// Primary action : https://material.io/design/components/cards.html#actions
+// Card hover effect : https://material.io/components/cards/#behavior
 .card-primary-action:hover {
   background: rgba($black, $overlay-hover-white-opacity);
+  //box-shadow: $card-elevation-shadow-hover;
   cursor: pointer;
-  transition: background-color 15ms linear;
 }
+
+// Primary action : https://material.io/design/components/cards.html#actions
+
+/* .card-primary-action:hover {
+  transition: background-color 15ms linear;
+} */

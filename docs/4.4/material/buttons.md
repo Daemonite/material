@@ -121,7 +121,7 @@ At the same time, for easier icon integration within buttons (*Material icons*, 
 {% endcapture %}
 {% include example.html content=example %}
 
-<p class="typography-overline">Confortable standard</p>
+<p class="typography-overline">Comfortable standard</p>
 {% capture example %}
 
 <button class="btn btn-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
@@ -130,7 +130,7 @@ At the same time, for easier icon integration within buttons (*Material icons*, 
 {% endcapture %}
 {% include example.html content=example %}
 
-<p class="typography-overline">Confortable shaped</p>
+<p class="typography-overline">Comfortable shaped</p>
 {% capture example %}
 
 <button class="btn btn-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>

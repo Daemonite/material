@@ -51,7 +51,7 @@
   }
 }
 
-// Addition
+// Outline
 .chip-outline {
   background: transparent;
   border: 1px solid $black-divider;
@@ -67,7 +67,6 @@
   transition: background-color 15ms linear;
 
   @include hover-focus-active {
-    //box-shadow: map-get($chip-elevation-shadow-hover, shadow);
     color: $chip-color;
     text-decoration: none;
   }
@@ -140,7 +139,7 @@
 }
 
 [type='checkbox']:checked + .chip-filter::before {
-  content: 'check'; // \e5ca
+  content: 'check';
   font-size: 1.125rem;
   margin-right: $chip-inner-spacer-x;
   transform: translateX(-$chip-inner-spacer-x);
@@ -151,8 +150,8 @@
   border-radius: $chip-icon-size / 2;
   flex-shrink: 0;
   height: $chip-icon-size;
-  margin-right: $chip-inner-spacer-x * 2;
-  margin-left: -$chip-inner-spacer-x * 2;
+  margin-right: $chip-inner-spacer-x;
+  margin-left: -$chip-inner-spacer-x;
   order: -1;
   width: $chip-icon-size;
 }
@@ -171,6 +170,8 @@
   font-weight: $chip-font-weight;
   justify-content: center;
 }
+
+// Size
 
 // Disabled
 .chip.disabled,
