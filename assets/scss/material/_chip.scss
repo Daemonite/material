@@ -37,10 +37,11 @@
   }
 
   > .material-icons {
+    @extend .chip-img;
+
     color: $black-secondary;
-    font-size: 1.25rem;
-    margin: 0 $chip-inner-spacer-x 0 -$chip-inner-spacer-x;
-    width: 1.25rem;
+    font-size: $chip-icon-size;
+    line-height: 1;
   }
 }
 
@@ -172,6 +173,13 @@
 }
 
 // Size
+.chip-sm {
+  height: 1.75rem;
+}
+
+.chip-xs {
+  height: 1.5rem;
+}
 
 // Disabled
 .chip.disabled,
