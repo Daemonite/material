@@ -4362,22 +4362,22 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .card-actions {
+  -ms-flex-align: center;
+  align-items: center;
   display: -ms-flexbox;
   display: flex;
   min-height: 3.25rem;
   padding: 0 0.5rem;
-  /* &:first-child {
-    @include border-top-radius($card-border-radius);
-  }
-
-  &:last-child {
-    @include border-bottom-radius($card-border-radius);
-  } */
 }
 
-.card-actions:not(.flex-column) {
-  -ms-flex-align: center;
-  align-items: center;
+.card-actions.flex-column {
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding-bottom: 0.25rem;
+}
+
+.card-actions.flex-column .btn, .card-actions.flex-column .card-link {
+  margin-bottom: 0.25rem;
 }
 
 .card-body + .card-actions {
