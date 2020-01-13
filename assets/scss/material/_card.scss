@@ -108,25 +108,14 @@
 // Action
 
 .card-actions {
+  align-items: center;
   display: flex;
   min-height: 3.25rem; // 52px
   padding: 0 $spacer-sm;
 
-  &:not(.flex-column) {
-    align-items: center;
-  }
-
   .card-body + & {
     margin-top: -$spacer-sm;
   }
-
-  /* &:first-child {
-    @include border-top-radius($card-border-radius);
-  }
-
-  &:last-child {
-    @include border-bottom-radius($card-border-radius);
-  } */
 
   .btn {
     @include text-truncate;

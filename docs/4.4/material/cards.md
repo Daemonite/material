@@ -180,20 +180,3 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 </div>
 {% endcapture %}
 {% include example.html content=example %}
-
-Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-reverse` to convert a horizontal action sheet to a vertical one.
-
-{% capture example %}
-<div class="card" style="width: 20rem;">
-  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-actions flex-column">
-    <a class="btn btn-flat-primary" href="#">Action</a>
-    <a class="btn btn-flat-primary" href="#">Action</a>
-  </div>
-</div>
-{% endcapture %}
-{% include example.html content=example %}

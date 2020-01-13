@@ -82,8 +82,8 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
           Discard draft?
         </div>
         <div class="modal-footer">
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
-          <button class="btn btn-flat-primary" type="button">Discard</button>
+          <button class="btn btn-primary" data-dismiss="modal" type="button">Cancel</button>
+          <button class="btn btn-primary" type="button">Discard</button>
         </div>
       </div>
     </div>
@@ -99,8 +99,8 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
         Discard draft?
       </div>
       <div class="modal-footer">
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
-        <button class="btn btn-flat-primary" type="button">Discard</button>
+        <button class="btn btn-primary" data-dismiss="modal" type="button">Cancel</button>
+        <button class="btn btn-primary" type="button">Discard</button>
       </div>
     </div>
   </div>
@@ -108,6 +108,8 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 {% endhighlight %}
 
 ### Scrollable alert
+
+You'll notice that the modal-body has a custom scrollbar on both Firefox and Chrome.
 
 <div class="bd-example bd-example-modal">
   <div class="modal">
@@ -156,8 +158,8 @@ The Wonderful Wizard of Oz</h5>
         <p>From the far north they heard a low wail of the wind, and Uncle Henry and Dorothy could see where the long grass bowed in waves before the coming storm. There now came a sharp whistling in the air from the south, and as they turned their eyes that way they saw ripples in the grass coming from that direction also.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-flat-primary" data-dismiss="modal">Decline</button>
-        <button type="button" class="btn btn-flat-primary">Accept</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Decline</button>
+        <button type="button" class="btn btn-primary">Accept</button>
       </div>
       </div>
     </div>
@@ -178,8 +180,8 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
           Discard draft?
         </div>
         <div class="modal-footer">
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
-          <button class="btn btn-flat-primary" type="button">Discard</button>
+          <button class="btn btn-primary" data-dismiss="modal" type="button">Cancel</button>
+          <button class="btn btn-primary" type="button">Discard</button>
         </div>
       </div>
     </div>
@@ -195,8 +197,8 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
         Discard draft?
       </div>
       <div class="modal-footer">
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">Cancel</button>
-        <button class="btn btn-flat-primary" type="button">Discard</button>
+        <button class="btn btn-primary" data-dismiss="modal" type="button">Cancel</button>
+        <button class="btn btn-primary" type="button">Discard</button>
       </div>
     </div>
   </div>
@@ -218,8 +220,8 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
           <p class="text-black-secondary typography-subheading">Let us help apps determine location. This means sending anonymous location data to us, even when no apps are running.</p>
         </div>
         <div class="modal-footer modal-footer-stacked">
-          <button class="btn btn-flat-primary" type="button">Turn on Speed Boost</button>
-          <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No Thanks</button>
+          <button class="btn btn-primary" type="button">Turn on Speed Boost</button>
+          <button class="btn btn-primary" data-dismiss="modal" type="button">No Thanks</button>
         </div>
       </div>
     </div>
@@ -238,8 +240,8 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
         <p class="text-black-secondary typography-subheading">Let us help apps determine cation. This means sending anonymous location data to us, even when no apps are nning.</p>
       </div>
       <div class="modal-footer modal-footer-stacked">
-        <button class="btn btn-flat-primary" type="button">Turn on Speed Boost</button>
-        <button class="btn btn-flat-primary" data-dismiss="modal" type="button">No Thanks</tton>
+        <button class="btn btn-primary" type="button">Turn on Speed Boost</button>
+        <button class="btn btn-primary" data-dismiss="modal" type="button">No Thanks</tton>
       </div>
     </div>
   </div>

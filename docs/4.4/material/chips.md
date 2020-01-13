@@ -62,7 +62,7 @@ This component uses a standard radio input and styles the label. Just add `chip-
 <input type="radio" id="myRadio4" name="chip-radio" class="d-none">
 <label for="myRadio4" class="chip chip-action chip-choice">Hard</label>
 
-<input type="radio" disabled id="myRadio5" name="chip-radio" class="d-none">
+<input type="radio" id="myRadio5" name="chip-radio" class="d-none" disabled>
 <label for="myRadio5" class="chip chip-action chip-choice">Disabled</label>
 {% endcapture %}
 {% include example.html content=example %}
@@ -82,7 +82,7 @@ They also exist in their outline variant.
 <input type="radio" id="radio-4" name="chip-radio-outline" class="d-none">
 <label for="radio-4" class="chip chip-action chip-outline chip-choice">Hard</label>
 
-<input type="radio" disabled id="radio-5" name="chip-radio-outline" class="d-none">
+<input type="radio" id="radio-5" name="chip-radio-outline" class="d-none" disabled>
 <label for="radio-5" class="chip chip-action chip-outline chip-choice">Disabled</label>
 {% endcapture %}
 {% include example.html content=example %}
@@ -110,7 +110,7 @@ This component uses a standard checkbox input and styles the label. Just add `ch
 <input type="checkbox" id="myCheckbox4" class="d-none">
 <label for="myCheckbox4" class="chip chip-action chip-filter">Wheelchair access</label>
 
-<input type="checkbox" disabled id="myCheckbox5" class="d-none">
+<input type="checkbox" id="myCheckbox5" class="d-none" disabled>
 <label for="myCheckbox5" class="chip chip-action chip-filter">Disabled</label>
 {% endcapture %}
 {% include example.html content=example %}
@@ -132,7 +132,7 @@ They also exist in their outline variant.
 <input type="checkbox" id="myCheckbox14" class="d-none">
 <label for="myCheckbox14" class="chip chip-action chip-outline chip-filter">Wheelchair access</label>
 
-<input type="checkbox" disabled id="myCheckbox15" class="d-none">
+<input type="checkbox" id="myCheckbox15" class="d-none" disabled>
 <label for="myCheckbox15" class="chip chip-action chip-outline chip-filter">Disabled</label>
 {% endcapture %}
 {% include example.html content=example %}
