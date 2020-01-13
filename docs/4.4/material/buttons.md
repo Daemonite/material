@@ -157,6 +157,42 @@ At the same time, for easier icon integration within buttons (*Material icons*, 
 {% endcapture %}
 {% include example.html content=example %}
 
+## Icon buttons
+
+Daemonite Material brings brand new `btn-icon` class for buttons. Markup is simple : set a simple button with usual `btn` class, add `btn-icon` class and just place an icon in the button. See the examples below.
+
+They also exist in Comfortable (`.btn-sm`) and Compact (`.btn-xs`) versions with smaller sizing.
+
+<p class="typography-overline">Default</p>
+{% capture example %}
+
+<button class="btn btn-icon" type="button"><i class="material-icons">format_underline</i></button>
+<a class="btn btn-icon" href="#"><i class="material-icons">attach_file</i></a>
+<button class="btn btn-icon" type="button"><i class="material-icons">link</i></button>
+<a class="btn btn-icon" href="#"><i class="material-icons">tag_faces</i></a>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Comfortable</p>
+{% capture example %}
+
+<button class="btn btn-icon btn-sm" type="button"><i class="material-icons">format_underline</i></button>
+<a class="btn btn-icon btn-sm" href="#"><i class="material-icons">attach_file</i></a>
+<button class="btn btn-icon btn-sm" type="button"><i class="material-icons">link</i></button>
+<a class="btn btn-icon btn-sm" href="#"><i class="material-icons">tag_faces</i></a>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Compact</p>
+{% capture example %}
+
+<button class="btn btn-icon btn-xs" type="button"><i class="material-icons">format_underline</i></button>
+<a class="btn btn-icon btn-xs" href="#"><i class="material-icons">attach_file</i></a>
+<button class="btn btn-icon btn-xs" type="button"><i class="material-icons">link</i></button>
+<a class="btn btn-icon btn-xs" href="#"><i class="material-icons">tag_faces</i></a>
+{% endcapture %}
+{% include example.html content=example %}
+
 ## Floating action buttons
 
 A floating action button represents the primary action in an application, it is used for a promoted action.
