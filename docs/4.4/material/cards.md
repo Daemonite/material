@@ -181,7 +181,7 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 {% endcapture %}
 {% include example.html content=example %}
 
-Vertical actions are no longer part of Material guidelines. However, for backward compatibility, they are kept in Daemonite Material.
+**Vertical actions are no longer part of Material guidelines. However, for backward compatibility, they are kept in Daemonite Material.**
 
 Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-reverse` to convert a horizontal action sheet to a vertical one.
 

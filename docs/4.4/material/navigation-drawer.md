@@ -1,12 +1,17 @@
 ---
 layout: docs
 title: Navigation drawer
-description: The navigation drawer contains the navigation destinations for your app or site.
+description: Navigation drawers provide access to destinations in your app.
 group: material
 toc: true
 ---
 
 A working example of a navigation drawer is the left panel on this page. If you are on a desktop, the navigation drawer should be visible at all times on the left hand side of the browser window. If you are on a mobile or tablet, you may need to toggle open the navigation drawer by tapping on the hamburger icon near the top of this page.
+
+<div class="list-group my-2 my-lg-5">
+    <a href="https://material.io/components/navigation-drawer/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Navigation drawer</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/drawer" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Drawer</a>
+</div>
 
 ## Content
 

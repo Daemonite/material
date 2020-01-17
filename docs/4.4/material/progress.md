@@ -1,10 +1,23 @@
 ---
 layout: docs
 title: Progress
-description: Progress indicators are visual indications of an app loading content.
+description: Progress indicators express an unspecified wait time or display the length of a process.
 group: material
 toc: true
 ---
+
+<div class="list-group my-2 my-lg-5">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Progress
+      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    </a>
+    <a href="https://material.io/components/progress-indicators/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Progress indicators</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/linear-progress-indicator" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Linear Progress Indicator</a>
+</div>
+
+Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available actions, such as whether users can navigate away from the current screen.
+
+**Progress as a group**
+When displaying progress for a sequence of processes, indicate overall progress rather than the progress of each activity.
 
 ## Circular progress
 

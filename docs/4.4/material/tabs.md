@@ -77,7 +77,7 @@ Fixed tabs have equal width, calculated either as the view width divided by the 
 
 Scrollable tabs display a subset of tabs at any given moment. They can contain longer tab labels and a larger number of tabs than fixed tabs. Scrollable tabs are best used for browsing contexts in touch interfaces when users don’t need to directly compare the tab labels.
 
-**N.B.** Due to its `overflow` value, scrollable tabs are not compatible with dropdown componenets.
+**N.B.** Due to its `overflow` value, scrollable tabs are not compatible with dropdown components.
 
 <div class="bd-example bd-example-tabs">
   <div class="nav-tabs-scrollable">
