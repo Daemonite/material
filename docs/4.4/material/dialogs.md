@@ -39,7 +39,7 @@ Titles should:
           <h5 class="modal-title">Get this party started?</h5>
         </div>
         <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Turn up the jams and have a good time.</p>
+          <p>Turn up the jams and have a good time.</p>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" data-dismiss="modal" type="button">Decline</button>
@@ -59,7 +59,7 @@ Titles should:
         <h5 class="modal-title">Get this party started?</h5>
       </div>
       <div class="modal-body">
-        <p class="text-black-secondary typography-body-1">Turn up the jams and have a good time.</p>
+        <p>Turn up the jams and have a good time.</p>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-dismiss="modal" type="button">Decline</button>
@@ -78,7 +78,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
   <div class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
-        <div class="modal-body typography-body-1">
+        <div class="modal-body">
           Discard draft?
         </div>
         <div class="modal-footer">
@@ -95,7 +95,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 <div class="modal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
-      <div class="modal-body typography-body-1">
+      <div class="modal-body">
         Discard draft?
       </div>
       <div class="modal-footer">
@@ -176,7 +176,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
   <div class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
-        <div class="modal-body typography-body-1">
+        <div class="modal-body">
           Discard draft?
         </div>
         <div class="modal-footer">
@@ -193,7 +193,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 <div class="modal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
-      <div class="modal-body typography-body-1">
+      <div class="modal-body">
         Discard draft?
       </div>
       <div class="modal-footer">
@@ -217,7 +217,7 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
           <h5 class="modal-title">Use location service?</h5>
         </div>
         <div class="modal-body">
-          <p class="text-black-secondary typography-subheading">Let us help apps determine location. This means sending anonymous location data to us, even when no apps are running.</p>
+          <p>Let us help apps determine location. This means sending anonymous location data to us, even when no apps are running.</p>
         </div>
         <div class="modal-footer modal-footer-stacked">
           <button class="btn btn-primary" type="button">Turn on Speed Boost</button>
@@ -237,7 +237,7 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
         <h5 class="modal-title">Use location service?</h5>
       </div>
       <div class="modal-body">
-        <p class="text-black-secondary typography-subheading">Let us help apps determine cation. This means sending anonymous location data to us, even when no apps are nning.</p>
+        <p>Let us help apps determine cation. This means sending anonymous location data to us, even when no apps are nning.</p>
       </div>
       <div class="modal-footer modal-footer-stacked">
         <button class="btn btn-primary" type="button">Turn on Speed Boost</button>
