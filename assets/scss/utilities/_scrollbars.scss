@@ -1,37 +1,39 @@
 // CSS Scrollbar for webkit/blink browsers
 
-::-webkit-scrollbar {
-  height: 8px;
-  width: 12px; //10
-}
+@include media-breakpoint-up(xl) {
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 12px;
+  }
 
-::-webkit-scrollbar-button {
-  background-color: transparent;
-  display: block;
-  height: 4px;
-}
+  ::-webkit-scrollbar-button {
+    background-color: transparent;
+    display: block;
+    height: 4px;
+  }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-track-piece {
-  background: transparent none;
-  border: solid 4px transparent;
-  border-right-width: 8px;
-}
+  ::-webkit-scrollbar-track-piece {
+    background: transparent none;
+    border: solid 4px transparent;
+    border-right-width: 8px;
+  }
 
-::-webkit-scrollbar-thumb {
-  border: solid 0 transparent;
-  border-radius: 5px;
-  border-top-right-radius: 9px 5px;
-  border-bottom-right-radius: 9px 5px;
-  border-right-width: 4px;
-  box-shadow: inset 0 0 0 6px #e0dfe1;
-}
+  ::-webkit-scrollbar-thumb {
+    border: solid 0 transparent;
+    border-radius: 5px;
+    border-top-right-radius: 9px 5px;
+    border-bottom-right-radius: 9px 5px;
+    border-right-width: 4px;
+    box-shadow: inset 0 0 0 6px #e0dfe1;
+  }
 
-::-webkit-scrollbar-thumb:window-inactive {
-  box-shadow: inset 0 0 0 6px rgba(#e0dfe1, 0.5);
+  ::-webkit-scrollbar-thumb:window-inactive {
+    box-shadow: inset 0 0 0 6px rgba(#e0dfe1, 0.5);
+  }
 }
 
 // CSS Scrollbar for overflow div in Firefox

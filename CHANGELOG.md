@@ -3,6 +3,7 @@
 ## 4.4.1 - alpha 2
 
 + Full Bootstrap 4.4.1 support
++ Added components according to Density guidelines
 + Expansion panels according to MD v2
 + Dialog buttons are always flat
 + Btn-link styled as btn-flat-primary
@@ -19,7 +20,7 @@ todo #29095: Add responsive containers
 
 ## 4.4.1 - alpha 1
 
-+ NPM support by @tiberiumihai
++ NPM build fixed by @tiberiumihai
 + BS 4.4.1 grid support
 + Enhance date picker
 

@@ -150,39 +150,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 
 // Link button : see button-flat
 
-/* .btn-link {
-  //background-color: transparent;
-  //border-radius: 0;
-  box-shadow: none;
-  color: $link-color;
-  //font-weight: $font-weight-medium;
-  text-decoration: $link-decoration;
-  text-transform: none;
-
-  @include hover-focus-active {
-    color: $link-color-hover;
-    text-decoration: $link-decoration-hover;
-  }
-
-  @include hover-focus {
-    background-image: none;
-    box-shadow: none;
-  }
-
-  &.active,
-  &:active {
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  &.disabled,
-  &:disabled {
-    background-color: transparent;
-    color: $btn-color-disabled;
-    text-decoration: none;
-  }
-} */
-
 // No minimum width
 .btn-fluid {
   min-width: 0;
@@ -206,7 +173,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   }
 }
 
-// Add icon to a button
+// Add icon in front of a button. Prevent collision with btn-icon component.
 .btn-icon-prepend > i,
 .btn-icon-prepend > .material-icons {
   font-size: $btn-icon-size;
@@ -214,10 +181,9 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   margin-left: -$spacer-xs;
 }
 
-// stylelint-disable
 .btn-icon-prepend[class*='btn-flat'] > i,
 .btn-icon-prepend.btn-link > i,
-.btn-icon-prepend[class*='btn-flat'] > .material-icons
+.btn-icon-prepend[class*='btn-flat'] > .material-icons,
 .btn-icon-prepend.btn-link > .material-icons {
   margin-left: 0;
 }

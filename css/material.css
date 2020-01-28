@@ -3342,38 +3342,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   width: 100%;
 }
 
-/* .btn-link {
-  //background-color: transparent;
-  //border-radius: 0;
-  box-shadow: none;
-  color: $link-color;
-  //font-weight: $font-weight-medium;
-  text-decoration: $link-decoration;
-  text-transform: none;
-
-  @include hover-focus-active {
-    color: $link-color-hover;
-    text-decoration: $link-decoration-hover;
-  }
-
-  @include hover-focus {
-    background-image: none;
-    box-shadow: none;
-  }
-
-  &.active,
-  &:active {
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  &.disabled,
-  &:disabled {
-    background-color: transparent;
-    color: $btn-color-disabled;
-    text-decoration: none;
-  }
-} */
 .btn-fluid {
   min-width: 0;
 }
@@ -3403,7 +3371,8 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn-icon-prepend[class*='btn-flat'] > i,
 .btn-icon-prepend.btn-link > i,
-.btn-icon-prepend[class*='btn-flat'] > .material-icons .btn-icon-prepend.btn-link > .material-icons {
+.btn-icon-prepend[class*='btn-flat'] > .material-icons,
+.btn-icon-prepend.btn-link > .material-icons {
   margin-left: 0;
 }
 
@@ -15739,38 +15708,35 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
   line-height: 1;
 }
 
-::-webkit-scrollbar {
-  height: 8px;
-  width: 12px;
-}
-
-::-webkit-scrollbar-button {
-  background-color: transparent;
-  display: block;
-  height: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-track-piece {
-  background: transparent none;
-  border: solid 4px transparent;
-  border-right-width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  border: solid 0 transparent;
-  border-radius: 5px;
-  border-top-right-radius: 9px 5px;
-  border-bottom-right-radius: 9px 5px;
-  border-right-width: 4px;
-  box-shadow: inset 0 0 0 6px #e0dfe1;
-}
-
-::-webkit-scrollbar-thumb:window-inactive {
-  box-shadow: inset 0 0 0 6px rgba(224, 223, 225, 0.5);
+@media (min-width: 1200px) {
+  ::-webkit-scrollbar {
+    height: 8px;
+    width: 12px;
+  }
+  ::-webkit-scrollbar-button {
+    background-color: transparent;
+    display: block;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background: transparent none;
+    border: solid 4px transparent;
+    border-right-width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: solid 0 transparent;
+    border-radius: 5px;
+    border-top-right-radius: 9px 5px;
+    border-bottom-right-radius: 9px 5px;
+    border-right-width: 4px;
+    box-shadow: inset 0 0 0 6px #e0dfe1;
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    box-shadow: inset 0 0 0 6px rgba(224, 223, 225, 0.5);
+  }
 }
 
 .custom-scrollbar,
