@@ -36,7 +36,7 @@
 
   // Background-color and (when enabled) gradient
   &::before {
-    @include transition-standard(background-color, opacity, transform);
+    @include transition-control(background-color, opacity, transform);
 
     background-color: currentColor;
     border-radius: 50%;
@@ -118,6 +118,11 @@
 // Tweak just a few things for checkboxes.
 
 .custom-checkbox {
+  &.custom-control {
+    align-items: center;
+    display: flex;
+  }
+
   .custom-control-label::after {
     @include set-material-icons;
 

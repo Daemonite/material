@@ -98,3 +98,29 @@
     transition: none;
   }
 }
+
+// Selection control
+
+@mixin transition-control($property...) {
+  transition: $property $transition-duration-control $transition-timing-function-standard;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+@mixin transition-dialog-opening($property...) {
+  transition: $property $transition-duration-desktop-entering $transition-timing-function-deceleration;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+@mixin transition-dialog-leaving($property...) {
+  transition: $property $transition-duration-desktop-leaving $transition-timing-function-acceleration;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

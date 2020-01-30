@@ -6,6 +6,10 @@
 .modal-open {
   overflow: hidden;
 
+  .fade {
+    @include transition-dialog-opening(opacity);
+  }
+
   .modal {
     overflow-x: hidden;
     overflow-y: auto;
@@ -13,8 +17,6 @@
 }
 
 .modal {
-  @include transition-acceleration(opacity, transform); // added
-
   display: none;
   height: 100%;
   outline: 0;
@@ -26,27 +28,27 @@
   z-index: map-get($dialog-elevation-shadow, elevation);
 
   &.fade {
-    //@include transition-standard-complex(opacity);
-    @include transition-deceleration(opacity);
+    .modal-dialog {
+      @include transition-dialog-leaving(opacity, transform);
+
+      opacity: 0;
+      transform: scale($dialog-transition-scale);
+    }
   }
 }
 
 .modal-dialog {
-  margin: $dialog-margin-y auto; // $modal-dialog-margin
+  margin: $dialog-margin-y auto;
   //max-width: $dialog-width;
   pointer-events: none;
   position: relative;
   width: calc(100% - #{$dialog-margin-x} * 2);
 
-  .modal.fade & {
-    @include transition-deceleration(transform);
-
-    transform: scale($dialog-transition-scale);
-  }
-
   .modal.show & {
+    @include transition-dialog-opening(opacity, transform);
+
     opacity: 1;
-    transform: $dialog-show-transform;
+    transform: scale(1);
   }
 }
 
@@ -120,11 +122,11 @@
   outline: 0;
   pointer-events: auto;
   position: relative;
-  vertical-align: baseline;
+  //vertical-align: baseline;
   width: 100%;
 }
 
-// Modal background
+// Modal background : Dialog scrim
 .modal-backdrop {
   background-color: $dialog-backdrop-bg;
   height: 100vh;
@@ -135,8 +137,17 @@
   z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
 
   // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.show { opacity: $dialog-backdrop-opacity; }
+  &.fade {
+    @include transition-dialog-leaving(opacity);
+
+    opacity: 0;
+  }
+
+  &.show {
+    //@include transition-dialog-opening(opacity);
+
+    opacity: 1;
+  }
 }
 
 .modal-header {
