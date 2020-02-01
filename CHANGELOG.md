@@ -8,11 +8,13 @@
 + Dialog buttons are always flat
 + Btn-link styled as btn-flat-primary
 + Added btn-xs and btn-icon-prepend
-+ Improved buttons
-+ Improved Steppers
-+ Improved documentation (faster, up to date)
-UPDATED dependencies
-FIXED Links used as buttons aspect on hover
+
+* Improved buttons
+* Improved Steppers
+* Improved documentation (faster, up to date)
+* Improved Dialog transitions
+* UPDATED dependencies
+* FIXED Links used as buttons aspect on hover
 
 4.4.0 CSS
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861

@@ -36,7 +36,7 @@
     width: 18px;
   }
 
-  > .material-icons {
+  > [class*='material-icons'] {
     @extend .chip-img;
 
     color: $black-secondary;
@@ -135,7 +135,7 @@
 
 [type='checkbox'] + .chip-filter::before {
   content: '';
-  font-family: 'Material Icons'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+  font-family: var(--font-family-material-icons); // stylelint-disable-line font-family-no-missing-generic-family-keyword
   transition: margin 100ms ease-in;
 }
 

@@ -56,6 +56,7 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-family-monospace: "Roboto Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  --font-family-material-icons: "Material Icons", "Material Icons Outlined", "Material Icons Two Tone", "Material Icons Round", "Material Icons Sharp";
 }
 
 *,
@@ -2098,7 +2099,7 @@ a.badge:hover, a.badge:focus {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -2339,7 +2340,7 @@ a.badge:hover, a.badge:focus {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -3363,7 +3364,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .btn-icon-prepend > i,
-.btn-icon-prepend > .material-icons {
+.btn-icon-prepend > [class*='material-icons'] {
   font-size: 1.125rem;
   margin-right: 0.5rem;
   margin-left: -0.25rem;
@@ -3371,8 +3372,8 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn-icon-prepend[class*='btn-flat'] > i,
 .btn-icon-prepend.btn-link > i,
-.btn-icon-prepend[class*='btn-flat'] > .material-icons,
-.btn-icon-prepend.btn-link > .material-icons {
+.btn-icon-prepend[class*='btn-flat'] > [class*='material-icons'],
+.btn-icon-prepend.btn-link > [class*='material-icons'] {
   margin-left: 0;
 }
 
@@ -3861,13 +3862,13 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .btn-float-extended > i,
-.btn-float-extended > .material-icons {
+.btn-float-extended > [class*='material-icons'] {
   margin-right: 0.75rem;
   margin-left: -0.5rem;
 }
 
 .btn-float-extended > i[class*="order-"],
-.btn-float-extended > .material-icons[class*="order-"] {
+.btn-float-extended > [class*='material-icons'][class*="order-"] {
   margin-right: -0.5rem;
   margin-left: 0.75rem;
 }
@@ -4701,7 +4702,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   width: 18px;
 }
 
-.chip > .material-icons {
+.chip > [class*='material-icons'] {
   color: rgba(0, 0, 0, 0.54);
   font-size: 1.25rem;
   line-height: 1;
@@ -4817,7 +4818,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 [type='checkbox'] + .chip-filter::before {
   content: '';
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   transition: margin 100ms ease-in;
 }
 
@@ -4830,7 +4831,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   transition: margin 100ms ease-in;
 }
 
-.chip-img, .chip > .material-icons, .chip-icon {
+.chip-img, .chip > [class*='material-icons'], .chip-icon {
   border-radius: 0.625rem;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -6533,7 +6534,7 @@ input:disabled + .chip {
 }
 
 .dropdown-item > i,
-.dropdown-item > .material-icons {
+.dropdown-item > [class*='material-icons'] {
   margin-right: 1.25rem;
   margin-left: 0.5rem;
 }
@@ -6567,7 +6568,7 @@ input:disabled + .chip {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -6604,7 +6605,7 @@ input:disabled + .chip {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -7585,9 +7586,9 @@ input:disabled + .chip {
   width: 2.5rem;
 }
 
-.picker-nav-next, .picker-nav-next.material-icons,
+.picker-nav-next, .picker-nav-next[class*='material-icons'],
 .picker-nav-prev,
-.picker-nav-prev.material-icons {
+.picker-nav-prev[class*='material-icons'] {
   line-height: 2.5rem;
 }
 
@@ -8761,7 +8762,7 @@ input:disabled + .chip {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -8792,7 +8793,7 @@ input:disabled + .chip {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -9397,7 +9398,7 @@ input:disabled + .chip {
 }
 
 .stepper-icon i,
-.stepper-icon .material-icons {
+.stepper-icon [class*='material-icons'] {
   font-size: 1rem;
 }
 
@@ -9888,7 +9889,7 @@ textarea.form-control-sm:not([rows='1']) {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -11731,7 +11732,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
-  font-family: 'Material Icons';
+  font-family: var(--font-family-material-icons);
   -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga';
   font-style: normal;
@@ -15642,21 +15643,22 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
   visibility: hidden !important;
 }
 
-.material-icons {
+[class*='material-icons'] {
   font-size: 1.5rem;
   line-height: 1.5rem;
   vertical-align: -0.362637em;
+  font-family: var(--font-family-material-icons);
 }
 
-.material-icons.md-18 {
+[class*='material-icons'].md-18 {
   font-size: 1.125rem;
 }
 
-.material-icons.md-36 {
+[class*='material-icons'].md-36 {
   font-size: 2.25rem;
 }
 
-.material-icons.md-48 {
+[class*='material-icons'].md-48 {
   font-size: 3rem;
 }
 
@@ -15665,7 +15667,7 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
   line-height: 1;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   ::-webkit-scrollbar {
     height: 8px;
     width: 12px;
@@ -15700,7 +15702,7 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
 .table-responsive,
 .modal-dialog-scrollable .modal-body,
 select {
-  overflow: scroll;
+  overflow-y: scroll;
   scrollbar-color: #e0dfe1 transparent;
   scrollbar-width: thin;
 }
