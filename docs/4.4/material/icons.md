@@ -5,7 +5,7 @@ description: Material takes advantage of the over 900 icons offered by the offic
 group: material
 ---
 
-<div class="list-group mt-lg-5">
+<div class="list-group">
     <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action lgi-icon-md">Material Design Icons</a>
 </div>
 
@@ -17,9 +17,9 @@ Daemonite Material UI is dependent of Material Design Icons and therefore requir
 <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 {% endhighlight %}
 
-For more creativity, it is compatible with all variants of Material Design Icons (Filled, Outlined, Rounded, Two-Tone and Sharp versions, declared in this order below).
+For more creativity, it is compatible with all variants of Material Design Icons (**Filled, Outlined, Rounded, Two-Tone and Sharp versions**, declared in this order below).
 
-You can apply changes immediately by modifying the stylesheet declaration according to the icon set you want (pick the one you want below).
+You can apply changes to your page immediately by modifying the stylesheet declaration according to the icon set you want (pick the one you want below).
 
 {% highlight html %}
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
@@ -46,7 +46,7 @@ Here’s a small example:
 {% endcapture %}
 {% include example.html content=example %}
 
-In order to allow you to switch fast from one icon set to another, Daemonite Material promotes the usage of the default HTML markup using `<i class="material-icons">...</i>`.
+In order to allow you to switch fast from one icon set to another, Daemonite Material promotes the usage of the default HTML markup using `<i class="material-icons">...</i>` (and avoid specific ones like `<i class="material-icons-outlined">...</i>`)
 
 <!---
 WIP In the case you use 2 Icons sets on a page, you will need to specify ...
