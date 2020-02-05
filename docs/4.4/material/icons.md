@@ -5,28 +5,58 @@ description: Material takes advantage of the over 900 icons offered by the offic
 group: material
 ---
 
-## Quick start
+<div class="list-group mt-lg-5">
+    <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action lgi-icon-md">Material Design Icons</a>
+</div>
 
-The easiest way to set up icon fonts for use in any web page is through [Google Web Fonts](https://developers.google.com/fonts/). All you need to do is include a single line of HTML:
+## Choose your icon set
+
+Daemonite Material UI is dependent of Material Design Icons and therefore requires at least this stylesheet declaration in your HTML header.
 
 {% highlight html %}
 <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 {% endhighlight %}
 
-Then, it's easy to incorporate icons into your web page. Here’s a small example:
+For more creativity, it is compatible with all variants of Material Design Icons (Filled, Outlined, Rounded, Two-Tone and Sharp versions, declared in this order below).
+
+You can apply changes immediately by modifying the stylesheet declaration according to the icon set you want (pick the one you want below).
+
+{% highlight html %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+{% endhighlight %}
+
+You can even mix multiple icons set within your page with a combined stylesheet declaration like this.
+
+{% highlight html %}
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Icons+Outlined" rel="stylesheet">
+{% endhighlight %}
+
+## HTML markup
+
+Then, it's easy to incorporate icons into your web page. You can browse the icon set and copy-paste the HTML markup from the [Material icons library](https://material.io/resources/icons/).
+
+Here’s a small example:
 
 {% capture example %}
 <i class="material-icons">face</i>
 {% endcapture %}
 {% include example.html content=example %}
 
-This example uses a typographic feature called [ligatures](http://alistapart.com/article/the-era-of-symbol-fonts), which allows rendering of an icon glyph simply by using its textual name. The replacement is done automatically by the web browser and provides more readable code than the equivalent numeric character reference. This feature is supported in most modern browsers on both desktop and mobile devices.
+In order to allow you to switch fast from one icon set to another, Daemonite Material promotes the usage of the default HTML markup using `<i class="material-icons">...</i>`.
 
-For browsers that do not support ligatures, fall back to specifying the icons using numeric character references like the example below:
+<!---
+WIP In the case you use 2 Icons sets on a page, you will need to specify ...
+-->
+
+**NB. For browsers that do not support ligatures, fall back to specifying the icons using numeric character references like the example below:**
 
 {% capture example %}
 <i class="material-icons">&#xE87C;</i>
 {% endcapture %}
 {% include example.html content=example %}
 
-For all available icons, please refer to [Material icons library](https://material.io/icons/).
+For all available icons, please refer to [Material icons library](https://material.io/resources/icons/).
