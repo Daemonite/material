@@ -31,33 +31,33 @@ Wrap your table within a div and add `data-table` class to this div. It will add
     <thead>
       <tr>
         <th scope="col">Dessert</th>
-        <th scope="col">Calories</th>
-        <th scope="col">Fat</th>
-        <th scope="col">Carbs</th>
-        <th scope="col">Protein (g)</th>
+        <th scope="col" class="text-right">Calories</th>
+        <th scope="col" class="text-right">Fat</th>
+        <th scope="col" class="text-right">Carbs</th>
+        <th scope="col" class="text-right">Protein (g)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">Frozen yogurt</th>
-        <td>159</td>
-        <td>6</td>
-        <td>24</td>
-        <td>4</td>
+        <td class="text-right">159</td>
+        <td class="text-right">6</td>
+        <td class="text-right">24</td>
+        <td class="text-right">4</td>
       </tr>
       <tr>
         <th scope="row">Ice cream sandwich</th>
-        <td>237</td>
-        <td>9</td>
-        <td>37</td>
-        <td>4.3</td>
+        <td class="text-right">237</td>
+        <td class="text-right">9</td>
+        <td class="text-right">37</td>
+        <td class="text-right">4.3</td>
       </tr>
       <tr>
         <th scope="row">Eclair</th>
-        <td>262</td>
-        <td>16</td>
-        <td>24</td>
-        <td>6</td>
+        <td class="text-right">262</td>
+        <td class="text-right">16</td>
+        <td class="text-right">24</td>
+        <td class="text-right">6</td>
       </tr>
     </tbody>
   </table>
@@ -77,25 +77,22 @@ Data manipulation tools and table navigation can be added using card components.
 {% capture example %}
 <div class="card">
   <div class="card-header d-flex pr-0">
-    <h5 class="card-title mb-0">Card title</h5>
-    <div class="card-actions ml-auto py-0">
-      <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>
-        <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right menu">
-          <a class="dropdown-item" href="#">Filter 1</a>
-          <a class="dropdown-item" href="#">Filter 2</a>
-          <a class="dropdown-item" href="#">Filter 3</a>
-        </div>
+    <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" ass="btn btn-flat my-0" data-toggle="dropdown" ="cardTableDrop1" type="button"><i ass="material-icons">filter_list</i></button>
+      <div aria-labelledby="cardTableDrop1" class="dropdown-menu opdown-menu-right menu">
+        <a class="dropdown-item" href="#">Filter 1</a>
+        <a class="dropdown-item" href="#">Filter 2</a>
+        <a class="dropdown-item" href="#">Filter 3</a>
       </div>
-      <div class="dropdown">
-        <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop2" type="button"><i class="material-icons">more_vert</i></button>
-        <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
+    </div>
+    <div class="dropdown ml-auto">
+      <button aria-expanded="false" aria-haspopup="true" class="btn btn-flat my-0" data-toggle="dropdown" id="cardTableDrop2" type="button"><i class="material-icons">more_vert</i></button>
+      <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right menu">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div>
   </div>
@@ -133,7 +130,7 @@ Data manipulation tools and table navigation can be added using card components.
   <div class="card-actions align-items-center justify-content-end">
     <span class="align-self-center mb-1 mx-1 text-muted">Rows per page:</span>
     <div class="dropdown">
-      <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline dropdown-toggle" data-toggle="dropdown" type="button">3</button>
+      <button aria-expanded="false" aria-haspopup="true" class="btn btn-flat dropdown-toggle" data-toggle="dropdown" type="button">3</button>
       <div class="dropdown-menu dropdown-menu-right menu">
         <a class="dropdown-item active" href="#">3</a>
         <a class="dropdown-item" href="#">10</a>
@@ -142,9 +139,9 @@ Data manipulation tools and table navigation can be added using card components.
         <a class="dropdown-item" href="#">Show all</a>
       </div>
     </div>
-    <span class="align-self-center mb-1 mr-2 text-muted">1-3 of 300</span>
-    <a class="btn btn-outline" href="#"><i class="material-icons">chevron_left</i></a>
-    <a class="btn btn-outline" href="#"><i class="material-icons">chevron_right</i></a>
+    <span class="align-self-center mb-1 mr-2">1-3 of 300</span>
+    <a class="btn btn-flat" href="#"><i class="material-icons">chevron_left</i></a>
+    <a class="btn btn-flat" href="#"><i class="material-icons">chevron_right</i></a>
   </div>
 </div>
 {% endcapture %}
