@@ -71,14 +71,13 @@ Wrap your table within a div and add `data-table` class to this div. It will add
 
 ## Pagination
 
-**WIP**
 Data manipulation tools and table navigation can be added using card components.
 
 {% capture example %}
 <div class="card">
   <div class="card-header d-flex pr-0">
     <div class="dropdown">
-      <button aria-expanded="false" aria-haspopup="true" ass="btn btn-flat my-0" data-toggle="dropdown" ="cardTableDrop1" type="button"><i ass="material-icons">filter_list</i></button>
+      <button aria-expanded="false" aria-haspopup="true" class="btn btn-flat my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>
       <div aria-labelledby="cardTableDrop1" class="dropdown-menu opdown-menu-right menu">
         <a class="dropdown-item" href="#">Filter 1</a>
         <a class="dropdown-item" href="#">Filter 2</a>
