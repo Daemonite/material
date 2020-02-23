@@ -7,9 +7,9 @@ group: material
 toc: true
 ---
 
-Tabs enable content organization at a high level, such as switching between views.
+Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.
 
-Present tabs as a single row above their associated content. Tab labels should succinctly describe the content within.
+Each tab should contain content that is distinct from other tabs in a set. For example, tabs can present different sections of news, different genres of music, or different themes of documents.
 
 <div class="list-group mt-lg-5">
     <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Navs
@@ -25,9 +25,7 @@ Present tabs as a single row above their associated content. Tab labels should s
 
 ## Fixed tabs
 
-Fixed tabs display all tabs concurrently and are best used with content that benefits from quick pivots between tabs in fixed positions, such as switching transportation methods for directions in Google Maps.
-
-Fixed tabs have equal width, calculated either as the view width divided by the number of tabs, or based on the widest tab label.
+Fixed tabs display all tabs on one screen, with each tab at a fixed width. The width of each tab is determined by dividing the number of tabs by the screen width. They don’t scroll to reveal more tabs; the visible tab set represents the only tabs available.
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="myTab" role="tablist">
@@ -73,9 +71,225 @@ Fixed tabs have equal width, calculated either as the view width divided by the 
 </div>
 {% endhighlight %}
 
+### Tabs with icons
+
+You can add **Leading icons** in front of your tab title. Just add an icon within an `<i>` tag or a `.material-icon`.
+
+<div class="bd-example bd-example-tabs">
+  <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
+    <li class="nav-item">
+      <a aria-controls="#" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#example23tab" id="example23" role="tab"><i class="material-icons">location_on</i> tab three</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContentWithIcons">
+    <div aria-labelledby="example2" class="tab-pane active fade show" id="example2tab" role="tabpanel">
+      <p>Panel 1.</p>
+    </div>
+    <div aria-labelledby="example22" class="tab-pane fade" id="example22tab" role="tabpanel">
+      <p>Panel 2.</p>
+    </div>
+    <div aria-labelledby="example23" class="tab-pane fade" id="example23tab" role="tabpanel">
+      <p>Panel 3.</p>
+    </div>
+  </div>
+</div>
+
+{% highlight html %}
+<ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
+  <li class="nav-item">
+    <a aria-controls="#" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#example23tab" id="example23" role="tab"><i class="material-icons">location_on</i> tab three</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContentWithIcons">
+  <div aria-labelledby="example2" class="tab-pane active fade show" id="example2tab" role="tabpanel">
+    <p>Panel 1.</p>
+  </div>
+  <div aria-labelledby="example22" class="tab-pane fade" id="example22tab" role="tabpanel">
+    <p>Panel 2.</p>
+  </div>
+  <div aria-labelledby="example23" class="tab-pane fade" id="example23tab" role="tabpanel">
+    <p>Panel 3.</p>
+  </div>
+</div>
+{% endhighlight %}
+
+You can use tabs without text and a simple icon. Just add a `m-0` class to your icon to reset margins and center the icon.
+
+<div class="bd-example bd-example-tabs">
+  <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIconsOnly" role="tablist">
+    <li class="nav-item">
+      <a aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example3tab" id="example3" role="tab"><i class="material-icons">phone</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example32tab" id="example32" role="tab"><i class="material-icons">favorite</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example33tab" id="example33" role="tab"><i class="material-icons">location_on</i></a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContentWithIconsOnly">
+    <div aria-labelledby="example3" class="tab-pane active fade show" id="example3tab" role="tabpanel">
+      <p>Panel 1.</p>
+    </div>
+    <div aria-labelledby="example32" class="tab-pane fade" id="example32tab" role="tabpanel">
+      <p>Panel 2.</p>
+    </div>
+    <div aria-labelledby="example33" class="tab-pane fade" id="example33tab" role="tabpanel">
+      <p>Panel 3.</p>
+    </div>
+  </div>
+</div>
+
+{% highlight html %}
+<ul class="nav nav-justified nav-tabs" id="justifiedTabWithIconsOnly" role="tablist">
+  <li class="nav-item">
+    <a aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example3tab" id="example3" role="tab"><i class="material-icons">phone</i></a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example32tab" id="example32" role="tab"><i class="material-icons">favorite</i></a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example33tab" id="example33" role="tab"><i class="material-icons">location_on</i></a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContentWithIconsOnly">
+  <div aria-labelledby="example3" class="tab-pane active fade show" id="example3tab" role="tabpanel">
+    <p>Panel 1.</p>
+  </div>
+  <div aria-labelledby="example32" class="tab-pane fade" id="example32tab" role="tabpanel">
+    <p>Panel 2.</p>
+  </div>
+  <div aria-labelledby="example33" class="tab-pane fade" id="example33tab" role="tabpanel">
+    <p>Panel 3.</p>
+  </div>
+</div>
+{% endhighlight %}
+
+You can also use a **Top icon** for your tabs titles. Just add a `flex-column` class to your `nav-link` element so elements will align vertically.
+
+<div class="bd-example bd-example-tabs">
+  <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
+    <li class="nav-item">
+      <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i></a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContentVertical">
+    <div aria-labelledby="example4" class="tab-pane active fade show" id="example4tab" role="tabpanel">
+      <p>Panel 1.</p>
+    </div>
+    <div aria-labelledby="example42" class="tab-pane fade" id="example42tab" role="tabpanel">
+      <p>Panel 2.</p>
+    </div>
+    <div aria-labelledby="example43" class="tab-pane fade" id="example43tab" role="tabpanel">
+      <p>Panel 3.</p>
+    </div>
+  </div>
+</div>
+
+{% highlight html %}
+<ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
+  <li class="nav-item">
+    <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i></a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i></a>
+  </li>
+  <li class="nav-item">
+    <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i></a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContentVertical">
+  <div aria-labelledby="example4" class="tab-pane active fade show" id="example4tab" role="tabpanel">
+    <p>Panel 1.</p>
+  </div>
+  <div aria-labelledby="example42" class="tab-pane fade" id="example42tab" role="tabpanel">
+    <p>Panel 2.</p>
+  </div>
+  <div aria-labelledby="example43" class="tab-pane fade" id="example43tab" role="tabpanel">
+    <p>Panel 3.</p>
+  </div>
+</div>
+{% endhighlight %}
+
+## Tabs on dark background
+
+When using tabs on a dark background, add `nav-inverse` class to your `nav nav-tabs` container. It will lighten text and icons used according to Material guidelines.
+
+<div class="bd-example bd-example-tabs">
+  <div class="pt-2 bg-primary">
+    <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
+      <li class="nav-item">
+        <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i></a>
+      </li>
+      <li class="nav-item">
+        <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i></a>
+      </li>
+      <li class="nav-item">
+        <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i></a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content" id="myTabContentInverse">
+    <div aria-labelledby="example5" class="tab-pane active fade show" id="example5tab" role="tabpanel">
+      <p>Panel 1.</p>
+    </div>
+    <div aria-labelledby="example52" class="tab-pane fade" id="example52tab" role="tabpanel">
+      <p>Panel 2.</p>
+    </div>
+    <div aria-labelledby="example53" class="tab-pane fade" id="example53tab" role="tabpanel">
+      <p>Panel 3.</p>
+    </div>
+  </div>
+</div>
+
+{% highlight html %}
+<div class="pt-2 bg-primary">
+  <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
+    <li class="nav-item">
+      <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i></a>
+    </li>
+    <li class="nav-item">
+      <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i></a>
+    </li>
+  </ul>
+</div>
+<div class="tab-content" id="myTabContentInverse">
+  <div aria-labelledby="example5" class="tab-pane active fade show" id="example5tab" role="tabpanel">
+    <p>Panel 1.</p>
+  </div>
+  <div aria-labelledby="example52" class="tab-pane fade" id="example52tab" role="tabpanel">
+    <p>Panel 2.</p>
+  </div>
+  <div aria-labelledby="example53" class="tab-pane fade" id="example53tab" role="tabpanel">
+    <p>Panel 3.</p>
+  </div>
+</div>
+{% endhighlight %}
+
 ## Scrollable tabs
 
-Scrollable tabs display a subset of tabs at any given moment. They can contain longer tab labels and a larger number of tabs than fixed tabs. Scrollable tabs are best used for browsing contexts in touch interfaces when users don’t need to directly compare the tab labels.
+Scrollable tabs are displayed without fixed widths. They are scrollable, such that some tabs will remain off-screen until scrolled.
 
 **N.B.** Due to its `overflow` value, scrollable tabs are not compatible with dropdown components.
 
