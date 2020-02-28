@@ -38,6 +38,7 @@ childProcess.exec('java -version', (error, stdout, stderr) => {
     '--asciiquotes',
     `--filterpattern "${ignores}"`,
     '--skip-non-html',
+    'verbose',
     'gh-pages/'
   ]
 

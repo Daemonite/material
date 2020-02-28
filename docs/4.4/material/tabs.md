@@ -71,7 +71,7 @@ Fixed tabs display all tabs on one screen, with each tab at a fixed width. The w
 </div>
 {% endhighlight %}
 
-### Tabs with icons
+### Tabs with leading icon
 
 You can add **Leading icons** in front of your tab title. Just add an icon within an `<i>` tag or a `.material-icon`.
 
@@ -125,6 +125,8 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 </div>
 {% endhighlight %}
 
+### Tabs with icon only
+
 You can use tabs without text and a simple icon. Just add a `m-0` class to your icon to reset margins and center the icon.
 
 <div class="bd-example bd-example-tabs">
@@ -177,18 +179,20 @@ You can use tabs without text and a simple icon. Just add a `m-0` class to your 
 </div>
 {% endhighlight %}
 
+### Tabs with top icon
+
 You can also use a **Top icon** for your tabs titles. Just add a `flex-column` class to your `nav-link` element so elements will align vertically.
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
     <li class="nav-item">
-      <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i></a>
+      <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i> tab one</a>
     </li>
     <li class="nav-item">
-      <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i></a>
+      <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i> tab two</a>
     </li>
     <li class="nav-item">
-      <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i></a>
+      <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i> tab three</a>
     </li>
   </ul>
   <div class="tab-content" id="myTabContentVertical">
@@ -207,13 +211,13 @@ You can also use a **Top icon** for your tabs titles. Just add a `flex-column` c
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
   <li class="nav-item">
-    <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i></a>
+    <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i> tab one</a>
   </li>
   <li class="nav-item">
-    <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i></a>
+    <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i> tab two</a>
   </li>
   <li class="nav-item">
-    <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i></a>
+    <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i> tab three</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContentVertical">
@@ -237,13 +241,13 @@ When using tabs on a dark background, add `nav-inverse` class to your `nav nav-t
   <div class="pt-2 bg-primary">
     <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
       <li class="nav-item">
-        <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i></a>
+        <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i> tab one</a>
       </li>
       <li class="nav-item">
-        <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i></a>
+        <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i> tab two</a>
       </li>
       <li class="nav-item">
-        <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i></a>
+        <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i> tab three</a>
       </li>
     </ul>
   </div>
@@ -264,13 +268,13 @@ When using tabs on a dark background, add `nav-inverse` class to your `nav nav-t
 <div class="pt-2 bg-primary">
   <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
     <li class="nav-item">
-      <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i></a>
+      <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i> tab one</a>
     </li>
     <li class="nav-item">
-      <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i></a>
+      <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i> tab two</a>
     </li>
     <li class="nav-item">
-      <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i></a>
+      <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i> tab three</a>
     </li>
   </ul>
 </div>
