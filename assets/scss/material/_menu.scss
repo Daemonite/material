@@ -371,11 +371,6 @@
 
 .dropdown-menu-sm,
 .menu-cascading {
-  //font-size: $menu-font-size-cascading;
-  //line-height: $menu-line-height-cascading;
-  //padding-top: $menu-padding-y-cascading;
-  //padding-bottom: $menu-padding-y-cascading;
-
   @include media-breakpoint-up(sm) {
     min-width: $menu-min-width-cascading;
   }
@@ -457,6 +452,7 @@
 
 .dropdown-item {
   @include transition-standard(background-color, color);
+  @include text-truncate;
 
   align-items: center;
   background: none;

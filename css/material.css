@@ -3080,6 +3080,11 @@ pre code {
   padding-top: 42.857143%;
 }
 
+/* djibe addition */
+[data-spy='scroll'] {
+  scroll-behavior: smooth;
+}
+
 .fade {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -6476,6 +6481,9 @@ input:disabled + .chip {
   transition-property: $property;
   transition-timing-function: $transition-timing-function-standard; */
   transition: background-color, color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   -ms-flex-align: center;
   align-items: center;
   background: none;
@@ -9418,6 +9426,7 @@ input:disabled + .chip {
 }
 
 .nav-tabs {
+  width: 100%;
   /* &.border-0,
   &.border-bottom-0 {
     box-shadow: none;
@@ -9441,6 +9450,9 @@ input:disabled + .chip {
   transition-property: $property;
   transition-timing-function: $transition-timing-function-standard; */
   transition: background-color, color, opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   -ms-flex-align: center;
   align-items: center;
   color: rgba(0, 0, 0, 0.54);
@@ -9552,6 +9564,7 @@ input:disabled + .chip {
 .nav-tabs .nav-link.disabled {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.38);
+  opacity: 1;
 }
 
 .nav-tabs .nav-link i,
@@ -9563,6 +9576,7 @@ input:disabled + .chip {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
+/* Used ??? */
 .nav-tabs-material {
   position: relative;
 }
@@ -9619,6 +9633,7 @@ input:disabled + .chip {
 .nav-tabs-scrollable .nav-tabs {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   overflow-y: hidden;
   padding-left: 2.5rem;
