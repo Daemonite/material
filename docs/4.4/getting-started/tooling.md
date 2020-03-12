@@ -31,7 +31,7 @@ Running our documentation locally requires the use of [Jekyll](https://jekyllrb.
 
 1. Run through the [getting started guide](#getting-started) above to install Jekyll and other Ruby dependencies with `bundle install`.
 2. From the root `/daemonite-material` directory, run `npm run docs-serve` in the command line.
-3. Open `http://localhost:9999/material` in your browser, and voilà.
+3. Open `http://127.0.0.1:9999/material/` in your browser, and voilà (or just click on the *Server address* returned by the Terminal).
 
 ## PostCSS
 

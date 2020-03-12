@@ -2811,10 +2811,13 @@ pre code {
 }
 
 .nav-justified .nav-item {
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .nav-pills .nav-link {
@@ -3081,8 +3084,15 @@ pre code {
 }
 
 /* djibe addition */
+html,
 [data-spy='scroll'] {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .fade {
@@ -9426,11 +9436,9 @@ input:disabled + .chip {
 }
 
 .nav-tabs {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   width: 100%;
-  /* &.border-0,
-  &.border-bottom-0 {
-    box-shadow: none;
-  } */
 }
 
 .nav-tabs.nav-inverse .nav-link {
