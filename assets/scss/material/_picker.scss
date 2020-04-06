@@ -33,8 +33,8 @@
 }
 
 .picker-frame {
-  //margin: $picker-margin-y $picker-margin-x;
-  max-width: calc(100vw - 2 * #{$spacer});
+  margin: $picker-margin-y $picker-margin-x;
+  // max-width: calc(100vw - 2 * #{$spacer});
 }
 
 .picker-holder {
@@ -246,11 +246,12 @@
   }
 }
 
-.picker-input {
+//.picker-input {
+[class*='pick'] {
   &.form-control[readonly] {
-    border-bottom-style: inherit;
+    border-bottom-style: solid;
     color: inherit;
-    cursor: text;
+    cursor: pointer;
   }
 
   &[readonly].form-control:hover,

@@ -2889,7 +2889,7 @@ pre code {
 }
 
 .page-link {
-  border-radius: 2.25rem;
+  border-radius: 1.125rem;
   /* transition: $transition-duration-mobile;
   transition-property: $property;
   transition-timing-function: $transition-timing-function-standard; */
@@ -2906,6 +2906,7 @@ pre code {
   line-height: 2.25;
   margin-left: 0.5em;
   min-width: 2.25rem;
+  padding: 0 10px;
   position: relative;
   text-align: center;
   white-space: nowrap;
@@ -2938,6 +2939,7 @@ pre code {
 
 .page-link:focus {
   background-color: rgba(0, 0, 0, 0.12);
+  outline: none;
 }
 
 .page-link:active {
@@ -3090,7 +3092,8 @@ html,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  [data-spy='scroll'] {
     scroll-behavior: auto;
   }
 }
@@ -5545,7 +5548,6 @@ input:disabled + .chip {
 }
 
 .list-group-item:hover, .list-group-item:focus, .list-group-item:active {
-  color: rgba(0, 0, 0, 0.87);
   text-decoration: none;
 }
 
@@ -5553,6 +5555,14 @@ input:disabled + .chip {
   background-color: rgba(98, 0, 238, 0.12);
   color: rgba(0, 0, 0, 0.87);
   z-index: 2;
+}
+
+.list-group-item.active:hover {
+  background-color: rgba(98, 0, 238, 0.16);
+}
+
+.list-group-item.active:focus {
+  background-color: rgba(98, 0, 238, 0.24);
 }
 
 .list-group-item.disabled, .list-group-item:disabled {
@@ -5567,20 +5577,21 @@ input:disabled + .chip {
 }
 
 .list-group-item-action {
-  color: rgba(0, 0, 0, 0.87);
   text-align: inherit;
   width: 100%;
 }
 
 .list-group-item-action:hover:not(.active), .list-group-item-action:focus:not(.active) {
-  background-color: rgba(0, 0, 0, 0.04);
   color: rgba(0, 0, 0, 0.87);
   text-decoration: none;
   z-index: 1;
 }
 
+.list-group-item-action:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
 .list-group-item-action:focus {
-  background-color: rgba(0, 0, 0, 0.12);
   outline: 0;
 }
 
@@ -7423,7 +7434,7 @@ input:disabled + .chip {
 }
 
 .picker-frame {
-  max-width: calc(100vw - 2 * 1rem);
+  margin: 1rem 1rem;
 }
 
 .picker-holder {
@@ -7703,17 +7714,17 @@ input:disabled + .chip {
   }
 }
 
-.picker-input.form-control[readonly] {
-  border-bottom-style: inherit;
+[class*='pick'].form-control[readonly] {
+  border-bottom-style: solid;
   color: inherit;
-  cursor: text;
+  cursor: pointer;
 }
 
-.picker-input[readonly].form-control:hover, .picker-input.picker-input-active {
+[class*='pick'][readonly].form-control:hover, [class*='pick'].picker-input-active {
   border-color: rgba(0, 0, 0, 0.87);
 }
 
-.picker-input.form-control[disabled] {
+[class*='pick'].form-control[disabled] {
   border-style: dotted;
   color: rgba(0, 0, 0, 0.38);
   cursor: default;

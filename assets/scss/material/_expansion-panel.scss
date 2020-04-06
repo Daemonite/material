@@ -27,7 +27,7 @@
   transition: background-color 15ms linear;
 
   @include hover-focus-active {
-    color: $expansion-panel-color;
+    //color: $expansion-panel-color;
     text-decoration: none;
   }
 
@@ -35,6 +35,14 @@
     background-color: $expansion-panel-bg-selected;
     color: $expansion-panel-color;
     z-index: 2;
+
+    &:hover {
+      background-color: $expansion-panel-bg-primary-hover;
+    }
+
+    &:focus {
+      background-color: $expansion-panel-bg-primary-focus;
+    }
   }
 
   &.disabled,
@@ -50,23 +58,25 @@
   }
 }
 
-// didn't use @mixin list-group-item-variant
 .list-group-item-action {
-  color: $expansion-panel-color;
+  //color: $expansion-panel-color;
   text-align: inherit;
   width: 100%;
 
   @include hover-focus {
     &:not(.active) {
-      background-color: $expansion-panel-bg-hover;
       color: $expansion-panel-color;
       text-decoration: none;
       z-index: 1;
     }
   }
 
+  &:hover {
+    background-color: $expansion-panel-bg-hover;
+  }
+
   &:focus {
-    background-color: $expansion-panel-bg-focus;
+    //background-color: $expansion-panel-bg-focus;
     outline: 0;
   }
 
