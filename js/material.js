@@ -10,7 +10,7 @@
   (global = global || self, factory(global.material = {}, global.jQuery));
 }(this, (function (exports, $) { 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
 
   /*
    * Expansion panel plugins expands a collapsed panel in full upon selecting
@@ -77,9 +77,7 @@
       DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control'
     }; // <<< constants
 
-    var FloatingLabel =
-    /*#__PURE__*/
-    function () {
+    var FloatingLabel = /*#__PURE__*/function () {
       function FloatingLabel(element) {
         this._element = element;
         this._parent = $(element).closest(Selector.DATA_PARENT)[0];
@@ -369,9 +367,7 @@
       DATA_TOGGLE: '[data-toggle="navdrawer"]'
     }; // <<< constants
 
-    var NavDrawer =
-    /*#__PURE__*/
-    function () {
+    var NavDrawer = /*#__PURE__*/function () {
       function NavDrawer(element, config) {
         this._backdrop = null;
         this._config = this._getConfig(config);
@@ -3334,9 +3330,7 @@
       weekdaysShort: 'array'
     };
 
-    var PickDate =
-    /*#__PURE__*/
-    function () {
+    var PickDate = /*#__PURE__*/function () {
       function PickDate(element, config) {
         this._config = this._getConfig(config);
         this._element = element;
@@ -3507,9 +3501,7 @@
       NAV: '.nav-tabs'
     }; // <<< constants
 
-    var TabSwitch =
-    /*#__PURE__*/
-    function () {
+    var TabSwitch = /*#__PURE__*/function () {
       function TabSwitch(nav) {
         this._nav = nav;
         this._navindicator = null;
