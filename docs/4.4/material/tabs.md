@@ -78,7 +78,7 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
     <li class="nav-item">
-      <a aria-controls="#" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+      <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
     </li>
     <li class="nav-item">
       <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
@@ -103,7 +103,7 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
   <li class="nav-item">
-    <a aria-controls="#" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+    <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
   </li>
   <li class="nav-item">
     <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
