@@ -4308,8 +4308,48 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   border-radius: 1.5rem 0.5rem;
 }
 
+[data-toggle='collapse']:hover {
+  cursor: pointer;
+}
+
 .accordion > .card {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  box-shadow: none;
   overflow: hidden;
+}
+
+.accordion > .card + .card {
+  border-top: 0;
+}
+
+.accordion > .card .show {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.accordion > .card > .card-header {
+  border-bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 1.25rem;
+}
+
+.accordion > .card > .card-header:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transition: background-color 150ms linear;
+}
+
+.accordion > .card > .card-header::after {
+  content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='24' height='24' viewBox='0 0 24 24' fill='%23757575'><path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' /></svg>");
+  height: 1.5rem;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  width: 1.5rem;
+}
+
+.accordion > .card > .card-header > * {
+  line-height: 1.125rem;
 }
 
 .accordion .card:first-of-type {
@@ -4338,6 +4378,17 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .accordion .card:not(:last-of-type) .card-header:last-child {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.accordion .card-body {
+  margin: 0 40px;
+  opacity: 0;
+  padding: 24px 0;
+  transition: opacity 250ms linear -100ms;
+}
+
+.accordion .show .card-body {
+  opacity: 1;
 }
 
 .accordion .collapse .card-body:first-child,

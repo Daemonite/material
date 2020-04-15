@@ -61,9 +61,48 @@
 
 // Accordion
 
+[data-toggle='collapse']:hover {
+  cursor: pointer;
+}
+
 .accordion {
   > .card {
+    border: 1px solid $black-divider;
+    border-radius: $border-radius-lg * 2;
+    box-shadow: none;
     overflow: hidden;
+
+    & + .card {
+      border-top: 0;
+    }
+
+    .show {
+      border-top: 1px solid $black-divider;
+    }
+  }
+
+  > .card > .card-header {
+    border-bottom: 0;
+    display: flex;
+    padding: 15px 1.25rem;
+
+    &:hover {
+      background: rgba($black, $overlay-hover-white-opacity);
+      transition: background-color 150ms linear;
+    }
+
+    &::after {
+      content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='24' height='24' viewBox='0 0 24 24' fill='%23757575'><path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' /></svg>");
+      height: 1.5rem;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      width: 1.5rem;
+    }
+
+    > * {
+      line-height: 1.125rem;
+    }
   }
 
   // stylelint-disable-next-line
@@ -93,6 +132,17 @@
     .card-header:last-child {
       @include border-bottom-radius(0);
     }
+  }
+
+  .card-body {
+    margin: 0 40px;
+    opacity: 0;
+    padding: 24px 0;
+    transition: opacity 250ms linear -100ms;
+  }
+
+  .show .card-body {
+    opacity: 1;
   }
 
   .collapse,
