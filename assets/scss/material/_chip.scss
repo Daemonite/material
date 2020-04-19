@@ -10,7 +10,7 @@
   color: $chip-color;
   display: inline-flex;
   font-size: $chip-font-size;
-  font-weight: $chip-font-weight;
+  //font-weight: $chip-font-weight;
   height: $chip-height;
   justify-content: center;
   letter-spacing: $letter-spacing-body-2;
@@ -46,7 +46,8 @@
 }
 
 @each $color, $values in $theme-colors {
-  .chip-#{$color} {
+  .chip-#{$color},
+  .chip-#{$color}:hover {
     background-color: theme-color($color);
     color: color-yiq(theme-color($color));
   }

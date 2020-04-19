@@ -3175,7 +3175,6 @@ tr.collapse.show {
   min-width: 4rem;
   outline: none;
   padding: 0 1rem;
-  position: relative;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -4407,6 +4406,8 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   align-items: center;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   min-height: 3.25rem;
   padding: 0 0.5rem;
 }
@@ -4745,7 +4746,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-size: 0.875rem;
-  font-weight: 400;
   height: 2rem;
   -ms-flex-pack: center;
   justify-content: center;
@@ -4779,42 +4779,50 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   line-height: 1;
 }
 
-.chip-primary {
+.chip-primary,
+.chip-primary:hover {
   background-color: #6200ee;
   color: white;
 }
 
-.chip-secondary {
+.chip-secondary,
+.chip-secondary:hover {
   background-color: #03dac6;
   color: white;
 }
 
-.chip-danger {
+.chip-danger,
+.chip-danger:hover {
   background-color: #b00020;
   color: white;
 }
 
-.chip-info {
+.chip-info,
+.chip-info:hover {
   background-color: #714cfe;
   color: white;
 }
 
-.chip-success {
+.chip-success,
+.chip-success:hover {
   background-color: #61d800;
   color: white;
 }
 
-.chip-warning {
+.chip-warning,
+.chip-warning:hover {
   background-color: #ff8d00;
   color: white;
 }
 
-.chip-dark {
+.chip-dark,
+.chip-dark:hover {
   background-color: #424242;
   color: white;
 }
 
-.chip-light {
+.chip-light,
+.chip-light:hover {
   background-color: #f5f5f5;
   color: rgba(0, 0, 0, 0.87);
 }
