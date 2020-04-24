@@ -2038,11 +2038,11 @@ a.badge:hover, a.badge:focus {
 .breadcrumb {
   -ms-flex-align: center;
   align-items: center;
-  background-color: white;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .breadcrumb-item {
@@ -2052,6 +2052,10 @@ a.badge:hover, a.badge:focus {
   display: -ms-flexbox;
   display: flex;
   font-size: 1rem;
+}
+
+.breadcrumb-item.active {
+  cursor: default;
 }
 
 .breadcrumb-item:only-child {
@@ -4313,7 +4317,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .accordion > .card {
   border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
+  border-radius: 32px;
   box-shadow: none;
   margin-bottom: 0;
   overflow: hidden;
@@ -9265,46 +9269,56 @@ input:disabled + .chip {
   margin-right: 15px;
 }
 
-.toast {
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 400;
-  letter-spacing: 0.017857em;
-  line-height: 1.25rem;
+.toast-container {
   -ms-flex-align: center;
   align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0.5rem;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.toast {
+  border-radius: 4px;
   background-clip: padding-box;
   background-color: #333333;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.87);
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 0.5rem;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  letter-spacing: 0.017857em;
+  line-height: 1.25rem;
   max-width: 42rem;
-  min-height: 48px;
   min-width: 21.5rem;
   opacity: 0;
   overflow: hidden;
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  padding: 0.875rem 1rem;
   z-index: 240;
 }
 
 .toast.showing {
-  opacity: 1;
+  opacity: 0;
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .toast.show {
+  display: block;
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .toast.hide {
@@ -9331,12 +9345,17 @@ input:disabled + .chip {
   background: transparent;
   box-shadow: none;
   color: #bb86fc;
-  margin-right: 8px;
-  padding: 0 8px;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  padding: 0 0.5rem;
 }
 
 .toast .btn:first-of-type, .toast .card-link:first-of-type {
   margin-left: auto;
+}
+
+.toast .btn:last-of-type, .toast .card-link:last-of-type {
+  margin-right: -0.5rem;
 }
 
 .toast .btn:hover, .toast .card-link:hover,
@@ -9349,37 +9368,16 @@ input:disabled + .chip {
   background-color: rgba(255, 255, 255, 0.32);
 }
 
-.toast-header {
+.toast-header,
+.toast-body {
   -ms-flex-align: center;
   align-items: center;
-  background-clip: padding-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  padding: 14px 16px;
 }
 
-.toast-body {
-  -ms-flex-positive: 0;
-  flex-grow: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  margin-right: 8px;
-  margin-left: 0;
-}
-
-.toast-stacked {
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.toast-stacked .toast-body {
-  -ms-flex-item-align: end;
-  align-self: flex-end;
-  margin-bottom: 8px;
+.toast-header + .toast-body {
+  padding-top: 1rem;
 }
 
 .stepper {
@@ -12407,7 +12405,7 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
 }
 
 .rounded-lg {
-  border-radius: 4px !important;
+  border-radius: 16px !important;
 }
 
 .rounded-circle {

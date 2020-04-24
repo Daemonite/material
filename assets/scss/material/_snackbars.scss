@@ -1,34 +1,43 @@
-// https://material-components.github.io/material-components-web-catalog/#/component/snackbar
+.toast-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: $snackbar-margin;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
 
 .toast {
   @include border-radius($snackbar-border-radius);
-  @include typography-body-2;
 
-  align-items: center;
   background-clip: padding-box;
   background-color: $snackbar-bg;
   box-shadow: map-get($snackbar-elevation-shadow, shadow);
   color: $snackbar-color;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: $snackbar-margin-x;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: $letter-spacing-body-2;
+  line-height: $line-height-body-2;
   max-width: $snackbar-max-width;
-  min-height: 48px;
   min-width: $snackbar-min-width;
   opacity: 0;
   overflow: hidden; // cheap rounded corners on nested items
-  transform: scale(0.8);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  padding: $snackbar-padding-y $snackbar-padding-x;
   z-index: map-get($dialog-elevation-shadow, elevation);
 
   &.showing {
-    opacity: 1;
+    opacity: 0;
+    transform: scale(0.8);
   }
 
   &.show {
+    display: block;
     opacity: 1;
     transform: scale(1);
+    transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
   }
 
   &.hide {
@@ -51,12 +60,17 @@
   .btn {
     background: transparent;
     box-shadow: none;
-    color: theme-color-light(primary);
-    margin-right: 8px;
-    padding: 0 8px;
+    color: $snackbar-btn-color;
+    margin-top: -$spacer-sm;
+    margin-bottom: -$spacer-sm;
+    padding: 0 $spacer-sm;
 
     &:first-of-type {
       margin-left: auto;
+    }
+
+    &:last-of-type {
+      margin-right: -$spacer-sm;
     }
   }
 
@@ -71,31 +85,12 @@
   }
 }
 
-.toast-header {
-  align-items: center;
-  background-clip: padding-box;
-  display: flex;
-  flex-grow: 1;
-  padding: 14px 16px;
-  //color: $toast-header-color;
-  //background-color: $toast-header-background-color;
-}
-
+.toast-header,
 .toast-body {
-  flex-grow: 0;
-  flex-shrink: 0;
-  //padding: 0;
-  margin-right: 8px;
-  margin-left: 0;
+  align-items: center;
+  display: flex;
 }
 
-// Addition
-.toast-stacked {
-  align-items: flex-start;
-  flex-direction: column;
-
-  & .toast-body {
-    align-self: flex-end;
-    margin-bottom: 8px;
-  }
+.toast-header + .toast-body {
+  padding-top: $spacer;
 }
