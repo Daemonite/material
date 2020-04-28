@@ -15,6 +15,7 @@ Flat, outlined and raised buttons are the most commonly used types.
       <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
     </a>
     <a href="https://material.io/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons</a>
+    <a href="https://material.io/components/buttons-floating-action-button" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons: floating action button</a>
     <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Applying density</a>
     <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Buttons</a>
     <a href="https://material-components.github.io/material-components-web-catalog/#/component/fab" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Floating Action Button</a>
