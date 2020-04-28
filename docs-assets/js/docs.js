@@ -77,7 +77,7 @@
       transformData: function (hits) {
         return hits.map(function (hit) {
           var siteurl = document.getElementById('doc-search').getAttribute('data-siteurl')
-          var urlRE = /^https?:\/\/daemonite\.github\.io/
+          var urlRE = /^https?:\/\/djibe\.github\.io/
 
           hit.url = siteurl.match(urlRE) ? hit.url : hit.url.replace(urlRE, '')
 
@@ -210,32 +210,24 @@
     })
 
     // Snackbar
-    $('.snackbar-btn').on('click', function () {
-      $(this).parent('.snackbar').removeClass('show')
+    $('#toast-demo1-btn').on('click', function () {
+      $('#toast-demo1').toast('show')
     })
 
-    $('.snackbar-toggler').on('click', function () {
-      var $snackbar = $(this).next('.snackbar')
+    $('#toast-demo2-btn').on('click', function () {
+      $('#toast-demo2').toast('show')
+    })
 
-      if ($('.snackbar.show').length > 0) {
-        $('.snackbar.show').removeClass('show').one('webkitTransitionEnd transitionEnd', function () {
-          $snackbar.addClass(function () {
-            setTimeout(function () {
-              $snackbar.removeClass('show')
-            }, 6000)
+    $('#toast-demo3-btn').on('click', function () {
+      $('#toast-demo3').toast('show')
+    })
 
-            return 'show'
-          })
-        })
-      } else {
-        $snackbar.addClass(function () {
-          setTimeout(function () {
-            $snackbar.removeClass('show')
-          }, 6000)
+    $('#toast-demo4-btn').on('click', function () {
+      $('#toast-demo4').toast('show')
+    })
 
-          return 'show'
-        })
-      }
+    $('#toast-demo5-btn').on('click', function () {
+      $('#toast-demo5').toast('show')
     })
 
     // Toolbar
