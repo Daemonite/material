@@ -1,12 +1,34 @@
-.navbar {
+// Because flex properties aren't inherited, we need to redeclare these first
+// few properties so that content nested within behave properly.
+%container-flex-properties {
   align-items: center;
-  color: $toolbar-color;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.navbar {
+  @extend %container-flex-properties;
+
+  color: $toolbar-color;
   min-height: $toolbar-height;
   padding: $toolbar-padding-y $toolbar-padding-x;
   position: relative;
+
+  .container,
+  .container-fluid {
+    @extend %container-flex-properties;
+  }
+
+  // stylelint-disable
+  @each $breakpoint,
+  $container-max-width in $container-max-widths {
+    >.container#{breakpoint-infix($breakpoint, $container-max-widths)} {
+      @extend %container-flex-properties;
+    }
+  }
+
+  // stylelint-enable
 
   // Vertically align some elements normally placed in `.navbar`
 
@@ -95,14 +117,6 @@
       padding-top: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
       padding-bottom: (($toolbar-height - $nav-tab-font-size * $nav-tab-line-height) / 2);
     }
-  }
-
-  > .container,
-  > .container-fluid {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
   }
 }
 
@@ -296,11 +310,25 @@
 
     &#{$infix} {
       @include media-breakpoint-down($breakpoint) {
-        > .container,
-        > .container-fluid {
+        %container-navbar-expand-#{$breakpoint} {
           padding-right: 0;
           padding-left: 0;
         }
+
+        > .container,
+        > .container-fluid {
+          @extend %container-navbar-expand-#{$breakpoint};
+        }
+
+        // stylelint-disable
+        @each $size,
+        $container-max-width in $container-max-widths {
+          >.container#{breakpoint-infix($size, $container-max-widths)} {
+            @extend %container-navbar-expand-#{$breakpoint};
+          }
+        }
+
+        // stylelint-enable
       }
 
       @include media-breakpoint-up($next) {
@@ -321,10 +349,24 @@
         }
 
         // For nesting containers, have to redeclare for alignment purposes
-        > .container,
-        > .container-fluid {
+        %container-nesting-#{$breakpoint} {
           flex-wrap: nowrap;
         }
+
+        > .container,
+        > .container-fluid {
+          @extend %container-nesting-#{$breakpoint};
+        }
+
+        // stylelint-disable
+        @each $size,
+        $container-max-width in $container-max-widths {
+          >.container#{breakpoint-infix($size, $container-max-widths)} {
+            @extend %container-nesting-#{$breakpoint};
+          }
+        }
+
+        // stylelint-enable
 
         // stylelint-disable
         .navbar-collapse {
@@ -332,6 +374,7 @@
           // Changes flex-bases to auto because of an IE10 bug
           flex-basis: auto;
         }
+
         // stylelint-enable
 
         .navbar-toggler {

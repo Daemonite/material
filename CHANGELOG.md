@@ -1,18 +1,19 @@
 # CHANGELOG
 
 ## 4.4.1 - beta 1
++ Bootstrap 4.4.0 responsive containers
 + Full toast/snackbar support
 + Global Material documentation overhaul
 + Smooth scroll in pure CSS
 + New .fab-actions container to wrap FAB bottom right of screen
 
 * Improved Bootstrap collapse component
+* Upgraded 
 * Many bug fixes (stretched-links, chips, breadcrumbs, pagination, data-tables)
 * All build dependencies are up to date
 
 BUG. elevation-shadow still crash during build
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
-todo #29095: Add responsive containers https://github.com/twbs/bootstrap/pull/29095/files
 
 ## 4.4.1 - alpha 2
 
