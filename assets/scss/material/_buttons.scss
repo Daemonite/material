@@ -78,8 +78,13 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
 
 @each $color, $values in $theme-colors {
   .btn-#{$color} {
-    background-color: theme-color($color);
-    color: color-yiq(theme-color($color));
+    @if $color == 'light' {
+      background-color: $white;
+    } @else {
+      background-color: theme-color($color);
+    }
+
+    color: color-yiq(theme-color($color)); //stylelint-disable-line
 
     &:hover,
     &:focus,

@@ -1,18 +1,29 @@
 # CHANGELOG
 
+## 4.4.1 - beta 2
+
+* Enhenced card-links positionning
+* Fix button.dropdown-item styling
+* Fix btn-float + btn-flat background
+* Fix Elevation-shadow can still crash during build
+* Fix toast z-index leading to inactive Action button
+* Cleanup typography classes
+* Revert doc TOC from sticky to static for long TOC management
+* Revert jQuery to 3.4.1 for Collapse component compatibility
+
 ## 4.4.1 - beta 1
-+ Bootstrap 4.4.0 responsive containers
+
++ Bootstrap 4.4.0 responsive containers support
 + Full toast/snackbar support
 + Global Material documentation overhaul
 + Smooth scroll in pure CSS
 + New .fab-actions container to wrap FAB bottom right of screen
 
 * Improved Bootstrap collapse component
-* Upgraded 
 * Many bug fixes (stretched-links, chips, breadcrumbs, pagination, data-tables)
 * All build dependencies are up to date
 
-BUG. elevation-shadow still crash during build
+BUG. Elevation-shadow can still crash during build
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
 
 ## 4.4.1 - alpha 2

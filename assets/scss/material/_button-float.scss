@@ -81,11 +81,15 @@
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 100;
+  z-index: map-get(map-get($elevation-shadows, 12), elevation);
 
   @media print {
     & {
       display: none;
     }
+  }
+
+  & > .btn {
+    margin-top: 20px;
   }
 }

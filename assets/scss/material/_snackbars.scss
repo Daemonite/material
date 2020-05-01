@@ -7,13 +7,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 241; // TODO: do it properly
+  z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
 }
 
 .toast {
-  @include border-radius($snackbar-border-radius);
-
   background-color: $snackbar-bg;
+  border-radius: $snackbar-border-radius;
   box-shadow: map-get($snackbar-elevation-shadow, shadow);
   color: $snackbar-color;
   display: block;

@@ -203,7 +203,6 @@
 .card-body {
   flex: 1 1 auto;
   padding: $card-padding-y $card-padding-x;
-  //color: $card-color;
 
   &:first-child {
     @include border-top-radius($card-border-radius);
@@ -215,6 +214,10 @@
 
   > :last-child {
     margin-bottom: 0;
+  }
+
+  > .btn {
+    margin-right: $spacer-sm;
   }
 }
 
@@ -442,6 +445,11 @@
 // Style in button-flat
 .card-link {
   @extend .btn;
+
+  .card-body > & {
+    margin-right: $spacer-sm;
+    margin-left: $spacer-sm;
+  }
 }
 
 .card-title {
@@ -489,9 +497,8 @@
   background: rgba($black, $overlay-hover-white-opacity);
   cursor: pointer;
   transition: background-color 15ms linear, box-shadow 15ms linear;
-}
 
-.card.card-primary-action:hover {
-  //box-shadow: map-get($elevation-shadows, 4);
-  //box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  &.card {
+    box-shadow: map-get($card-elevation-shadow-hover, shadow);
+  }
 }
