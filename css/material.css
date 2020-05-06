@@ -1926,7 +1926,7 @@ a.badge:hover, a.badge:focus {
   border-radius: 0.6875rem;
   font-family: Roboto, sans-serif;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   height: 1.375rem;
   letter-spacing: initial;
   min-width: 1.375rem;
@@ -1934,12 +1934,24 @@ a.badge:hover, a.badge:focus {
   top: -0.6875rem;
 }
 
-.btn > .badge, .card-link > .badge {
-  right: -0.6875rem;
+.btn > .badge, .card-link > .badge,
+[class*='material-icons'] > .badge {
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  -webkit-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
 }
 
-.badge.badge-before {
-  left: -0.6875rem;
+.btn > .badge.badge-before, .card-link > .badge.badge-before,
+[class*='material-icons'] > .badge.badge-before {
+  right: auto;
+  left: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
 }
 
 .badge-pill {

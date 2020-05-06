@@ -45,13 +45,19 @@
     top: -$badge-width / 2;
   }
 
-  .btn > & {
-    right: -$badge-width / 2;
-  }
+  .btn > &,
+  [class*='material-icons'] > & {
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
 
-  // stylelint-disable-next-line
-  &.badge-before {
-    left: -$badge-width / 2;
+    &.badge-before {
+      right: auto;
+      left: 0;
+      transform: translate(-50%, -50%);
+      transform-origin: 0% 100%;
+    }
   }
 }
 
