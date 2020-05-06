@@ -3,6 +3,7 @@ layout: docs
 title: Cards
 description: Cards contain content and actions about a single subject.
 group: material
+toc: true
 ---
 
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
@@ -35,8 +36,8 @@ You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` a
 <div class="card" style="max-width: 350px;">
   <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle text-black-secondary">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
   </div>
   <div class="card-body">
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
@@ -57,8 +58,8 @@ You can use the button HTML markup you want in a card (either using a link or a 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
   <div class="card-body">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle text-black-secondary">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
@@ -74,8 +75,8 @@ You can use the button HTML markup you want in a card (either using a link or a 
 <div class="card" style="max-width: 350px;">
   <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle text-black-secondary">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
   </div>
   <div class="card-body">
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
@@ -97,8 +98,8 @@ Example without `card-actions` div. Apply `border-0` utility to the card-header 
 <div class="card" style="max-width: 350px;">
   <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
   <div class="card-body">
     <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
@@ -112,8 +113,8 @@ Another card without image banner and icon buttons pushed to the end with `.just
 {% capture example %}
 <div class="card" style="max-width: 350px;">
   <div class="card-header border-0">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
   <div class="card-body">
     <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
@@ -136,8 +137,8 @@ Buttons are still separated thanks to a flex utility `.ml-auto` applied to the f
 {% capture example %}
 <div class="card card-shaped" style="max-width: 350px;">
   <div class="card-body">
-    <h2 class="card-title">Our Changing Planet</h2>
-    <h3 class="card-subtitle">by Kurt Wagner</h3>
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
     <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
@@ -158,8 +159,8 @@ This card uses a simplified HTML markup without `.card-header` container. We can
 {% capture example %}
 <div class="card shadow-none border" style="max-width: 350px;">
   <div class="card-body">
-   <h2 class="card-title">Card title</h2>
-   <h3 class="card-subtitle">Secondary text</h3>
+   <h5 class="card-title">Card title</h5>
+   <h6 class="card-subtitle">Secondary text</h6>
    <p class="card-text">Greyhound divisively hello coldly wonderfully marginally far upon excluding.</p>
   </div>
 </div>
@@ -171,8 +172,8 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 {% capture example %}
 <div class="card shadow-none border" style="max-width: 350px;">
   <div class="card-header border-0">
-   <h2 class="card-title">Card title</h2>
-   <h3 class="card-subtitle">Secondary text</h3>
+   <h5 class="card-title">Card title</h5>
+   <h6 class="card-subtitle">Secondary text</h6>
   </div>
   <div class="card-body">
    <p class="card-text">Greyhound divisively hello coldly wonderfully marginally far upon excluding.</p>
@@ -180,6 +181,47 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+## Card primary action
+
+If the whole card is the action itself, you can add `card-primary action` to the card itself. It will give it a nice background + box-shadow effect on hover.
+
+As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `stretched-link`](href="{{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/") (NB. Stretched-link requires container to be set to `position: relative`, but `card-primary-action` is).
+
+{% capture example %}
+<div class="card card-body card-primary-action flex-row" style="width: 250px;">
+  <span class="material-icons text-primary mt-2 mr-4" style="font-size: 48px;">palette</span>
+  <div>
+    <h5 class="typography-body-2 font-weight-bold">Applying color to UI</h5>
+    <h6 class="typography-body-2 mb-0">In a UI, color has a variety of roles:...</h6>
+  </div>
+  <a href="#" class="stretched-link"></a>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+The `card-primary-action` can be set on card-body also. But it won't have the box-shadow effect.
+
+{% capture example %}
+<div class="card" style="max-width: 350px;">
+  <div class="card-body card-primary-action">
+    <h5 class="card-title">Our Changing Planet</h5>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+    <a href="#" class="stretched-link"></a>
+  </div>
+  <div class="card-actions">
+    <a class="btn btn-flat-primary" href="#">read</a>
+    <a class="btn btn-flat-primary" href="#">bookmark</a>
+    <a class="btn btn-icon ml-auto" href="#"><i class="material-icons">favorite_border</i></a>
+    <a class="btn btn-icon" href="#"><i class="material-icons">share</i></a>
+    <a class="btn btn-icon" href="#"><i class="material-icons">more_vert</i></a>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Vertical actions
 
 **Vertical actions are no longer part of Material guidelines. However, for backward compatibility, they are kept in Daemonite Material.**
 {: .mt-5 }
@@ -190,7 +232,7 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
 <div class="card" style="width: 20rem;">
   <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
+    <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="card-actions flex-column">
