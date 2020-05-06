@@ -11,10 +11,11 @@
   display: inline-flex;
   font-size: inherit; //@include font-size($badge-font-size);
   font-weight: $badge-font-weight;
+  justify-content: center;
   line-height: inherit;
   padding-right: $badge-padding-x;
   padding-left: $badge-padding-x;
-  text-align: center;
+  //text-align: center;
   white-space: nowrap;
 
   @at-root a#{&} {
@@ -29,21 +30,28 @@
   }
 
   // Material addition : https://material.angular.io/components/badge/examples
-  .btn & {
-    border-radius: 50%;
-    display: inline-block;
+  .btn > &,
+  .position-relative > & {
+    border-radius: $badge-width / 2;
+    // display: inline-block;
+    font-family: Roboto, sans-serif;
     font-size: $font-size-caption;
     font-weight: $badge-btn-font-weight;
     height: $badge-width;
-    line-height: $badge-width;
+    letter-spacing: initial;
+    // line-height: $badge-width;
+    min-width: $badge-width;
     position: absolute;
     top: -$badge-width / 2;
-    right: -$badge-width / 2;
-    width: $badge-width;
+  }
 
-    &.badge-before {
-      left: -$badge-width / 2;
-    }
+  .btn > & {
+    right: -$badge-width / 2;
+  }
+
+  // stylelint-disable-next-line
+  &.badge-before {
+    left: -$badge-width / 2;
   }
 }
 
@@ -70,4 +78,5 @@
     }
   }
 }
+
 // @mixin badge-variant not used

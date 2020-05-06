@@ -1905,10 +1905,11 @@ mark,
   display: inline-flex;
   font-size: inherit;
   font-weight: 500;
+  -ms-flex-pack: center;
+  justify-content: center;
   line-height: inherit;
   padding-right: 0.5em;
   padding-left: 0.5em;
-  text-align: center;
   white-space: nowrap;
 }
 
@@ -1920,20 +1921,24 @@ a.badge:hover, a.badge:focus {
   display: none;
 }
 
-.btn .badge, .card-link .badge {
-  border-radius: 50%;
-  display: inline-block;
+.btn > .badge, .card-link > .badge,
+.position-relative > .badge {
+  border-radius: 0.6875rem;
+  font-family: Roboto, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   height: 1.375rem;
-  line-height: 1.375rem;
+  letter-spacing: initial;
+  min-width: 1.375rem;
   position: absolute;
   top: -0.6875rem;
-  right: -0.6875rem;
-  width: 1.375rem;
 }
 
-.btn .badge.badge-before, .card-link .badge.badge-before {
+.btn > .badge, .card-link > .badge {
+  right: -0.6875rem;
+}
+
+.badge.badge-before {
   left: -0.6875rem;
 }
 
@@ -3173,6 +3178,7 @@ tr.collapse.show {
   min-width: 4rem;
   outline: none;
   padding: 0 1rem;
+  position: relative;
   text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
