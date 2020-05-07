@@ -2,6 +2,9 @@
 
 ## 4.4.1 - beta 2
 
+* New card-primary-action class (see Material > Cards documentation)
+* Enhenced badges (see Material > Badges documentation)
+* `pre` elements now have `user-select: all` to copy-paste code with 1 click
 * Enhenced card-links positionning
 * Fix button.dropdown-item styling
 * Fix btn-float + btn-flat background
@@ -10,10 +13,11 @@
 * Cleanup typography classes
 * Revert doc TOC from sticky to static for long TOC management
 * Revert jQuery to 3.4.1 for Collapse component compatibility
+* All dependencies are up to date
 
 ## 4.4.1 - beta 1
 
-+ Bootstrap 4.4.0 responsive containers support
++ Bootstrap 4.4.1 responsive containers support
 + Full toast/snackbar support
 + Global Material documentation overhaul
 + Smooth scroll in pure CSS
