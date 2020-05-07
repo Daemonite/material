@@ -493,13 +493,16 @@
 }
 
 // Card hover effect : https://material.io/components/cards/#behavior
-.card-primary-action:hover {
-  background: rgba($black, $overlay-hover-white-opacity);
+.card-primary-action {
   cursor: pointer;
   position: relative;
   transition: background-color 15ms linear, box-shadow 15ms linear;
 
-  &.card {
-    box-shadow: map-get($card-elevation-shadow-hover, shadow);
+  &:hover {
+    background: rgba($black, $overlay-hover-white-opacity);
+
+    &.card {
+      box-shadow: map-get($card-elevation-shadow-hover, shadow);
+    }
   }
 }
