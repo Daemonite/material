@@ -469,7 +469,7 @@
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread2({}, Default, {}, config);
+        config = _objectSpread2(_objectSpread2({}, Default), config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
@@ -567,7 +567,7 @@
 
       NavDrawer._jQueryInterface = function _jQueryInterface(config, relatedTarget) {
         return this.each(function () {
-          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default), $(this).data()), typeof config === 'object' && config ? config : {});
 
           var data = $(this).data(DATA_KEY);
 
@@ -608,7 +608,7 @@
         target = $(selector)[0];
       }
 
-      var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2({}, $(target).data(), {}, $(this).data());
+      var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2(_objectSpread2({}, $(target).data()), $(this).data());
 
       if (this.tagName === 'A' || this.tagName === 'AREA') {
         event.preventDefault();
@@ -3401,14 +3401,14 @@
       };
 
       _proto._getConfig = function _getConfig(config) {
-        config = _objectSpread2({}, Default, {}, config);
+        config = _objectSpread2(_objectSpread2({}, Default), config);
         Util.typeCheckConfig(NAME, config, DefaultType);
         return config;
       };
 
       PickDate._jQueryInterface = function _jQueryInterface(config) {
         return this.each(function () {
-          var _config = _objectSpread2({}, Default, {}, $(this).data(), {}, typeof config === 'object' && config ? config : {});
+          var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default), $(this).data()), typeof config === 'object' && config ? config : {});
 
           var data = $(this).data(DATA_KEY);
 
