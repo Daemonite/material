@@ -2,20 +2,20 @@
 
 ## 4.4.1 - beta 2
 
-* New card-primary-action class (see Material > Cards documentation)
+* New `card-primary-action` class (see Material > Cards documentation)
 * Enhenced badges (see Material > Badges documentation)
 * `pre` elements now have `user-select: all` to copy-paste code with 1 click
 * Enhenced card-links positionning
 * Fix button.dropdown-item styling
-* Fix btn-float + btn-flat background
-* Fix Elevation-shadow can still crash during build
-* Fix toast z-index leading to inactive Action button
+* Fix btn-float and btn-flat background
+* Fix Elevation-shadow crash during build
+* Fix toast's z-index leading to inactive Action button
 * Cleanup typography classes
 * Revert doc TOC from sticky to static for long TOC management
 * Revert jQuery to 3.4.1 for Collapse component compatibility
 * All dependencies are up to date
 
-## 4.4.1 - beta 1
+## 4.4.1 - beta 1 (unreleased)
 
 + Bootstrap 4.4.1 responsive containers support
 + Full toast/snackbar support
