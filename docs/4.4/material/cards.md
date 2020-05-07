@@ -186,7 +186,7 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 
 If the whole card is the action itself, you can add `card-primary action` to the card itself. It will give it a nice background + box-shadow effect on hover.
 
-As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `stretched-link`](href="{{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/") (NB. Stretched-link requires container to be set to `position: relative`, but `card-primary-action` is).
+As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `stretched-link`]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/) (NB. Stretched-link requires container to be set to `position: relative`, but `card-primary-action` is).
 
 {% capture example %}
 <div class="card card-body card-primary-action flex-row" style="width: 250px;">
