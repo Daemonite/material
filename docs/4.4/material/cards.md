@@ -9,11 +9,19 @@ toc: true
 Cards may contain a photo, text, and a link about a single subject. They may display content containing elements of varying size, such as photos with captions of variable length.
 
 <div class="list-group my-2 my-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Card
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/card/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Card</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/cards/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Cards</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/card" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Card</a>
+    <a href="https://material.io/components/cards" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Cards</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/card" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-mdc"></span>
+    Material Components for the web: Card</a>
 </div>
 
 **N.B.** According to Material Design, flat buttons should be used in cards.

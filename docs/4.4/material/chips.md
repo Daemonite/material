@@ -11,9 +11,15 @@ toc: true
 Chips can be used for various types of entities, including brief information, free form text, or short title. Chips may also contain icons or photos.
 
 <div class="list-group my-lg-5">
-    <a href="https://material.io/components/chips/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Chips</a>
-    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Applying density</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Chips</a>
+    <a href="https://material.io/components/chips" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Chips</a>
+    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Applying density</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Chips</a>
 </div>
 
 Chips exist in an outline variant : just add `chip-outline` class to your chip.

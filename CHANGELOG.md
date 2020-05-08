@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 4.4.1 - beta 3
+
+* **New** one-line and two-line lists (see Material > Lists documentation)
+
 ## 4.4.1 - beta 2
 
-* New `card-primary-action` class (see Material > Cards documentation)
+* **New** `card-primary-action` class (see Material > Cards documentation)
 * Enhenced badges (see Material > Badges documentation)
 * `pre` elements now have `user-select: all` to copy-paste code with 1 click
 * Enhenced card-links positionning

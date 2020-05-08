@@ -8,11 +8,19 @@ toc: true
 ---
 
 <div class="list-group mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/typography/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Typography
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/typography/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Typography</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/design/typography/the-type-system.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: The type system</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/typography" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Typography</a>
+    <a href="https://material.io/design/typography/the-type-system.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: The type system</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/typography" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Typography</a>
 </div>
 
 ## Colors

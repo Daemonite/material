@@ -10,11 +10,19 @@ toc: true
 Snackbars inform users of a process that an app has performed or will perform. They appear temporarily, towards the bottom of the screen. They shouldn’t interrupt the user experience, and they don’t require user input to disappear.
 
 <div class="list-group my-md-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/toasts/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Toasts
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/toasts/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Toasts</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/snackbars/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Snackbars</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/snackbar" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Snackbar</a>
+    <a href="https://material.io/components/snackbars" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Snackbars</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/snackbar" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Snackbar</a>
 </div>
 
 Daemonite is compatible with default Bootstrap's toast HTML markup.

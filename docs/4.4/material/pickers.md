@@ -16,7 +16,9 @@ Date pickers can be embedded into:
 * Text field dropdowns on desktop
 
 <div class="list-group my-lg-5">
-    <a href="https://material.io/components/pickers/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Pickers</a>
+    <a href="https://material.io/components/pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Pickers</a>
 </div>
 
 A date picker has to be activated via JavaScript.

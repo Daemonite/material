@@ -11,14 +11,22 @@ toc: true
 Flat, outlined and raised buttons are the most commonly used types.
 
 <div class="list-group mt-2 mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Buttons
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Buttons</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons</a>
-    <a href="https://material.io/components/buttons-floating-action-button" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Buttons: floating action button</a>
-    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Applying density</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Buttons</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/fab" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Floating Action Button</a>
+    <a href="https://material.io/components/buttons" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Buttons</a>
+    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Applying density</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-mdc"></span>
+    Material Components for the web: Buttons</a>
 </div>
 
 ## Buttons

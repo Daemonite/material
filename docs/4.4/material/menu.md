@@ -6,17 +6,22 @@ group: material
 toc: true
 ---
 
-<blockquote class="blockquote">
-  <p class="mb-0">A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</p>
-  <footer class="blockquote-footer">Google Material Design guidelines</footer>
-</blockquote>
+A menu displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.
 
 <div class="list-group mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Dropdowns
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/dropdowns/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Dropdowns</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/menus/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Menus</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/menu" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Menu</a>
+    <a href="https://material.io/components/menus" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Menus</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/menu" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Menu</a>
 </div>
 
 ## Behaviour

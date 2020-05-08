@@ -12,11 +12,19 @@ Tabs organize and allow navigation between groups of content that are related an
 Each tab should contain content that is distinct from other tabs in a set. For example, tabs can present different sections of news, different genres of music, or different themes of documents.
 
 <div class="list-group mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Navs
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Navs</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/tabs/" target="_blank" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Tabs</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" target="_blank" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Tab Bar</a>
+    <a href="https://material.io/components/tabs" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Tabs</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Tab Bar</a>
 </div>
 
 ## Default tabs

@@ -6,7 +6,9 @@ group: material
 ---
 
 <div class="list-group">
-    <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action lgi-icon-md">Material Design Icons</a>
+    <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action d-flex font-weight-bold">
+        <span class="list-group-item-icon lgi-icon-md"></span>
+        Material Design Icons</a>
 </div>
 
 ## Choose your icon set

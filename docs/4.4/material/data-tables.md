@@ -6,11 +6,19 @@ group: material
 ---
 
 <div class="list-group mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/" target="_blank" class="list-group-item list-group-item-action lgi-icon-bs">Bootstrap documentation: Tables
-      <span class="d-block font-weight-normal text-black-secondary"> Most of the details have been covered here</span>
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      <span class="list-group-item-text">
+        <span>Bootstrap documentation: Tables</span>
+        <span>Most of the details have been covered here</span>
+      </span>
     </a>
-    <a href="https://material.io/components/data-tables/" class="list-group-item list-group-item-action lgi-icon-md">Material Design guidelines: Data tables</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" class="list-group-item list-group-item-action lgi-icon-mdc">Material Components for the web: Data table</a>
+    <a href="https://material.io/components/data-tables" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-md"></span>
+      Material Design guidelines: Data tables</a>
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-mdc"></span>
+      Material Components for the web: Data table</a>
 </div>
 
 Data tables display information in a grid-like format of rows and columns. They organize information in a way that’s easy to scan, so that users can look for patterns and insights.
