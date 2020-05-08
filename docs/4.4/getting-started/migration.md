@@ -12,6 +12,9 @@ Material monitors the changes in the Bootstrap project so the exact same Bootstr
 
 **This page will focus on the changes that are unique to Material.**
 
+## v4.4.1 - beta
+Improve components, fix bugs
+
 ## v4.4.1 - alpha
 This release consisted of reviving the project, upgrading it to latest Bootstrap 4.4.1 version and adding latest Material styles.
 

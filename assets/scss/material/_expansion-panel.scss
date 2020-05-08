@@ -12,6 +12,7 @@
 }
 
 .list-group-item {
+  align-items: center;
   background-color: $expansion-panel-bg;
   border: 0;
   // border-radius: 0 2rem 2rem 0;
@@ -52,9 +53,105 @@
     pointer-events: none;
   }
 
+  // Material lists
+  &.d-flex {
+    flex-wrap: nowrap;
+    min-height: 3rem;
+    padding: 0 $spacer;
+  }
+
   .card & {
     padding-right: $card-padding-x;
     padding-left: $card-padding-x;
+  }
+
+  .btn-icon {
+    color: $black-caption;
+  }
+
+  // Prepend Avatar
+  .list-group-item-graphic {
+    border-radius: 50%;
+    color: $list-group-item-graphic-color;
+    font-size: $list-group-item-graphic-width;
+    height: $list-group-item-graphic-width;
+    line-height: $list-group-item-graphic-width;
+    margin: $spacer-sm $spacer $spacer-sm 0;
+    width: $list-group-item-graphic-width;
+
+    // TODO: extensive testing with svgs
+    path:first-of-type {
+      fill: $list-group-item-graphic-color;
+    }
+  }
+}
+
+// Material Two-line lists
+.list-group-item-two-line {
+  height: 4.5rem;
+
+  .list-group-item-text {
+    align-self: flex-start;
+  }
+}
+
+// Prepend icon
+.list-group-item-icon {
+  color: $black-secondary;
+  margin-right: 2 * $spacer;
+}
+
+.list-group-item-text {
+  @include text-truncate;
+
+  :first-child {
+    display: block;
+    line-height: normal;
+    margin-top: 0;
+    margin-bottom: -1.25rem;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 2rem;
+      vertical-align: 0;
+      width: 0;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      height: 20px;
+      vertical-align: -20px;
+      width: 0;
+    }
+  }
+
+  :last-child {
+    @include typography-body-2;
+
+    color: $black-secondary;
+    display: block;
+    line-height: normal;
+    margin-top: 0;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 20px;
+      vertical-align: 0;
+      width: 0;
+    }
+  }
+}
+
+.list-group-item-meta {
+  color: $black-hint;
+  margin-right: 0;
+  margin-left: auto;
+
+  &:not(i):not([class*='material-icon']) {
+    @include typography-caption;
   }
 }
 
@@ -73,6 +170,7 @@
 
   &:hover {
     background-color: $expansion-panel-bg-hover;
+    cursor: pointer;
   }
 
   &:focus {

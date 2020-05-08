@@ -5656,6 +5656,8 @@ input:disabled + .chip {
 }
 
 .list-group-item {
+  -ms-flex-align: center;
+  align-items: center;
   background-color: #ffffff;
   border: 0;
   color: rgba(0, 0, 0, 0.87);
@@ -5664,7 +5666,7 @@ input:disabled + .chip {
   letter-spacing: 0.009375em;
   line-height: 1.5;
   min-height: 3rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   position: relative;
   transition: background-color 15ms linear;
 }
@@ -5693,9 +5695,109 @@ input:disabled + .chip {
   pointer-events: none;
 }
 
+.list-group-item.d-flex {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  min-height: 3rem;
+  padding: 0 1rem;
+}
+
 .card .list-group-item {
   padding-right: 1rem;
   padding-left: 1rem;
+}
+
+.list-group-item .btn-icon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.list-group-item .list-group-item-graphic {
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.5rem 1rem 0.5rem 0;
+  width: 2.5rem;
+}
+
+.list-group-item .list-group-item-graphic path:first-of-type {
+  fill: rgba(0, 0, 0, 0.3);
+}
+
+.list-group-item-two-line {
+  height: 4.5rem;
+}
+
+.list-group-item-two-line .list-group-item-text {
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.list-group-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: 2rem;
+}
+
+.list-group-item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-group-item-text :first-child {
+  display: block;
+  line-height: normal;
+  margin-top: 0;
+  margin-bottom: -1.25rem;
+}
+
+.list-group-item-text :first-child::before {
+  content: '';
+  display: inline-block;
+  height: 2rem;
+  vertical-align: 0;
+  width: 0;
+}
+
+.list-group-item-text :first-child::after {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  vertical-align: -20px;
+  width: 0;
+}
+
+.list-group-item-text :last-child {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.017857em;
+  line-height: 1.25rem;
+  color: rgba(0, 0, 0, 0.54);
+  display: block;
+  line-height: normal;
+  margin-top: 0;
+}
+
+.list-group-item-text :last-child::before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  vertical-align: 0;
+  width: 0;
+}
+
+.list-group-item-meta {
+  color: rgba(0, 0, 0, 0.38);
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.list-group-item-meta:not(i):not([class*='material-icon']) {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.033333em;
+  line-height: 1.25rem;
 }
 
 .list-group-item-action {
@@ -5711,6 +5813,7 @@ input:disabled + .chip {
 
 .list-group-item-action:hover {
   background-color: rgba(0, 0, 0, 0.04);
+  cursor: pointer;
 }
 
 .list-group-item-action:focus {
@@ -5976,7 +6079,7 @@ input:disabled + .chip {
 }
 
 .expansion-panel-body {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
 }
 
 .card .expansion-panel-body {
@@ -6036,7 +6139,7 @@ input:disabled + .chip {
   -ms-flex-pack: justify;
   justify-content: space-between;
   min-height: 3rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   text-align: inherit;
   width: 100%;
 }
@@ -15499,6 +15602,14 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.text-truncate-flex {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .text-left {
