@@ -237,7 +237,7 @@ The `card-primary-action` can be set on card-body also. But it won't have the bo
 Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-reverse` to convert a horizontal action sheet to a vertical one.
 
 {% capture example %}
-<div class="card" style="width: 20rem;">
+<div class="card" style="max-width: 20rem;">
   <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
