@@ -5654,6 +5654,7 @@ input:disabled + .chip {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
+  list-style-type: none;
   margin-bottom: 0;
   padding: 0.5rem 0;
 }
@@ -5680,7 +5681,7 @@ input:disabled + .chip {
 
 .list-group-item.active {
   background-color: rgba(98, 0, 238, 0.12);
-  color: rgba(0, 0, 0, 0.87);
+  color: #6200ee;
   z-index: 2;
 }
 
@@ -5724,8 +5725,8 @@ input:disabled + .chip {
   width: 2.5rem;
 }
 
-.list-group-item .list-group-item-graphic path:first-of-type {
-  fill: rgba(0, 0, 0, 0.3);
+.list-group-shaped .list-group-item {
+  border-radius: 0 2rem 2rem 0;
 }
 
 .list-group-item-two-line {
@@ -5744,14 +5745,16 @@ input:disabled + .chip {
   width: 1.5rem;
 }
 
-.list-group-item-icon path:first-of-type {
-  fill: rgba(0, 0, 0, 0.54);
+.active .list-group-item-icon {
+  color: #6200ee;
 }
 
 .list-group-item-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .list-group-item-text :first-child {
@@ -5807,6 +5810,15 @@ input:disabled + .chip {
   font-weight: 400;
   letter-spacing: 0.033333em;
   line-height: 1.25rem;
+}
+
+.list-group-divider {
+  border: none;
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  height: 0;
+  margin: 0;
 }
 
 .list-group-item-action {

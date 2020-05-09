@@ -7,6 +7,7 @@
   border-radius: $expansion-panel-border-radius;
   display: flex;
   flex-direction: column;
+  list-style-type: none; // Reset Firefox ::marker
   margin-bottom: 0;
   padding: $spacer-sm 0;
 }
@@ -15,7 +16,6 @@
   align-items: center;
   background-color: $expansion-panel-bg;
   border: 0;
-  // border-radius: 0 2rem 2rem 0;
   color: $expansion-panel-color;
   display: block;
   font-size: $expansion-panel-font-size;
@@ -28,13 +28,12 @@
   transition: background-color 15ms linear;
 
   @include hover-focus-active {
-    //color: $expansion-panel-color;
     text-decoration: none;
   }
 
   &.active {
     background-color: $expansion-panel-bg-selected;
-    color: $expansion-panel-color;
+    color: $expansion-panel-color-selected;
     z-index: 2;
 
     &:hover {
@@ -78,11 +77,10 @@
     line-height: $list-group-item-graphic-width;
     margin: $spacer-sm $spacer $spacer-sm 0;
     width: $list-group-item-graphic-width;
+  }
 
-    // TODO: extensive testing with svgs
-    path:first-of-type {
-      fill: $list-group-item-graphic-color;
-    }
+  .list-group-shaped & {
+    border-radius: 0 2rem 2rem 0;
   }
 }
 
@@ -102,13 +100,14 @@
   margin-right: 2 * $spacer;
   width: 1.5rem;
 
-  path:first-of-type {
-    fill: $black-secondary;
+  .active & {
+    color: $expansion-panel-color-selected;
   }
 }
 
+// Text block for long content or two-line lists
 .list-group-item-text {
-  @include text-truncate;
+  @include text-truncate-flex;
 
   :first-child {
     display: block;
@@ -151,6 +150,7 @@
   }
 }
 
+// Trailing text
 .list-group-item-meta {
   color: $black-hint;
   margin-right: 0;
@@ -159,6 +159,16 @@
   &:not(i):not([class*='material-icon']) {
     @include typography-caption;
   }
+}
+
+// List divider
+.list-group-divider {
+  border: none;
+  border-bottom-color: $border-color;
+  border-bottom-style: solid;
+  border-bottom-width: $border-width;
+  height: 0;
+  margin: 0;
 }
 
 .list-group-item-action {
