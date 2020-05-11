@@ -6,10 +6,10 @@ group: material
 toc: true
 ---
 
-**Steppers are no longer cited in Material guidelines. The links refer to the archived version of Material design.**
+**Steppers are no longer cited in Material guidelines. The link refers to the archived version of Material design.**
 
 <div class="list-group mt-lg-5">
-    <a href="https://material.io/archive/guidelines/components/steppers.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/archive/guidelines/components/steppers.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design: Steppers</a>
 </div>

@@ -25,7 +25,8 @@ Snackbars inform users of a process that an app has performed or will perform. T
       Material Components for the web: Snackbar</a>
 </div>
 
-Daemonite is compatible with default Bootstrap's toast HTML markup.
+**Daemonite is using default Bootstrap's toast HTML markup without extra CSS**.  
+Here are just a few demos to show how to use it best.
 
 ## Live demo
 

@@ -3,6 +3,7 @@
 ## 4.4.1 - beta 3
 
 * **New** one-line and two-line lists (see Material > Lists documentation)
+* Improved documentation
 
 ## 4.4.1 - beta 2
 

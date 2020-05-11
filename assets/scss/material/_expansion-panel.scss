@@ -82,6 +82,34 @@
   .list-group-shaped & {
     border-radius: 0 2rem 2rem 0;
   }
+
+  // List checkbox and radio
+  .custom-control {
+    display: flex;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .custom-control-label {
+    flex-grow: 1;
+    font-size: inherit;
+    letter-spacing: inherit;
+    line-height: $expansion-panel-height;
+  }
+
+  .custom-control-label::before {
+    line-height: $expansion-panel-height;
+    margin-top: 0;
+    right: 0;
+    left: auto;
+  }
+
+  .custom-control-label::after {
+    line-height: $expansion-panel-height !important; // stylelint-disable-line declaration-no-important
+    padding: 0 0.6875rem;
+    right: 0;
+    left: auto;
+  }
 }
 
 // Material Two-line lists

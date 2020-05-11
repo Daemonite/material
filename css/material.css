@@ -5673,6 +5673,8 @@ input:disabled + .chip {
   padding: 0.75rem 1rem;
   position: relative;
   transition: background-color 15ms linear;
+  /* text */
+  /* anim */
 }
 
 .list-group-item:hover, .list-group-item:focus, .list-group-item:active {
@@ -5727,6 +5729,35 @@ input:disabled + .chip {
 
 .list-group-shaped .list-group-item {
   border-radius: 0 2rem 2rem 0;
+}
+
+.list-group-item .custom-control {
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  width: 100%;
+}
+
+.list-group-item .custom-control-label {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: 3rem;
+}
+
+.list-group-item .custom-control-label::before {
+  line-height: 3rem;
+  margin-top: 0;
+  right: 0;
+  left: auto;
+}
+
+.list-group-item .custom-control-label::after {
+  line-height: 3rem !important;
+  padding: 0 0.6875rem;
+  right: 0;
+  left: auto;
 }
 
 .list-group-item-two-line {
@@ -6205,7 +6236,6 @@ input:disabled + .chip {
   float: left;
   font-size: 1rem;
   list-style: none;
-  max-width: 100%;
   min-width: 7rem;
   padding: 0.5rem 0;
   position: absolute;
