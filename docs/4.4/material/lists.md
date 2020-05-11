@@ -366,3 +366,77 @@ To insert a separator in your lists, simply add this element `<li class="list-gr
 
 {% endcapture %}
 {% include example.html content=example %}
+
+## List with selection controls
+
+You can even use Bootstrap's default selection controls wihtin your Lists. Don't change your HTML markup, just add `d-flex` class to each `list-group-item`.
+
+### List with Trailing Checkbox
+
+{% capture example %}
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck1">
+      <label class="custom-control-label" for="customCheck1">Dog Photos</label>
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck2">
+      <label class="custom-control-label" for="customCheck2">Cat Photos</label>
+    </div>
+  </li>
+  <li class="list-group-divider" role="separator"></li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck3">
+      <label class="custom-control-label" for="customCheck3">Potatoes</label>
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="customCheck4">
+      <label class="custom-control-label" for="customCheck4">Carrots</label>
+    </div>
+  </li>
+</ul>
+
+{% endcapture %}
+{% include example.html content=example %}
+
+### List with Trailing Radio Buttons
+
+{% capture example %}
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customRadio1" name="customRadio">
+      <label class="custom-control-label" for="customRadio1">Dog Photos</label>
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customRadio2" name="customRadio">
+      <label class="custom-control-label" for="customRadio2">Cat Photos</label>
+    </div>
+  </li>
+  <li class="list-group-divider" role="separator"></li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customRadio3" name="customRadio">
+      <label class="custom-control-label" for="customRadio3">Potatoes</label>
+    </div>
+  </li>
+  <li class="list-group-item list-group-item-action d-flex">
+    <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="customRadio4" name="customRadio">
+      <label class="custom-control-label" for="customRadio4">Carrots</label>
+    </div>
+  </li>
+</ul>
+
+{% endcapture %}
+{% include example.html content=example %}
