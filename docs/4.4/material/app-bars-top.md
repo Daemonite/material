@@ -20,7 +20,7 @@ It can transform into a contextual action bar.
     <a href="https://material.io/components/app-bars-top" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: App bars: top</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/top-app-bar" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Top Bar</a>
 </div>
