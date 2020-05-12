@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI v4.4.1-beta 2 (http://djibe.github.io/material/)
+ * Daemonite Material UI v4.4.1-beta 3 (http://djibe.github.io/material/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -72,6 +72,13 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 article,
@@ -2640,6 +2647,9 @@ pre code {
   .form-inline .form-control-plaintext {
     display: inline-block;
   }
+  .form-inline .form-control-plaintext:focus {
+    outline: 0;
+  }
   .form-inline .input-group,
   .form-inline .custom-select {
     width: auto;
@@ -3110,17 +3120,14 @@ pre code {
   padding-top: 42.857143%;
 }
 
-/* djibe addition */
-html,
-[data-spy='scroll'] {
-  scroll-behavior: smooth;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  html,
   [data-spy='scroll'] {
     scroll-behavior: auto;
   }
+}
+
+[data-spy='scroll'] {
+  scroll-behavior: smooth;
 }
 
 .fade {
@@ -10590,6 +10597,51 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding-right: calc(1.5rem + 0.5rem);
 }
 
+[class*='form-ripple'],
+.floating-label,
+.textfield-box {
+  position: relative;
+}
+
+[class*='form-ripple']::before,
+.floating-label::before,
+.textfield-box::before {
+  background: #6200ee;
+  content: '';
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  transition: -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  z-index: 3;
+}
+
+[class*='form-ripple'] .form-control:focus,
+.floating-label .form-control:focus,
+.textfield-box .form-control:focus {
+  box-shadow: none;
+}
+
+/* [class*='form-ripple'].input-group {
+    margin-left: 2.5rem;
+    width: calc(100% - 2.5rem);
+  } */
+[class*='form-ripple']:focus-within::before,
+.floating-label.is-focused::before,
+.textfield-box:focus-within::before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.form-ripple-text::before {
+  bottom: 1.1875rem;
+}
+
 .textfield-box .form-control, .textfield-box .custom-select, .textfield-box .form-control-file {
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 4px 4px 0 0;
@@ -12197,76 +12249,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     height: 1.5rem;
     padding: 0 0.5rem;
   }
-}
-
-/*!
- * Waves v0.7.6
- * http://fian.my.id/Waves
- *
- * Copyright 2014-2018 Alfiana E. Sibuea and other contributors
- * Released under the MIT license
- * https://github.com/fians/Waves/blob/master/LICENSE */
-.waves-effect {
-  overflow: hidden;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.waves-effect .waves-ripple {
-  background: rgba(0, 0, 0, 0.32);
-  border-radius: 50%;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
-  opacity: 0;
-  pointer-events: none;
-  position: absolute;
-  -webkit-transform: scale(0) translate(0, 0);
-  transform: scale(0) translate(0, 0);
-  transition: all 500ms ease;
-  transition-property: opacity, -webkit-transform;
-  transition-property: transform, opacity;
-  transition-property: transform, opacity, -webkit-transform;
-  width: 100px;
-}
-
-.waves-effect.waves-light .waves-ripple {
-  background: rgba(255, 255, 255, 0.32);
-}
-
-.waves-effect.waves-primary .waves-ripple {
-  background: rgba(98, 0, 238, 0.24);
-}
-
-.waves-notransition {
-  transition: none !important;
-}
-
-.waves-input-wrapper {
-  border-radius: 0.2em;
-  vertical-align: bottom;
-}
-
-.waves-circle {
-  border-radius: 50%;
-  height: 2.5em;
-  line-height: 2.5em;
-  -webkit-mask-image: -webkit-radial-gradient(circle, #ffffff 100%, #000000 100%);
-  text-align: center;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  width: 2.5em;
-}
-
-.waves-float {
-  transition: all 500ms;
-}
-
-.waves-block {
-  display: block;
 }
 
 .align-baseline {

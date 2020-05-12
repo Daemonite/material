@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Text fields
-description: ext fields let users enter and edit text.
+description: Text fields let users enter and edit text.
 group: material
 toc: true
 ---
@@ -24,29 +24,59 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
     Material Components for the web: Text field</a>
 </div>
 
-## Basic text fields
-
 **Most of the details about basic text fields are covered in Components/Forms documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/) for more examples.**
 
+## Line ripple
+
+**Material UI 2 brings pure CSS line ripple effect.**  
+This comes with limitations (due to HTML5 incapacity of creating pseudo-elements on inputs).
+
+Details for implementing nicely line ripple is available in every chapter right below.
+
+{% capture example %}
+<div class="form-group">
+  <div class="floating-label textfield-box">
+    <label for="demo1">Floating label</label>
+    <input aria-describedby="demo1help" class="form-control" id="demo1" placeholder="Optional placeholder" type="text">
+  </div>
+  <small id="demo1help" class="form-text text-muted">Helper message placed outside <code>.floating-label</code>.</small>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Basic text fields
+
+### Line ripple
+
+Conditions for a good implementation
+
+1. Form-control must be wrapped in a `<div class="form-group">` or any other div
+1. You must add `form-ripple` class to this container
+1. If you use a text helper (Bootstrap's `form-text`), add `form-ripple-text` class to your `<div class="form-group form-ripple">` for correct positionning of the ripple.
+
+**NB.** Use of `form-ripple` is not recommended on select (multiple, or size > 1) and textarea (row > 1).
+
+### Demo
+
 <div class="bd-example">
-  <div class="form-group">
+  <div class="form-group form-ripple form-ripple-text">
     <label for="exampleInput1">Default form control</label>
     <input aria-describedby="exampleInput1Help" class="form-control" id="exampleInput1" placeholder="Placeholder" type="text">
     <small id="exampleInput1Help" class="form-text text-muted">Some help text.</small>
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput2">Date and time</label>
     <input class="form-control" id="exampleInput2" placeholder="Date and time" type="datetime-local">
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput3">Number</label>
     <input class="form-control" id="exampleInput3" placeholder="Number" type="number">
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput4">Search</label>
     <input class="form-control" id="exampleInput4" placeholder="Search" type="search">
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput5">Select</label>
     <select class="form-control" id="exampleInput5">
       <option>Select</option>
@@ -91,7 +121,7 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
       <option>9</option>
     </select>
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput8">Size=1 select</label>
     <select class="form-control" id="exampleInput8" size="1">
       <option>Size=1 select</option>
@@ -110,7 +140,7 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
     <label for="exampleInput9">Textarea</label>
     <textarea class="form-control" id="exampleInput9" placeholder="Textarea" rows="3"></textarea>
   </div>
-  <div class="form-group">
+  <div class="form-group form-ripple">
     <label for="exampleInput10">1 row textarea</label>
     <textarea class="form-control" id="exampleInput10" placeholder="1 row textarea" rows="1"></textarea>
   </div>
@@ -122,12 +152,27 @@ When the user engages with the text input field, the floating inline labels move
 
 **N.B.** Implementation of floating label text fields requires `material.js` or `material.min.js`. Floating label also requires the pairing `label` and `.form-control` placed in the same `.floating-label` as its first two children.
 
+### Line ripple for Floating label text fields
+
+Conditions for a good implementation : no extra markup needed as line ripple is activated by default for `floating-label`.
+
+If you use a helper text : either place it outside of the `floating-label` container OR leave it inside the `floating-label` container and add `form-ripple-text` class to the container.
+
+### Demo for floating label text fields
+
 {% capture example %}
 <div class="form-group">
   <div class="floating-label">
     <label for="exampleFloatingLabel1">Floating label</label>
     <input aria-describedby="exampleFloatingLabel1Help" class="form-control" id="exampleFloatingLabel1" placeholder="Optional placeholder" type="text">
-    <small id="exampleFloatingLabel1Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
+  </div>
+  <small id="exampleFloatingLabel1Help" class="form-text text-muted">Helper text placed outside <code>.floating-label</code>.</small>
+</div>
+<div class="form-group">
+  <div class="floating-label form-ripple-text">
+    <label for="exampleFloatingLabelbis1">Floating label</label>
+    <input aria-describedby="exampleFloatingLabelbis1Help" class="form-control" id="exampleFloatingLabelbis1" placeholder="Optional placeholder" type="text">
+    <small id="exampleFloatingLabelbis1Help" class="form-text text-muted">Helper text placed inside <code>.floating-label</code> with <code>form-ripple-text</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -174,7 +219,7 @@ Change sizes using `.floating-label-lg` and `.floating-label-sm`.
 
 {% capture example %}
 <div class="form-group">
-  <div class="floating-label floating-label-lg">
+  <div class="floating-label floating-label-lg form-ripple-text">
     <label for="exampleFloatingLabel6">Large</label>
     <input aria-describedby="exampleFloatingLabel6Help" class="form-control" id="exampleFloatingLabel6" placeholder="Optional placeholder" type="text">
     <small id="exampleFloatingLabel6Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
@@ -231,12 +276,20 @@ $('.floating-label .custom-select, .floating-label .form-control').floatinglabel
 
 Text field boxes increase text field identifiability and scannability by using a transparent rectangular fill to enclose the label and input text.
 
+### Line ripple for Text field boxes
+
+No extra markup as line ripple is activated by default for `textfield-box` elements.
+
+As for floating labels, if you use a helper text : either place it outside of the `floating-label` container OR leave it inside the `floating-label` container and add `form-ripple-text` class to the container.
+
+### Demo for Text field boxes
+
 {% capture example %}
 <div class="form-group">
-  <div class="textfield-box">
+  <div class="textfield-box form-ripple-text">
     <label class="mb-2" for="exampleTextfieldBox1">Text field box</label>
     <input aria-describedby="exampleTextfieldBox1Help" class="form-control" id="exampleTextfieldBox1" placeholder="Placeholder" type="text">
-    <small id="exampleTextfieldBox1Help" class="form-text text-muted">Help text placed inside <code>.textfield-box</code>.</small>
+    <small id="exampleTextfieldBox1Help" class="form-text text-muted">Helper text placed inside <code>.textfield-box</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -311,7 +364,7 @@ Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
 
 {% capture example %}
 <div class="form-group">
-  <div class="textfield-box textfield-box-lg">
+  <div class="textfield-box textfield-box-lg form-ripple-text">
     <label class="mb-2" for="exampleTextfieldBox9">Large</label>
     <input aria-describedby="exampleTextfieldBox9Help" class="form-control" id="exampleTextfieldBox9" placeholder="Large" type="text">
     <small id="exampleTextfieldBox9Help" class="form-text text-muted">Help text placed inside <code>.textfield-box</code>.</small>
@@ -411,6 +464,8 @@ Sizes can also be set by adding `.floating-label-lg/sm` classes.
 
 Icons describe the type of input a text field requires. They are displayed to the left of the text field.
 
+For now, line ripple doesn't work on inputs with icons without floating label.
+
 {% capture example %}
 <div class="form-group">
   <div class="input-group input-group-lg">
@@ -460,7 +515,9 @@ Icons describe the type of input a text field requires. They are displayed to th
 {% endcapture %}
 {% include example.html content=example %}
 
-`.input-group-icon` can also work with floating label text fields and text field boxes:
+`.input-group-icon` can also work with floating label text fields and text field boxes.
+
+No extra markup needed for line ripple as it is activated by default on all `floating-label` elements.
 
 {% capture example %}
 <div class="form-group">
@@ -501,32 +558,32 @@ Icons describe the type of input a text field requires. They are displayed to th
 
 ## Input icons for Webkit browsers
 
-If you use **Chrome** or **Safari**, in the examples below, you will see calendar icon for suitable fields and erase icon for search and calendar based inputs.
+**If you use Chrome or Safari, in the examples below, you will see calendar icon for suitable fields and erase icon for search and calendar based inputs.**
 
 To disable this add-on, in `_utilities.scss`, comment the last line like this : `// _webkit-custom.scss` and recompile SCSS sources.
 
 {% capture example %}
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInputSearch">Search</label>
   <input class="form-control" id="exampleInputSearch" placeholder="Search" type="search">
 </div>
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInputDateTime">Date and time</label>
   <input class="form-control" id="exampleInputDateTime" placeholder="Date and time" type="datetime-local">
 </div>
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInput2bis">Date</label>
   <input class="form-control" id="exampleInput2bis" placeholder="Date" type="date">
 </div>
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInput24">Time</label>
   <input class="form-control" id="exampleInput24" placeholder="Time" type="time">
 </div>
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInput2ter">Month</label>
   <input class="form-control" id="exampleInput2ter" placeholder="Month" type="month">
 </div>
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="exampleInput25">Week</label>
   <input class="form-control" id="exampleInput25" placeholder="Week" type="week">
 </div>

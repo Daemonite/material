@@ -2,8 +2,10 @@
 
 ## 4.4.1 - beta 3
 
-* **New** one-line and two-line lists (see Material > Lists documentation)
-* Improved documentation
+- **New** One-line and two-line lists (see Material > Lists documentation)
+- **New** Line ripple for forms/inputs (see Material > Text fields documentation)
+- Desactivate _waves.scss for button ripples integration
+- Improved documentation
 
 ## 4.4.1 - beta 2
 

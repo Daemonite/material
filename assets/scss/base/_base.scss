@@ -1,4 +1,5 @@
 :root {
+
   // Custom variable values only support SassScript inside `#{}`.
   @each $color, $value in $colors {
     --#{$color}: #{$value};
@@ -6,9 +7,11 @@
 
   @each $color, $values in $theme-colors {
     @each $level, $value in $values {
-      @if $level == 'color' {
+      @if $level=='color' {
         --#{$color}: #{$value};
-      } @else {
+      }
+
+      @else {
         --#{$color}-#{$level}: #{$value};
       }
     }
@@ -42,6 +45,16 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: $webkit-tap-highlight-color;
+
+  @if ($enable-smooth-scroll) {
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+      & {
+        scroll-behavior: auto;
+      }
+    }
+  }
 }
 
 article,
@@ -141,7 +154,9 @@ strong {
   font-weight: $font-weight-bolder;
 }
 
-small { font-size: 80%; }
+small {
+  font-size: 80%;
+}
 
 sub,
 sup {
@@ -151,9 +166,13 @@ sup {
   vertical-align: baseline;
 }
 
-sub { bottom: -0.25em; }
+sub {
+  bottom: -0.25em;
+}
 
-sup { top: -0.5em; }
+sup {
+  top: -0.5em;
+}
 
 //
 // Links
@@ -405,6 +424,7 @@ mark {
 }
 
 @at-root {
+
   // stylelint-disable-next-line at-rule-no-vendor-prefix
   @-ms-viewport {
     width: device-width;

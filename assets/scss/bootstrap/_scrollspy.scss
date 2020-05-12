@@ -1,12 +1,11 @@
-/* djibe addition */
-html,
-[data-spy='scroll'] {
-  scroll-behavior: smooth;
-}
+@if ($enable-smooth-scroll) {
+  @media (prefers-reduced-motion: reduce) {
+    [data-spy='scroll'] {
+      scroll-behavior: auto;
+    }
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  html,
   [data-spy='scroll'] {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
   }
 }

@@ -325,3 +325,46 @@ textarea {
 .form-control[class*='valid'] {
   padding-right: calc(1.5rem + 0.5rem);
 }
+
+// Line ripple
+
+@if ($enable-form-ripple) {
+  [class*='form-ripple'],
+  .floating-label,
+  .textfield-box {
+    position: relative;
+
+    &::before {
+      background: selection-theme-color();
+      content: '';
+      height: 2 * $textfield-border-width;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.18s $transition-timing-function-standard;
+      width: 100%;
+      z-index: 3;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+  }
+
+  /* [class*='form-ripple'].input-group {
+    margin-left: 2.5rem;
+    width: calc(100% - 2.5rem);
+  } */
+
+  [class*='form-ripple']:focus-within::before,
+  .floating-label.is-focused::before,
+  .textfield-box:focus-within::before {
+    transform: scaleX(1);
+  }
+
+  // stylelint-disable-next-line
+  .form-ripple-text::before {
+    bottom: 1.1875rem;
+  }
+}
