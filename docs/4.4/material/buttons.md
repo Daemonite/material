@@ -40,9 +40,8 @@ Bootstrap's `.btn-link` is styled as a primary flat/text button.
 {% capture example %}
 
 <button class="btn btn-link" type="button">Btn-link</button>
-
 <button class="btn btn-flat" type="button">Flat</button>
-{% for color in site.data.theme-colors %}
+{% for color in site.data.theme-colors -%}
 <button class="btn btn-flat-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
 {% endcapture %}
@@ -57,7 +56,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 {% capture example %}
 
 <button class="btn" type="button">Raised</button>
-{% for color in site.data.theme-colors %}
+{% for color in site.data.theme-colors -%}
 <button class="btn btn-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
 {% endcapture %}
@@ -69,8 +68,8 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 
 {% capture example %}
 
-<button class="btn shadow-none" type="button">Raised</button>
-{% for color in site.data.theme-colors %}
+<button class="btn shadow-none" type="button">Unelevated</button>
+{% for color in site.data.theme-colors -%}
 <button class="btn btn-{{ color.name }} shadow-none" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
 {% endcapture %}
@@ -82,7 +81,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 
 {% capture example %}
 
-{% for color in site.data.theme-colors %}
+{% for color in site.data.theme-colors -%}
 <button class="btn btn-outline-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>
 {% endfor %}
 {% endcapture %}

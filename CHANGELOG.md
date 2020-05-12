@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 4.4.1 - RC 1
+
+- **NEW** Ripple effect for components based on Ripplet library
+- Cleanup Buttons CSS (background-color, background-image)
+- Updated documentation
+- Updated dependencies
+
 ## 4.4.1 - beta 3
 
 - **New** One-line and two-line lists (see Material > Lists documentation)
@@ -9,18 +16,18 @@
 
 ## 4.4.1 - beta 2
 
-* **New** `card-primary-action` class (see Material > Cards documentation)
-* Enhenced badges (see Material > Badges documentation)
-* `pre` elements now have `user-select: all` to copy-paste code with 1 click
-* Enhenced card-links positionning
-* Fix button.dropdown-item styling
-* Fix btn-float and btn-flat background
-* Fix Elevation-shadow crash during build
-* Fix toast's z-index leading to inactive Action button
-* Cleanup typography classes
-* Revert doc TOC from sticky to static for long TOC management
-* Revert jQuery to 3.4.1 for Collapse component compatibility
-* All dependencies are up to date
+- **New** `card-primary-action` class (see Material > Cards documentation)
+- Enhenced badges (see Material > Badges documentation)
+- `pre` elements now have `user-select: all` to copy-paste code with 1 click
+- Enhenced card-links positionning
+- Fix button.dropdown-item styling
+- Fix btn-float and btn-flat background
+- Fix Elevation-shadow crash during build
+- Fix toast's z-index leading to inactive Action button
+- Cleanup typography classes
+- Revert doc TOC from sticky to static for long TOC management
+- Revert jQuery to 3.4.1 for Collapse component compatibility
+- All dependencies are up to date
 
 ## 4.4.1 - beta 1 (unreleased)
 
@@ -30,9 +37,9 @@
 + Smooth scroll in pure CSS
 + New .fab-actions container to wrap FAB bottom right of screen
 
-* Improved Bootstrap collapse component
-* Many bug fixes (stretched-links, chips, breadcrumbs, pagination, data-tables)
-* All build dependencies are up to date
+- Improved Bootstrap collapse component
+- Many bug fixes (stretched-links, chips, breadcrumbs, pagination, data-tables)
+- All build dependencies are up to date
 
 BUG. Elevation-shadow can still crash during build
 todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
@@ -46,12 +53,12 @@ todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35
 + Btn-link styled as btn-flat-primary
 + Added btn-xs and btn-icon-prepend
 
-* Improved buttons
-* Improved Steppers
-* Improved documentation (faster, up to date)
-* Improved Dialog transitions
-* UPDATED dependencies
-* FIXED Links used as buttons aspect on hover
+- Improved buttons
+- Improved Steppers
+- Improved documentation (faster, up to date)
+- Improved Dialog transitions
+- UPDATED dependencies
+- FIXED Links used as buttons aspect on hover
 
 ## 4.4.1 - alpha 1
 
@@ -80,11 +87,11 @@ FIXED Buttons on links hover effect
 
 ### Bug fixes
 
-* Modal margins enhanced
-* Primary color tweaked
-* Tables overflowing of container
+- Modal margins enhanced
+- Primary color tweaked
+- Tables overflowing of container
 
 ### Removals
 
 Because they are no longer in Material design guidelines.
-* Vertical card actions
+- Vertical card actions

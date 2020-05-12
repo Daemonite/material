@@ -32,16 +32,16 @@
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, $overlay-hover-white-opacity);
+    //background-color: rgba($black, $overlay-hover-white-opacity);
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, $overlay-pressed-white-opacity);
+    //background-color: rgba($black, $overlay-pressed-white-opacity);
   }
 
   &:disabled,
   &.disabled {
-    background-color: transparent;
+    //background-color: transparent;
   }
 }
 
@@ -54,21 +54,26 @@
       color: theme-color($color);
     }
 
-    &:hover {
-      background-color: rgba(theme-color($color), $overlay-hover-white-opacity);
-    }
+    @if ($color !='dark' and $color !='light') {
+      &:hover {
+        //background-color: rgba(theme-color($color), $overlay-hover-white-opacity);
+        background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-hover-white-opacity), rgba(theme-color($color), $overlay-hover-white-opacity));
+      }
 
-    &:focus {
-      background-color: rgba(theme-color($color), $overlay-focus-white-opacity);
-    }
+      &:focus {
+        //background-color: rgba(theme-color($color), $overlay-focus-white-opacity);
+        background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-focus-white-opacity), rgba(theme-color($color), $overlay-focus-white-opacity));
+      }
 
-    &:active {
-      background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
+      &:active {
+        //background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
+        background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-pressed-white-opacity), rgba(theme-color($color), $overlay-pressed-white-opacity));
+      }
     }
 
     &:disabled,
     &.disabled {
-      background-color: transparent;
+      //background-color: transparent;
       color: $btn-color-disabled;
     }
   }
@@ -120,16 +125,16 @@
   &:hover,
   &:focus,
   &:active {
-    background: rgba($black, $overlay-hover-white-opacity);
+    // background: rgba($black, $overlay-hover-white-opacity);
     box-shadow: none;
     color: initial;
   }
 
   &:focus {
-    background: rgba($black, $overlay-focus-white-opacity);
+    // background: rgba($black, $overlay-focus-white-opacity);
   }
 
   &:active {
-    background: rgba($black, $overlay-pressed-white-opacity);
+    // background: rgba($black, $overlay-pressed-white-opacity);
   }
 }
