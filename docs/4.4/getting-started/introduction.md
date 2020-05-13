@@ -109,7 +109,7 @@ Be sure to have your pages set up with the latest design and development standar
     <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 
     <!-- Add Material CSS, replace Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.2/css/material.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.4/css/material.min.css" rel="stylesheet">
   </head>
   <body>
     <h1>Hello, world!</h1>
@@ -121,7 +121,7 @@ Be sure to have your pages set up with the latest design and development standar
     <script src="{{ site.cdn.bs_js }}"></script>
 
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.2/js/material.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.4/js/material.min.js"></script>
   </body>
 </html>
 {% endhighlight %}

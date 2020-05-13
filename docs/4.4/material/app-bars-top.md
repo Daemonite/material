@@ -14,7 +14,7 @@ It can transform into a contextual action bar.
       <span class="list-group-item-icon lgi-icon-bs"></span>
       <span class="list-group-item-text">
         <span>Bootstrap documentation: Navbar</span>
-        <span>Most of the details have been covered here</span>
+        <span>Every detail has been covered here</span>
       </span>
     </a>
     <a href="https://material.io/components/app-bars-top" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
