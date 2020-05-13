@@ -1,9 +1,13 @@
 # CHANGELOG
 
-## 4.4.1 - RC 1
+## Next release
 
-- **NEW** Ripple effect for components based on Ripplet library
+- **NEW** Ripple effect for components (Buttons, Lists, Menus) based on Ripplet library
+
+## 4.4.1 - beta 4
+
 - Cleanup Buttons CSS (background-color, background-image)
+- Improve icons in buttons (Material-icons or Fontawesome or SVG)
 - Updated documentation
 - Updated dependencies
 
@@ -31,27 +35,27 @@
 
 ## 4.4.1 - beta 1 (unreleased)
 
-+ Bootstrap 4.4.1 responsive containers support
-+ Full toast/snackbar support
-+ Global Material documentation overhaul
-+ Smooth scroll in pure CSS
-+ New .fab-actions container to wrap FAB bottom right of screen
+- **New** Bootstrap 4.4.1 responsive containers support (`container-md`, ...)
+- **New** Full toast/snackbar support
+- Global Material documentation overhaul
+- **New** Smooth scroll in pure CSS
+- **New** .fab-actions container to wrap FAB bottom right of screen
 
 - Improved Bootstrap collapse component
 - Many bug fixes (stretched-links, chips, breadcrumbs, pagination, data-tables)
 - All build dependencies are up to date
 
 BUG. Elevation-shadow can still crash during build
-todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861
+[todo](https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35a10861)
 
 ## 4.4.1 - alpha 2
 
-+ Full Bootstrap 4.4.1 support
-+ Added components according to Density guidelines
-+ Expansion panels according to MD v2
-+ Dialog buttons are always flat
-+ Btn-link styled as btn-flat-primary
-+ Added btn-xs and btn-icon-prepend
+- Full Bootstrap 4.4.1 support
+- Added components according to Density guidelines
+- Expansion panels according to MD v2
+- Dialog buttons are always flat
+- Btn-link styled as btn-flat-primary
+- Added btn-xs and btn-icon-prepend
 
 - Improved buttons
 - Improved Steppers
@@ -62,9 +66,9 @@ todo https://github.com/twbs/bootstrap/commit/605704d7f5483d62d7c9d7ad14836e3b35
 
 ## 4.4.1 - alpha 1
 
-+ NPM build fixed by @tiberiumihai
-+ BS 4.4.1 grid support
-+ Enhance date picker
+- NPM build fixed by @tiberiumihai
+- BS 4.4.1 grid support
+- Enhance date picker
 
 FIXED Datepicker autoclosing
 FIXED Helper text left padding for textfield-box inputs
@@ -77,10 +81,10 @@ FIXED Picker input if disabled or readonly
 
 ## RC-3
 
-+ chips look like Material Design v2
-+ chip outline style
-+ chip choice
-+ chip filter
+- chips look like Material Design v2
+- chip outline style
+- chip choice
+- chip filter
 FIXED Buttons on links hover effect
 
 ## RC-2
@@ -90,8 +94,3 @@ FIXED Buttons on links hover effect
 - Modal margins enhanced
 - Primary color tweaked
 - Tables overflowing of container
-
-### Removals
-
-Because they are no longer in Material design guidelines.
-- Vertical card actions

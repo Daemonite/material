@@ -5,6 +5,8 @@ meta_description: Material design Buttons for Bootstrap 4 using some extra CSS c
 description: Buttons allow users to take actions, and make choices, with a single tap.
 group: material
 redirect_from: "/docs/4.4/material/"
+fontawesome4: true
+fontawesome5: true
 toc: true
 ---
 
@@ -33,9 +35,10 @@ Flat, outlined and raised buttons are the most commonly used types.
 
 ### Flat buttons
 
-Flat buttons are text-only buttons (now called Text Buttons in MD). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press. Material adds `.btn-flat-*` buttons in order to own these elements.
+Flat buttons are text-only buttons (now called Text Buttons in Material Design guidelines). They may be used in dialogs, toolbars, or inline. They do not lift, but fill with color on press.  
+Material adds `.btn-flat-*` buttons in order to reflect these Text buttons.
 
-Bootstrap's `.btn-link` is styled as a primary flat/text button.
+Bootstrap's `.btn-link` and `.card-link` are styled as a primary text button.
 
 {% capture example %}
 
@@ -106,18 +109,32 @@ Recently, Google introduced **Density guidelines**, see the references at the to
 
 To reflect these changes with lowest impact on Bootstrap, here are our choices :
 
-* btn is equivalent to **Default** button size
-* btn-sm is equivalent to **Comfortable** button size
+* Standard `btn` is equivalent to **Default** button size
+* `btn-sm` is equivalent to **Comfortable** button size
 * `btn-xs` is introduced to represent **Compact** button size
+* Bootstrap's `btn-lg` has no equivalent in Material design
 
-At the same time, for easier icon integration within buttons (*Material icons*, *Fontawesome* or any other), `btn-icon-prepend` class has been created. Just add this class to your `.btn` for a proper icon's sizing and positioning.
+*Examples are presented above (cf. Shaped buttons)*
 
-<p class="typography-overline">Default</p>
+At the same time, for easier icon integration within buttons (**SVG, *Material Icons*, *FontAwesome* or any other icon set**), `btn-icon-prepend` class has been created.  
+Just add this class to your icon/svg markup for a proper icon's sizing and positioning.
+
+<p class="typography-overline">Icon Compatibility</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button type="button" class="btn btn-primary"><svg class="btn-icon-prepend" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="white"/><path d="M0 0h24v24H0z" fill="none" /></svg>svg</button>
+<button type="button" class="btn btn-primary"><i class="fa fa-trash-o btn-icon-prepend"></i>FontAwesome 4</button>
+<button type="button" class="btn btn-primary"><i class="far fa-trash-alt btn-icon-prepend"></i>FontAwesome 5</button>
+<button type="button" class="btn btn-primary"><i class="material-icons btn-icon-prepend">delete_outline</i>Material icon</button>
+{% endcapture %}
+{% include example.html content=example %}
+
+<p class="typography-overline">Default size</p>
+{% capture example %}
+
+<button class="btn btn-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
+<button class="btn btn-flat-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
+<button class="btn btn-outline-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -130,7 +147,7 @@ At the same time, for easier icon integration within buttons (*Material icons*, 
 {% endcapture %}
 {% include example.html content=example %}
 
-<p class="typography-overline">Comfortable standard</p>
+<p class="typography-overline">Comfortable size</p>
 {% capture example %}
 
 <button class="btn btn-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
@@ -148,7 +165,7 @@ At the same time, for easier icon integration within buttons (*Material icons*, 
 {% endcapture %}
 {% include example.html content=example %}
 
-<p class="typography-overline">Compact standard</p>
+<p class="typography-overline">Compact size</p>
 {% capture example %}
 
 <button class="btn btn-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
