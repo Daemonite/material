@@ -3,6 +3,7 @@
 ## Next release
 
 - **NEW** Ripple effect for components (Buttons, Lists, Menus) based on Ripplet library
+- Improve btn-icon-prepend and list-group-item-icon svg color and sizing
 
 ## 4.4.1 - beta 4
 
@@ -11,7 +12,7 @@
 - Updated documentation
 - Updated dependencies
 
-## 4.4.1 - beta 3
+## 4.4.1 - beta 3 (unreleased)
 
 - **New** One-line and two-line lists (see Material > Lists documentation)
 - **New** Line ripple for forms/inputs (see Material > Text fields documentation)

@@ -122,64 +122,64 @@ Just add this class to your icon/svg markup for a proper icon's sizing and posit
 <p class="typography-overline">Icon Compatibility</p>
 {% capture example %}
 
-<button type="button" class="btn btn-primary"><svg class="btn-icon-prepend" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="white"/><path d="M0 0h24v24H0z" fill="none" /></svg>svg</button>
-<button type="button" class="btn btn-primary"><i class="fa fa-trash-o btn-icon-prepend"></i>FontAwesome 4</button>
-<button type="button" class="btn btn-primary"><i class="far fa-trash-alt btn-icon-prepend"></i>FontAwesome 5</button>
-<button type="button" class="btn btn-primary"><i class="material-icons btn-icon-prepend">delete_outline</i>Material icon</button>
+<button type="button" class="btn btn-primary"><svg class="btn-icon-prepend" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" /><path d="M0 0h24v24H0z" fill="none" /></svg>svg</button>
+<button type="button" class="btn btn-primary"><i class="fa fa-trash-o btn-icon-prepend" aria-hidden="true"></i>FontAwesome 4</button>
+<button type="button" class="btn btn-primary"><i class="far fa-trash-alt btn-icon-prepend" aria-hidden="true"></i>FontAwesome 5</button>
+<button type="button" class="btn btn-primary"><span class="material-icons btn-icon-prepend" aria-hidden="true">delete_outline</span>Material icon</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Default size</p>
 {% capture example %}
 
-<button class="btn btn-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
-<button class="btn btn-flat-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
-<button class="btn btn-outline-primary" type="button"><i class="material-icons btn-icon-prepend">add</i>button</button>
+<button class="btn btn-primary" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Default shaped</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-primary btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Comfortable size</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-sm btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-primary btn-sm" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary btn-sm" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary btn-sm" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Comfortable shaped</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-sm btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-primary btn-sm btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary btn-sm btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary btn-sm btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Compact size</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-xs btn-icon-prepend" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-primary btn-xs" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary btn-xs" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary btn-xs" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 
 <p class="typography-overline">Compact shaped</p>
 {% capture example %}
 
-<button class="btn btn-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-flat-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
-<button class="btn btn-outline-primary btn-xs btn-icon-prepend btn-shaped" type="button"><i class="material-icons">add</i>button</button>
+<button class="btn btn-primary btn-xs btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-flat-primary btn-xs btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
+<button class="btn btn-outline-primary btn-xs btn-shaped" type="button"><i class="material-icons btn-icon-prepend" aria-hidden="true">add</i>button</button>
 {% endcapture %}
 {% include example.html content=example %}
 

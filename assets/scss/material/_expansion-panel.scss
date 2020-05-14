@@ -31,27 +31,6 @@
     text-decoration: none;
   }
 
-  &.active {
-    background-color: $expansion-panel-bg-selected;
-    color: $expansion-panel-color-selected;
-    z-index: 2;
-
-    &:hover {
-      background-color: $expansion-panel-bg-primary-hover;
-    }
-
-    &:focus {
-      background-color: $expansion-panel-bg-primary-focus;
-    }
-  }
-
-  &.disabled,
-  &:disabled {
-    background-color: $expansion-panel-bg;
-    color: $expansion-panel-color-disabled;
-    pointer-events: none;
-  }
-
   // Material lists
   &.d-flex {
     flex-wrap: nowrap;
@@ -68,10 +47,28 @@
     color: $black-caption;
   }
 
+  // Prepend icon
+  .list-group-item-icon {
+    color: $black-secondary;
+    display: inline-block;
+    fill: currentColor;
+    font-size: $list-group-item-icon-size;
+    height: $list-group-item-icon-size;
+    margin-right: 2 * $spacer;
+    vertical-align: top;
+    width: $list-group-item-icon-size;
+  }
+
+  // stylelint-disable-next-line
+  &.active .list-group-item-icon {
+    color: $expansion-panel-color-selected;
+  }
+
   // Prepend Avatar
   .list-group-item-graphic {
     border-radius: 50%;
     color: $list-group-item-graphic-color;
+    fill: $list-group-item-graphic-color;
     font-size: $list-group-item-graphic-width;
     height: $list-group-item-graphic-width;
     line-height: $list-group-item-graphic-width;
@@ -110,6 +107,29 @@
     right: 0;
     left: auto;
   }
+
+  // stylelint-disable
+  &.active {
+    background-color: $expansion-panel-bg-selected;
+    color: $expansion-panel-color-selected;
+    z-index: 2;
+
+    &:hover {
+      background-color: $expansion-panel-bg-primary-hover;
+    }
+
+    &:focus {
+      background-color: $expansion-panel-bg-primary-focus;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: $expansion-panel-bg;
+    color: $expansion-panel-color-disabled;
+    pointer-events: none;
+  }
+  // stylelint-enable
 }
 
 // Material Two-line lists
@@ -118,18 +138,6 @@
 
   .list-group-item-text {
     align-self: flex-start;
-  }
-}
-
-// Prepend icon
-.list-group-item-icon {
-  color: $black-secondary;
-  height: 1.5rem;
-  margin-right: 2 * $spacer;
-  width: 1.5rem;
-
-  .active & {
-    color: $expansion-panel-color-selected;
   }
 }
 

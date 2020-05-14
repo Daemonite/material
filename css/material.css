@@ -3494,6 +3494,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn .btn-icon-prepend, .card-link .btn-icon-prepend {
   display: inline-block;
+  fill: currentColor;
   font-size: 1.125rem;
   margin-right: 0.5rem;
   margin-left: -0.25rem;
@@ -5681,26 +5682,6 @@ input:disabled + .chip {
   text-decoration: none;
 }
 
-.list-group-item.active {
-  background-color: rgba(98, 0, 238, 0.12);
-  color: #6200ee;
-  z-index: 2;
-}
-
-.list-group-item.active:hover {
-  background-color: rgba(98, 0, 238, 0.16);
-}
-
-.list-group-item.active:focus {
-  background-color: rgba(98, 0, 238, 0.24);
-}
-
-.list-group-item.disabled, .list-group-item:disabled {
-  background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.38);
-  pointer-events: none;
-}
-
 .list-group-item.d-flex {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
@@ -5717,9 +5698,25 @@ input:disabled + .chip {
   color: rgba(0, 0, 0, 0.6);
 }
 
+.list-group-item .list-group-item-icon {
+  color: rgba(0, 0, 0, 0.54);
+  display: inline-block;
+  fill: currentColor;
+  font-size: 1.5rem;
+  height: 1.5rem;
+  margin-right: 2rem;
+  vertical-align: top;
+  width: 1.5rem;
+}
+
+.list-group-item.active .list-group-item-icon {
+  color: #6200ee;
+}
+
 .list-group-item .list-group-item-graphic {
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.3);
+  fill: rgba(0, 0, 0, 0.3);
   font-size: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
@@ -5760,6 +5757,26 @@ input:disabled + .chip {
   left: auto;
 }
 
+.list-group-item.active {
+  background-color: rgba(98, 0, 238, 0.12);
+  color: #6200ee;
+  z-index: 2;
+}
+
+.list-group-item.active:hover {
+  background-color: rgba(98, 0, 238, 0.16);
+}
+
+.list-group-item.active:focus {
+  background-color: rgba(98, 0, 238, 0.24);
+}
+
+.list-group-item.disabled, .list-group-item:disabled {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+}
+
 .list-group-item-two-line {
   height: 4.5rem;
 }
@@ -5767,17 +5784,6 @@ input:disabled + .chip {
 .list-group-item-two-line .list-group-item-text {
   -ms-flex-item-align: start;
   align-self: flex-start;
-}
-
-.list-group-item-icon {
-  color: rgba(0, 0, 0, 0.54);
-  height: 1.5rem;
-  margin-right: 2rem;
-  width: 1.5rem;
-}
-
-.active .list-group-item-icon {
-  color: #6200ee;
 }
 
 .list-group-item-text {
