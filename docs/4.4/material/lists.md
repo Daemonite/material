@@ -118,7 +118,7 @@ You can still use a Font icon or a svg for your graphic. Set class `list-group-i
   <li class="list-group-item list-group-item-action d-flex">
     <span class="material-icons list-group-item-graphic" aria-hidden="true">account_circle</span>
     List item with material icon and Button
-    <a class="btn btn-icon ml-auto" href="#"><span          class="material-icons">more_vert</span></a>
+    <a class="btn btn-icon ml-auto" href="#"><span class="material-icons">more_vert</span></a>
   </li>
   <li class="list-group-item list-group-item-action d-flex">
     <span class="material-icons list-group-item-graphic" aria-hidden="true">account_circle</span>

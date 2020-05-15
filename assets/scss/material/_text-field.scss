@@ -326,7 +326,14 @@ textarea {
   padding-right: calc(1.5rem + 0.5rem);
 }
 
-// Line ripple
+// Line ripple + label color on focus
+
+.form-group,
+[class*='form-ripple'] {
+  &:focus-within label:not(.custom-control-label):not(.form-check-label) {
+    color: selection-theme-color();
+  }
+}
 
 @if ($enable-form-ripple) {
   [class*='form-ripple'],
@@ -351,11 +358,6 @@ textarea {
       box-shadow: none;
     }
   }
-
-  /* [class*='form-ripple'].input-group {
-    margin-left: 2.5rem;
-    width: calc(100% - 2.5rem);
-  } */
 
   [class*='form-ripple']:focus-within::before,
   .floating-label.is-focused::before,

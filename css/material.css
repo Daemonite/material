@@ -9118,6 +9118,7 @@ input:disabled + .chip {
 }
 
 .custom-switch {
+  display: inline-block;
   padding-left: 3.75rem;
 }
 
@@ -10598,6 +10599,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding-right: calc(1.5rem + 0.5rem);
 }
 
+.form-group:focus-within label:not(.custom-control-label):not(.form-check-label),
+[class*='form-ripple']:focus-within label:not(.custom-control-label):not(.form-check-label) {
+  color: #6200ee;
+}
+
 [class*='form-ripple'],
 .floating-label,
 .textfield-box {
@@ -10628,10 +10634,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   box-shadow: none;
 }
 
-/* [class*='form-ripple'].input-group {
-    margin-left: 2.5rem;
-    width: calc(100% - 2.5rem);
-  } */
 [class*='form-ripple']:focus-within::before,
 .floating-label.is-focused::before,
 .textfield-box:focus-within::before {

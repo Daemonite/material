@@ -26,12 +26,15 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
 
 **Most of the details about basic text fields are covered in Components/Forms documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/) for more examples.**
 
-## Line ripple
+## Line ripple effect
 
 **Material UI 2 brings pure CSS line ripple effect.**  
-This comes with limitations (due to HTML5 incapacity of creating pseudo-elements on inputs).
+This comes with limitations (due to CSS3 incapacity of creating pseudo-elements on inputs).
 
 Details for implementing nicely line ripple is available in every chapter right below.
+
+**Material UI 2 also brings colored label on form focus.**  
+However limited to inputs placed in Bootstrap's `form-group` or `form-ripple` container. Floating-label forms have colored title by default.
 
 {% capture example %}
 <div class="form-group">
@@ -50,16 +53,16 @@ Details for implementing nicely line ripple is available in every chapter right 
 
 Conditions for a good implementation
 
-1. Form-control must be wrapped in a `<div class="form-group">` or any other div
+1. Form-control must be wrapped in a `<div class="form-group">` or any other *div* container
 1. You must add `form-ripple` class to this container
-1. If you use a text helper (Bootstrap's `form-text`), add `form-ripple-text` class to your `<div class="form-group form-ripple">` for correct positionning of the ripple.
+1. If you use a text helper (Bootstrap's `form-text`), use (or add) `form-ripple-text` instead of `form-ripple` on your container div for correct positionning of the ripple.
 
-**NB.** Use of `form-ripple` is not recommended on select (multiple, or size > 1) and textarea (row > 1).
+**NB.** Use of a border ripple effect is not recommended on select (multiple, or size > 1) and textarea (row > 1) in Material guidelines.
 
 ### Demo
 
 <div class="bd-example">
-  <div class="form-group form-ripple form-ripple-text">
+  <div class="form-group form-ripple-text">
     <label for="exampleInput1">Default form control</label>
     <input aria-describedby="exampleInput1Help" class="form-control" id="exampleInput1" placeholder="Placeholder" type="text">
     <small id="exampleInput1Help" class="form-text text-muted">Some help text.</small>
