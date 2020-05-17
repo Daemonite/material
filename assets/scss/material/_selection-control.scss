@@ -166,8 +166,7 @@
 }
 
 // switches
-//
-// Tweak a few things for switches
+
 .custom-switch {
   display: inline-block;
   padding-left: ($selection-control-track-width + $selection-control-spacer-x);
@@ -183,9 +182,20 @@
       box-shadow: $selection-control-thumb-shadow;
       content: '';
       display: block;
-      height: $selection-control-indicator-size;
+      height: $custom-switch-handle-width;
       position: absolute;
-      width: $selection-control-indicator-size;
+      width: $custom-switch-handle-width;
+    }
+
+    &::before {
+      height: $custom-switch-width;
+      margin-top: -$custom-switch-handle-width / 2;
+      margin-left: -$custom-switch-handle-width / 2;
+      width: $custom-switch-handle-width;
+
+      &:hover {
+        background-color: #ff0000;
+      }
     }
   }
 
@@ -195,11 +205,12 @@
         // scss-lint:disable NestingDepth
         &::after,
         &::before {
-          transform: translateX($selection-control-track-width - $selection-control-indicator-size);
+          transform: translateX($custom-switch-handle-width);
         }
 
         &::after {
           background-color: $selection-control-color-active;
+          //transform: translateX($selection-control-track-height);
         }
         // scss-lint:enable
       }
@@ -229,46 +240,10 @@
     border-radius: $selection-control-track-height;
     content: '';
     display: block;
-    height: $selection-control-indicator-size;
+    height: $custom-switch-handle-width;
     position: absolute;
     top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
     left: 0;
-    width: $selection-control-track-width;
+    width: $custom-switch-width;
   }
 }
-
-/* .custom-switch {
-  padding-left: $custom-switch-width + $custom-control-gutter;
-
-  .custom-control-label {
-    &::before {
-      left: -($custom-switch-width + $custom-control-gutter);
-      width: $custom-switch-width;
-      pointer-events: all;
-      border-radius: $custom-switch-indicator-border-radius;
-    }
-
-    &::after {
-      top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
-      left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
-      width: $custom-switch-indicator-size;
-      height: $custom-switch-indicator-size;
-      background-color: $custom-control-indicator-border-color;
-      border-radius: $custom-switch-indicator-border-radius;
-      transition: transform .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-  }
-
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      background-color: $custom-control-indicator-bg;
-      transform: translateX($custom-switch-width - $custom-control-indicator-size);
-    }
-  }
-
-  .custom-control-input:disabled {
-    &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
-    }
-  }
-} */

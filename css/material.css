@@ -9159,9 +9159,9 @@ input:disabled + .chip {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.54);
   content: '';
   display: block;
-  height: 1.5rem;
+  height: 1.3rem;
   position: absolute;
-  width: 1.5rem;
+  width: 1.3rem;
 }
 
 @media (min-width: 576px) {
@@ -9182,9 +9182,20 @@ input:disabled + .chip {
   }
 }
 
+.custom-switch .custom-control-label::before {
+  height: 2.6rem;
+  margin-top: -0.65rem;
+  margin-left: -0.65rem;
+  width: 1.3rem;
+}
+
+.custom-switch .custom-control-label::before:hover {
+  background-color: #ff0000;
+}
+
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after, .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
-  -webkit-transform: translateX(1.5rem);
-  transform: translateX(1.5rem);
+  -webkit-transform: translateX(1.3rem);
+  transform: translateX(1.3rem);
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
@@ -9214,11 +9225,11 @@ input:disabled + .chip {
   border-radius: 1rem;
   content: '';
   display: block;
-  height: 1.5rem;
+  height: 1.3rem;
   position: absolute;
   top: 0rem;
   left: 0;
-  width: 3rem;
+  width: 2.6rem;
 }
 
 @media (min-width: 576px) {
@@ -9239,41 +9250,6 @@ input:disabled + .chip {
   }
 }
 
-/* .custom-switch {
-  padding-left: $custom-switch-width + $custom-control-gutter;
-
-  .custom-control-label {
-    &::before {
-      left: -($custom-switch-width + $custom-control-gutter);
-      width: $custom-switch-width;
-      pointer-events: all;
-      border-radius: $custom-switch-indicator-border-radius;
-    }
-
-    &::after {
-      top: calc(0.25rem + 2.5rem);
-      left: calc(-3.5rem + 2.5rem);
-      width: $custom-switch-indicator-size;
-      height: $custom-switch-indicator-size;
-      background-color: $custom-control-indicator-border-color;
-      border-radius: $custom-switch-indicator-border-radius;
-      transition: transform .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    }
-  }
-
-  .custom-control-input:checked ~ .custom-control-label {
-    &::after {
-      background-color: $custom-control-indicator-bg;
-      transform: translateX($custom-switch-width - $custom-control-indicator-size);
-    }
-  }
-
-  .custom-control-input:disabled {
-    &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
-    }
-  }
-} */
 .custom-range {
   -webkit-appearance: none;
   -moz-appearance: none;
