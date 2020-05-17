@@ -4,9 +4,13 @@
 
 - **NEW** Ripple effect for components (Buttons, Lists, Menus) based on Ripplet library
 
+## 4.5.0 - RC1
+
+- **New** Upgrade to Bootstrap 4.5.0  
+Moved 4.4.1 to a new branch for those who need it
+
 ## 4.4.1 - RC1
 
-- **New** Switch component is fixed thanks to @rohinarya12
 - **New** Label color on form focus (for form-group and form-ripple containers. See Material > Text fields)
 - Improve btn-icon-prepend and list-group-item-icon svg color and sizing
 - Improve doc for line ripple with text-helper

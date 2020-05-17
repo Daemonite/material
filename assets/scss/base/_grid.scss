@@ -1,6 +1,7 @@
 // Container widths
 //
 // Set the container width, and override it for fixed navbars in media queries.
+// stylelint-disable
 
 @if $enable-grid-classes {
   // Single container class with breakpoint max-widths
@@ -15,24 +16,38 @@
   }
 
   // Responsive containers that are 100% wide until a breakpoint
-  // stylelint-disable
   @each $breakpoint, $container-max-width in $container-max-widths {
     .container-#{$breakpoint} {
-      @include make-container();
+      @extend .container-fluid;
     }
 
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      .container-#{$breakpoint} {
+      %responsive-container-#{$breakpoint} {
         max-width: $container-max-width;
+      }
+
+      // Extend each breakpoint which is smaller or equal to the current breakpoint
+      $extend-breakpoint: true;
+
+      @each $name, $width in $grid-breakpoints {
+        @if ($extend-breakpoint) {
+          .container#{breakpoint-infix($name, $grid-breakpoints)} {
+            @extend %responsive-container-#{$breakpoint};
+          }
+
+          // Once the current breakpoint is reached, stop extending
+          @if ($breakpoint == $name) {
+            $extend-breakpoint: false;
+          }
+        }
       }
     }
   }
-  //stylelint-enable
 }
 
 // Row
 //
-// Rows contain and clear the floats of your columns.
+// Rows contain your columns.
 
 @if $enable-grid-classes {
   .row {

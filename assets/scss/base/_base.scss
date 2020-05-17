@@ -212,9 +212,11 @@ samp {
 }
 
 pre {
+  display: block;
   margin-top: 0;
   margin-bottom: $pre-margin-y;
   overflow: auto;
+  -ms-overflow-style: scrollbar;
   user-select: all;
 }
 
@@ -295,6 +297,10 @@ select {
   text-transform: none;
 }
 
+[role='button'] {
+  cursor: pointer;
+}
+
 select {
   word-wrap: normal;
 
@@ -339,13 +345,6 @@ input[type='radio'],
 input[type='checkbox'] {
   box-sizing: border-box;
   padding: 0;
-}
-
-input[type='date'],
-input[type='time'],
-input[type='datetime-local'],
-input[type='month'] {
-  -webkit-appearance: listbox;
 }
 
 textarea {

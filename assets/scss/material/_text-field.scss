@@ -3,6 +3,7 @@
 *  input-group-prepend or input-group-icon ? : bring icon within field
 */
 
+// TODO: Control useless @€xtend parameters
 %form-control {
   background-clip: padding-box;
   background-color: transparent;
@@ -70,6 +71,15 @@
 
   &[type='file'] {
     max-height: $textfield-height;
+  }
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  &.form-control {
+    appearance: none; // Fix appearance for date inputs in Safari
   }
 }
 
