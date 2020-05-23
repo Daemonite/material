@@ -29,7 +29,7 @@ Chips exist in an outline variant : just add `chip-outline` class to your chip.
 <span class="chip disabled">Chip disabled</span>
 <span class="chip chip-outline">Chip outline</span>
 <span class="chip"><i class="chip-icon">C</i>Chip icon</span>
-<span class="chip"><img alt="Chip Image" class="chip-img" src="{{ site.baseurl }}/apple-touch-icon.png">Chip image</span>
+<span class="chip"><img loading="lazy" alt="Chip Image" class="chip-img" src="{{ site.baseurl }}/apple-touch-icon.png">Chip image</span>
 {% endcapture %}
 {% include example.html content=example %}
 
@@ -154,7 +154,7 @@ Chips can be interactive. Use `<a>`s or `<button>`s to create actionable chips w
 {% capture example %}
 <button class="chip chip-action" type="button">Chip Action Label</button>
 <a class="chip chip-action" href="#"><i class="chip-icon">C</i>Chip Action Label</a>
-<a class="chip chip-action" href="#"><img alt="Chip Image" class="chip-img" src="{{ site.baseurl }}/apple-touch-icon.png">Chip Action Label</a>
+<a class="chip chip-action" href="#"><img loading="lazy" alt="Chip Image" class="chip-img" src="{{ site.baseurl }}/apple-touch-icon.png">Chip Action Label</a>
 {% endcapture %}
 {% include example.html content=example %}
 

@@ -42,7 +42,7 @@ You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` a
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
-  <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+  <img loading="lazy" alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
@@ -81,7 +81,7 @@ You can use the button HTML markup you want in a card (either using a link or a 
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
-  <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+  <img loading="lazy" alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
@@ -104,7 +104,7 @@ Example without `card-actions` div. Apply `border-0` utility to the card-header 
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
-  <img alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
+  <img loading="lazy" alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle">by Kurt Wagner</h6>
@@ -238,7 +238,7 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
 
 {% capture example %}
 <div class="card" style="max-width: 20rem;">
-  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
+  <img loading="lazy" alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

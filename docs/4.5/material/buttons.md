@@ -43,6 +43,7 @@ Bootstrap's `.btn-link` and `.card-link` are styled as a primary text button.
 {% capture example %}
 
 <button class="btn btn-link" type="button">Btn-link</button>
+<button class="card-link" type="button">Card link</button>
 <button class="btn btn-flat" type="button">Flat</button>
 {% for color in site.data.theme-colors -%}
 <button class="btn btn-flat-{{ color.name }}" type="button">{{ color.name | capitalize }}</button>

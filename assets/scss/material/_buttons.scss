@@ -38,21 +38,21 @@
 
   &:hover,
   &.hover {
-    // background-image: linear-gradient(to bottom, rgba($white, $overlay-hover-colored-opacity), rgba($white, $overlay-hover-colored-opacity));
     background-image: linear-gradient(to bottom, rgba($black, $overlay-hover-white-opacity), rgba($black, $overlay-hover-white-opacity));
   }
 
   &:focus,
   &.focus {
-    //background-image: linear-gradient(to bottom, rgba($white, $overlay-focus-colored-opacity), rgba($white, $overlay-focus-colored-opacity));
     background-image: linear-gradient(to bottom, rgba($black, $overlay-focus-white-opacity), rgba($black, $overlay-focus-white-opacity));
   }
 
   &:active,
   &.active {
-    //background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
-    background-image: linear-gradient(to bottom, rgba($black, $overlay-pressed-white-opacity), rgba($black, $overlay-pressed-white-opacity));
     box-shadow: map-get($btn-elevation-shadow-active, shadow);
+
+    @if not $enable-ripple {
+      background-image: linear-gradient(to bottom, rgba($black, $overlay-pressed-white-opacity), rgba($black, $overlay-pressed-white-opacity));
+    }
   }
 
   &:disabled,
@@ -70,12 +70,10 @@
   }
 }
 
-// stylelint-disable
+// stylelint-disable-next-line
 a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
   color: $white;
 }
-
-// stylelint-enable
 
 //
 // Alternate buttons
@@ -106,9 +104,12 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
         background-image: linear-gradient(to bottom, rgba($white, $overlay-focus-colored-opacity), rgba($white, $overlay-focus-colored-opacity));
       }
 
-      &:active,
-      &.active {
-        background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+      // stylelint-disable-next-line
+      @if not $enable-ripple {
+        &:active,
+        &.active {
+          background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+        }
       }
     }
 

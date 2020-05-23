@@ -1,6 +1,7 @@
 // Btn flat and outlined
 // Material guidelines : https://material.io/design/components/buttons.html#specs
 // Material Web component : https://material-components.github.io/material-components-web-catalog/#/component/button?type=text
+
 [class*='btn-flat'],
 .btn-link,
 .card-link,
@@ -30,19 +31,6 @@
     box-shadow: none;
     color: $black-primary;
   }
-
-  &:hover {
-    //background-color: rgba($black, $overlay-hover-white-opacity);
-  }
-
-  &:active {
-    //background-color: rgba($black, $overlay-pressed-white-opacity);
-  }
-
-  &:disabled,
-  &.disabled {
-    //background-color: transparent;
-  }
 }
 
 @each $color,
@@ -65,9 +53,11 @@
         background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-focus-white-opacity), rgba(theme-color($color), $overlay-focus-white-opacity));
       }
 
-      &:active {
-        //background-color: rgba(theme-color($color), $overlay-pressed-white-opacity);
-        background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-pressed-white-opacity), rgba(theme-color($color), $overlay-pressed-white-opacity));
+      // stylelint-disable-next-line
+      @if not $enable-ripple {
+        &:active {
+          background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-pressed-white-opacity), rgba(theme-color($color), $overlay-pressed-white-opacity));
+        }
       }
     }
 
@@ -88,6 +78,7 @@
   @extend .btn-flat-primary;
 }
 
+/*
 .btn-flat-light,
 .btn-outline-light {
   @include hover-focus {
@@ -99,6 +90,7 @@
     background-color: $btn-bg-active-inverse;
   }
 }
+*/
 
 // Btn-icon addition
 .btn-icon {
@@ -125,16 +117,7 @@
   &:hover,
   &:focus,
   &:active {
-    // background: rgba($black, $overlay-hover-white-opacity);
     box-shadow: none;
     color: initial;
-  }
-
-  &:focus {
-    // background: rgba($black, $overlay-focus-white-opacity);
-  }
-
-  &:active {
-    // background: rgba($black, $overlay-pressed-white-opacity);
   }
 }
