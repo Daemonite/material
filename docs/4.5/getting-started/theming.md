@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: Theming
-description: Customise Material with our source code.
+title: Theming Material
+description: Customise Material with our new built-in Sass variables for global style preferences for easy theming and component changes.
 group: getting-started
 toc: true
 ---

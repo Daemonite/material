@@ -168,82 +168,81 @@
 // switches
 
 .custom-switch {
-  display: inline-block;
-  padding-left: ($selection-control-track-width + $selection-control-spacer-x);
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  padding-left: 36px;
 
   .custom-control-label {
-    @include transition-standard(background-color);
-
-    &::after {
-      @include transition-standard(background-color, transform);
-
-      background-color: $selection-control-thumb-bg;
-      border-radius: 50%;
-      box-shadow: $selection-control-thumb-shadow;
-      content: '';
-      display: block;
-      height: $custom-switch-handle-width;
-      position: absolute;
-      width: $custom-switch-handle-width;
-    }
+    flex: 1;
 
     &::before {
-      height: $custom-switch-width;
-      margin-top: -$custom-switch-handle-width / 2;
-      margin-left: -$custom-switch-handle-width / 2;
-      width: $custom-switch-handle-width;
+      background: rgba($black, $black-hint-opacity);
+      border-radius: $custom-switch-height / 2;
+      content: '';
+      height: $custom-switch-height;
+      opacity: 1;
+      pointer-events: all;
+      position: absolute;
+      top: 15.5px;
+      transform: none;
+      transition: background-color $custom-switch-transition, transform $custom-switch-transition;
+      width: $custom-switch-width;
+      will-change: background-color, transform;
+    }
 
-      &:hover {
-        background-color: #ff0000;
-      }
+    &:active::before {
+      opacity: 1;
+    }
+
+    &:disabled::before {
+      background: rgba($black, $black-divider-opacity);
+    }
+
+    &::after {
+      background: $white;
+      border-radius: 50%;
+      box-shadow: $custom-switch-handle-shadow;
+      content: '';
+      height: $custom-switch-handle-width;
+      position: absolute;
+      left: -$custom-switch-width / 2;
+      transform: translateX(0);
+      transition: transform $custom-switch-transition, box-shadow $custom-switch-transition;
+      width: $custom-switch-handle-width;
+      will-change: box-shadow, transform;
     }
   }
 
   .custom-control-input {
-    &:checked {
-      ~ .custom-control-label {
-        // scss-lint:disable NestingDepth
-        &::after,
-        &::before {
-          transform: translateX($custom-switch-handle-width);
-        }
-
-        &::after {
-          background-color: $selection-control-color-active;
-          //transform: translateX($selection-control-track-height);
-        }
-        // scss-lint:enable
+    &:checked ~ .custom-control-label {
+      &::before {
+        background-color: rgba(selection-theme-color(), $black-secondary-opacity);
+        opacity: 1;
       }
 
-      ~ .custom-control-track {
-        background-color: rgba($selection-control-color-active, $selection-control-track-opacity);
+      &::after {
+        background: selection-theme-color();
+        transform: translateX($custom-switch-handle-width);
       }
     }
 
-    &:disabled {
-      ~ .custom-control-label::after {
-        background-color: $selection-control-thumb-bg-disabled;
-      }
-
-      ~ .custom-control-track {
-        background-color: $selection-control-track-bg-disabled;
-      }
+    &:not(:checked):focus ~ .custom-control-label::after {
+      box-shadow: $custom-switch-handle-shadow, 0 0 0 $custom-switch-height rgba($black, $overlay-hover-colored-opacity);
     }
-  }
 
-  .custom-control-track {
-    @include transition-standard(background-color);
+    &:checked:focus ~ .custom-control-label::after {
+      box-shadow: $custom-switch-handle-shadow, 0 0 0 $custom-switch-height rgba(selection-theme-color(), $overlay-activated-white-opacity);
+    }
 
-    background-clip: content-box;
-    background-color: $selection-control-track-bg;
-    border: (($selection-control-indicator-size - $selection-control-track-height) / 2) solid transparent;
-    border-radius: $selection-control-track-height;
-    content: '';
-    display: block;
-    height: $custom-switch-handle-width;
-    position: absolute;
-    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
-    left: 0;
-    width: $custom-switch-width;
+    // stylelint-disable
+    &[disabled] ~ .custom-control-label::before {
+      background: $light-theme-1;
+      display: block;
+    }
+
+    &[disabled] ~ .custom-control-label::after {
+      background: #bdbdbd;
+    }
   }
 }

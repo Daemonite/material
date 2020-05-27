@@ -9,6 +9,8 @@
 - **New** Upgrade to Bootstrap 4.5.0  
 Moved 4.4.1 to a new branch for those who need it
 - **New** Ripple effect for buttons
+- Rework button's CSS
+- Updated Roboto font URL
 
 ## 4.4.1 - RC1
 

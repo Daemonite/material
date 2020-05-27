@@ -41,7 +41,7 @@ Titles should:
 
 <div class="bd-example bd-example-modal">
   <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Get this party started?</h5>
@@ -61,7 +61,7 @@ Titles should:
 {% highlight html %}
 
 <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Get this party started?</h5>
@@ -84,7 +84,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 
 <div class="bd-example bd-example-modal">
   <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-body">
           Discard draft?
@@ -101,7 +101,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 {% highlight html %}
 
 <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-body">
         Discard draft?
@@ -121,7 +121,7 @@ You'll notice that the modal-body has a custom scrollbar on both Firefox and Chr
 
 <div class="bd-example bd-example-modal">
   <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="exampleModalScrollableTitle">
@@ -150,7 +150,7 @@ You'll notice that the modal-body has a custom scrollbar on both Firefox and Chr
 {% highlight html %}
 
 <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="exampleModalScrollableTitle">
@@ -184,7 +184,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 
 <div class="bd-example bd-example-modal">
   <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-body">
           Discard draft?
@@ -201,7 +201,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 {% highlight html %}
 
 <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-body">
         Discard draft?
@@ -221,7 +221,7 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
 
 <div class="bd-example bd-example-modal">
   <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Use location service?</h5>
@@ -241,7 +241,7 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
 {% highlight html %}
 
 <div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Use location service?</h5>

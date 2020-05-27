@@ -15,7 +15,7 @@
 
   &:disabled,
   &.disabled {
-    border: 1px solid $btn-color-disabled;
+    border-color: $btn-color-disabled;
   }
 }
 
@@ -28,8 +28,7 @@
   box-shadow: none;
 
   @include hover-focus-active {
-    box-shadow: none;
-    color: $black-primary;
+    box-shadow: inherit;
   }
 }
 
@@ -38,18 +37,18 @@
   .btn-flat-#{$color},
   .btn-outline-#{$color},
   .modal .btn-#{$color} {
-    @include plain-hover-focus {
-      color: theme-color($color);
+    @if ($color !='dark') {
+      @include plain-hover-focus {
+        color: theme-color($color);
+      }
     }
 
     @if ($color !='dark' and $color !='light') {
       &:hover {
-        //background-color: rgba(theme-color($color), $overlay-hover-white-opacity);
         background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-hover-white-opacity), rgba(theme-color($color), $overlay-hover-white-opacity));
       }
 
       &:focus {
-        //background-color: rgba(theme-color($color), $overlay-focus-white-opacity);
         background-image: linear-gradient(to bottom, rgba(theme-color($color), $overlay-focus-white-opacity), rgba(theme-color($color), $overlay-focus-white-opacity));
       }
 
@@ -63,7 +62,6 @@
 
     &:disabled,
     &.disabled {
-      //background-color: transparent;
       color: $btn-color-disabled;
     }
   }
