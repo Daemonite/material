@@ -7,13 +7,6 @@ import ripplet from 'ripplet.js'
 // Values from https://github.com/material-components/material-components-web/blob/master/packages/mdc-ripple/_variables.scss
 
 const Ripplet = (() => {
-  /* ripplet.defaultOptions.color = 'rgba(0,0,0,0.12)'
-  ripplet.defaultOptions.spreadingDelay = '15ms'
-  ripplet.defaultOptions.spreadingDuration = '175ms'
-  ripplet.defaultOptions.clearingDelay = '300ms'
-  ripplet.defaultOptions.clearingDuration = '150ms'
-  ripplet.defaultOptions.clearingTimingFunction = 'linear' */
-
   /* eslint complexity: ["error", 40] */
   addEventListener('pointerdown', (event) => {
     if (event.button !== 0) {
@@ -30,7 +23,17 @@ const Ripplet = (() => {
       clientY: event.clientY
     }
 
+    const Settings = {
+      // color: 'rgba(0,0,0,0.12)',
+      spreadingDelay: '15ms',
+      spreadingDuration: '175ms',
+      clearingDelay: '300ms',
+      clearingDuration: '150ms',
+      clearingTimingFunction: 'linear'
+    }
+
     const cls = currentTarget.classList
+
     if (
       cls.contains('btn-primary') ||
       cls.contains('btn-secondary') ||
@@ -38,14 +41,13 @@ const Ripplet = (() => {
       cls.contains('btn-danger') ||
       cls.contains('btn-warning') ||
       cls.contains('btn-info') ||
-      cls.contains('btn-dark') ||
-      cls.contains('btn-light')
+      cls.contains('btn-dark')
     ) {
       ripplet(rippleTarget, {
-        color: 'rgba(255,255,255,0.24)'
+        color: 'rgba(255,255,255,0.24)',
+        Settings
       })
     } else if (
-      cls.contains('btn-link') ||
       cls.contains('btn-outline-primary') ||
       cls.contains('btn-outline-secondary') ||
       cls.contains('btn-outline-danger') ||
@@ -54,6 +56,7 @@ const Ripplet = (() => {
       cls.contains('btn-outline-warning') ||
       cls.contains('btn-outline-dark') ||
       cls.contains('btn-outline-light') ||
+      cls.contains('btn-link') ||
       cls.contains('btn-flat-primary') ||
       cls.contains('btn-flat-secondary') ||
       cls.contains('btn-flat-danger') ||
@@ -65,11 +68,13 @@ const Ripplet = (() => {
     ) {
       ripplet(rippleTarget, {
         color: getComputedStyle(currentTarget).color,
-        opacity: 0.12
+        opacity: 0.12,
+        Settings
       })
     } else {
       ripplet(rippleTarget, {
-        color: 'rgba(0,0,0,0.12)'
+        color: 'rgba(0,0,0,0.12)',
+        Settings
       })
     }
   })

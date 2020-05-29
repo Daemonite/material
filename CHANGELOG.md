@@ -4,13 +4,16 @@
 
 - **NEW** Ripple effect for other components (Lists, Menus) based on Ripplet library
 
-## 4.5.0 - beta 1
+## 4.5.0 - RC1
 
 - **New** Upgrade to Bootstrap 4.5.0  
 Moved 4.4.1 to a new branch for those who need it
 - **New** Ripple effect for buttons
+- **Fixed** Switch component is back !
+- Updated webkit-custom icons as Google Chrome is updated with new icons
 - Rework button's CSS
 - Updated Roboto font URL
+- Improving documentation to reflect BS 4.5.0 changes
 
 ## 4.4.1 - RC1
 
