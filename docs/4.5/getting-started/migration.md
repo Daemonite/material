@@ -12,8 +12,8 @@ Material monitors the changes in the Bootstrap project so the exact same Bootstr
 
 **This page will focus on the changes that are unique to Material.**
 
-## v4.5 - beta
-Move to BS 4.5.0, improve components, fix bugs
+## v4.5 - Release Candidate
+Upgrade to Bootstrap 4.5.0, new ripple effect, fixes switch component, improve components, fix bugs
 
 ## v4.4.1 - beta
 Improve components, fix bugs

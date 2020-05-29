@@ -105,23 +105,25 @@ Be sure to have your pages set up with the latest design and development standar
 
     <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/">
     <link href="{{ site.cdn.md_font }}" rel="stylesheet">
     <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 
-    <!-- Add Material CSS, replace Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.4/css/material.min.css" rel="stylesheet">
+    <!-- Add Material CSS -->
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@4.5.0-rc1/css/material.min.css" rel="stylesheet">
   </head>
   <body>
     <h1>Hello, world!</h1>
 
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ site.cdn.jquery }}"></script>
-    <script src="{{ site.cdn.popper }}"></script>
-    <script src="{{ site.cdn.bs_js }}"></script>
+    <script crossorigin="anonymous" integrity="{{ site.cdn.jquery_hash }}" src="{{ site.cdn.jquery }}"></script>
+    <script crossorigin="anonymous" integrity="{{ site.cdn.bs_js_hash }}" src="{{ site.cdn.bs_js }}"></script>
 
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.4.1-beta.4/js/material.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.5.0-rc1/js/material.min.js" async></script>
   </body>
 </html>
 {% endhighlight %}
