@@ -12,7 +12,7 @@ const Ripplet = (() => {
     if (event.button !== 0) {
       return
     }
-    const currentTarget = event.target.closest('.btn')
+    const currentTarget = event.target.closest('.btn, .card-link')
     if (!currentTarget || currentTarget.disabled) {
       return
     }
@@ -57,6 +57,7 @@ const Ripplet = (() => {
       cls.contains('btn-outline-dark') ||
       cls.contains('btn-outline-light') ||
       cls.contains('btn-link') ||
+      cls.contains('card-link') ||
       cls.contains('btn-flat-primary') ||
       cls.contains('btn-flat-secondary') ||
       cls.contains('btn-flat-danger') ||

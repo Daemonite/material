@@ -568,7 +568,7 @@ To disable this add-on, in `_utilities.scss`, comment the last line like this : 
 {% capture example %}
 <div class="form-group form-ripple">
   <label for="exampleInputSearch">Search</label>
-  <input class="form-control" id="exampleInputSearch" placeholder="Search" type="search">
+  <input class="form-control" id="exampleInputSearch" placeholder="Search something to reveal icon" type="search">
 </div>
 <div class="form-group form-ripple">
   <label for="exampleInputDateTime">Date and time</label>
