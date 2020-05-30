@@ -3435,8 +3435,8 @@
 
   var defaultOptions = {
       className: '',
-      color: 'rgba(0,0,0,.1)',
-      opacity: null,
+      color: 'currentcolor',
+      opacity: .1,
       spreadingDuration: '.4s',
       spreadingDelay: '0s',
       spreadingTimingFunction: 'linear',
@@ -3462,12 +3462,12 @@
       else if (typeof clientX !== 'number' || typeof clientY !== 'number') {
           return;
       }
+      var targetStyle = getComputedStyle(currentTarget);
       var documentElement = document.documentElement, body = document.body;
       var containerElement = document.createElement('div');
       var removingElement = containerElement;
       {
           var appendToParent = options.appendTo === 'parent';
-          var targetStyle = getComputedStyle(currentTarget);
           var containerStyle = containerElement.style;
           if (targetStyle.position === 'fixed' || (targetStyle.position === 'absolute' && appendToParent)) {
               if (appendToParent) {
@@ -3512,7 +3512,7 @@
           containerStyle.pointerEvents = 'none';
           containerStyle.width = targetRect.width + "px";
           containerStyle.height = targetRect.height + "px";
-          containerStyle.zIndex = "" + ((parseInt(targetStyle.zIndex, 10) || 0) + 1);
+          containerStyle.zIndex = (+targetStyle.zIndex || 0) + 1;
           containerStyle.opacity = options.opacity;
           copyStyles(containerStyle, targetStyle, ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomLeftRadius', 'borderBottomRightRadius', 'webkitClipPath', 'clipPath']);
       }
@@ -3523,7 +3523,7 @@
           var rippletElement = containerElement.appendChild(document.createElement('div'));
           var rippletStyle = rippletElement.style;
           rippletElement.className = options.className;
-          rippletStyle.backgroundColor = options.color;
+          rippletStyle.backgroundColor = /^currentcolor$/i.test(options.color) ? targetStyle.color : options.color;
           rippletStyle.width = rippletStyle.height
               = radius * 2 + "px";
           rippletStyle.marginLeft = clientX - targetRect.left - radius + "px";

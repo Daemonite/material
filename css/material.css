@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI v4.5.0 - beta 1 (https://djibe.github.io/material/)
+ * Daemonite Material UI v4.5.0 - RC 1 (https://djibe.github.io/material/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -5773,11 +5773,8 @@ input:disabled + .chip {
 }
 
 .list-group-item-action:focus {
+  background-color: rgba(0, 0, 0, 0.12);
   outline: 0;
-}
-
-.list-group-item-action:active {
-  background-color: rgba(0, 0, 0, 0.24);
 }
 
 .list-group-item-action:disabled, .list-group-item-action.disabled {
@@ -13537,6 +13534,13 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
     top: 0;
     z-index: 40;
   }
+}
+
+[data-ripplet]:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 .sr-only {
