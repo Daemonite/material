@@ -2,13 +2,18 @@
 
 ## Next release
 
-- **NEW** Ripple effect for other components (Lists, Menus) based on Ripplet library
+- Maybe introduce plugins, or bug fixes ...
+
+## 4.5.0 - RC2
+
+- **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
+- Improved Ripplet JS declaration
 
 ## 4.5.0 - RC1
 
 - **New** Upgrade to Bootstrap 4.5.0  
 Moved 4.4.1 to a new branch for those who need it
-- **New** Ripple effect for buttons
+- **New** Ripple effect for buttons based on [Luncheon awesome Ripplet.js](https://github.com/luncheon/ripplet.js)
 - **Fixed** Switch component is back !
 - Updated webkit-custom icons as Google Chrome is updated with new icons
 - Rework button's CSS

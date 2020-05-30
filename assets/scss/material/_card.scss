@@ -507,4 +507,11 @@
       box-shadow: map-get($card-elevation-shadow-hover, shadow);
     }
   }
+
+  // stylelint-disable-next-line
+  @if not $enable-ripple {
+    &:active {
+      background-image: linear-gradient(to bottom, rgba($black, $overlay-pressed-white-opacity), rgba($black, $overlay-pressed-white-opacity));
+    }
+  }
 }

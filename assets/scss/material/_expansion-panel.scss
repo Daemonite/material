@@ -226,12 +226,14 @@
   }
 
   &:focus {
-    //background-color: $expansion-panel-bg-focus;
     outline: 0;
   }
 
-  &:active {
-    background-color: $expansion-panel-bg-active;
+  // stylelint-disable-next-line
+  @if not $enable-ripple {
+    &:active {
+      background-color: $expansion-panel-bg-active;
+    }
   }
 
   &:disabled,

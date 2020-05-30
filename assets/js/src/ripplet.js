@@ -1,4 +1,7 @@
-import ripplet from 'ripplet.js'
+import ripplet,
+{
+  defaultOptions
+} from 'ripplet.js'
 
 /*
  * Config for ripplet.js by luncheon
@@ -9,10 +12,17 @@ import ripplet from 'ripplet.js'
 const Ripplet = (() => {
   /* eslint complexity: ["error", 40] */
   addEventListener('pointerdown', (event) => {
+    defaultOptions.color = 'rgba(0,0,0,0.12)'
+    defaultOptions.spreadingDelay = '15ms'
+    defaultOptions.spreadingDuration = '175ms'
+    defaultOptions.clearingDelay = '300ms'
+    defaultOptions.clearingDuration = '150ms'
+    defaultOptions.clearingTimingFunction = 'linear'
+
     if (event.button !== 0) {
       return
     }
-    const currentTarget = event.target.closest('.btn, .card-link')
+    const currentTarget = event.target.closest('.btn, .card-link, .card-primary-action, .list-group-item-action, [data-ripplet]')
     if (!currentTarget || currentTarget.disabled) {
       return
     }
@@ -23,15 +33,7 @@ const Ripplet = (() => {
       clientY: event.clientY
     }
 
-    const Settings = {
-      // color: 'rgba(0,0,0,0.12)',
-      spreadingDelay: '15ms',
-      spreadingDuration: '175ms',
-      clearingDelay: '300ms',
-      clearingDuration: '150ms',
-      clearingTimingFunction: 'linear'
-    }
-
+    currentTarget.setAttribute('data-ripplet', '')
     const cls = currentTarget.classList
 
     if (
@@ -44,8 +46,7 @@ const Ripplet = (() => {
       cls.contains('btn-dark')
     ) {
       ripplet(rippleTarget, {
-        color: 'rgba(255,255,255,0.24)',
-        Settings
+        color: 'rgba(255,255,255,0.24)'
       })
     } else if (
       cls.contains('btn-outline-primary') ||
@@ -69,14 +70,10 @@ const Ripplet = (() => {
     ) {
       ripplet(rippleTarget, {
         color: getComputedStyle(currentTarget).color,
-        opacity: 0.12,
-        Settings
+        opacity: 0.12
       })
     } else {
-      ripplet(rippleTarget, {
-        color: 'rgba(0,0,0,0.12)',
-        Settings
-      })
+      ripplet(rippleTarget)
     }
   })
 })()

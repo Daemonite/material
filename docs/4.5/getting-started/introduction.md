@@ -119,8 +119,8 @@ Be sure to have your pages set up with the latest design and development standar
     <h1>Hello, world!</h1>
 
     <!-- Optional JavaScript -->
-    <script crossorigin="anonymous" integrity="{{ site.cdn.jquery_hash }}" src="{{ site.cdn.jquery }}"></script>
-    <script crossorigin="anonymous" integrity="{{ site.cdn.bs_js_hash }}" src="{{ site.cdn.bs_js }}"></script>
+    <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
+    <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin="anonymous"></script>
 
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.5.0-rc1/js/material.min.js" async></script>
