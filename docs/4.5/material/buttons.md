@@ -226,21 +226,21 @@ Toggle buttons may be used to group related options, similar to [Components/Butt
 
 {% capture example %}
 
-<div class="btn-group" data-toggle="buttons" role="group">
+<div class="btn-group btn-group-toggle shadow-none" data-toggle="buttons">
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options1" type="radio">
+    <input type="radio" name="options1" checked>
     <i class="material-icons">format_align_left</i>
   </label>
   <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options1" type="radio">
+    <input type="radio" name="options1">
     <i class="material-icons">format_align_center</i>
   </label>
   <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options1" type="radio">
+    <input type="radio" name="options1">
     <i class="material-icons">format_align_right</i>
   </label>
   <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options1" type="radio">
+    <input type="radio" name="options1">
     <i class="material-icons">format_align_justify</i>
   </label>
 </div>
@@ -251,18 +251,18 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
 
 {% capture example %}
 
-<div class="btn-group" data-toggle="buttons" role="group">
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
   <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
+    <input checked name="options2" type="checkbox">
     <i class="material-icons">format_bold</i>
   </label>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
+    <input checked name="options2" type="checkbox">
     <i class="material-icons">format_italic</i>
   </label>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
+    <input checked name="options2" type="checkbox">
     <i class="material-icons">format_underlined</i>
   </label>
   <div class="btn-group" role="group">
@@ -285,47 +285,22 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
 {% endcapture %}
 {% include example.html content=example %}
 
-Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
-
-{% capture example %}
-
-<div class="btn-group btn-group-fluid" data-toggle="buttons" role="group">
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options3" type="radio">
-    <i class="material-icons">format_align_left</i>
-  </label>
-  <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options3" type="radio">
-    <i class="material-icons">format_align_center</i>
-  </label>
-  <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options3" type="radio">
-    <i class="material-icons">format_align_right</i>
-  </label>
-  <label class="btn btn-outline btn-sm">
-    <input autocomplete="off" name="options3" type="radio">
-    <i class="material-icons">format_align_justify</i>
-  </label>
-</div>
-{% endcapture %}
-{% include example.html content=example %}
-
 Vertical variation is also supported
 
 {% capture example %}
 
-<div class="btn-group-vertical" data-toggle="buttons" role="group">
+<div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
   <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
+    <input checked name="options4" type="checkbox">
     <i class="material-icons">format_bold</i>
   </label>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
+    <input checked name="options4" type="checkbox">
     <i class="material-icons">format_italic</i>
   </label>
   <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
+    <input checked name="options4" type="checkbox">
     <i class="material-icons">format_underlined</i>
   </label>
   <div class="btn-group" role="group">

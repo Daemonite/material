@@ -13,6 +13,7 @@ const Ripplet = (() => {
   /* eslint complexity: ["error", 40] */
   addEventListener('pointerdown', (event) => {
     defaultOptions.color = 'rgba(0,0,0,0.12)'
+    defaultOptions.opacity = 1
     defaultOptions.spreadingDelay = '15ms'
     defaultOptions.spreadingDuration = '175ms'
     defaultOptions.clearingDelay = '300ms'
@@ -37,18 +38,6 @@ const Ripplet = (() => {
     const cls = currentTarget.classList
 
     if (
-      cls.contains('btn-primary') ||
-      cls.contains('btn-secondary') ||
-      cls.contains('btn-success') ||
-      cls.contains('btn-danger') ||
-      cls.contains('btn-warning') ||
-      cls.contains('btn-info') ||
-      cls.contains('btn-dark')
-    ) {
-      ripplet(rippleTarget, {
-        color: 'rgba(255,255,255,0.24)'
-      })
-    } else if (
       cls.contains('btn-outline-primary') ||
       cls.contains('btn-outline-secondary') ||
       cls.contains('btn-outline-danger') ||
@@ -71,6 +60,18 @@ const Ripplet = (() => {
       ripplet(rippleTarget, {
         color: getComputedStyle(currentTarget).color,
         opacity: 0.12
+      })
+    } else if (
+      cls.contains('btn-primary') ||
+      cls.contains('btn-secondary') ||
+      cls.contains('btn-success') ||
+      cls.contains('btn-danger') ||
+      cls.contains('btn-warning') ||
+      cls.contains('btn-info') ||
+      cls.contains('btn-dark')
+    ) {
+      ripplet(rippleTarget, {
+        color: 'rgba(255,255,255,0.24)'
       })
     } else {
       ripplet(rippleTarget)

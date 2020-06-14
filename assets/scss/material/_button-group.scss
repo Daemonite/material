@@ -23,7 +23,7 @@
   }
 
   > .btn {
-    @include transition-standard(border-color, opacity);
+    // @include transition-standard(opacity);
 
     box-shadow: none;
     flex: 1 1 auto;
@@ -39,10 +39,10 @@
       z-index: 1;
     }
 
-    /* &.active,
-    &:active {
-      background-color: rgba($black,$overlay-activated-white-opacity);
-    } */
+    &:active,
+    &.active {
+      background-color: rgba($black, $overlay-activated-white-opacity);
+    }
 
     &:disabled,
     &.disabled {
@@ -134,10 +134,10 @@
   }
 }
 
-.btn-group-fluid {
+/* .btn-group-fluid {
   background-color: transparent;
   box-shadow: none;
-}
+} */
 
 .btn-group-sm > .btn {
   @extend %btn-sm;

@@ -7,7 +7,8 @@
 ## 4.5.0 - RC2
 
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
-- Improved Ripplet JS declaration
+- Improved Ripplet JS declaration + upgrade to v2.0
+- Update dependencies
 
 ## 4.5.0 - RC1
 

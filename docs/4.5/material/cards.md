@@ -51,8 +51,8 @@ You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` a
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
-    <a class="btn btn-flat-primary" href="#">read</a>
-    <a class="btn btn-flat-primary" href="#">bookmark</a>
+    <a class="card-link" href="#">read</a>
+    <a class="card-link" href="#">bookmark</a>
     <button class="btn btn-icon ml-auto" type="button"><i class="material-icons">favorite_border</i></button>
     <button class="btn btn-icon" type="button"><i class="material-icons">share</i></button>
     <button class="btn btn-icon" type="button"><i class="material-icons">more_vert</i></button>
@@ -192,7 +192,7 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 
 ## Card primary action
 
-If the whole card is the action itself, you can add `card-primary action` to the card itself. It will give it a nice background + box-shadow effect on hover.
+If the whole card is the action itself, you can add `card-primary action` to the card itself. It will give it a nice background, a shadow effect on hover and a ripple effect on click.
 
 As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `stretched-link`]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/) (NB. Stretched-link requires container to be set to `position: relative`, but `card-primary-action` is).
 

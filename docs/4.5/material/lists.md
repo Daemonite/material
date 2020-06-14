@@ -24,9 +24,9 @@ Lists are a continuous group of text or images. They are composed of items conta
       Material Components for the web: List</a>
 </div>
 
-In order not to break Bootstrap's `list-group-items`, Material keeps default `display: block` for these items.
+In order not to break Bootstrap's `list-group-items`, Material UI keeps default `display: block` for these items.
 
-**NB. To append a button in the lists, HTML doesn't allow to nest buttons or link elements**. Use HTML list `<li>` instead.
+**NB. To append a button in the lists, HTML doesn't allow to nest buttons or link elements**. Use HTML list `<li>` instead. The counterpart is that `<li>` don't keep the `:focus` styling after clicking.
 
 ## One-line lists
 
