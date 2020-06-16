@@ -50,9 +50,17 @@
   &:active,
   &.active {
     box-shadow: map-get($btn-elevation-shadow-active, shadow);
+  }
 
-    @if not $enable-ripple {
+  // stylelint-disable-next-line
+  @if not $enable-ripple {
+    &:active {
       background-image: linear-gradient(to bottom, rgba($black, $overlay-pressed-white-opacity), rgba($black, $overlay-pressed-white-opacity));
+    }
+  } @else {
+    &.active {
+      background-image: linear-gradient(to bottom, rgba($black, $overlay-pressed-white-opacity), rgba($black, $overlay-pressed-white-opacity));
+      transition: background-image 0.2s;
     }
   }
 
@@ -110,6 +118,12 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover {
         &:active,
         &.active {
           background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+        }
+      }
+      @else {
+        &.active {
+          background-image: linear-gradient(to bottom, rgba($white, $overlay-pressed-colored-opacity), rgba($white, $overlay-pressed-colored-opacity));
+          transition: background-image 15ms linear 0.2s;
         }
       }
     }

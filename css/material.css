@@ -186,7 +186,7 @@ strong {
 }
 
 small {
-  font-size: 80%;
+  font-size: 75%;
 }
 
 sub,
@@ -3221,6 +3221,11 @@ tr.collapse.show {
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 
+.btn.active, .active.card-link {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.24));
+  transition: background-image 0.2s;
+}
+
 .btn:disabled, .card-link:disabled, .btn.disabled, .disabled.card-link {
   background-color: rgba(0, 0, 0, 0.12);
   background-image: none;
@@ -3254,6 +3259,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
 }
 
+.btn-primary.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
+}
+
 .btn-secondary {
   background-color: #03dac6;
   color: white;
@@ -3269,6 +3279,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn-secondary:focus, .btn-secondary.focus {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
+}
+
+.btn-secondary.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
 }
 
 .btn-danger {
@@ -3288,6 +3303,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
 }
 
+.btn-danger.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
+}
+
 .btn-info {
   background-color: #714cfe;
   color: white;
@@ -3303,6 +3323,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn-info:focus, .btn-info.focus {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
+}
+
+.btn-info.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
 }
 
 .btn-success {
@@ -3322,6 +3347,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
 }
 
+.btn-success.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
+}
+
 .btn-warning {
   background-color: #ff8d00;
   color: white;
@@ -3339,6 +3369,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
 }
 
+.btn-warning.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
+}
+
 .btn-dark {
   background-color: #424242;
   color: white;
@@ -3354,6 +3389,11 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .btn-dark:focus, .btn-dark.focus {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.24));
+}
+
+.btn-dark.active {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.32));
+  transition: background-image 15ms linear 0.2s;
 }
 
 .btn-light {
@@ -4897,6 +4937,7 @@ input:disabled + .chip {
   margin-bottom: 1rem;
   max-width: 100%;
   overflow: auto;
+  scrollbar-width: thin;
 }
 
 .table {
@@ -8032,6 +8073,8 @@ input:disabled + .chip {
 
 .progress-bar {
   border-bottom: 0.25rem solid #6200ee;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.6, 1);
+  will-change: width;
 }
 
 .progress-bar.bg-primary {

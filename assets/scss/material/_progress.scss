@@ -16,6 +16,8 @@
 
 .progress-bar {
   border-bottom: $progress-bar-height solid $progress-bar-bg;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.6, 1);
+  will-change: width;
 
   @each $color, $values in $theme-colors {
     &.bg-#{$color} {
