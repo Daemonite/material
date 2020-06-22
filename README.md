@@ -86,7 +86,7 @@ djibe-material/
 │   ├── material.min.css
 │   └── material.min.css.map
 ├── docs/
-│   └── 4.4/
+│   └── 4.5/
 └── js/
     ├── material.js
     ├── material.js.map
@@ -100,7 +100,7 @@ Material's 2 documentation that is included in this repo located in the root dir
 
 ### Running Documentation Locally
 
-1. Run through the [tooling setup](http://djibe.github.io/material/docs/4.4/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](http://djibe.github.io/material/docs/4.5/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies.
 3. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
 4. If you had end-of-line errors when running the commands indicated in step #3 then, please follow [this step](#end-of-line-fix) before proceeding, or else proceed to step #5.
