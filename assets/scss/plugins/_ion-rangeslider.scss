@@ -1,0 +1,308 @@
+// Based on https://github.com/IonDen/ion.rangeSlider v2.3.1
+// Material skin by djibe
+
+// stylelint-disable declaration-no-important
+.irs {
+  display: block;
+  position: relative;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.irs-line {
+  display: block;
+  outline: none !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.irs-bar {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 0;
+}
+
+.irs-shadow {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 0;
+}
+
+.irs-handle {
+  box-sizing: border-box;
+  cursor: default;
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+
+.irs-handle.type_last {
+  z-index: 2;
+}
+
+.irs-min,
+.irs-max {
+  cursor: default;
+  display: block;
+  position: absolute;
+}
+
+.irs-min {
+  left: 0;
+}
+
+.irs-max {
+  right: 0;
+}
+
+.irs-from,
+.irs-to,
+.irs-single {
+  cursor: default;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.irs-grid {
+  display: none;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.irs-with-grid .irs-grid {
+  display: block;
+}
+
+.irs-grid-pol {
+  background: $black;
+  height: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+}
+
+.irs-grid-pol.small {
+  height: 4px;
+}
+
+.irs-grid-text {
+  color: $black;
+  font-size: 9px;
+  line-height: 9px;
+  padding: 0 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.irs-disable-mask {
+  background: rgba($black, 0);
+  cursor: default;
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -1%;
+  width: 102%;
+  z-index: 2;
+}
+
+.lt-ie9 .irs-disable-mask {
+  background: $black;
+  cursor: not-allowed;
+  filter: alpha(opacity=0);
+}
+
+.irs-disabled {
+  opacity: 0.4;
+}
+
+.irs-hidden-input {
+  background: none !important;
+  border-color: transparent !important;
+  border-style: solid !important;
+  display: block !important;
+  font-size: 0 !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  z-index: -9999 !important;
+}
+
+.irs--material {
+  height: 3rem;
+
+  .irs {
+    font-family: Roboto, sans-serif !important;
+    font-weight: $font-weight-medium;
+  }
+
+  .irs-with-grid {
+    height: 60px;
+  }
+
+  .irs-line {
+    background-color: rgba(theme-color(primary), 0.26);
+    border-radius: 3px;
+    height: 2px;
+    top: 26px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .irs-bar {
+    background-color: theme-color(primary);
+    height: 2px;
+    top: 26px;
+
+    &:hover {
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        bottom: -20px;
+        left: -20px;
+      }
+    }
+  }
+
+  .irs-bar--single {
+    border-radius: 3px 0 0 3px;
+  }
+
+  .irs-shadow {
+    background-color: rgba($black, 0.25);
+    height: 2px;
+    bottom: 26px;
+  }
+
+  .irs-handle {
+    background-color: theme-color(primary);
+    border-radius: 50%;
+    height: 0.75rem;
+    top: 21px;
+    transition: box-shadow 0.15s ease-out;
+    width: 0.75rem;
+
+    &:hover {
+      box-shadow: 0 0 0 0.75rem rgba(theme-color(primary), 0.12);
+      cursor: pointer;
+      transition: box-shadow 0.15s ease-out;
+    }
+
+    // stylelint-disable-next-line
+    &.state_hover {
+      box-shadow: 0 0 0 1.3334rem rgba(theme-color(primary), 0.2);
+      transition: box-shadow 0.15s ease-out;
+    }
+  }
+
+  .irs-min,
+  .irs-max {
+    border-radius: 4px;
+    color: #999999;
+    font-size: 10px;
+    line-height: 1.333;
+    padding: 2px 4px;
+    top: 0;
+    text-shadow: none;
+  }
+
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    background-color: #6d6d6d;
+    border-radius: 2px;
+    color: $white;
+    font-size: 0.75rem;
+    line-height: 1.333;
+    padding: 6px 8px;
+    text-shadow: none;
+    transform: translateY(-16px);
+    z-index: 10;
+
+    &::before {
+      border: 3px solid transparent;
+      border-top-color: #6d6d6d;
+      content: '';
+      display: block;
+      height: 0;
+      margin-left: -3px;
+      overflow: hidden;
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      width: 0;
+    }
+  }
+
+  .irs-grid {
+    height: 25px;
+    transform: translateY(-9px);
+  }
+
+  .irs-grid-pol {
+    background-color: rgba(theme-color(primary), 0.4);
+    border-radius: 50%;
+    height: 2px;
+    width: 2px;
+  }
+
+  .irs-grid-text {
+    color: #999999;
+    font-size: 10px;
+  }
+
+  // stylelint-disable-next-line
+  &.irs-disabled {
+    opacity: 1;
+
+    .irs-line {
+      background-color: #d7d7d7;
+    }
+
+    .irs-bar,
+    .irs-from,
+    .irs-to,
+    .irs-single {
+      background-color: #8c8c8c;
+    }
+
+    .irs-from::before,
+    .irs-to::before,
+    .irs-single::before {
+      display: none;
+    }
+
+    .irs-handle {
+      background-color: #8c8c8c;
+      box-shadow: 0 0 0 0.25rem $white;
+      height: 0.5rem;
+      top: 22px;
+      width: 0.5rem;
+    }
+  }
+}
