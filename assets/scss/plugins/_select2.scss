@@ -1,0 +1,168 @@
+//  stylelint-disable
+.select2-container, .select2-container--material {
+
+    .select2-selection, .select2-selection--single, .select2-selection--multiple {
+    @extend .form-control;
+    // @extend .select !optional;
+    // height: inherit;
+    .select2-selection__arrow {
+      width: 0.75em;
+      position: absolute;
+      top: 0.6em;
+      right: 1em;
+      font-size: 85%;
+
+      &::after {
+        @include transition-standard("color, transform");
+        @include set-material-icons;
+        content: $caret-icon;
+        color: $black;
+        opacity: $black-secondary-opacity;
+        width: auto;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-position: 100% 50%;
+        background-repeat: no-repeat;
+        background-size: $textfield-select-bg-size $textfield-select-bg-size;
+        padding-right: $textfield-select-bg-size;
+      }
+    }
+
+
+    .select2-selection__rendered {
+      .select2-selection__clear {
+        position: absolute;
+        top: 0.2em;
+        /*right: -0.5em;*/
+        right: 7px;
+        z-index: 1;
+        font-size: 1.1rem;
+        line-height: 1rem;
+        text-align: center;
+        font-weight: bold;
+        margin-left: .25rem;
+        border-radius: 50%;
+        margin-right: -.4rem;
+        min-height: 1rem;
+        min-width: 1rem;
+        background-color: darken($chip-bg, 25%);
+        color: $chip-bg;
+        cursor: pointer;
+        box-sizing: content-box;
+      }
+    }
+
+  }
+  .select2-selection.select2-selection--single {
+      min-width: 3.5em;
+      min-height: 2.25em;
+      /*padding-right: 1.2em;*/
+  }
+
+  .select2-selection--multiple {
+    .select2-selection__rendered {
+      li.select2-search--inline {
+        input.select2-search__field {
+          margin-top: 0;
+          background-color: transparent;
+          color: $textfield-color;
+          background: transparent;
+          border: none;
+          outline: 0;
+          box-shadow: none;
+          -webkit-appearance: textfield;
+          box-sizing: border-box;
+          &::placeholder {
+            color: $textfield-color;
+          }
+          &::focus {
+            outline-style:none;
+            box-shadow:none;
+            border-color:transparent;
+          }
+        }
+      }
+    .select2-selection__choice {
+        @extend .chip;
+        justify-content: left;
+        height: 1.6rem;
+        float: left;
+        padding-left: 0.70rem;
+        padding-right: 1.8em;
+        margin-right: 0.25rem;
+        margin-bottom: 2px;
+        margin-top: 0;
+        overflow: hidden;
+        max-width: 47%;
+        .select2-selection__choice__remove {
+          font-size: 1.1rem;
+          line-height: 1rem;
+          text-align: center;
+          font-weight: bold;
+          margin-left: .25rem;
+          border-radius: 50%;
+          margin-right: -.4rem;
+          min-height: 1rem;
+          min-width: 1rem;
+          background-color: darken($chip-bg, 25%);
+          color: $chip-bg;
+          border: $chip-bg 0.3rem solid;
+          cursor: pointer;
+          box-sizing: content-box;
+          position: absolute;
+          right: 0.4rem;
+          top: 0;
+
+        }
+      }
+    }
+  }
+  .select2-dropdown {
+    // @extend .shadow-6;
+    // border: none;
+    .select2-secondary_action {
+      @extend .btn, .btn-sm, .btn-outline-primary, .btn-icon;
+      position: absolute !important;
+      top: 0.15em;
+      right: 0.1em;
+      font-size: 1.51429em;
+      box-shadow: none;
+      color: $black-hint;
+      height: 1.85rem !important;
+      width: 1.85rem !important;
+      line-height: 1.85rem !important;
+      .material-icons {
+        vertical-align: sub !important;
+      }
+    }
+  }
+
+  &.select2-container--focus {
+    .select2-selection--multiple, .select2-selection--single  {
+      border-color: $textfield-border-color-focus;
+      box-shadow: inset 0 -2px 0 -1px $textfield-border-color-focus;
+      background-color: #fff;
+      &:hover {
+        border-color: $textfield-border-color-focus;
+        box-shadow: inset 0 -2px 0 -1px $textfield-border-color-focus;
+      }
+    }
+  }
+  &.select2-container--open {
+    .select2-selection--multiple, .select2-selection--single  {
+      background-color: #fff;
+      &:hover {
+
+      }
+    }
+    .select2-selection__arrow {
+      &::after {
+          transform: scaleY(-1);
+          color: $textfield-border-color-focus;
+          opacity: 1;
+      }
+
+    }
+  }
+}
