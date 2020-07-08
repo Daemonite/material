@@ -3465,9 +3465,9 @@
       var targetStyle = getComputedStyle(currentTarget);
       var documentElement = document.documentElement, body = document.body;
       var containerElement = document.createElement('div');
+      var appendToParent = options.appendTo === 'parent';
       var removingElement = containerElement;
       {
-          var appendToParent = options.appendTo === 'parent';
           var containerStyle = containerElement.style;
           if (targetStyle.position === 'fixed' || (targetStyle.position === 'absolute' && appendToParent)) {
               if (appendToParent) {
@@ -3526,7 +3526,12 @@
           rippletStyle.backgroundColor = /^currentcolor$/i.test(options.color) ? targetStyle.color : options.color;
           rippletStyle.width = rippletStyle.height
               = radius * 2 + "px";
-          rippletStyle.marginLeft = clientX - targetRect.left - radius + "px";
+          if (getComputedStyle(appendToParent ? currentTarget.parentElement : body).direction === 'rtl') {
+              rippletStyle.marginRight = targetRect.right - clientX - radius + "px";
+          }
+          else {
+              rippletStyle.marginLeft = clientX - targetRect.left - radius + "px";
+          }
           rippletStyle.marginTop = clientY - targetRect.top - radius + "px";
           rippletStyle.borderRadius = '50%';
           rippletStyle.transition =
