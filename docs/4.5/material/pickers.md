@@ -19,11 +19,14 @@ Date pickers can be embedded into:
     <a href="https://material.io/components/pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Pickers</a>
+    <a href="https://amsul.ca/pickadate.js/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      <span class="list-group-item-icon lgi-icon-bs"></span>
+      pickadate.js: Official documentation</a>
 </div>
 
 A date picker has to be activated via JavaScript.
 
-**N.B.** Date picker requires `material.js` or `material.min.js`.
+**N.B.** Date picker requires `material.js`, `material.min.js` or `https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.js`.
 
 {% capture example %}
 <label for="exampleInputDatePicker1">A basic example:</label>

@@ -2,12 +2,13 @@
 
 ## Next release
 
-- Maybe introduce plugins, or bug fixes ...
+- Introduce plugins
 
 ## 4.5.0 - RC2
 
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
-- Improved Ripplet JS declaration + upgrade to v2.0
+- Improved Ripplet JS declaration + upgrade to v0.2
+- **Fixed** helper text position
 - Update dependencies
 
 ## 4.5.0 - RC1

@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI v4.5.0 - RC 1 (https://djibe.github.io/material/)
+ * Daemonite Material UI v4.5.0 - RC 2 (https://djibe.github.io/material/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -2681,11 +2681,6 @@ pre code {
   font-weight: 400;
   letter-spacing: 0.033333em;
   line-height: normal;
-  padding-left: 1rem;
-  /* [class~='textfield-box'] &,
-  [class~='textfield-box'] ~ & {
-    padding-left: $textfield-box-padding-x;
-  } */
 }
 
 .form-text::before, [class*='valid-feedback']::before {
@@ -2694,6 +2689,12 @@ pre code {
   height: 1rem;
   vertical-align: 0;
   width: 0;
+}
+
+[class~='textfield-box'] .form-text, [class~='textfield-box'] [class*='valid-feedback'],
+[class~='textfield-box'] ~ .form-text,
+[class~='textfield-box'] ~ [class*='valid-feedback'] {
+  padding-left: 1rem;
 }
 
 .form-control-plaintext {
@@ -4729,7 +4730,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   margin: 0.25rem;
   padding: 0 0.75rem;
   position: relative;
-  text-align: center;
   vertical-align: middle;
   white-space: nowrap;
 }
