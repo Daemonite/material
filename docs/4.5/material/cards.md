@@ -47,7 +47,7 @@ You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` a
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body pt-0">
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
@@ -86,7 +86,7 @@ You can use the button HTML markup you want in a card (either using a link or a 
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body pt-0">
     <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
@@ -109,7 +109,7 @@ Example without `card-actions` div. Apply `border-0` utility to the card-header 
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body pt-0">
     <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
    </div>
 </div>
@@ -124,7 +124,7 @@ Another card without image banner and icon buttons pushed to the end with `.just
     <h5 class="card-title">Our Changing Planet</h5>
     <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body pt-0">
     <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions justify-content-end">
@@ -183,7 +183,7 @@ And the exact same Outlined card with a `card-header` container. Your choice !
    <h5 class="card-title">Card title</h5>
    <h6 class="card-subtitle">Secondary text</h6>
   </div>
-  <div class="card-body">
+  <div class="card-body pt-0">
    <p class="card-text">Greyhound divisively hello coldly wonderfully marginally far upon excluding.</p>
   </div>
 </div>

@@ -138,9 +138,9 @@
   }
 
   .card-body {
-    margin: 0 40px;
+    margin: 0 2.5rem;
     opacity: 0;
-    padding: 24px 0;
+    padding: $spacer-lg 0;
     transition: opacity 250ms linear -100ms;
   }
 
@@ -247,10 +247,8 @@
 // Header
 
 .card-header {
-  //background-color: $card-cap-bg;
   border-bottom: $card-border-width solid $card-border-color;
-  //color: $card-cap-color;
-  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  margin-bottom: 0; // Removes the default margin-bottom of <h>
   padding: $card-padding-y $card-padding-x;
 
   &:first-child {
@@ -261,10 +259,6 @@
     @include border-bottom-radius($card-border-radius);
 
     border-bottom: 0;
-  }
-
-  + .card-body {
-    padding-top: 0;
   }
 
   + .list-group .list-group-item:first-child {

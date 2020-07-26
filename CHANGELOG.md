@@ -8,7 +8,7 @@
 
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
 - Improved Ripplet JS declaration + upgrade to v0.2
-- **Fixed** helper text position
+- **Fixed** Helper text position + card-body top padding
 - Update dependencies
 
 ## 4.5.0 - RC1
