@@ -7,10 +7,12 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
-  (global = global || self, factory(global.material = {}, global.jQuery));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.material = {}, global.jQuery));
 }(this, (function (exports, $) { 'use strict';
 
-  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var $__default = /*#__PURE__*/_interopDefaultLegacy($);
 
   /*
    * Expansion panel plugins expands a collapsed panel in full upon selecting
@@ -50,7 +52,7 @@
         predecessor.addClass(ClassName.SHOW_PREDECESSOR);
       }
     });
-  }($);
+  }($__default['default']);
 
   /*
    * Floating label plugin moves inline label to float above the field
@@ -137,7 +139,7 @@
     };
 
     return FloatingLabel;
-  }($);
+  }($__default['default']);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -318,7 +320,7 @@
     };
     setTransitionEndSupport();
     return Util;
-  }($);
+  }($__default['default']);
 
   /*
    * Navigation drawer plguin
@@ -637,7 +639,7 @@
     };
 
     return NavDrawer;
-  }($);
+  }($__default['default']);
 
   function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -654,7 +656,7 @@
   (function ( factory ) {
 
       // AMD.
-      module.exports = factory( $ );
+      module.exports = factory( $__default['default'] );
 
   }(function( $ ) {
 
@@ -1867,7 +1869,7 @@
   (function ( factory ) {
 
       // AMD.
-      module.exports = factory( picker, $ );
+      module.exports = factory( picker, $__default['default'] );
 
   }(function( Picker, $ ) {
 
@@ -3431,7 +3433,7 @@
       $.fn[NAME] = NO_CONFLICT;
       return PickDate._jQueryInterface;
     };
-  }($);
+  }($__default['default']);
 
   var defaultOptions = {
       className: '',
@@ -3646,7 +3648,7 @@
         LastInteraction.IS_MOUSEDOWN = false;
       }, 1);
     });
-  }($);
+  }($__default['default']);
 
   /*
    * Tab indicator animation
@@ -3771,7 +3773,7 @@
     };
 
     return TabSwitch;
-  }($);
+  }($__default['default']);
 
   exports.ExpansionPanel = ExpansionPanel;
   exports.FloatingLabel = FloatingLabel;
