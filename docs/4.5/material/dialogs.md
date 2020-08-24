@@ -40,7 +40,7 @@ Titles should:
 - Avoid apologies (“Sorry for the interruption”), alarm (“Warning!”), or ambiguity (“Are you sure?”)
 
 <div class="bd-example bd-example-modal">
-  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
@@ -60,7 +60,7 @@ Titles should:
 
 {% highlight html %}
 
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -83,7 +83,7 @@ Titles should:
 Most alerts don't need titles. They summarize a decision in a sentence or two by either asking a question or making a statement related to the action buttons.
 
 <div class="bd-example bd-example-modal">
-  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-body">
@@ -100,7 +100,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 
 {% highlight html %}
 
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-body">
@@ -120,7 +120,7 @@ Most alerts don't need titles. They summarize a decision in a sentence or two by
 You'll notice that the modal-body has a custom scrollbar on both Firefox and Chrome.
 
 <div class="bd-example bd-example-modal">
-  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -149,7 +149,7 @@ You'll notice that the modal-body has a custom scrollbar on both Firefox and Chr
 
 {% highlight html %}
 
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -183,7 +183,7 @@ You'll notice that the modal-body has a custom scrollbar on both Firefox and Chr
 Flat buttons should be used in dialogs. In addition, the affirmative button should be placed on the right while the dismissive button should be placed on the left while both should use the same colour, ideally, info or primary colour.
 
 <div class="bd-example bd-example-modal">
-  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-body">
@@ -200,7 +200,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 
 {% highlight html %}
 
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-body">
@@ -220,7 +220,7 @@ Flat buttons should be used in dialogs. In addition, the affirmative button shou
 Stacked buttons accommodate longer button text. Confirming actions appear above dismissive actions.
 
 <div class="bd-example bd-example-modal">
-  <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal" tabindex="-1">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
@@ -240,7 +240,7 @@ Stacked buttons accommodate longer button text. Confirming actions appear above 
 
 {% highlight html %}
 
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered modal-sm">
     <div class="modal-content">
       <div class="modal-header">

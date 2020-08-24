@@ -2,13 +2,20 @@
 
 ## Next release
 
-- Move to BS 4.5.2
+Plugin SCSS compiling, more plugins documentation
 
-## 4.5.0 - RC2
+Later: Dark theme
+
+## 4.5.2 - RC1
+
+- **NEW** Upgrade to Bootstrap 4.5.2  
+Except:  
+#30965: Improve floating labels example in IE
+#30966: Improve floating labels with Edge and a general refactor
 
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
 - Improved Ripplet JS declaration + upgrade to v0.2x
-- **Fixed** Helper text position and card-body top padding
+- **Fixed** Helper text position, `card-body` top padding, Alerts style
 - **NEW** Plugins documentation
 - Update dependencies
 

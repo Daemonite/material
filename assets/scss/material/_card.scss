@@ -68,6 +68,8 @@
 }
 
 .accordion {
+  overflow-anchor: none;
+
   > .card {
     border: 1px solid $black-divider;
     border-radius: $border-radius-lg * 2;
@@ -306,6 +308,8 @@
 // Image overlay
 
 .card-img-overlay {
+  @include border-radius($card-inner-border-radius);
+
   max-height: 100%;
   padding: $card-padding-y $card-padding-x;
   position: absolute;

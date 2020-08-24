@@ -3,7 +3,7 @@ module.exports = {
     [
       '@babel/env',
       {
-        exclude: ['transform-typeof-symbol'],
+        bugfixes: true,
         loose: true,
         modules: false
       }
