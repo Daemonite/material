@@ -250,5 +250,16 @@
     })
 
     $('.tooltip-test').tooltip()
+
+    // Plugins: Bootstrap Maxlength
+    $('[maxlength]').maxlength({
+      alwaysShow: true,
+      warningClass: 'form-text text-muted',
+      limitReachedClass: 'form-text text-muted',
+      placement: 'bottom-right-inside'
+    })
+
+    // Plugins: Textarea autosize
+    $('.textarea-autosize').textareaAutoSize()
   })
 }(jQuery))
