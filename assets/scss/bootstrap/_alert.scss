@@ -6,8 +6,8 @@
 .alert {
   @include border-radius($alert-border-radius);
 
-  //border: 0;
-  border: 1px solid $black-divider;
+  border: 0;
+  // border: 1px solid $black-divider;
   color: $black-primary;
   display: block;
   margin-bottom: $alert-margin-y;
@@ -47,9 +47,8 @@
 // Generate contextual modifier classes for colorizing the alert.
 @each $color, $values in $theme-colors {
   .alert-#{$color} {
-    //background-color: theme-color-light($color);
-    border-left: 6px solid theme-color($color);
-    //color: color-yiq(theme-color-light($color));
+    background-color: rgba(theme-color($color), $overlay-selected-colored-opacity);
+    color: darken(theme-color($color), 15%);
   }
 }
 

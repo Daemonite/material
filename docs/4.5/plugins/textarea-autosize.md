@@ -4,7 +4,7 @@ title: Textarea autosize
 description: Multi-line text fields grow to accommodate multiple lines of text.
 group: plugins
 toc: true
-textarea: true
+plugin: true
 ---
 
 Multi-line text fields show all user input at once. Overflow text causes the text field to expand (shifting screen elements downward), and text wraps onto a new line.

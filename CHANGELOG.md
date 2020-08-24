@@ -2,7 +2,7 @@
 
 ## Next release
 
-- Introduce plugins
+- Move to BS 4.5.2
 
 ## 4.5.0 - RC2
 

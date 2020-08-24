@@ -3,7 +3,7 @@ layout: docs
 title: Character counter
 description: Assistive elements for text fields.
 group: plugins
-counter: true
+plugin: true
 ---
 
 Character or word counters should be used if there is a character or word limit. They display the ratio of characters used and the total character limit.
