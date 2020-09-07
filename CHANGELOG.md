@@ -2,7 +2,7 @@
 
 ## Next release
 
-Plugin SCSS compiling, more plugins documentation
+More plugins documentation
 
 Later: Dark theme
 
@@ -12,12 +12,12 @@ Later: Dark theme
 Except:  
 #30965: Improve floating labels example in IE
 #30966: Improve floating labels with Edge and a general refactor
-
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
 - Improved Ripplet JS declaration + upgrade to v0.2x
 - **Fixed** Helper text position, `card-body` top padding, Alerts style
 - **NEW** Plugins documentation
-- Update dependencies
+- Update Ripplet.js
+- Update build dependencies
 
 ## 4.5.0 - RC1
 

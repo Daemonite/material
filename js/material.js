@@ -3442,11 +3442,19 @@
       spreadingDuration: '.4s',
       spreadingDelay: '0s',
       spreadingTimingFunction: 'linear',
+      clearing: true,
       clearingDuration: '1s',
       clearingDelay: '0s',
       clearingTimingFunction: 'ease-in-out',
       centered: false,
       appendTo: 'body',
+  };
+  var target2container2ripplet = new Map();
+  var copyStyles = function (destination, source, properties) {
+      for (var _i = 0, properties_1 = properties; _i < properties_1.length; _i++) {
+          var property = properties_1[_i];
+          destination[property] = source[property];
+      }
   };
   function ripplet(_a, _options) {
       var currentTarget = _a.currentTarget, clientX = _a.clientX, clientY = _a.clientY;
@@ -3537,28 +3545,53 @@
           rippletStyle.marginTop = clientY - targetRect.top - radius + "px";
           rippletStyle.borderRadius = '50%';
           rippletStyle.transition =
-              "transform " + options.spreadingDuration + " " + options.spreadingTimingFunction + " " + options.spreadingDelay +
-                  (",opacity " + options.clearingDuration + " " + options.clearingTimingFunction + " " + options.clearingDelay);
+              "transform " + options.spreadingDuration + " " + options.spreadingTimingFunction + " " + options.spreadingDelay + ",opacity " + options.clearingDuration + " " + options.clearingTimingFunction + " " + options.clearingDelay;
           rippletStyle.transform = 'scale(0)';
           // reflect styles by force layout
           // tslint:disable-next-line:no-unused-expression
           rippletElement.offsetTop;
+          rippletStyle.transform = '';
           rippletElement.addEventListener('transitionend', function (event) {
               if (event.propertyName === 'opacity' && removingElement.parentElement) {
                   removingElement.parentElement.removeChild(removingElement);
               }
           });
-          rippletStyle.transform = '';
-          rippletStyle.opacity = '0';
+          if (options.clearing && options.clearing !== 'false') {
+              rippletStyle.opacity = '0';
+          }
+          else {
+              var container2ripplet = target2container2ripplet.get(currentTarget);
+              if (!container2ripplet) {
+                  target2container2ripplet.set(currentTarget, container2ripplet = new Map());
+              }
+              container2ripplet.set(containerElement, rippletElement);
+          }
       }
       return containerElement;
   }
-  function copyStyles(destination, source, properties) {
-      for (var _i = 0, properties_1 = properties; _i < properties_1.length; _i++) {
-          var property = properties_1[_i];
-          destination[property] = source[property];
+  ripplet.clear = function (targetElement, rippletContainerElement) {
+      if (targetElement) {
+          var container2ripplet = target2container2ripplet.get(targetElement);
+          if (container2ripplet) {
+              if (rippletContainerElement) {
+                  var rippletElement = container2ripplet.get(rippletContainerElement);
+                  rippletElement && (rippletElement.style.opacity = '0');
+                  container2ripplet.delete(rippletContainerElement);
+                  container2ripplet.size === 0 && target2container2ripplet.delete(targetElement);
+              }
+              else {
+                  container2ripplet.forEach(function (r) { return r.style.opacity = '0'; });
+                  target2container2ripplet.delete(targetElement);
+              }
+          }
       }
-  }
+      else {
+          target2container2ripplet.forEach(function (container2ripplet) { return container2ripplet.forEach(function (r) { return r.style.opacity = '0'; }); });
+          target2container2ripplet.clear();
+      }
+  };
+  ripplet.defaultOptions = defaultOptions;
+  ripplet._ripplets = target2container2ripplet;
 
   /*
    * Config for ripplet.js by luncheon
