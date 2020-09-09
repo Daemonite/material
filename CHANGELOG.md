@@ -2,22 +2,23 @@
 
 ## Next release
 
-More plugins documentation
+More plugins integration + documentation (Datatables, Flatpickr)
 
 Later: Dark theme
 
 ## 4.5.2 - RC1
 
 - **NEW** Upgrade to Bootstrap 4.5.2  
-Except:  
+To dig in:  
 #30965: Improve floating labels example in IE
 #30966: Improve floating labels with Edge and a general refactor
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
-- Improved Ripplet JS declaration + upgrade to v0.2x
+- Improved Ripplet JS declaration + upgrade to v0.3x
 - **Fixed** Helper text position, `card-body` top padding, Alerts style
-- **NEW** Plugins documentation
-- Update Ripplet.js
-- Update build dependencies
+- **NEW** Material themes for **Autosize**, **ionRangeSlider**, **Select2**. Use material-plugins.css
+- **NEW** Plugin themes integrated in build
+- **NEW** Plugins documentation (3 above + Maxlength)
+- Update build dependencies (and revert to stylelint 0.16.x)
 
 ## 4.5.0 - RC1
 

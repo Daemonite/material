@@ -1,0 +1,80 @@
+&.select2-container--open .select2-selection--multiple::after {
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='5' viewBox='7 10 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' fill='%236200ee' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat 50%;
+  transform: rotate(180deg) translateY(-5px);
+}
+
+.select2-selection--multiple {
+  box-sizing: border-box;
+  display: block;
+  flex-wrap: wrap;
+  user-select: none;
+
+  &::after {
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='5' viewBox='7 10 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' opacity='.54' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat 50%;
+    content: '';
+    height: 24px;
+    margin-left: auto;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 24px;
+  }
+
+  // input box
+  .select2-selection__rendered {
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+
+    &:not(:empty) {
+      margin: -2px 0; // Prevent chip's margin to increase container height
+    }
+
+    // each selected item in input box
+    .select2-selection__choice {
+      @extend .chip;
+
+      cursor: pointer;
+      float: left;
+      margin-top: 0.3em;
+      margin-right: 5px;
+      padding: 0;
+
+      &:last-of-type {
+        animation: opacity 0.3s linear;
+      }
+    }
+  }
+
+  // x button of each selected item in input box
+  .select2-selection__choice__remove {
+    // .chip .close
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%23666" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
+    border: 0;
+    height: 18px;
+    margin-right: -0.25rem;
+    margin-left: 0.5rem;
+    order: 12;
+    width: 18px;
+
+    &:hover {
+      color: $black;
+    }
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.select2-search--inline {
+  .select2-search__field {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+}

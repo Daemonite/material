@@ -1,0 +1,49 @@
+.select2-selection--single {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  user-select: none;
+
+  // Placeholder
+  .select2-selection__placeholder {
+    color: $textfield-placeholder-color;
+  }
+
+  // Icon
+  .select2-selection__arrow {
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='5' viewBox='7 10 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' opacity='.54' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat 50%;
+    height: 24px;
+    margin-left: auto;
+    order: 12;
+    pointer-events: none;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 24px;
+  }
+}
+
+// Icon rotate
+&.select2-container--open .select2-selection__arrow {
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='5' viewBox='7 10 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%236200ee' fill-rule='evenodd' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat 50%;
+  transform: rotate(180deg) translateY(-5px);
+}
+
+// Search box
+.select2-search--dropdown .select2-search__field {
+  background-color: #f5f5f5;
+  border: 0;
+  border-bottom: $textfield-border-width solid $textfield-border-color;
+  border-radius: $textfield-box-border-radius $textfield-box-border-radius 0 0;
+}
+
+.select2-results__message {
+  color: $textfield-placeholder-color;
+}
+
+&[dir='rtl'] {
+  .select2-selection--single {
+    .select2-selection__rendered {
+      padding-right: 8px;
+      padding-left: 20px;
+    }
+  }
+}

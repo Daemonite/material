@@ -21,13 +21,11 @@
   top: 100%;
   left: 0;
   z-index: map-get($menu-elevation-shadow, elevation);
-  //opacity: 0;
   //transition: opacity .03s linear;
   //transition: transform .12s cubic-bezier(0,0,.2,1);
 
   &.show {
     display: block;
-    //opacity: 1;
 
     &::before,
     > * {
@@ -458,9 +456,10 @@
   clear: both;
   color: $menu-link-color;
   display: flex;
-  font-weight: inherit;
+  font-weight: $menu-font-weight;
   height: $menu-link-height;
-  letter-spacing: $letter-spacing-subtitle-1;
+  letter-spacing: $menu-link-letter-spacing;
+  overflow: hidden;
   padding: $menu-link-padding-y $menu-link-padding-x;
   position: relative;
   text-align: inherit;

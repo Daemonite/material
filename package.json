@@ -51,7 +51,7 @@
     "vnu-jar": "^20.6.30"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "file": [
     "assets/",
@@ -84,16 +84,20 @@
   "scripts": {
     "bundlesize": "bundlesize",
     "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
+    "css-plugins": "npm-run-all --parallel css-lint* css-compile-* --sequential css-prefix-* css-minify-*",
     "css-build": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
     "css-build-docs": "npm-run-all --parallel css-lint-docs css-compile-docs --sequential css-prefix-docs css-minify-docs",
     "css-compile": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true assets/scss/material.scss css/material.css",
+    "css-compile-plugins": "node-sass --output-style expanded --precision 6 --source-map false --source-map-contents false assets/scss/material-plugins.scss css/material-plugins.css",
     "css-compile-docs": "node-sass --output-style expanded --precision 6 --source-map true --source-map-contents true docs-assets/scss/docs.scss docs/css/docs.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"assets/scss/**/*.scss\"",
     "css-lint-docs": "stylelint --config build/.stylelintrc --syntax scss \"docs-assets/scss/**/*.scss\"",
     "css-lint-vars": "node build/lint-vars.js assets/scss/",
     "css-minify": "postcss --config build/postcss.config.js --env minify --output css/material.min.css css/material.css",
+    "css-minify-plugins": "postcss --config build/postcss.config.js --env minify --output css/material-plugins.min.css css/material-plugins.css",
     "css-minify-docs": "postcss --config build/postcss.config.js --env minify --output docs/css/docs.min.css docs/css/docs.css",
     "css-prefix": "postcss --config build/postcss.config.js --env prefix --replace \"css/material.css\"",
+    "css-prefix-plugins": "postcss --config build/postcss.config.js --env prefix --replace \"css/material-plugins.css\"",
     "css-prefix-docs": "postcss --config build/postcss.config.js --env prefix --replace \"docs/css/docs.css\"",
     "dist": "npm-run-all --parallel css js --sequential bundlesize",
     "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
@@ -113,5 +117,5 @@
     "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js"
   },
   "style": "css/material.css",
-  "version": "4.5.0"
+  "version": "4.5.2"
 }

@@ -1,168 +1,164 @@
-//  stylelint-disable
-.select2-container, .select2-container--material {
+// Material skin by djibe
 
-    .select2-selection, .select2-selection--single, .select2-selection--multiple {
-    @extend .form-control;
-    // @extend .select !optional;
-    // height: inherit;
-    .select2-selection__arrow {
-      width: 0.75em;
+/* stylelint-disable */
+
+.select2-container {
+  display: block;
+  margin: 0;
+  min-width: 200px;
+  position: relative;
+
+  *:focus {
+    outline: 0;
+  }
+
+  @import "select2/single";
+  @import "select2/multiple";
+
+  // input box
+  .select2-selection {
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    // %form-control
+    background-clip: padding-box;
+    background-color: transparent;
+    border-bottom: 1px solid $textfield-border-color;
+    color: rgba(0, 0, 0, 0.87);
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    letter-spacing: 0.009375em;
+    line-height: 1.5;
+    padding: 0.375rem 0 calc(0.375rem - 1px);
+    transition: border-color 15ms linear, box-shadow 15ms linear;
+    width: 100%;
+    will-change: border-color, box-shadow;
+
+    &::before {
+      background: #6200ee;
+      content: '';
+      height: 2px;
       position: absolute;
-      top: 0.6em;
-      right: 1em;
-      font-size: 85%;
-
-      &::after {
-        @include transition-standard("color, transform");
-        @include set-material-icons;
-        content: $caret-icon;
-        color: $black;
-        opacity: $black-secondary-opacity;
-        width: auto;
-        display: inline-block;
-        margin: 0;
-        padding: 0;
-        background-position: 100% 50%;
-        background-repeat: no-repeat;
-        background-size: $textfield-select-bg-size $textfield-select-bg-size;
-        padding-right: $textfield-select-bg-size;
-      }
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
     }
 
-
-    .select2-selection__rendered {
-      .select2-selection__clear {
-        position: absolute;
-        top: 0.2em;
-        /*right: -0.5em;*/
-        right: 7px;
-        z-index: 1;
-        font-size: 1.1rem;
-        line-height: 1rem;
-        text-align: center;
-        font-weight: bold;
-        margin-left: .25rem;
-        border-radius: 50%;
-        margin-right: -.4rem;
-        min-height: 1rem;
-        min-width: 1rem;
-        background-color: darken($chip-bg, 25%);
-        color: $chip-bg;
-        cursor: pointer;
-        box-sizing: content-box;
-      }
-    }
-
-  }
-  .select2-selection.select2-selection--single {
-      min-width: 3.5em;
-      min-height: 2.25em;
-      /*padding-right: 1.2em;*/
-  }
-
-  .select2-selection--multiple {
-    .select2-selection__rendered {
-      li.select2-search--inline {
-        input.select2-search__field {
-          margin-top: 0;
-          background-color: transparent;
-          color: $textfield-color;
-          background: transparent;
-          border: none;
-          outline: 0;
-          box-shadow: none;
-          -webkit-appearance: textfield;
-          box-sizing: border-box;
-          &::placeholder {
-            color: $textfield-color;
-          }
-          &::focus {
-            outline-style:none;
-            box-shadow:none;
-            border-color:transparent;
-          }
-        }
-      }
-    .select2-selection__choice {
-        @extend .chip;
-        justify-content: left;
-        height: 1.6rem;
-        float: left;
-        padding-left: 0.70rem;
-        padding-right: 1.8em;
-        margin-right: 0.25rem;
-        margin-bottom: 2px;
-        margin-top: 0;
-        overflow: hidden;
-        max-width: 47%;
-        .select2-selection__choice__remove {
-          font-size: 1.1rem;
-          line-height: 1rem;
-          text-align: center;
-          font-weight: bold;
-          margin-left: .25rem;
-          border-radius: 50%;
-          margin-right: -.4rem;
-          min-height: 1rem;
-          min-width: 1rem;
-          background-color: darken($chip-bg, 25%);
-          color: $chip-bg;
-          border: $chip-bg 0.3rem solid;
-          cursor: pointer;
-          box-sizing: content-box;
-          position: absolute;
-          right: 0.4rem;
-          top: 0;
-
-        }
-      }
-    }
-  }
-  .select2-dropdown {
-    // @extend .shadow-6;
-    // border: none;
-    .select2-secondary_action {
-      @extend .btn, .btn-sm, .btn-outline-primary, .btn-icon;
-      position: absolute !important;
-      top: 0.15em;
-      right: 0.1em;
-      font-size: 1.51429em;
-      box-shadow: none;
-      color: $black-hint;
-      height: 1.85rem !important;
-      width: 1.85rem !important;
-      line-height: 1.85rem !important;
-      .material-icons {
-        vertical-align: sub !important;
-      }
+    &:hover {
+      border-color: $textfield-border-color-hover;
     }
   }
 
-  &.select2-container--focus {
-    .select2-selection--multiple, .select2-selection--single  {
-      border-color: $textfield-border-color-focus;
-      box-shadow: inset 0 -2px 0 -1px $textfield-border-color-focus;
-      background-color: #fff;
-      &:hover {
-        border-color: $textfield-border-color-focus;
-        box-shadow: inset 0 -2px 0 -1px $textfield-border-color-focus;
-      }
-    }
-  }
   &.select2-container--open {
-    .select2-selection--multiple, .select2-selection--single  {
-      background-color: #fff;
-      &:hover {
+    .select2-selection::before {
+      transform: scaleX(1);
+    }
+  }
 
+  // validated input box
+  select.is-invalid ~ & .select2-selection,
+  form.was-validated select:invalid ~ & .select2-selection {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23b00020' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    border-color: theme-color(danger);
+  }
+
+  // all clear button TODO
+  .select2-selection__clear {
+    $bg: #c8c8c8;
+
+    width: 0.9em;
+    height: 0.9em;
+    line-height: 0.75em;
+    padding-left: 0.15em;
+    margin-top: 0.7em;
+    border-radius: 100%;
+
+    background-color: $bg;
+    color: orange;
+    float: right;
+    margin-right: 0.3em;
+
+    &:hover {
+      background-color: darken($bg, 10%);
+    }
+  }
+
+  // Disabled input box
+  &.select2-container--disabled {
+    .select2-selection {
+      cursor: default;
+      border-bottom-style: dotted;
+      color: rgba(0, 0, 0, 0.38); //$textfield-color-disabled;
+
+      &:hover {
+        border-color: rgba(0, 0, 0, 0.42);
       }
     }
-    .select2-selection__arrow {
-      &::after {
-          transform: scaleY(-1);
-          color: $textfield-border-color-focus;
-          opacity: 1;
-      }
 
+    .select2-selection__clear {
+      display: none;
     }
   }
 }
+
+@import "select2/dropdown";
+
+.select2-close-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 99;
+
+  // styles required for IE to work
+
+  background-color: #fff;
+  filter: alpha(opacity=0);
+}
+
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+// input-group
+.input-group .select2-container {
+  flex-grow: 1;
+}
+
+// for prepended input
+.input-group-prepend ~ .select2-container .select2-selection {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+// for appended input
+.input-group > .select2-container:not(:last-child) .select2-selection {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+@import "select2/themes";

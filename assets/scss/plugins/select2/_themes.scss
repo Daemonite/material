@@ -1,0 +1,47 @@
+/* stylelint-disable */
+.select2-container--outlined {
+  &.select2-container--open .select2-selection {
+    border-color: $textfield-border-color-focus;
+    box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 -1px $textfield-border-color-focus, inset -2px -2px 0 -1px $textfield-border-color-focus;
+
+    &::before {
+      transform: scaleX(0);
+    }
+  }
+
+  .select2-selection {
+    border: $textfield-border-width solid $textfield-border-color;
+    border-radius: $textfield-box-border-radius;
+    line-height: $textfield-line-height; // 1.75rem
+    min-height: $textfield-box-height;
+    padding: 14px 16px 12px;
+  }
+
+  &.select2-container--disabled .select2-selection {
+    border-bottom-style: solid;
+  }
+
+  select.is-invalid ~ & .select2-selection,
+  form.was-validated select:invalid ~ & .select2-selection {
+    // TODO;
+  }
+}
+
+.select2-container--filled {
+  .select2-selection {
+    background-color: $textfield-box-bg;
+    padding: 20px 16px 11px;
+
+    &:hover {
+      background-color: $textfield-box-bg-hover;
+    }
+
+    &:active {
+      background-color: $textfield-box-bg-focus;
+    }
+  }
+
+  &.select2-container--disabled .select2-selection {
+    border-bottom-style: solid;
+  }
+}
