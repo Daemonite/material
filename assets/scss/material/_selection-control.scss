@@ -178,7 +178,7 @@
   .custom-control-label {
     flex: 1;
 
-    // Rail
+    // Slider Track
     &::before {
       background: $black; //rgba($black, $black-hint-opacity)
       border-radius: $custom-switch-height / 2;
@@ -231,6 +231,16 @@
       }
     }
 
+    // Hover
+    &:not(:checked):not(:disabled) ~ .custom-control-label:hover::after {
+      box-shadow: $custom-switch-handle-shadow, 0 0 0 $custom-switch-height rgba($black, $overlay-hover-white-opacity);
+    }
+
+    &:checked:not(:disabled) ~ .custom-control-label:hover::after {
+      box-shadow: $custom-switch-handle-shadow, 0 0 0 $custom-switch-height rgba(selection-theme-color(), $overlay-activated-white-opacity);
+    }
+
+    // Focus
     &:not(:checked):focus ~ .custom-control-label::after {
       box-shadow: $custom-switch-handle-shadow, 0 0 0 $custom-switch-height rgba($black, $overlay-hover-colored-opacity);
     }
@@ -240,16 +250,18 @@
     }
 
     // stylelint-disable
-    &:disabled ~ .custom-control-label {
+    // Disabled unchecked switch Slider + Track
+     &:disabled ~ .custom-control-label {
       &::before {
         background: $light-theme-1;
         display: block;
       }
       &::after {
-        opacity: $black-hint-opacity;
+        box-shadow: 0 3px 1px -2px rgba($black, 0.07), 0 2px 2px 0 rgba($black, 0.05), 0 1px 5px 0 rgba($black, 0.04); // 36% opacity on box-shadow
       }
     }
 
+    // Disabled checked switch Slider + Track
     &:checked:disabled ~ .custom-control-label {
       &::before {
         background: mix(rgba(selection-theme-color(), $black-secondary-opacity), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
