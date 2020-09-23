@@ -17,7 +17,7 @@
 .custom-control-inline {
   align-items: center;
   display: inline-flex;
-  margin-right: $selection-control-spacer-x * 2; //$custom-control-spacer-x
+  margin-right: $selection-control-spacer-x * 2;
 
   + .custom-control-inline {
     margin-top: 0;
@@ -28,7 +28,7 @@
 
 .custom-control-label {
   color: inherit;
-  font-size: $font-size-body-2; //$font-size-base;
+  font-size: $font-size-body-2;
   letter-spacing: $letter-spacing-body-2;
   line-height: $line-height-body-2;
   margin-bottom: 0;
@@ -178,29 +178,27 @@
   .custom-control-label {
     flex: 1;
 
+    // Rail
     &::before {
-      background: rgba($black, $black-hint-opacity);
+      background: $black; //rgba($black, $black-hint-opacity)
       border-radius: $custom-switch-height / 2;
       content: '';
       height: $custom-switch-height;
-      opacity: 1;
+      opacity: $black-hint-opacity; // 1
       pointer-events: all;
       position: absolute;
-      top: 15.5px;
+      top: 15px; //15.5
       transform: none;
       transition: background-color $custom-switch-transition, transform $custom-switch-transition;
       width: $custom-switch-width;
       will-change: background-color, transform;
     }
 
-    &:active::before {
+    /* &:active::before {
       opacity: 1;
-    }
+    } */
 
-    &:disabled::before {
-      background: rgba($black, $black-divider-opacity);
-    }
-
+    // Slider
     &::after {
       background: $white;
       border-radius: 50%;
@@ -217,10 +215,14 @@
   }
 
   .custom-control-input {
+    &:active ~ .custom-control-label::before {
+      opacity: $black-hint-opacity;
+    }
+
     &:checked ~ .custom-control-label {
       &::before {
-        background-color: rgba(selection-theme-color(), $black-secondary-opacity);
-        opacity: 1;
+        background: selection-theme-color(); // rgba(selection-theme-color(), $black-secondary-opacity);
+        // opacity: 1;
       }
 
       &::after {
@@ -238,13 +240,24 @@
     }
 
     // stylelint-disable
-    &[disabled] ~ .custom-control-label::before {
-      background: $light-theme-1;
-      display: block;
+    &:disabled ~ .custom-control-label {
+      &::before {
+        background: $light-theme-1;
+        display: block;
+      }
+      &::after {
+        opacity: $black-hint-opacity;
+      }
     }
 
-    &[disabled] ~ .custom-control-label::after {
-      background: #bdbdbd;
+    &:checked:disabled ~ .custom-control-label {
+      &::before {
+        background: mix(rgba(selection-theme-color(), $black-secondary-opacity), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
+      }
+
+      &::after {
+        background: mix(selection-theme-color(), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
+      }
     }
   }
 }

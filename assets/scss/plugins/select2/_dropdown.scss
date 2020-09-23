@@ -49,13 +49,14 @@
 }
 
 .select2-results__options {
-  @extend .custom-scrollbar;
-
   font-size: $menu-font-size;
   list-style: none;
-  margin: $spacer-sm 0 0 0;
+  margin: $menu-padding-y 0 0 0;
   max-height: 50vh;
-  padding: 0 0 8px 0;
+  overflow-y: scroll;
+  padding: 0 0 $menu-padding-y 0;
+  scrollbar-color: #e0dfe1 transparent;
+  scrollbar-width: thin;
 
   &.select2-results__options--nested {
     margin: 0;
