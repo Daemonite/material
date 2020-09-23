@@ -1,10 +1,9 @@
 # CHANGELOG
 
-## Next release
+## Future releases
 
-More plugins integration + documentation (Datatables, Flatpickr)
-
-Later: Dark theme
+- More plugins integration + documentation (Datatables, Flatpickr)
+- Dark theme
 
 ## 4.5.2 - RC1
 
