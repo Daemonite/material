@@ -1,7 +1,7 @@
 /*!
  * Daemonite Material v4.5.2 (https://djibe.github.io/material/)
  * Copyright 2011-2020 Daemon Pty Ltd + djibe
- * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)
  */
 
 (function (global, factory) {

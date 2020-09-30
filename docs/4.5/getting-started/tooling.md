@@ -8,13 +8,12 @@ toc: true
 
 ## Getting started
 
-Material uses [NPM scripts](https://docs.npmjs.com/misc/scripts) for its build system. Our [package.json]({{ site.repo }}/blob/v{{ site.current_version }}/package.json) includes convenient methods for working with the framework.
+Material uses [NPM scripts](https://nodejs.org/en/) for its build system. Our [package.json]({{ site.repo }}/blob/v{{ site.current_version }}-{{ site.material_version }}/package.json) includes convenient methods for working with the framework.
 
 To use our build system, you'll need a copy of Material's source code and Node. Follow these steps and you should be ready to rock:
 
-1. [Download and install Node.js](https://nodejs.org/download/), which we use to manage our dependencies. Then navigate to the root `/daemonite-material` directory and run `npm install` to install local dependencies.
-2. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/), install [Bundler](https://bundler.io/) with `gem install bundler`, and then run `bundle install`. This will install all Ruby dependencies, such as Jekyll and plugins.
-  - **Windows users:** Read [this guide](https://jekyllrb.com/docs/windows/) to get Jekyll up and running without problems.
+1. [Download and install Node.js](https://nodejs.org/en/), which we use to manage our dependencies. Then navigate to the root `/daemonite-material` directory and run `npm install` to install build dependencies.
+2. [Download and install Ruby](https://www.ruby-lang.org/en/downloads/), install [Bundler](https://bundler.io/) from a terminal with `gem install bundler`, and then run `bundle install`. This will install all Ruby dependencies, such as Jekyll (static site generator) and plugins.
 
 When completed, you'll be able to run the various commands provided from the command line. Our [package.json]({{ site.repo }}/blob/v{{ site.current_version }}/package.json) includes the following commands and tasks:
 

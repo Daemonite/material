@@ -23,7 +23,11 @@ daemonite-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   └── material.min.css.map
+│   |── material.min.css.map
+|   ├── material-plugins.css
+|   ├── material-plugins.css.map
+|   ├── material-plugins.min.css
+|   ├── material-plugins.min.css.map
 └── js/
     ├── material.js
     ├── material.js.map
@@ -31,7 +35,12 @@ daemonite-material/
     └── material.min.js.map
 {% endhighlight %}
 
-This is the most basic form of Material: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`). Remember to check the [starter template](#starter-template) for a basic set up guide.
+This is the most basic form of Material: precompiled files for quick drop-in usage in nearly any web project.
+
+We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`).  
+Extra CSS for plugins is stored in (`material-plugins.css`) and minified in (`material-plugins.min.css`). Respective JavaScript for each plugin has to be imported manually (refer to Plugins section).
+
+Check the [starter template](#starter-template) for a basic set up guide.
 
 ### Source code
 
@@ -44,13 +53,15 @@ daemonite-material/
 │   └── scss/
 ├── css/
 ├── docs/
-│   └── 4.5/
+│   └── {{ site.docs_version }}/
 └── js/
 {% endhighlight %}
 
-The `assets/` is the source code for our CSS and JavaScript. The `css/` and `js/` folders are the same in the precompiled download section above. The `docs/` folder includes the source code for our documentation. Beyond that, any other included file provides support for development.
+The `assets/` is the source code for our CSS and JavaScript.  
+The `css/` and `js/` folders are the same in the precompiled download section above.  
+The `docs/` folder includes the source code for our documentation. Beyond that, any other included file provides support for development.
 
-Please check the [theming guide]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/) for how to customise Material for your project using our source code.
+Check the [theming guide]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/) for how to customise Material for your project using our source code.
 
 ## Important globals
 
@@ -91,7 +102,7 @@ Material is developed *mobile first*, a strategy in which we optimize code for m
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 {% endhighlight %}
 
-## Starter template
+## Starter template (no plugins)
 
 Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:
 
@@ -113,7 +124,7 @@ Be sure to have your pages set up with the latest design and development standar
     <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 
     <!-- Add Material CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@4.5.0-rc1/css/material.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-rc1/css/material.min.css" rel="stylesheet">
   </head>
   <body>
     <h1>Hello, world!</h1>
@@ -123,7 +134,7 @@ Be sure to have your pages set up with the latest design and development standar
     <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin="anonymous"></script>
 
     <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@4.5.0-rc1/js/material.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}/js/material.min.js" async></script>
   </body>
 </html>
 {% endhighlight %}

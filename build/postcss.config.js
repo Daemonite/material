@@ -11,9 +11,10 @@ module.exports = (ctx) => ({
       cascade: false
     } : false,
     cssnano: ctx.env === 'minify' ? {
-      "preset": [
-        "default"
-      ]
+      preset: [
+        'default'
+      ],
+      discardComments: { removeAll: true }
     } : false
   }
 })

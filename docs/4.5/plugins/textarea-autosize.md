@@ -27,22 +27,15 @@ These fields initially appear as single-line fields, which is useful for compact
 {% endcapture %}
 {% include example.html content=example %}
 
-## Tutorial
+## Using Textarea Autosize
 
-Import Textarea-autosize after your Material javascripts.
+Import Textarea-autosize after your Material JavaScript.
+
 {% highlight html %}
 <script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>
 {% endhighlight %}
 
-Add this CSS to your custom stylesheet (ie. style.css).
-{% highlight css %}
-textarea.textarea-autosize {
-  overflow-y: hidden;
-  resize: none;
-}
-{% endhighlight %}
-
-Add `textarea-autosize` class to your textarea AND specify `rows="1"`.
+Add `textarea-autosize` class to your textarea AND set `rows="1"`.
 {% highlight html %}
 <textarea class="form-control textarea-autosize" id="textareaExample" rows="1" placeholder="Try this textarea"></textarea>
 {% endhighlight %}
@@ -52,7 +45,8 @@ Initialize plugin once.
 $('.textarea-autosize').textareaAutoSize();
 {% endhighlight %}
 
-That's it.
+That's it.  
+([Read more on the official documentation](https://github.com/javierjulio/textarea-autosize)).
 
 ## More examples
 

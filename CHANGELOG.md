@@ -2,7 +2,7 @@
 
 ## Future releases
 
-- More plugins integration + documentation (Datatables, Flatpickr)
+- More plugins integration + documentation (Datatables, Flatpickr, Input mask)
 - Dark theme
 
 ## 4.5.2 - RC1

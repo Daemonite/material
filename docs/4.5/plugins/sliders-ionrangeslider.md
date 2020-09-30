@@ -1,20 +1,22 @@
 ---
 layout: docs
-title: Character counter
-description: Assistive elements for text fields.
+title: Sliders Ion.RangeSlider
+description: Sliders allow users to make selections from a range of values.
 group: plugins
 plugin: true
 ---
 
-Character or word counters should be used if there is a character or word limit. They display the ratio of characters used and the total character limit.
+Sliders allow users to view and select a value (or range) from the range along a bar. They’re ideal for adjusting settings such as volume and brightness, or for applying image filters.
+
+Sliders can use icons on both ends of the bar to represent a numeric or relative scale. The range of values or the nature of the values, such as volume change, can be communicated with icons.
 
 <div class="list-group my-2 my-lg-5">
-    <a href="https://material.io/components/text-fields#anatomy" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
-      Material Design guidelines: Text-fields - Assistive elements</a>
-    <a href="https://github.com/mimo84/bootstrap-maxlength" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+      Material Design guidelines: Sliders</a>
+    <a href="http://ionden.com/a/plugins/ion.rangeSlider/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-bs"></span>
-    Bootstrap Maxlength: Official documentation</a>
+    Ion.RangeSlider: Official documentation</a>
 </div>
 
 ## Demo

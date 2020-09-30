@@ -131,7 +131,7 @@ bootstrap/
 │   └── js/
 ├── site/
 │   └──docs/
-│      └── 4.5/
+│      └── {{ site.docs_version }}/
 │          └── examples/
 ├── js/
 └── scss/

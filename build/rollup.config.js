@@ -36,7 +36,7 @@ module.exports = {
   external,
   input: path.resolve(__dirname, '../assets/js/index.js'),
   output: {
-    banner: `/*!\n * Daemonite Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)\n */\n`,
+    banner: `/*!\n * Daemonite Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)\n */\n`,
     file: path.resolve(__dirname, `../js/material.js`),
     format: 'umd',
     globals,
