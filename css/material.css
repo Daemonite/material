@@ -2759,8 +2759,13 @@ pre code {
 }
 
 .nav-link {
+  -ms-flex-align: center;
+  align-items: center;
   color: #6200ee;
-  display: block;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
   padding: 0.5rem 1rem;
 }
 
@@ -2776,6 +2781,12 @@ pre code {
 
 .nav-link:hover, .nav-link.active {
   color: #40009c;
+}
+
+.nav-fill .nav-link,
+.nav-justified .nav-link {
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .nav-fill .nav-item {
