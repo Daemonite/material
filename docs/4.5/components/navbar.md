@@ -98,7 +98,7 @@ Adding images to the `.navbar-brand` will likely always require custom styles or
 <!-- Just an image -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img loading="lazy" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    <img loading="lazy" src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="rounded" alt="Material for Bootstrap 4 logo">
   </a>
 </nav>
 {% endcapture %}
@@ -108,8 +108,8 @@ Adding images to the `.navbar-brand` will likely always require custom styles or
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img loading="lazy" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    Bootstrap
+    <img loading="lazy" src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="d-inline-block align-top mr-3 rounded-circle" alt="Material for Bootstrap 4 logo">
+    Material
   </a>
 </nav>
 {% endcapture %}

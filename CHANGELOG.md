@@ -17,8 +17,9 @@ To dig in:
 - **NEW** Plugin themes integrated in build
 - **NEW** Plugins documentation (3 above + Maxlength)
 - **Fixed** Helper text position, `card-body` top padding, Alerts style
-- **Fixed** Switch disabled state
-- Update build dependencies (and revert to stylelint 0.16.x)
+- **Fixed** Switch disabled + hover state
+- Fixed. Glitches in docs
+- Update build dependencies (+ revert stylelint to 0.16.x)
 
 ## 4.5.0 - RC1
 

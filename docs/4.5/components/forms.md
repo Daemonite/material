@@ -982,7 +982,7 @@ For invalid fields, ensure that the invalid feedback/error message is associated
     <div class="col-md-3 mb-3">
       <label for="validationServer05">Zip</label>
       <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-      <div id="invalidCheck3Feedback" class="invalid-feedback">
+      <div id="validationServer05Feedback" class="invalid-feedback">
         Please provide a valid zip.
       </div>
     </div>
