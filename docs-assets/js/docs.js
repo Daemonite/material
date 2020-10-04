@@ -261,5 +261,48 @@
 
     // Plugins: Textarea autosize
     $('.textarea-autosize').textareaAutoSize()
+
+    // Plugins: Ion.RangeSlider
+    $('#demo-0').ionRangeSlider({
+      min: 100,
+      max: 1000,
+      from: 550,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-double').ionRangeSlider()
+
+    $('#demo-negative').ionRangeSlider({
+      type: 'double',
+      grid: true,
+      min: -1000,
+      max: 1000,
+      from: -500,
+      to: 500,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-step').ionRangeSlider({
+      type: 'double',
+      grid: true,
+      min: -1000,
+      max: 1000,
+      from: -500,
+      to: 500,
+      step: 250,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-postfix').ionRangeSlider({
+      skin: 'round',
+      grid: true,
+      min: 0,
+      max: 100,
+      from: 21,
+      max_postfix: '+', // eslint-disable-line camelcase
+      prefix: 'Age: ',
+      postfix: ' years',
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
   })
 }(jQuery))

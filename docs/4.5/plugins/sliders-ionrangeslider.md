@@ -22,41 +22,69 @@ Sliders can use icons on both ends of the bar to represent a numeric or relative
 ## Demo
 
 {% capture example %}
-<div class="form-group">
-  <label for="maxlength1">Username</label>
-  <input type="text" class="form-control" id="maxlength1" placeholder="Choose a username" maxlength="20">
-</div>
-<div class="form-group mt-4">
-  <textarea class="form-control" id="maxlength2" placeholder="My limited textarea" maxlength="250"></textarea>
+<div class="form-group my-3">
+  <label for="demo-0" class="d-block">Set min value, max value and start point</label>
+  <input type="text" class="js-range-slider" value="" id="demo-0">
 </div>
 {% endcapture %}
 {% include example.html content=example %}
 
-## Using Maxlength
+## Using Ion.RangeSlider
 
-Import **Bootstrap Maxlength** after your Material JavaScripts.
-
-{% highlight html %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength/dist/bootstrap-maxlength.min.js"></script>
-{% endhighlight %}
-
-Add a `maxlength` attribute to your input field.
+Import **Ion.RangeSlider** after your Material JavaScripts.
 
 {% highlight html %}
-<textarea class="form-control" id="textareaExample" placeholder="Try this textarea" maxlength="250"></textarea>
+<script src="https://cdn.jsdelivr.net/npm/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
 {% endhighlight %}
 
-Initialize plugin once. Here is an example of simplest declaration to be active on all inputs with maxlength attribute set and material design style.
+Set your HTML code of your input to text and give it an id.
+
+{% highlight html %}
+<div class="form-group">
+  <label for="demo-1" class="d-block">Set min value, max value and start point</label>
+  <input type="text" value="" id="demo-1">
+</div>
+{% endhighlight %}
+
+Initialize plugin with jQuery parameters. Set skin to "material" for perfect styling.
+
+You can use JavaScript API throught HTML5 `data-*` instead of JS initialization (see More examples).
 
 {% highlight js %}
-$('[maxlength]').maxlength({
-  alwaysShow: true,
-  warningClass: 'form-text text-muted',
-  limitReachedClass: 'form-text text-muted',
-  placement: 'bottom-right-inside'
+$(function() {
+  $("#demo-1").ionRangeSlider({
+    min: 100,
+    max: 1000,
+    from: 550,
+    skin: "material"
 })
 {% endhighlight %}
 
-All parameters are detailed in [official documentation](https://github.com/mimo84/bootstrap-maxlength).
+All parameters are detailed in [official documentation](http://ionden.com/a/plugins/ion.rangeSlider/).
 
 That's it.
+
+## More examples
+
+{% capture example %}
+<div class="form-group mt-3">
+  <label for="demo-double" class="d-block">Set type to double, specify range, show grid and add a prefix "$"</label>
+  <input type="text" value="" id="demo-double" data-type="double" data-grid="true" data-min="0" data-max="1000" data-from="200" data-to="800" data-prefix="$" data-skin="material">
+</div>
+
+<div class="form-group">
+  <label for="demo-negative" class="d-block">Set up range with negative values</label>
+  <input type="text" value="" id="demo-negative">
+</div>
+
+<div class="form-group">
+  <label for="demo-step" class="d-block">Add a step to previous config</label>
+  <input type="text" value="" id="demo-step">
+</div>
+
+<div class="form-group mb-3">
+  <label for="demo-postfix" class="d-block">Using prefix and postfix at the same time</label>
+  <input type="text" value="" id="demo-postfix">
+</div>
+{% endcapture %}
+{% include example.html content=example %}

@@ -13,7 +13,8 @@ To dig in:
 #30966: Improve floating labels with Edge and a general refactor
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
 - Improved Ripplet JS declaration + upgrade to v0.3x
-- **NEW** Material themes for **Autosize**, **ionRangeSlider**, **Select2**. Use material-plugins.css
+- **NEW** Material themes for **Autosize**, **ionRangeSlider**, **Select2**, **Maxlength**.  
+Import `material-plugins.css`.
 - **NEW** Plugin themes integrated in build
 - **NEW** Plugins documentation (3 above + Maxlength)
 - **Fixed** Helper text position, `card-body` top padding, Alerts style
