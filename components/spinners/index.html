@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, shrink-to-fit=no, width=device-width">
+<meta name="description" content="">
+<meta name="author" content="Daemonite, Sesemaya, djibe, Bootstrap authors and contributors">
+<meta name="generator" content="Jekyll v4.1.1">
+<meta name="keywords" content="material design, material, material UI, bootstrap, theme, daemonite, web, ui, components, responsive, accessibility, css, mobile web, open source">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link rel="preconnect" href="https://cdn.jsdelivr.net/">
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.5">
+<title>Spinners - Daemonite Material Design 2</title>
+<!-- CSS -->
+<!-- Add Material font (Roboto) and Material icon as needed -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<!-- Add Material CSS, replace Bootstrap CSS -->
+<link href="/material/css/material.min.css" rel="stylesheet">
+<!-- Additional CSS for documentation site -->
+<!--<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">-->
+<link href="https://getbootstrap.com/docs/4.5/assets/css/docs.min.css" rel="stylesheet">
+<link href="/material/docs/css/docs.min.css" rel="stylesheet">
+<!-- Favicons -->
+<meta name="theme-color" content="#6200ee">
+<link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/material/favicon.ico" rel="icon">
+</head>
+<body class="doc-body">
+<a class="sr-only sr-only-focusable doc-skip" href="#doc-main-h1">
+ <div class="container">
+    <span class="doc-skip-text">Skip to main content</span>
+ </div>
+</a>
+<header class="navbar navbar-dark d-lg-none fixed-top toolbar-waterfall">
+  <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler mr-3" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent"><span class="navbar-toggler-icon"></span></button>
+  <a aria-label="Daemonite Material" class="mr-auto doc-logo" href="/material/">M</a>
+ <div class="ml-3">
+   <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button"><i class="material-icons mx-auto">more_vert</i></button>
+     <div aria-labelledby="doc-dropdown-follow" class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon &amp; angels</a>
+     </div>
+   </div>
+ </div>
+</header>
+<div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1">
+ <div class="navdrawer-content">
+   <div class="d-flex flex-column doc-navdrawer-body">
+     <div class="navdrawer-header">
+        <a aria-label="Daemonite Material" class="doc-logo" href="/material/">M</a>
+        <span class="navbar-brand">Material 2</span>
+     </div>
+      <form class="navdrawer-body mt-2">
+       <div class="floating-label textfield-box">
+          <label for="doc-search">Search</label>
+          <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search" disabled>
+          <small class="form-text text-muted">Desactivated since it is a fork.</small>
+       </div>
+        <button class="sr-only" type="submit">Search documentation</button>
+      </form>
+     <div class="navdrawer-divider mb-0"></div>
+     <nav class="navdrawer-nav">
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started"><strong>Getting started</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-getting-started">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/download/"><span class="font-weight-normal">Download</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/contents/"><span class="font-weight-normal">Contents</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/migration/"><span class="font-weight-normal">Migration</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/browsers-&amp;-devices/"><span class="font-weight-normal">Browsers &amp; devices</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/theming/"><span class="font-weight-normal">Theming</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/webpack/"><span class="font-weight-normal">Webpack</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/accessibility/"><span class="font-weight-normal">Accessibility</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-layout"><strong>Layout</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-layout">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/overview/"><span class="font-weight-normal">Overview</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/grid/"><span class="font-weight-normal">Grid</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content"><strong>Content</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-content">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/reboot/"><span class="font-weight-normal">Reboot</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/typography/"><span class="font-weight-normal">Typography</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/code/"><span class="font-weight-normal">Code</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/images/"><span class="font-weight-normal">Images</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/tables/"><span class="font-weight-normal">Tables</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/figures/"><span class="font-weight-normal">Figures</span></a>
+       </div>
+       <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-components"><strong>Components</strong></a>
+       <div class="collapse pb-2 show" id="doc-navdrawer-components">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/alerts/"><span class="font-weight-normal">Alerts</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/badge/"><span class="font-weight-normal">Badge</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/button-group/"><span class="font-weight-normal">Button group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/card/"><span class="font-weight-normal">Card</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/carousel/"><span class="font-weight-normal">Carousel</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/collapse/"><span class="font-weight-normal">Collapse</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/forms/"><span class="font-weight-normal">Forms</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/input-group/"><span class="font-weight-normal">Input group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/list-group/"><span class="font-weight-normal">List group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/media-object/"><span class="font-weight-normal">Media object</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/modal/"><span class="font-weight-normal">Modal</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/navs/"><span class="font-weight-normal">Navs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/navbar/"><span class="font-weight-normal">Navbar</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/pagination/"><span class="font-weight-normal">Pagination</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/popovers/"><span class="font-weight-normal">Popovers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a>
+          <a class="nav-item nav-link pl-4 my-0 active" href="/material/docs/4.5/components/spinners/"><span class="font-weight-normal">Spinners</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/toasts/"><span class="font-weight-normal">Toasts</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities"><strong>Utilities</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-utilities">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/borders/"><span class="font-weight-normal">Borders</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/colors/"><span class="font-weight-normal">Colors</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/display/"><span class="font-weight-normal">Display</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/embed/"><span class="font-weight-normal">Embed</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/flex/"><span class="font-weight-normal">Flex</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/float/"><span class="font-weight-normal">Float</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/interactions/"><span class="font-weight-normal">Interactions</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/overflow/"><span class="font-weight-normal">Overflow</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/position/"><span class="font-weight-normal">Position</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/screen-readers/"><span class="font-weight-normal">Screen readers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/shadows/"><span class="font-weight-normal">Shadows</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/stretched-link/"><span class="font-weight-normal">Stretched link</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/text/"><span class="font-weight-normal">Text</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-extend-wip"><strong>Extend (WIP)</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-extend-wip">
+       </div>
+       <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-material"><strong>Material</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-material">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/app-bars-top/"><span class="font-weight-normal">App bars top</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/buttons-floating-action/"><span class="font-weight-normal">Buttons floating action</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/badges/"><span class="font-weight-normal">Badges</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/cards/"><span class="font-weight-normal">Cards</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/chips/"><span class="font-weight-normal">Chips</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/colors/"><span class="font-weight-normal">Colors</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/data-tables/"><span class="font-weight-normal">Data tables</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/elevation-and-shadows/"><span class="font-weight-normal">Elevation and shadows</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/icons/"><span class="font-weight-normal">Icons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/lists/"><span class="font-weight-normal">Lists</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/menu/"><span class="font-weight-normal">Menu</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/pickers/"><span class="font-weight-normal">Pickers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/snackbars/"><span class="font-weight-normal">Snackbars</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/steppers/"><span class="font-weight-normal">Steppers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/tabs/"><span class="font-weight-normal">Tabs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/text-fields/"><span class="font-weight-normal">Text fields</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/typography/"><span class="font-weight-normal">Typography</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-plugins"><strong>Plugins</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-plugins">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/character-counter/"><span class="font-weight-normal">Character counter</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/sliders-ionrangeslider/"><span class="font-weight-normal">Sliders ionRangeSlider</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/select-select2/"><span class="font-weight-normal">Select Select2</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/textarea-autosize/"><span class="font-weight-normal">Textarea autosize</span></a>
+       </div>
+     </nav>
+     <div class="mt-auto">
+       <div class="navdrawer-divider mt-0"></div>
+       <div class="navdrawer-nav">
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+          <!--<a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon</a>-->
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="jumbotron jumbotron-fluid mb-5 px-lg-3 doc-jumbotron">
+ <div class="container">
+   <div class="row">
+     <div class="col-xl-9">
+       <h1 class="typography-display-4" id="doc-main-h1">Spinners</h1>
+       <p class="font-weight-light typography-title">Indicate the loading state of a component or page with Bootstrap spinners, built entirely with HTML, CSS, and no JavaScript.</p>
+     </div>
+   </div>
+ </div>
+</div>
+ <main class="doc-main px-lg-3">
+   <div class="container">
+     <div class="row justify-content-center">
+       <div class="col-xl-9">
+         <div class="bd-content mb-5">
+           <h2 id="about">About</h2>
+<p>Bootstrap “spinners” can be used to show the loading state in your projects. They’re built only with HTML and CSS, meaning you don’t need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility. Their appearance, alignment, and sizing can be easily customized with our amazing utility classes.</p>
+<p>For accessibility purposes, each loader here includes <code class="language-plaintext highlighter-rouge">role="status"</code> and a nested <code class="language-plaintext highlighter-rouge">&lt;span class="sr-only"&gt;Loading...&lt;/span&gt;</code>.</p>
+<h2 id="border-spinner">Border spinner</h2>
+<p>Use the border spinners for a lightweight loading indicator.</p>
+<div class="bd-example">
+<div class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="colors">Colors</h3>
+<p>The border spinner uses <code class="language-plaintext highlighter-rouge">currentColor</code> for its <code class="language-plaintext highlighter-rouge">border-color</code>, meaning you can customize the color with <a href="/material/docs/4.5/utilities/colors/">text color utilities</a>. You can use any of our text color utilities on the standard spinner.</p>
+<div class="bd-example">
+<div class="spinner-border text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-secondary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-info" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-success" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-warning" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-dark" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-border text-light" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-primary"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-secondary"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-danger"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-info"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-success"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-warning"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-dark"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border text-light"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<div class="bd-callout bd-callout-info">
+<p><strong>Why not use <code class="language-plaintext highlighter-rouge">border-color</code> utilities?</strong> Each border spinner specifies a <code class="language-plaintext highlighter-rouge">transparent</code> border for at least one side, so <code class="language-plaintext highlighter-rouge">.border-{color}</code> utilities would override that.</p>
+</div>
+<h2 id="growing-spinner">Growing spinner</h2>
+<p>If you don’t fancy a border spinner, switch to the grow spinner. While it doesn’t technically spin, it does repeatedly grow!</p>
+<div class="bd-example">
+<div class="spinner-grow" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<p>Once again, this spinner is built with <code class="language-plaintext highlighter-rouge">currentColor</code>, so you can easily change its appearance with <a href="/material/docs/4.5/utilities/colors/">text color utilities</a>. Here it is in blue, along with the supported variants.</p>
+<div class="bd-example">
+<div class="spinner-grow text-primary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-primary"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-secondary"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-danger"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-info"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-success"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-warning"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-dark"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow text-light"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h2 id="alignment">Alignment</h2>
+<p>Spinners in Bootstrap are built with <code class="language-plaintext highlighter-rouge">rem</code>s, <code class="language-plaintext highlighter-rouge">currentColor</code>, and <code class="language-plaintext highlighter-rouge">display: inline-flex</code>. This means they can easily be resized, recolored, and quickly aligned.</p>
+<h3 id="margin">Margin</h3>
+<p>Use <a href="/material/docs/4.5/utilities/spacing/">margin utilities</a> like <code class="language-plaintext highlighter-rouge">.m-5</code> for easy spacing.</p>
+<div class="bd-example">
+<div class="spinner-border m-5" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border m-5"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="placement">Placement</h3>
+<p>Use <a href="/material/docs/4.5/utilities/flex/">flexbox utilities</a>, <a href="/material/docs/4.5/utilities/float/">float utilities</a>, or <a href="/material/docs/4.5/content/typography/">text alignment</a> utilities to place spinners exactly where you need them in any situation.</p>
+<h4 id="flex">Flex</h4>
+<div class="bd-example">
+<div class="d-flex justify-content-center">
+ <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+ </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex justify-content-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<div class="bd-example">
+<div class="d-flex align-items-center">
+  <strong>Loading...</strong>
+ <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex align-items-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Loading...<span class="nt">&lt;/strong&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border ml-auto"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h4 id="floats">Floats</h4>
+<div class="bd-example">
+<div class="clearfix">
+ <div class="spinner-border float-right" role="status">
+    <span class="sr-only">Loading...</span>
+ </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border float-right"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h4 id="text-align">Text align</h4>
+<div class="bd-example">
+<div class="text-center">
+ <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+ </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h2 id="size">Size</h2>
+<p>Add <code class="language-plaintext highlighter-rouge">.spinner-border-sm</code> and <code class="language-plaintext highlighter-rouge">.spinner-grow-sm</code> to make a smaller spinner that can quickly be used within other components.</p>
+<div class="bd-example">
+<div class="spinner-border spinner-border-sm" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border spinner-border-sm"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow spinner-grow-sm"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<p>Or, use custom CSS or inline styles to change the dimensions as needed.</p>
+<div class="bd-example">
+<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-border"</span> <span class="na">style=</span><span class="s">"width: 3rem; height: 3rem;"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spinner-grow"</span> <span class="na">style=</span><span class="s">"width: 3rem; height: 3rem;"</span> <span class="na">role=</span><span class="s">"status"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h2 id="buttons">Buttons</h2>
+<p>Use spinners within buttons to indicate an action is currently processing or taking place. You may also swap the text out of the spinner element and utilize button text as needed.</p>
+<div class="bd-example">
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  <span class="sr-only">Loading...</span>
+</button>
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"spinner-border spinner-border-sm"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"spinner-border spinner-border-sm"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  Loading...
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+<div class="bd-example">
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  <span class="sr-only">Loading...</span>
+</button>
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"spinner-grow spinner-grow-sm"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Loading...<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"spinner-grow spinner-grow-sm"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  Loading...
+<span class="nt">&lt;/button&gt;</span></code></pre></figure>
+         </div>
+       </div>
+         <div class="col-xl-3 d-none d-xl-block">
+           <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#about">About</a></li>
+<li class="toc-entry toc-h2">
+<a href="#border-spinner">Border spinner</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#colors">Colors</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#growing-spinner">Growing spinner</a></li>
+<li class="toc-entry toc-h2">
+<a href="#alignment">Alignment</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#margin">Margin</a></li>
+<li class="toc-entry toc-h3">
+<a href="#placement">Placement</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#flex">Flex</a></li>
+<li class="toc-entry toc-h4"><a href="#floats">Floats</a></li>
+<li class="toc-entry toc-h4"><a href="#text-align">Text align</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#size">Size</a></li>
+<li class="toc-entry toc-h2"><a href="#buttons">Buttons</a></li>
+</ul>
+         </div>
+     </div>
+   </div>
+ </main>
+<!-- JavaScript -->
+<script crossorigin="anonymous" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-9nt4LsWmLI/O24lTW89IzAKuBqEZ47l/4rh1+tH/NY8=" src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Add Material JavaScript on top of Bootstrap JavaScript -->
+<script src="/material/js/material.min.js" async></script>
+<!-- Additional JavaScript for documentation site -->
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js" integrity="sha256-qybEsgf0PGiQS22AmoozPs09oRnSC7Gu7eBu4fbS2Ac=" crossorigin="anonymous" async></script>
+<script src="/material/docs/js/docs.min.js" async></script>
+<script src="https://instant.page/5.1.0" type="module"></script>
+</body>
+</html>

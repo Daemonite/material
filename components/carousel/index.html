@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, shrink-to-fit=no, width=device-width">
+<meta name="description" content="">
+<meta name="author" content="Daemonite, Sesemaya, djibe, Bootstrap authors and contributors">
+<meta name="generator" content="Jekyll v4.1.1">
+<meta name="keywords" content="material design, material, material UI, bootstrap, theme, daemonite, web, ui, components, responsive, accessibility, css, mobile web, open source">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link rel="preconnect" href="https://cdn.jsdelivr.net/">
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.5">
+<title>Carousel - Daemonite Material Design 2</title>
+<!-- CSS -->
+<!-- Add Material font (Roboto) and Material icon as needed -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+<!-- Add Material CSS, replace Bootstrap CSS -->
+<link href="/material/css/material.min.css" rel="stylesheet">
+<!-- Additional CSS for documentation site -->
+<!--<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">-->
+<link href="https://getbootstrap.com/docs/4.5/assets/css/docs.min.css" rel="stylesheet">
+<link href="/material/docs/css/docs.min.css" rel="stylesheet">
+<!-- Favicons -->
+<meta name="theme-color" content="#6200ee">
+<link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/material/favicon.ico" rel="icon">
+</head>
+<body class="doc-body">
+<a class="sr-only sr-only-focusable doc-skip" href="#doc-main-h1">
+ <div class="container">
+    <span class="doc-skip-text">Skip to main content</span>
+ </div>
+</a>
+<header class="navbar navbar-dark d-lg-none fixed-top toolbar-waterfall">
+  <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler mr-3" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent"><span class="navbar-toggler-icon"></span></button>
+  <a aria-label="Daemonite Material" class="mr-auto doc-logo" href="/material/">M</a>
+ <div class="ml-3">
+   <div class="dropdown">
+      <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button"><i class="material-icons mx-auto">more_vert</i></button>
+     <div aria-labelledby="doc-dropdown-follow" class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+        <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon &amp; angels</a>
+     </div>
+   </div>
+ </div>
+</header>
+<div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1">
+ <div class="navdrawer-content">
+   <div class="d-flex flex-column doc-navdrawer-body">
+     <div class="navdrawer-header">
+        <a aria-label="Daemonite Material" class="doc-logo" href="/material/">M</a>
+        <span class="navbar-brand">Material 2</span>
+     </div>
+      <form class="navdrawer-body mt-2">
+       <div class="floating-label textfield-box">
+          <label for="doc-search">Search</label>
+          <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search" disabled>
+          <small class="form-text text-muted">Desactivated since it is a fork.</small>
+       </div>
+        <button class="sr-only" type="submit">Search documentation</button>
+      </form>
+     <div class="navdrawer-divider mb-0"></div>
+     <nav class="navdrawer-nav">
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started"><strong>Getting started</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-getting-started">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/download/"><span class="font-weight-normal">Download</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/contents/"><span class="font-weight-normal">Contents</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/migration/"><span class="font-weight-normal">Migration</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/browsers-&amp;-devices/"><span class="font-weight-normal">Browsers &amp; devices</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/theming/"><span class="font-weight-normal">Theming</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/webpack/"><span class="font-weight-normal">Webpack</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/getting-started/accessibility/"><span class="font-weight-normal">Accessibility</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-layout"><strong>Layout</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-layout">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/overview/"><span class="font-weight-normal">Overview</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/grid/"><span class="font-weight-normal">Grid</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content"><strong>Content</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-content">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/reboot/"><span class="font-weight-normal">Reboot</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/typography/"><span class="font-weight-normal">Typography</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/code/"><span class="font-weight-normal">Code</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/images/"><span class="font-weight-normal">Images</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/tables/"><span class="font-weight-normal">Tables</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/content/figures/"><span class="font-weight-normal">Figures</span></a>
+       </div>
+       <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-components"><strong>Components</strong></a>
+       <div class="collapse pb-2 show" id="doc-navdrawer-components">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/alerts/"><span class="font-weight-normal">Alerts</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/badge/"><span class="font-weight-normal">Badge</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/button-group/"><span class="font-weight-normal">Button group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/card/"><span class="font-weight-normal">Card</span></a>
+          <a class="nav-item nav-link pl-4 my-0 active" href="/material/docs/4.5/components/carousel/"><span class="font-weight-normal">Carousel</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/collapse/"><span class="font-weight-normal">Collapse</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/forms/"><span class="font-weight-normal">Forms</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/input-group/"><span class="font-weight-normal">Input group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/list-group/"><span class="font-weight-normal">List group</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/media-object/"><span class="font-weight-normal">Media object</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/modal/"><span class="font-weight-normal">Modal</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/navs/"><span class="font-weight-normal">Navs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/navbar/"><span class="font-weight-normal">Navbar</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/pagination/"><span class="font-weight-normal">Pagination</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/popovers/"><span class="font-weight-normal">Popovers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/spinners/"><span class="font-weight-normal">Spinners</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/toasts/"><span class="font-weight-normal">Toasts</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities"><strong>Utilities</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-utilities">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/borders/"><span class="font-weight-normal">Borders</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/colors/"><span class="font-weight-normal">Colors</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/display/"><span class="font-weight-normal">Display</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/embed/"><span class="font-weight-normal">Embed</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/flex/"><span class="font-weight-normal">Flex</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/float/"><span class="font-weight-normal">Float</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/interactions/"><span class="font-weight-normal">Interactions</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/overflow/"><span class="font-weight-normal">Overflow</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/position/"><span class="font-weight-normal">Position</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/screen-readers/"><span class="font-weight-normal">Screen readers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/shadows/"><span class="font-weight-normal">Shadows</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/stretched-link/"><span class="font-weight-normal">Stretched link</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/text/"><span class="font-weight-normal">Text</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-extend-wip"><strong>Extend (WIP)</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-extend-wip">
+       </div>
+       <div class="navdrawer-divider"></div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-material"><strong>Material</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-material">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/app-bars-top/"><span class="font-weight-normal">App bars top</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/buttons/"><span class="font-weight-normal">Buttons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/buttons-floating-action/"><span class="font-weight-normal">Buttons floating action</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/badges/"><span class="font-weight-normal">Badges</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/cards/"><span class="font-weight-normal">Cards</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/chips/"><span class="font-weight-normal">Chips</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/colors/"><span class="font-weight-normal">Colors</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/data-tables/"><span class="font-weight-normal">Data tables</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/elevation-and-shadows/"><span class="font-weight-normal">Elevation and shadows</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/icons/"><span class="font-weight-normal">Icons</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/lists/"><span class="font-weight-normal">Lists</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/menu/"><span class="font-weight-normal">Menu</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/pickers/"><span class="font-weight-normal">Pickers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/progress/"><span class="font-weight-normal">Progress</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/snackbars/"><span class="font-weight-normal">Snackbars</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/steppers/"><span class="font-weight-normal">Steppers</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/tabs/"><span class="font-weight-normal">Tabs</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/text-fields/"><span class="font-weight-normal">Text fields</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/material/typography/"><span class="font-weight-normal">Typography</span></a>
+       </div>
+        <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-plugins"><strong>Plugins</strong></a>
+       <div class="collapse pb-2 " id="doc-navdrawer-plugins">
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/character-counter/"><span class="font-weight-normal">Character counter</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/sliders-ionrangeslider/"><span class="font-weight-normal">Sliders ionRangeSlider</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/select-select2/"><span class="font-weight-normal">Select Select2</span></a>
+          <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.5/plugins/textarea-autosize/"><span class="font-weight-normal">Textarea autosize</span></a>
+       </div>
+     </nav>
+     <div class="mt-auto">
+       <div class="navdrawer-divider mt-0"></div>
+       <div class="navdrawer-nav">
+          <a class="nav-item nav-link text-black-secondary" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+          <!--<a class="nav-item nav-link text-black-secondary" href="http://www.daemon.com.au/" target="_blank"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon</a>-->
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<div class="jumbotron jumbotron-fluid mb-5 px-lg-3 doc-jumbotron">
+ <div class="container">
+   <div class="row">
+     <div class="col-xl-9">
+       <h1 class="typography-display-4" id="doc-main-h1">Carousel</h1>
+       <p class="font-weight-light typography-title">A slideshow component for cycling through elements—images or slides of text—like a carousel.</p>
+     </div>
+   </div>
+ </div>
+</div>
+ <main class="doc-main px-lg-3">
+   <div class="container">
+     <div class="row justify-content-center">
+       <div class="col-xl-9">
+         <div class="bd-content mb-5">
+           <h2 id="how-it-works">How it works</h2>
+<p>The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms and a bit of JavaScript. It works with a series of images, text, or custom markup. It also includes support for previous/next controls and indicators.</p>
+<p>In browsers where the <a href="https://www.w3.org/TR/page-visibility/" target="_blank" rel="noopener noreferrer">Page Visibility API</a> is supported, the carousel will avoid sliding when the webpage is not visible to the user (such as when the browser tab is inactive, the browser window is minimized, etc.).</p>
+<div class="bd-callout bd-callout-info">
+<p>The animation effect of this component is dependent on the <code class="language-plaintext highlighter-rouge">prefers-reduced-motion</code> media query. See the <a href="/material/docs/4.5/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.</p>
+</div>
+<p>Please be aware that nested carousels are not supported, and carousels are generally not compliant with accessibility standards.</p>
+<p>Lastly, if you’re building our JavaScript from source, it <a href="/material/docs/4.5/getting-started/javascript/#util">requires <code class="language-plaintext highlighter-rouge">util.js</code></a>.</p>
+<h2 id="example">Example</h2>
+<p>Carousels don’t automatically normalize slide dimensions. As such, you may need to use additional utilities or custom styles to appropriately size content. While carousels support previous/next controls and indicators, they’re not explicitly required. Add and customize as you see fit.</p>
+<p><strong>The <code class="language-plaintext highlighter-rouge">.active</code> class needs to be added to one of the slides</strong> otherwise the carousel will not be visible. Also be sure to set a unique id on the <code class="language-plaintext highlighter-rouge">.carousel</code> for optional controls, especially if you’re using multiple carousels on a single page. Control and indicator elements must have a <code class="language-plaintext highlighter-rouge">data-target</code> attribute (or <code class="language-plaintext highlighter-rouge">href</code> for links) that matches the id of the <code class="language-plaintext highlighter-rouge">.carousel</code> element.</p>
+<h3 id="slides-only">Slides only</h3>
+<p>Here’s a carousel with slides only. Note the presence of the <code class="language-plaintext highlighter-rouge">.d-block</code> and <code class="language-plaintext highlighter-rouge">.w-100</code> on carousel images to prevent browser default image alignment.</p>
+<div class="bd-example">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+ <div class="carousel-inner">
+   <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide">
+   </div>
+ </div>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleSlidesOnly"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="with-controls">With controls</h3>
+<p>Adding in the previous and next controls:</p>
+<div class="bd-example">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+ <div class="carousel-inner">
+   <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide">
+   </div>
+ </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleControls"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="with-indicators">With indicators</h3>
+<p>You can also add the indicators to the carousel, alongside the controls, too.</p>
+<div class="bd-example">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ <ol class="carousel-indicators">
+   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+   <li data-target="#carouselExampleIndicators" data-slide-to="1">
+   <li data-target="#carouselExampleIndicators" data-slide-to="2">
+ </ol>
+ <div class="carousel-inner">
+   <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide">
+   </div>
+ </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleIndicators"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"carousel-indicators"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"0"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">data-slide-to=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleIndicators"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="with-captions">With captions</h3>
+<p>Add captions to your slides easily with the <code class="language-plaintext highlighter-rouge">.carousel-caption</code> element within any <code class="language-plaintext highlighter-rouge">.carousel-item</code>. They can be easily hidden on smaller viewports, as shown below, with optional <a href="/material/docs/4.5/utilities/display/">display utilities</a>. We hide them initially with <code class="language-plaintext highlighter-rouge">.d-none</code> and bring them back on medium-sized devices with <code class="language-plaintext highlighter-rouge">.d-md-block</code>.</p>
+<div class="bd-example">
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+ <ol class="carousel-indicators">
+   <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active">
+   <li data-target="#carouselExampleCaptions" data-slide-to="1">
+   <li data-target="#carouselExampleCaptions" data-slide-to="2">
+ </ol>
+ <div class="carousel-inner">
+   <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide">
+     <div class="carousel-caption d-none d-md-block">
+       <h5>First slide label</h5>
+       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+     </div>
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide">
+     <div class="carousel-caption d-none d-md-block">
+       <h5>Second slide label</h5>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+     </div>
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide">
+     <div class="carousel-caption d-none d-md-block">
+       <h5>Third slide label</h5>
+       <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+     </div>
+   </div>
+ </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+ </div>
+</div>
+<p>&lt;/div&gt;</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleCaptions"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"carousel-indicators"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleCaptions"</span> <span class="na">data-slide-to=</span><span class="s">"0"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleCaptions"</span> <span class="na">data-slide-to=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carouselExampleCaptions"</span> <span class="na">data-slide-to=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption d-none d-md-block"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5&gt;</span>First slide label<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Nulla vitae elit libero, a pharetra augue mollis interdum.<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption d-none d-md-block"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5&gt;</span>Second slide label<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption d-none d-md-block"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5&gt;</span>Third slide label<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;p&gt;</span>Praesent commodo cursus magna, vel scelerisque nisl consectetur.<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleCaptions"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleCaptions"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h3 id="crossfade">Crossfade</h3>
+<p>Add <code class="language-plaintext highlighter-rouge">.carousel-fade</code> to your carousel to animate slides with a fade transition instead of a slide.</p>
+<div class="bd-example">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+ <div class="carousel-inner">
+   <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide">
+   </div>
+   <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide">
+   </div>
+ </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleFade"</span> <span class="na">class=</span><span class="s">"carousel slide carousel-fade"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide"</span> <span class="na">alt=</span><span class="s">"First slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide"</span> <span class="na">alt=</span><span class="s">"Second slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">loading=</span><span class="s">"lazy"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">src=</span><span class="s">".../800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"</span> <span class="na">alt=</span><span class="s">"Third slide"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleFade"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleFade"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+<h2 id="usage">Usage</h2>
+<h3 id="via-data-attributes">Via data attributes</h3>
+<p>Use data attributes to easily control the position of the carousel. <code class="language-plaintext highlighter-rouge">data-slide</code> accepts the keywords <code class="language-plaintext highlighter-rouge">prev</code> or <code class="language-plaintext highlighter-rouge">next</code>, which alters the slide position relative to its current position. Alternatively, use <code class="language-plaintext highlighter-rouge">data-slide-to</code> to pass a raw slide index to the carousel <code class="language-plaintext highlighter-rouge">data-slide-to="2"</code>, which shifts the slide position to a particular index beginning with <code class="language-plaintext highlighter-rouge">0</code>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load. If you don’t use <code class="language-plaintext highlighter-rouge">data-ride="carousel"</code> to initialize your carousel, you have to initialize it yourself. <strong>It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.</strong></p>
+<h3 id="via-javascript">Via JavaScript</h3>
+<p>Call carousel manually with:</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.carousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span></code></pre></figure>
+<h3 id="options">Options</h3>
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="language-plaintext highlighter-rouge">data-</code>, as in <code class="language-plaintext highlighter-rouge">data-interval=""</code>.</p>
+<table class="table table-bordered table-striped">
+<thead>
+   <tr>
+     <th style="width: 100px;">Name</th>
+     <th style="width: 50px;">Type</th>
+     <th style="width: 50px;">Default</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>interval</td>
+     <td>number</td>
+     <td>5000</td>
+     <td>The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.</td>
+   </tr>
+   <tr>
+     <td>keyboard</td>
+     <td>boolean</td>
+     <td>true</td>
+     <td>Whether the carousel should react to keyboard events.</td>
+   </tr>
+   <tr>
+     <td>pause</td>
+     <td>string | boolean</td>
+     <td>"hover"</td>
+     <td>
+<p>If set to <code>"hover"</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
+     <p>On touch-enabled devices, when set to <code>"hover"</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p>
+</td>
+   </tr>
+   <tr>
+     <td>ride</td>
+     <td>string</td>
+     <td>false</td>
+     <td>Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.</td>
+   </tr>
+   <tr>
+     <td>wrap</td>
+     <td>boolean</td>
+     <td>true</td>
+     <td>Whether the carousel should cycle continuously or have hard stops.</td>
+   </tr>
+   <tr>
+     <td>touch</td>
+     <td>boolean</td>
+     <td>true</td>
+     <td>Whether the carousel should support left/right swipe interactions on touchscreen devices.</td>
+   </tr>
+ </tbody>
+</table>
+<h3 id="methods">Methods</h3>
+<div class="bd-callout bd-callout-danger">
+<h5 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h5>
+<p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They returns to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
+</div>
+<h4 id="carouseloptions"><code class="language-plaintext highlighter-rouge">.carousel(options)</code></h4>
+<p>Initializes the carousel with an optional options <code class="language-plaintext highlighter-rouge">object</code> and starts cycling through items.</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.carousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
+  <span class="na">interval</span><span class="p">:</span> <span class="mi">2000</span>
+<span class="p">})</span></code></pre></figure>
+<h4 id="carouselcycle"><code class="language-plaintext highlighter-rouge">.carousel('cycle')</code></h4>
+<p>Cycles through the carousel items from left to right.</p>
+<h4 id="carouselpause"><code class="language-plaintext highlighter-rouge">.carousel('pause')</code></h4>
+<p>Stops the carousel from cycling through items.</p>
+<h4 id="carouselnumber"><code class="language-plaintext highlighter-rouge">.carousel(number)</code></h4>
+<p>Cycles the carousel to a particular frame (0 based, similar to an array). <strong>Returns to the caller before the target item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouselprev"><code class="language-plaintext highlighter-rouge">.carousel('prev')</code></h4>
+<p>Cycles to the previous item. <strong>Returns to the caller before the previous item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouselnext"><code class="language-plaintext highlighter-rouge">.carousel('next')</code></h4>
+<p>Cycles to the next item. <strong>Returns to the caller before the next item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouseldispose"><code class="language-plaintext highlighter-rouge">.carousel('dispose')</code></h4>
+<p>Destroys an element’s carousel.</p>
+<h3 id="events">Events</h3>
+<p>Bootstrap’s carousel class exposes two events for hooking into carousel functionality. Both events have the following additional properties:</p>
+<ul>
+ <li>
+<code class="language-plaintext highlighter-rouge">direction</code>: The direction in which the carousel is sliding (either <code class="language-plaintext highlighter-rouge">"left"</code> or <code class="language-plaintext highlighter-rouge">"right"</code>).</li>
+ <li>
+<code class="language-plaintext highlighter-rouge">relatedTarget</code>: The DOM element that is being slid into place as the active item.</li>
+ <li>
+<code class="language-plaintext highlighter-rouge">from</code>: The index of the current item</li>
+ <li>
+<code class="language-plaintext highlighter-rouge">to</code>: The index of the next item</li>
+</ul>
+<p>All carousel events are fired at the carousel itself (i.e. at the <code class="language-plaintext highlighter-rouge">&lt;div class="carousel"&gt;</code>).</p>
+<table class="table table-bordered table-striped">
+<thead>
+   <tr>
+     <th style="width: 150px;">Event Type</th>
+     <th>Description</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr>
+     <td>slide.bs.carousel</td>
+     <td>This event fires immediately when the <code>slide</code> instance method is invoked.</td>
+   </tr>
+   <tr>
+     <td>slid.bs.carousel</td>
+     <td>This event is fired when the carousel has completed its slide transition.</td>
+   </tr>
+ </tbody>
+</table>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myCarousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">slide.bs.carousel</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something...</span>
+<span class="p">})</span></code></pre></figure>
+<h3 id="change-transition-duration">Change transition duration</h3>
+<p>The transition duration of <code class="language-plaintext highlighter-rouge">.carousel-item</code> can be changed with the <code class="language-plaintext highlighter-rouge">$carousel-transition</code> Sass variable before compiling or custom styles if you’re using the compiled CSS. If multiple transitions are applied, make sure the transform transition is defined first (eg. <code class="language-plaintext highlighter-rouge">transition: transform 2s ease, opacity .5s ease-out</code>).</p>
+         </div>
+       </div>
+         <div class="col-xl-3 d-none d-xl-block">
+           <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
+<li class="toc-entry toc-h2">
+<a href="#example">Example</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#slides-only">Slides only</a></li>
+<li class="toc-entry toc-h3"><a href="#with-controls">With controls</a></li>
+<li class="toc-entry toc-h3"><a href="#with-indicators">With indicators</a></li>
+<li class="toc-entry toc-h3"><a href="#with-captions">With captions</a></li>
+<li class="toc-entry toc-h3"><a href="#crossfade">Crossfade</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#usage">Usage</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#via-data-attributes">Via data attributes</a></li>
+<li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a></li>
+<li class="toc-entry toc-h3"><a href="#options">Options</a></li>
+<li class="toc-entry toc-h3">
+<a href="#methods">Methods</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#carouseloptions">.carousel(options)</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselcycle">.carousel('cycle')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselpause">.carousel('pause')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselnumber">.carousel(number)</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselprev">.carousel('prev')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselnext">.carousel('next')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouseldispose">.carousel('dispose')</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+<li class="toc-entry toc-h3"><a href="#change-transition-duration">Change transition duration</a></li>
+</ul>
+</li>
+</ul>
+         </div>
+     </div>
+   </div>
+ </main>
+<!-- JavaScript -->
+<script crossorigin="anonymous" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-9nt4LsWmLI/O24lTW89IzAKuBqEZ47l/4rh1+tH/NY8=" src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Add Material JavaScript on top of Bootstrap JavaScript -->
+<script src="/material/js/material.min.js" async></script>
+<!-- Additional JavaScript for documentation site -->
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js" integrity="sha256-qybEsgf0PGiQS22AmoozPs09oRnSC7Gu7eBu4fbS2Ac=" crossorigin="anonymous" async></script>
+<script src="/material/docs/js/docs.min.js" async></script>
+<script src="https://instant.page/5.1.0" type="module"></script>
+</body>
+</html>
