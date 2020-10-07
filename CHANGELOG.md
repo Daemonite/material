@@ -16,7 +16,7 @@ To dig in:
 - **NEW** Material themes for **Autosize**, **ionRangeSlider**, **Select2**, **Maxlength**.  
 Import `material-plugins.css`.
 - **NEW** Plugin themes integrated in build
-- **NEW** Plugins documentation (3 above + Maxlength)
+- **NEW** Plugins documentation
 - **Fixed** Helper text position, `card-body` top padding, Alerts style
 - **Fixed** Switch disabled + hover state
 - Fixed. Glitches in docs

@@ -9,17 +9,17 @@ toc: true
 Text fields allow users to enter text into a UI. They typically appear in forms and dialogs.
 
 <div class="list-group my-2 my-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
-      <span class="list-group-item-icon lgi-icon-bs"></span>
-      <span class="list-group-item-text">
-        <span>Bootstrap documentation: Forms</span>
-        <span>Most of the details have been covered here</span>
-      </span>
-    </a>
-    <a href="https://material.io/components/text-fields/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
-      <span class="list-group-item-icon lgi-icon-md"></span>
+  <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-bs"></span>
+    <span class="list-group-item-text">
+      <span>Bootstrap documentation: Forms</span>
+      <span>Most of the details have been covered here</span>
+    </span>
+  </a>
+  <a href="https://material.io/components/text-fields/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Text fields</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Text field</a>
 </div>

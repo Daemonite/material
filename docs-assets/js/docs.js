@@ -304,5 +304,41 @@
       postfix: ' years',
       skin: 'material' // eslint-disable-line no-dupe-keys
     })
+
+    // Plugins: Select2
+    $('.js-example-basic-single').select2({
+      theme: 'filled',
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single */
+    })
+
+    $('.js-example-default-single').select2({
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single select */
+    })
+
+    $('.js-example-outlined-single').select2({
+      theme: 'outlined',
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single select */
+    })
+
+    $('.js-example-basic-multiple').select2({
+      theme: 'filled',
+      placeholder: 'Cars',
+      width: '400px'
+    })
+
+    $('.js-example-search-single').select2({
+      theme: 'filled',
+      placeholder: 'Cars',
+      width: '240px'
+    })
   })
 }(jQuery))

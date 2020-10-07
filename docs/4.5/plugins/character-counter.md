@@ -9,18 +9,26 @@ plugin: true
 Character or word counters should be used if there is a character or word limit. They display the ratio of characters used and the total character limit.
 
 <div class="list-group my-2 my-lg-5">
-    <a href="https://material.io/components/text-fields#anatomy" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
-      <span class="list-group-item-icon lgi-icon-md"></span>
+  <a href="https://material.io/components/text-fields#anatomy" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Text-fields - Assistive elements</a>
-    <a href="https://github.com/mimo84/bootstrap-maxlength" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
-    <span class="list-group-item-icon lgi-icon-bs"></span>
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-mdc"></span>
+    Material Components for the web: Text Field</a>
+  <a href="https://github.com/mimo84/bootstrap-maxlength" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-plugin"></span>
     Bootstrap Maxlength: Official documentation</a>
 </div>
+
+{% capture callout %}
+This plugin doesn't require extra CSS loading.
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
 
 ## Demo
 
 {% capture example %}
-<div class="form-group">
+<div class="form-group form-ripple">
   <label for="maxlength1">Username</label>
   <input type="text" class="form-control" id="maxlength1" placeholder="Choose a username" maxlength="20">
 </div>

@@ -102,7 +102,7 @@ Material is developed *mobile first*, a strategy in which we optimize code for m
 <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
 {% endhighlight %}
 
-## Starter template (no plugins)
+## Starter template
 
 Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:
 
@@ -116,7 +116,6 @@ Be sure to have your pages set up with the latest design and development standar
 
     <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
-
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net/">
@@ -124,10 +123,13 @@ Be sure to have your pages set up with the latest design and development standar
     <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 
     <!-- Add Material CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-rc1/css/material.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material.min.css" rel="stylesheet">
+
+    <!-- Optional Material CSS for Plugins -->
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Hello world!</h1>
 
     <!-- Optional JavaScript -->
     <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
