@@ -5,9 +5,10 @@
 - More plugins integration + documentation (Datatables, Flatpickr, Input mask)
 - Dark theme
 
-## 4.5.2 - RC1
+## 4.5.3 - RC1
 
 - **NEW** Upgrade to Bootstrap 4.5.3
+- Update build dependencies
 
 ## 4.5.2 - RC1
 
