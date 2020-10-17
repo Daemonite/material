@@ -210,7 +210,7 @@ Hides a collapsible element. **Returns to the caller before the collapsible elem
 
 #### `.collapse('dispose')`
 
-Destroys an element's collapse.
+Destroys an element's collapse. (Removes stored data on the DOM element)
 
 ### Events
 

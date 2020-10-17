@@ -283,7 +283,7 @@ $('[data-spy="scroll"]').each(function () {
 
 #### `.scrollspy('dispose')`
 
-Destroys an element's scrollspy.
+Destroys an element's scrollspy. (Removes stored data on the DOM element)
 
 ### Options
 

@@ -76,7 +76,7 @@ That's it.
   <textarea class="form-control form-control-lg textarea-autosize" id="textareaExampleBig" rows="1" placeholder="Try this big textarea"></textarea>
 </div>
 <div class="form-group form-ripple">
-  textarea class="form-control form-control-sm textarea-autosize" id="textareaExampleSmall" rows="1" placeholder="Try this small textarea"></textarea>
+  <textarea class="form-control form-control-sm textarea-autosize" id="textareaExampleSmall" rows="1" placeholder="Try this small textarea"></textarea>
 </div>
 <div class="form-group">
   <div class="floating-label">

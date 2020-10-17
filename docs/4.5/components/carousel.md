@@ -290,7 +290,15 @@ Cycles to the next item. **Returns to the caller before the next item has been s
 
 #### `.carousel('dispose')`
 
-Destroys an element's carousel.
+Destroys an element's carousel. (Removes stored data on the DOM element)
+
+#### `.carousel('nextWhenVisible')`
+
+Don't cycle the carousel to next when the page isn't visible or the carousel or its parent isn't visible. **Returns to the caller before the next item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
+
+#### `.carousel('to')`
+
+Cycles the carousel to a particular frame (0 based, similar to an array). **Returns to the caller before the next item has been shown** (i.e. before the `slid.bs.carousel` event occurs).
 
 ### Events
 

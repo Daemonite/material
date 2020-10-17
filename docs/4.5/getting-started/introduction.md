@@ -107,36 +107,35 @@ Material is developed *mobile first*, a strategy in which we optimize code for m
 Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:
 
 {% highlight html %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS -->
     <!-- Add Material font (Roboto) and Material icon as needed -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin>
     <link href="{{ site.cdn.md_font }}" rel="stylesheet">
     <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
 
-    <!-- Add Material CSS -->
+    <!-- Material CSS -->
     <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material.min.css" rel="stylesheet">
 
-    <!-- Optional Material CSS for Plugins -->
+    <!-- Optional Material CSS for Plugins
     <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
+    -->
+
+    <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <h1>Hello, world!</h1>
 
-    <!-- Optional JavaScript -->
+    <!-- jQuery, Bootstrap Bundle (includes Popper) and Material -->
     <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
     <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin="anonymous"></script>
-
-    <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}/js/material.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" async></script>
   </body>
 </html>
 {% endhighlight %}

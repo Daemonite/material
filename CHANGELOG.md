@@ -7,6 +7,10 @@
 
 ## 4.5.2 - RC1
 
+- **NEW** Upgrade to Bootstrap 4.5.3
+
+## 4.5.2 - RC1
+
 - **NEW** Upgrade to Bootstrap 4.5.2  
 To dig in:  
 #30965: Improve floating labels example in IE
