@@ -153,3 +153,10 @@
     @return theme-color(primary);
   }
 }
+
+// RGBA to RGB
+// Credits: https://makandracards.com/makandra/42500-sass-how-to-convert-an-rgba-color-to-its-rgb-look-alike
+
+@function rgba-to-rgb($rgba, $background: #fff) {
+  @return mix(rgb(red($rgba), green($rgba), blue($rgba)), $background, alpha($rgba) * 100%);
+}
