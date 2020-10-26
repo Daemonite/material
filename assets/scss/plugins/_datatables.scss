@@ -57,7 +57,7 @@
     position: relative;
 
     &::after {
-      opacity: $black-secondary-opacity;
+      opacity: $black-secondary-opacity !important;
     }
   }
 
@@ -72,6 +72,7 @@
       margin: 0 $spacer-xs;
       opacity: 0;
       position: absolute;
+      transform: rotate(0deg);
       transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
       width: 18px;
     }
@@ -81,16 +82,8 @@
     }
   }
 
-  thead th.sorting_asc:active::after {
-    transform: rotate(-180deg);
-  }
-
   thead th.sorting_desc::after {
     transform: rotate(-180deg);
-  }
-
-  thead th.sorting_desc:active::after {
-    transform: rotate(180deg);
   }
 }
 
@@ -111,7 +104,7 @@
       content: '';
       height: 46px;
       position: absolute;
-      left: 16px;
+      left: $spacer;
       width: 24px;
     }
 
@@ -271,16 +264,17 @@
 
 // Col Reorder
 
-.dataTable.DTCR_clonedTable {
-  background-color: rgba(selection-theme-color(), $overlay-selected-white-opacity);
+table.dataTable.DTCR_clonedTable {
+  background-color: rgba-to-rgb(rgba($black, $overlay-selected-white-opacity));
+  box-shadow: map-get(map-get($elevation-shadows, 4), shadow);
   position: absolute !important;
-  z-index: 202;
+  z-index: map-get(map-get($elevation-shadows, 4), elevation);
 }
 
 div.DTCR_pointer {
-  background-color: $black;
+  background-color: rgba-to-rgb($black-secondary);
   width: 1px;
-  z-index: 201;
+  z-index: map-get(map-get($elevation-shadows, 4), elevation) - 1;
 }
 
 // Buttons
