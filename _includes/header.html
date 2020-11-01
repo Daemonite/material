@@ -4,7 +4,7 @@
 <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }} &middot; {% endif %}">
 <meta name="author" content="{{ site.authors }}">
 <meta name="generator" content="Jekyll v{{ jekyll.version }}">
-<meta name="keywords" content="material design, material, material UI, bootstrap, theme, daemonite, web, ui, components, responsive, accessibility, css, mobile web, open source">
+<meta name="keywords" content="material design, material, material UI, bootstrap, framework, theme, daemonite, web, ui, components, responsive, accessibility, css, mobile web, open source">
 
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/">
@@ -28,13 +28,15 @@
 <link href="{{ site.cdn.bs_css_docs }}" rel="stylesheet">
 <link href="{{ site.baseurl }}/docs/css/docs.min.css" rel="stylesheet">
 {% if page.fontawesome4 %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
-    integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 {% endif %}
 {% if page.fontawesome5 %}
   <script src="https://kit.fontawesome.com/505782bdf9.js" crossorigin="anonymous"></script>
 {% endif %}
 {% if page.plugin %}
+  {% if page.datatables %}
+  <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/r-2.2.6/rr-1.2.7/sl-1.3.1/datatables.css" rel="stylesheet">
+  {% endif %}
 <link href="{{ site.baseurl }}/css/material-plugins.min.css" rel="stylesheet">
 {% endif %}
 

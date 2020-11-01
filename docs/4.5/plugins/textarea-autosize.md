@@ -42,13 +42,13 @@ Stylesheet `material-plugins.css` is required.
 
 ## Using Textarea Autosize
 
-Import **material-plugins.css** after your Material CSS.
+Import **material-plugins.css** after Material CSS.
 
 {% highlight html %}
 <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
 {% endhighlight %}
 
-Import **Textarea-autosize.js** after your Material JavaScript.
+Import **Textarea-autosize.js** after Material JavaScript.
 
 {% highlight html %}
 <script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>

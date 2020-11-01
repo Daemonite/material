@@ -43,13 +43,13 @@ Stylesheet `material-plugins.css` is required as this material design theme is d
 
 ## Using Ion.RangeSlider
 
-Import **material-plugins.css** after your Material CSS.
+Import **material-plugins.css** after Material CSS.
 
 {% highlight html %}
 <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
 {% endhighlight %}
 
-Import **Ion.RangeSlider.js** after your Material JavaScripts.
+Import **Ion.RangeSlider.js** after Material JavaScripts.
 
 {% highlight html %}
 <script src="https://cdn.jsdelivr.net/npm/ion-rangeslider/js/ion.rangeSlider.min.js"></script>

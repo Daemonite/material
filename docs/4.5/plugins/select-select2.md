@@ -51,13 +51,13 @@ $(function() {
 
 ## Using Select2
 
-Import **material-plugins.css** after your Material CSS. Don't use official Select2 css.
+Import **material-plugins.css** after Material CSS. Don't use official Select2 CSS.
 
 {% highlight html %}
 <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
 {% endhighlight %}
 
-Import **Select2** after your Material JavaScripts.
+Import **Select2** after Material JavaScripts.
 
 {% highlight html %}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

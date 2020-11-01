@@ -60,13 +60,13 @@ $(function() {
 
 ## Using flatpickr
 
-Import **material-plugins.css** after your Material CSS. Don't use extra flatpickr CSS.
+Import **material-plugins.css** after Material CSS. Don't use extra **flatpickr** CSS.
 
 {% highlight html %}
 <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
 {% endhighlight %}
 
-Import **flatpickr** after your Material JavaScripts.
+Import **flatpickr** after Material JavaScripts.
 
 {% highlight html %}
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin="anonymous"></script>
