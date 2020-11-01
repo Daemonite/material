@@ -30,6 +30,12 @@ Dialogs are purposefully interruptive, so they should be used sparingly.
 
 Alert dialogs interrupt users with urgent information, details, or actions.
 
+{% capture callout %}
+Alerts bottom actions are rendered differently on XS and SM devices (< 768px) as in Android 10+.  
+Resize this window to preview changes.
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
+
 ### Alerts with title
 
 A dialog’s purpose should be communicated by its title and button text.
