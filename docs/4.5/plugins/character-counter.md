@@ -22,7 +22,7 @@ Character or word counters should be used if there is a character or word limit.
 </div>
 
 {% capture callout %}
-This plugin doesn't require extra CSS loading.
+This plugin doesn't require extra CSS loading but **jQuery** is required.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 

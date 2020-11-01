@@ -3,8 +3,9 @@ layout: docs
 title: Date pickers flatpickr
 description: Date pickers let users select a date, or a range of dates.
 group: plugins
-plugin: true
 toc: true
+plugin: true
+flatpickr: true
 ---
 
 Date pickers let users select a date or range of dates. They should be suitable for the context in which they appear.
@@ -13,6 +14,8 @@ Date pickers can be embedded into:
 
 - Dialogs on mobile
 - Text field dropdowns on desktop
+
+Flatpickr is a versatile datetime picker.
 
 <div class="list-group my-2 my-lg-5">
   <a href="https://material.io/components/date-pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
@@ -27,22 +30,33 @@ Date pickers can be embedded into:
 </div>
 
 {% capture callout %}
-Stylesheet `material-plugins.css` is required as these material design themes for **flatpickr** are fully designed by djibe.
+Stylesheet `material-plugins.css` is required as this material design theme for **flatpickr** is fully designed by djibe.  
+Plugin is **jQuery** free but can be initialized as a jQuery plugin.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
 ## Demo
 
 {% capture example %}
-
+<div class="form-group form-ripple">
+  <label for="flatpickr-demo">Date</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-demo">
+</div>
 <script>
 $(function() {
+  $("#flatpickr-demo").flatpickr({
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d"
+  })
 })
 </script>
 {% endcapture %}
 {% include example.html content=example %}
 
-Flatpickr is a versatile datetime picker.
+{% capture callout %}
+**flatpickr** will probably become default Picker as it corresponds perfectly to latest Material design guidelines.
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
 
 ## Using flatpickr
 
@@ -55,34 +69,112 @@ Import **material-plugins.css** after your Material CSS. Don't use extra flatpic
 Import **flatpickr** after your Material JavaScripts.
 
 {% highlight html %}
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin="anonymous"></script>
 {% endhighlight %}
 
 Set HTML code of your picker menu.
 
 {% highlight html %}
-<select class="js-example-basic-single" name="fruit">
-  <option></option>
-  <option value="apple">Apple</option>
-  <option value="orange">Orange</option>
-  <option value="banana">Banana</option>
-</select>
+<div class="form-group">
+  <label for="flatpickr-demo">Date</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-demo">
+</div>
 {% endhighlight %}
 
-Initialize plugin with jQuery parameters. Default theme is the same as default form inputs.  
-Extra themes include `filled` (like the Demo above) and `outlined`.
+Initialize plugin with JavaScript or jQuery parameters.
 
 {% highlight js %}
 $(function() {
-  $('.js-example-basic-single').select2({
-    theme: 'filled',
-    placeholder: 'Fruit',
-    width: '240px',
-    minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
+  $("#flatpickr-demo").flatpickr()
 })
 {% endhighlight %}
 
 All parameters are detailed in [official documentation](https://flatpickr.js.org/).
 
 That's it.
+
+## Picker types
+
+### Date
+
+Single date selection is default picker. See Demo example above.
+
+Picker is also compatible with multiple dates selection.
+
+### Date range
+
+Select a start and final date.
+
+Example displays the picker `inline` and sets `minDate` to Today.
+
+{% capture example %}
+<div class="form-group">
+  <label for="flatpickr-range">Arrival and departure dates</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Dates.." id="flatpickr-range">
+</div>
+<script>
+$(function() {
+  $("#flatpickr-range").flatpickr({
+    inline: true,
+    mode: "range",
+    minDate: "today",
+    dateFormat: "d-m-Y"
+  })
+})
+</script>
+{% endcapture %}
+{% include example.html content=example %}
+
+### DateTime
+
+Select date and time.
+
+Example also displays `week numbers` and sets time format in British `12h` format.
+
+{% capture example %}
+<div class="form-group">
+  <label for="flatpickr-datetime">Date and time of event</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-datetime">
+</div>
+<script>
+$(function() {
+  $("#flatpickr-datetime").flatpickr({
+    enableTime: true,
+    dateFormat: "m/d/Y H:i",
+    time_24hr: false,
+    weekNumbers: true
+  })
+})
+</script>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Time
+
+Select time only.
+
+Simplest time picker in a `24h` format and a `default time`.
+
+{% capture example %}
+<div class="form-group">
+  <label for="flatpickr-time">Time of event</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-time">
+</div>
+<script>
+$(function() {
+  $("#flatpickr-time").flatpickr({
+    inline: true,
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    defaultDate: "13:45"
+  })
+})
+</script>
+{% endcapture %}
+{% include example.html content=example %}
+
+### More details
+
+For date format, display, seconds, localization and more, [read official documentation](https://flatpickr.js.org/examples/)

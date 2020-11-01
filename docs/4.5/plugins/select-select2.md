@@ -21,7 +21,9 @@ select2: true
 </div>
 
 {% capture callout %}
-Stylesheet `material-plugins.css` is required as these material design themes for Select2 are fully designed by djibe.
+Stylesheet `material-plugins.css` is required as these material design themes for **Select2** are fully designed by djibe.
+
+**jQuery** is required.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 

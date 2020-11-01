@@ -1,15 +1,21 @@
-# CHANGELOG
+# Changelog of djibe Material UI for Bootstrap 4
+
+*Active fork of Daemonite Material UI.*
 
 ## Future releases
 
-- More plugins integration + documentation (Datatables, Flatpickr, Input mask)
-- Dark theme
+- NPM package
+- More plugins integration + documentation (Input mask, Calendar)
+- Full-width dialogs
 
 ## 4.5.3 - RC1
 
-- **NEW** Upgrade to Bootstrap 4.5.3
-- **NEW** Material themes for **Flatpickr** and **Datatables**.
-- Update build dependencies
+- **NEW** Upgrade to Bootstrap 4.5.3.
+- **NEW** Dark theme in early version (refer to Material section in documentation).
+- **NEW** Material themes for **flatpickr** (which will probably become main Picker) and **Datatables.net**.
+- Improved Dialogs/modals on xsmall devices.
+- Improved documentation dependencies initialization.
+- Update build dependencies.
 
 ## 4.5.2 - RC1
 

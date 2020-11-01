@@ -12,7 +12,7 @@
 <script src="https://instant.page/5.1.0" type="module"></script>
 {% if page.plugin %}
   {% if page.maxlength %}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength/dist/bootstrap-maxlength.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength@1.10.0/dist/bootstrap-maxlength.min.js" integrity="sha256-3ZRODUzkt15hSZ9r++hfZQtVTmHkQJfyXxKhRz6FktQ=" crossorigin="anonymous"></script>
   <script>
     $('[maxlength]').maxlength({
       alwaysShow: true,
@@ -23,11 +23,43 @@
   </script>
   {% endif %}
   {% if page.autosize %}
-  <script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/textarea-autosize@0.4.2/dist/jquery.textarea_autosize.min.js" integrity="sha256-gtPvsaPR4MtUbbjtrvMNO4AojMEHF9v00dkeQZ5SqQw=" crossorigin="anonymous"></script>
   <script>$('.textarea-autosize').textareaAutoSize()</script>
   {% endif %}
+  {% if page.datatables %}
+  <script src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/fc-3.3.1/r-2.2.6/rr-1.2.7/sl-1.3.1/datatables.min.js"></script>
+  {% endif %}
+  {% if page.flatpickr %}
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin="anonymous"></script>
+  <script>
+  $("#flatpickr-demo").flatpickr({
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d"
+  })
+  $("#flatpickr-range").flatpickr({
+    inline: true,
+    mode: "range",
+    minDate: "today",
+    dateFormat: "d-m-Y"
+  })
+  $("#flatpickr-datetime").flatpickr({
+    enableTime: true,
+    dateFormat: "d/m/Y H:i",
+    time_24hr: false,
+    weekNumbers: true
+  })
+  $("#flatpickr-time").flatpickr({
+    inline: true,
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    defaultDate: "13:45"
+  })
+  </script>
+  {% endif %}
   {% if page.ionrangeslider %}
-  <script src="https://cdn.jsdelivr.net/npm/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/js/ion.rangeSlider.min.js" integrity="sha256-Z639rJO57BiZzQDlWsGyF+EJ3Fs3nD4pQPkfimTy3S8=" crossorigin="anonymous"></script>
   <script>
     $('#demo-0').ionRangeSlider({
       min: 100,
@@ -72,8 +104,8 @@
     })
   </script>
   {% endif %}
-  {% if page.ionrangeslider %}
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  {% if page.select2 %}
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js" integrity="sha256-nAS1wDQBPBqa1fnZq8wd1Z6CN+PgmHXLFdMo0g2pYf0=" crossorigin="anonymous"></script>
   <script>
     $('.js-example-basic-single').select2({
       theme: 'filled',

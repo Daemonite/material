@@ -25,7 +25,9 @@ Sliders can use icons on both ends of the bar to represent a numeric or relative
 </div>
 
 {% capture callout %}
-Stylesheet `material-plugins.css` is required.
+Stylesheet `material-plugins.css` is required as this material design theme is designed by djibe.
+
+**jQuery** is required.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 

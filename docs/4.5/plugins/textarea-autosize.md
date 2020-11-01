@@ -26,6 +26,8 @@ These fields initially appear as single-line fields, which is useful for compact
 
 {% capture callout %}
 Stylesheet `material-plugins.css` is required.
+
+**jQuery** is required.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
