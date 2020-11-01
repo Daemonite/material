@@ -5381,9 +5381,9 @@ input:disabled + .chip {
 }
 
 .modal-content {
-  border-radius: 4px;
   background-clip: padding-box;
   background-color: #ffffff;
+  border-radius: 4px;
   box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
   display: -ms-flexbox;
   display: flex;
@@ -5474,6 +5474,8 @@ input:disabled + .chip {
   border-top: 1px solid transparent;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 0.5rem 0.5rem;
@@ -5529,6 +5531,32 @@ input:disabled + .chip {
 @media (min-width: 1200px) {
   .modal-xl {
     max-width: 52.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .modal-content {
+    border-radius: 16px;
+  }
+  .modal-footer {
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    padding: 0;
+  }
+  .modal-footer .btn, .modal-footer .card-link {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    display: block;
+    height: 3rem;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+  }
+  .modal-footer .btn::first-letter, .modal-footer .card-link::first-letter {
+    text-transform: uppercase;
+  }
+  .modal-footer > * {
+    margin-left: 0;
   }
 }
 
@@ -9952,7 +9980,7 @@ select.form-control option:active {
 }
 
 select.form-control:not([multiple]):not([size]):focus {
-  background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000" fill-opacity="0.54" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3canimateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/%3e%3c/svg%3e');
+  background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%236200ee" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3canimateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/%3e%3c/svg%3e');
 }
 
 select.form-control-lg[multiple], select.form-control-lg[size]:not([size='1']) {

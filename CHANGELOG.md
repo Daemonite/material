@@ -8,6 +8,7 @@
 ## 4.5.3 - RC1
 
 - **NEW** Upgrade to Bootstrap 4.5.3
+- **NEW** Material themes for **Flatpickr** and **Datatables**.
 - Update build dependencies
 
 ## 4.5.2 - RC1

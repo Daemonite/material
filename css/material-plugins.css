@@ -183,6 +183,7 @@
 }
 
 .dataTables_length .custom-select:focus {
+  border-color: #6200ee;
   box-shadow: none;
 }
 
@@ -751,12 +752,12 @@ div.dtr-bs-modal table.table tr:first-child td {
 
 .flatpickr-months .flatpickr-prev-month:hover,
 .flatpickr-months .flatpickr-next-month:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .flatpickr-months .flatpickr-prev-month:active,
 .flatpickr-months .flatpickr-next-month:active {
-  background-color: #d7d7d7;
+  background-color: rgba(0, 0, 0, 0.24);
 }
 
 .flatpickr-months .flatpickr-prev-month i,
@@ -783,7 +784,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 .flatpickr-months .flatpickr-next-month {
-  margin: 0 16px 0 24px;
+  margin: 0 1rem 0 24px;
   -ms-flex-order: 2;
   order: 2;
 }
@@ -812,7 +813,6 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 .numInputWrapper span {
-  /* border: 1px solid rgba(57, 57, 57, 0.15); */
   cursor: pointer;
   height: 50%;
   line-height: 50%;
@@ -878,7 +878,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 .numInputWrapper:focus {
-  background: #dedede;
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .flatpickr-current-month {
@@ -934,7 +934,7 @@ div.dtr-bs-modal table.table tr:first-child td {
   height: auto;
   line-height: inherit;
   margin: 0;
-  padding: 0 0 0 8px;
+  padding: 0 0 0 0.5rem;
   vertical-align: initial;
 }
 
@@ -1089,27 +1089,26 @@ div.dtr-bs-modal table.table tr:first-child td {
   width: 14.2857143%;
 }
 
-.flatpickr-day.today {
-  border: 1px solid #5a5a5a;
-}
-
-.flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay {
-  color: rgba(0, 0, 0, 0.54);
-}
-
-.flatpickr-day .inRange,
-.flatpickr-day .inRange:hover {
-  background-color: #e5d7fb;
-  border-radius: 0;
-  box-shadow: -5px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
-}
-
 .flatpickr-day:hover, .flatpickr-day.prevMonthDay:hover, .flatpickr-day.nextMonthDay:hover {
   background: #f7f2fe;
   color: inherit;
   cursor: pointer;
   outline: 0;
   z-index: 2;
+}
+
+.flatpickr-day.today {
+  border: 1px solid #5a5a5a;
+}
+
+.flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay {
+  color: #757575;
+}
+
+.flatpickr-day.inRange, .flatpickr-day.inRange:hover {
+  background-color: #e6d6fc;
+  border-radius: 0;
+  box-shadow: -5px 0 0 #e6d6fc, 5px 0 0 #e6d6fc;
 }
 
 .flatpickr-day:nth-of-type(7n + 1).inRange {
@@ -1125,18 +1124,14 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 .flatpickr-day.startRange + .flatpickr-day.inRange {
-  box-shadow: -10px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
+  box-shadow: -10px 0 0 #e6d6fc, 5px 0 0 #e6d6fc;
 }
 
 .flatpickr-day.endRange, .flatpickr-day.endRange:hover {
-  box-shadow: -10px 0 0 #e5d7fb;
+  box-shadow: -10px 0 0 #e6d6fc;
 }
 
-.flatpickr-day:nth-of-type(7n).startRange {
-  box-shadow: none !important;
-}
-
-.flatpickr-day:nth-of-type(7n+1).endRange {
+.flatpickr-day:nth-of-type(7n).startRange, .flatpickr-day:nth-of-type(7n+1).endRange {
   box-shadow: none !important;
 }
 
@@ -1163,7 +1158,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 
 .flatpickr-day.week.selected {
   border-radius: 0;
-  box-shadow: -5px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
+  box-shadow: -5px 0 0 #e6d6fc, 5px 0 0 #e6d6fc;
 }
 
 .flatpickr-day.hidden {

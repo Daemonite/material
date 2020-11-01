@@ -11,8 +11,104 @@
 <script src="{{ site.baseurl }}/docs/js/docs.min.js" async></script>
 <script src="https://instant.page/5.1.0" type="module"></script>
 {% if page.plugin %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength/dist/bootstrap-maxlength.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  {% if page.maxlength %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength/dist/bootstrap-maxlength.min.js"></script>
+  <script>
+    $('[maxlength]').maxlength({
+      alwaysShow: true,
+      warningClass: 'form-text text-muted',
+      limitReachedClass: 'form-text text-muted',
+      placement: 'bottom-right-inside'
+    })
+  </script>
+  {% endif %}
+  {% if page.autosize %}
+  <script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>
+  <script>$('.textarea-autosize').textareaAutoSize()</script>
+  {% endif %}
+  {% if page.ionrangeslider %}
+  <script src="https://cdn.jsdelivr.net/npm/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <script>
+    $('#demo-0').ionRangeSlider({
+      min: 100,
+      max: 1000,
+      from: 550,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-double').ionRangeSlider()
+
+    $('#demo-negative').ionRangeSlider({
+      type: 'double',
+      grid: true,
+      min: -1000,
+      max: 1000,
+      from: -500,
+      to: 500,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-step').ionRangeSlider({
+      type: 'double',
+      grid: true,
+      min: -1000,
+      max: 1000,
+      from: -500,
+      to: 500,
+      step: 250,
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+
+    $('#demo-postfix').ionRangeSlider({
+      skin: 'round',
+      grid: true,
+      min: 0,
+      max: 100,
+      from: 21,
+      max_postfix: '+', // eslint-disable-line camelcase
+      prefix: 'Age: ',
+      postfix: ' years',
+      skin: 'material' // eslint-disable-line no-dupe-keys
+    })
+  </script>
+  {% endif %}
+  {% if page.ionrangeslider %}
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  <script>
+    $('.js-example-basic-single').select2({
+      theme: 'filled',
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single */
+    })
+
+    $('.js-example-default-single').select2({
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single select */
+    })
+
+    $('.js-example-outlined-single').select2({
+      theme: 'outlined',
+      placeholder: 'Fruit',
+      width: '240px',
+      multiple: false,
+      minimumResultsForSearch: Infinity /* Hide search on single select */
+    })
+
+    $('.js-example-basic-multiple').select2({
+      theme: 'filled',
+      placeholder: 'Cars',
+      width: '400px'
+    })
+
+    $('.js-example-search-single').select2({
+      theme: 'filled',
+      placeholder: 'Cars',
+      width: '240px'
+    })
+  </script>
+  {% endif %}
 {% endif %}

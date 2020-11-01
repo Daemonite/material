@@ -3,8 +3,9 @@ layout: docs
 title: Select Select2
 description: Selects allow users to select from a single-option menu.
 group: plugins
-plugin: true
 toc: true
+plugin: true
+select2: true
 ---
 
 <div class="list-group my-2 my-lg-5">

@@ -3,7 +3,9 @@ layout: docs
 title: Sliders Ion.RangeSlider
 description: Sliders allow users to make selections from a range of values.
 group: plugins
+toc: true
 plugin: true
+ionrangeslider: true
 ---
 
 Sliders allow users to view and select a value (or range) from the range along a bar. They’re ideal for adjusting settings such as volume and brightness, or for applying image filters.

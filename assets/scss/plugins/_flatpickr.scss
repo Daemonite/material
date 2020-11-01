@@ -124,11 +124,11 @@
     }
 
     &:hover {
-      background-color: #f5f5f5;
+      background-color: rgba($black, $overlay-hover-white-opacity);
     }
 
     &:active {
-      background-color: #d7d7d7;
+      background-color: rgba($black, $overlay-pressed-white-opacity);
     }
 
     i {
@@ -140,8 +140,8 @@
       width: 14px;
 
       path {
-        fill: #757575;
-        stroke: #757575;
+        fill: rgba-to-rgb($black-secondary);
+        stroke: rgba-to-rgb($black-secondary);
         stroke-width: 1px;
       }
     }
@@ -152,7 +152,7 @@
   }
 
   .flatpickr-next-month {
-    margin: 0 16px 0 24px;
+    margin: 0 $spacer 0 24px;
     order: 2;
   }
 }
@@ -181,7 +181,6 @@
   }
 
   span {
-    /* border: 1px solid rgba(57, 57, 57, 0.15); */
     cursor: pointer;
     height: 50%;
     line-height: 50%;
@@ -247,7 +246,7 @@
   }
 
   &:focus {
-    background: #dedede;
+    background: rgba($black, $overlay-focus-white-opacity);
   }
 }
 
@@ -297,11 +296,11 @@
     display: inline-block;
     font-family: inherit;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: $font-weight-bold;
     height: auto;
     line-height: inherit;
     margin: 0;
-    padding: 0 0 0 8px;
+    padding: 0 0 0 $spacer-sm;
     vertical-align: initial;
 
     &[disabled] {
@@ -437,22 +436,6 @@
   user-select: none;
   width: 14.2857143%;
 
-  &.today {
-    border: 1px solid #5a5a5a;
-  }
-
-  &.prevMonthDay,
-  &.nextMonthDay {
-    color: $black-secondary;
-  }
-
-  .inRange,
-  .inRange:hover {
-    background-color: #e5d7fb;
-    border-radius: 0;
-    box-shadow: -5px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
-  }
-
   &:hover,
   &.prevMonthDay:hover,
   &.nextMonthDay:hover {
@@ -461,6 +444,22 @@
     cursor: pointer;
     outline: 0;
     z-index: 2;
+  }
+
+  &.today {
+    border: 1px solid #5a5a5a;
+  }
+
+  &.prevMonthDay,
+  &.nextMonthDay {
+    color: rgba-to-rgb($black-secondary);
+  }
+
+  &.inRange,
+  &.inRange:hover {
+    background-color: rgba-to-rgb(rgba(theme-color(primary), 0.16));
+    border-radius: 0;
+    box-shadow: -5px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16)), 5px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16));
   }
 
   &:nth-of-type(7n + 1).inRange {
@@ -477,18 +476,15 @@
   }
 
   &.startRange + &.inRange {
-    box-shadow: -10px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
+    box-shadow: -10px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16)), 5px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16));
   }
 
   &.endRange,
   &.endRange:hover {
-    box-shadow: -10px 0 0 #e5d7fb;
+    box-shadow: -10px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16));
   }
 
-  &:nth-of-type(7n).startRange {
-    box-shadow: none !important;
-  }
-
+  &:nth-of-type(7n).startRange,
   &:nth-of-type(7n+1).endRange {
     box-shadow: none !important;
   }
@@ -515,13 +511,13 @@
   &.notAllowed.prevMonthDay,
   &.notAllowed.nextMonthDay {
     background: transparent;
-    color: #b3b3b3;
+    color: rgba-to-rgb(rgba($black, 0.3));
     cursor: default;
   }
 
   &.week.selected {
     border-radius: 0;
-    box-shadow: -5px 0 0 #e5d7fb, 5px 0 0 #e5d7fb;
+    box-shadow: -5px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16)), 5px 0 0 rgba-to-rgb(rgba(theme-color(primary), 0.16));
   }
 
   &.hidden {

@@ -3627,7 +3627,7 @@
       currentTarget.setAttribute('data-ripplet', '');
       var cls = currentTarget.classList;
 
-      if (cls.contains('btn-outline-primary') || cls.contains('btn-outline-secondary') || cls.contains('btn-outline-danger') || cls.contains('btn-outline-info') || cls.contains('btn-outline-success') || cls.contains('btn-outline-warning') || cls.contains('btn-outline-dark') || cls.contains('btn-outline-light') || cls.contains('btn-link') || cls.contains('card-link') || cls.contains('btn-flat-primary') || cls.contains('btn-flat-secondary') || cls.contains('btn-flat-danger') || cls.contains('btn-flat-info') || cls.contains('btn-flat-success') || cls.contains('btn-flat-warning') || cls.contains('btn-flat-dark') || cls.contains('btn-flat-light')) {
+      if (cls.contains('btn-outline-primary') || cls.contains('btn-outline-secondary') || cls.contains('btn-outline-danger') || cls.contains('btn-outline-info') || cls.contains('btn-outline-success') || cls.contains('btn-outline-warning') || cls.contains('btn-outline-dark') || cls.contains('btn-outline-light') || cls.contains('btn-link') || cls.contains('card-link') || cls.contains('modal-dialog-content btn-primary') || cls.contains('btn-flat-primary') || cls.contains('btn-flat-secondary') || cls.contains('btn-flat-danger') || cls.contains('btn-flat-info') || cls.contains('btn-flat-success') || cls.contains('btn-flat-warning') || cls.contains('btn-flat-dark') || cls.contains('btn-flat-light')) {
         ripplet(rippleTarget, {
           color: getComputedStyle(currentTarget).color,
           opacity: 0.12

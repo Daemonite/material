@@ -85,7 +85,6 @@
 .modal-dialog-centered {
   align-items: center;
   display: flex;
-  //min-height: calc(100% - #{$dialog-margin-y} * 2);
   min-height: subtract(100%, $dialog-margin-y * 2);
 
   // Ensure `modal-dialog-centered` extends the full height of the view (IE10/11)
@@ -116,10 +115,9 @@
 
 // Dialog
 .modal-content {
-  @include border-radius($dialog-border-radius);
-
   background-clip: padding-box;
   background-color: $dialog-content-bg;
+  border-radius: $dialog-border-radius;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: flex;
   flex-direction: column;
@@ -201,6 +199,7 @@
   align-items: flex-end;
   border-top: 1px solid transparent;
   display: flex;
+  flex-wrap: wrap; // Introduced in 4.5.3 RC1
   justify-content: flex-end;
   padding: $dialog-footer-padding-y $dialog-footer-padding-x;
 
@@ -254,4 +253,34 @@
 
 @include media-breakpoint-up(xl) {
   .modal-xl { max-width: $dialog-width-xl; }
+}
+
+// Style modal for smartphones
+
+@include media-breakpoint-down(sm) {
+  .modal-content {
+    border-radius: $border-radius-lg;
+  }
+
+  .modal-footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+    padding: 0;
+
+    .btn {
+      border-top: 1px solid $black-divider;
+      display: block;
+      height: 3rem;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    > * {
+      margin-left: 0;
+    }
+  }
 }
