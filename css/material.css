@@ -286,7 +286,7 @@ label {
   font-weight: 400;
   letter-spacing: 0.033333em;
   line-height: 1.25rem;
-  color: rgba(0, 0, 0, 0.38);
+  color: rgba(0, 0, 0, 0.6);
   display: inline-block;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -2661,7 +2661,7 @@ pre code {
 [class~='textfield-box'] .form-text, [class~='textfield-box'] [class*='valid-feedback'],
 [class~='textfield-box'] ~ .form-text,
 [class~='textfield-box'] ~ [class*='valid-feedback'] {
-  padding-left: 1rem;
+  padding: 0 1rem;
 }
 
 .form-control-plaintext {
@@ -4895,34 +4895,31 @@ input:disabled + .chip {
   opacity: 0.38;
 }
 
-html[theme='dark-mode'] {
+html[data-theme='dark'] {
   -webkit-filter: invert(1) hue-rotate(180deg);
   filter: invert(1) hue-rotate(180deg);
 }
 
-html[theme='dark-mode'] body {
-  transition: color 300ms, background-color 300ms;
-}
-
-html[theme='dark-mode'] body,
-html[theme='dark-mode'] label {
+html[data-theme='dark'] body,
+html[data-theme='dark'] label {
   font-weight: 500;
 }
 
-html[theme='dark-mode'] img,
-html[theme='dark-mode'] video,
-html[theme='dark-mode'] .prevent-dark-mode {
+html[data-theme='dark'] img,
+html[data-theme='dark'] video,
+html[data-theme='dark'] .prevent-dark-mode {
   -webkit-filter: invert(1) hue-rotate(180deg);
   filter: invert(1) hue-rotate(180deg);
+}
+
+body {
+  transition: color 300ms, background-color 300ms;
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     -webkit-filter: invert(1) hue-rotate(180deg);
     filter: invert(1) hue-rotate(180deg);
-  }
-  body {
-    transition: color 300ms, background-color 300ms;
   }
   body,
   label {
@@ -9850,6 +9847,7 @@ html[theme='dark-mode'] .prevent-dark-mode {
   border-style: solid;
   border-width: 0 0 1px;
   box-shadow: none;
+  caret-color: #6200ee;
   color: rgba(0, 0, 0, 0.87);
   display: block;
   font-size: 1rem;
@@ -10546,6 +10544,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
+  will-change: transform;
   z-index: 3;
 }
 

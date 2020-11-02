@@ -12,6 +12,7 @@
   border-style: solid;
   border-width: 0 0 $textfield-border-width;
   box-shadow: none;
+  caret-color: selection-theme-color();
   color: $textfield-color;
   display: block;
   font-size: $textfield-font-size;
@@ -354,13 +355,14 @@ textarea {
     &::before {
       background: selection-theme-color();
       content: '';
-      height: 2 * $textfield-border-width;
+      height: $textfield-border-width * 2;
       position: absolute;
       bottom: 0;
       left: 0;
       transform: scaleX(0);
       transition: transform 0.18s $transition-timing-function-standard;
       width: 100%;
+      will-change: transform;
       z-index: 3;
     }
 

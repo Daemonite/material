@@ -1,12 +1,8 @@
 // Inspired by https://dev.to/dip15739/dark-mode-with-only-1-css-property-17fl
 // stylelint-disable selector-no-qualifying-type
 
-html[theme='dark-mode'] {
+html[data-theme='dark'] {
   filter: invert(1) hue-rotate(180deg);
-
-  body {
-    transition: color 300ms, background-color 300ms;
-  }
 
   body,
   label {
@@ -20,13 +16,13 @@ html[theme='dark-mode'] {
   }
 }
 
+body {
+  transition: color 300ms, background-color 300ms;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     filter: invert(1) hue-rotate(180deg);
-  }
-
-  body {
-    transition: color 300ms, background-color 300ms;
   }
 
   body,

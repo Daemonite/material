@@ -5,6 +5,10 @@
 
 // Bootstrap doc CSS override
 
+.bd-content .alert p:last-of-type {
+  margin-bottom: 0;
+}
+
 .bd-callout {
   border: 0;
   border-left: $blockquote-border-width solid $blockquote-border-color;
@@ -312,7 +316,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: $white-primary;
+  margin-bottom: 0;
   padding-top: ($toolbar-height * 2);
+  padding-bottom: 6rem;
 
   @include media-breakpoint-down(sm) {
     h1 {
@@ -385,6 +391,8 @@
 }
 
 .doc-main {
+  background-color: $white;
+
   @include media-breakpoint-up(lg) {
     .navdrawer-permanent-lg ~ & {
       margin-left: $navdrawer-width;

@@ -5,7 +5,7 @@ description: Data tables display sets of data across rows and columns.
 group: material
 ---
 
-<div class="list-group mt-lg-5">
+<div class="list-group my-lg-5">
     <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
       <span class="list-group-item-icon lgi-icon-bs"></span>
       <span class="list-group-item-text">

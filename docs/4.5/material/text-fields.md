@@ -42,7 +42,7 @@ However limited to inputs placed in Bootstrap's `form-group` or `form-ripple` co
     <label for="demo1">Floating label</label>
     <input aria-describedby="demo1help" class="form-control" id="demo1" placeholder="Optional placeholder" type="text">
   </div>
-  <small id="demo1help" class="form-text">Helper message placed outside <code>.floating-label</code>.</small>
+  <small id="demo1help" class="form-text text-muted">Helper message placed outside <code>.floating-label</code></small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -65,7 +65,7 @@ Conditions for a good implementation
   <div class="form-group form-ripple-text">
     <label for="exampleInput1">Default form control</label>
     <input aria-describedby="exampleInput1Help" class="form-control" id="exampleInput1" placeholder="Placeholder" type="text">
-    <small id="exampleInput1Help" class="form-text">Some help text.</small>
+    <small id="exampleInput1Help" class="form-text text-muted">Helper message</small>
   </div>
   <div class="form-group form-ripple">
     <label for="exampleInput2">Date and time</label>
@@ -169,13 +169,13 @@ If you use a helper text : either place it outside of the `floating-label` conta
     <label for="exampleFloatingLabel1">Floating label</label>
     <input aria-describedby="exampleFloatingLabel1Help" class="form-control" id="exampleFloatingLabel1" placeholder="Optional placeholder" type="text">
   </div>
-  <small id="exampleFloatingLabel1Help" class="form-text">Helper text placed outside <code>.floating-label</code>.</small>
+  <small id="exampleFloatingLabel1Help" class="form-text text-muted">Helper text placed outside <code>.floating-label</code>.</small>
 </div>
 <div class="form-group">
   <div class="floating-label form-ripple-text">
     <label for="exampleFloatingLabelbis1">Floating label</label>
     <input aria-describedby="exampleFloatingLabelbis1Help" class="form-control" id="exampleFloatingLabelbis1" placeholder="Optional placeholder" type="text">
-    <small id="exampleFloatingLabelbis1Help" class="form-text">Helper text placed inside <code>.floating-label</code> with <code>form-ripple-text</code>.</small>
+    <small id="exampleFloatingLabelbis1Help" class="form-text text-muted">Helper text placed inside <code>.floating-label</code> with <code>form-ripple-text</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -183,7 +183,7 @@ If you use a helper text : either place it outside of the `floating-label` conta
     <label for="exampleFloatingLabel2">Date and time</label>
     <input aria-describedby="exampleFloatingLabel2Help" class="form-control" id="exampleFloatingLabel2" placeholder="Date and time" type="datetime-local">
   </div>
-  <small id="exampleFloatingLabel2Help" class="form-text">Help text placed outside <code>.floating-label</code>.</small>
+  <small id="exampleFloatingLabel2Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
 <div class="form-group">
   <div class="floating-label">
@@ -225,7 +225,7 @@ Change sizes using `.floating-label-lg` and `.floating-label-sm`.
   <div class="floating-label floating-label-lg form-ripple-text">
     <label for="exampleFloatingLabel6">Large</label>
     <input aria-describedby="exampleFloatingLabel6Help" class="form-control" id="exampleFloatingLabel6" placeholder="Optional placeholder" type="text">
-    <small id="exampleFloatingLabel6Help" class="form-text">Help text placed inside <code>.floating-label</code>.</small>
+    <small id="exampleFloatingLabel6Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -239,7 +239,7 @@ Change sizes using `.floating-label-lg` and `.floating-label-sm`.
     <label for="exampleFloatingLabel8">Small</label>
     <input aria-describedby="exampleFloatingLabel8Help" class="form-control" id="exampleFloatingLabel8" placeholder="Optional placeholder" type="text">
   </div>
-  <small id="exampleFloatingLabel8Help" class="form-text">Help text placed outside <code>.floating-label</code>.</small>
+  <small id="exampleFloatingLabel8Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -292,7 +292,7 @@ As for floating labels, if you use a helper text : either place it outside of th
   <div class="textfield-box form-ripple-text">
     <label class="mb-2" for="exampleTextfieldBox1">Text field box</label>
     <input aria-describedby="exampleTextfieldBox1Help" class="form-control" id="exampleTextfieldBox1" placeholder="Placeholder" type="text">
-    <small id="exampleTextfieldBox1Help" class="form-text">Helper text placed inside <code>.textfield-box</code>.</small>
+    <small id="exampleTextfieldBox1Help" class="form-text text-muted">Helper text placed inside <code>.textfield-box</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -304,7 +304,7 @@ As for floating labels, if you use a helper text : either place it outside of th
       <option>3</option>
     </select>
   </div>
-  <small id="exampleTextfieldBox2Help" class="form-text">Help text placed outside <code>.textfield-box</code>.</small>
+  <small id="exampleTextfieldBox2Help" class="form-text text-muted">Help text placed outside <code>.textfield-box</code>.</small>
 </div>
 <div class="form-group">
   <div class="textfield-box">
@@ -370,7 +370,7 @@ Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
   <div class="textfield-box textfield-box-lg form-ripple-text">
     <label class="mb-2" for="exampleTextfieldBox9">Large</label>
     <input aria-describedby="exampleTextfieldBox9Help" class="form-control" id="exampleTextfieldBox9" placeholder="Large" type="text">
-    <small id="exampleTextfieldBox9Help" class="form-text">Help text placed inside <code>.textfield-box</code>.</small>
+    <small id="exampleTextfieldBox9Help" class="form-text text-muted">Help text placed inside <code>.textfield-box</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -384,7 +384,7 @@ Change sizes using `.textfield-box-lg` and `.textfield-box-sm`.
   <div class="textfield-box textfield-box-sm">
     <input aria-describedby="exampleTextfieldBox11Help" class="form-control" id="exampleTextfieldBox11" placeholder="Small" type="text">
   </div>
-  <small id="exampleTextfieldBox11Help" class="form-text">Help text placed outside <code>.textfield-box</code>.</small>
+  <small id="exampleTextfieldBox11Help" class="form-text text-muted">Help text placed outside <code>.textfield-box</code>.</small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}
@@ -444,7 +444,7 @@ Sizes can also be set by adding `.floating-label-lg/sm` classes.
   <div class="floating-label floating-label-lg textfield-box">
     <label for="exampleFloatingBox6">Large</label>
     <input aria-describedby="exampleFloatingBox6Help" class="form-control" id="exampleFloatingBox6" placeholder="Large" type="text">
-    <small id="exampleFloatingBox6Help" class="form-text">Help text placed inside <code>.floating-label</code>.</small>
+    <small id="exampleFloatingBox6Help" class="form-text text-muted">Help text placed inside <code>.floating-label</code>.</small>
   </div>
 </div>
 <div class="form-group">
@@ -458,7 +458,7 @@ Sizes can also be set by adding `.floating-label-lg/sm` classes.
     <label for="exampleFloatingBox8">Small</label>
     <input aria-describedby="exampleFloatingBox8Help" class="form-control" id="exampleFloatingBox8" placeholder="Small" type="text">
   </div>
-  <small id="exampleFloatingBox8Help" class="form-text">Help text placed outside <code>.floating-label</code>.</small>
+  <small id="exampleFloatingBox8Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}

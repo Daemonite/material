@@ -29,9 +29,10 @@ This plugin doesn't require extra CSS loading but **jQuery** is required.
 ## Demo
 
 {% capture example %}
-<div class="form-group form-ripple">
+<div class="form-group form-ripple-text">
   <label for="maxlength1">Username</label>
   <input type="text" class="form-control" id="maxlength1" placeholder="Choose a username" maxlength="20">
+  <small class="form-text">Helper message.</small>
 </div>
 <div class="form-group mt-4">
   <textarea class="form-control" id="maxlength2" placeholder="My limited textarea" maxlength="250"></textarea>
@@ -58,8 +59,8 @@ Initialize plugin once. Here is an example of simplest declaration to be active 
 {% highlight js %}
 $('[maxlength]').maxlength({
   alwaysShow: true,
-  warningClass: 'form-text text-muted',
-  limitReachedClass: 'form-text text-muted',
+  warningClass: 'form-text text-muted pr-3',
+  limitReachedClass: 'form-text text-muted pr-3',
   placement: 'bottom-right-inside'
 })
 {% endhighlight %}
