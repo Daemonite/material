@@ -13,7 +13,7 @@
 - **NEW** Upgrade to Bootstrap 4.5.3.
 - **NEW** Dark theme in early version (refer to Material section in documentation).
 - **NEW** Material themes for **flatpickr** (which will probably become main Picker) and **Datatables.net**.
-- Improved Dialogs/modals on xsmall devices.
+- Improved Dialogs/modals on small devices.
 - Improved documentation dependencies initialization.
 - Update build dependencies.
 

@@ -4895,6 +4895,47 @@ input:disabled + .chip {
   opacity: 0.38;
 }
 
+html[theme='dark-mode'] {
+  -webkit-filter: invert(1) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html[theme='dark-mode'] body {
+  transition: color 300ms, background-color 300ms;
+}
+
+html[theme='dark-mode'] body,
+html[theme='dark-mode'] label {
+  font-weight: 500;
+}
+
+html[theme='dark-mode'] img,
+html[theme='dark-mode'] video,
+html[theme='dark-mode'] .prevent-dark-mode {
+  -webkit-filter: invert(1) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    -webkit-filter: invert(1) hue-rotate(180deg);
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body {
+    transition: color 300ms, background-color 300ms;
+  }
+  body,
+  label {
+    font-weight: 500;
+  }
+  img,
+  video,
+  .prevent-dark-mode {
+    -webkit-filter: invert(1) hue-rotate(180deg);
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
 .data-table {
   border: 1px solid #e1e1e1;
   border-radius: 4px;
