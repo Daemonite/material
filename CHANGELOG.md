@@ -15,7 +15,8 @@
 - **NEW** Material themes for **flatpickr** (which will probably become main Picker) and **Datatables.net**.
 - Improved Dialogs/modals on small devices.
 - Improved documentation dependencies initialization.
-- Update build dependencies.
+- **Fixed** Form label color.
+- Updated build dependencies.
 
 ## 4.5.2 - RC1
 
