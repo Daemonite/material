@@ -1,9 +1,7 @@
-/* TODO
-*  merge select and custom select
-*  input-group-prepend or input-group-icon ? : bring icon within field
-*/
+// TODO:  input-group-prepend or input-group-icon ? : bring icon within field
 
-// TODO: Control useless @€xtend parameters
+// stylelint-disable selector-no-qualifying-type
+
 %form-control {
   background-clip: padding-box;
   background-color: transparent;
@@ -50,11 +48,9 @@
     }
   }
 
-  // stylelint-disable
-  @include hover {
+  &:hover {
     border-color: $textfield-border-color-hover;
   }
-  // stylelint-enable/
 
   &:focus {
     border-color: $textfield-border-color-focus;
@@ -75,10 +71,10 @@
   }
 }
 
-input[type="date"],
-input[type="time"],
-input[type="datetime-local"],
-input[type="month"] {
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'] {
   &.form-control {
     appearance: none; // Fix appearance for date inputs in Safari
   }
@@ -112,29 +108,25 @@ input[type="month"] {
 
 %form-select {
   appearance: none;
+  background: escape-svg($caret-bg) 100% 50%/#{$textfield-select-bg-size} $textfield-select-bg-size no-repeat;
+  padding-right: $textfield-select-bg-size;
+  transition: background-image 180ms;
 
-  @include media-moz-webkit {
-    background-image: escape-svg($caret-bg);
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
-    background-size: $textfield-select-bg-size $textfield-select-bg-size;
-    padding-right: $textfield-select-bg-size;
-
-    &[multiple],
-    &[size]:not([size='1']) {
-      background-image: none;
-    }
+  &[multiple],
+  &[size]:not([size='1']) {
+    background-image: none;
   }
 }
 
 %form-textarea {
+  background-image: none !important; // stylelint-disable-line declaration-no-important
   border-color: $textfield-textarea-border-color;
   border-radius: $textfield-box-border-radius;
   border-width: $textfield-border-width;
   min-height: $textfield-box-height;
   padding: calc(#{$textfield-box-padding-y} - #{$textfield-border-width}) $textfield-box-padding-x;
 
-  @include hover {
+  &:hover {
     border-color: $textfield-border-color-hover;
   }
 
@@ -144,9 +136,9 @@ input[type="month"] {
   }
 }
 
-// stylelint-disable selector-no-qualifying-type
 select {
-  &.form-control {
+  &.form-control,
+  &.custom-select {
     @extend %form-select;
 
     &[multiple],
@@ -173,15 +165,14 @@ select {
       }
 
       &:active {
-        background: rgba($black, $overlay-activated-white-opacity) !important;
+        background: rgba($black, $overlay-activated-white-opacity) !important; // stylelint-disable-line declaration-no-important
       }
     }
 
-    &:not([multiple]):not([size]):focus {
+    &:focus { // stylelint-disable-line order/order
       background-image: escape-svg(url('data:image/svg+xml;charset=utf8,<svg fill="#{selection-theme-color()}" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/></svg>'));
     }
   }
-  // stylelint-enable
 
   &.form-control-lg {
     &[multiple],
@@ -284,12 +275,13 @@ textarea {
 
 .custom-select {
   @extend %form-control;
-  @extend %form-select;
+
+  /* @extend %form-select;
 
   &[multiple],
   &[size]:not([size='1']) {
     @extend %form-textarea;
-  }
+  } */
 }
 
 .custom-select-sm {
@@ -305,7 +297,7 @@ textarea {
 }
 
 .custom-select-lg {
-  //  height: $custom-select-height-lg
+  // height: $custom-select-height-lg
   font-size: $textfield-font-size-lg;
   line-height: $textfield-line-height-lg;
   padding: $textfield-padding-y-lg $textfield-select-bg-size calc(#{$textfield-padding-y-lg} - #{$textfield-border-width}) $textfield-padding-x-lg;

@@ -625,7 +625,6 @@ Our default modal without modifier class constitutes the "medium" size modal.
 <div class="modal fade" id="exampleModalXl" tabindex="-1"  aria-labelledby="exampleModalXlLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title h4" id="exampleModalXlLabel">Extra large modal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -642,7 +641,6 @@ Our default modal without modifier class constitutes the "medium" size modal.
 <div class="modal fade" id="exampleModalLg" tabindex="-1"  aria-labelledby="exampleModalLgLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-
       <div class="modal-header">
         <h5 class="modal-title h4" id="exampleModalLgLabel">Large modal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

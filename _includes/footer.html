@@ -9,22 +9,27 @@
 <!-- Additional JavaScript for documentation site -->
 <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.js" integrity="sha256-qybEsgf0PGiQS22AmoozPs09oRnSC7Gu7eBu4fbS2Ac=" crossorigin="anonymous" async></script>
 <script src="{{ site.baseurl }}/docs/js/docs.min.js" async></script>
-<script src="https://instant.page/5.1.0" type="module"></script>
+<script type="module">
+  /*! instant.page v5.1.0 - (C) 2019-2020 Alexandre Dieulot - https://instant.page/license */
+  let t,e;const n=new Set,o=document.createElement("link"),i=o.relList&&o.relList.supports&&o.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype,s="instantAllowQueryString"in document.body.dataset,a="instantAllowExternalLinks"in document.body.dataset,r="instantWhitelist"in document.body.dataset,c="instantMousedownShortcut"in document.body.dataset,d=1111;let l=65,u=!1,f=!1,m=!1;if("instantIntensity"in document.body.dataset){const t=document.body.dataset.instantIntensity;if("mousedown"==t.substr(0,"mousedown".length))u=!0,"mousedown-only"==t&&(f=!0);else if("viewport"==t.substr(0,"viewport".length))navigator.connection&&(navigator.connection.saveData||navigator.connection.effectiveType&&navigator.connection.effectiveType.includes("2g"))||("viewport"==t?document.documentElement.clientWidth*document.documentElement.clientHeight<45e4&&(m=!0):"viewport-all"==t&&(m=!0));else{const e=parseInt(t);isNaN(e)||(l=e)}}if(i){const n={capture:!0,passive:!0};if(f||document.addEventListener("touchstart",function(t){e=performance.now();const n=t.target.closest("a");if(!h(n))return;v(n.href)},n),u?c||document.addEventListener("mousedown",function(t){const e=t.target.closest("a");if(!h(e))return;v(e.href)},n):document.addEventListener("mouseover",function(n){if(performance.now()-e<d)return;const o=n.target.closest("a");if(!h(o))return;o.addEventListener("mouseout",p,{passive:!0}),t=setTimeout(()=>{v(o.href),t=void 0},l)},n),c&&document.addEventListener("mousedown",function(t){if(performance.now()-e<d)return;const n=t.target.closest("a");if(t.which>1||t.metaKey||t.ctrlKey)return;if(!n)return;n.addEventListener("click",function(t){1337!=t.detail&&t.preventDefault()},{capture:!0,passive:!1,once:!0});const o=new MouseEvent("click",{view:window,bubbles:!0,cancelable:!1,detail:1337});n.dispatchEvent(o)},n),m){let t;(t=window.requestIdleCallback?t=>{requestIdleCallback(t,{timeout:1500})}:t=>{t()})(()=>{const t=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const n=e.target;t.unobserve(n),v(n.href)}})});document.querySelectorAll("a").forEach(e=>{h(e)&&t.observe(e)})})}}function p(e){e.relatedTarget&&e.target.closest("a")==e.relatedTarget.closest("a")||t&&(clearTimeout(t),t=void 0)}function h(t){if(t&&t.href&&(!r||"instant"in t.dataset)&&(a||t.origin==location.origin||"instant"in t.dataset)&&["http:","https:"].includes(t.protocol)&&("http:"!=t.protocol||"https:"!=location.protocol)&&(s||!t.search||"instant"in t.dataset)&&!(t.hash&&t.pathname+t.search==location.pathname+location.search||"noInstant"in t.dataset))return!0}function v(t){if(n.has(t))return;const e=document.createElement("link");e.rel="prefetch",e.href=t,document.head.appendChild(e),n.add(t)}
+</script>
 {% if page.plugin %}
   {% if page.maxlength %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength@1.10.0/dist/bootstrap-maxlength.min.js" integrity="sha256-3ZRODUzkt15hSZ9r++hfZQtVTmHkQJfyXxKhRz6FktQ=" crossorigin="anonymous"></script>
   <script>
+  $(function() {
     $('[maxlength]').maxlength({
       alwaysShow: true,
-      warningClass: 'form-text text-muted pr-3',
-      limitReachedClass: 'form-text text-muted pr-3',
+      warningClass: 'form-text pr-3',
+      limitReachedClass: 'form-text pr-3',
       placement: 'bottom-right-inside'
     })
+  })
   </script>
   {% endif %}
   {% if page.autosize %}
   <script src="https://cdn.jsdelivr.net/npm/textarea-autosize@0.4.2/dist/jquery.textarea_autosize.min.js" integrity="sha256-gtPvsaPR4MtUbbjtrvMNO4AojMEHF9v00dkeQZ5SqQw=" crossorigin="anonymous"></script>
-  <script>$('.textarea-autosize').textareaAutoSize()</script>
+  <script>$(function() {$('.textarea-autosize').textareaAutoSize()})</script>
   {% endif %}
   {% if page.datatables %}
   <script src="https://cdn.jsdelivr.net/npm/pdfmake@0.1.68/build/pdfmake.min.js" integrity="sha256-Xf58sgO5ClVXPyDzPH+NtjN52HMC0YXBJ3rp8sWnyUk=" crossorigin="anonymous"></script>
@@ -148,35 +153,39 @@
   {% if page.flatpickr %}
   <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin="anonymous"></script>
   <script>
-  $("#flatpickr-demo").flatpickr({
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d"
-  })
-  $("#flatpickr-range").flatpickr({
-    inline: true,
-    mode: "range",
-    minDate: "today",
-    dateFormat: "d-m-Y"
-  })
-  $("#flatpickr-datetime").flatpickr({
-    enableTime: true,
-    dateFormat: "d/m/Y H:i",
-    time_24hr: false,
-    weekNumbers: true
-  })
-  $("#flatpickr-time").flatpickr({
-    inline: true,
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    defaultDate: "13:45"
+  $(function() {
+    $("#flatpickr-demo").flatpickr({
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d"
+    })
+    $("#flatpickr-date").flatpickr()
+    $("#flatpickr-range").flatpickr({
+      inline: true,
+      mode: "range",
+      minDate: "today",
+      dateFormat: "d-m-Y"
+    })
+    $("#flatpickr-datetime").flatpickr({
+      enableTime: true,
+      dateFormat: "d/m/Y H:i",
+      time_24hr: false,
+      weekNumbers: true
+    })
+    $("#flatpickr-time").flatpickr({
+      // inline: true,
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
+      time_24hr: true,
+      defaultDate: "13:45"
+    })
   })
   </script>
   {% endif %}
   {% if page.ionrangeslider %}
   <script src="https://cdn.jsdelivr.net/npm/ion-rangeslider@2.3.1/js/ion.rangeSlider.min.js" integrity="sha256-Z639rJO57BiZzQDlWsGyF+EJ3Fs3nD4pQPkfimTy3S8=" crossorigin="anonymous"></script>
   <script>
+  $(function() {
     $('#demo-0').ionRangeSlider({
       min: 100,
       max: 1000,
@@ -218,11 +227,13 @@
       postfix: ' years',
       skin: 'material' // eslint-disable-line no-dupe-keys
     })
+  })
   </script>
   {% endif %}
   {% if page.select2 %}
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js" integrity="sha256-nAS1wDQBPBqa1fnZq8wd1Z6CN+PgmHXLFdMo0g2pYf0=" crossorigin="anonymous"></script>
   <script>
+  $(function() {
     $('.js-example-basic-single').select2({
       theme: 'filled',
       placeholder: 'Fruit',
@@ -257,6 +268,7 @@
       placeholder: 'Cars',
       width: '240px'
     })
+  })
   </script>
   {% endif %}
 {% endif %}

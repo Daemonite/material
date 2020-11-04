@@ -37,24 +37,17 @@ Plugin is **jQuery** free but can be initialized as a jQuery plugin.
 
 ## Demo
 
-{% capture example %}
-<div class="form-group form-ripple">
-  <label for="flatpickr-demo">Date</label>
-  <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-demo">
+<div class="bd-example">
+  <div class="form-group form-ripple">
+    <label for="flatpickr-demo">Date</label>
+    <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-demo">
+  </div>
 </div>
-<script>
-$(function() {
-  $("#flatpickr-demo").flatpickr({
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d"
-  })
-})
-</script>
-{% endcapture %}
-{% include example.html content=example %}
 
 {% capture callout %}
-**flatpickr** will probably become default Picker as it corresponds perfectly to latest Material design guidelines.
+**flatpickr** will probably become default Picker as it corresponds perfectly to latest Material design guidelines: Dropdown calendar on desktop and system's default picker on mobile.
+
+Don't use inline picker for Date and Time inputs.
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 
@@ -84,14 +77,18 @@ Set HTML code of your picker menu.
 Initialize plugin with JavaScript or jQuery parameters.
 
 {% highlight js %}
-$(function() {
-  $("#flatpickr-demo").flatpickr()
-})
+$("#flatpickr-demo").flatpickr()
 {% endhighlight %}
 
 All parameters are detailed in [official documentation](https://flatpickr.js.org/).
 
 That's it.
+
+{% capture callout %}
+Inline picker is not rendered using mobile's default operating system Picker and is barely usable on mobile.  
+Try to avoid using `inline` parameter for a good mobile User experience.
+{% endcapture %}
+{% include callout.html content=callout type="warning" %}
 
 ## Picker types
 
@@ -100,6 +97,25 @@ That's it.
 Single date selection is default picker. See Demo example above.
 
 Picker is also compatible with multiple dates selection.
+
+<div class="bd-example">
+  <div class="form-group form-ripple">
+    <label for="flatpickr-date">Date</label>
+    <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-date">
+  </div>
+</div>
+
+{% highlight js %}
+<div class="bd-example">
+  <div class="form-group form-ripple">
+    <label for="flatpickr-demo">Date</label>
+    <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-date">
+  </div>
+</div>
+<script>
+$("#flatpickr-date").flatpickr()
+<script>
+{% endhighlight %}
 
 ### Date range
 
@@ -113,13 +129,11 @@ Example displays the picker `inline` and sets `minDate` to Today.
   <input class="form-control flatpickr" type="text" placeholder="Select Dates.." id="flatpickr-range">
 </div>
 <script>
-$(function() {
-  $("#flatpickr-range").flatpickr({
-    inline: true,
-    mode: "range",
-    minDate: "today",
-    dateFormat: "d-m-Y"
-  })
+$("#flatpickr-range").flatpickr({
+  inline: true,
+  mode: "range",
+  minDate: "today",
+  dateFormat: "d-m-Y"
 })
 </script>
 {% endcapture %}
@@ -137,13 +151,11 @@ Example also displays `week numbers` and sets time format in British `12h` forma
   <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-datetime">
 </div>
 <script>
-$(function() {
-  $("#flatpickr-datetime").flatpickr({
-    enableTime: true,
-    dateFormat: "m/d/Y H:i",
-    time_24hr: false,
-    weekNumbers: true
-  })
+$("#flatpickr-datetime").flatpickr({
+  enableTime: true,
+  dateFormat: "m/d/Y H:i",
+  time_24hr: false,
+  weekNumbers: true
 })
 </script>
 {% endcapture %}
@@ -158,18 +170,16 @@ Simplest time picker in a `24h` format and a `default time`.
 {% capture example %}
 <div class="form-group">
   <label for="flatpickr-time">Time of event</label>
-  <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-time">
+  <input class="form-control flatpickr" type="text" id="flatpickr-time">
 </div>
 <script>
-$(function() {
-  $("#flatpickr-time").flatpickr({
-    inline: true,
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    defaultDate: "13:45"
-  })
+$("#flatpickr-time").flatpickr({
+  // inline: true,
+  enableTime: true,
+  noCalendar: true,
+  dateFormat: "H:i",
+  time_24hr: true,
+  defaultDate: "13:45"
 })
 </script>
 {% endcapture %}

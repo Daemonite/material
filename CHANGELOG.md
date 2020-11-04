@@ -8,6 +8,11 @@
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
+## 4.5.3 - RC2
+
+- **Fixed** `List-group-item-icon` flex and color.
+- Select2 plugin. Fixed placeholder color and max-width.
+
 ## 4.5.3 - RC1
 
 - **NEW** Upgrade to Bootstrap 4.5.3.

@@ -6,6 +6,7 @@ group: plugins
 toc: true
 plugin: true
 select2: true
+todo: "Only on lg doc, animated label, svg currentColor"
 ---
 
 <div class="list-group my-2 my-lg-5">

@@ -5,6 +5,10 @@
 
 // Bootstrap doc CSS override
 
+.bd-content .alert {
+  margin: 2rem 0;
+}
+
 .bd-content .alert p:last-of-type {
   margin-bottom: 0;
 }
@@ -318,7 +322,6 @@
   color: $white-primary;
   margin-bottom: 0;
   padding-top: ($toolbar-height * 2);
-  padding-bottom: 6rem;
 
   @include media-breakpoint-down(sm) {
     h1 {
@@ -392,10 +395,12 @@
 
 .doc-main {
   background-color: $white;
+  padding-top: 3rem;
 
   @include media-breakpoint-up(lg) {
     .navdrawer-permanent-lg ~ & {
       margin-left: $navdrawer-width;
+      padding-bottom: 3rem;
     }
   }
 }

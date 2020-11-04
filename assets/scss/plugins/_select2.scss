@@ -4,6 +4,7 @@
 .select2-container {
   display: block;
   margin: 0;
+  max-width: 100%;
   min-width: 200px;
   position: relative;
 
@@ -35,7 +36,8 @@
     will-change: border-color, box-shadow;
 
     &::before {
-      background: selection-theme-color();
+      background: currentColor;
+      color: selection-theme-color();
       content: '';
       height: $textfield-border-width * 2;
       position: absolute;

@@ -59,8 +59,8 @@ Initialize plugin once. Here is an example of simplest declaration to be active 
 {% highlight js %}
 $('[maxlength]').maxlength({
   alwaysShow: true,
-  warningClass: 'form-text text-muted pr-3',
-  limitReachedClass: 'form-text text-muted pr-3',
+  warningClass: 'form-text pr-3',
+  limitReachedClass: 'form-text pr-3',
   placement: 'bottom-right-inside'
 })
 {% endhighlight %}

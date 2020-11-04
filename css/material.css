@@ -5625,6 +5625,8 @@ body {
   border: 0;
   color: rgba(0, 0, 0, 0.87);
   display: block;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   font-size: 1rem;
   letter-spacing: 0.009375em;
   line-height: 1.5;
@@ -8036,8 +8038,9 @@ body {
   -moz-appearance: none;
   appearance: none;
   background-color: rgba(0, 0, 0, 0.12);
-  background-image: none;
+  background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3c/svg%3e');
   background-position: 100% 50%;
+  background-repeat: no-repeat;
   background-size: auto 100%;
   border: 0;
   box-shadow: none;
@@ -8075,22 +8078,6 @@ body {
 .picker-select-year:hover,
 .picker-select-year:focus {
   opacity: 1;
-}
-
-@-moz-document url-prefix('') {
-  .picker-select-month,
-  .picker-select-year {
-    background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
-    background-repeat: no-repeat;
-  }
-}
-
-@media (-webkit-min-device-pixel-ratio: 0) {
-  .picker-select-month,
-  .picker-select-year {
-    background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
-    background-repeat: no-repeat;
-  }
 }
 
 .picker-select-month:focus,
@@ -9922,10 +9909,10 @@ body {
   max-height: 2.25rem;
 }
 
-input[type="date"].form-control,
-input[type="time"].form-control,
-input[type="datetime-local"].form-control,
-input[type="month"].form-control {
+input[type='date'].form-control,
+input[type='time'].form-control,
+input[type='datetime-local'].form-control,
+input[type='month'].form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -9951,39 +9938,24 @@ input[type="month"].form-control {
   max-height: 2rem;
 }
 
-select.form-control, .custom-select {
+select.form-control, select.custom-select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3c/svg%3e') 100% 50%/1.5em 1.5em no-repeat;
+  /* background-image: escape-svg($caret-bg);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: $textfield-select-bg-size $textfield-select-bg-size; */
+  padding-right: 1.5em;
 }
 
-@-moz-document url-prefix('') {
-  select.form-control, .custom-select {
-    background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 1.5em;
-  }
-  select.form-control[multiple], .custom-select[multiple], select.form-control[size]:not([size='1']), .custom-select[size]:not([size='1']) {
-    background-image: none;
-  }
+select.form-control[multiple], select.custom-select[multiple], select.form-control[size]:not([size='1']), select.custom-select[size]:not([size='1']) {
+  background-image: none;
 }
 
-@media (-webkit-min-device-pixel-ratio: 0) {
-  select.form-control, .custom-select {
-    background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
-    background-size: 1.5em 1.5em;
-    padding-right: 1.5em;
-  }
-  select.form-control[multiple], .custom-select[multiple], select.form-control[size]:not([size='1']), .custom-select[size]:not([size='1']) {
-    background-image: none;
-  }
-}
-
-select.form-control[multiple], select.form-control[size]:not([size='1']), textarea.form-control:not([rows='1']), .custom-select[multiple], .custom-select[size]:not([size='1']) {
+select.form-control[multiple], select.form-control[size]:not([size='1']), select.custom-select[multiple], select.custom-select[size]:not([size='1']), textarea.form-control:not([rows='1']) {
+  background-image: none !important;
   border-color: rgba(0, 0, 0, 0.24);
   border-radius: 4px;
   border-width: 1px;
@@ -9991,24 +9963,24 @@ select.form-control[multiple], select.form-control[size]:not([size='1']), textar
   padding: calc(1rem - 1px) 1rem;
 }
 
-select.form-control:hover[multiple], select.form-control:hover[size]:not([size='1']), textarea.form-control:hover:not([rows='1']), .custom-select:hover[multiple], .custom-select:hover[size]:not([size='1']) {
+select.form-control:hover[multiple], select.form-control:hover[size]:not([size='1']), select.custom-select:hover[multiple], select.custom-select:hover[size]:not([size='1']), textarea.form-control:hover:not([rows='1']) {
   border-color: rgba(0, 0, 0, 0.87);
 }
 
-select.form-control:focus[multiple], select.form-control:focus[size]:not([size='1']), textarea.form-control:focus:not([rows='1']), .custom-select:focus[multiple], .custom-select:focus[size]:not([size='1']) {
+select.form-control:focus[multiple], select.form-control:focus[size]:not([size='1']), select.custom-select:focus[multiple], select.custom-select:focus[size]:not([size='1']), textarea.form-control:focus:not([rows='1']) {
   border-color: #6200ee;
   box-shadow: inset 2px 2px 0 -1px #6200ee, inset -2px -2px 0 -1px #6200ee;
 }
 
-select.form-control[multiple], select.form-control[size]:not([size='1']) {
+select.form-control[multiple], select.form-control[size]:not([size='1']), select.custom-select[multiple], select.custom-select[size]:not([size='1']) {
   padding: 0.5rem 0;
 }
 
-select.form-control[multiple] option, select.form-control[size]:not([size='1']) option {
+select.form-control[multiple] option, select.form-control[size]:not([size='1']) option, select.custom-select[multiple] option, select.custom-select[size]:not([size='1']) option {
   padding: 0 1.5rem;
 }
 
-select.form-control option {
+select.form-control option, select.custom-select option {
   -ms-flex-align: center;
   align-items: center;
   display: -ms-flexbox;
@@ -10018,15 +9990,15 @@ select.form-control option {
   letter-spacing: 0.009375em;
 }
 
-select.form-control option:hover {
+select.form-control option:hover, select.custom-select option:hover {
   background: rgba(0, 0, 0, 0.04);
 }
 
-select.form-control option:active {
+select.form-control option:active, select.custom-select option:active {
   background: rgba(0, 0, 0, 0.12) !important;
 }
 
-select.form-control:not([multiple]):not([size]):focus {
+select.form-control:focus, select.custom-select:focus {
   background-image: url('data:image/svg+xml;charset=utf8,%3csvg fill="%236200ee" transform="rotate(180)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3canimateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="180 0 0" dur="250ms"/%3e%3c/svg%3e');
 }
 
@@ -10141,6 +10113,15 @@ textarea.form-control-sm:not([rows='1']) {
   right: 0;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.custom-select {
+  /* @extend %form-select;
+
+  &[multiple],
+  &[size]:not([size='1']) {
+    @extend %form-textarea;
+  } */
 }
 
 .custom-select-sm {
@@ -10315,31 +10296,31 @@ textarea.form-control-sm:not([rows='1']) {
   display: block;
 }
 
-select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover[size]:not([size='1']), textarea.is-valid.form-control:hover:not([rows='1']), .is-valid.custom-select:hover[multiple], .is-valid.custom-select:hover[size]:not([size='1']), select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus[size]:not([size='1']), textarea.is-valid.form-control:focus:not([rows='1']), .is-valid.custom-select:focus[multiple], .is-valid.custom-select:focus[size]:not([size='1']),
+select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover[size]:not([size='1']), select.is-valid.custom-select:hover[multiple], select.is-valid.custom-select:hover[size]:not([size='1']), textarea.is-valid.form-control:hover:not([rows='1']), select.is-valid.form-control:focus[multiple], select.is-valid.form-control:focus[size]:not([size='1']), select.is-valid.custom-select:focus[multiple], select.is-valid.custom-select:focus[size]:not([size='1']), textarea.is-valid.form-control:focus:not([rows='1']),
 .was-validated select.form-control:valid:hover[multiple],
 .was-validated select.form-control:valid:hover[size]:not([size='1']),
+.was-validated select.custom-select:valid:hover[multiple],
+.was-validated select.custom-select:valid:hover[size]:not([size='1']),
 .was-validated textarea.form-control:valid:hover:not([rows='1']),
-.was-validated .custom-select:valid:hover[multiple],
-.was-validated .custom-select:valid:hover[size]:not([size='1']),
 .was-validated select.form-control:valid:focus[multiple],
 .was-validated select.form-control:valid:focus[size]:not([size='1']),
-.was-validated textarea.form-control:valid:focus:not([rows='1']),
-.was-validated .custom-select:valid:focus[multiple],
-.was-validated .custom-select:valid:focus[size]:not([size='1']) {
+.was-validated select.custom-select:valid:focus[multiple],
+.was-validated select.custom-select:valid:focus[size]:not([size='1']),
+.was-validated textarea.form-control:valid:focus:not([rows='1']) {
   box-shadow: inset 2px 2px 0 -1px #61d800, inset -2px -2px 0 -1px #61d800;
 }
 
-.textfield-box select.is-valid.form-control:hover[multiple], .textfield-box select.is-valid.form-control:hover[size]:not([size='1']), .textfield-box textarea.is-valid.form-control:hover:not([rows='1']), .textfield-box .is-valid.custom-select:hover[multiple], .textfield-box .is-valid.custom-select:hover[size]:not([size='1']), .textfield-box select.is-valid.form-control:focus[multiple], .textfield-box select.is-valid.form-control:focus[size]:not([size='1']), .textfield-box textarea.is-valid.form-control:focus:not([rows='1']), .textfield-box .is-valid.custom-select:focus[multiple], .textfield-box .is-valid.custom-select:focus[size]:not([size='1']),
+.textfield-box select.is-valid.form-control:hover[multiple], .textfield-box select.is-valid.form-control:hover[size]:not([size='1']), .textfield-box select.is-valid.custom-select:hover[multiple], .textfield-box select.is-valid.custom-select:hover[size]:not([size='1']), .textfield-box textarea.is-valid.form-control:hover:not([rows='1']), .textfield-box select.is-valid.form-control:focus[multiple], .textfield-box select.is-valid.form-control:focus[size]:not([size='1']), .textfield-box select.is-valid.custom-select:focus[multiple], .textfield-box select.is-valid.custom-select:focus[size]:not([size='1']), .textfield-box textarea.is-valid.form-control:focus:not([rows='1']),
 .was-validated .textfield-box select.form-control:valid:hover[multiple],
 .was-validated .textfield-box select.form-control:valid:hover[size]:not([size='1']),
+.was-validated .textfield-box select.custom-select:valid:hover[multiple],
+.was-validated .textfield-box select.custom-select:valid:hover[size]:not([size='1']),
 .was-validated .textfield-box textarea.form-control:valid:hover:not([rows='1']),
-.was-validated .textfield-box .custom-select:valid:hover[multiple],
-.was-validated .textfield-box .custom-select:valid:hover[size]:not([size='1']),
 .was-validated .textfield-box select.form-control:valid:focus[multiple],
 .was-validated .textfield-box select.form-control:valid:focus[size]:not([size='1']),
-.was-validated .textfield-box textarea.form-control:valid:focus:not([rows='1']),
-.was-validated .textfield-box .custom-select:valid:focus[multiple],
-.was-validated .textfield-box .custom-select:valid:focus[size]:not([size='1']) {
+.was-validated .textfield-box select.custom-select:valid:focus[multiple],
+.was-validated .textfield-box select.custom-select:valid:focus[size]:not([size='1']),
+.was-validated .textfield-box textarea.form-control:valid:focus:not([rows='1']) {
   box-shadow: inset 0 -2px 0 -1px #61d800;
 }
 
@@ -10486,31 +10467,31 @@ select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover
   display: block;
 }
 
-select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:hover[size]:not([size='1']), textarea.is-invalid.form-control:hover:not([rows='1']), .is-invalid.custom-select:hover[multiple], .is-invalid.custom-select:hover[size]:not([size='1']), select.is-invalid.form-control:focus[multiple], select.is-invalid.form-control:focus[size]:not([size='1']), textarea.is-invalid.form-control:focus:not([rows='1']), .is-invalid.custom-select:focus[multiple], .is-invalid.custom-select:focus[size]:not([size='1']),
+select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:hover[size]:not([size='1']), select.is-invalid.custom-select:hover[multiple], select.is-invalid.custom-select:hover[size]:not([size='1']), textarea.is-invalid.form-control:hover:not([rows='1']), select.is-invalid.form-control:focus[multiple], select.is-invalid.form-control:focus[size]:not([size='1']), select.is-invalid.custom-select:focus[multiple], select.is-invalid.custom-select:focus[size]:not([size='1']), textarea.is-invalid.form-control:focus:not([rows='1']),
 .was-validated select.form-control:invalid:hover[multiple],
 .was-validated select.form-control:invalid:hover[size]:not([size='1']),
+.was-validated select.custom-select:invalid:hover[multiple],
+.was-validated select.custom-select:invalid:hover[size]:not([size='1']),
 .was-validated textarea.form-control:invalid:hover:not([rows='1']),
-.was-validated .custom-select:invalid:hover[multiple],
-.was-validated .custom-select:invalid:hover[size]:not([size='1']),
 .was-validated select.form-control:invalid:focus[multiple],
 .was-validated select.form-control:invalid:focus[size]:not([size='1']),
-.was-validated textarea.form-control:invalid:focus:not([rows='1']),
-.was-validated .custom-select:invalid:focus[multiple],
-.was-validated .custom-select:invalid:focus[size]:not([size='1']) {
+.was-validated select.custom-select:invalid:focus[multiple],
+.was-validated select.custom-select:invalid:focus[size]:not([size='1']),
+.was-validated textarea.form-control:invalid:focus:not([rows='1']) {
   box-shadow: inset 2px 2px 0 -1px #b00020, inset -2px -2px 0 -1px #b00020;
 }
 
-.textfield-box select.is-invalid.form-control:hover[multiple], .textfield-box select.is-invalid.form-control:hover[size]:not([size='1']), .textfield-box textarea.is-invalid.form-control:hover:not([rows='1']), .textfield-box .is-invalid.custom-select:hover[multiple], .textfield-box .is-invalid.custom-select:hover[size]:not([size='1']), .textfield-box select.is-invalid.form-control:focus[multiple], .textfield-box select.is-invalid.form-control:focus[size]:not([size='1']), .textfield-box textarea.is-invalid.form-control:focus:not([rows='1']), .textfield-box .is-invalid.custom-select:focus[multiple], .textfield-box .is-invalid.custom-select:focus[size]:not([size='1']),
+.textfield-box select.is-invalid.form-control:hover[multiple], .textfield-box select.is-invalid.form-control:hover[size]:not([size='1']), .textfield-box select.is-invalid.custom-select:hover[multiple], .textfield-box select.is-invalid.custom-select:hover[size]:not([size='1']), .textfield-box textarea.is-invalid.form-control:hover:not([rows='1']), .textfield-box select.is-invalid.form-control:focus[multiple], .textfield-box select.is-invalid.form-control:focus[size]:not([size='1']), .textfield-box select.is-invalid.custom-select:focus[multiple], .textfield-box select.is-invalid.custom-select:focus[size]:not([size='1']), .textfield-box textarea.is-invalid.form-control:focus:not([rows='1']),
 .was-validated .textfield-box select.form-control:invalid:hover[multiple],
 .was-validated .textfield-box select.form-control:invalid:hover[size]:not([size='1']),
+.was-validated .textfield-box select.custom-select:invalid:hover[multiple],
+.was-validated .textfield-box select.custom-select:invalid:hover[size]:not([size='1']),
 .was-validated .textfield-box textarea.form-control:invalid:hover:not([rows='1']),
-.was-validated .textfield-box .custom-select:invalid:hover[multiple],
-.was-validated .textfield-box .custom-select:invalid:hover[size]:not([size='1']),
 .was-validated .textfield-box select.form-control:invalid:focus[multiple],
 .was-validated .textfield-box select.form-control:invalid:focus[size]:not([size='1']),
-.was-validated .textfield-box textarea.form-control:invalid:focus:not([rows='1']),
-.was-validated .textfield-box .custom-select:invalid:focus[multiple],
-.was-validated .textfield-box .custom-select:invalid:focus[size]:not([size='1']) {
+.was-validated .textfield-box select.custom-select:invalid:focus[multiple],
+.was-validated .textfield-box select.custom-select:invalid:focus[size]:not([size='1']),
+.was-validated .textfield-box textarea.form-control:invalid:focus:not([rows='1']) {
   box-shadow: inset 0 -2px 0 -1px #b00020;
 }
 
@@ -10600,21 +10581,21 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-.textfield-box select.form-control, .textfield-box .custom-select {
+.textfield-box select.form-control, .textfield-box select.custom-select {
   padding-right: 1.5em;
 }
 
-.textfield-box select.form-control[multiple], .textfield-box select.form-control[size]:not([size='1']), .textfield-box textarea.form-control:not([rows='1']), .textfield-box .custom-select[multiple], .textfield-box .custom-select[size]:not([size='1']) {
+.textfield-box select.form-control[multiple], .textfield-box select.form-control[size]:not([size='1']), .textfield-box select.custom-select[multiple], .textfield-box select.custom-select[size]:not([size='1']), .textfield-box textarea.form-control:not([rows='1']) {
   border-radius: 4px 4px 0 0;
   border-width: 0 0 1px;
   padding: 1rem 1rem calc(1rem - 1px);
 }
 
-.textfield-box select.form-control:hover[multiple], .textfield-box select.form-control:hover[size]:not([size='1']), .textfield-box textarea.form-control:hover:not([rows='1']), .textfield-box .custom-select:hover[multiple], .textfield-box .custom-select:hover[size]:not([size='1']) {
+.textfield-box select.form-control:hover[multiple], .textfield-box select.form-control:hover[size]:not([size='1']), .textfield-box select.custom-select:hover[multiple], .textfield-box select.custom-select:hover[size]:not([size='1']), .textfield-box textarea.form-control:hover:not([rows='1']) {
   border-color: rgba(0, 0, 0, 0.87);
 }
 
-.textfield-box select.form-control:focus[multiple], .textfield-box select.form-control:focus[size]:not([size='1']), .textfield-box textarea.form-control:focus:not([rows='1']), .textfield-box .custom-select:focus[multiple], .textfield-box .custom-select:focus[size]:not([size='1']) {
+.textfield-box select.form-control:focus[multiple], .textfield-box select.form-control:focus[size]:not([size='1']), .textfield-box select.custom-select:focus[multiple], .textfield-box select.custom-select:focus[size]:not([size='1']), .textfield-box textarea.form-control:focus:not([rows='1']) {
   border-color: #6200ee;
   box-shadow: inset 0 -2px 0 -1px #6200ee;
 }
@@ -10634,7 +10615,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.875rem 1rem calc(0.875rem - 1px);
 }
 
-.textfield-box-lg select.form-control[multiple], .input-group-lg > .textfield-box select.form-control[multiple], .textfield-box-lg select.form-control[size]:not([size='1']), .input-group-lg > .textfield-box select.form-control[size]:not([size='1']), .textfield-box-lg textarea.form-control:not([rows='1']), .input-group-lg > .textfield-box textarea.form-control:not([rows='1']), .textfield-box-lg .custom-select[multiple], .input-group-lg > .textfield-box .custom-select[multiple], .textfield-box-lg .custom-select[size]:not([size='1']), .input-group-lg > .textfield-box .custom-select[size]:not([size='1']) {
+.textfield-box-lg select.form-control[multiple], .input-group-lg > .textfield-box select.form-control[multiple], .textfield-box-lg select.form-control[size]:not([size='1']), .input-group-lg > .textfield-box select.form-control[size]:not([size='1']), .textfield-box-lg select.custom-select[multiple], .input-group-lg > .textfield-box select.custom-select[multiple], .textfield-box-lg select.custom-select[size]:not([size='1']), .input-group-lg > .textfield-box select.custom-select[size]:not([size='1']), .textfield-box-lg textarea.form-control:not([rows='1']), .input-group-lg > .textfield-box textarea.form-control:not([rows='1']) {
   padding: 0.875rem 1rem calc(0.875rem - 1px);
 }
 
@@ -10658,7 +10639,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.75rem 0.75rem calc(0.75rem - 1px);
 }
 
-.textfield-box-sm select.form-control[multiple], .input-group-sm > .textfield-box select.form-control[multiple], .textfield-box-sm select.form-control[size]:not([size='1']), .input-group-sm > .textfield-box select.form-control[size]:not([size='1']), .textfield-box-sm textarea.form-control:not([rows='1']), .input-group-sm > .textfield-box textarea.form-control:not([rows='1']), .textfield-box-sm .custom-select[multiple], .input-group-sm > .textfield-box .custom-select[multiple], .textfield-box-sm .custom-select[size]:not([size='1']), .input-group-sm > .textfield-box .custom-select[size]:not([size='1']) {
+.textfield-box-sm select.form-control[multiple], .input-group-sm > .textfield-box select.form-control[multiple], .textfield-box-sm select.form-control[size]:not([size='1']), .input-group-sm > .textfield-box select.form-control[size]:not([size='1']), .textfield-box-sm select.custom-select[multiple], .input-group-sm > .textfield-box select.custom-select[multiple], .textfield-box-sm select.custom-select[size]:not([size='1']), .input-group-sm > .textfield-box select.custom-select[size]:not([size='1']), .textfield-box-sm textarea.form-control:not([rows='1']), .input-group-sm > .textfield-box textarea.form-control:not([rows='1']) {
   padding: 0.75rem 0.75rem calc(0.75rem - 1px);
 }
 
@@ -10865,11 +10846,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.625rem 0 calc(0.625rem - 1px);
 }
 
-.floating-label-lg select.form-control, .input-group-lg > .floating-label select.form-control, .floating-label-lg .custom-select, .input-group-lg > .floating-label .custom-select {
+.floating-label-lg select.form-control, .input-group-lg > .floating-label select.form-control, .floating-label-lg select.custom-select, .input-group-lg > .floating-label select.custom-select {
   padding-right: 1.5em;
 }
 
-.floating-label-lg select.form-control[multiple], .input-group-lg > .floating-label select.form-control[multiple], .floating-label-lg select.form-control[size]:not([size='1']), .input-group-lg > .floating-label select.form-control[size]:not([size='1']), .floating-label-lg textarea.form-control:not([rows='1']), .input-group-lg > .floating-label textarea.form-control:not([rows='1']), .floating-label-lg .custom-select[multiple], .input-group-lg > .floating-label .custom-select[multiple], .floating-label-lg .custom-select[size]:not([size='1']), .input-group-lg > .floating-label .custom-select[size]:not([size='1']) {
+.floating-label-lg select.form-control[multiple], .input-group-lg > .floating-label select.form-control[multiple], .floating-label-lg select.form-control[size]:not([size='1']), .input-group-lg > .floating-label select.form-control[size]:not([size='1']), .floating-label-lg select.custom-select[multiple], .input-group-lg > .floating-label select.custom-select[multiple], .floating-label-lg select.custom-select[size]:not([size='1']), .input-group-lg > .floating-label select.custom-select[size]:not([size='1']), .floating-label-lg textarea.form-control:not([rows='1']), .input-group-lg > .floating-label textarea.form-control:not([rows='1']) {
   padding: 0.875rem 1rem calc(0.875rem - 1px);
 }
 
@@ -10892,11 +10873,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.375rem 0 calc(0.375rem - 1px);
 }
 
-.floating-label-sm select.form-control, .input-group-sm > .floating-label select.form-control, .floating-label-sm .custom-select, .input-group-sm > .floating-label .custom-select {
+.floating-label-sm select.form-control, .input-group-sm > .floating-label select.form-control, .floating-label-sm select.custom-select, .input-group-sm > .floating-label select.custom-select {
   padding-right: 1.5em;
 }
 
-.floating-label-sm select.form-control[multiple], .input-group-sm > .floating-label select.form-control[multiple], .floating-label-sm select.form-control[size]:not([size='1']), .input-group-sm > .floating-label select.form-control[size]:not([size='1']), .floating-label-sm textarea.form-control:not([rows='1']), .input-group-sm > .floating-label textarea.form-control:not([rows='1']), .floating-label-sm .custom-select[multiple], .input-group-sm > .floating-label .custom-select[multiple], .floating-label-sm .custom-select[size]:not([size='1']), .input-group-sm > .floating-label .custom-select[size]:not([size='1']) {
+.floating-label-sm select.form-control[multiple], .input-group-sm > .floating-label select.form-control[multiple], .floating-label-sm select.form-control[size]:not([size='1']), .input-group-sm > .floating-label select.form-control[size]:not([size='1']), .floating-label-sm select.custom-select[multiple], .input-group-sm > .floating-label select.custom-select[multiple], .floating-label-sm select.custom-select[size]:not([size='1']), .input-group-sm > .floating-label select.custom-select[size]:not([size='1']), .floating-label-sm textarea.form-control:not([rows='1']), .input-group-sm > .floating-label textarea.form-control:not([rows='1']) {
   padding: 0.75rem 0.75rem calc(0.75rem - 1px);
 }
 
@@ -10919,9 +10900,9 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 .floating-label.textfield-box .form-control, .floating-label.textfield-box .custom-select, .floating-label.textfield-box .form-control-file,
 .floating-label.textfield-box select.form-control[multiple],
 .floating-label.textfield-box select.form-control[size]:not([size='1']),
-.floating-label.textfield-box textarea.form-control:not([rows='1']),
-.floating-label.textfield-box .custom-select[multiple],
-.floating-label.textfield-box .custom-select[size]:not([size='1']) {
+.floating-label.textfield-box select.custom-select[multiple],
+.floating-label.textfield-box select.custom-select[size]:not([size='1']),
+.floating-label.textfield-box textarea.form-control:not([rows='1']) {
   padding-top: 1.5rem;
 }
 
@@ -10943,18 +10924,18 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 .input-group-lg > .textfield-box.floating-label select.form-control[multiple],
 .floating-label-lg.textfield-box select.form-control[size]:not([size='1']),
 .input-group-lg > .textfield-box.floating-label select.form-control[size]:not([size='1']),
+.floating-label-lg.textfield-box select.custom-select[multiple],
+.input-group-lg > .textfield-box.floating-label select.custom-select[multiple],
+.floating-label-lg.textfield-box select.custom-select[size]:not([size='1']),
+.input-group-lg > .textfield-box.floating-label select.custom-select[size]:not([size='1']),
 .floating-label-lg.textfield-box textarea.form-control:not([rows='1']),
-.input-group-lg > .textfield-box.floating-label textarea.form-control:not([rows='1']),
-.floating-label-lg.textfield-box .custom-select[multiple],
-.input-group-lg > .textfield-box.floating-label .custom-select[multiple],
-.floating-label-lg.textfield-box .custom-select[size]:not([size='1']),
-.input-group-lg > .textfield-box.floating-label .custom-select[size]:not([size='1']) {
+.input-group-lg > .textfield-box.floating-label textarea.form-control:not([rows='1']) {
   padding-top: 1.249999rem;
   padding-right: 1rem;
   padding-left: 1rem;
 }
 
-.floating-label-lg.textfield-box select.form-control, .input-group-lg > .textfield-box.floating-label select.form-control, .floating-label-lg.textfield-box .custom-select, .input-group-lg > .textfield-box.floating-label .custom-select {
+.floating-label-lg.textfield-box select.form-control, .input-group-lg > .textfield-box.floating-label select.form-control, .floating-label-lg.textfield-box select.custom-select, .input-group-lg > .textfield-box.floating-label select.custom-select {
   padding-right: 1.5em;
 }
 
@@ -10968,18 +10949,18 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 .input-group-sm > .textfield-box.floating-label select.form-control[multiple],
 .floating-label-sm.textfield-box select.form-control[size]:not([size='1']),
 .input-group-sm > .textfield-box.floating-label select.form-control[size]:not([size='1']),
+.floating-label-sm.textfield-box select.custom-select[multiple],
+.input-group-sm > .textfield-box.floating-label select.custom-select[multiple],
+.floating-label-sm.textfield-box select.custom-select[size]:not([size='1']),
+.input-group-sm > .textfield-box.floating-label select.custom-select[size]:not([size='1']),
 .floating-label-sm.textfield-box textarea.form-control:not([rows='1']),
-.input-group-sm > .textfield-box.floating-label textarea.form-control:not([rows='1']),
-.floating-label-sm.textfield-box .custom-select[multiple],
-.input-group-sm > .textfield-box.floating-label .custom-select[multiple],
-.floating-label-sm.textfield-box .custom-select[size]:not([size='1']),
-.input-group-sm > .textfield-box.floating-label .custom-select[size]:not([size='1']) {
+.input-group-sm > .textfield-box.floating-label textarea.form-control:not([rows='1']) {
   padding-top: 1.0rem;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
 
-.floating-label-sm.textfield-box select.form-control, .input-group-sm > .textfield-box.floating-label select.form-control, .floating-label-sm.textfield-box .custom-select, .input-group-sm > .textfield-box.floating-label .custom-select {
+.floating-label-sm.textfield-box select.form-control, .input-group-sm > .textfield-box.floating-label select.form-control, .floating-label-sm.textfield-box select.custom-select, .input-group-sm > .textfield-box.floating-label select.custom-select {
   padding-right: 1.5em;
 }
 
@@ -11214,11 +11195,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.625rem 0 calc(0.625rem - 1px);
 }
 
-.input-group-lg > select.form-control, .input-group-lg > .custom-select {
+.input-group-lg > select.form-control, .input-group-lg > select.custom-select {
   padding-right: 1.5em;
 }
 
-.input-group-lg > select.form-control[multiple], .input-group-lg > select.form-control[size]:not([size='1']), .input-group-lg > textarea.form-control:not([rows='1']), .input-group-lg > .custom-select[multiple], .input-group-lg > .custom-select[size]:not([size='1']) {
+.input-group-lg > select.form-control[multiple], .input-group-lg > select.form-control[size]:not([size='1']), .input-group-lg > select.custom-select[multiple], .input-group-lg > select.custom-select[size]:not([size='1']), .input-group-lg > textarea.form-control:not([rows='1']) {
   padding: 0.875rem 1rem calc(0.875rem - 1px);
 }
 
@@ -11258,11 +11239,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding: 0.375rem 0 calc(0.375rem - 1px);
 }
 
-.input-group-sm > select.form-control, .input-group-sm > .custom-select {
+.input-group-sm > select.form-control, .input-group-sm > select.custom-select {
   padding-right: 1.5em;
 }
 
-.input-group-sm > select.form-control[multiple], .input-group-sm > select.form-control[size]:not([size='1']), .input-group-sm > textarea.form-control:not([rows='1']), .input-group-sm > .custom-select[multiple], .input-group-sm > .custom-select[size]:not([size='1']) {
+.input-group-sm > select.form-control[multiple], .input-group-sm > select.form-control[size]:not([size='1']), .input-group-sm > select.custom-select[multiple], .input-group-sm > select.custom-select[size]:not([size='1']), .input-group-sm > textarea.form-control:not([rows='1']) {
   padding: 0.75rem 0.75rem calc(0.75rem - 1px);
 }
 

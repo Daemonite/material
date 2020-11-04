@@ -1638,6 +1638,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 .select2-container {
   display: block;
   margin: 0;
+  max-width: 100%;
   min-width: 200px;
   position: relative;
 }
@@ -1764,7 +1765,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 
 .select2-container .select2-selection--multiple .select2-selection__choice__remove {
   background-color: transparent;
-  background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%23666" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
+  background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%23666" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3c/svg%3e');
   border: 0;
   height: 18px;
   margin-right: -0.25rem;
@@ -1815,7 +1816,8 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 .select2-container .select2-selection::before {
-  background: #6200ee;
+  background: currentColor;
+  color: #6200ee;
   content: '';
   height: 2px;
   position: absolute;
@@ -2105,6 +2107,10 @@ form.was-validated select:invalid ~ .select2-container .select2-selection {
   border-bottom-right-radius: 0;
 }
 
+.select2-container--outlined .select2-selection--single .select2-selection__placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .select2-container--outlined.select2-container--open .select2-selection {
   border-color: #6200ee;
   box-shadow: inset 2px 2px 0 -1px #6200ee, inset -2px -2px 0 -1px #6200ee;
@@ -2127,17 +2133,21 @@ form.was-validated select:invalid ~ .select2-container .select2-selection {
   border-bottom-style: solid;
 }
 
+.select2-container--filled .select2-selection--single .select2-selection__placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .select2-container--filled .select2-selection {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: whitesmoke;
   padding: 20px 16px 11px;
 }
 
 .select2-container--filled .select2-selection:hover {
-  background-color: rgba(0, 0, 0, 0.07);
+  background-color: #ededed;
 }
 
 .select2-container--filled .select2-selection:active {
-  background-color: rgba(0, 0, 0, 0.14);
+  background-color: #dbdbdb;
 }
 
 .select2-container--filled.select2-container--disabled .select2-selection {

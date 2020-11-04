@@ -1,5 +1,11 @@
 // stylelint-disable
 .select2-container--outlined {
+  .select2-selection--single {
+    .select2-selection__placeholder {
+      color: $textfield-box-placeholder-color;
+    }
+  }
+
   &.select2-container--open .select2-selection {
     border-color: $textfield-border-color-focus;
     box-shadow: inset $textfield-border-width-focus $textfield-border-width-focus 0 -1px $textfield-border-color-focus, inset -2px -2px 0 -1px $textfield-border-color-focus;
@@ -28,16 +34,22 @@
 }
 
 .select2-container--filled {
+  .select2-selection--single {
+    .select2-selection__placeholder {
+      color: $textfield-box-placeholder-color;
+    }
+  }
+
   .select2-selection {
-    background-color: $textfield-box-bg;
+    background-color: rgba-to-rgb($textfield-box-bg);
     padding: 20px 16px 11px;
 
     &:hover {
-      background-color: $textfield-box-bg-hover;
+      background-color: rgba-to-rgb($textfield-box-bg-hover);
     }
 
     &:active {
-      background-color: $textfield-box-bg-focus;
+      background-color: rgba-to-rgb($textfield-box-bg-focus);
     }
   }
 

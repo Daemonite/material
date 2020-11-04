@@ -337,8 +337,9 @@
 
   appearance: none;
   background-color: $picker-select-bg;
-  background-image: none;
+  background-image: escape-svg($caret-bg);
   background-position: 100% 50%;
+  background-repeat: no-repeat;
   background-size: auto 100%;
   border: 0;
   box-shadow: none;
@@ -352,11 +353,6 @@
 
   @include hover-focus {
     opacity: 1;
-  }
-
-  @include media-moz-webkit {
-    background-image: escape-svg($caret-bg);
-    background-repeat: no-repeat;
   }
 
   &:focus {
