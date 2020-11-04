@@ -9822,10 +9822,6 @@ body {
   padding-left: 2.5rem;
 }
 
-/* TODO
-*  merge select and custom select
-*  input-group-prepend or input-group-icon ? : bring icon within field
-*/
 .form-control, .custom-select, .form-control-file {
   background-clip: padding-box;
   background-color: transparent;
@@ -9943,11 +9939,8 @@ select.form-control, select.custom-select {
   -moz-appearance: none;
   appearance: none;
   background: url('data:image/svg+xml;charset=utf8,%3csvg fill="%23000000" fill-opacity="0.54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M7 10l5 5 5-5z"/%3e%3c/svg%3e') 100% 50%/1.5em 1.5em no-repeat;
-  /* background-image: escape-svg($caret-bg);
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
-  background-size: $textfield-select-bg-size $textfield-select-bg-size; */
   padding-right: 1.5em;
+  transition: background-image 180ms;
 }
 
 select.form-control[multiple], select.custom-select[multiple], select.form-control[size]:not([size='1']), select.custom-select[size]:not([size='1']) {
