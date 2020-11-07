@@ -10,7 +10,9 @@
 
 ## 4.5.3 - RC2
 
+- Removed Dark theme media-query for until improvement. Can be used by applying `data-theme="dark"` to `<html>` opening tag.
 - **Fixed** `List-group-item-icon` flex and color.
+- **Fixed** Select input styling.
 - Select2 plugin. Fixed placeholder color and max-width.
 
 ## 4.5.3 - RC1

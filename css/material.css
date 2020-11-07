@@ -4907,7 +4907,7 @@ html[data-theme='dark'] label {
 
 html[data-theme='dark'] img,
 html[data-theme='dark'] video,
-html[data-theme='dark'] .prevent-dark-mode {
+html[data-theme='dark'] .prevent-dark-theme {
   -webkit-filter: invert(1) hue-rotate(180deg);
   filter: invert(1) hue-rotate(180deg);
 }
@@ -4917,17 +4917,17 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    -webkit-filter: invert(1) hue-rotate(180deg);
-    filter: invert(1) hue-rotate(180deg);
-  }
   body,
   label {
     font-weight: 500;
   }
   img,
   video,
-  .prevent-dark-mode {
+  .prevent-dark-theme {
+    -webkit-filter: invert(1) hue-rotate(180deg);
+    filter: invert(1) hue-rotate(180deg);
+  }
+  html {
     -webkit-filter: invert(1) hue-rotate(180deg);
     filter: invert(1) hue-rotate(180deg);
   }

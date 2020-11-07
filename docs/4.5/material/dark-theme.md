@@ -30,6 +30,7 @@ More improvements for the Dark mode will be added in next versions.
 
 Only working on a standard light mode environment (doesn't work if browser is in dark mode).
 
+{% capture example %}
 <div class="bd-example px-5">
   <div class="custom-control custom-switch">
     <input type="checkbox" class="custom-control-input" id="darkSwitch" checked>
@@ -37,10 +38,12 @@ Only working on a standard light mode environment (doesn't work if browser is in
   </div>
   <script>
     const Tag = document.documentElement
-    const Switch = document.getElementById("darkSwitch")
+    const Switch = document.getElementById('darkSwitch')
     Tag.dataset.theme = 'dark'
-    Switch.addEventListener("click", () => {
+    Switch.addEventListener('click', () => {
         Switch.checked ? Tag.dataset.theme = 'dark' : Tag.dataset.theme = ''
     })
   </script>
 </div>
+{% endcapture %}
+{% include example.html content=example %}
