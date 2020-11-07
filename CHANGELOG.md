@@ -10,6 +10,7 @@
 
 ## 4.5.3 - RC2
 
+- **New**. Sliders are designed as Material guidelines + ionRangeSlider styled accordingly.
 - Removed Dark theme media-query for until improvement. Can be used by applying `data-theme="dark"` to `<html>` opening tag.
 - **Fixed** `List-group-item-icon` flex and color.
 - **Fixed** Select input styling.
