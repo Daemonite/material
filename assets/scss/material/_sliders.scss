@@ -3,7 +3,7 @@
 .custom-range {
   appearance: none;
   background-color: transparent;
-  height: 3rem; // 48px
+  height: $slider-accessibility;
   padding: 0; // Need to reset padding
   width: 100%;
 
@@ -37,6 +37,7 @@
     background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
+    box-shadow: $slider-thumb-box-shadow;
     height: $slider-thumb-height;
     margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
     transition: $slider-thumb-transition;
@@ -69,6 +70,7 @@
     background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
+    box-shadow: $slider-thumb-box-shadow;
     height: $slider-thumb-height;
     transition: $slider-thumb-transition;
     width: $slider-thumb-width;
@@ -97,13 +99,15 @@
 
   &::-moz-range-progress {
     background: $slider-thumb-bg;
-    height: $slider-track-height;
+    border-radius: $slider-track-progress-border-radius;
+    height: $slider-track-height-progress;
   }
 
   &::-ms-thumb {
     background-color: $slider-thumb-bg;
     border: $slider-thumb-border;
     border-radius: $slider-thumb-border-radius;
+    box-shadow: $slider-thumb-box-shadow;
     height: $slider-thumb-height;
     margin-top: 0; // Edge specific
     margin-right: $slider-thumb-active-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
@@ -135,8 +139,9 @@
   }
 
   &::-ms-fill-lower {
-    background-color: $slider-thumb-bg;
-    border-radius: $slider-track-border-radius;
+    background: $slider-thumb-bg;
+    border-radius: $slider-track-progress-border-radius;
+    height: $slider-track-height-progress;
   }
 
   &::-ms-fill-upper {
@@ -150,7 +155,7 @@
 
     &::-webkit-slider-thumb {
       background-color: $slider-thumb-disabled-bg;
-      box-shadow: none;
+      box-shadow: $slider-thumb-box-shadow;
     }
 
     &::-webkit-slider-runnable-track {
@@ -161,7 +166,7 @@
     &::-moz-range-thumb,
     &:hover::-moz-range-thumb {
       background-color: $slider-thumb-disabled-bg;
-      box-shadow: none;
+      box-shadow: $slider-thumb-box-shadow;
     }
 
     &::-moz-range-track {
@@ -183,7 +188,7 @@
 
     &::-ms-fill-upper {
       background-color: $slider-track-bg-disabled;
-      margin-right: 15px; // arbitrary?
+      // margin-right: 15px; // arbitrary?
     }
   }
 }

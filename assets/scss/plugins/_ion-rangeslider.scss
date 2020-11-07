@@ -156,7 +156,6 @@
   }
 
   .irs {
-    // font-family: Roboto, sans-serif !important;
     font-weight: $font-weight-medium;
   }
 
@@ -173,8 +172,8 @@
 
   .irs-bar {
     background-color: $slider-thumb-bg;
-    height: $slider-track-height;
-    top: 26px;
+    height: $slider-track-height-progress;
+    top: 25px;
 
     &:hover {
       cursor: $slider-track-cursor;
@@ -205,9 +204,18 @@
     background-color: $slider-thumb-bg;
     border-radius: $slider-thumb-border-radius;
     height: $slider-thumb-height;
-    top: 21px;
+    top: 18px;
     transition: $slider-thumb-transition;
     width: $slider-thumb-width;
+
+    &::before {
+      content: '';
+      height: $slider-accessibility;
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      width: $slider-accessibility;
+    }
 
     &:hover {
       box-shadow: $slider-thumb-hover-box-shadow;
@@ -267,7 +275,7 @@
   }
 
   .irs-grid-pol {
-    background-color: rgba(selection-theme-color(), 0.4);
+    background-color: rgba(selection-theme-color(), $black-secondary-opacity);
     border-radius: 50%;
     height: $slider-track-height;
   }

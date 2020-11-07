@@ -337,20 +337,26 @@ $custom-switch-width:                           2rem !default;
 //$custom-control-indicator-checked-disabled-bg:  rgba(theme-color(primary), 0.5) !default;
 
 // Based on https://material.io/components/sliders/
+// Using values from https://material.io/develop/android/components/sliders
 
+$slider-accessibility: 3rem !default; // 48px
 $slider-track-width: 100% !default;
-$slider-track-height: 0.125rem !default;
+$slider-track-height: 0.25rem !default; // 0.125rem
+$slider-track-height-progress: 0.375rem !default;
 $slider-track-cursor: pointer !default;
 $slider-track-bg: rgba(selection-theme-color(), $overlay-activated-colored-opacity) !default;
 $slider-track-bg-disabled: #d7d7d7 !default;
-$slider-track-border-radius: 3px !default;
-$slider-thumb-width: 0.75rem !default;
+$slider-track-border-radius: $slider-track-height/2 !default;
+$slider-track-progress-border-radius: $slider-track-height-progress/2 !default;
+$slider-thumb-width: 1.25rem !default; // 0.75rem
 $slider-thumb-height: $slider-thumb-width !default;
 $slider-thumb-bg: selection-theme-color() !default;
 $slider-thumb-border: 0 !default;
 $slider-thumb-border-radius: 50% !default;
-$slider-thumb-hover-box-shadow: 0 0 0 $slider-thumb-width rgba(selection-theme-color(), $overlay-focus-white-opacity) !default;
-$slider-thumb-active-box-shadow: 0 0 0 1.3334rem rgba(selection-theme-color(), $overlay-pressed-white-opacity) !default;
+$slider-thumb-box-shadow: map-get($shadows, 1) !default;
+$slider-thumb-box-shadow-radius: ($slider-accessibility - $slider-thumb-height) / 2 !default;
+$slider-thumb-hover-box-shadow: $slider-thumb-box-shadow, 0 0 0 $slider-thumb-box-shadow-radius rgba(selection-theme-color(), $overlay-focus-white-opacity) !default;
+$slider-thumb-active-box-shadow: $slider-thumb-box-shadow, 0 0 0 $slider-thumb-box-shadow-radius rgba(selection-theme-color(), $overlay-pressed-white-opacity) !default;
 $slider-thumb-active-box-shadow-width: 0.2rem !default;
 $slider-thumb-active-bg: $slider-thumb-bg !default;
 $slider-thumb-disabled-bg: #8c8c8c !default;
