@@ -10,11 +10,12 @@
 
 ## 4.5.3 - RC2
 
-- **New**. Sliders are designed as Material guidelines + ionRangeSlider styled accordingly.
-- Removed Dark theme media-query for until improvement. Can be used by applying `data-theme="dark"` to `<html>` opening tag.
-- **Fixed** `List-group-item-icon` flex and color.
+- **New**. Sliders are designed as Material guidelines 2 + **ionRangeSlider** plugin styled accordingly.
+- Removed Dark theme media-query until improvement (opt-in via `$enable-dark-theme-media-query` variable).  
+Dark theme can still be used by applying `data-theme="dark"` to `<html>` opening tag (Material > Dark theme documentation).
+- **Fixed** `List-group-item-icon` flex-shrink and color.
 - **Fixed** Select input styling.
-- Select2 plugin. Fixed placeholder color and max-width.
+- **Fixed** Select2 plugin. Placeholder color, container max-width, dropup animation.
 
 ## 4.5.3 - RC1
 

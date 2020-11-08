@@ -31,7 +31,7 @@ Stylesheet `material-plugins.css` is required as these material design themes fo
 ## Demo
 
 {% capture example %}
-<select class="js-example-basic-single" name="fruit">
+<select class="form-control js-example-basic-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
   <option value="orange">Orange</option>
@@ -64,12 +64,12 @@ Import **Select2** after Material JavaScripts.
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 {% endhighlight %}
 
-Set HTML code of your select menu.
+Set HTML code of your select menu. You should keep `form-control` class for better mobile accessibility (refer to dedicated chapter below).
 
 **NB.** With Select2, in simple select lists, you need to set a first blank `<option>` in order to set a placeholder.
 
 {% highlight html %}
-<select class="js-example-basic-single" name="fruit">
+<select class="form-control js-example-basic-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
   <option value="orange">Orange</option>
@@ -104,7 +104,7 @@ Each theme has its disabled state.
 No need to set the theme in Select2 options in order to use default theme.
 
 {% capture example %}
-<select class="js-example-default-single" name="fruit">
+<select class="form-control js-example-default-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
   <option value="orange">Orange</option>
@@ -127,7 +127,7 @@ $(function() {
 Set theme to `filled` for filled material inputs (like `textfieldbox` ones).
 
 {% capture example %}
-<select class="js-example-basic-single" name="fruit">
+<select class="form-control js-example-basic-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
   <option value="orange">Orange</option>
@@ -152,7 +152,7 @@ $(function() {
 Set theme to `outlined` for outlined material inputs.
 
 {% capture example %}
-<select class="js-example-outlined-single" name="fruit">
+<select class="form-control js-example-outlined-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
   <option value="orange">Orange</option>
@@ -177,7 +177,7 @@ $(function() {
 Various features are supported: Multiple select, optgroup.
 
 {% capture example %}
-<select class="js-example-basic-multiple" name="cars" multiple>
+<select class="form-control js-example-basic-multiple" name="cars" multiple>
   <optgroup label="French Cars">
     <option value="AL">Citroën</option>
     <option value="OR" disabled>Peugeot</option>
@@ -207,7 +207,7 @@ $(function() {
 Single select with search field.
 
 {% capture example %}
-<select class="js-example-search-single" name="cars">
+<select class="form-control js-example-search-single" name="cars">
   <optgroup label="French Cars">
     <option value="AL">Citroën</option>
     <option value="OR" disabled>Peugeot</option>
@@ -233,3 +233,22 @@ $(function() {
 </script>
 {% endcapture %}
 {% include example.html content=example %}
+
+## Mobile accessibility
+
+In order to achieve optimal accessibility on mobile devices, you should initialize **Select2** only on small devices.
+
+This example will use default Android/iOS select on small devices (with a textfield-box style) and Select2 on bigger screens.
+
+{% highlight js %}
+if (window.matchMedia("(min-width: 768px)").matches) {
+  $('.js-example-basic-single').select2({
+    theme: "filled",
+    placeholder: 'Fruit',
+    width: '240px',
+    minimumResultsForSearch: Infinity /* Hide search on single */
+  })
+} else {
+  $('.js-example-basic-single').wrap('<div class="textfield-box"></div>')
+}
+{% endhighlight %}

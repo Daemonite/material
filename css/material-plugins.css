@@ -1616,10 +1616,7 @@ div.dtr-bs-modal table.table tr:first-child td {
   opacity: 1;
 }
 
-.irs--material.irs-disabled .irs-line {
-  background-color: #d7d7d7;
-}
-
+.irs--material.irs-disabled .irs-line,
 .irs--material.irs-disabled .irs-bar,
 .irs--material.irs-disabled .irs-from,
 .irs--material.irs-disabled .irs-to,
@@ -1844,7 +1841,7 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 
 select.is-invalid ~ .select2-container .select2-selection,
-form.was-validated select:invalid ~ .select2-container .select2-selection {
+.was-validated select:invalid ~ .select2-container .select2-selection {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23b00020' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
   background-position: 100%;
   background-repeat: no-repeat;
@@ -1907,6 +1904,8 @@ form.was-validated select:invalid ~ .select2-container .select2-selection {
 .select2-container--open .select2-dropdown.select2-dropdown--above {
   border-radius: 4px 4px 0 0;
   top: -1px;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
 }
 
 @-webkit-keyframes select-menu-scale {
@@ -2065,8 +2064,10 @@ form.was-validated select:invalid ~ .select2-container .select2-selection {
 }
 
 .select2-close-mask {
+  background-color: #ffffff;
   border: 0;
   display: block;
+  filter: alpha(opacity=0);
   height: auto;
   margin: 0;
   min-height: 100%;
@@ -2078,8 +2079,6 @@ form.was-validated select:invalid ~ .select2-container .select2-selection {
   left: 0;
   width: auto;
   z-index: 99;
-  background-color: #ffffff;
-  filter: alpha(opacity=0);
 }
 
 .select2-hidden-accessible {

@@ -1,5 +1,6 @@
 // Material skin for Select2 by djibe
-// stylelint-disable
+// TODO: floating label.
+// stylelint-disable declaration-no-important
 
 .select2-container {
   display: block;
@@ -53,15 +54,16 @@
     }
   }
 
-  &.select2-container--open {
+  &.select2-container--open { // stylelint-disable-line order/order
     .select2-selection::before {
       transform: scaleX(1);
     }
   }
 
   // validated input box
+  // stylelint-disable-next-line selector-no-qualifying-type
   select.is-invalid ~ & .select2-selection,
-  form.was-validated select:invalid ~ & .select2-selection {
+  .was-validated select:invalid ~ & .select2-selection {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath fill='%23b00020' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
     background-position: 100%;
     background-repeat: no-repeat;
@@ -69,7 +71,7 @@
     border-color: theme-color(danger);
   }
 
-  // all clear button TODO
+  // all clear button TODO:
   .select2-selection__clear {
     $bg: #c8c8c8;
 
@@ -90,7 +92,7 @@
   }
 
   // Disabled input box
-  &.select2-container--disabled {
+  &.select2-container--disabled { // stylelint-disable-line order/order
     .select2-selection {
       border-bottom-style: dotted;
       color: $textfield-color-disabled;
@@ -110,8 +112,10 @@
 @import 'select2/dropdown';
 
 .select2-close-mask {
+  background-color: $white; // required for IE to work
   border: 0;
   display: block;
+  filter: alpha(opacity=0); // required for IE to work
   height: auto;
   margin: 0;
   min-height: 100%;
@@ -123,10 +127,6 @@
   left: 0;
   width: auto;
   z-index: 99;
-
-  // styles required for IE to work
-  background-color: $white;
-  filter: alpha(opacity=0);
 }
 
 .select2-hidden-accessible {
@@ -158,5 +158,3 @@
 }
 
 @import 'select2/themes';
-
-// stylelint-enable
