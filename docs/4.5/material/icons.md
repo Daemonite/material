@@ -44,17 +44,19 @@ Then, it is easy to incorporate icons into your web page. You can browse the ico
 Here’s a small example:
 
 {% capture example %}
-<i class="material-icons">face</i>
+<span class="material-icons">face</span>
 {% endcapture %}
 {% include example.html content=example %}
 
-**NB.** In order to allow you to switch fast from one icon set to another, Daemonite Material Design promotes the usage of the default HTML markup using `<i class="material-icons">...</i>` (and avoid specific ones like `<i class="material-icons-outlined">...</i>`).
+**NB.** In order to allow you to switch fast from one icon set to another, Daemonite Material Design promotes the usage of the default HTML markup using `<span class="material-icons">...</span>` (and avoid specific ones like `<span class="material-icons-outlined">...</span>`).
+
 Hence, you can swith from one icon set to another without rewriting all your icon tags.
 
 ### HTML markup with different icon styles
-In the case you want to use 2 different Materials Icons sets (i.e. Baseline and Outlined icons) on a page, you will need to specify `<i class="material-icons-outlined">...</i>` for the icons that will have to be in an Outlined style.
 
-For a **Sharp** + **Round** combination, you must declare icons with both `<i class="material-icons-sharp">...</i>` and `<i class="material-icons-round">...</i>` tags.
+In the case you want to use 2 different Materials Icons sets (i.e. Baseline and Outlined icons) on a page, you will need to specify `<span class="material-icons-outlined">...</span>` for the icons that will have to be in an Outlined style.
+
+For a **Sharp** + **Round** combination, you must declare icons with both `<span class="material-icons-sharp">...</span>` and `<span class="material-icons-round">...</span>` tags.
 
 In case you want to switch to a single Material Icons set, as seen above, you don't have to change all your icon HTML markup, they will all be set to your current declared Material Icons set.
 In fact, all icons declared with `.material-icons*` will style according to the active font stylesheet.
@@ -64,7 +66,7 @@ In fact, all icons declared with `.material-icons*` will style according to the 
 **NB. For browsers that do not [support ligatures (IE11)](https://caniuse.com/#feat=kerning-pairs-ligatures), fall back to specifying the icons using numeric character references like the example below:**
 
 {% capture example %}
-<i class="material-icons">&#xE87C;</i>
+<span class="material-icons">&#xE87C;</span>
 {% endcapture %}
 {% include example.html content=example %}
 
