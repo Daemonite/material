@@ -6204,10 +6204,15 @@ body {
       @include media-breakpoint-up(lg) {
         animation-duration: $transition-duration-desktop;
       }
+      */
+}
 
-      @media screen and (prefers-reduced-motion: reduce) {
-        animation: none;
-      } */
+@media screen and (prefers-reduced-motion: reduce) {
+  .dropdown-menu.show::before,
+  .dropdown-menu.show > * {
+    -webkit-animation: none;
+    animation: none;
+  }
 }
 
 .dropdown-menu.show::before {
@@ -6837,6 +6842,7 @@ body {
   word-wrap: normal;
   content: "arrow_drop_down";
   display: inline-block;
+  line-height: 1rem;
   margin-right: -0.2em;
   margin-left: 0.2em;
   vertical-align: top;

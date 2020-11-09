@@ -5,15 +5,18 @@
 ## Future releases
 
 - NPM package
+- Improve documentation
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
 ## 4.5.3 - RC2
 
-- **New**. Sliders are designed as Material guidelines 2 + **ionRangeSlider** plugin styled accordingly.
+- **New**. Sliders are designed as Material guidelines 2  
+**ionRangeSlider** plugin styled accordingly.
 - Removed Dark theme media-query until improvement (opt-in via `$enable-dark-theme-media-query` variable).  
 Dark theme can still be used by applying `data-theme="dark"` to `<html>` opening tag (Material > Dark theme documentation).
 - **Fixed** `List-group-item-icon` flex-shrink and color.
+- **Fixed** `dropdown-toggle` alignment in Navbar.
 - **Fixed** Select input styling.
 - **Fixed** Select2 plugin. Placeholder color, container max-width, dropup animation.
 
