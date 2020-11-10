@@ -9395,13 +9395,12 @@ body {
   min-width: 21.5rem;
   opacity: 0;
   padding: 0.875rem 1rem;
-  z-index: 240;
-}
-
-.toast.showing {
-  opacity: 0;
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  z-index: 240;
 }
 
 .toast.show {
@@ -9409,9 +9408,6 @@ body {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
-  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .toast.hide {

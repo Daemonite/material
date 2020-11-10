@@ -27,18 +27,15 @@
   min-width: $snackbar-min-width;
   opacity: 0;
   padding: $snackbar-padding-y $snackbar-padding-x;
+  transform: scale(0.8);
+  transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
+  will-change: opacity, transform;
   z-index: map-get($dialog-elevation-shadow, elevation);
-
-  &.showing {
-    opacity: 0;
-    transform: scale(0.8);
-  }
 
   &.show {
     display: block;
     opacity: 1;
     transform: scale(1);
-    transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1);
   }
 
   &.hide {

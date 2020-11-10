@@ -9,6 +9,10 @@
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
+## 4.5.3 - RC3
+
+- **Fixed** Snackbars transition.
+
 ## 4.5.3 - RC2
 
 - **New**. Sliders are designed as Material guidelines 2  
