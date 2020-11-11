@@ -9,6 +9,18 @@
       color: $white;
     }
 
+    &:hover {
+      background-color: rgba($white, $overlay-hover-colored-opacity);
+    }
+
+    &:focus {
+      background-color: rgba($white, $overlay-focus-colored-opacity);
+    }
+
+    &:active {
+      background-color: rgba($white, $overlay-pressed-colored-opacity);
+    }
+
     &::before {
       background-color: $white;
     }
@@ -28,8 +40,6 @@
     justify-content: center;
     letter-spacing: $nav-tab-letter-spacing;
     line-height: 2.25rem;
-    //max-width: 22.5rem;
-    min-width: 5.625rem;
     padding: 0 $nav-tab-link-padding-x;
     position: relative;
     text-transform: uppercase;
@@ -116,8 +126,16 @@
     }
   }
 
-  .nav-link::before {
-    transition: none;
+  &.nav-inverse .nav-tabs-indicator {
+    background-color: $white;
+  }
+
+  .nav-link {
+    min-width: 5.625rem;
+
+    &::before {
+      transition: none;
+    }
   }
 
   .nav-tabs-indicator {
@@ -133,10 +151,6 @@
 
     .nav-tabs-scrollable & {
       bottom: $nav-tab-height;
-    }
-
-    .nav-inverse & {
-      background-color: $white;
     }
   }
 }
