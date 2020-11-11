@@ -11,7 +11,9 @@
 
 ## 4.5.3 - RC3
 
-- **Fixed** Snackbars transition.
+- **Fixed** Snackbars transitions + auto-sizing.
+- **Fixed** `list-group-item-icon` flex-shrink.
+TODO: floating label multi lines
 
 ## 4.5.3 - RC2
 

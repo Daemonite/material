@@ -6,7 +6,6 @@ group: plugins
 toc: true
 plugin: true
 select2: true
-todo: "Only on lg doc, animated label, svg currentColor"
 ---
 
 <div class="list-group my-2 my-lg-5">
@@ -236,9 +235,9 @@ $(function() {
 
 ## Mobile accessibility
 
-In order to achieve optimal accessibility on mobile devices, you should initialize **Select2** only on small devices.
+In order to achieve optimal accessibility on mobile devices, you should initialize **Select2** only on large devices.
 
-This example will use default Android/iOS select on small devices (with a textfield-box style) and Select2 on bigger screens.
+This example will use default Android/iOS select on small devices (with a filled/`textfield-box` style) and **Select2** on larger screens.
 
 {% highlight js %}
 if (window.matchMedia("(min-width: 768px)").matches) {
