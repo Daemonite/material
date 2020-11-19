@@ -1,8 +1,46 @@
 // Latest Sliders : https://material.io/components/sliders
 
+@mixin slider-thumb {
+  background: $slider-thumb-bg;
+  border: $slider-thumb-border;
+  border-radius: $slider-thumb-border-radius;
+  box-shadow: $slider-thumb-box-shadow;
+  height: $slider-thumb-height;
+  transition: $slider-thumb-transition;
+  width: $slider-thumb-width;
+}
+
+@mixin slider-thumb-hover {
+  box-shadow: $slider-thumb-hover-box-shadow;
+}
+
+@mixin slider-thumb-active {
+  background: $slider-thumb-active-bg;
+  box-shadow: $slider-thumb-active-box-shadow;
+}
+
+@mixin slider-thumb-disabled {
+  background: $slider-thumb-bg-disabled;
+  box-shadow: $slider-thumb-box-shadow; // Reset active shadow
+}
+
+@mixin slider-track {
+  background: $slider-track-bg;
+  border-color: transparent;
+  border-radius: $slider-track-border-radius;
+  color: transparent;
+  height: $slider-track-height;
+  width: $slider-track-width;
+}
+
+@mixin slider-track-disabled {
+  background: $slider-track-bg-disabled;
+  cursor: default;
+}
+
 .custom-range {
   appearance: none;
-  background-color: transparent;
+  background: transparent;
   height: $slider-accessibility;
   padding: 0; // Need to reset padding
   width: 100%;
@@ -13,18 +51,13 @@
 
   &:focus {
     outline: 0;
-
-    &::-webkit-slider-thumb { box-shadow: none; }
-    &::-moz-range-thumb { box-shadow: none; }
-    &::-ms-thumb { box-shadow: none; }
   }
 
   &:active {
     outline: 0;
 
     &::-webkit-slider-thumb { box-shadow: $slider-thumb-active-box-shadow; }
-
-    &::-moz-range-thumb,
+    &::-moz-range-thumb { box-shadow: $slider-thumb-active-box-shadow; }
     &::-ms-thumb { box-shadow: $slider-thumb-active-box-shadow; }
   }
 
@@ -33,68 +66,40 @@
   }
 
   &::-webkit-slider-thumb {
+    @include slider-thumb;
+
     appearance: none;
-    background-color: $slider-thumb-bg;
-    border: $slider-thumb-border;
-    border-radius: $slider-thumb-border-radius;
-    box-shadow: $slider-thumb-box-shadow;
-    height: $slider-thumb-height;
     margin-top: ($slider-track-height - $slider-thumb-height) / 2; // Webkit specific
-    transition: $slider-thumb-transition;
-    width: $slider-thumb-width;
 
     &:hover {
-      box-shadow: $slider-thumb-hover-box-shadow;
-      transition: $slider-thumb-transition;
+      @include slider-thumb-hover;
     }
 
     &:active {
-      background-color: $slider-thumb-active-bg;
-      box-shadow: $slider-thumb-active-box-shadow;
-      transition: $slider-thumb-transition;
+      @include slider-thumb-active;
     }
   }
 
   &::-webkit-slider-runnable-track {
-    background-color: $slider-track-bg;
-    border-color: transparent;
-    border-radius: $slider-track-border-radius;
-    color: transparent;
-    cursor: $slider-track-cursor;
-    height: $slider-track-height;
-    width: $slider-track-width;
+    @include slider-track;
   }
 
   &::-moz-range-thumb {
-    -moz-appearance: none; // stylelint-disable-line
-    background-color: $slider-thumb-bg;
-    border: $slider-thumb-border;
-    border-radius: $slider-thumb-border-radius;
-    box-shadow: $slider-thumb-box-shadow;
-    height: $slider-thumb-height;
-    transition: $slider-thumb-transition;
-    width: $slider-thumb-width;
+    @include slider-thumb;
+
+    -moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 
     &:hover {
-      box-shadow: $slider-thumb-hover-box-shadow;
-      transition: $slider-thumb-transition;
+      @include slider-thumb-hover;
     }
 
     &:active {
-      background-color: $slider-thumb-active-bg;
-      box-shadow: $slider-thumb-active-box-shadow;
-      transition: $slider-thumb-transition;
+      @include slider-thumb-active;
     }
   }
 
   &::-moz-range-track {
-    background-color: $slider-track-bg;
-    border-color: transparent; // Firefox specific?
-    border-radius: $slider-track-border-radius;
-    color: transparent;
-    cursor: $slider-track-cursor;
-    height: $slider-track-height;
-    width: $slider-track-width;
+    @include slider-track;
   }
 
   &::-moz-range-progress {
@@ -104,38 +109,25 @@
   }
 
   &::-ms-thumb {
-    background-color: $slider-thumb-bg;
-    border: $slider-thumb-border;
-    border-radius: $slider-thumb-border-radius;
-    box-shadow: $slider-thumb-box-shadow;
-    height: $slider-thumb-height;
+    @include slider-thumb;
+
     margin-top: 0; // Edge specific
     margin-right: $slider-thumb-active-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
-    margin-left: $slider-thumb-active-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
-    width: $slider-thumb-width;
+    margin-left: $slider-thumb-active-box-shadow-width;  // Same comment
 
     &:hover {
-      box-shadow: $slider-thumb-hover-box-shadow;
-    }
-
-    &:focus {
-      box-shadow: none;
+      @include slider-thumb-hover;
     }
 
     &:active {
-      background-color: $slider-thumb-active-bg;
-      box-shadow: $slider-thumb-active-box-shadow;
+      @include slider-thumb-active;
     }
   }
 
   &::-ms-track {
-    background-color: transparent;
-    border-color: transparent;
-    border-width: $slider-thumb-height / 2;
-    color: transparent;
-    cursor: $slider-track-cursor;
-    height: $slider-track-height;
-    width: $slider-track-width;
+    @include slider-track;
+
+    background: transparent;
   }
 
   &::-ms-fill-lower {
@@ -145,7 +137,7 @@
   }
 
   &::-ms-fill-upper {
-    background-color: $slider-track-bg;
+    background: $slider-track-bg;
     border-radius: $slider-track-border-radius;
     margin-right: 15px; // arbitrary?
   }
@@ -154,41 +146,36 @@
     cursor: default;
 
     &::-webkit-slider-thumb {
-      background-color: $slider-thumb-disabled-bg;
-      box-shadow: $slider-thumb-box-shadow;
+      @include slider-thumb-disabled;
     }
 
     &::-webkit-slider-runnable-track {
-      background: $slider-track-bg-disabled;
-      cursor: default;
+      @include slider-track-disabled;
     }
 
     &::-moz-range-thumb,
     &:hover::-moz-range-thumb {
-      background-color: $slider-thumb-disabled-bg;
-      box-shadow: $slider-thumb-box-shadow;
+      @include slider-thumb-disabled;
     }
 
     &::-moz-range-track {
-      background: $slider-track-bg-disabled;
-      cursor: default;
+      @include slider-track-disabled;
     }
 
     &::-moz-range-progress {
-      background: $slider-thumb-disabled-bg;
+      background: $slider-thumb-bg-disabled;
     }
 
     &::-ms-thumb {
-      background: $slider-thumb-disabled-bg;
+      @include slider-thumb-disabled;
     }
 
     &::-ms-fill-lower {
-      background: $slider-thumb-disabled-bg;
+      background: $slider-thumb-bg-disabled;
     }
 
     &::-ms-fill-upper {
-      background-color: $slider-track-bg-disabled;
-      // margin-right: 15px; // arbitrary?
+      @include slider-track-disabled;
     }
   }
 }

@@ -9161,7 +9161,7 @@ body {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: transparent;
+  background: transparent;
   height: 3rem;
   padding: 0;
   width: 100%;
@@ -9175,18 +9175,6 @@ body {
   outline: 0;
 }
 
-.custom-range:focus::-webkit-slider-thumb {
-  box-shadow: none;
-}
-
-.custom-range:focus::-moz-range-thumb {
-  box-shadow: none;
-}
-
-.custom-range:focus::-ms-thumb {
-  box-shadow: none;
-}
-
 .custom-range:active {
   outline: 0;
 }
@@ -9195,7 +9183,11 @@ body {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
-.custom-range:active::-moz-range-thumb, .custom-range:active::-ms-thumb {
+.custom-range:active::-moz-range-thumb {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
+}
+
+.custom-range:active::-ms-thumb {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
@@ -9204,45 +9196,39 @@ body {
 }
 
 .custom-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #6200ee;
+  background: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
   height: 1.25rem;
-  margin-top: -0.5rem;
   -webkit-transition: box-shadow 100ms ease-out;
   transition: box-shadow 100ms ease-out;
   width: 1.25rem;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -0.5rem;
 }
 
 .custom-range::-webkit-slider-thumb:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.12);
-  -webkit-transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out;
 }
 
 .custom-range::-webkit-slider-thumb:active {
-  background-color: #6200ee;
+  background: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
-  -webkit-transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out;
 }
 
 .custom-range::-webkit-slider-runnable-track {
-  background-color: rgba(98, 0, 238, 0.24);
+  background: rgba(98, 0, 238, 0.24);
   border-color: transparent;
   border-radius: 0.125rem;
   color: transparent;
-  cursor: pointer;
   height: 0.25rem;
   width: 100%;
 }
 
 .custom-range::-moz-range-thumb {
-  -moz-appearance: none;
-  background-color: #6200ee;
+  background: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
@@ -9250,27 +9236,23 @@ body {
   -moz-transition: box-shadow 100ms ease-out;
   transition: box-shadow 100ms ease-out;
   width: 1.25rem;
+  -moz-appearance: none;
 }
 
 .custom-range::-moz-range-thumb:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.12);
-  -moz-transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out;
 }
 
 .custom-range::-moz-range-thumb:active {
-  background-color: #6200ee;
+  background: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
-  -moz-transition: box-shadow 100ms ease-out;
-  transition: box-shadow 100ms ease-out;
 }
 
 .custom-range::-moz-range-track {
-  background-color: rgba(98, 0, 238, 0.24);
+  background: rgba(98, 0, 238, 0.24);
   border-color: transparent;
   border-radius: 0.125rem;
   color: transparent;
-  cursor: pointer;
   height: 0.25rem;
   width: 100%;
 }
@@ -9282,38 +9264,36 @@ body {
 }
 
 .custom-range::-ms-thumb {
-  background-color: #6200ee;
+  background: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
   height: 1.25rem;
+  -ms-transition: box-shadow 100ms ease-out;
+  transition: box-shadow 100ms ease-out;
+  width: 1.25rem;
   margin-top: 0;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
-  width: 1.25rem;
 }
 
 .custom-range::-ms-thumb:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.12);
 }
 
-.custom-range::-ms-thumb:focus {
-  box-shadow: none;
-}
-
 .custom-range::-ms-thumb:active {
-  background-color: #6200ee;
+  background: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
 .custom-range::-ms-track {
-  background-color: transparent;
+  background: rgba(98, 0, 238, 0.24);
   border-color: transparent;
-  border-width: 0.625rem;
+  border-radius: 0.125rem;
   color: transparent;
-  cursor: pointer;
   height: 0.25rem;
   width: 100%;
+  background: transparent;
 }
 
 .custom-range::-ms-fill-lower {
@@ -9323,7 +9303,7 @@ body {
 }
 
 .custom-range::-ms-fill-upper {
-  background-color: rgba(98, 0, 238, 0.24);
+  background: rgba(98, 0, 238, 0.24);
   border-radius: 0.125rem;
   margin-right: 15px;
 }
@@ -9333,7 +9313,7 @@ body {
 }
 
 .custom-range:disabled::-webkit-slider-thumb {
-  background-color: #8c8c8c;
+  background: #8c8c8c;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -9343,7 +9323,7 @@ body {
 }
 
 .custom-range:disabled::-moz-range-thumb, .custom-range:disabled:hover::-moz-range-thumb {
-  background-color: #8c8c8c;
+  background: #8c8c8c;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
@@ -9358,6 +9338,7 @@ body {
 
 .custom-range:disabled::-ms-thumb {
   background: #8c8c8c;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .custom-range:disabled::-ms-fill-lower {
@@ -9365,7 +9346,8 @@ body {
 }
 
 .custom-range:disabled::-ms-fill-upper {
-  background-color: #d7d7d7;
+  background: #d7d7d7;
+  cursor: default;
 }
 
 .toast-container {
@@ -9650,6 +9632,7 @@ body {
   justify-content: center;
   letter-spacing: 0.089286em;
   line-height: 2.25rem;
+  max-width: 22.5rem;
   padding: 0 1rem;
   position: relative;
   text-transform: uppercase;
