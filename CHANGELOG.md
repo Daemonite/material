@@ -11,12 +11,13 @@
 
 ## 4.5.3 - RC3
 
-- **Improved** SEO for Documentation.
 - **Improved** Tabs inverse style + animation.
 - **Improved** Material style for table caption, lists, definition lists.
+- **Improved** SEO for Documentation.
 - **Fixed** Snackbars transitions + auto-sizing.
 - **Fixed** `list-group-item-icon` flex-shrink.
 TODO: floating label multi lines
+TODO: Sliders doc
 
 ## 4.5.3 - RC2
 

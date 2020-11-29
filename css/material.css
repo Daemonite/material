@@ -157,6 +157,11 @@ dd,
 ol,
 ul {
   margin: 0;
+}
+
+dd:not([class*='col']),
+ol:not([class*='col']),
+ul:not([class*='col']) {
   padding-left: 2.5rem;
 }
 
@@ -174,16 +179,15 @@ ul {
 
 li,
 li p {
+  font-size: inherit;
   margin: 0.75rem 0;
   padding: 0;
 }
 
-/* ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-bottom: 0;
-} */
+li > ul > li {
+  list-style-type: circle;
+}
+
 dt {
   font-weight: 600;
 }

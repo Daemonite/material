@@ -127,7 +127,10 @@ dd,
 ol,
 ul {
   margin: 0;
-  padding-left: 2.5rem;
+
+  &:not([class*='col']) {
+    padding-left: 2.5rem;
+  }
 }
 
 ol {
@@ -144,16 +147,14 @@ ul {
 
 li,
 li p {
+  font-size: inherit;
   margin: 0.75rem 0;
   padding: 0;
 }
 
-/* ol ol,
-ol ul,
-ul ol,
-ul ul {
-  margin-bottom: 0;
-} */
+li > ul > li { // stylelint-disable-line selector-max-type
+  list-style-type: circle;
+}
 
 // https://developers.google.com/style/lists
 
