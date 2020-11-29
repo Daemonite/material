@@ -13,6 +13,7 @@
 
 - **Improved** SEO for Documentation.
 - **Improved** Tabs inverse style + animation.
+- **Improved** Material style for table caption, lists, definition lists.
 - **Fixed** Snackbars transitions + auto-sizing.
 - **Fixed** `list-group-item-icon` flex-shrink.
 TODO: floating label multi lines

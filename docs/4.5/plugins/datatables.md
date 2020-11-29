@@ -219,7 +219,7 @@ That's it.
 
 Replace `language` object translations of `$.extend($.fn.dataTable.defaults...` for locale texts.
 
-### Remove search
+### Remove search bar
 
 Set `dom` value to `'<"data-table"rt<"bottom"Blip>>'`.
 

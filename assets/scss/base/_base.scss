@@ -123,27 +123,46 @@ address {
   margin-bottom: $paragraph-margin-y;
 }
 
+dd,
 ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: $paragraph-margin-y;
+ul {
+  margin: 0;
+  padding-left: 2.5rem;
 }
 
-ol ol,
+ol {
+  list-style: decimal outside;
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+}
+
+ul {
+  list-style: disc outside;
+}
+
+li,
+li p {
+  margin: 0.75rem 0;
+  padding: 0;
+}
+
+/* ol ol,
 ol ul,
 ul ol,
 ul ul {
   margin-bottom: 0;
-}
+} */
+
+// https://developers.google.com/style/lists
 
 dt {
   font-weight: $dt-font-weight;
 }
 
 dd {
-  margin-bottom: $headings-margin-y;
-  margin-left: 0;
+  margin: $paragraph-margin-y 0;
 }
 
 blockquote {
@@ -243,11 +262,14 @@ table {
 
 caption {
   @include text-align(left);
-  @include typography-caption;
 
+  border-top: $table-border-width solid $table-border-color;
   caption-side: bottom;
   color: $table-caption-color;
-  padding: $table-thead-padding-y $table-cell-padding-x-alt;
+  font-size: $font-size-subtitle-2;
+  letter-spacing: $letter-spacing-subtitle-2;
+  line-height: $line-height-subtitle-2;
+  padding: $table-thead-padding-y $table-cell-padding-x;
 }
 
 // 1. Removes font-weight bold by inheriting

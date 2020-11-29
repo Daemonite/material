@@ -27,6 +27,11 @@ Date pickers can be embedded into:
       pickadate.js: Official documentation</a>
 </div>
 
+{% capture callout %}
+For advanced Pickers, refer to [**flatpickr** plugin documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/picker-flatpickr/).
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
+
 A date picker has to be activated via JavaScript.
 
 **N.B.** Date picker requires `material.js`, `material.min.js` or `https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.js`.

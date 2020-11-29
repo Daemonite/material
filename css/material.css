@@ -153,27 +153,43 @@ address {
   margin-bottom: 1rem;
 }
 
+dd,
 ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
+ul {
+  margin: 0;
+  padding-left: 2.5rem;
 }
 
-ol ol,
+ol {
+  list-style: decimal outside;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ul {
+  list-style: disc outside;
+}
+
+li,
+li p {
+  margin: 0.75rem 0;
+  padding: 0;
+}
+
+/* ol ol,
 ol ul,
 ul ol,
 ul ul {
   margin-bottom: 0;
-}
-
+} */
 dt {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 dd {
-  margin-bottom: 0.5rem;
-  margin-left: 0;
+  margin: 1rem 0;
 }
 
 blockquote {
@@ -237,7 +253,6 @@ pre {
   -ms-overflow-style: scrollbar;
   -webkit-user-select: all;
   -moz-user-select: all;
-  -ms-user-select: all;
   user-select: all;
 }
 
@@ -262,13 +277,13 @@ table {
 caption {
   text-align: left;
   text-align: start;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.033333em;
-  line-height: 1.25rem;
+  border-top: 1px solid #e1e1e1;
   caption-side: bottom;
-  color: rgba(0, 0, 0, 0.38);
-  padding: 1.09375rem 1.5rem;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+  letter-spacing: 0.007143em;
+  line-height: 1.375rem;
+  padding: 1.09375rem 1rem;
 }
 
 [dir='rtl'] caption {
@@ -13509,7 +13524,6 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
 .user-select-all {
   -webkit-user-select: all !important;
   -moz-user-select: all !important;
-  -ms-user-select: all !important;
   user-select: all !important;
 }
 

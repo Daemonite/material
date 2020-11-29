@@ -29,13 +29,18 @@ Data tables can contain:
 * Non-interactive elements (such as badges)
 * Tools to query and manipulate data
 
+{% capture callout %}
+For advanced Data tables, refer to [**DataTables.net** plugin documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/datatables/).
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
+
 ## Data Table Standard
 
 Wrap your table within a div and add `data-table` class to this div. It will add rounded borders and hover effect for each line.
 
 {% capture example %}
 <div class="data-table">
-  <table class="table mb-0">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Dessert</th>
