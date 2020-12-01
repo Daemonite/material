@@ -1,9 +1,9 @@
 /*!
- * Daemonite Material UI v4.5.2 - RC1 (https://djibe.github.io/material/)
+ * Daemonite Material UI 4.5.3 - RC3 (https://djibe.github.io/material/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * Material UI by Maya, Geoff Bowers, Alex Skinner and djibe
+ * Material UI by djibe, Maya, Geoff Bowers and Alex Skinner
  */
 :root {
   --amber: #ffc107;
@@ -3775,6 +3775,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   border-radius: 50%;
   box-shadow: none;
   color: initial;
+  fill: currentColor;
   font-size: 1.5rem;
   height: 3rem;
   min-width: 0;
@@ -3828,12 +3829,15 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .btn-float-extended > i,
+.btn-float-extended > svg,
 .btn-float-extended > [class*='material-icons'] {
+  fill: currentColor;
   margin-right: 0.75rem;
   margin-left: -0.5rem;
 }
 
 .btn-float-extended > i[class*='order-'],
+.btn-float-extended > svg[class*='order-'],
 .btn-float-extended > [class*='material-icons'][class*='order-'] {
   margin-right: -0.5rem;
   margin-left: 0.75rem;
@@ -4945,6 +4949,10 @@ body {
   max-width: 100%;
   overflow: auto;
   scrollbar-width: thin;
+}
+
+.data-table > .table > thead th {
+  border-top: 0;
 }
 
 .table {
@@ -11139,6 +11147,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   transition-timing-function: $transition-timing-function-standard; */
   transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   color: rgba(0, 0, 0, 0.42);
+  fill: currentColor;
   font-size: 1rem;
   margin-right: 1rem;
   -ms-flex-order: -1;

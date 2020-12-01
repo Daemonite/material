@@ -13,9 +13,11 @@
 
 - **Improved** Tabs inverse style + animation.
 - **Improved** Material style for table caption, lists, definition lists.
+- **Improved** SVG style when used in replacement of Material Icons.
 - **Improved** SEO for Documentation.
 - **Fixed** Snackbars transitions + auto-sizing.
 - **Fixed** `list-group-item-icon` flex-shrink.
+- **Fixed** `data-table` top border.
 TODO: floating label multi lines
 TODO: Sliders doc
 
