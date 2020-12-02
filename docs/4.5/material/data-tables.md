@@ -38,9 +38,12 @@ For advanced Data tables, refer to [**DataTables.net** plugin documentation]({{ 
 
 Wrap your table within a div and add `data-table` class to this div. It will add rounded borders and hover effect for each line.
 
+*Responsive* data-table example with `<caption>`, *accessibility* and *Schema.org* microdata.
+
 {% capture example %}
-<div class="data-table">
-  <table class="table">
+<div class="data-table" role="region" aria-labelledby="table-caption01" tabindex="0">
+  <table class="table" itemscope itemtype="https://schema.org/Table">
+    <caption id="table-caption01" itemprop="about"><b>Table 1.</b>Popular deserts and their respective nutriments intake.</caption>
     <thead>
       <tr>
         <th scope="col">Dessert</th>
