@@ -45,13 +45,13 @@ Stylesheet `material-plugins.css` is required.
 Import **material-plugins.css** after Material CSS.
 
 {% highlight html %}
-<link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet" crossorigin>
 {% endhighlight %}
 
 Import **Textarea-autosize.js** after Material JavaScript.
 
 {% highlight html %}
-<script src="https://cdn.jsdelivr.net/npm/textarea-autosize/dist/jquery.textarea_autosize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/textarea-autosize@0.4.2/dist/jquery.textarea_autosize.min.js" integrity="sha256-gtPvsaPR4MtUbbjtrvMNO4AojMEHF9v00dkeQZ5SqQw=" crossorigin></script>
 {% endhighlight %}
 
 Add `textarea-autosize` class to your textarea AND set `rows="1"`.

@@ -126,9 +126,10 @@ address {
 dd,
 ol,
 ul {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: $paragraph-margin-y;
 
-  &:not([class*='col']) {
+  &:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination) {
     padding-left: 2.5rem;
   }
 }
@@ -145,8 +146,7 @@ ul {
   list-style: disc outside;
 }
 
-li,
-li p {
+li:not(.breadcrumb-item):not(.list-group-item):not(.nav-item):not(.page-item) {
   font-size: inherit;
   margin: 0.75rem 0;
   padding: 0;

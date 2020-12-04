@@ -1,4 +1,4 @@
-/* global anchors: false, ClipboardJS: false, docsearch: false, Holder: false */
+/* global anchors: false, ClipboardJS: false, Holder: false */
 
 (function ($) {
   'use strict'
@@ -59,7 +59,7 @@
     })
 
     // Docsearch
-    docsearch({
+    /* docsearch({
       algoliaOptions: {
         facetFilters: ['version: 4.5']
       },
@@ -84,7 +84,7 @@
           return hit
         })
       }
-    })
+    }) */
 
     // Floating labels
     $('.floating-label .custom-select, .floating-label .form-control').floatinglabel()

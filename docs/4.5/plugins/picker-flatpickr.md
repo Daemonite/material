@@ -56,13 +56,13 @@ Don't use inline picker for Date and Time inputs.
 Import **material-plugins.css** after Material CSS. Don't use extra **flatpickr** CSS.
 
 {% highlight html %}
-<link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet" crossorigin>
 {% endhighlight %}
 
 Import **flatpickr** after Material JavaScripts.
 
 {% highlight html %}
-<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.6/dist/flatpickr.min.js" integrity="sha256-BSZ2gjTJLE5ZEGH1e6beyHYNOITz6M26XFre9lEBdx8=" crossorigin></script>
 {% endhighlight %}
 
 Set HTML code of your picker menu.
@@ -77,7 +77,7 @@ Set HTML code of your picker menu.
 Initialize plugin with JavaScript or jQuery parameters.
 
 {% highlight js %}
-$("#flatpickr-demo").flatpickr()
+flatpickr("#flatpickr-demo", {})
 {% endhighlight %}
 
 All parameters are detailed in [official documentation](https://flatpickr.js.org/).
@@ -106,14 +106,12 @@ Picker is also compatible with multiple dates selection.
 </div>
 
 {% highlight js %}
-<div class="bd-example">
-  <div class="form-group form-ripple">
-    <label for="flatpickr-demo">Date</label>
-    <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-date">
-  </div>
+<div class="form-group form-ripple">
+  <label for="flatpickr-demo">Date</label>
+  <input class="form-control flatpickr" type="text" placeholder="Select Date.." id="flatpickr-date">
 </div>
 <script>
-$("#flatpickr-date").flatpickr()
+  flatpickr('#flatpickr-date', {})
 <script>
 {% endhighlight %}
 
@@ -123,21 +121,27 @@ Select a start and final date.
 
 Example displays the picker `inline` and sets `minDate` to Today.
 
-{% capture example %}
+<div class="bd-example">
+  <div class="form-group">
+    <label for="flatpickr-range">Arrival and departure dates</label>
+    <input class="form-control flatpickr" type="text" placeholder="Select Dates.." id="flatpickr-range">
+  </div>
+</div>
+
+{% highlight js %}
 <div class="form-group">
   <label for="flatpickr-range">Arrival and departure dates</label>
   <input class="form-control flatpickr" type="text" placeholder="Select Dates.." id="flatpickr-range">
 </div>
 <script>
-$("#flatpickr-range").flatpickr({
-  inline: true,
-  mode: "range",
-  minDate: "today",
-  dateFormat: "d-m-Y"
-})
+  flatpickr('#flatpickr-range', {
+    inline: true,
+    mode: 'range',
+    minDate: 'today',
+    dateFormat: 'd-m-Y'
+  })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ### DateTime
 
@@ -145,21 +149,27 @@ Select date and time.
 
 Example also displays `week numbers` and sets time format in British `12h` format.
 
-{% capture example %}
+<div class="bd-example">
+  <div class="form-group">
+    <label for="flatpickr-datetime">Date and time of event</label>
+    <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-datetime">
+  </div>
+</div>
+
+{% highlight js %}
 <div class="form-group">
   <label for="flatpickr-datetime">Date and time of event</label>
   <input class="form-control flatpickr" type="text" placeholder="Select Datetime.." id="flatpickr-datetime">
 </div>
 <script>
-$("#flatpickr-datetime").flatpickr({
-  enableTime: true,
-  dateFormat: "m/d/Y H:i",
-  time_24hr: false,
-  weekNumbers: true
-})
+  flatpickr('#flatpickr-datetime', {
+    enableTime: true,
+    dateFormat: 'd/m/Y H:i',
+    time_24hr: false,
+    weekNumbers: true
+  })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ### Time
 
@@ -167,23 +177,29 @@ Select time only.
 
 Simplest time picker in a `24h` format and a `default time`.
 
-{% capture example %}
+<div class="bd-example">
+  <div class="form-group">
+    <label for="flatpickr-time">Time of event</label>
+    <input class="form-control flatpickr" type="text" id="flatpickr-time">
+  </div>
+</div>
+
+{% highlight js %}
 <div class="form-group">
   <label for="flatpickr-time">Time of event</label>
   <input class="form-control flatpickr" type="text" id="flatpickr-time">
 </div>
 <script>
-$("#flatpickr-time").flatpickr({
-  // inline: true,
-  enableTime: true,
-  noCalendar: true,
-  dateFormat: "H:i",
-  time_24hr: true,
-  defaultDate: "13:45"
-})
+  flatpickr('#flatpickr-time', {
+    // inline: true,
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: 'H:i',
+    time_24hr: true,
+    defaultDate: '13:45'
+  });
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ### More details
 

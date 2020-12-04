@@ -156,12 +156,13 @@ address {
 dd,
 ol,
 ul {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
-dd:not([class*='col']),
-ol:not([class*='col']),
-ul:not([class*='col']) {
+dd:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination),
+ol:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination),
+ul:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination) {
   padding-left: 2.5rem;
 }
 
@@ -177,8 +178,7 @@ ul {
   list-style: disc outside;
 }
 
-li,
-li p {
+li:not(.breadcrumb-item):not(.list-group-item):not(.nav-item):not(.page-item) {
   font-size: inherit;
   margin: 0.75rem 0;
   padding: 0;

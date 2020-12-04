@@ -45,7 +45,7 @@ This plugin doesn't require extra CSS loading but **jQuery** is required.
 Import **Bootstrap Maxlength** after your Material JavaScripts.
 
 {% highlight html %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength/dist/bootstrap-maxlength.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-maxlength@1.10.0/dist/bootstrap-maxlength.min.js" integrity="sha256-3ZRODUzkt15hSZ9r++hfZQtVTmHkQJfyXxKhRz6FktQ=" crossorigin></script>
 {% endhighlight %}
 
 Add a `maxlength` attribute to your input field.

@@ -117,14 +117,14 @@ Be sure to have your pages set up with the latest design and development standar
     <!-- Add Material font (Roboto) and Material icon as needed -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin>
-    <link href="{{ site.cdn.md_font }}" rel="stylesheet">
-    <link href="{{ site.cdn.md_icon }}" rel="stylesheet">
+    <link href="{{ site.cdn.md_font }}" rel="stylesheet" crossorigin>
+    <link href="{{ site.cdn.md_icon }}" rel="stylesheet" crossorigin>
 
     <!-- Material CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material.min.css" rel="stylesheet" crossorigin>
 
     <!-- Optional Material CSS for Plugins
-    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/css/material-plugins.min.css" rel="stylesheet" crossorigin>
     -->
 
     <title>Hello, world!</title>
@@ -133,9 +133,9 @@ Be sure to have your pages set up with the latest design and development standar
     <h1>Hello, world!</h1>
 
     <!-- jQuery, Bootstrap Bundle (includes Popper) and Material -->
-    <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
-    <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" async></script>
+    <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin></script>
+    <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" crossorigin async></script>
   </body>
 </html>
 {% endhighlight %}
