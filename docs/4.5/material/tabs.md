@@ -29,7 +29,7 @@ Each tab should contain content that is distinct from other tabs in a set. For e
 
 ## Default tabs
 
-**Most of the details about a basic tab have been covered in Components/Navs documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/#tabs) for more details.**
+**Most of the details about a basic tab have been covered in Components/Navs documentation. [Read more about Navs]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/#tabs).**
 
 ## Fixed tabs
 

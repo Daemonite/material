@@ -55,7 +55,7 @@ Bootstrap's `.btn-link` and `.card-link` are styled as a primary text button.
 
 Raised buttons are rectangular-shaped buttons. They may be used inline. They lift and display ink reactions on press.
 
-**Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
+**Default buttons, i.e. `.btn`, are the equivalent of Material raised buttons. For more details, read [Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
 
@@ -81,7 +81,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 
 ### Outlined buttons
 
-**Outlined buttons have already been covered in the documentation. For more details, please refer to [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
+**Outlined buttons have already been covered in the documentation. For more details, read [Components/Buttons documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/#examples).**
 
 {% capture example %}
 

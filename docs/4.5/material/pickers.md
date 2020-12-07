@@ -28,7 +28,7 @@ Date pickers can be embedded into:
 </div>
 
 {% capture callout %}
-For advanced Pickers, refer to [**flatpickr** plugin documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/picker-flatpickr/).
+For advanced Pickers, read [**flatpickr** plugin documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/picker-flatpickr/).
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 

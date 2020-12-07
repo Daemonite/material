@@ -6,17 +6,17 @@ group: material
 ---
 
 <div class="list-group">
-    <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action d-flex font-weight-bold">
-        <span class="list-group-item-icon lgi-icon-md"></span>
-        Material Design Icons</a>
+  <a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="nofollow" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-md"></span>
+    Material Design Icons</a>
 </div>
 
 ## Choose your icon set
 
-Daemonite Material Design for Bootstrap 4 is dependent of Material Design Icons and therefore requires at least this stylesheet declaration in your HTML header.
+*Daemonite Material Design for Bootstrap 4* is dependent of Material Design Icons and therefore requires at least this stylesheet declaration in your HTML header.
 
 {% highlight html %}
-<link href="{{ site.cdn.md_icon }}" rel="stylesheet">
+<link href="{{ site.cdn.md_icon }}" rel="stylesheet" crossorigin>
 {% endhighlight %}
 
 For more creativity, it is compatible with all variants of Material Design Icons (**Filled, Outlined, Rounded, Two-Tone and Sharp versions**, declared in the same order below).
@@ -24,24 +24,24 @@ For more creativity, it is compatible with all variants of Material Design Icons
 You can apply changes to your page immediately by modifying the stylesheet declaration according to the icon set you want (pick the one you want below).
 
 {% highlight html %}
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Two+Tone" rel="stylesheet" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet" crossorigin>
 {% endhighlight %}
 
 You can even mix multiple icons sets within your page with a combined stylesheet declaration like this (i.e. Baseline and Outlined versions).
 
 {% highlight html %}
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Icons+Outlined" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons&family=Material+Icons+Outlined" rel="stylesheet" crossorigin>
 {% endhighlight %}
 
 ## HTML markup
 
 Then, it is easy to incorporate icons into your web page. You can browse the icon set and copy-paste the HTML markup from the [Material icons library](https://material.io/resources/icons/).
 
-Here’s a small example:
+Here is a small example:
 
 {% capture example %}
 <span class="material-icons">face</span>
@@ -70,4 +70,4 @@ In fact, all icons declared with `.material-icons*` will style according to the 
 {% endcapture %}
 {% include example.html content=example %}
 
-For all available icons, please refer to [Material icons library](https://material.io/resources/icons/).
+For all available icons, [see Material icons library](https://material.io/resources/icons/).

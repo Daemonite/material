@@ -30,7 +30,7 @@ Data tables can contain:
 * Tools to query and manipulate data
 
 {% capture callout %}
-For advanced Data tables, refer to [**DataTables.net** plugin documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/datatables/).
+For advanced Data tables, [see **DataTables.net** plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/datatables/).
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 
@@ -43,7 +43,7 @@ Wrap your table within a div and add `data-table` class to this div. It will add
 {% capture example %}
 <div class="data-table" role="region" aria-labelledby="table-caption01" tabindex="0">
   <table class="table" itemscope itemtype="https://schema.org/Table">
-    <caption id="table-caption01" itemprop="about"><b>Table 1.</b>Popular deserts and their respective nutriments intake.</caption>
+    <caption id="table-caption01" itemprop="about"><b>Table 1.</b> Popular deserts and their respective nutriments intake.</caption>
     <thead>
       <tr>
         <th scope="col">Dessert</th>

@@ -69,7 +69,7 @@ Add additional colour classes (e.g. brand colors: <code>-primary</code>, <code>-
 
 ## Linear progress
 
-**Most of the details about linear progress have been covered in Components/Progress documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/) for more details.**
+**Most of the details about linear progress have been covered in Components/Progress documentation. Read more about [Progress component]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/progress/).**
 
 ### Indeterminate linear progress
 

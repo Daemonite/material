@@ -24,7 +24,7 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
     Material Components for the web: Text field</a>
 </div>
 
-**Most of the details about basic text fields are covered in Components/Forms documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/) for more examples.**
+**Most of the details about basic text fields are covered in Components/Forms documentation. [Read Forms documentation]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/forms/).**
 
 ## Line ripple effect
 

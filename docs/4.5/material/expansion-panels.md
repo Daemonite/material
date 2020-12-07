@@ -6,12 +6,12 @@ group: material
 toc: true
 ---
 
-**Expansion panels are no longer cited in Material guidelines. The links refer to the archived version of Material design.**
+**Expansion panels are no longer cited in Material guidelines. The links refers to the archived version of Material design guidelines.**
 
 <div class="list-group mt-lg-5">
-    <a href="https://material.io/archive/guidelines/components/expansion-panels.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
-      <span class="list-group-item-icon lgi-icon-md"></span>
-      Material Design: Expansion panels (Archive)</a>
+  <a href="https://material.io/archive/guidelines/components/expansion-panels.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-md"></span>
+    Material Design: Expansion panels (Archive)</a>
 </div>
 
 ## Examples
