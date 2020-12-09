@@ -19,6 +19,7 @@
 - **Improved** `prefers-reduced-motion` media query for all components and abandonned file (_scrollspy.scss).
 - **Improved** Custom CSS scrollbar declaration for Firefox.
 - **Fixed** Snackbars transitions + auto-sizing.
+- **Fixed** Very long `floating-label`.
 - **Fixed** `list-group-item-icon` flex-shrink.
 - **Fixed** `data-table` top border.
 
