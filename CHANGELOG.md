@@ -17,12 +17,9 @@
 - **Improved** SVG style when used in replacement of Material Icons.
 - **Improved** *Flatpickr* Date picker plugin initialization changed from JQuery to pure JavaScript.
 - **Improved** SEO for Documentation.
-- **Fixed** Snackbars transitions + auto-sizing.
+- **Fixed** Snackbars transitions + prefers-reduced-motion + auto-sizing.
 - **Fixed** `list-group-item-icon` flex-shrink.
 - **Fixed** `data-table` top border.
-TODO: floating label multi lines
-TODO: chip-action ripple
-TODO: reduced motion snackbar
 
 ## 4.5.3 - RC2
 

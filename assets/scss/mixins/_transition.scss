@@ -12,10 +12,6 @@
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop-leaving;
   }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 // Deceleration curve: entering the screen
@@ -32,10 +28,6 @@
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop-entering;
   }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 // Sharp curve: temporarily leaving the screen
@@ -51,10 +43,6 @@
 
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop-leaving;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
   }
 }
 
@@ -73,10 +61,6 @@
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop;
   }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 // Standard curve: relative movement - complex, full-screen, large transitions
@@ -93,34 +77,18 @@
   @include media-breakpoint-up(lg) {
     transition-duration: $transition-duration-desktop-complex;
   }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 // Selection control
 
 @mixin transition-control($property...) {
   transition: $property $transition-duration-control $transition-timing-function-standard;
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 @mixin transition-dialog-opening($property...) {
   transition: $property $transition-duration-desktop-entering $transition-timing-function-deceleration;
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }
 
 @mixin transition-dialog-leaving($property...) {
   transition: $property $transition-duration-desktop-leaving $transition-timing-function-acceleration;
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
 }

@@ -41,21 +41,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Thanks to https://www.belter.io/prefers-reduced-motion/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
+  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: $webkit-tap-highlight-color;
-
-  @if ($enable-smooth-scroll) {
-    scroll-behavior: smooth;
-
-    @media (prefers-reduced-motion: reduce) {
-      & {
-        scroll-behavior: auto;
-      }
-    }
-  }
 }
 
 article,

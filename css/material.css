@@ -67,6 +67,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -3076,12 +3087,11 @@ pre code {
   padding-top: 42.857143%;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  [data-spy='scroll'] {
-    scroll-behavior: auto;
-  }
-}
-
+/* @media (prefers-motion: reduce) {
+    [data-spy='scroll'] {
+      scroll-behavior: auto;
+    }
+  } */
 [data-spy='scroll'] {
   scroll-behavior: smooth;
 }
@@ -3832,16 +3842,16 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   width: auto;
 }
 
-.btn-float-extended > i,
-.btn-float-extended > svg,
-.btn-float-extended > [class*='material-icons'] {
+.btn-float-extended i,
+.btn-float-extended svg,
+.btn-float-extended [class*='material-icons'] {
   margin-right: 0.75rem;
   margin-left: -0.5rem;
 }
 
-.btn-float-extended > i[class*='order-'],
-.btn-float-extended > svg[class*='order-'],
-.btn-float-extended > [class*='material-icons'][class*='order-'] {
+.btn-float-extended i[class*='order-'],
+.btn-float-extended svg[class*='order-'],
+.btn-float-extended [class*='material-icons'][class*='order-'] {
   margin-right: -0.5rem;
   margin-left: 0.75rem;
 }
@@ -5350,6 +5360,7 @@ body {
   pointer-events: none;
   position: relative;
   width: calc(100% - 1rem * 2);
+  will-change: opacity, transform;
 }
 
 .modal.show .modal-dialog {
@@ -9416,6 +9427,12 @@ body {
   transition: opacity 0.15s cubic-bezier(0, 0, 0.2, 1), transform 0.15s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.15s cubic-bezier(0, 0, 0.2, 1);
   will-change: opacity, transform;
   z-index: 240;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
 }
 
 .toast.show {

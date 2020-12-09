@@ -43,6 +43,7 @@
   pointer-events: none;
   position: relative;
   width: calc(100% - #{$dialog-margin-x} * 2);
+  will-change: opacity, transform;
 
   .modal.show & {
     @include transition-dialog-opening(opacity, transform);
@@ -54,11 +55,9 @@
 
 .modal-dialog-scrollable {
   display: flex; // IE10/11
-  // max-height: calc(100vh - #{$dialog-margin-y * 2});
   max-height: subtract(100%, $dialog-margin-y * 2);
 
   .modal-content {
-    //max-height: calc(100vh - #{$dialog-margin-y * 2}); // IE10/11
     max-height: subtract(100vh, $dialog-margin-y * 2); // IE10/11
     overflow: hidden;
   }
