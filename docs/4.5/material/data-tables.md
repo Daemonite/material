@@ -30,7 +30,7 @@ Data tables can contain:
 * Tools to query and manipulate data
 
 {% capture callout %}
-For advanced Data tables, [see **DataTables.net** plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/datatables/).
+For advanced Data tables, see [**DataTables.net** plugin]({{ site.baseurl }}/docs/{{ site.docs_version }}/plugins/datatables/).
 {% endcapture %}
 {% include callout.html content=callout type="info" %}
 

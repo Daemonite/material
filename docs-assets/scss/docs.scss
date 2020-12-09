@@ -266,7 +266,8 @@
 // Docsearch
 
 /* stylelint-disable declaration-no-important */
-.algolia-autocomplete {
+
+/* .algolia-autocomplete {
   .algolia-docsearch-footer {
     border-top: $border-width solid $border-color;
     color: $menu-link-color-disabled !important;
@@ -304,13 +305,13 @@
   .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
     background-color: $menu-link-bg-hover !important;
   }
-}
+} */
 
 /* stylelint-enable declaration-no-important */
 
-.doc-search:focus {
+/* .doc-search:focus {
   z-index: 101;
-}
+} */
 
 // Project css
 
@@ -323,6 +324,12 @@
   color: $white-primary;
   margin-bottom: 0;
   padding-top: ($toolbar-height * 2);
+
+  /* @media (prefers-reduced-data: no-preference) {
+    & {
+      background-image: url('../images/doc-jumbotron-bg.jpg');
+    }
+  } */
 
   @include media-breakpoint-down(sm) {
     h1 {
@@ -501,5 +508,23 @@
   video,
   .prevent-dark-mode {
     filter: none;
+  }
+}
+
+// Input style for Sliders
+
+.form-alternative {
+  appearance: none;
+  background: #f5f5f5;
+  border: 0;
+  border-radius: 4px;
+  color: #666666;
+  font-weight: 500;
+  padding: 8px 4px 8px 8px;
+  text-align: center;
+  width: 52px;
+
+  &:focus {
+    outline: 0;
   }
 }
