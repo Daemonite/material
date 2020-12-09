@@ -16,8 +16,9 @@
 - **Improved** Material style for table caption, lists, definition lists.
 - **Improved** SVG style when used in replacement of Material Icons.
 - **Improved** *Flatpickr* Date picker plugin initialization changed from JQuery to pure JavaScript.
-- **Improved** SEO for Documentation.
-- **Fixed** Snackbars transitions + prefers-reduced-motion + auto-sizing.
+- **Improved** `prefers-reduced-motion` media query for all components and abandonned file (_scrollspy.scss).
+- **Improved** Custom CSS scrollbar declaration for Firefox.
+- **Fixed** Snackbars transitions + auto-sizing.
 - **Fixed** `list-group-item-icon` flex-shrink.
 - **Fixed** `data-table` top border.
 
