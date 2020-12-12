@@ -34,11 +34,13 @@ More improvements for the Dark mode will be added in next versions.
   <label class="custom-control-label" for="darkSwitch">Toggle Dark mode</label>
 </div>
 <script>
-  const Tag = document.documentElement // Get <html> tag
-  const Switch = document.getElementById('darkSwitch')
-  Tag.dataset.theme = 'dark'
-  Switch.addEventListener('click', () => {
-    Switch.checked ? Tag.dataset.theme = 'dark' : Tag.dataset.theme = ''
+  document.addEventListener("DOMContentLoaded", function(event) {
+    const Tag = document.documentElement; /* Get <html> tag */
+    const Switch = document.getElementById('darkSwitch');
+    Tag.dataset.theme = 'dark';
+    Switch.addEventListener('click', () => {
+      Switch.checked ? Tag.dataset.theme = 'dark' : Tag.dataset.theme = '';
+    })
   })
 </script>
 {% endcapture %}
