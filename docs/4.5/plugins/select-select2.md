@@ -29,25 +29,14 @@ Stylesheet `material-plugins.css` is required as these material design themes fo
 
 ## Demo
 
-{% capture example %}
-<select class="form-control js-example-basic-single" name="fruit">
-  <option></option>
-  <option value="apple">Apple</option>
-  <option value="orange">Orange</option>
-  <option value="banana">Banana</option>
-</select>
-<script>
-$(function() {
-  $('.js-example-basic-single').select2({
-    theme: 'filled',
-    placeholder: 'Fruit',
-    width: '240px',
-    minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
-})
-</script>
-{% endcapture %}
-{% include example.html content=example %}
+<div class="bd-example">
+  <select class="form-control js-example-basic-single" name="fruit">
+    <option></option>
+    <option value="apple">Apple</option>
+    <option value="orange">Orange</option>
+    <option value="banana">Banana</option>
+  </select>
+</div>
 
 ## Using Select2
 
@@ -86,11 +75,11 @@ $(function() {
     placeholder: 'Fruit',
     width: '240px',
     minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
+  });
 })
 {% endhighlight %}
 
-All parameters are detailed in [official documentation](https://select2.org/).
+All parameters are detailed in [Select2's official documentation](https://select2.org/).
 
 That's it.
 
@@ -102,7 +91,16 @@ Each theme has its disabled state.
 
 No need to set the theme in Select2 options in order to use default theme.
 
-{% capture example %}
+<div class="bd-example">
+  <select class="form-control js-example-default-single" name="fruit">
+    <option></option>
+    <option value="apple">Apple</option>
+    <option value="orange">Orange</option>
+    <option value="banana">Banana</option>
+  </select>
+</div>
+
+{% highlight html %}
 <select class="form-control js-example-default-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
@@ -115,17 +113,25 @@ $(function() {
     placeholder: 'Fruit',
     width: '240px',
     minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
+  });
 })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ### Filled theme
 
 Set theme to `filled` for filled material inputs (like `textfieldbox` ones).
 
-{% capture example %}
+<div class="bd-example">
+  <select class="form-control js-example-basic-single" name="fruit">
+    <option></option>
+    <option value="apple">Apple</option>
+    <option value="orange">Orange</option>
+    <option value="banana">Banana</option>
+  </select>
+</div>
+
+{% highlight html %}
 <select class="form-control js-example-basic-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
@@ -140,17 +146,25 @@ $(function() {
     width: '240px',
     multiple: false,
     minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
+  });
 })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ### Outlined theme
 
 Set theme to `outlined` for outlined material inputs.
 
-{% capture example %}
+<div class="bd-example">
+  <select class="form-control js-example-outlined-single" name="fruit">
+    <option></option>
+    <option value="apple">Apple</option>
+    <option value="orange">Orange</option>
+    <option value="banana">Banana</option>
+  </select>
+</div>
+
+{% highlight html %}
 <select class="form-control js-example-outlined-single" name="fruit">
   <option></option>
   <option value="apple">Apple</option>
@@ -165,17 +179,34 @@ $(function() {
     width: '240px',
     multiple: false,
     minimumResultsForSearch: Infinity /* Hide search on single select */
-  })
+  });
 })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ## Options
 
 Various features are supported: Multiple select, optgroup.
 
-{% capture example %}
+<div class="bd-example">
+  <select class="form-control js-example-basic-multiple" name="cars" multiple>
+    <optgroup label="French Cars">
+      <option value="AL">Citroën</option>
+      <option value="OR" disabled>Peugeot</option>
+      <option value="BA">Renault</option>
+    </optgroup>
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+    <optgroup label="German Cars">
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+</div>
+
+{% highlight html %}
 <select class="form-control js-example-basic-multiple" name="cars" multiple>
   <optgroup label="French Cars">
     <option value="AL">Citroën</option>
@@ -197,15 +228,32 @@ $(function() {
     theme: 'filled',
     placeholder: 'Cars',
     width: '400px'
-  })
+  });
 })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 Single select with search field.
 
-{% capture example %}
+<div class="bd-example">
+  <select class="form-control js-example-search-single" name="cars">
+    <optgroup label="French Cars">
+      <option value="AL">Citroën</option>
+      <option value="OR" disabled>Peugeot</option>
+      <option value="BA">Renault</option>
+    </optgroup>
+    <optgroup label="Swedish Cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+    </optgroup>
+    <optgroup label="German Cars">
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </optgroup>
+  </select>
+</div>
+
+{% highlight html %}
 <select class="form-control js-example-search-single" name="cars">
   <optgroup label="French Cars">
     <option value="AL">Citroën</option>
@@ -227,11 +275,10 @@ $(function() {
     theme: 'filled',
     placeholder: 'Cars',
     width: '240px'
-  })
+  });
 })
 </script>
-{% endcapture %}
-{% include example.html content=example %}
+{% endhighlight %}
 
 ## Mobile accessibility
 
@@ -246,8 +293,8 @@ if (window.matchMedia("(min-width: 768px)").matches) {
     placeholder: 'Fruit',
     width: '240px',
     minimumResultsForSearch: Infinity /* Hide search on single */
-  })
+  });
 } else {
-  $('.js-example-basic-single').wrap('<div class="textfield-box"></div>')
+  $('.js-example-basic-single').wrap('<div class="textfield-box"></div>');
 }
 {% endhighlight %}
