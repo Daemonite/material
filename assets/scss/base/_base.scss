@@ -121,18 +121,14 @@ abbr[data-original-title] {
 address {
   font-style: normal;
   line-height: inherit;
-  margin-bottom: $paragraph-margin-y;
 }
 
+address,
 dd,
 ol,
 ul {
   margin-top: 0;
   margin-bottom: $paragraph-margin-y;
-
-  &:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination) {
-    padding-left: 2.5rem;
-  }
 }
 
 ol {
@@ -147,17 +143,20 @@ ul {
   list-style: disc outside;
 }
 
-li:not(.breadcrumb-item):not(.list-group-item):not(.nav-item):not(.page-item) {
-  font-size: inherit;
-  margin: 0.75rem 0;
-  padding: 0;
+// djibe addition looks like https://developers.google.com/style/lists
+.list-material {
+  padding-left: 2.5rem;
+
+  li {
+    font-size: inherit;
+    margin: 0.75rem 0;
+    padding: 0;
+  }
 }
 
 li > ul > li { // stylelint-disable-line selector-max-type
   list-style-type: circle;
 }
-
-// https://developers.google.com/style/lists
 
 dt {
   font-weight: $dt-font-weight;
@@ -165,6 +164,10 @@ dt {
 
 dd {
   margin: $paragraph-margin-y 0;
+
+  &:not([class*='col']) {
+    padding-left: 2.5rem;
+  }
 }
 
 blockquote {

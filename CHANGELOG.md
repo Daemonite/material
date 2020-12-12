@@ -11,9 +11,9 @@
 
 ## 4.5.3 - RC3
 
-- **New** Material Sliders documentation
+- **New** [Material Sliders documentation](https://djibe.github.io/material/docs/4.5/material/sliders).
 - **Improved** Tabs inverse style + animation.
-- **Improved** Material style for table caption, lists, definition lists.
+- **Improved** Material style for table caption, definition lists.
 - **Improved** SVG style when used in replacement of Material Icons.
 - **Improved** *Flatpickr* Date picker plugin initialization changed from JQuery to pure JavaScript.
 - **Improved** `prefers-reduced-motion` media query for all components and abandonned file (_scrollspy.scss).
@@ -22,6 +22,7 @@
 - **Fixed** Very long `floating-label`.
 - **Fixed** `list-group-item-icon` flex-shrink.
 - **Fixed** `data-table` top border.
+- **Fixed** Documentation crashes due to *Jekyll compress* (// comments in JS failing).
 
 ## 4.5.3 - RC2
 

@@ -155,20 +155,14 @@ abbr[data-original-title] {
 address {
   font-style: normal;
   line-height: inherit;
-  margin-bottom: 1rem;
 }
 
+address,
 dd,
 ol,
 ul {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-dd:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination),
-ol:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination),
-ul:not([class*='col']):not(.breadcrumb):not(.list-group):not([class*='nav']):not(.pagination) {
-  padding-left: 2.5rem;
 }
 
 ol {
@@ -183,7 +177,11 @@ ul {
   list-style: disc outside;
 }
 
-li:not(.breadcrumb-item):not(.list-group-item):not(.nav-item):not(.page-item) {
+.list-material {
+  padding-left: 2.5rem;
+}
+
+.list-material li {
   font-size: inherit;
   margin: 0.75rem 0;
   padding: 0;
@@ -199,6 +197,10 @@ dt {
 
 dd {
   margin: 1rem 0;
+}
+
+dd:not([class*='col']) {
+  padding-left: 2.5rem;
 }
 
 blockquote {
