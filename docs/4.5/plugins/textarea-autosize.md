@@ -60,6 +60,7 @@ Add `textarea-autosize` class to your textarea AND set `rows="1"`.
 {% endhighlight %}
 
 Initialize plugin once.
+
 {% highlight js %}
 $('.textarea-autosize').textareaAutoSize()
 {% endhighlight %}

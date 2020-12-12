@@ -33,13 +33,12 @@ Stylesheet `material-plugins.css` is required as this material design theme is d
 
 ## Demo
 
-{% capture example %}
-<div class="form-group my-3">
-  <label for="demo-0">Set min value, max value and start point</label>
-  <input type="text" class="js-range-slider" value="" id="demo-0">
+<div class="bd-example">
+  <div class="form-group my-3">
+    <label for="demo-0">Set min value, max value and start point</label>
+    <input type="text" class="js-range-slider" value="" id="demo-0">
+  </div>
 </div>
-{% endcapture %}
-{% include example.html content=example %}
 
 ## Using Ion.RangeSlider
 
@@ -75,8 +74,8 @@ $(function() {
     max: 1000,
     from: 550,
     skin: 'material'
-  })
-})
+  });
+});
 {% endhighlight %}
 
 All parameters are detailed in [official documentation](http://ionden.com/a/plugins/ion.rangeSlider/).
