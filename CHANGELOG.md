@@ -22,7 +22,7 @@
 - **Fixed** Very long `floating-label`.
 - **Fixed** `list-group-item-icon` flex-shrink.
 - **Fixed** `data-table` top border.
-- **Fixed** Documentation crashes due to *Jekyll compress* (// comments in JS failing).
+- **Fixed** Documentation JS crashes due to *Jekyll compress* (// comments in JS failing).
 
 ## 4.5.3 - RC2
 

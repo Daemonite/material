@@ -65,6 +65,6 @@ $('[maxlength]').maxlength({
 })
 {% endhighlight %}
 
-All parameters are detailed in [official documentation](https://github.com/mimo84/bootstrap-maxlength).
+All parameters are detailed in [Bootstrap maxlength official documentation](https://github.com/mimo84/bootstrap-maxlength).
 
 That's it.
