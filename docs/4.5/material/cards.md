@@ -200,10 +200,9 @@ As a Primary action is frequently a link, it is perfect to use it with [Bootstra
 <div class="card card-body card-primary-action flex-row" style="width: 250px;">
   <span class="material-icons text-primary mt-2 mr-4" style="font-size: 48px;">palette</span>
   <div>
-    <h5 class="typography-body-2 font-weight-bold">Applying color to UI</h5>
+    <h5 class="typography-body-2 font-weight-bold"><a href="#" class="stretched-link">Applying color to UI</a></h5>
     <h6 class="typography-body-2 mb-0">In a UI, color has a variety of roles:...</h6>
   </div>
-  <a href="#" class="stretched-link"></a>
 </div>
 {% endcapture %}
 {% include example.html content=example %}

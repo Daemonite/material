@@ -165,9 +165,9 @@
 .card-actions {
   align-items: center;
   display: flex;
-  flex-wrap: wrap; // addition
+  flex-wrap: wrap;
   min-height: 3.25rem; // 52px
-  padding: 0 $spacer-sm;
+  padding: $spacer-sm;
 
   &.flex-column {
     align-items: flex-start;
@@ -179,7 +179,10 @@
   }
 
   .card-body + & {
+    // Obtain 8px spacing between body and actions
+    background-color: $card-bg;
     margin-top: -$spacer-sm;
+    z-index: 1;
   }
 
   .btn {

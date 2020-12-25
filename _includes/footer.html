@@ -217,6 +217,23 @@
       postfix: ' years',
       skin: 'material' /* eslint-disable-line no-dupe-keys */
     });
+    const Slider = $('#weight'), Input = $('#weightInput'), min = 3, max = 50;
+    Slider.ionRangeSlider({
+      skin: 'material',
+      min: min,
+      max: max,
+      postfix: ' kg',
+      max_postfix: '+',
+      extra_classes: 'flex-fill'
+    });
+    let sliderInstance = Slider.data('ionRangeSlider');
+    Input.on('input', function () {
+      let val = $(this).prop('value');
+      if (val < min) { val = min;
+      } else if (val > max) { val = max;
+      }
+      sliderInstance.update({ from: val });
+    });
   });
   </script>
   {% endif %}

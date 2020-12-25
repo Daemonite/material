@@ -13,6 +13,9 @@ Sliders allow users to view and select a value (or range) from the range along a
 Sliders can use icons on both ends of the bar to represent a numeric or relative scale. The range of values or the nature of the values, such as volume change, can be communicated with icons.
 
 <div class="list-group my-2 my-lg-5">
+  <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/material/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <span class="list-group-item-icon lgi-icon-bs"></span>
+      Daemonite Material UI: Sliders</a>
   <a href="https://material.io/components/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Sliders</a>
@@ -81,6 +84,60 @@ $(function() {
 All parameters are detailed in [official documentation](http://ionden.com/a/plugins/ion.rangeSlider/).
 
 That's it.
+
+## Use callbacks
+
+In this example, you can use the input field to control the slider, and vice versa.
+
+<div class="bd-example">
+  <div class="form-group">
+    <label for="weight">Child's weight</label>
+    <div class="d-flex align-items-center">
+      <input type="text" value="20" id="weight" oninput="weightInput.value = this.value">
+      <input type="number" class="form-alternative ml-3" id="weightInput" value="20" min="3" max="50">
+    </div>
+  </div>
+</div>
+{% highlight html %}
+<div class="form-group">
+  <label for="weight">Child's weight</label>
+  <div class="d-flex align-items-center">
+    <input type="text" value="20" id="weight" oninput="weightInput.value = this.value">
+    <input type="number" class="form-alternative ml-3" id="weightInput" value="20" min="3" max="50">
+  </div>
+</div>
+{% endhighlight %}
+{% highlight js %}
+$(function () {
+  const Slider = $('#weight');
+  const Input = $('#weightInput');
+  const min = 3;
+  const max = 50;
+
+  Slider.ionRangeSlider({
+    skin: 'material',
+    min: min,
+    max: max,
+    postfix: ' kg',
+    max_postfix: '+',
+    extra_classes: 'flex-fill'
+  });
+
+  let sliderInstance = Slider.data('ionRangeSlider');
+
+  Input.on('input', function() {
+    let val = $(this).prop('value');
+    // validate
+    if (val < min) {
+      val = min;
+    } else if (val > max) {
+      val = max;
+    }
+  sliderInstance.update({
+    from: val
+  });
+});
+{% endhighlight %}
 
 ## More examples
 

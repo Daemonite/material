@@ -9,6 +9,10 @@
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
+# 4.5.3 - RC4
+
+- **Fixed** `card-actions` padding-top when following card-body.
+
 ## 4.5.3 - RC3
 
 - **New** [Material Sliders documentation](https://djibe.github.io/material/docs/4.5/material/sliders).
