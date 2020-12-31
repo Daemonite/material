@@ -11,7 +11,8 @@
 
 # 4.5.3 - RC4
 
-- **Fixed** `card-actions` padding-top when following card-body.
+- **Fixed** `card-actions` padding-top coming after `card-body`.
+- **Improved** *ionRangeSlider* documentation.
 
 ## 4.5.3 - RC3
 

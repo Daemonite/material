@@ -135,16 +135,19 @@
 
 [type='checkbox'] + .chip-filter::before {
   content: '';
-  font-family: var(--font-family-material-icons); // stylelint-disable-line font-family-no-missing-generic-family-keyword
-  transition: margin 100ms ease-in;
+  height: 1.125rem;
+  margin-right: $chip-inner-spacer-x;
+  opacity: 0;
+  transform: translateX(-$chip-inner-spacer-x);
+  transition: width 180ms ease-in;
+  width: 0;
 }
 
 [type='checkbox']:checked + .chip-filter::before {
-  content: 'check';
-  font-size: 1.125rem;
-  margin-right: $chip-inner-spacer-x;
-  transform: translateX(-$chip-inner-spacer-x);
-  transition: margin 100ms ease-in;
+  content: escape-svg(url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>'));
+  opacity: 1;
+  transition: opacity 180ms 90ms, width 180ms ease-in;
+  width: 1.125rem;
 }
 
 .chip-img {

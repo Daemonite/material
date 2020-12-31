@@ -73,6 +73,13 @@ const Ripplet = (() => {
       ripplet(rippleTarget, {
         color: 'rgba(255,255,255,0.24)'
       })
+    } else if (
+      cls.contains('nav-link')
+    ) {
+      ripplet(rippleTarget, {
+        color: getComputedStyle(currentTarget, ':active').color,
+        opacity: 0.12
+      })
     } else {
       ripplet(rippleTarget)
     }
