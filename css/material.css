@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI 4.5.3 - RC4 (https://djibe.github.io/material/)
+ * Daemonite Material UI 4.5.3 - RC3 (https://djibe.github.io/material/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -4816,17 +4816,20 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 [type='checkbox'] + .chip-filter::before {
   content: '';
-  font-family: var(--font-family-material-icons);
-  transition: margin 100ms ease-in;
+  height: 1.125rem;
+  margin-right: 0.25rem;
+  opacity: 0;
+  -webkit-transform: translateX(-0.25rem);
+  transform: translateX(-0.25rem);
+  transition: width 180ms ease-in;
+  width: 0;
 }
 
 [type='checkbox']:checked + .chip-filter::before {
-  content: 'check';
-  font-size: 1.125rem;
-  margin-right: 0.25rem;
-  -webkit-transform: translateX(-0.25rem);
-  transform: translateX(-0.25rem);
-  transition: margin 100ms ease-in;
+  content: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"%3e%3cpath d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/%3e%3c/svg%3e');
+  opacity: 1;
+  transition: opacity 180ms 90ms, width 180ms ease-in;
+  width: 1.125rem;
 }
 
 .chip-img, .chip > [class*='material-icons'], .chip-icon {
@@ -5600,13 +5603,12 @@ body {
   color: rgba(0, 0, 0, 0.54);
   display: inline-block;
   fill: currentColor;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
+  -ms-flex: 0 0 1.5rem;
+  flex: 0 0 1.5rem;
   font-size: 1.5rem;
   height: 1.5rem;
   margin-right: 2rem;
   vertical-align: top;
-  width: 1.5rem;
 }
 
 .list-group-item.active .list-group-item-icon {
@@ -5617,11 +5619,12 @@ body {
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.3);
   fill: rgba(0, 0, 0, 0.3);
+  -ms-flex: 0 0 2.5rem;
+  flex: 0 0 2.5rem;
   font-size: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
   margin: 0.5rem 1rem 0.5rem 0;
-  width: 2.5rem;
 }
 
 .list-group-shaped .list-group-item {
