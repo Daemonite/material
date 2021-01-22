@@ -8,14 +8,19 @@
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
-## Future 4.5.3 - after RC3
+## 4.6.0 - RC1
+
+- **New** Upgraded to Bootstrap 4.6.  
+https://blog.getbootstrap.com/2021/01/19/bootstrap-4.6.0/
+- **Improved** Updated build dependencies.
+
+## 4.5.3 - RC4 (unreleased)
 
 - **New** NPM package.
 - **Fixed** `card-actions` padding-top coming after `card-body` and z-index.
 - **Improved** *ionRangeSlider* documentation.
 
 ## 4.5.3 - RC3
-
 
 - **New** [Material Sliders documentation](https://djibe.github.io/material/docs/4.5/material/sliders).
 - **Improved** Tabs inverse style + animation.
