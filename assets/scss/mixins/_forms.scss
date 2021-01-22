@@ -36,6 +36,13 @@
       padding: $tooltip-padding-y-desktop $tooltip-padding-x-desktop;
     }
 
+    // See https://github.com/twbs/bootstrap/pull/31557
+    // Align tooltip to form elements
+    .form-row > .col > &,
+    .form-row > [class*='col-'] > & {
+      left: $form-grid-gutter-width / 2;
+    }
+
     .form-control-lg + & {
       margin-top: $textfield-margin-y-lg;
     }
