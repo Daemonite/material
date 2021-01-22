@@ -136,7 +136,6 @@
 [type='checkbox'] + .chip-filter::before {
   content: '';
   height: 1.125rem;
-  margin-right: $chip-inner-spacer-x;
   opacity: 0;
   transform: translateX(-$chip-inner-spacer-x);
   transition: width 180ms ease-in;
@@ -145,6 +144,7 @@
 
 [type='checkbox']:checked + .chip-filter::before {
   content: escape-svg(url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>'));
+  margin-right: $chip-inner-spacer-x;
   opacity: 1;
   transition: opacity 180ms 90ms, width 180ms ease-in;
   width: 1.125rem;

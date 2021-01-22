@@ -4,17 +4,18 @@
 
 ## Future releases
 
-- NPM package
 - Improve documentation
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
-# 4.5.3 - RC4
+## Future 4.5.3 - after RC3
 
-- **Fixed** `card-actions` padding-top coming after `card-body`.
+- **New** NPM package.
+- **Fixed** `card-actions` padding-top coming after `card-body` and z-index.
 - **Improved** *ionRangeSlider* documentation.
 
 ## 4.5.3 - RC3
+
 
 - **New** [Material Sliders documentation](https://djibe.github.io/material/docs/4.5/material/sliders).
 - **Improved** Tabs inverse style + animation.
