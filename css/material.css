@@ -54,8 +54,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-family-monospace: "Roboto Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  --font-family-sans-serif: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Arial", "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: "Roboto Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
   --font-family-material-icons: "Material Icons", "Material Icons Outlined", "Material Icons Two Tone", "Material Icons Round", "Material Icons Sharp";
 }
 
@@ -104,7 +104,7 @@ body {
   text-align: start;
   background-color: white;
   color: rgba(0, 0, 0, 0.87);
-  font-family: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Arial", "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
@@ -252,7 +252,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: "Roboto Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  font-family: "Roboto Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
 }
 
@@ -324,9 +324,8 @@ button {
   border-radius: 0;
 }
 
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 input,
@@ -2033,6 +2032,7 @@ i > .badge.badge-before,
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  list-style: none;
   padding: 0;
 }
 
@@ -2899,7 +2899,7 @@ pre code {
 
 .page-link:focus {
   background-color: rgba(0, 0, 0, 0.12);
-  outline: none;
+  outline: 0;
 }
 
 .page-link:active {
@@ -2942,7 +2942,7 @@ pre code {
 .popover {
   text-align: left;
   text-align: start;
-  font-family: "Roboto", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Arial", "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   letter-spacing: normal;
@@ -3114,7 +3114,7 @@ tr.collapse.show {
   margin: 0;
   max-width: 100%;
   min-width: 4rem;
-  outline: none;
+  outline: 0;
   padding: 0 1rem;
   position: relative;
   text-transform: uppercase;
@@ -9893,6 +9893,7 @@ textarea.form-control-sm:not([rows='1']) {
   height: 2.25rem;
   margin: 0;
   opacity: 0;
+  overflow: hidden;
   position: relative;
   width: 100%;
   z-index: 2;
@@ -9916,6 +9917,7 @@ textarea.form-control-sm:not([rows='1']) {
   font-size: 1rem;
   height: 2.25rem;
   line-height: 1.5;
+  overflow: hidden;
   padding: 0.375rem 2.25rem calc(0.375rem - 1px) 0;
   position: absolute;
   top: 0;
@@ -10029,6 +10031,11 @@ textarea.form-control-sm:not([rows='1']) {
     font-size: 0.625rem;
     padding: 0 0.5rem;
   }
+}
+
+.form-row > .col > .valid-tooltip,
+.form-row > [class*='col-'] > .valid-tooltip {
+  left: 5px;
 }
 
 .form-control-lg + .valid-tooltip {
@@ -10200,6 +10207,11 @@ select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover
     font-size: 0.625rem;
     padding: 0 0.5rem;
   }
+}
+
+.form-row > .col > .invalid-tooltip,
+.form-row > [class*='col-'] > .invalid-tooltip {
+  left: 5px;
 }
 
 .form-control-lg + .invalid-tooltip {
@@ -11494,6 +11506,9 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
+  .navbar-expand-sm .navbar-nav-scroll {
+    overflow: visible;
+  }
   .navbar-expand-sm .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;
@@ -11535,6 +11550,9 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   .navbar-expand-md > .container-fluid, .navbar-expand-md > .container-sm, .navbar-expand-md > .container-md, .navbar-expand-md > .container-lg, .navbar-expand-md > .container-xl {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+  }
+  .navbar-expand-md .navbar-nav-scroll {
+    overflow: visible;
   }
   .navbar-expand-md .navbar-collapse {
     display: -ms-flexbox !important;
@@ -11578,6 +11596,9 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
   }
+  .navbar-expand-lg .navbar-nav-scroll {
+    overflow: visible;
+  }
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;
@@ -11619,6 +11640,9 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   .navbar-expand-xl > .container-fluid, .navbar-expand-xl > .container-sm, .navbar-expand-xl > .container-md, .navbar-expand-xl > .container-lg, .navbar-expand-xl > .container-xl {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
+  }
+  .navbar-expand-xl .navbar-nav-scroll {
+    overflow: visible;
   }
   .navbar-expand-xl .navbar-collapse {
     display: -ms-flexbox !important;
@@ -11662,6 +11686,10 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 .navbar-expand > .container-fluid, .navbar-expand > .container-sm, .navbar-expand > .container-md, .navbar-expand > .container-lg, .navbar-expand > .container-xl {
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+}
+
+.navbar-expand .navbar-nav-scroll {
+  overflow: visible;
 }
 
 .navbar-expand .navbar-collapse {
@@ -11767,6 +11795,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 
 .navbar-toggler-icon::before {
   content: "menu";
+}
+
+.navbar-nav-scroll {
+  max-height: 75vh;
+  overflow-y: auto;
 }
 
 /* .navbar-light {
@@ -15341,7 +15374,7 @@ a.bg-light:hover, a.bg-light:focus, a.bg-light:active {
 }
 
 .text-monospace {
-  font-family: "Roboto Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace !important;
+  font-family: "Roboto Mono", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace !important;
 }
 
 .text-justify {

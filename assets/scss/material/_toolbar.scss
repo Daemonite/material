@@ -327,7 +327,6 @@
             @extend %container-navbar-expand-#{$breakpoint};
           }
         }
-
         // stylelint-enable
       }
 
@@ -365,17 +364,17 @@
             @extend %container-nesting-#{$breakpoint};
           }
         }
-
         // stylelint-enable
 
-        // stylelint-disable
+        .navbar-nav-scroll {
+          overflow: visible;
+        }
+
         .navbar-collapse {
-          display: flex !important;
+          display: flex !important; // stylelint-disable-line declaration-no-important
           // Changes flex-bases to auto because of an IE10 bug
           flex-basis: auto;
         }
-
-        // stylelint-enable
 
         .navbar-toggler {
           display: none;
@@ -449,6 +448,11 @@
   &::before {
     content: $toolbar-toggler-icon;
   }
+}
+
+.navbar-nav-scroll {
+  max-height: $toolbar-nav-scroll-max-height;
+  overflow-y: auto;
 }
 
 // Dark links against a light background
