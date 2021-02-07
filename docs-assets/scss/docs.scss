@@ -213,12 +213,20 @@
 
 .section-nav {
   border-left: $border-width solid $border-color;
+  padding-left: 0;
+
+  ul {
+    padding-left: 1rem;
+  }
 }
 
 // stylelint-disable selector-no-qualifying-type
 .toc-entry {
+  display: block;
+
   a {
     color: #212121;
+    display: block;
     font-size: 0.875rem;
     opacity: $nav-pills-link-opacity;
     padding: ($nav-link-padding-y / 2) 0 ($nav-link-padding-y / 2) $spacer;
@@ -226,6 +234,7 @@
     @include hover-focus-active {
       color: $nav-pills-color;
       opacity: 1;
+      text-decoration: none;
     }
 
     &.active {

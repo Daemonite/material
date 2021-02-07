@@ -1860,7 +1860,7 @@
   }));
   });
 
-  var picker_date = createCommonjsModule(function (module, exports) {
+  createCommonjsModule(function (module, exports) {
   /*!
    * Date picker for pickadate.js v3.6.4
    * http://amsul.github.io/pickadate.js/date.htm

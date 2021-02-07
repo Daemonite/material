@@ -242,13 +242,27 @@
     // Tooltip
     $('[data-toggle="popover"]').popover()
 
+    $('.bd-example .toast')
+      .toast({
+        autohide: false
+      })
+      .toast('show')
+
+
+    // Live toast demo
+    $('#liveToastBtn').click(function () {
+      $('#liveToast').toast('show')
+    })
+
+    // Demos within modals
+
+    $('.tooltip-test').tooltip()
+
     $('.popover-test').popover()
 
     $('.tooltip-demo').tooltip({
       container: 'body',
       selector: '[data-toggle="tooltip"]'
     })
-
-    $('.tooltip-test').tooltip()
   })
 }(jQuery))
