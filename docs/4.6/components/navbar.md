@@ -77,7 +77,7 @@ This example uses [color]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilit
 
 ### Brand
 
-The `.navbar-brand` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
+The `.navbar-brand` can be applied to most elements, but an anchor works best, as some elements might require utility classes or custom styles.
 
 {% capture example %}
 <!-- As a link -->
@@ -98,7 +98,7 @@ Adding images to the `.navbar-brand` will likely always require custom styles or
 <!-- Just an image -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img loading="lazy" src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="rounded" alt="Material for Bootstrap 4 logo">
+    <img src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="rounded" alt="Material for Bootstrap 4 logo">
   </a>
 </nav>
 {% endcapture %}
@@ -108,7 +108,7 @@ Adding images to the `.navbar-brand` will likely always require custom styles or
 <!-- Image and text -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">
-    <img loading="lazy" src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="d-inline-block align-top mr-3 rounded-circle" alt="Material for Bootstrap 4 logo">
+    <img src="{{ site.baseurl }}/apple-touch-icon.png" width="30" height="30" class="d-inline-block align-top mr-3 rounded-circle" alt="Material for Bootstrap 4 logo">
     Material
   </a>
 </nav>
@@ -167,7 +167,7 @@ And because we use classes for our navs, you can avoid the list-based approach e
 {% endcapture %}
 {% include example.html content=example %}
 
-You may also utilize dropdowns in your navbar nav. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
+You can also use dropdowns in your navbar. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
 
 {% capture example %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -216,7 +216,7 @@ Place various form controls and components within a navbar with `.form-inline`.
 {% endcapture %}
 {% include example.html content=example %}
 
-Immediate children elements in `.navbar` use flex layout and will default to `justify-content: space-between`. Use additional [flex utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/) as needed to adjust this behavior.
+Immediate child elements of `.navbar` use flex layout and will default to `justify-content: space-between`. Use additional [flex utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/flex/) as needed to adjust this behavior.
 
 {% capture example %}
 <nav class="navbar navbar-light bg-light">
@@ -404,7 +404,7 @@ Theming the navbar has never been easier thanks to the combination of theming cl
 
 ## Containers
 
-Although it's not required, you can wrap a navbar in a `.container` to center it on a page or add one within to only center the contents of a [fixed or static top navbar](#placement).
+Although it's not required, you can wrap a navbar in a `.container` to center it on a page. Or you can add a container inside the `.navbar` to only center the contents of a [fixed or static top navbar](#placement).
 
 {% capture example %}
 <div class="container">
@@ -430,7 +430,7 @@ When the container is within your navbar, its horizontal padding is removed at b
 
 Use our [position utilities]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/position/) to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use `position: fixed`, meaning they're pulled from the normal flow of the DOM and may require custom CSS (e.g., `padding-top` on the `<body>`) to prevent overlap with other elements.
 
-Also note that **`.sticky-top` uses `position: sticky`, which [isn't fully supported in every browser](https://caniuse.com/#feat=css-sticky)**.
+Also note that **`.sticky-top` uses `position: sticky`, which [isn't fully supported in every browser](https://caniuse.com/css-sticky)**.
 
 {% capture example %}
 <nav class="navbar navbar-light bg-light">
@@ -508,7 +508,7 @@ Here's an example navbar using `.navbar-nav-scroll` with `style="max-height: 100
 
 ## Responsive behaviors
 
-Navbars can utilize `.navbar-toggler`, `.navbar-collapse`, and `.navbar-expand{-sm|-md|-lg|-xl}` classes to change when their content collapses behind a button. In combination with other utilities, you can easily choose when to show or hide particular elements.
+Navbars can use `.navbar-toggler`, `.navbar-collapse`, and `.navbar-expand{-sm|-md|-lg|-xl}` classes to determine when their content collapses behind a button. In combination with other utilities, you can easily choose when to show or hide particular elements.
 
 For navbars that never collapse, add the `.navbar-expand` class on the navbar. For navbars that always collapse, don't add any `.navbar-expand` class.
 
@@ -516,7 +516,7 @@ For navbars that never collapse, add the `.navbar-expand` class on the navbar. F
 
 Navbar togglers are left-aligned by default, but should they follow a sibling element like a `.navbar-brand`, they'll automatically be aligned to the far right. Reversing your markup will reverse the placement of the toggler. Below are examples of different toggle styles.
 
-With no `.navbar-brand` shown in lowest breakpoint:
+With no `.navbar-brand` shown at the smallest breakpoint:
 
 {% capture example %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -607,7 +607,7 @@ With a toggler on the left and brand name on the right:
 
 ### External content
 
-Sometimes you want to use the collapse plugin to trigger hidden content elsewhere on the page. Because our plugin works on the `id` and `data-target` matching, that's easily done!
+Sometimes you want to use the collapse plugin to trigger a container element for content that structurally sits outside of the `.navbar` . Because our plugin works on the `id` and `data-target` matching, that's easily done!
 
 {% capture example %}
 <div class="pos-f-t">
@@ -625,3 +625,5 @@ Sometimes you want to use the collapse plugin to trigger hidden content elsewher
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+When you do this, we recommend including additional JavaScript to move the focus programmatically to the container when it is opened. Otherwise, keyboard users and users of assistive technologies will likely have a hard time finding the newly revealed content - particularly if the container that was opened comes *before* the toggler in the document's structure. We also recommend making sure that the toggler has the `aria-controls` attribute, pointing to the `id` of the content container. In theory, this allows assistive technology users to jump directly from the toggler to the container it controls–but support for this is currently quite patchy.

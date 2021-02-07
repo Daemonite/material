@@ -63,7 +63,7 @@ In fact, all icons declared with `.material-icons*` will style according to the 
 
 ## Browser support
 
-**NB. For browsers that do not [support ligatures (IE11)](https://caniuse.com/#feat=kerning-pairs-ligatures), fall back to specifying the icons using numeric character references like the example below:**
+**NB. For browsers that do not [support ligatures (IE11)](https://caniuse.com/kerning-pairs-ligatures), fall back to specifying the icons using numeric character references like the example below:**
 
 {% capture example %}
 <span class="material-icons">&#xE87C;</span>

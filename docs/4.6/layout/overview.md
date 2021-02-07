@@ -3,7 +3,7 @@ layout: docs
 title: Overview
 description: Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes.
 group: layout
-redirect_from: "/docs/4.5/layout/"
+redirect_from: "/docs/4.6/layout/"
 toc: true
 ---
 
@@ -21,7 +21,7 @@ The table below illustrates how each container's `max-width` compares to the ori
 
 See them in action and compare them in our [Grid example]({{ site.baseurl }}/docs/{{ site.docs_version }}/examples/grid/#containers).
 
-<table class="table text-left">
+<table class="table">
   <thead>
     <tr>
       <th></th>

@@ -3,7 +3,7 @@ layout: docs
 title: Buttons
 description: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 group: components
-redirect_from: "/docs/4.5/components/"
+redirect_from: "/docs/4.6/components/"
 toc: true
 ---
 
@@ -49,6 +49,11 @@ In need of a button, but not the hefty background colors they bring? Replace the
 <button type="button" class="btn btn-outline-{{ color.name }}">{{ color.name | capitalize }}</button>{% endfor %}
 {% endcapture %}
 {% include example.html content=example %}
+
+{% capture callout %}
+Some of the button styles use a relatively light foreground color, and should only be used on a dark background in order to have sufficient contrast.
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
 
 ## Sizes
 

@@ -5,8 +5,8 @@ description: Get started with Material, a cross-platform and fully responsive fr
 group: getting-started
 redirect_from:
   - /docs/
-  - /docs/4.5/
-  - /docs/4.5/getting-started/
+  - /docs/4.6/
+  - /docs/4.6/getting-started/
   - /docs/getting-started/
 toc: true
 ---
@@ -18,7 +18,7 @@ toc: true
 The Material [precompiled code download]({{ site.download.dist }}) includes the following:
 
 {% highlight plaintext %}
-daemonite-material/
+djibe-material/
 ├── css/
 │   ├── material.css
 │   ├── material.css.map
@@ -47,7 +47,7 @@ Check the [starter template](#starter-template) for a basic set up guide.
 The Material [source code download]({{ site.download.source }}) includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
 
 {% highlight plaintext %}
-daemonite-material/
+djibe-material/
 ├── assets/
 │   ├── js/
 │   └── scss/
@@ -99,7 +99,7 @@ Material requires the use of the HTML5 doctype. Without it, you'll see some funk
 Material is developed *mobile first*, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, **add the responsive viewport meta tag** to your `<head>`.
 
 {% highlight html %}
-<meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 {% endhighlight %}
 
 ## Starter template
@@ -112,7 +112,7 @@ Be sure to have your pages set up with the latest design and development standar
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Add Material font (Roboto) and Material icon as needed -->
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -135,7 +135,7 @@ Be sure to have your pages set up with the latest design and development standar
     <!-- jQuery, Bootstrap Bundle (includes Popper) and Material -->
     <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin></script>
     <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin></script>
-    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" crossorigin async></script>
+    <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" crossorigin></script>
   </body>
 </html>
 {% endhighlight %}

@@ -34,7 +34,7 @@ For advanced Pickers, read [**flatpickr** plugin documentation]({{ site.baseurl 
 
 A date picker has to be activated via JavaScript.
 
-**N.B.** Date picker requires `material.js`, `material.min.js` or `https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.js`.
+**N.B.** Date picker requires `material.js`, `material.min.js` or `https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.min.js`.
 
 {% capture example %}
 <label for="exampleInputDatePicker1">A basic example:</label>

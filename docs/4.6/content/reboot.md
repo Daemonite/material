@@ -3,7 +3,7 @@ layout: docs
 title: Reboot
 description: Reboot, a collection of element-specific CSS changes in a single file, kickstart Bootstrap to provide an elegant, consistent, and simple baseline to build upon.
 group: content
-redirect_from: "/docs/4.5/content/"
+redirect_from: "/docs/4.6/content/"
 toc: true
 ---
 
@@ -33,19 +33,26 @@ The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped i
 
 {% highlight sass %}
 $font-family-sans-serif:
+  Roboto,
+  system-ui,
   // Safari for macOS and iOS (San Francisco)
   -apple-system,
   // Chrome < 56 for macOS (San Francisco)
   BlinkMacSystemFont,
   // Windows
   "Segoe UI",
-  // Android
-  "Roboto",
   // Basic web fallback
   "Helvetica Neue", Arial, sans-serif,
+  // Linux
+  "Noto Sans",
+  "Liberation Sans",
+  // Sans serif fallback
+  sans-serif,
   // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 {% endhighlight %}
+
+Note that because the font stack includes emoji fonts, many common symbol/dingbat unicode characters will be rendered as multi-colored pictographs. Their appearance will vary, depending on the style used in the browser/platform's native emoji font, and they won't be affected by any CSS `color` styles.
 
 This `font-family` is applied to the `<body>` and automatically inherited globally throughout Bootstrap. To switch the global `font-family`, update `$font-family-base` and recompile Bootstrap.
 
