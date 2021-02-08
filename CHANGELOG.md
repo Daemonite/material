@@ -16,6 +16,7 @@ https://blog.getbootstrap.com/2021/01/19/bootstrap-4.6.0/
 - **Fixed** Removed link:hover underline.
 - **Fixed** `card-actions` ripple on buttons.
 - **Fixed** `list-group` background-color.
+- **Removed** Outdated JS fix for Chromium checkbox focus state.
 - Updated build dependencies.
 
 Next release will focus on awesome Dark theme.
