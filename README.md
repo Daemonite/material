@@ -64,7 +64,11 @@ djibe-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   └── material.min.css.map
+│   ├── material.min.css.map
+|   ├── material-plugins.css
+│   ├── material-plugins.css.map
+│   ├── material-plugins.min.css
+│   └── material-plugins.min.css.map
 └── js/
     ├── material.js
     ├── material.js.map
@@ -73,6 +77,8 @@ djibe-material/
 ```
 
 We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`). CSS and JavaScript source maps (`material.*.map`) are also available for use with certain browsers' developer tools.
+
+`material-plugins.css` is an addon containing suitable style for the Plugins (see doc's Plugin section).
 
 The Material 2 source code download includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
 
@@ -85,9 +91,13 @@ djibe-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   └── material.min.css.map
+│   ├── material.min.css.
+│   ├── material-plugins.css
+│   ├── material-plugins.css.map
+│   ├── material-plugins.min.css
+│   └── material-plugins.min.css.map
 ├── docs/
-│   └── 4.5/
+│   └── 4.6/
 └── js/
     ├── material.js
     ├── material.js.map
@@ -97,11 +107,11 @@ djibe-material/
 
 ## Documentation
 
-Material's 2 documentation that is included in this repo located in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <http://djibe.github.io/material/>. The docs can also be hosted locally.
+Material's 2 documentation that is included in this repo located in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <https://djibe.github.io/material/>. The docs can also be hosted locally.
 
 ### Running Documentation Locally
 
-1. Run through the [tooling setup](https://djibe.github.io/material/docs/4.5/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](https://djibe.github.io/material/docs/4.6/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies.
 3. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
 4. If you had end-of-line errors when running the commands indicated in step #3 then, please follow [this step](#end-of-line-fix) before proceeding, or else proceed to step #5.
@@ -125,11 +135,11 @@ In order to fix this problem, you have to save all modified files that is not ye
 
 #### Command Notes
 
-- At command #1, we have to configure github to stop interpretting our files in the repo to convert the end-of-line to **CRLF**.
+- At command #1, we have to configure github to stop interpreting our files in the repo to convert the end-of-line to **CRLF**.
 - At command #2, since we configured our github to stop converting those into **CRLF** where it is expected to be **LF**, we have to remove all the cache files and remove them in recursive way in the same path where your command line directory is at. (For instance, your command line target path is this repository.)
 - And finally at command #3, we have to reset the state of your saved local repo by issuing `--hard` command. Where, all modified files that is not included in the latest commit of repo will be removed.
 
-Now try issuing commands from the recent steps earlier and *****that should work fine*****.
+Now try issuing commands from the recent steps earlier and ***that should work fine***.
 
 ## Quick start
 
