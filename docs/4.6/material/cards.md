@@ -38,17 +38,15 @@ Keep the classic card layout with `card-header` and `card-body`, but make sure y
 
 You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` are right-aligned thanks to flex utility `.ml-auto` (*margin-left: auto*).
 
-**NB.** `.text-black-secondary` has been added to the following example to copy MDComponents card examples (0.54 opacity). However you don't require these as `.card-subtitle` and `.card-text` have been styled as in Google's guidelines, with a 0.6 opacity.
-
 {% capture example %}
 <div class="card" style="max-width: 350px;">
   <img loading="lazy" alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
     <h5 class="card-title">Our Changing Planet</h5>
-    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
   <div class="card-body pt-0">
-    <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
     <a class="card-link" href="#">read</a>
@@ -67,8 +65,8 @@ You can use the button HTML markup you want in a card (either using a link or a 
 <div class="card" style="max-width: 350px;">
   <div class="card-body">
     <h5 class="card-title">Our Changing Planet</h5>
-    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
-    <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
     <a class="card-link" href="#">C-Link</a>
@@ -84,10 +82,10 @@ You can use the button HTML markup you want in a card (either using a link or a 
   <img loading="lazy" alt="The Grand Canal in Venice" class="card-img-top" src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg">
   <div class="card-header border-0">
     <h5 class="card-title">Our Changing Planet</h5>
-    <h6 class="card-subtitle text-black-secondary">by Kurt Wagner</h6>
+    <h6 class="card-subtitle">by Kurt Wagner</h6>
   </div>
   <div class="card-body pt-0">
-    <p class="card-text text-black-secondary">Visit ten places on our planet that are undergoing the biggest changes today.</p>
+    <p class="card-text">Visit ten places on our planet that are undergoing the biggest changes today.</p>
   </div>
   <div class="card-actions">
     <a class="btn btn-flat-primary" href="#">read</a>
@@ -200,7 +198,7 @@ As a Primary action is frequently a link, it is perfect to use it with [Bootstra
 <div class="card card-body card-primary-action flex-row" style="width: 250px;">
   <span class="material-icons text-primary mt-2 mr-4" style="font-size: 48px;">palette</span>
   <div>
-    <h5 class="typography-body-2 font-weight-bold"><a href="#" class="stretched-link">Applying color to UI</a></h5>
+    <h5 class="typography-body-2 font-weight-bold"><a href="#" class="stretched-link text-reset">Applying color to UI</a></h5>
     <h6 class="typography-body-2 mb-0">In a UI, color has a variety of roles:...</h6>
   </div>
 </div>

@@ -1,7 +1,6 @@
 // TODO: useful for Material UI ? https://github.com/twbs/bootstrap/pull/30515
 
 .card {
-  background-clip: border-box;
   background-color: $card-bg;
   border-radius: $card-border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
@@ -180,6 +179,7 @@
 
   .card-body + & {
     // Obtain 8px spacing between body and actions
+    // Preserve bg when .card-primary-action clicked
     background-color: $card-bg;
     margin-top: -$spacer-sm;
     z-index: 2;
@@ -202,6 +202,10 @@
 
   .dropdown-toggle::after {
     margin-right: 0;
+  }
+
+  > * {
+    z-index: 3;
   }
 }
 

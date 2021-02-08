@@ -240,7 +240,6 @@ a {
 
 a:hover {
   color: #6200ee;
-  text-decoration: underline;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -4103,7 +4102,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .card {
-  background-clip: border-box;
   background-color: #ffffff;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
@@ -4353,6 +4351,10 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 
 .card-actions .dropdown-toggle::after {
   margin-right: 0;
+}
+
+.card-actions > * {
+  z-index: 3;
 }
 
 .card-body {
@@ -5550,6 +5552,7 @@ body {
 }
 
 .list-group {
+  background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   display: -ms-flexbox;
@@ -5564,7 +5567,6 @@ body {
 .list-group-item {
   -ms-flex-align: center;
   align-items: center;
-  background-color: #ffffff;
   border: 0;
   color: rgba(0, 0, 0, 0.87);
   display: block;

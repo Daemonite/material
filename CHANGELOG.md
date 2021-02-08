@@ -12,7 +12,13 @@
 
 - **New** Upgraded to Bootstrap 4.6.  
 https://blog.getbootstrap.com/2021/01/19/bootstrap-4.6.0/
-- **Improved** Updated build dependencies.
+- **Updated** docs for BS 4.6.
+- **Fixed** Removed link:hover underline.
+- **Fixed** `card-actions` ripple on buttons.
+- **Fixed** `list-group` background-color.
+- Updated build dependencies.
+
+Next release will focus on awesome Dark theme.
 
 ## 4.5.3 - RC4 (unreleased)
 
