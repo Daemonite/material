@@ -8,6 +8,10 @@
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
+## 4.6.0 - RC2
+
+- **Fixed** Removed label color on form-group:focus-within
+
 ## 4.6.0 - RC1
 
 - **New** Upgraded to Bootstrap 4.6.
