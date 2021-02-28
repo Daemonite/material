@@ -9,16 +9,17 @@
   border-radius: $chip-height / 2;
   color: $chip-color;
   display: inline-flex;
-  font-size: $chip-font-size;
+  // font-size: $chip-font-size;
   //font-weight: $chip-font-weight;
   height: $chip-height;
   justify-content: center;
   letter-spacing: $chip-letter-spacing;
   line-height: $chip-line-height;
   margin: $spacer-xs;
+  overflow: hidden;
   padding: $chip-padding-y $chip-padding-x;
   position: relative;
-  // text-align: center;
+  transition: background-color 15ms linear;
   vertical-align: middle;
   white-space: nowrap;
 
@@ -64,9 +65,6 @@
 
 // Chip action
 .chip-action {
-  //@include transition-standard(background-color);
-  transition: background-color 15ms linear;
-
   @include hover-focus-active {
     color: $chip-color;
     text-decoration: none;

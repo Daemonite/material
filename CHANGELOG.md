@@ -10,7 +10,8 @@
 
 ## 4.6.0 - RC2
 
-- **Fixed** Removed label color on form-group:focus-within
+- **Fixed** `Form-group`: Removed label color on form-group:focus-within.
+- **Fixed** Various minor fixes.
 
 ## 4.6.0 - RC1
 
