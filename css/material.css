@@ -120,6 +120,10 @@ body {
   outline: 0 !important;
 }
 
+[id] {
+  scroll-margin-top: 2ex;
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -4664,18 +4668,20 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-color: #e0e0e0;
   border: 0;
   border-radius: 1rem;
-  color: rgba(0, 0, 0, 0.87);
+  color: inherit;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  font-size: 0.875rem;
+  font-size: inherit;
   height: 2rem;
   -ms-flex-pack: center;
   justify-content: center;
   letter-spacing: 0.017857em;
   line-height: 1.25rem;
   margin: 0.25rem;
+  overflow: hidden;
   padding: 0 0.75rem;
   position: relative;
+  transition: background-color 15ms linear;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -4757,12 +4763,8 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   background-image: url('data:image/svg+xml;charset=utf8,%3csvg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"%3e%3cpath fill="%239e9e9e" d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/%3e%3cpath d="M0 0h24v24H0z" fill="none"/%3e%3c/svg%3e');
 }
 
-.chip-action {
-  transition: background-color 15ms linear;
-}
-
 .chip-action:hover, .chip-action:focus, .chip-action:active {
-  color: rgba(0, 0, 0, 0.87);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -10356,7 +10358,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding-right: calc(1.5rem + 0.5rem);
 }
 
-.form-group:focus-within label:not(.custom-control-label):not(.form-check-label):not(.btn):not(.card-link),
 [class*='form-ripple']:focus-within label:not(.custom-control-label):not(.form-check-label):not(.btn):not(.card-link) {
   color: #6200ee;
 }
@@ -11244,24 +11245,24 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 .navbar-dark .form-control::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-dark .form-control::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-dark .form-control:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-dark .form-control::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-dark .form-control::placeholder,
 .navbar-dark .navbar-nav .nav-link.disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .navbar-fixed-bottom,
