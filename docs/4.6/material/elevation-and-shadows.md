@@ -92,6 +92,10 @@ Most Material components have default shadows applied:
         <td><code class="text-nowrap">map-get($shadows, 24)</code></td>
       </tr>
       <tr>
+        <td>Snackbar (<code>.snackbar</code>)</td>
+        <td><code class="text-nowrap">map-get($shadows, 24)</code></td>
+      </tr>
+      <tr>
         <td>Navigation drawer (<code>.navdrawer-content</code>)</td>
         <td><code class="text-nowrap">map-get($shadows, 16)</code></td>
       </tr>
@@ -104,15 +108,7 @@ Most Material components have default shadows applied:
         <td><code class="text-nowrap">map-get($shadows, 12)</code></td>
       </tr>
       <tr>
-        <td>Card pressed (<code>.card:active</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 8)</code></td>
-      </tr>
-      <tr>
         <td>Menu (<code>.dropdown-menu</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 8)</code></td>
-      </tr>
-      <tr>
-        <td>Raised button pressed (<code>.btn:active</code>)</td>
         <td><code class="text-nowrap">map-get($shadows, 8)</code></td>
       </tr>
       <tr>
@@ -124,20 +120,16 @@ Most Material components have default shadows applied:
         <td><code class="text-nowrap">map-get($shadows, 6)</code></td>
       </tr>
       <tr>
-        <td>Snackbar (<code>.snackbar</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 6)</code></td>
+        <td>Card with special behavior (<code>.card-primary-action:hover</code>)</td>
+        <td><code class="text-nowrap">map-get($shadows, 4)</code></td>
+      </tr>
+      <tr>
+        <td>Raised button pressed (<code>.btn:active</code>)</td>
+        <td><code class="text-nowrap">map-get($shadows, 4)</code></td>
       </tr>
       <tr>
         <td>Toolbar (<code>.navbar</code>)</td>
         <td><code class="text-nowrap">map-get($shadows, 4)</code></td>
-      </tr>
-      <tr>
-        <td>Card (<code>.card</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 2)</code></td>
-      </tr>
-      <tr>
-        <td>Chip hovered (<code>.chip:hover</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 2)</code></td>
       </tr>
       <tr>
         <td>Jumbotron (<code>.jumbotron</code>)</td>
@@ -148,12 +140,16 @@ Most Material components have default shadows applied:
         <td><code class="text-nowrap">map-get($shadows, 2)</code></td>
       </tr>
       <tr>
+        <td>Card (<code>.card</code>)</td>
+        <td><code class="text-nowrap">map-get($shadows, 1)</code></td>
+      </tr>
+      <tr>
         <td>Expansion panel (<code>.expansion-panel</code>)</td>
         <td><code class="text-nowrap">map-get($shadows, 1)</code></td>
       </tr>
       <tr>
         <td>Switch (<code>.custom-switch .custom-control-label::after</code>)</td>
-        <td><code class="text-nowrap">map-get($shadows, 1)</code></td>
+        <td><code>Custom shadow</code></td>
       </tr>
     </tbody>
   </table>
