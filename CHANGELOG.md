@@ -11,6 +11,7 @@
 ## 4.6.0 - RC2
 
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
+- **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment).
 - **Fixed** Various minor fixes.
 
 ## 4.6.0 - RC1
