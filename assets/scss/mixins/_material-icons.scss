@@ -22,6 +22,8 @@
 @mixin set-material-icons {
   @include reset-material-icons;
 
+  // Fallback for IE11, reported by lgemeinhardt
+  font-family: 'Material Icons'; // stylelint-disable-line font-family-no-missing-generic-family-keyword
   font-family: var(--font-family-material-icons); // stylelint-disable-line font-family-no-missing-generic-family-keyword
   font-feature-settings: 'liga';
   font-style: normal;
