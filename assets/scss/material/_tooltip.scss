@@ -1,14 +1,11 @@
-// Todo ellipsis tooltip
 .tooltip {
   display: block;
   font-size: $tooltip-font-size;
   font-weight: $tooltip-font-weight;
-  line-height: $tooltip-line-height;
   margin: $tooltip-margin;
   max-width: 250px;
   opacity: 0;
   position: absolute;
-  word-break: break-word;
   z-index: $tooltip-zindex;
 
   @include media-breakpoint-up($tooltip-breakpoint) {
@@ -28,25 +25,21 @@
 }
 
 .tooltip-inner {
-  @include border-radius($tooltip-border-radius);
+  @include text-truncate;
 
-  align-items: center;
   background-color: $tooltip-bg;
+  border-radius: $tooltip-border-radius;
   color: $tooltip-color;
-  display: flex;
-  height: $tooltip-height; // 24px
-  margin: auto;
-  max-width: 250px - (2*8px);
-  overflow: hidden;
+  height: $tooltip-height; // 32px
+  line-height: $tooltip-height;
   padding: $tooltip-padding-y $tooltip-padding-x;
-  text-overflow: clip;
   transform: scale($tooltip-scale);
   transform-origin: center top;
   transition: transform 75ms $transition-timing-function-acceleration;
-  white-space: nowrap;
 
   @include media-breakpoint-up($tooltip-breakpoint) {
-    height: $tooltip-height-desktop;
+    height: $tooltip-height-desktop; // 24px
+    line-height: $tooltip-height-desktop;
     padding: $tooltip-padding-y-desktop $tooltip-padding-x-desktop;
   }
 }
