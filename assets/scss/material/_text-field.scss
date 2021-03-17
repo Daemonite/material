@@ -18,7 +18,7 @@
   letter-spacing: $textfield-letter-spacing;
   line-height: $textfield-line-height;
   padding: $textfield-padding-y $textfield-padding-x calc(#{$textfield-padding-y} - #{$textfield-border-width});
-  transition: border-color 15ms linear;
+  transition: border-color 15ms linear, box-shadow 180ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 
   &::-ms-expand {
@@ -353,7 +353,7 @@ textarea {
       bottom: 0;
       left: 0;
       transform: scaleX(0);
-      transition: transform 0.18s $transition-timing-function-standard;
+      transition: transform 180ms $transition-timing-function-standard;
       width: 100%;
       will-change: transform;
       z-index: 3;

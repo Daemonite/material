@@ -182,3 +182,19 @@
     padding-right: $textfield-select-bg-size;
   }
 }
+
+// Ripple
+
+@if ($enable-form-ripple) {
+  .floating-label::before {
+    top: calc(#{$floating-label-font-size + ($textfield-padding-y * 2) + ($textfield-line-height * $textfield-font-size)} - #{(2*$textfield-border-width)});
+  }
+
+  .floating-label-lg.floating-label::before {
+    top: calc(#{$floating-label-font-size + ($textfield-padding-y-lg * 2) + ($textfield-line-height-lg * $textfield-font-size-lg)} - #{(2*$textfield-border-width)});
+  }
+
+  .floating-label-sm.floating-label::before {
+    top: calc(#{$floating-label-font-size + ($textfield-padding-y-sm * 2) + ($textfield-line-height-sm * $textfield-font-size-sm)} - #{(2*$textfield-border-width)});
+  }
+}

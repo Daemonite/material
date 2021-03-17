@@ -1,5 +1,4 @@
 .tooltip {
-  display: block;
   font-size: $tooltip-font-size;
   font-weight: $tooltip-font-weight;
   margin: $tooltip-margin;
@@ -17,9 +16,8 @@
     opacity: $tooltip-opacity;
 
     .tooltip-inner {
-      @include transition-deceleration(transform);
-
       transform: scale(1);
+      transition: transform 225ms cubic-bezier(0, 0, 0.2, 1);
     }
   }
 }

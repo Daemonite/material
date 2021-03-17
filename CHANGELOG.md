@@ -11,8 +11,9 @@
 ## 4.6.0 - RC2
 
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
-- **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment).
-- **Fixed** Various minor fixes.
+- **Fixed** `Tooltips` overflow is now with ellipsis ....
+- **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
+- **Fixed** Various minor changes.
 
 ## 4.6.0 - RC1
 
