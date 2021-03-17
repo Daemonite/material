@@ -97,7 +97,7 @@ $.extend($.fn.dataTable.defaults, {
   language: {
     search: '_INPUT_',
     searchPlaceholder: 'Search', // https://datatables.net/reference/option/language.searchPlaceholder
-    info: '_START_-_END_ of _MAX_', // https://datatables.net/examples/basic_init/language.html
+    info: '_START_-_END_ of _TOTAL_', // https://datatables.net/examples/basic_init/language.html
     lengthMenu: 'Rows per page _MENU_',
     infoEmpty: '0 of _MAX_',
     infoFiltered: '',
