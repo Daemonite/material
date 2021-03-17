@@ -3495,7 +3495,7 @@
   var defaultOptions = {
       className: '',
       color: 'currentcolor',
-      opacity: .1,
+      opacity: 0.1,
       spreadingDuration: '.4s',
       spreadingDelay: '0s',
       spreadingTimingFunction: 'linear',
@@ -3519,17 +3519,21 @@
           return;
       }
       var options = _options
-          ? Object.keys(defaultOptions).reduce(function (merged, field) { return (merged[field] = _options.hasOwnProperty(field) ? _options[field] : defaultOptions[field], merged); }, {})
+          ? Object.keys(defaultOptions).reduce(function (merged, field) { return ((merged[field] = _options.hasOwnProperty(field) ? _options[field] : defaultOptions[field]), merged); }, {})
           : defaultOptions;
       var targetRect = currentTarget.getBoundingClientRect();
       if (options.centered && options.centered !== 'false') {
-          clientX = targetRect.left + targetRect.width * .5;
-          clientY = targetRect.top + targetRect.height * .5;
+          clientX = targetRect.left + targetRect.width * 0.5;
+          clientY = targetRect.top + targetRect.height * 0.5;
       }
       else if (typeof clientX !== 'number' || typeof clientY !== 'number') {
           return;
       }
       var targetStyle = getComputedStyle(currentTarget);
+      var applyCssVariable = function (value) {
+          var match = value && /^var\((--.+)\)$/.exec(value);
+          return match ? targetStyle.getPropertyValue(match[1]) : value;
+      };
       var documentElement = document.documentElement, body = document.body;
       var containerElement = document.createElement('div');
       var appendToParent = options.appendTo === 'parent';
@@ -3543,7 +3547,17 @@
               else {
                   body.appendChild(containerElement);
               }
-              copyStyles(containerStyle, targetStyle, ['position', 'left', 'top', 'right', 'bottom', 'marginLeft', 'marginTop', 'marginRight', 'marginBottom']);
+              copyStyles(containerStyle, targetStyle, [
+                  'position',
+                  'left',
+                  'top',
+                  'right',
+                  'bottom',
+                  'marginLeft',
+                  'marginTop',
+                  'marginRight',
+                  'marginBottom',
+              ]);
           }
           else if (appendToParent) {
               var parentStyle = getComputedStyle(currentTarget.parentElement);
@@ -3554,14 +3568,10 @@
                   containerStyle.top = currentTarget.offsetTop + "px";
               }
               else {
-                  var containerContainer = removingElement
-                      = currentTarget.parentElement.insertBefore(document.createElement('div'), currentTarget);
+                  var containerContainer = (removingElement = currentTarget.parentElement.insertBefore(document.createElement('div'), currentTarget));
                   var containerContainerStyle = containerContainer.style;
-                  containerContainerStyle.display = 'inline-block';
+                  containerContainerStyle.cssFloat = 'left';
                   containerContainerStyle.position = 'relative';
-                  containerContainerStyle.width = containerContainerStyle.height
-                      = '0';
-                  containerContainerStyle.cssFloat = targetStyle.cssFloat;
                   var containerContainerRect = containerContainer.getBoundingClientRect(); // this may be a slow operation...
                   containerContainer.appendChild(containerElement);
                   containerStyle.position = 'absolute';
@@ -3579,20 +3589,27 @@
           containerStyle.pointerEvents = 'none';
           containerStyle.width = targetRect.width + "px";
           containerStyle.height = targetRect.height + "px";
-          containerStyle.zIndex = (+targetStyle.zIndex || 0) + 1;
-          containerStyle.opacity = options.opacity;
-          copyStyles(containerStyle, targetStyle, ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomLeftRadius', 'borderBottomRightRadius', 'webkitClipPath', 'clipPath']);
+          containerStyle.zIndex = ((+targetStyle.zIndex || 0) + 1);
+          containerStyle.opacity = applyCssVariable(options.opacity);
+          copyStyles(containerStyle, targetStyle, [
+              'borderTopLeftRadius',
+              'borderTopRightRadius',
+              'borderBottomLeftRadius',
+              'borderBottomRightRadius',
+              'webkitClipPath',
+              'clipPath',
+          ]);
       }
       {
           var distanceX = Math.max(clientX - targetRect.left, targetRect.right - clientX);
           var distanceY = Math.max(clientY - targetRect.top, targetRect.bottom - clientY);
           var radius = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
-          var rippletElement = containerElement.appendChild(document.createElement('div'));
+          var rippletElement = document.createElement('div');
           var rippletStyle = rippletElement.style;
+          var color = applyCssVariable(options.color);
+          rippletStyle.backgroundColor = /^currentcolor$/i.test(color) ? targetStyle.color : color;
           rippletElement.className = options.className;
-          rippletStyle.backgroundColor = /^currentcolor$/i.test(options.color) ? targetStyle.color : options.color;
-          rippletStyle.width = rippletStyle.height
-              = radius * 2 + "px";
+          rippletStyle.width = rippletStyle.height = radius * 2 + "px";
           if (getComputedStyle(appendToParent ? currentTarget.parentElement : body).direction === 'rtl') {
               rippletStyle.marginRight = targetRect.right - clientX - radius + "px";
           }
@@ -3601,9 +3618,9 @@
           }
           rippletStyle.marginTop = clientY - targetRect.top - radius + "px";
           rippletStyle.borderRadius = '50%';
-          rippletStyle.transition =
-              "transform " + options.spreadingDuration + " " + options.spreadingTimingFunction + " " + options.spreadingDelay + ",opacity " + options.clearingDuration + " " + options.clearingTimingFunction + " " + options.clearingDelay;
+          rippletStyle.transition = "transform " + applyCssVariable(options.spreadingDuration) + " " + applyCssVariable(options.spreadingTimingFunction) + " " + applyCssVariable(options.spreadingDelay) + ",opacity " + applyCssVariable(options.clearingDuration) + " " + applyCssVariable(options.clearingTimingFunction) + " " + applyCssVariable(options.clearingDelay);
           rippletStyle.transform = 'scale(0)';
+          containerElement.appendChild(rippletElement);
           // reflect styles by force layout
           // tslint:disable-next-line:no-unused-expression
           rippletElement.offsetTop;
@@ -3619,7 +3636,7 @@
           else {
               var container2ripplet = target2container2ripplet.get(currentTarget);
               if (!container2ripplet) {
-                  target2container2ripplet.set(currentTarget, container2ripplet = new Map());
+                  target2container2ripplet.set(currentTarget, (container2ripplet = new Map()));
               }
               container2ripplet.set(containerElement, rippletElement);
           }
@@ -3637,13 +3654,13 @@
                   container2ripplet.size === 0 && target2container2ripplet.delete(targetElement);
               }
               else {
-                  container2ripplet.forEach(function (r) { return r.style.opacity = '0'; });
+                  container2ripplet.forEach(function (r) { return (r.style.opacity = '0'); });
                   target2container2ripplet.delete(targetElement);
               }
           }
       }
       else {
-          target2container2ripplet.forEach(function (container2ripplet) { return container2ripplet.forEach(function (r) { return r.style.opacity = '0'; }); });
+          target2container2ripplet.forEach(function (container2ripplet) { return container2ripplet.forEach(function (r) { return (r.style.opacity = '0'); }); });
           target2container2ripplet.clear();
       }
   };

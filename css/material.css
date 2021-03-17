@@ -6659,6 +6659,7 @@ body {
   height: 1px;
   margin: 0.5rem 0;
   overflow: hidden;
+  border: 0;
 }
 
 .dropdown-header {
@@ -6677,7 +6678,6 @@ body {
   transform-origin: 0 0;
   /* .dropdown-menu-sm &,
   .menu-cascading & {
-    font-size: $menu-font-size-cascading;
     line-height: $menu-line-height-cascading;
     padding: $menu-link-padding-y-cascading $menu-link-padding-x-cascading;
   } */
@@ -6691,18 +6691,12 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  -ms-flex-align: center;
-  align-items: center;
   background: none;
   border: 0;
-  clear: both;
   color: rgba(0, 0, 0, 0.87);
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  height: 3rem;
+  display: block;
   letter-spacing: 0.009375em;
-  overflow: hidden;
+  line-height: 3rem;
   padding: 0 1rem;
   position: relative;
   text-align: inherit;
@@ -6762,7 +6756,7 @@ body {
 
 .dropdown-menu-sm .dropdown-item,
 .menu-cascading .dropdown-item {
-  height: 2rem;
+  line-height: 2rem;
 }
 
 .dropdown-item-text {
@@ -11964,25 +11958,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 .tooltip.show .tooltip-inner {
-  transition-duration: 225ms;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   -webkit-transform: scale(1);
   transform: scale(1);
-}
-
-@media (min-width: 576px) {
-  .tooltip.show .tooltip-inner {
-    transition-duration: 292.5ms;
-  }
-}
-
-@media (min-width: 992px) {
-  .tooltip.show .tooltip-inner {
-    transition-duration: 150ms;
-  }
+  transition: -webkit-transform 225ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 225ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform 225ms cubic-bezier(0, 0, 0.2, 1), -webkit-transform 225ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .tooltip-inner {
