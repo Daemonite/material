@@ -9527,6 +9527,11 @@ body {
   padding: 0 1rem;
   position: relative;
   text-transform: uppercase;
+  /* &:active {
+      background-color: rgba(selection-theme-color(), $overlay-pressed-white-opacity);
+      color: selection-theme-color(); // testing ripple
+      opacity: 1;
+    } */
 }
 
 @media (min-width: 576px) {
@@ -9581,12 +9586,6 @@ body {
 
 .nav-tabs .nav-link:focus {
   background-color: rgba(98, 0, 238, 0.12);
-}
-
-.nav-tabs .nav-link:active {
-  background-color: rgba(98, 0, 238, 0.24);
-  color: #6200ee;
-  opacity: 1;
 }
 
 .nav-tabs .nav-link.flex-column {
@@ -11973,6 +11972,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   border-radius: 4px;
   color: white;
   height: 2rem;
+  letter-spacing: 0.033333em;
   line-height: 2rem;
   padding: 0 1rem;
   -webkit-transform: scale(0.87);

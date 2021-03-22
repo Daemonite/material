@@ -4,15 +4,16 @@
 
 ## Future releases
 
-- Improve documentation
+- Dark mode
 - More plugins integration + documentation (Input mask, Calendar)
 - Full-width dialogs
 
 ## 4.6.0 - RC2
 
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
-- **Fixed** `Tooltips` overflow is now with ellipsis ....
+- **Fixed** Components with text overflow is now with an ellipsis ...
 - **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
+- **Fixed** Datatables.net search displays suitable number of results.
 - **Fixed** Various minor changes.
 
 ## 4.6.0 - RC1
@@ -21,7 +22,7 @@
 - **Updated** docs for BS 4.6.
 - **Updated** JS dependencies from BS 4.6.
 - **Fixed** Removed link:hover underline.
-- **Fixed** `card-actions` ripple on buttons.
+- **Fixed** `card-actions` ripple effect on buttons.
 - **Fixed** `list-group` background-color.
 - **Removed** Outdated JS fix for Chromium checkbox focus state.
 - Updated build dependencies.
@@ -41,7 +42,7 @@ Next release will focus on awesome Dark theme.
 - **Improved** Material style for table caption, definition lists.
 - **Improved** SVG style when used in replacement of Material Icons.
 - **Improved** *Flatpickr* Date picker plugin initialization changed from JQuery to pure JavaScript.
-- **Improved** `prefers-reduced-motion` media query for all components and abandonned file (_scrollspy.scss).
+- **Improved** `prefers-reduced-motion` media query for all components and dropped useless `_scrollspy.scss`.
 - **Improved** Custom CSS scrollbar declaration for Firefox.
 - **Fixed** Snackbars transitions + auto-sizing.
 - **Fixed** Very long `floating-label`.
@@ -73,10 +74,7 @@ Dark theme can still be used by applying `data-theme="dark"` to `<html>` opening
 
 ## 4.5.2 - RC1
 
-- **NEW** Upgrade to Bootstrap 4.5.2  
-To dig in:  
-#30965: Improve floating labels example in IE
-#30966: Improve floating labels with Edge and a general refactor
+- **NEW** Upgrade to Bootstrap 4.5.2
 - **NEW** Ripple effect for other components (Card-primary-action, Lists, Menus) based on Ripplet library
 - Improved Ripplet JS declaration + upgrade to v0.3x
 - **NEW** Material themes for **Autosize**, **ionRangeSlider**, **Select2**, **Maxlength**.  
