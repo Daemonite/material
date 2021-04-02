@@ -4,7 +4,7 @@
 
 .custom-control {
   display: block;
-  min-height: $font-size-base * $line-height-base;
+  min-height: $selection-control-min-height;
   padding-left: $selection-control-spacer-x + $selection-control-indicator-size;
   position: relative;
   z-index: 1;
@@ -28,13 +28,13 @@
 
 .custom-control-label {
   color: inherit;
+  display: inline-block;
   font-size: $font-size-body-2;
   letter-spacing: $letter-spacing-body-2;
-  line-height: $line-height-body-2;
+  line-height: $selection-control-min-height;
   margin-bottom: 0;
-  //position: relative;
   user-select: none; // djibe addition
-  vertical-align: top;
+  vertical-align: middle;
 
   // Background-color and (when enabled) gradient
   &::before {
@@ -60,6 +60,7 @@
   &::after {
     color: $selection-control-color;
     display: block;
+    opacity: $black-secondary-opacity;
     position: absolute;
     top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
     left: 0;
@@ -73,20 +74,6 @@
   left: 0; // https://github.com/twbs/bootstrap/commit/b165aff2f779c831efd8b3484e3ea7bc1c8f8eb4
   width: $custom-control-indicator-size;
   z-index: -1;
-
-  &[disabled] {
-    ~ .custom-control-label {
-      color: $selection-control-color-disabled;
-
-      &::after {
-        color: $selection-control-color-disabled;
-      }
-
-      &::before {
-        display: none;
-      }
-    }
-  }
 
   &:not([disabled]):hover {
     ~ .custom-control-label {
@@ -106,10 +93,28 @@
     .custom-control-label {
       &::after {
         color: $selection-control-color-active;
+        opacity: 1;
       }
 
       &::before {
         background-color: $selection-control-color-active;
+      }
+    }
+  }
+
+  // stylelint-disable-next-line
+  &[disabled] {
+    ~ .custom-control-label {
+      color: $selection-control-color-disabled;
+
+      &::after {
+        // color: $selection-control-color-disabled;
+        filter: saturate(0);
+        opacity: 0.26;
+      }
+
+      &::before {
+        display: none;
       }
     }
   }
@@ -120,31 +125,22 @@
 // Tweak just a few things for checkboxes.
 
 .custom-checkbox {
-  &.custom-control {
-    align-items: center;
-    display: flex;
-  }
-
   .custom-control-label::after {
-    @include set-material-icons;
-
-    content: $selection-control-checkbox-icon;
-    line-height: 1;
-    vertical-align: middle;
+    content: escape-svg($selection-control-checkbox-icon);
   }
 
   .custom-control-input {
     &:checked ~ .custom-control-label::after {
-      content: $selection-control-checkbox-icon-checked;
+      content: escape-svg($selection-control-checkbox-icon-checked);
     }
 
     &:indeterminate ~ .custom-control-label::after {
-      content: $selection-control-checkbox-icon-indeterminate;
+      content: escape-svg($selection-control-checkbox-icon-indeterminate);
     }
 
-    &:indeterminate:not([disabled]) ~ .custom-control-label::after {
-      color: $selection-control-color-active;
-    }
+    /* &:indeterminate:disabled ~ .custom-control-label::after {
+      opacity: 0.26;
+    } */
   }
 }
 
