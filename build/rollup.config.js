@@ -1,46 +1,33 @@
-'use strict'
+import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import nodeResolve from '@rollup/plugin-node-resolve'
 
-import commonjs from 'rollup-plugin-commonjs';
-
-const babel    = require('rollup-plugin-babel')
-const path     = require('path')
-const resolve  = require('rollup-plugin-node-resolve')
-
-const pkg      = require(path.resolve(__dirname, '../package.json'))
+const pkg      = require('../package.json')
 const year     = new Date().getFullYear()
-
-
-const external = ['jquery']
 
 const globals = {
   'jquery': 'jQuery'
 }
 
-const plugins  = [
-  babel({
-    exclude: 'node_modules/**',
-    externalHelpersWhitelist: [
-      'createClass',
-      'defineProperty',
-      'objectSpread',
-      'objectSpread2',
-    ]
-  }),
+const config  = [
+  nodeResolve(),
   commonjs({
-    sourceMap: false,
+    sourceMap: false
   }),
-  resolve(),
+  babel({
+    exclude: 'node_modules/**'
+  })
 ]
 
-module.exports = {
-  external,
-  input: path.resolve(__dirname, '../assets/js/index.js'),
+export default {
+  input: 'assets/js/index.js',
+  // TODO: https://stackoverflow.com/questions/55112048/rollup-babel-preset-env-babel-polyfill
   output: {
-    banner: `/*!\n * Daemonite Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)\n */\n`,
-    file: path.resolve(__dirname, `../js/material.js`),
-    format: 'umd',
+    banner: `/*!\n * Djibe Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)\n */\n`,
+    file: 'js/material.js',
+    format: 'cjs',
     globals,
     name: 'material'
   },
-  plugins
+  plugins: config
 }
