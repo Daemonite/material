@@ -6,16 +6,32 @@ const pkg      = require('../package.json')
 const year     = new Date().getFullYear()
 
 const globals = {
-  'jquery': 'jQuery'
+  'jquery': '$'
 }
 
 const config  = [
   nodeResolve(),
-  commonjs({
-    sourceMap: false
-  }),
+  commonjs(),
   babel({
-    exclude: 'node_modules/**'
+    exclude: 'node_modules/**',
+    sourceType: 'unambiguous',
+    presets: [
+      [
+        '@babel/preset-env',
+        {
+          bugfixes: true,
+          forceAllTransforms: true,
+          loose: true,
+          modules: false,
+          spec: true,
+          useBuiltIns: 'usage',
+          corejs: {
+            version: 3,
+            proposals: false
+          }
+        }
+      ]
+    ]
   })
 ]
 
@@ -25,9 +41,10 @@ export default {
   output: {
     banner: `/*!\n * Djibe Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)\n */\n`,
     file: 'js/material.js',
-    format: 'cjs',
+    format: 'umd',
     globals,
     name: 'material'
   },
+  context: 'this',
   plugins: config
 }
