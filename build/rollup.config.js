@@ -1,19 +1,24 @@
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import nodeResolve from '@rollup/plugin-node-resolve'
+import resolve from '@rollup/plugin-node-resolve'
 
 const pkg      = require('../package.json')
 const year     = new Date().getFullYear()
 
+const external = ['jquery']
 const globals = {
-  'jquery': '$'
+  jquery: 'jQuery'
 }
 
-const config  = [
-  nodeResolve(),
+const pluginsConfig = [
+  resolve(),
   commonjs(),
   babel({
+    babelHelpers: 'bundled',
     exclude: 'node_modules/**',
+    ignore: [
+      /\/core-js/
+    ],
     sourceType: 'unambiguous',
     presets: [
       [
@@ -24,7 +29,7 @@ const config  = [
           loose: true,
           modules: false,
           spec: true,
-          useBuiltIns: 'usage',
+          useBuiltIns: 'entry',
           corejs: {
             version: 3,
             proposals: false
@@ -36,6 +41,7 @@ const config  = [
 ]
 
 export default {
+  external,
   input: 'assets/js/index.js',
   // TODO: https://stackoverflow.com/questions/55112048/rollup-babel-preset-env-babel-polyfill
   output: {
@@ -46,5 +52,5 @@ export default {
     name: 'material'
   },
   context: 'this',
-  plugins: config
+  plugins: pluginsConfig
 }

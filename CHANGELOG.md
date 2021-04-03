@@ -15,6 +15,7 @@
 - **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
 - **Fixed** Datatables.net search displays suitable number of results.
 - **Fixed** Various minor changes.
+- **Improved** JavaScript compilation.
 
 ## 4.6.0 - RC1
 
