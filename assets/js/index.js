@@ -1,4 +1,5 @@
 // import $ from 'jquery'
+import 'element-closest-polyfill' // IE10 closest fix
 import ExpansionPanel from './src/expansion-panel'
 import FloatingLabel from './src/floating-label'
 import NavDrawer from './src/nav-drawer'

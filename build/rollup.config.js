@@ -1,6 +1,6 @@
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 
 const pkg      = require('../package.json')
 const year     = new Date().getFullYear()
@@ -11,8 +11,10 @@ const globals = {
 }
 
 const pluginsConfig = [
-  resolve(),
-  commonjs(),
+  nodeResolve(),
+  commonjs({
+    sourceMap: false
+  }),
   babel({
     babelHelpers: 'bundled',
     exclude: 'node_modules/**',
@@ -26,13 +28,12 @@ const pluginsConfig = [
         {
           bugfixes: true,
           forceAllTransforms: true,
-          loose: true,
           modules: false,
-          spec: true,
-          useBuiltIns: 'entry',
+          // useBuiltIns: 'usage', // For complete polyfill
+          // shippedProposals: true,
           corejs: {
-            version: 3,
-            proposals: false
+            version: '3.10',
+            proposals: true
           }
         }
       ]
@@ -43,7 +44,6 @@ const pluginsConfig = [
 export default {
   external,
   input: 'assets/js/index.js',
-  // TODO: https://stackoverflow.com/questions/55112048/rollup-babel-preset-env-babel-polyfill
   output: {
     banner: `/*!\n * Djibe Material v${pkg.version} (${pkg.homepage})\n * Copyright 2011-${year} ${pkg.author}\n * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)\n */\n`,
     file: 'js/material.js',
