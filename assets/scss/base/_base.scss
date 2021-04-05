@@ -367,7 +367,6 @@ input[type='checkbox'] {
 }
 
 textarea {
-  overflow: auto;
   resize: vertical;
 }
 
@@ -379,33 +378,47 @@ fieldset {
 }
 
 legend {
-  @include typography-headline-6;
+  @include typography-caption;
 
-  color: inherit;
-  display: block;
+  float: left;
   margin-bottom: $headings-margin-y;
-  max-width: 100%;
   padding: 0;
-  white-space: normal;
   width: 100%;
+
+  + * {
+    clear: left;
+  }
 }
 
-progress {
-  vertical-align: baseline;
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
 }
 
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+::-webkit-inner-spin-button {
   height: auto;
 }
 
 [type='search'] {
-  -webkit-appearance: none;
+  -webkit-appearance: textfield;
   outline-offset: -2px;
 }
 
-[type='search']::-webkit-search-decoration {
+::-webkit-search-decoration {
   -webkit-appearance: none;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::file-selector-button {
+  font: inherit;
 }
 
 ::-webkit-file-upload-button {
@@ -421,6 +434,10 @@ output {
   display: inline-block;
 }
 
+iframe {
+  border: 0;
+}
+
 summary {
   cursor: pointer;
   display: list-item;
@@ -428,6 +445,10 @@ summary {
 
 template {
   display: none;
+}
+
+progress {
+  vertical-align: baseline;
 }
 
 [hidden] {

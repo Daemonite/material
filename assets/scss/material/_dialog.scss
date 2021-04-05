@@ -198,7 +198,7 @@
   align-items: flex-end;
   border-top: 1px solid transparent;
   display: flex;
-  flex-wrap: wrap; // Introduced in 4.5.3 RC1
+  flex-wrap: wrap;
   justify-content: flex-end;
   padding: $dialog-footer-padding-y $dialog-footer-padding-x;
 
@@ -272,6 +272,10 @@
       height: 3rem;
       letter-spacing: 0.04em;
       text-transform: lowercase;
+
+      &:first-of-type {
+        border-top: 0;
+      }
 
       &::first-letter {
         text-transform: uppercase;
