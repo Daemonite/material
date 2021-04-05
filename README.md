@@ -1,12 +1,8 @@
 # Material 2
 
-[![Backers on Open Collective](https://opencollective.com/material/backers/badge.svg)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/material/sponsors/badge.svg)](#sponsors)
-
-> **DISCLAIMER**: This framework was created by [Daemonite team](http://daemonite.github.io/material/). Since they are not active / focused at working this framework for **now**, we will enhance this framework until they come back to maintain the project.
+> **DISCLAIMER**: This framework was created by [Daemonite team](http://daemonite.github.io/material/). Since they are not active for **now**, we will enhance this framework until they come back to maintain the project.
 
 Djibe's Material UI 2 is a cross-platform and fully responsive front-end interface based on Google Material Design 2 developed by Google.  
-it is the active fork of the abandonned Daemonite Material UI (until Daemonite comes back).
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design 2.
 
@@ -24,27 +20,6 @@ Because these components will require additional markup (some may require additi
 This project exists thanks to all the people who takes time to contribute.
 
 <a href="https://github.com/Daemonite/material/graphs/contributors"><img src="https://opencollective.com/material/contributors.svg?width=890&button=false" /></a>
-
-### Backers
-
-Thank you to all our backers! [[Become a backer](https://opencollective.com/material#backer)]
-
-<a href="https://opencollective.com/material#backers" target="_blank"><img src="https://opencollective.com/material/backers.svg?width=890"></a>
-
-### Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/material#sponsor)]
-
-<a href="https://opencollective.com/material/sponsor/0/website" target="_blank"><img src="https://opencollective.com/material/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/1/website" target="_blank"><img src="https://opencollective.com/material/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/2/website" target="_blank"><img src="https://opencollective.com/material/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/3/website" target="_blank"><img src="https://opencollective.com/material/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/4/website" target="_blank"><img src="https://opencollective.com/material/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/5/website" target="_blank"><img src="https://opencollective.com/material/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/6/website" target="_blank"><img src="https://opencollective.com/material/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/7/website" target="_blank"><img src="https://opencollective.com/material/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/8/website" target="_blank"><img src="https://opencollective.com/material/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/9/website" target="_blank"><img src="https://opencollective.com/material/sponsor/9/avatar.svg"></a>
 
 ## Table of contents
 
@@ -91,7 +66,7 @@ djibe-material/
 │   ├── material.css
 │   ├── material.css.map
 │   ├── material.min.css
-│   ├── material.min.css.
+│   ├── material.min.css.map
 │   ├── material-plugins.css
 │   ├── material-plugins.css.map
 │   ├── material-plugins.min.css
@@ -120,7 +95,7 @@ Material's 2 documentation that is included in this repo located in the root dir
 
 ### End-Of-Line Fix
 
-This repository is usually in CRLF end-of-line mode. When your GitHub is currently set at LF end-of-line mode automatically, there will be an error. Which shows the following:
+This repository uses LF end-of-line mode. When your GitHub is currently set at CRLF end-of-line mode automatically, there will be an error. Which shows the following:
 `
 Error <File> : Expected linebreaks to be 'LF' but found CRLF
 `
@@ -133,19 +108,10 @@ In order to fix this problem, you have to save all modified files that is not ye
 2. `git rm --cached -r .`
 3. `git reset --hard`
 
-#### Command Notes
-
-- At command #1, we have to configure github to stop interpreting our files in the repo to convert the end-of-line to **CRLF**.
-- At command #2, since we configured our github to stop converting those into **CRLF** where it is expected to be **LF**, we have to remove all the cache files and remove them in recursive way in the same path where your command line directory is at. (For instance, your command line target path is this repository.)
-- And finally at command #3, we have to reset the state of your saved local repo by issuing `--hard` command. Where, all modified files that is not included in the latest commit of repo will be removed.
-
-Now try issuing commands from the recent steps earlier and ***that should work fine***.
-
 ## Quick start
 
 Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/djibe/material.git`
 - Download the [latest release](https://github.com/djibe/material/releases)
-- Install with [bower](https://bower.io/): **TODO**
 - Install with [npm](https://www.npmjs.com/): `npm install djibe-material`

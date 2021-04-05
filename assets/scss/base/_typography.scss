@@ -112,6 +112,33 @@ mark,
 // Lists
 //
 
+ol {
+  list-style: decimal outside;
+
+  ol {
+    list-style-type: lower-alpha;
+  }
+}
+
+// djibe addition looks like https://developers.google.com/style/lists
+ul {
+  list-style: disc outside;
+
+  &:not([class]) {
+    padding-left: 2.5rem;
+  }
+
+  li {
+    font-size: inherit;
+    margin: 0.75rem 0;
+    padding: 0;
+  }
+}
+
+li > ul > li { // stylelint-disable-line selector-max-type
+  list-style-type: circle;
+}
+
 .list-unstyled {
   @include list-unstyled;
 }
