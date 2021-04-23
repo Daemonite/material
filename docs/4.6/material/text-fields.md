@@ -41,8 +41,8 @@ However limited to inputs placed in Bootstrap's `form-group` or `form-ripple` co
   <div class="floating-label textfield-box">
     <label for="demo1">Floating label</label>
     <input aria-describedby="demo1help" class="form-control" id="demo1" placeholder="Optional placeholder" type="text">
+    <small id="demo1help" class="form-text">Helper message placed inside <code>.floating-label</code></small>
   </div>
-  <small id="demo1help" class="form-text">Helper message placed outside <code>.floating-label</code></small>
 </div>
 {% endcapture %}
 {% include example.html content=example %}

@@ -193,7 +193,6 @@ When backdrop is set to static, the modal will not close when clicking outside i
 </div>
 {% endhighlight %}
 
-
 ### Scrolling long content
 
 When modals become too long for the user's viewport or device, they scroll independent of the page itself. Try the demo below to see what we mean.

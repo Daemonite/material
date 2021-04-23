@@ -3554,7 +3554,8 @@
       };
     }($__default['default']);
 
-    var Matrix = typeof DOMMatrix !== 'undefined' ? DOMMatrix : MSCSSMatrix; // tslint:disable-line:variable-name
+    // tslint:disable-next-line:variable-name
+    var Matrix = typeof DOMMatrix !== 'undefined' ? DOMMatrix : typeof MSCSSMatrix !== 'undefined' ? MSCSSMatrix : undefined;
     var transformPoint = function (matrix, x, y) {
         // IE doesn't support `DOMPoint` (and of course `DOMMatrix.prototype.transformPoint()` and `DOMPoint.prototype.matrixTransform()`).
         if (matrix) {
