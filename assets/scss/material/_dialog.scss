@@ -250,8 +250,16 @@
   }
 }
 
-@include media-breakpoint-up(xl) {
-  .modal-xl { max-width: $dialog-width-xl; }
+.modal-xl {
+  margin: 0;
+  max-width: $dialog-width-xl;
+  width: $dialog-width-xl;
+
+  .modal-content {
+    border-radius: 0;
+    height: 100vh;
+    overflow: scroll;
+  }
 }
 
 // Style modal for smartphones
@@ -274,7 +282,7 @@
       text-transform: lowercase;
 
       &:first-of-type {
-        border-top: 0;
+        border-radius: 0;
       }
 
       &::first-letter {

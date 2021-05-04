@@ -6,15 +6,17 @@
 
 - Dark mode
 - More plugins integration + documentation (Input mask, Calendar)
-- Full-width dialogs
 
 ## 4.6.0 - RC2
 
+- **New** Changed version numbers to NPM compatible ones for updates
+- **New** `modal-xl` is Full-screen dialog MD component
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
 - **Fixed** Components with text overflow is now with an ellipsis ...
 - **Fixed** Table-cell word break
 - **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
 - **Fixed** Datatables.net search displays suitable number of results.
+- **Fixed** `modal` documentation updated to reflect max sizes.
 - **Fixed** Various minor changes.
 - **Improved** JavaScript compilation.
 

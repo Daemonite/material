@@ -21,7 +21,7 @@ Flatpickr is a versatile datetime picker.
   <a href="https://material.io/components/date-pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Date pickers</a>
-  <a href="#" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold disabled">
+  <a class="list-group-item list-group-item-action d-flex font-weight-bold disabled">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Date pickers (planned)</a>
   <a href="https://flatpickr.js.org/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">

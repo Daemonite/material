@@ -566,22 +566,22 @@ Modals have three optional sizes, available via modifier classes to be placed on
     <tr>
       <td>Small</td>
       <td><code>.modal-sm</code></td>
-      <td><code>300px</code></td>
+      <td><code>280px</code></td>
     </tr>
     <tr>
       <td>Default</td>
       <td class="text-muted">None</td>
-      <td><code>500px</code></td>
+      <td><code>560px</code></td>
     </tr>
     <tr>
       <td>Large</td>
       <td><code>.modal-lg</code></td>
-      <td><code>800px</code></td>
+      <td><code>840px</code></td>
     </tr>
     <tr>
       <td>Extra large</td>
       <td><code>.modal-xl</code></td>
-      <td><code>1140px</code></td>
+      <td><code>Full screen</code></td>
     </tr>
   </tbody>
 </table>
