@@ -11,13 +11,15 @@
 
 - **New** Changed version numbers to NPM compatible ones for updates
 - **New** `modal-xl` is Full-screen dialog MD component
+- **Fixed** `modal` documentation updated to reflect max sizes.
+- **Fixed** `card` overflow behavior reverted to standard BS4.
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
-- **Fixed** Components with text overflow is now with an ellipsis ...
-- **Fixed** Table-cell word break
+- **Fixed** Most components with text overflow are now with an ellipsis ...
+- **Fixed** `Table-cell` word break
 - **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
 - **Fixed** Datatables.net search displays suitable number of results.
-- **Fixed** `modal` documentation updated to reflect max sizes.
 - **Fixed** Various minor changes.
+- **Improved** Datatables.net responsive rendering.
 - **Improved** JavaScript compilation.
 
 ## 4.6.0 - RC1
