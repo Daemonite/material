@@ -11,6 +11,7 @@
 
 - **New** Changed version numbers to NPM compatible ones for updates
 - **New** `modal-xl` is Full-screen dialog MD component
+- **New** Documentation search is back thanks to Algolia Docsearch
 - **Fixed** `modal` documentation updated to reflect max sizes.
 - **Fixed** `card` overflow behavior reverted to standard BS4.
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.

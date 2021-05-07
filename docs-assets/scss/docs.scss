@@ -181,7 +181,8 @@
   top: $spacer-xs;
   right: $spacer-xs;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: var(--primary);
   }
 }
@@ -223,6 +224,7 @@
 // stylelint-disable selector-no-qualifying-type
 .toc-entry {
   display: block;
+  margin: 0.5rem 0 !important; // stylelint-disable-line declaration-no-important
 
   a {
     color: #212121;
@@ -276,7 +278,7 @@
 
 /* stylelint-disable declaration-no-important */
 
-/* .algolia-autocomplete {
+.algolia-autocomplete {
   .algolia-docsearch-footer {
     border-top: $border-width solid $border-color;
     color: $menu-link-color-disabled !important;
@@ -292,8 +294,8 @@
   .algolia-docsearch-suggestion--category-header,
   .algolia-docsearch-suggestion--title {
     //color: $menu-header-color !important;
-    font-size: $menu-font-size-cascading !important;
-    line-height: $menu-line-height-cascading;
+    // font-size: $menu-font-size-cascading !important;
+    // line-height: $menu-line-height-cascading;
     padding: $menu-link-padding-y $menu-link-padding-x !important;
   }
 
@@ -302,8 +304,8 @@
     border-radius: $menu-border-radius;
     box-shadow: map-get($menu-elevation-shadow, shadow);
     margin-top: 0;
-    padding-top: $menu-padding-y-cascading !important;
-    padding-bottom: $menu-padding-y-cascading !important;
+    // padding-top: $menu-padding-y-cascading !important;
+    // padding-bottom: $menu-padding-y-cascading !important;
     width: 100%;
 
     [class^='ds-dataset-'] {
@@ -314,13 +316,13 @@
   .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
     background-color: $menu-link-bg-hover !important;
   }
-} */
+}
 
 /* stylelint-enable declaration-no-important */
 
-/* .doc-search:focus {
+.doc-search:focus {
   z-index: 101;
-} */
+}
 
 // Project css
 

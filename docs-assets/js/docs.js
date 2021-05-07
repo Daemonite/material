@@ -59,21 +59,20 @@
     })
 
     // Docsearch
-    /* docsearch({
+    /*eslint no-undef: "off"*/
+    docsearch({
+      apiKey: '2fd5dd7db27677f3e04d994bf7b94316',
+      indexName: 'material',
+      inputSelector: '#doc-search',
+      debug: true, // Set debug to true if you want to inspect the dropdown
       algoliaOptions: {
-        facetFilters: ['version: 4.6']
+        facetFilters: ['version:4.6']
       },
-      apiKey: 'c1af50add5aa791153ec947a3035b0c4',
-      debug: false,
       handleSelected: function (input, event, suggestion) {
         var url = suggestion.url
-
         url = suggestion.isLvl1 ? url.split('#')[0] : url
-
         window.location.href = url
       },
-      indexName: 'daemonite_material',
-      inputSelector: '#doc-search',
       transformData: function (hits) {
         return hits.map(function (hit) {
           var siteurl = document.getElementById('doc-search').getAttribute('data-siteurl')
@@ -84,7 +83,7 @@
           return hit
         })
       }
-    }) */
+    })
 
     // Floating labels
     $('.floating-label .custom-select, .floating-label .form-control').floatinglabel()

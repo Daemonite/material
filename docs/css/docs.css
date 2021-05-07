@@ -172,7 +172,7 @@
   right: 0.25rem;
 }
 
-.btn-clipboard:hover {
+.btn-clipboard:hover, .btn-clipboard:focus {
   background: var(--primary);
 }
 
@@ -215,6 +215,7 @@
 
 .toc-entry {
   display: block;
+  margin: 0.5rem 0 !important;
 }
 
 .toc-entry a {
@@ -260,49 +261,44 @@
 }
 
 /* stylelint-disable declaration-no-important */
-/* .algolia-autocomplete {
-  .algolia-docsearch-footer {
-    border-top: $border-width solid $border-color;
-    color: $menu-link-color-disabled !important;
-    font-size: $font-size-caption !important;
-    line-height: $line-height-caption !important;
-    padding: $menu-padding-y-cascading $menu-link-padding-x 0;
-  }
+.algolia-autocomplete .algolia-docsearch-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.38) !important;
+  font-size: 0.75rem !important;
+  line-height: 1.25rem !important;
+  padding: 1rem 1rem 0;
+}
 
-  .algolia-docsearch-suggestion {
-    color: $menu-link-color;
-  }
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  color: rgba(0, 0, 0, 0.87);
+}
 
-  .algolia-docsearch-suggestion--category-header,
-  .algolia-docsearch-suggestion--title {
-    //color: $menu-header-color !important;
-    font-size: $menu-font-size-cascading !important;
-    line-height: $menu-line-height-cascading;
-    padding: $menu-link-padding-y $menu-link-padding-x !important;
-  }
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header,
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  padding: 0 1rem !important;
+}
 
-  .ds-dropdown-menu {
-    border: 0;
-    border-radius: $menu-border-radius;
-    box-shadow: map-get($menu-elevation-shadow, shadow);
-    margin-top: 0;
-    padding-top: $menu-padding-y-cascading !important;
-    padding-bottom: $menu-padding-y-cascading !important;
-    width: 100%;
+.algolia-autocomplete .ds-dropdown-menu {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+  width: 100%;
+}
 
-    [class^='ds-dataset-'] {
-      border-radius: 0;
-    }
-  }
+.algolia-autocomplete .ds-dropdown-menu [class^='ds-dataset-'] {
+  border-radius: 0;
+}
 
-  .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
-    background-color: $menu-link-bg-hover !important;
-  }
-} */
+.algolia-autocomplete .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
 /* stylelint-enable declaration-no-important */
-/* .doc-search:focus {
+.doc-search:focus {
   z-index: 101;
-} */
+}
+
 .doc-jumbotron {
   background-color: #6200ee;
   background-image: url("../images/doc-jumbotron-bg.jpg");
