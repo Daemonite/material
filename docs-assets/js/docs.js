@@ -75,10 +75,20 @@
       },
       transformData: function (hits) {
         return hits.map(function (hit) {
-          var siteurl = document.getElementById('doc-search').getAttribute('data-siteurl')
-          var urlRE = /^https?:\/\/djibe\.github\.io/
+          var liveUrl = 'https://getbootstrap.com/'
 
-          hit.url = siteurl.match(urlRE) ? hit.url : hit.url.replace(urlRE, '')
+          hit.url = window.location.origin.startsWith(liveUrl)
+          // On production, return the result as is
+            ? hit.url
+            // On development or Netlify, replace `hit.url` with a trailing slash,
+            // so that the result link is relative to the server root
+            : hit.url.replace(liveUrl, '/')
+
+          // Prevent jumping to first header
+          if (hit.anchor === 'content') {
+            hit.url = hit.url.replace(/#content$/, '')
+            hit.anchor = null
+          }
 
           return hit
         })
@@ -249,7 +259,7 @@
 
 
     // Live toast demo
-    $('#liveToastBtn').click(function () {
+    $('#liveToastBtn').on('click', function () {
       $('#liveToast').toast('show')
     })
 

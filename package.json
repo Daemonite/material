@@ -105,6 +105,7 @@
     "dist": "npm-run-all --parallel css js --sequential bundlesize",
     "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
     "docs-compile": "bundle exec jekyll build",
+    "docs-deploy": "npm run docs && git subtree push --prefix gh-pages/material origin gh-pages",
     "docs-lint": "npm-run-all docs-lint-vnu-jar",
     "docs-lint-htmllint": "htmllint --rc build/doc.htmllintrc \"gh-pages/**/*.html\"",
     "docs-lint-vnu-jar": "node build/vnu-jar.js",
@@ -117,7 +118,8 @@
     "js-lint": "eslint --config build/.eslintrc.json assets/js/src/",
     "js-lint-docs": "eslint --config build/.eslintrc.doc.json docs-assets/js/",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=js/material.js.map,includeSources,url=material.min.js.map\" --output js/material.min.js js/material.js",
-    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js"
+    "js-minify-docs": "uglifyjs --comments \"/^!/\" --mangle --output docs/js/docs.min.js \"docs-assets/js/vendor/*.js\" docs-assets/js/docs.js",
+    "npm-publish": "npm publish"
   },
   "style": "css/material.css",
   "version": "4.6.0"

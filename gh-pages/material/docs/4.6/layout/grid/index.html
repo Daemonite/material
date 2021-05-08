@@ -1,0 +1,998 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1, shrink-to-fit=no, width=device-width"><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin><link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin><meta name="docsearch:language" content="en"><meta name="docsearch:version" content="4.6"><title>Grid system - Daemonite Material Design 2</title><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&family=Roboto+Slab:wght@300;400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" crossorigin><link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" crossorigin><link href="/material/css/material.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet" crossorigin media="print" onload="this.media='all'"><link href="https://getbootstrap.com/docs/4.6/assets/css/docs.css" rel="stylesheet" crossorigin><link href="/material/docs/css/docs.min.css" rel="stylesheet"><meta name="theme-color" content="#6200ee"><link href="/material/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"><link href="/material/favicon.ico" rel="icon"><meta name="author" content="Daemonite, Sesemaya, djibe, Bootstrap authors and contributors"><meta name="keywords" content="material design, material, material UI, bootstrap, framework, theme, daemonite, web, ui, components, responsive, accessibility, css, mobile web, open source"></head><body class="doc-body"> <a class="sr-only sr-only-focusable doc-skip" href="#doc-main-h1"><div class="container"> <span class="doc-skip-text">Skip to main content</span>
+</div></a><header class="navbar navbar-dark d-lg-none fixed-top toolbar-waterfall"> <button aria-controls="doc-navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler mr-3" data-breakpoint="lg" data-target="#doc-navdrawer" data-toggle="navdrawer" data-type="permanent"><span class="navbar-toggler-icon"></span></button> <a aria-label="Djibe Material" class="mr-auto doc-logo" href="/material/">M</a><div class="ml-3"><div class="dropdown"> <button aria-expanded="false" aria-haspopup="true" class="navbar-toggler" data-toggle="dropdown" id="doc-dropdown-follow" type="button"><i class="material-icons mx-auto">more_vert</i></button><div aria-labelledby="doc-dropdown-follow" class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a> <a class="dropdown-item" href="http://www.daemon.com.au/" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3 text-danger">favorite</i>Made by Daemon &amp; djibe</a>
+</div>
+</div></div></header><div aria-hidden="true" class="navdrawer navdrawer-permanent-lg doc-navdrawer" id="doc-navdrawer" tabindex="-1"><div class="navdrawer-content custom-scrollbar"><div class="d-flex flex-column doc-navdrawer-body">
+<div class="navdrawer-header"> <a aria-label="Djibe Material" class="doc-logo" href="/material/">M</a> <span class="navbar-brand">Material UI 2</span>
+</div>
+<form class="navdrawer-body mt-2">
+<div class="floating-label textfield-box"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search">
+</div>
+<button class="sr-only" type="submit">Search documentation</button> </form>
+<div class="navdrawer-divider mb-0"></div>
+<nav class="navdrawer-nav"> <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-getting-started"><strong>Getting started</strong></a><div class="collapse pb-2 " id="doc-navdrawer-getting-started"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/introduction/"><span class="font-weight-normal">Introduction</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/download/"><span class="font-weight-normal">Download</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/contents/"><span class="font-weight-normal">Contents</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/migration/"><span class="font-weight-normal">Migration</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/browsers-&amp;-devices/"><span class="font-weight-normal">Browsers &amp; devices</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/theming/"><span class="font-weight-normal">Theming</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/tooling/"><span class="font-weight-normal">Tooling</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/webpack/"><span class="font-weight-normal">Webpack</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/getting-started/accessibility/"><span class="font-weight-normal">Accessibility</span></a>
+</div>
+<a class="nav-item nav-link " data-toggle="collapse" href="#doc-navdrawer-layout"><strong>Layout</strong></a><div class="collapse pb-2 show" id="doc-navdrawer-layout"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/layout/overview/"><span class="font-weight-normal">Overview</span></a> <a class="nav-item nav-link pl-4 my-0 active" href="/material/docs/4.6/layout/grid/"><span class="font-weight-normal">Grid</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/layout/utilities-for-layout/"><span class="font-weight-normal">Utilities for layout</span></a>
+</div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-content"><strong>Content</strong></a><div class="collapse pb-2 " id="doc-navdrawer-content"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/reboot/"><span class="font-weight-normal">Reboot</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/typography/"><span class="font-weight-normal">Typography</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/code/"><span class="font-weight-normal">Code</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/images/"><span class="font-weight-normal">Images</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/tables/"><span class="font-weight-normal">Tables</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/content/figures/"><span class="font-weight-normal">Figures</span></a>
+</div>
+<div class="navdrawer-divider"></div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-components"><strong>Components</strong></a><div class="collapse pb-2 " id="doc-navdrawer-components"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/alerts/"><span class="font-weight-normal">Alerts</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/badge/"><span class="font-weight-normal">Badge</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/breadcrumb/"><span class="font-weight-normal">Breadcrumb</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/buttons/"><span class="font-weight-normal">Buttons</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/button-group/"><span class="font-weight-normal">Button group</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/card/"><span class="font-weight-normal">Card</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/carousel/"><span class="font-weight-normal">Carousel</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/collapse/"><span class="font-weight-normal">Collapse</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/dropdowns/"><span class="font-weight-normal">Dropdowns</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/forms/"><span class="font-weight-normal">Forms</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/input-group/"><span class="font-weight-normal">Input group</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/jumbotron/"><span class="font-weight-normal">Jumbotron</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/list-group/"><span class="font-weight-normal">List group</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/media-object/"><span class="font-weight-normal">Media object</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/modal/"><span class="font-weight-normal">Modal</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/navs/"><span class="font-weight-normal">Navs</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/navbar/"><span class="font-weight-normal">Navbar</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/pagination/"><span class="font-weight-normal">Pagination</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/popovers/"><span class="font-weight-normal">Popovers</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/progress/"><span class="font-weight-normal">Progress</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/scrollspy/"><span class="font-weight-normal">Scrollspy</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/spinners/"><span class="font-weight-normal">Spinners</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/toasts/"><span class="font-weight-normal">Toasts</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/components/tooltips/"><span class="font-weight-normal">Tooltips</span></a>
+</div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-utilities"><strong>Utilities</strong></a><div class="collapse pb-2 " id="doc-navdrawer-utilities"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/borders/"><span class="font-weight-normal">Borders</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/clearfix/"><span class="font-weight-normal">Clearfix</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/close-icon/"><span class="font-weight-normal">Close icon</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/colors/"><span class="font-weight-normal">Colors</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/display/"><span class="font-weight-normal">Display</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/embed/"><span class="font-weight-normal">Embed</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/flex/"><span class="font-weight-normal">Flex</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/float/"><span class="font-weight-normal">Float</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/image-replacement/"><span class="font-weight-normal">Image replacement</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/interactions/"><span class="font-weight-normal">Interactions</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/overflow/"><span class="font-weight-normal">Overflow</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/position/"><span class="font-weight-normal">Position</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/screen-readers/"><span class="font-weight-normal">Screen readers</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/shadows/"><span class="font-weight-normal">Shadows</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/sizing/"><span class="font-weight-normal">Sizing</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/spacing/"><span class="font-weight-normal">Spacing</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/stretched-link/"><span class="font-weight-normal">Stretched link</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/text/"><span class="font-weight-normal">Text</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/vertical-align/"><span class="font-weight-normal">Vertical align</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/utilities/visibility/"><span class="font-weight-normal">Visibility</span></a>
+</div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-extend-wip"><strong>Extend (WIP)</strong></a><div class="collapse pb-2 " id="doc-navdrawer-extend-wip"></div>
+<div class="navdrawer-divider"></div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-material"><strong>Material</strong></a><div class="collapse pb-2 " id="doc-navdrawer-material"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/app-bars-top/"><span class="font-weight-normal">App bars top</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/buttons/"><span class="font-weight-normal">Buttons</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/buttons-floating-action/"><span class="font-weight-normal">Buttons floating action</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/badges/"><span class="font-weight-normal">Badges</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/cards/"><span class="font-weight-normal">Cards</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/chips/"><span class="font-weight-normal">Chips</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/colors/"><span class="font-weight-normal">Colors</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/dark-theme/"><span class="font-weight-normal">Dark theme</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/data-tables/"><span class="font-weight-normal">Data tables</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/dialogs/"><span class="font-weight-normal">Dialogs</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/elevation-and-shadows/"><span class="font-weight-normal">Elevation and shadows</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/expansion-panels/"><span class="font-weight-normal">Expansion panels</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/icons/"><span class="font-weight-normal">Icons</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/lists/"><span class="font-weight-normal">Lists</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/menu/"><span class="font-weight-normal">Menu</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/navigation-drawer/"><span class="font-weight-normal">Navigation drawer</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/pickers/"><span class="font-weight-normal">Pickers</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/progress/"><span class="font-weight-normal">Progress</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/sliders/"><span class="font-weight-normal">Sliders</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/snackbars/"><span class="font-weight-normal">Snackbars</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/steppers/"><span class="font-weight-normal">Steppers</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/tabs/"><span class="font-weight-normal">Tabs</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/text-fields/"><span class="font-weight-normal">Text fields</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/tooltips/"><span class="font-weight-normal">Tooltips</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/material/typography/"><span class="font-weight-normal">Typography</span></a>
+</div>
+<a class="nav-item nav-link collapsed" data-toggle="collapse" href="#doc-navdrawer-plugins"><strong>Plugins</strong></a><div class="collapse pb-2 " id="doc-navdrawer-plugins"> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/character-counter/"><span class="font-weight-normal">Character counter</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/datatables/"><span class="font-weight-normal">DataTables</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/picker-flatpickr/"><span class="font-weight-normal">Picker flatpickr</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/sliders-ionrangeslider/"><span class="font-weight-normal">Sliders ionRangeSlider</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/select-select2/"><span class="font-weight-normal">Select Select2</span></a> <a class="nav-item nav-link pl-4 my-0 text-black-secondary" href="/material/docs/4.6/plugins/textarea-autosize/"><span class="font-weight-normal">Textarea autosize</span></a>
+</div></nav><div class="mt-auto">
+<div class="navdrawer-divider mt-0"></div>
+<div class="navdrawer-nav"> <a class="nav-item nav-link text-black-secondary" href="https://github.com/djibe/material" target="_blank" rel="noopener noreferrer"><i class="material-icons mr-3">code</i>Fork me on GitHub</a>
+</div>
+</div>
+</div></div></div><div class="jumbotron jumbotron-fluid px-lg-3 doc-jumbotron"><div class="container"><div class="row"><div class="col-xl-9">
+<h1 class="typography-display-4" id="doc-main-h1">Grid system</h1>
+<p class="font-weight-light typography-title">Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes.</p>
+</div></div></div></div><main class="doc-main px-lg-3"><div class="container"><div class="row justify-content-center">
+<div class="col-xl-9"><div class="bd-content mb-5">
+<h2 id="how-it-works">How it works</h2>
+<p>Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. It’s built with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank" rel="noopener noreferrer">flexbox</a> and is fully responsive. Below is an example and an in-depth look at how the grid comes together.</p>
+<p><strong>New to or unfamiliar with flexbox?</strong> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background" target="_blank" rel="noopener noreferrer">Read this CSS Tricks flexbox guide</a> for background, terminology, guidelines, and code snippets.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col-sm"> One of three columns</div>
+<div class="col-sm"> One of three columns</div>
+<div class="col-sm"> One of three columns</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<p>The above example creates three equal-width columns on small, medium, large, and extra large devices using our predefined grid classes. Those columns are centered in the page with the parent <code class="language-plaintext highlighter-rouge">.container</code>.</p>
+<p>Breaking it down, here’s how it works:</p>
+<ul>
+<li>Containers provide a means to center and horizontally pad your site’s contents. Use <code class="language-plaintext highlighter-rouge">.container</code> for a responsive pixel width or <code class="language-plaintext highlighter-rouge">.container-fluid</code> for <code class="language-plaintext highlighter-rouge">width: 100%</code> across all viewport and device sizes.</li>
+<li>Rows are wrappers for columns. Each column has horizontal <code class="language-plaintext highlighter-rouge">padding</code> (called a gutter) for controlling the space between them. This <code class="language-plaintext highlighter-rouge">padding</code> is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.</li>
+<li>In a grid layout, content must be placed within columns and only columns may be immediate children of rows.</li>
+<li>Thanks to flexbox, grid columns without a specified <code class="language-plaintext highlighter-rouge">width</code> will automatically layout as equal width columns. For example, four instances of <code class="language-plaintext highlighter-rouge">.col-sm</code> will each automatically be 25% wide from the small breakpoint and up. See the <a href="#auto-layout-columns">auto-layout columns</a> section for more examples.</li>
+<li>Column classes indicate the number of columns you’d like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use <code class="language-plaintext highlighter-rouge">.col-4</code>.</li>
+<li>Column <code class="language-plaintext highlighter-rouge">width</code>s are set in percentages, so they’re always fluid and sized relative to their parent element.</li>
+<li>Columns have horizontal <code class="language-plaintext highlighter-rouge">padding</code> to create the gutters between individual columns, however, you can remove the <code class="language-plaintext highlighter-rouge">margin</code> from rows and <code class="language-plaintext highlighter-rouge">padding</code> from columns with <code class="language-plaintext highlighter-rouge">.no-gutters</code> on the <code class="language-plaintext highlighter-rouge">.row</code>.</li>
+<li>To make the grid responsive, there are five grid breakpoints, one for each <a href="/material/docs/4.6/layout/overview/#responsive-breakpoints">responsive breakpoint</a>: all breakpoints (extra small), small, medium, large, and extra large.</li>
+<li>Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong> (e.g., <code class="language-plaintext highlighter-rouge">.col-sm-4</code> applies to small, medium, large, and extra large devices, but not the first <code class="language-plaintext highlighter-rouge">xs</code> breakpoint).</li>
+<li>You can use predefined grid classes (like <code class="language-plaintext highlighter-rouge">.col-4</code>) or <a href="#sass-mixins">Sass mixins</a> for more semantic markup.</li>
+</ul>
+<p>Be aware of the limitations and <a href="https://github.com/philipwalton/flexbugs" target="_blank" rel="noopener noreferrer">bugs around flexbox</a>, like the <a href="https://github.com/philipwalton/flexbugs#flexbug-9" target="_blank" rel="noopener noreferrer">inability to use some HTML elements as flex containers</a>.</p>
+<h2 id="grid-options">Grid options</h2>
+<p>While Bootstrap uses <code class="language-plaintext highlighter-rouge">em</code>s or <code class="language-plaintext highlighter-rouge">rem</code>s for defining most sizes, <code class="language-plaintext highlighter-rouge">px</code>s are used for grid breakpoints and container widths. This is because the viewport width is in pixels and does not change with the <a href="https://drafts.csswg.org/mediaqueries-3/#units" target="_blank" rel="noopener noreferrer">font size</a>.</p>
+<p>See how aspects of the Bootstrap grid system work across multiple devices with a handy table.</p>
+<table class="table table-bordered table-striped">
+<thead><tr>
+<th></th>
+<th class="text-center"> Extra small<br> <small>&lt;576px</small>
+</th>
+<th class="text-center"> Small<br> <small>≥576px</small>
+</th>
+<th class="text-center"> Medium<br> <small>≥768px</small>
+</th>
+<th class="text-center"> Large<br> <small>≥992px</small>
+</th>
+<th class="text-center"> Extra large<br> <small>≥1200px</small>
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<th class="text-nowrap" scope="row">Max container width</th>
+<td>None (auto)</td>
+<td>540px</td>
+<td>720px</td>
+<td>960px</td>
+<td>1140px</td>
+</tr>
+<tr>
+<th class="text-nowrap" scope="row">Class prefix</th>
+<td><code>.col-</code></td>
+<td><code>.col-sm-</code></td>
+<td><code>.col-md-</code></td>
+<td><code>.col-lg-</code></td>
+<td><code>.col-xl-</code></td>
+</tr>
+<tr>
+<th class="text-nowrap" scope="row"># of columns</th>
+<td colspan="5">12</td>
+</tr>
+<tr>
+<th class="text-nowrap" scope="row">Gutter width</th>
+<td colspan="5">30px (15px on each side of a column)</td>
+</tr>
+<tr>
+<th class="text-nowrap" scope="row">Nestable</th>
+<td colspan="5">Yes</td>
+</tr>
+<tr>
+<th class="text-nowrap" scope="row">Column ordering</th>
+<td colspan="5">Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="auto-layout-columns">Auto-layout columns</h2>
+<p>Utilize breakpoint-specific column classes for easy column sizing without an explicit numbered class like <code class="language-plaintext highlighter-rouge">.col-sm-6</code>.</p>
+<h3 id="equal-width">Equal-width</h3>
+<p>For example, here are two grid layouts that apply to every device and viewport, from <code class="language-plaintext highlighter-rouge">xs</code> to <code class="language-plaintext highlighter-rouge">xl</code>. Add any number of unit-less classes for each breakpoint you need and every column will be the same width.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col"> 1 of 2</div>
+<div class="col"> 2 of 2</div>
+</div>
+<div class="row">
+<div class="col"> 1 of 3</div>
+<div class="col"> 2 of 3</div>
+<div class="col"> 3 of 3</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      1 of 2
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      2 of 2
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      1 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      2 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      3 of 3
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="equal-width-multi-line">Equal-width multi-line</h3>
+<p>Create equal-width columns that span multiple lines by inserting a <code class="language-plaintext highlighter-rouge">.w-100</code> where you want the columns to break to a new line. Make the breaks responsive by mixing <code class="language-plaintext highlighter-rouge">.w-100</code> with some <a href="/material/docs/4.6/utilities/display/">responsive display utilities</a>.</p>
+<p>There was a <a href="https://github.com/philipwalton/flexbugs#flexbug-11" target="_blank" rel="noopener noreferrer">Safari flexbox bug</a> that prevented this from working without an explicit <code class="language-plaintext highlighter-rouge">flex-basis</code> or <code class="language-plaintext highlighter-rouge">border</code>. There are workarounds for older browser versions, but they shouldn’t be necessary if your target browsers don’t fall into the buggy versions.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col">col</div>
+<div class="col">col</div>
+<div class="w-100"></div>
+<div class="col">col</div>
+<div class="col">col</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="setting-one-column-width">Setting one column width</h3>
+<p>Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it. You may use predefined grid classes (as shown below), grid mixins, or inline widths. Note that the other columns will resize no matter the width of the center column.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col"> 1 of 3</div>
+<div class="col-6"> 2 of 3 (wider)</div>
+<div class="col"> 3 of 3</div>
+</div>
+<div class="row">
+<div class="col"> 1 of 3</div>
+<div class="col-5"> 2 of 3 (wider)</div>
+<div class="col"> 3 of 3</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      1 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>
+      2 of 3 (wider)
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      3 of 3
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      1 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-5"</span><span class="nt">&gt;</span>
+      2 of 3 (wider)
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      3 of 3
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="variable-width-content">Variable width content</h3>
+<p>Use <code class="language-plaintext highlighter-rouge">col-{breakpoint}-auto</code> classes to size columns based on the natural width of their content.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row justify-content-md-center">
+<div class="col col-lg-2"> 1 of 3</div>
+<div class="col-md-auto"> Variable width content</div>
+<div class="col col-lg-2"> 3 of 3</div>
+</div>
+<div class="row">
+<div class="col"> 1 of 3</div>
+<div class="col-md-auto"> Variable width content</div>
+<div class="col col-lg-2"> 3 of 3</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-md-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-lg-2"</span><span class="nt">&gt;</span>
+      1 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-auto"</span><span class="nt">&gt;</span>
+      Variable width content
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-lg-2"</span><span class="nt">&gt;</span>
+      3 of 3
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      1 of 3
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-auto"</span><span class="nt">&gt;</span>
+      Variable width content
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col col-lg-2"</span><span class="nt">&gt;</span>
+      3 of 3
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h2 id="responsive-classes">Responsive classes</h2>
+<p>Bootstrap’s grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.</p>
+<h3 id="all-breakpoints">All breakpoints</h3>
+<p>For grids that are the same from the smallest of devices to the largest, use the <code class="language-plaintext highlighter-rouge">.col</code> and <code class="language-plaintext highlighter-rouge">.col-*</code> classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to <code class="language-plaintext highlighter-rouge">.col</code>.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col">col</div>
+<div class="col">col</div>
+<div class="col">col</div>
+<div class="col">col</div>
+</div>
+<div class="row">
+<div class="col-8">col-8</div>
+<div class="col-4">col-4</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>col<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-8"</span><span class="nt">&gt;</span>col-8<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>col-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="stacked-to-horizontal">Stacked to horizontal</h3>
+<p>Using a single set of <code class="language-plaintext highlighter-rouge">.col-sm-*</code> classes, you can create a basic grid system that starts out stacked and becomes horizontal at the small breakpoint (<code class="language-plaintext highlighter-rouge">sm</code>).</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col-sm-8">col-sm-8</div>
+<div class="col-sm-4">col-sm-4</div>
+</div>
+<div class="row">
+<div class="col-sm">col-sm</div>
+<div class="col-sm">col-sm</div>
+<div class="col-sm">col-sm</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-8"</span><span class="nt">&gt;</span>col-sm-8<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-4"</span><span class="nt">&gt;</span>col-sm-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>col-sm<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>col-sm<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm"</span><span class="nt">&gt;</span>col-sm<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="mix-and-match">Mix and match</h3>
+<p>Don’t want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col-md-8">.col-md-8</div>
+<div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div>
+<div class="row">
+<div class="col-6 col-md-4">.col-6 .col-md-4</div>
+<div class="col-6 col-md-4">.col-6 .col-md-4</div>
+<div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div>
+<div class="row">
+<div class="col-6">.col-6</div>
+<div class="col-6">.col-6</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Stack the columns on mobile by making one full-width and the other half-width --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>.col-md-8<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-md-4"</span><span class="nt">&gt;</span>.col-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-md-4"</span><span class="nt">&gt;</span>.col-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-md-4"</span><span class="nt">&gt;</span>.col-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-md-4"</span><span class="nt">&gt;</span>.col-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Columns are always 50% wide, on mobile and desktop --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>.col-6<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>.col-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="gutters">Gutters</h3>
+<p>Gutters can be responsively adjusted by breakpoint-specific padding and negative margin utility classes. To change the gutters in a given row, pair a negative margin utility on the <code class="language-plaintext highlighter-rouge">.row</code> and matching padding utilities on the <code class="language-plaintext highlighter-rouge">.col</code>s. The <code class="language-plaintext highlighter-rouge">.container</code> or <code class="language-plaintext highlighter-rouge">.container-fluid</code> parent may need to be adjusted too to avoid unwanted overflow, using again matching padding utility.</p>
+<p>Here’s an example of customizing the Bootstrap grid at the large (<code class="language-plaintext highlighter-rouge">lg</code>) breakpoint and above. We’ve increased the <code class="language-plaintext highlighter-rouge">.col</code> padding with <code class="language-plaintext highlighter-rouge">.px-lg-5</code>, counteracted that with <code class="language-plaintext highlighter-rouge">.mx-lg-n5</code> on the parent <code class="language-plaintext highlighter-rouge">.row</code> and then adjusted the <code class="language-plaintext highlighter-rouge">.container</code> wrapper with <code class="language-plaintext highlighter-rouge">.px-lg-5</code>.</p>
+<div class="bd-example"><div class="container px-lg-5"><div class="row mx-lg-n5">
+<div class="col py-3 px-lg-5 border bg-light">Custom column padding</div>
+<div class="col py-3 px-lg-5 border bg-light">Custom column padding</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container px-lg-5"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row mx-lg-n5"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col py-3 px-lg-5 border bg-light"</span><span class="nt">&gt;</span>Custom column padding<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col py-3 px-lg-5 border bg-light"</span><span class="nt">&gt;</span>Custom column padding<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><h3 id="row-columns">Row columns</h3>
+<p>Use the responsive <code class="language-plaintext highlighter-rouge">.row-cols-*</code> classes to quickly set the number of columns that best render your content and layout. Whereas normal <code class="language-plaintext highlighter-rouge">.col-*</code> classes apply to the individual columns (e.g., <code class="language-plaintext highlighter-rouge">.col-md-4</code>), the row columns classes are set on the parent <code class="language-plaintext highlighter-rouge">.row</code> as a shortcut.</p>
+<p>Use these row columns classes to quickly create basic grid layouts or to control your card layouts.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row row-cols-2">
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-cols-2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row row-cols-3">
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-cols-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row row-cols-4">
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-cols-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row row-cols-4">
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col-6">Column</div>
+<div class="col">Column</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-cols-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+<div class="col">Column</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-cols-1 row-cols-sm-2 row-cols-md-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>Column<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<p>You can also use the accompanying Sass mixin, <code class="language-plaintext highlighter-rouge">row-cols()</code>:</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.element</span> <span class="p">{</span>
+  <span class="c1">// Three columns to start</span>
+  <span class="k">@include</span> <span class="nd">row-cols</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+
+  <span class="c1">// Five columns from medium breakpoint up</span>
+  <span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">md</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">row-cols</span><span class="p">(</span><span class="m">5</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure><h2 id="alignment">Alignment</h2>
+<p>Use flexbox alignment utilities to vertically and horizontally align columns. <strong>Internet Explorer 10-11 do not support vertical alignment of flex items when the flex container has a <code class="language-plaintext highlighter-rouge">min-height</code> as shown below.</strong> <a href="https://github.com/philipwalton/flexbugs#flexbug-3" target="_blank" rel="noopener noreferrer">See Flexbugs #3 for more details.</a></p>
+<h3 id="vertical-alignment">Vertical alignment</h3>
+<div class="bd-example-row bd-example-row-flex-cols">
+<div class="bd-example"><div class="container">
+<div class="row align-items-start">
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+</div>
+<div class="row align-items-center">
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+</div>
+<div class="row align-items-end">
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+<div class="col"> One of three columns</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row align-items-start"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row align-items-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row align-items-end"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<div class="bd-example-row bd-example-row-flex-cols">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col align-self-start"> One of three columns</div>
+<div class="col align-self-center"> One of three columns</div>
+<div class="col align-self-end"> One of three columns</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col align-self-start"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col align-self-center"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col align-self-end"</span><span class="nt">&gt;</span>
+      One of three columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="horizontal-alignment">Horizontal alignment</h3>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row justify-content-start">
+<div class="col-4"> One of two columns</div>
+<div class="col-4"> One of two columns</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-4"> One of two columns</div>
+<div class="col-4"> One of two columns</div>
+</div>
+<div class="row justify-content-end">
+<div class="col-4"> One of two columns</div>
+<div class="col-4"> One of two columns</div>
+</div>
+<div class="row justify-content-around">
+<div class="col-4"> One of two columns</div>
+<div class="col-4"> One of two columns</div>
+</div>
+<div class="row justify-content-between">
+<div class="col-4"> One of two columns</div>
+<div class="col-4"> One of two columns</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-start"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-end"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-around"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-between"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>
+      One of two columns
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="no-gutters">No gutters</h3>
+<p>The gutters between columns in our predefined grid classes can be removed with <code class="language-plaintext highlighter-rouge">.no-gutters</code>. This removes the negative <code class="language-plaintext highlighter-rouge">margin</code>s from <code class="language-plaintext highlighter-rouge">.row</code> and the horizontal <code class="language-plaintext highlighter-rouge">padding</code> from all immediate children columns.</p>
+<p>Here’s the source code for creating these styles. Note that column overrides are scoped to only the first children columns and are targeted via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors" target="_blank" rel="noopener noreferrer">attribute selector</a>. While this generates a more specific selector, column padding can still be further customized with <a href="/material/docs/4.6/utilities/spacing/">spacing utilities</a>.</p>
+<p><strong>Need an edge-to-edge design?</strong> Drop the parent <code class="language-plaintext highlighter-rouge">.container</code> or <code class="language-plaintext highlighter-rouge">.container-fluid</code>.</p>
+<figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="nc">.no-gutters</span> <span class="err">{</span>
+  <span class="nl">margin-right</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+
+  <span class="o">&gt;</span> <span class="nc">.col</span><span class="o">,</span>
+  <span class="o">&gt;</span> <span class="o">[</span><span class="nt">class</span><span class="o">*=</span><span class="s2">"col-"</span><span class="o">]</span> <span class="err">{</span>
+    <span class="nl">padding-right</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+    <span class="nl">padding-left</span><span class="p">:</span> <span class="m">0</span><span class="err">;</span>
+  <span class="err">}</span>
+<span class="err">}</span></code></pre></figure><p>In practice, here’s how it looks. Note you can continue to use this with all other predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="row no-gutters">
+<div class="col-sm-6 col-md-8">.col-sm-6 .col-md-8</div>
+<div class="col-6 col-md-4">.col-6 .col-md-4</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row no-gutters"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6 col-md-8"</span><span class="nt">&gt;</span>.col-sm-6 .col-md-8<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-md-4"</span><span class="nt">&gt;</span>.col-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="column-wrapping">Column wrapping</h3>
+<p>If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col-9">.col-9</div>
+<div class="col-4">.col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+<div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-9"</span><span class="nt">&gt;</span>.col-9<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4"</span><span class="nt">&gt;</span>.col-4<span class="nt">&lt;br&gt;</span>Since 9 + 4 = 13 <span class="ni">&amp;gt;</span> 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6"</span><span class="nt">&gt;</span>.col-6<span class="nt">&lt;br&gt;</span>Subsequent columns continue along the new line.<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="column-breaks">Column breaks</h3>
+<p>Breaking columns to a new line in flexbox requires a small hack: add an element with <code class="language-plaintext highlighter-rouge">width: 100%</code> wherever you want to wrap your columns to a new line. Normally this is accomplished with multiple <code class="language-plaintext highlighter-rouge">.row</code>s, but not every implementation method can account for this.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+<div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+<div class="w-100"></div>
+<div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+<div class="col-6 col-sm-3">.col-6 .col-sm-3</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-3"</span><span class="nt">&gt;</span>.col-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-3"</span><span class="nt">&gt;</span>.col-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- Force next columns to break to new line --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-3"</span><span class="nt">&gt;</span>.col-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-3"</span><span class="nt">&gt;</span>.col-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<p>You may also apply this break at specific breakpoints with our <a href="/material/docs/4.6/utilities/display/">responsive display utilities</a>.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+<div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+<div class="w-100 d-none d-md-block"></div>
+<div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+<div class="col-6 col-sm-4">.col-6 .col-sm-4</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-4"</span><span class="nt">&gt;</span>.col-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-4"</span><span class="nt">&gt;</span>.col-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- Force next columns to break to new line at md breakpoint and up --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100 d-none d-md-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-4"</span><span class="nt">&gt;</span>.col-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-6 col-sm-4"</span><span class="nt">&gt;</span>.col-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h2 id="reordering">Reordering</h2>
+<h3 id="order-classes">Order classes</h3>
+<p>Use <code class="language-plaintext highlighter-rouge">.order-</code> classes for controlling the <strong>visual order</strong> of your content. These classes are responsive, so you can set the <code class="language-plaintext highlighter-rouge">order</code> by breakpoint (e.g., <code class="language-plaintext highlighter-rouge">.order-1.order-md-2</code>). Includes support for <code class="language-plaintext highlighter-rouge">1</code> through <code class="language-plaintext highlighter-rouge">12</code> across all five grid tiers.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col"> First in DOM, no order applied</div>
+<div class="col order-12"> Second in DOM, with a larger order</div>
+<div class="col order-1"> Third in DOM, with an order of 1</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      First in DOM, no order applied
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col order-12"</span><span class="nt">&gt;</span>
+      Second in DOM, with a larger order
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col order-1"</span><span class="nt">&gt;</span>
+      Third in DOM, with an order of 1
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<p>There are also responsive <code class="language-plaintext highlighter-rouge">.order-first</code> and <code class="language-plaintext highlighter-rouge">.order-last</code> classes that change the <code class="language-plaintext highlighter-rouge">order</code> of an element by applying <code class="language-plaintext highlighter-rouge">order: -1</code> and <code class="language-plaintext highlighter-rouge">order: 13</code> (<code class="language-plaintext highlighter-rouge">order: $columns + 1</code>), respectively. These classes can also be intermixed with the numbered <code class="language-plaintext highlighter-rouge">.order-*</code> classes as needed.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row">
+<div class="col order-last"> First in DOM, ordered last</div>
+<div class="col"> Second in DOM, unordered</div>
+<div class="col order-first"> Third in DOM, ordered first</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col order-last"</span><span class="nt">&gt;</span>
+      First in DOM, ordered last
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+      Second in DOM, unordered
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col order-first"</span><span class="nt">&gt;</span>
+      Third in DOM, ordered first
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h3 id="offsetting-columns">Offsetting columns</h3>
+<p>You can offset grid columns in two ways: our responsive <code class="language-plaintext highlighter-rouge">.offset-</code> grid classes and our <a href="/material/docs/4.6/utilities/spacing/">margin utilities</a>. Grid classes are sized to match columns while margins are more useful for quick layouts where the width of the offset is variable.</p>
+<h4 id="offset-classes">Offset classes</h4>
+<p>Move columns to the right using <code class="language-plaintext highlighter-rouge">.offset-md-*</code> classes. These classes increase the left margin of a column by <code class="language-plaintext highlighter-rouge">*</code> columns. For example, <code class="language-plaintext highlighter-rouge">.offset-md-4</code> moves <code class="language-plaintext highlighter-rouge">.col-md-4</code> over four columns.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col-md-4">.col-md-4</div>
+<div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+</div>
+<div class="row">
+<div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+<div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+</div>
+<div class="row"><div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div></div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4 offset-md-4"</span><span class="nt">&gt;</span>.col-md-4 .offset-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 offset-md-3"</span><span class="nt">&gt;</span>.col-md-3 .offset-md-3<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 offset-md-3"</span><span class="nt">&gt;</span>.col-md-3 .offset-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 offset-md-3"</span><span class="nt">&gt;</span>.col-md-6 .offset-md-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<p>In addition to column clearing at responsive breakpoints, you may need to reset offsets. See this in action in <a href="/material/docs/4.6/examples/grid/">the grid example</a>.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col-sm-5 col-md-6">.col-sm-5 .col-md-6</div>
+<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0</div>
+</div>
+<div class="row">
+<div class="col-sm-6 col-md-5 col-lg-6">.col-sm-6 .col-md-5 .col-lg-6</div>
+<div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">.col-sm-6 .col-md-5 .offset-md-2 .col-lg-6 .offset-lg-0</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5 col-md-6"</span><span class="nt">&gt;</span>.col-sm-5 .col-md-6<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5 offset-sm-2 col-md-6 offset-md-0"</span><span class="nt">&gt;</span>.col-sm-5 .offset-sm-2 .col-md-6 .offset-md-0<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6 col-md-5 col-lg-6"</span><span class="nt">&gt;</span>.col-sm-6 .col-md-5 .col-lg-6<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0"</span><span class="nt">&gt;</span>.col-sm-6 .col-md-5 .offset-md-2 .col-lg-6 .offset-lg-0<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h4 id="margin-utilities">Margin utilities</h4>
+<p>With the move to flexbox in v4, you can use margin utilities like <code class="language-plaintext highlighter-rouge">.mr-auto</code> to force sibling columns away from one another.</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container">
+<div class="row">
+<div class="col-md-4">.col-md-4</div>
+<div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+</div>
+<div class="row">
+<div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+<div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+</div>
+<div class="row">
+<div class="col-auto mr-auto">.col-auto .mr-auto</div>
+<div class="col-auto">.col-auto</div>
+</div>
+</div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4 ml-auto"</span><span class="nt">&gt;</span>.col-md-4 .ml-auto<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 ml-md-auto"</span><span class="nt">&gt;</span>.col-md-3 .ml-md-auto<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 ml-md-auto"</span><span class="nt">&gt;</span>.col-md-3 .ml-md-auto<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-auto mr-auto"</span><span class="nt">&gt;</span>.col-auto .mr-auto<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-auto"</span><span class="nt">&gt;</span>.col-auto<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h2 id="nesting">Nesting</h2>
+<p>To nest your content with the default grid, add a new <code class="language-plaintext highlighter-rouge">.row</code> and set of <code class="language-plaintext highlighter-rouge">.col-sm-*</code> columns within an existing <code class="language-plaintext highlighter-rouge">.col-sm-*</code> column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).</p>
+<div class="bd-example-row">
+<div class="bd-example"><div class="container"><div class="row"><div class="col-sm-9"> Level 1: .col-sm-9<div class="row">
+<div class="col-8 col-sm-6"> Level 2: .col-8 .col-sm-6</div>
+<div class="col-4 col-sm-6"> Level 2: .col-4 .col-sm-6</div>
+</div>
+</div></div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>
+      Level 1: .col-sm-9
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-8 col-sm-6"</span><span class="nt">&gt;</span>
+          Level 2: .col-8 .col-sm-6
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-4 col-sm-6"</span><span class="nt">&gt;</span>
+          Level 2: .col-4 .col-sm-6
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+</div>
+<h2 id="sass-mixins">Sass mixins</h2>
+<p>When using Bootstrap’s source Sass files, you have the option of using Sass variables and mixins to create custom, semantic, and responsive page layouts. Our predefined grid classes use these same variables and mixins to provide a whole suite of ready-to-use classes for fast responsive layouts.</p>
+<h3 id="variables">Variables</h3>
+<p>Variables and maps determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$grid-columns</span><span class="p">:</span>      <span class="m">12</span><span class="p">;</span>
+<span class="nv">$grid-gutter-width</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+
+<span class="nv">$grid-breakpoints</span><span class="p">:</span> <span class="p">(</span>
+  <span class="o">//</span> <span class="n">Extra</span> <span class="n">small</span> <span class="n">screen</span> <span class="o">/</span> <span class="n">phone</span>
+  <span class="n">xs</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Small</span> <span class="n">screen</span> <span class="o">/</span> <span class="n">phone</span>
+  <span class="n">sm</span><span class="o">:</span> <span class="m">576px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Medium</span> <span class="n">screen</span> <span class="o">/</span> <span class="n">tablet</span>
+  <span class="n">md</span><span class="o">:</span> <span class="m">768px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Large</span> <span class="n">screen</span> <span class="o">/</span> <span class="n">desktop</span>
+  <span class="n">lg</span><span class="o">:</span> <span class="m">992px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Extra</span> <span class="nb">large</span> <span class="n">screen</span> <span class="o">/</span> <span class="n">wide</span> <span class="n">desktop</span>
+  <span class="n">xl</span><span class="o">:</span> <span class="m">1200px</span>
+<span class="p">);</span>
+
+<span class="nv">$container-max-widths</span><span class="p">:</span> <span class="p">(</span>
+  <span class="n">sm</span><span class="o">:</span> <span class="m">540px</span><span class="o">,</span>
+  <span class="n">md</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
+  <span class="n">lg</span><span class="o">:</span> <span class="m">960px</span><span class="o">,</span>
+  <span class="n">xl</span><span class="o">:</span> <span class="m">1140px</span>
+<span class="p">);</span></code></pre></figure><h3 id="mixins">Mixins</h3>
+<p>Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Creates a wrapper for a series of columns</span>
+<span class="k">@include</span> <span class="nd">make-row</span><span class="p">();</span>
+
+<span class="c1">// Make the element grid-ready (applying everything but the width)</span>
+<span class="k">@include</span> <span class="nd">make-col-ready</span><span class="p">();</span>
+<span class="k">@include</span> <span class="nd">make-col</span><span class="p">(</span><span class="nv">$size</span><span class="o">,</span> <span class="nv">$columns</span><span class="o">:</span> <span class="nv">$grid-columns</span><span class="p">);</span>
+
+<span class="c1">// Get fancy by offsetting, or changing the sort order</span>
+<span class="k">@include</span> <span class="nd">make-col-offset</span><span class="p">(</span><span class="nv">$size</span><span class="o">,</span> <span class="nv">$columns</span><span class="o">:</span> <span class="nv">$grid-columns</span><span class="p">);</span></code></pre></figure><h3 id="example-usage">Example usage</h3>
+<p>You can modify the variables to your own custom values, or just use the mixins with their default values. Here’s an example of using the default settings to create a two-column layout with a gap between.</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.example-container</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">800px</span><span class="p">;</span>
+  <span class="k">@include</span> <span class="nd">make-container</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nc">.example-row</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">make-row</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nc">.example-content-main</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">make-col-ready</span><span class="p">();</span>
+
+  <span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-col</span><span class="p">(</span><span class="m">6</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-col</span><span class="p">(</span><span class="m">8</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nc">.example-content-secondary</span> <span class="p">{</span>
+  <span class="k">@include</span> <span class="nd">make-col-ready</span><span class="p">();</span>
+
+  <span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-col</span><span class="p">(</span><span class="m">6</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">@include</span> <span class="nd">media-breakpoint-up</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">make-col</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure><div class="bd-example"><div class="example-container"><div class="example-row">
+<div class="example-content-main">Main content</div>
+<div class="example-content-secondary">Secondary content</div>
+</div></div></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-content-main"</span><span class="nt">&gt;</span>Main content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"example-content-secondary"</span><span class="nt">&gt;</span>Secondary content<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><h2 id="customizing-the-grid">Customizing the grid</h2>
+<p>Using our built-in grid Sass variables and maps, it’s possible to completely customize the predefined grid classes. Change the number of tiers, the media query dimensions, and the container widths—then recompile.</p>
+<h3 id="columns-and-gutters">Columns and gutters</h3>
+<p>The number of grid columns can be modified via Sass variables. <code class="language-plaintext highlighter-rouge">$grid-columns</code> is used to generate the widths (in percent) of each individual column while <code class="language-plaintext highlighter-rouge">$grid-gutter-width</code> sets the width for the column gutters.</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$grid-columns</span><span class="p">:</span> <span class="m">12</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span>
+<span class="nv">$grid-gutter-width</span><span class="p">:</span> <span class="m">30px</span> <span class="o">!</span><span class="nb">default</span><span class="p">;</span></code></pre></figure><h3 id="grid-tiers">Grid tiers</h3>
+<p>Moving beyond the columns themselves, you may also customize the number of grid tiers. If you wanted just four grid tiers, you’d update the <code class="language-plaintext highlighter-rouge">$grid-breakpoints</code> and <code class="language-plaintext highlighter-rouge">$container-max-widths</code> to something like this:</p>
+<figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$grid-breakpoints</span><span class="p">:</span> <span class="p">(</span>
+  <span class="n">xs</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+  <span class="n">sm</span><span class="o">:</span> <span class="m">480px</span><span class="o">,</span>
+  <span class="n">md</span><span class="o">:</span> <span class="m">768px</span><span class="o">,</span>
+  <span class="n">lg</span><span class="o">:</span> <span class="m">1024px</span>
+<span class="p">);</span>
+
+<span class="nv">$container-max-widths</span><span class="p">:</span> <span class="p">(</span>
+  <span class="n">sm</span><span class="o">:</span> <span class="m">420px</span><span class="o">,</span>
+  <span class="n">md</span><span class="o">:</span> <span class="m">720px</span><span class="o">,</span>
+  <span class="n">lg</span><span class="o">:</span> <span class="m">960px</span>
+<span class="p">);</span></code></pre></figure><p>When making any changes to the Sass variables or maps, you’ll need to save your changes and recompile. Doing so will output a brand new set of predefined grid classes for column widths, offsets, and ordering. Responsive visibility utilities will also be updated to use the custom breakpoints. Make sure to set grid values in <code class="language-plaintext highlighter-rouge">px</code> (not <code class="language-plaintext highlighter-rouge">rem</code>, <code class="language-plaintext highlighter-rouge">em</code>, or <code class="language-plaintext highlighter-rouge">%</code>).</p>
+</div></div>
+<div class="col-xl-3 d-none d-xl-block"><ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#how-it-works">How it works</a></li>
+<li class="toc-entry toc-h2"><a href="#grid-options">Grid options</a></li>
+<li class="toc-entry toc-h2">
+<a href="#auto-layout-columns">Auto-layout columns</a><ul>
+<li class="toc-entry toc-h3"><a href="#equal-width">Equal-width</a></li>
+<li class="toc-entry toc-h3"><a href="#equal-width-multi-line">Equal-width multi-line</a></li>
+<li class="toc-entry toc-h3"><a href="#setting-one-column-width">Setting one column width</a></li>
+<li class="toc-entry toc-h3"><a href="#variable-width-content">Variable width content</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#responsive-classes">Responsive classes</a><ul>
+<li class="toc-entry toc-h3"><a href="#all-breakpoints">All breakpoints</a></li>
+<li class="toc-entry toc-h3"><a href="#stacked-to-horizontal">Stacked to horizontal</a></li>
+<li class="toc-entry toc-h3"><a href="#mix-and-match">Mix and match</a></li>
+<li class="toc-entry toc-h3"><a href="#gutters">Gutters</a></li>
+<li class="toc-entry toc-h3"><a href="#row-columns">Row columns</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#alignment">Alignment</a><ul>
+<li class="toc-entry toc-h3"><a href="#vertical-alignment">Vertical alignment</a></li>
+<li class="toc-entry toc-h3"><a href="#horizontal-alignment">Horizontal alignment</a></li>
+<li class="toc-entry toc-h3"><a href="#no-gutters">No gutters</a></li>
+<li class="toc-entry toc-h3"><a href="#column-wrapping">Column wrapping</a></li>
+<li class="toc-entry toc-h3"><a href="#column-breaks">Column breaks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#reordering">Reordering</a><ul>
+<li class="toc-entry toc-h3"><a href="#order-classes">Order classes</a></li>
+<li class="toc-entry toc-h3">
+<a href="#offsetting-columns">Offsetting columns</a><ul>
+<li class="toc-entry toc-h4"><a href="#offset-classes">Offset classes</a></li>
+<li class="toc-entry toc-h4"><a href="#margin-utilities">Margin utilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#nesting">Nesting</a></li>
+<li class="toc-entry toc-h2">
+<a href="#sass-mixins">Sass mixins</a><ul>
+<li class="toc-entry toc-h3"><a href="#variables">Variables</a></li>
+<li class="toc-entry toc-h3"><a href="#mixins">Mixins</a></li>
+<li class="toc-entry toc-h3"><a href="#example-usage">Example usage</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#customizing-the-grid">Customizing the grid</a><ul>
+<li class="toc-entry toc-h3"><a href="#columns-and-gutters">Columns and gutters</a></li>
+<li class="toc-entry toc-h3"><a href="#grid-tiers">Grid tiers</a></li>
+</ul>
+</li>
+</ul></div>
+</div></div></main><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin></script> <script src="/material/js/material.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" crossorigin defer></script> <script src="/material/docs/js/docs.min.js"></script> <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script></body></html>

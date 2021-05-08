@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+  <title>Material</title>
+
+  <!-- CSS -->
+  <!-- Add Material font (Roboto) and Material icon as needed -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Add Material CSS, replace Bootstrap CSS -->
+  <link href="/material/css/material.min.css" rel="stylesheet">
+
+  <!-- Additional CSS for documentation site -->
+  <link href="/material/docs/css/docs.min.css" rel="stylesheet">
+</head>
+<body class="bg-light h-100">
+  <header class="navbar navbar-dark navbar-full bg-primary doc-navbar-permanent">
+    <span class="navbar-brand">Permanent drawer</span>
+  </header>
+
+  <div aria-hidden="true" class="navdrawer navdrawer-permanent" id="navdrawerPermanent" tabindex="-1">
+    <div class="navdrawer-content">
+      <div class="navdrawer-header">
+        <a class="navbar-brand px-0" href="javascript:void(0)">Navdrawer header</a>
+      </div>
+      <nav class="navdrawer-nav">
+        <a class="nav-item nav-link active" href="javascript:void(0)">Active</a>
+        <a class="nav-item nav-link disabled" href="javascript:void(0)">Disabled</a>
+        <a class="nav-item nav-link" href="javascript:void(0)">Link</a>
+      </nav>
+      <div class="navdrawer-divider"></div>
+      <p class="navdrawer-subheader">Navdrawer subheader</p>
+      <ul class="navdrawer-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="javascript:void(0)"><i class="material-icons mr-3">alarm_on</i> Active with icon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="javascript:void(0)"><i class="material-icons mr-3">alarm_off</i> Disabled with icon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)"><i class="material-icons mr-3">link</i> Link with icon</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin></script>
+  <script src="{{ site.cdn.bs_js }}" integrity="{{ site.cdn.bs_js_hash }}" crossorigin></script>
+
+  <!-- Add Material JavaScript on top of Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/gh/djibe/material@{{ site.current_version }}-{{ site.material_version }}/js/material.min.js" crossorigin></script>
+</body>
+</html>
