@@ -4,7 +4,6 @@
   border-radius: 0 0 $textfield-box-border-radius $textfield-box-border-radius;
   box-shadow: map-get($menu-elevation-shadow, shadow);
   box-sizing: border-box;
-  // display: block;
   position: absolute;
   left: -100000px;
   transform-origin: center top;
@@ -56,8 +55,6 @@
   max-height: 100vh;
   overflow-y: scroll;
   padding: 0 0 $menu-padding-y 0;
-  scrollbar-color: #e0dfe1 transparent;
-  scrollbar-width: thin;
 
   &.select2-results__options--nested {
     margin: 0;
@@ -74,7 +71,6 @@
 .select2-results__group {
   align-items: center;
   display: flex;
-  height: 1rem; // Fix IE11 align center
   min-height: $menu-link-height;
   padding: $menu-link-padding-y $menu-link-padding-x;
   position: relative;
@@ -143,7 +139,6 @@
   }
 
   .select2-search__field {
-    // @extend .form-control;
     background-color: transparent;
     border: $textfield-border-width solid $textfield-border-color;
     border-radius: 20px;

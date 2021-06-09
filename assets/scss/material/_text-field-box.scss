@@ -112,14 +112,14 @@
 
 @if ($enable-form-ripple) {
   .floating-label.textfield-box::before {
-    top: calc(#{($textfield-box-label-spacer-y + $textfield-box-padding-y) + ($textfield-line-height * $textfield-font-size)} - #{(2*$textfield-border-width)});
+    top: calc(#{($textfield-box-height)} - #{(2*$textfield-border-width)});
   }
 
-  .floating-label-lg.floating-label::before {
-    top: calc(#{$floating-label-font-size + ($textfield-box-padding-y-lg * 2) + ($textfield-line-height-lg * $textfield-font-size-lg)} - #{(2*$textfield-border-width)});
+  .floating-label-lg.textfield-box::before {
+    top: calc(#{($textfield-box-height-lg)} - #{(2*$textfield-border-width)});
   }
 
-  .floating-label-sm.floating-label::before {
-    top: calc(#{$floating-label-font-size + ($textfield-box-padding-y-sm * 2) + ($textfield-line-height-sm * $textfield-font-size-sm)} - #{(2*$textfield-border-width)});
+  .floating-label-sm.textfield-box::before {
+    top: calc(#{($textfield-box-height-sm)} - #{(2*$textfield-border-width)});
   }
 }

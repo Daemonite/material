@@ -447,6 +447,11 @@ div.dt-buttons a.btn.processing:after {
   animation: dtb-spinner 1500ms infinite linear;
 }
 */
+table.dataTable.dtr-inline td,
+table.dataTable.dtr-inline th {
+  white-space: nowrap;
+}
+
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.child {
   padding: 8px 8px 8px 42px;
 }
@@ -533,6 +538,8 @@ table.dataTable > tbody > tr.child ul.dtr-details > li:first-child {
 
 table.dataTable > tbody > tr.child ul.dtr-details > li {
   border-bottom: none;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .dataTable > tbody > tr.child span.dtr-title {
@@ -1357,7 +1364,6 @@ div.dtr-bs-modal table.table tr:first-child td {
 .irs-handle {
   box-sizing: border-box;
   cursor: default;
-  display: block;
   position: absolute;
   z-index: 1;
 }
@@ -1369,7 +1375,6 @@ div.dtr-bs-modal table.table tr:first-child td {
 .irs-min,
 .irs-max {
   cursor: default;
-  display: block;
   position: absolute;
 }
 
@@ -1385,7 +1390,6 @@ div.dtr-bs-modal table.table tr:first-child td {
 .irs-to,
 .irs-single {
   cursor: default;
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -1433,7 +1437,6 @@ div.dtr-bs-modal table.table tr:first-child td {
 .irs-disable-mask {
   background: rgba(0, 0, 0, 0);
   cursor: default;
-  display: block;
   height: 100%;
   position: absolute;
   top: 0;
@@ -1456,7 +1459,6 @@ div.dtr-bs-modal table.table tr:first-child td {
   background: none !important;
   border-color: transparent !important;
   border-style: solid !important;
-  display: block !important;
   font-size: 0 !important;
   height: 0 !important;
   line-height: 0 !important;
@@ -1581,7 +1583,6 @@ div.dtr-bs-modal table.table tr:first-child td {
   border: 3px solid transparent;
   border-top-color: #6d6d6d;
   content: '';
-  display: block;
   height: 0;
   margin-left: -3px;
   overflow: hidden;
@@ -1955,8 +1956,6 @@ select.is-invalid ~ .select2-container .select2-selection,
   max-height: 100vh;
   overflow-y: scroll;
   padding: 0 0 0.5rem 0;
-  scrollbar-color: #e0dfe1 transparent;
-  scrollbar-width: thin;
 }
 
 .select2-results__options.select2-results__options--nested {
@@ -1975,7 +1974,6 @@ select.is-invalid ~ .select2-container .select2-selection,
   align-items: center;
   display: -ms-flexbox;
   display: flex;
-  height: 1rem;
   min-height: 3rem;
   padding: 0 1rem;
   position: relative;

@@ -83,6 +83,9 @@ html {
   line-height: 1.15;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -2989,7 +2992,6 @@ pre code {
   border-radius: 4px;
   background-color: #ffffff;
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
-  display: block;
   font-size: 0.875rem;
   margin: 1.5rem;
   max-width: 21.25rem;
@@ -3531,10 +3533,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   color: rgba(0, 0, 0, 0.37);
 }
 
-.btn-outline-primary {
-  border-color: #6200ee;
-}
-
 .btn-flat-secondary, .btn-flat-secondary:hover, .btn-flat-secondary:focus,
 .btn-outline-secondary,
 .btn-outline-secondary:hover,
@@ -3563,10 +3561,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .modal .btn-secondary:disabled,
 .modal .btn-secondary.disabled {
   color: rgba(0, 0, 0, 0.37);
-}
-
-.btn-outline-secondary {
-  border-color: #03dac6;
 }
 
 .btn-flat-danger, .btn-flat-danger:hover, .btn-flat-danger:focus,
@@ -3599,10 +3593,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   color: rgba(0, 0, 0, 0.37);
 }
 
-.btn-outline-danger {
-  border-color: #b00020;
-}
-
 .btn-flat-info, .btn-flat-info:hover, .btn-flat-info:focus,
 .btn-outline-info,
 .btn-outline-info:hover,
@@ -3631,10 +3621,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .modal .btn-info:disabled,
 .modal .btn-info.disabled {
   color: rgba(0, 0, 0, 0.37);
-}
-
-.btn-outline-info {
-  border-color: #714cfe;
 }
 
 .btn-flat-success, .btn-flat-success:hover, .btn-flat-success:focus,
@@ -3667,10 +3653,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   color: rgba(0, 0, 0, 0.37);
 }
 
-.btn-outline-success {
-  border-color: #61d800;
-}
-
 .btn-flat-warning, .btn-flat-warning:hover, .btn-flat-warning:focus,
 .btn-outline-warning,
 .btn-outline-warning:hover,
@@ -3701,20 +3683,12 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   color: rgba(0, 0, 0, 0.37);
 }
 
-.btn-outline-warning {
-  border-color: #ff8d00;
-}
-
 .btn-flat-dark:disabled, .btn-flat-dark.disabled,
 .btn-outline-dark:disabled,
 .btn-outline-dark.disabled,
 .modal .btn-dark:disabled,
 .modal .btn-dark.disabled {
   color: rgba(0, 0, 0, 0.37);
-}
-
-.btn-outline-dark {
-  border-color: #424242;
 }
 
 .btn-flat-light, .btn-flat-light:hover, .btn-flat-light:focus,
@@ -3733,10 +3707,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .modal .btn-light:disabled,
 .modal .btn-light.disabled {
   color: rgba(0, 0, 0, 0.37);
-}
-
-.btn-outline-light {
-  border-color: #f5f5f5;
 }
 
 /*
@@ -4143,7 +4113,6 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;
-  overflow: auto;
   position: relative;
   word-wrap: break-word;
 }
@@ -6245,7 +6214,6 @@ body {
   background-color: #ffffff;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
   content: '';
-  display: block;
   position: absolute;
   top: 0;
   right: 0;
@@ -8114,7 +8082,6 @@ body {
 .progress-bar::after {
   background-color: #e6e6e6;
   content: '';
-  display: block;
   height: 0.25rem;
   position: absolute;
   right: 0;
@@ -8380,7 +8347,6 @@ body {
   -webkit-animation-name: progress-bar-indeterminate-before;
   animation-name: progress-bar-indeterminate-before;
   content: '';
-  display: block;
   height: 0.25rem;
   position: absolute;
   bottom: -0.25rem;
@@ -8867,7 +8833,6 @@ body {
   border-radius: 50%;
   color: rgba(0, 0, 0, 0.54);
   content: '';
-  display: block;
   height: 3rem;
   margin-top: -0.75rem;
   margin-left: -0.75rem;
@@ -8882,7 +8847,6 @@ body {
 
 .custom-control-label::after {
   color: rgba(0, 0, 0, 0.54);
-  display: block;
   position: absolute;
   top: 0rem;
   left: 0;
@@ -9285,7 +9249,6 @@ body {
   border-radius: 4px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.87);
-  display: block;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   letter-spacing: 0.017857em;
@@ -9385,7 +9348,6 @@ body {
 .stepper::after, .stepper::before {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   content: '';
-  display: block;
   position: absolute;
 }
 
@@ -9411,7 +9373,6 @@ body {
 .stepper-horiz::before {
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   content: '';
-  display: block;
   position: absolute;
   top: 50%;
   right: 1.5rem;
@@ -9583,7 +9544,6 @@ body {
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #6200ee;
   content: '';
-  display: block;
   height: 0.125rem;
   opacity: 0;
   position: absolute;
@@ -10568,15 +10528,15 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 .floating-label.textfield-box::before {
-  top: calc(3rem - 2px);
-}
-
-.floating-label-lg.floating-label::before, .input-group-lg > .floating-label::before {
-  top: calc(5rem - 2px);
-}
-
-.floating-label-sm.floating-label::before, .input-group-sm > .floating-label::before {
   top: calc(3.5rem - 2px);
+}
+
+.floating-label-lg.textfield-box::before, .input-group-lg > .textfield-box.floating-label::before {
+  top: calc(4.25rem - 2px);
+}
+
+.floating-label-sm.textfield-box::before, .input-group-sm > .textfield-box.floating-label::before {
+  top: calc(2.75rem - 2px);
 }
 
 .floating-label {
@@ -10601,7 +10561,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   text-overflow: ellipsis;
   white-space: nowrap;
   color: rgba(0, 0, 0, 0.54);
-  display: block;
   font-size: 1rem;
   letter-spacing: 0.009375em;
   line-height: 1.15;
@@ -11447,7 +11406,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: rgba(0, 0, 0, 0.12);
   content: '';
-  display: block;
   opacity: 0;
   position: absolute;
   top: 0;
@@ -11836,7 +11794,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   background-color: rgba(0, 0, 0, 0.12);
   border-radius: 50%;
   content: '';
-  display: block;
   opacity: 0;
   position: absolute;
   top: 0;

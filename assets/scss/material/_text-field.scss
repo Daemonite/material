@@ -364,7 +364,7 @@ textarea {
       content: '';
       height: $textfield-border-width * 2;
       position: absolute;
-      bottom: 0;
+      // bottom: 0;
       left: 0;
       transform: scaleX(0);
       transition: transform 180ms $transition-timing-function-standard;
@@ -385,7 +385,27 @@ textarea {
   }
 
   // stylelint-disable-next-line
-  .form-ripple-text::before {
-    bottom: 1.1875rem;
+  .form-ripple::before {
+    top: calc(57px - 2px);
+  }
+
+  .form-ripple-lg::before {
+    top: calc(81px - 2px);
+  }
+
+  .form-ripple-sm::before {
+    top: calc(53px - 2px);
+  }
+
+  .form-ripple-nolabel::before {
+    top: calc(36px - 2px);
+  }
+
+  .form-ripple-lg-nolabel::before {
+    top: calc(60px - 2px);
+  }
+
+  .form-ripple-sm-nolabel::before {
+    top: calc(32px - 2px);
   }
 }
