@@ -10377,7 +10377,6 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   content: '';
   height: 2px;
   position: absolute;
-  bottom: 0;
   left: 0;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -10402,8 +10401,28 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   transform: scaleX(1);
 }
 
-.form-ripple-text::before {
-  bottom: 1.1875rem;
+.form-ripple::before {
+  top: calc(57px - 2px);
+}
+
+.form-ripple-lg::before {
+  top: calc(81px - 2px);
+}
+
+.form-ripple-sm::before {
+  top: calc(53px - 2px);
+}
+
+.form-ripple-nolabel::before {
+  top: calc(36px - 2px);
+}
+
+.form-ripple-lg-nolabel::before {
+  top: calc(60px - 2px);
+}
+
+.form-ripple-sm-nolabel::before {
+  top: calc(32px - 2px);
 }
 
 .textfield-box .form-control, .textfield-box .custom-select, .textfield-box .form-control-file {
@@ -10840,15 +10859,15 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   padding-right: 1.5em;
 }
 
-.floating-label::before {
+.floating-label.form-ripple::before {
   top: calc(3rem - 2px);
 }
 
-.floating-label-lg.floating-label::before, .input-group-lg > .floating-label::before {
+.floating-label-lg.form-ripple::before, .input-group-lg > .form-ripple.floating-label::before {
   top: calc(4.5rem - 2px);
 }
 
-.floating-label-sm.floating-label::before, .input-group-sm > .floating-label::before {
+.floating-label-sm.form-ripple::before, .input-group-sm > .form-ripple.floating-label::before {
   top: calc(2.75rem - 2px);
 }
 
