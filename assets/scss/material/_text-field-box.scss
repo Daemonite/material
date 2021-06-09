@@ -111,15 +111,30 @@
 // Ripple
 
 @if ($enable-form-ripple) {
-  .floating-label.textfield-box::before {
+  .textfield-box.form-ripple-nolabel::before,
+  .floating-label.textfield-box.form-ripple::before {
     top: calc(#{($textfield-box-height)} - #{(2*$textfield-border-width)});
   }
 
-  .floating-label-lg.textfield-box::before {
-    top: calc(#{($textfield-box-height-lg)} - #{(2*$textfield-border-width)});
+  .textfield-box-lg.form-ripple-nolabel::before,
+  .floating-label-lg.textfield-box.form-ripple::before {
+    top: calc(#{($textfield-box-height-lg)} - #{($textfield-border-width)});
   }
 
-  .floating-label-sm.textfield-box::before {
+  .textfield-box-sm.form-ripple-nolabel::before,
+  .floating-label-sm.textfield-box.form-ripple::before {
     top: calc(#{($textfield-box-height-sm)} - #{(2*$textfield-border-width)});
+  }
+
+  .textfield-box.form-ripple::before {
+    top: calc(85px - 2px);
+  }
+
+  .textfield-box-lg.form-ripple::before {
+    top: calc(98px - 2px);
+  }
+
+  .textfield-box-sm.form-ripple::before {
+    top: calc(73px - 2px);
   }
 }

@@ -182,6 +182,36 @@ You'll notice that the modal-body has a custom scrollbar on both Firefox and Chr
 </div>
 {% endhighlight %}
 
+### Full-screen dialog
+
+Full-screen dialogs group a series of tasks, such as creating a calendar entry with the event title, date, location, and time. Because they take up the entire screen, full-screen dialogs are the only dialogs over which other dialogs can appear.
+
+Modal-xl is adapted to reproduce Full screen material dialog.
+
+<div class="bd-example">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalXl">Extra large modal</button>
+</div>
+
+{% highlight html %}
+<div class="modal-dialog modal-xl">...</div>
+{% endhighlight %}
+
+<div class="modal fade" id="exampleModalXl" tabindex="-1"  aria-labelledby="exampleModalXlLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title h4" id="exampleModalXlLabel">Extra large modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+
 ## Buttons
 
 ### Side-by-side buttons

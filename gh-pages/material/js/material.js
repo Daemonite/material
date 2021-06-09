@@ -14,20 +14,23 @@
 
     var $__default = /*#__PURE__*/_interopDefaultLegacy($);
 
-    if (!Element.prototype.matches) {
-        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-    }
+    if (typeof Element !== "undefined") {
+        if (!Element.prototype.matches) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+        }
 
-    if (!Element.prototype.closest) {
-        Element.prototype.closest = function (s) {
-            var el = this;
+        if (!Element.prototype.closest) {
+            Element.prototype.closest = function (s) {
+                var el = this;
 
-            do {
-                if (el.matches(s)) return el;
-                el = el.parentElement || el.parentNode;
-            } while (el !== null && el.nodeType === 1);
-            return null;
-        };
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                
+                return null;
+            };
+        }
     }
 
     /*
@@ -757,10 +760,9 @@
       return NavDrawer;
     }($__default['default']);
 
-    function createCommonjsModule(fn) {
-      var module = { exports: {} };
-    	return fn(module, module.exports), module.exports;
-    }
+    var picker_date = {exports: {}};
+
+    var picker = {exports: {}};
 
     /*!
      * pickadate.js v3.6.4, 2019/05/25
@@ -769,7 +771,7 @@
      * Licensed under MIT
      */
 
-    var picker = createCommonjsModule(function (module, exports) {
+    (function (module, exports) {
     (function ( factory ) {
 
         // AMD.
@@ -1975,18 +1977,18 @@
 
 
     }));
-    });
+    }(picker));
 
     /*!
      * Date picker for pickadate.js v3.6.4
      * http://amsul.github.io/pickadate.js/date.htm
      */
 
-    createCommonjsModule(function (module, exports) {
+    (function (module, exports) {
     (function ( factory ) {
 
         // AMD.
-        module.exports = factory( picker, $__default['default'] );
+        module.exports = factory( picker.exports, $__default['default'] );
 
     }(function( Picker, $ ) {
 
@@ -3324,7 +3326,7 @@
 
 
     }));
-    });
+    }(picker_date));
 
     /*
      * Date picker plugin extends `pickadate.js` by Amsul

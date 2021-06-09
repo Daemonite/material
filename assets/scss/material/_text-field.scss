@@ -345,18 +345,16 @@ textarea {
   padding-right: calc(1.5rem + 0.5rem);
 }
 
-// Line ripple + label color on focus
-
-[class*='form-ripple'] {
-  &:focus-within label:not(.custom-control-label):not(.form-check-label):not(.btn) {
-    color: selection-theme-color();
-  }
-}
-
 @if ($enable-form-ripple) {
+  // Line ripple + label color on focus
+  [class*='form-ripple'] {
+    &:focus-within label:not(.custom-control-label):not(.form-check-label):not(.btn) {
+      color: selection-theme-color();
+    }
+  }
+
   [class*='form-ripple'],
-  .floating-label,
-  .textfield-box {
+  .floating-label {
     position: relative;
 
     &::before {
@@ -378,9 +376,7 @@ textarea {
     }
   }
 
-  [class*='form-ripple']:focus-within::before,
-  .floating-label.is-focused::before,
-  .textfield-box:focus-within::before {
+  [class*='form-ripple']:focus-within::before {
     transform: scaleX(1);
   }
 
@@ -390,7 +386,7 @@ textarea {
   }
 
   .form-ripple-lg::before {
-    top: calc(81px - 2px);
+    top: calc(82px - 2px);
   }
 
   .form-ripple-sm::before {
@@ -402,10 +398,14 @@ textarea {
   }
 
   .form-ripple-lg-nolabel::before {
-    top: calc(60px - 2px);
+    top: calc(61px - 2px);
   }
 
   .form-ripple-sm-nolabel::before {
     top: calc(32px - 2px);
+  }
+
+  .form-ripple-bottom::before {
+    bottom: 0 !important; // stylelint-disable-line declaration-no-important
   }
 }

@@ -10365,14 +10365,12 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 [class*='form-ripple'],
-.floating-label,
-.textfield-box {
+.floating-label {
   position: relative;
 }
 
 [class*='form-ripple']::before,
-.floating-label::before,
-.textfield-box::before {
+.floating-label::before {
   background: #6200ee;
   content: '';
   height: 2px;
@@ -10389,14 +10387,11 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 [class*='form-ripple'] .form-control:focus,
-.floating-label .form-control:focus,
-.textfield-box .form-control:focus {
+.floating-label .form-control:focus {
   box-shadow: none;
 }
 
-[class*='form-ripple']:focus-within::before,
-.floating-label.is-focused::before,
-.textfield-box:focus-within::before {
+[class*='form-ripple']:focus-within::before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
@@ -10406,7 +10401,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 .form-ripple-lg::before {
-  top: calc(81px - 2px);
+  top: calc(82px - 2px);
 }
 
 .form-ripple-sm::before {
@@ -10418,11 +10413,15 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 }
 
 .form-ripple-lg-nolabel::before {
-  top: calc(60px - 2px);
+  top: calc(61px - 2px);
 }
 
 .form-ripple-sm-nolabel::before {
   top: calc(32px - 2px);
+}
+
+.form-ripple-bottom::before {
+  bottom: 0 !important;
 }
 
 .textfield-box .form-control, .textfield-box .custom-select, .textfield-box .form-control-file {
@@ -10546,16 +10545,33 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
   max-height: 2.75rem;
 }
 
-.floating-label.textfield-box::before {
+.textfield-box.form-ripple-nolabel::before,
+.floating-label.textfield-box.form-ripple::before {
   top: calc(3.5rem - 2px);
 }
 
-.floating-label-lg.textfield-box::before, .input-group-lg > .textfield-box.floating-label::before {
-  top: calc(4.25rem - 2px);
+.textfield-box-lg.form-ripple-nolabel::before, .input-group-lg > .form-ripple-nolabel.textfield-box::before,
+.floating-label-lg.textfield-box.form-ripple::before,
+.input-group-lg > .textfield-box.form-ripple.floating-label::before {
+  top: calc(4.25rem - 1px);
 }
 
-.floating-label-sm.textfield-box::before, .input-group-sm > .textfield-box.floating-label::before {
+.textfield-box-sm.form-ripple-nolabel::before, .input-group-sm > .form-ripple-nolabel.textfield-box::before,
+.floating-label-sm.textfield-box.form-ripple::before,
+.input-group-sm > .textfield-box.form-ripple.floating-label::before {
   top: calc(2.75rem - 2px);
+}
+
+.textfield-box.form-ripple::before {
+  top: calc(85px - 2px);
+}
+
+.textfield-box-lg.form-ripple::before, .input-group-lg > .form-ripple.textfield-box::before {
+  top: calc(98px - 2px);
+}
+
+.textfield-box-sm.form-ripple::before, .input-group-sm > .form-ripple.textfield-box::before {
+  top: calc(73px - 2px);
 }
 
 .floating-label {
