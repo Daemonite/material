@@ -105,7 +105,7 @@
     "dist": "npm-run-all --parallel css js --sequential bundlesize",
     "docs": "npm-run-all --parallel css-build-docs js-build-docs --sequential docs-compile docs-lint",
     "docs-compile": "bundle exec jekyll build",
-    "docs-deploy": "npm run docs && git subtree push --prefix gh-pages/material origin gh-pages",
+    "docs-deploy": "npm run docs && git subtree push --prefix \"gh-pages/material\" origin gh-pages",
     "docs-lint": "npm-run-all docs-lint-vnu-jar",
     "docs-lint-htmllint": "htmllint --rc build/doc.htmllintrc \"gh-pages/**/*.html\"",
     "docs-lint-vnu-jar": "node build/vnu-jar.js",
