@@ -2,7 +2,7 @@
 
 > **DISCLAIMER**: This framework was created by [Daemonite team](http://daemonite.github.io/material/). Since they are not active for **now**, we will enhance this framework until they come back to maintain the project.
 
-Djibe's Material UI 2 is a cross-platform and fully responsive front-end interface based on Google Material Design 2 developed by Google.  
+Djibe's Material UI 2 is a cross-platform and fully responsive front-end css framework based on [Google Material Design Guidelines](https://material.io/design/).  
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design 2.
 
