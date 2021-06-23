@@ -61,7 +61,7 @@
     // Docsearch
     /*eslint no-undef: "off"*/
     docsearch({
-      apiKey: '2fd5dd7db27677f3e04d994bf7b94316',
+      apiKey: '5249f03e1926e11549c6acd547456c94',
       indexName: 'material',
       inputSelector: '#doc-search',
       debug: true, // Set debug to true if you want to inspect the dropdown
