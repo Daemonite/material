@@ -59,40 +59,64 @@
     })
 
     // Docsearch
-    /*eslint no-undef: "off"*/
-    docsearch({
-      apiKey: '5249f03e1926e11549c6acd547456c94',
-      indexName: 'material',
-      inputSelector: '#doc-search',
-      debug: true, // Set debug to true if you want to inspect the dropdown
+    /*eslint-disable*/
+    /* docsearch({
       algoliaOptions: {
         facetFilters: ['version:4.6']
       },
+      apiKey: '2fd5dd7db27677f3e04d994bf7b94316',
+      debug: true,
       handleSelected: function (input, event, suggestion) {
         var url = suggestion.url
+
         url = suggestion.isLvl1 ? url.split('#')[0] : url
+
         window.location.href = url
+      },
+      indexName: 'material',
+      inputSelector: '#doc-search',
+      transformData: function (hits) {
+        return hits.map(function (hit) {
+          var siteurl = document.getElementById('doc-search').getAttribute('data-siteurl')
+          var urlRE = /^https?:\/\/djibe\.github\.io/
+
+          hit.url = siteurl.match(urlRE) ? hit.url : hit.url.replace(urlRE, '')
+
+          return hit
+        })
+      }
+    }) */
+
+    /*eslint no-undef: "off"*/
+    docsearch({
+      apiKey: '2fd5dd7db27677f3e04d994bf7b94316',
+      indexName: 'material',
+      inputSelector: '#doc-search',
+      algoliaOptions: {
+        facetFilters: ['version:4.6']
       },
       transformData: function (hits) {
         return hits.map(function (hit) {
-          var liveUrl = 'https://getbootstrap.com/'
+          var currentUrl = getOrigin()
+          var liveUrl = 'https://djibe.github.io/material/'
 
-          hit.url = window.location.origin.startsWith(liveUrl)
-          // On production, return the result as is
-            ? hit.url
+          hit.url = currentUrl.lastIndexOf(liveUrl, 0) === 0 ?
+            // On production, return the result as is
+            hit.url :
             // On development or Netlify, replace `hit.url` with a trailing slash,
             // so that the result link is relative to the server root
-            : hit.url.replace(liveUrl, '/')
+            hit.url.replace(liveUrl, '/')
 
           // Prevent jumping to first header
           if (hit.anchor === 'content') {
             hit.url = hit.url.replace(/#content$/, '')
             hit.anchor = null
           }
-
           return hit
         })
-      }
+      },
+      // Set debug to `true` if you want to inspect the dropdown
+      debug: true
     })
 
     // Floating labels
