@@ -5,7 +5,7 @@
 <div class="navdrawer-header"> <a aria-label="Djibe Material" class="doc-logo" href="/material/">M</a> <span class="navbar-brand">Material UI 2</span>
 </div>
 <form class="navdrawer-body mt-2">
-<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search">
+<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="http://localhost:9999" class="form-control doc-search" id="doc-search" type="search">
 </div>
 <button class="sr-only" type="submit">Search documentation</button> </form>
 <div class="navdrawer-divider mb-0"></div>
@@ -361,8 +361,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><p>Placeholder content for the tab panel. This one relates to the home tab. Takes you miles high, so high, 'cause she’s got that one international smile. There's a stranger in my bed, there's a pounding in my head. Oh, no. In another life I would make you stay. ‘Cause I, I’m capable of anything. Suiting up for my crowning battle. Used to steal your parents' liquor and climb to the roof. Tone, tan fit and ready, turn it up cause its gettin' heavy. Her love is like a drug. I guess that I forgot I had a choice.</p></div>
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-<p>Placeholder content for the tab panel. This one relates to the profile tab. You got the finest architecture. Passport stamps, she's cosmopolitan. Fine, fresh, fierce, we got it on lock. Never planned that one day I'd be losing you. She eats your heart out. Your kiss is cosmic, every move is magic. I mean the ones, I mean like she's the one. Greetings loved ones let's take a journey. Just own the night like the 4th of July! But you'd rather get wasted.</p>
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><p>Placeholder content for the tab panel. This one relates to the profile tab. You got the finest architecture. Passport stamps, she's cosmopolitan. Fine, fresh, fierce, we got it on lock. Never planned that one day I'd be losing you. She eats your heart out. Your kiss is cosmic, every move is magic. I mean the ones, I mean like she's the one. Greetings loved ones let's take a journey. Just own the night like the 4th of July! But you'd rather get wasted.</p></div>
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><p>Placeholder content for the tab panel. This one relates to the contact tab. Her love is like a drug. All my girls vintage Chanel baby. Got a motel and built a fort out of sheets. 'Cause she's the muse and the artist. (This is how we do) So you wanna play with magic. So just be sure before you give it all to me. I'm walking, I'm walking on air (tonight). Skip the talk, heard it all, time to walk the walk. Catch her if you can. Stinging like a bee I earned my stripes.</p></div>
 </div>
 </div>
@@ -381,7 +380,8 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade show active"</span> <span class="na">id=</span><span class="s">"home"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"home-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"profile-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"contact"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"contact-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>To help fit your needs, this works with `<ul>`-based markup, as shown above, or with any arbitrary "roll your own" markup. Note that if you're using `<nav>`, you shouldn't add `role="tablist"` directly to it, as this would override the element's native role as a navigation landmark. Instead, switch to an alternative element (in the example below, a simple `<div>`) and wrap the `<nav>` around it.<div class="bd-example bd-example-tabs">
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><p>To help fit your needs, this works with <code class="language-plaintext highlighter-rouge">&lt;ul&gt;</code>-based markup, as shown above, or with any arbitrary “roll your own” markup. Note that if you’re using <code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code>, you shouldn’t add <code class="language-plaintext highlighter-rouge">role="tablist"</code> directly to it, as this would override the element’s native role as a navigation landmark. Instead, switch to an alternative element (in the example below, a simple <code class="language-plaintext highlighter-rouge">&lt;div&gt;</code>) and wrap the <code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code> around it.</p>
+<div class="bd-example bd-example-tabs">
 <nav><div class="nav nav-tabs" id="nav-tab" role="tablist"> <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a> <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a> <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
 </div></nav><div class="tab-content" id="nav-tabContent">
 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><p>Placeholder content for the tab panel. This one relates to the home tab. Takes you miles high, so high, 'cause she’s got that one international smile. There's a stranger in my bed, there's a pounding in my head. Oh, no. In another life I would make you stay. ‘Cause I, I’m capable of anything. Suiting up for my crowning battle. Used to steal your parents' liquor and climb to the roof. Tone, tan fit and ready, turn it up cause its gettin' heavy. Her love is like a drug. I guess that I forgot I had a choice.</p></div>
@@ -400,7 +400,8 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade show active"</span> <span class="na">id=</span><span class="s">"nav-home"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"nav-home-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"nav-profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"nav-profile-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"nav-contact"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"nav-contact-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>The tabs plugin also works with pills.<div class="bd-example bd-example-tabs">
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><p>The tabs plugin also works with pills.</p>
+<div class="bd-example bd-example-tabs">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 <li class="nav-item"> <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
 </li>
@@ -430,8 +431,8 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade show active"</span> <span class="na">id=</span><span class="s">"pills-home"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"pills-home-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"pills-profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"pills-profile-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"pills-contact"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"pills-contact-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>And with vertical pills.<div class="bd-example bd-example-tabs">
-<div class="row">
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><p>And with vertical pills.</p>
+<div class="bd-example bd-example-tabs"><div class="row">
 <div class="col-3"><div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a> <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a> <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a> <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
 </div></div>
 <div class="col-9"><div class="tab-content" id="v-pills-tabContent">
@@ -440,7 +441,7 @@
 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><p>Placeholder content for the tab panel. This one relates to the messages tab. You got the finest architecture. Passport stamps, she's cosmopolitan. Fine, fresh, fierce, we got it on lock. Never planned that one day I'd be losing you. She eats your heart out. Your kiss is cosmic, every move is magic. I mean the ones, I mean like she's the one. Greetings loved ones let's take a journey. Just own the night like the 4th of July! But you'd rather get wasted.</p></div>
 <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"><p>Placeholder content for the tab panel. This one relates to the settings tab. Her love is like a drug. All my girls vintage Chanel baby. Got a motel and built a fort out of sheets. 'Cause she's the muse and the artist. (This is how we do) So you wanna play with magic. So just be sure before you give it all to me. I'm walking, I'm walking on air (tonight). Skip the talk, heard it all, time to walk the walk. Catch her if you can. Stinging like a bee I earned my stripes.</p></div>
 </div></div>
-</div>
+</div></div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-3"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"nav flex-column nav-pills"</span> <span class="na">id=</span><span class="s">"v-pills-tab"</span> <span class="na">role=</span><span class="s">"tablist"</span> <span class="na">aria-orientation=</span><span class="s">"vertical"</span><span class="nt">&gt;</span>
@@ -458,7 +459,9 @@
       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"v-pills-settings"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"v-pills-settings-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
     <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>### Using data attributes You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` or `data-toggle="pill"` on an element. Use these data attributes on `.nav-tabs` or `.nav-pills`.<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Nav tabs --&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><h3 id="using-data-attributes">Using data attributes</h3>
+<p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="language-plaintext highlighter-rouge">data-toggle="tab"</code> or <code class="language-plaintext highlighter-rouge">data-toggle="pill"</code> on an element. Use these data attributes on <code class="language-plaintext highlighter-rouge">.nav-tabs</code> or <code class="language-plaintext highlighter-rouge">.nav-pills</code>.</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Nav tabs --&gt;</span>
 <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">id=</span><span class="s">"myTab"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link active"</span> <span class="na">id=</span><span class="s">"home-tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#home"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-controls=</span><span class="s">"home"</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
@@ -480,21 +483,30 @@
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"profile-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"messages"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"messages-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane"</span> <span class="na">id=</span><span class="s">"settings"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"settings-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>### Via JavaScript Enable tabbable tabs via JavaScript (each tab needs to be activated individually):<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab a</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><h3 id="via-javascript">Via JavaScript</h3>
+<p>Enable tabbable tabs via JavaScript (each tab needs to be activated individually):</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab a</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span>
   <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span>
-<span class="p">})</span></code></pre></figure>You can activate individual tabs in several ways:<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab a[href="#profile"]</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select tab by name</span>
+<span class="p">})</span></code></pre></figure><p>You can activate individual tabs in several ways:</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab a[href="#profile"]</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select tab by name</span>
 <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab li:first-child a</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select first tab</span>
 <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab li:last-child a</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select last tab</span>
-<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab li:nth-child(3) a</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select third tab</span></code></pre></figure>### Fade effect To make tabs fade in, add `.fade` to each `.tab-pane`. The first tab pane must also have `.show` to make the initial content visible.<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab li:nth-child(3) a</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span> <span class="c1">// Select third tab</span></code></pre></figure><h3 id="fade-effect">Fade effect</h3>
+<p>To make tabs fade in, add <code class="language-plaintext highlighter-rouge">.fade</code> to each <code class="language-plaintext highlighter-rouge">.tab-pane</code>. The first tab pane must also have <code class="language-plaintext highlighter-rouge">.show</code> to make the initial content visible.</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade show active"</span> <span class="na">id=</span><span class="s">"home"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"home-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"profile"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"profile-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"messages"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"messages-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"settings"</span> <span class="na">role=</span><span class="s">"tabpanel"</span> <span class="na">aria-labelledby=</span><span class="s">"settings-tab"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>### Methods<div class="alert alert-danger">
+<span class="nt">&lt;/div&gt;</span></code></pre></figure><h3 id="methods">Methods</h3>
+<div class="alert alert-danger">
 <h5 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h5>
 <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They returns to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
-</div>#### $().tab Activates a tab element and content container. Tab should have either a `data-target` or an `href` targeting a container node in the DOM.<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">id=</span><span class="s">"myTab"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
+</div>
+<h4 id="tab">$().tab</h4>
+<p>Activates a tab element and content container. Tab should have either a <code class="language-plaintext highlighter-rouge">data-target</code> or an <code class="language-plaintext highlighter-rouge">href</code> targeting a container node in the DOM.</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-tabs"</span> <span class="na">id=</span><span class="s">"myTab"</span> <span class="na">role=</span><span class="s">"tablist"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link active"</span> <span class="na">id=</span><span class="s">"home-tab"</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#home"</span> <span class="na">role=</span><span class="s">"tab"</span> <span class="na">aria-controls=</span><span class="s">"home"</span> <span class="na">aria-selected=</span><span class="s">"true"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
   <span class="nt">&lt;/li&gt;</span>
@@ -520,7 +532,24 @@
   <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myTab li:last-child a</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">})</span>
-<span class="nt">&lt;/script&gt;</span></code></pre></figure>#### .tab('show') Selects the given tab and shows its associated pane. Any other tab that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (i.e. before the `shown.bs.tab` event occurs).<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#someTab</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span></code></pre></figure>#### .tab('dispose') Destroys an element's tab. ### Events When showing a new tab, the events fire in the following order: 1. `hide.bs.tab` (on the current active tab) 2. `show.bs.tab` (on the to-be-shown tab) 3. `hidden.bs.tab` (on the previous active tab, the same one as for the `hide.bs.tab` event) 4. `shown.bs.tab` (on the newly-active just-shown tab, the same one as for the `show.bs.tab` event) If no tab was already active, then the `hide.bs.tab` and `hidden.bs.tab` events will not be fired.<table class="table table-bordered table-striped">
+<span class="nt">&lt;/script&gt;</span></code></pre></figure><h4 id="tabshow">.tab(‘show’)</h4>
+<p>Selects the given tab and shows its associated pane. Any other tab that was previously selected becomes unselected and its associated pane is hidden. <strong>Returns to the caller before the tab pane has actually been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">shown.bs.tab</code> event occurs).</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#someTab</span><span class="dl">'</span><span class="p">).</span><span class="nx">tab</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span></code></pre></figure><h4 id="tabdispose">.tab(‘dispose’)</h4>
+<p>Destroys an element’s tab.</p>
+<h3 id="events">Events</h3>
+<p>When showing a new tab, the events fire in the following order:</p>
+<ol>
+<li>
+<code class="language-plaintext highlighter-rouge">hide.bs.tab</code> (on the current active tab)</li>
+<li>
+<code class="language-plaintext highlighter-rouge">show.bs.tab</code> (on the to-be-shown tab)</li>
+<li>
+<code class="language-plaintext highlighter-rouge">hidden.bs.tab</code> (on the previous active tab, the same one as for the <code class="language-plaintext highlighter-rouge">hide.bs.tab</code> event)</li>
+<li>
+<code class="language-plaintext highlighter-rouge">shown.bs.tab</code> (on the newly-active just-shown tab, the same one as for the <code class="language-plaintext highlighter-rouge">show.bs.tab</code> event)</li>
+</ol>
+<p>If no tab was already active, then the <code class="language-plaintext highlighter-rouge">hide.bs.tab</code> and <code class="language-plaintext highlighter-rouge">hidden.bs.tab</code> events will not be fired.</p>
+<table class="table table-bordered table-striped">
 <thead><tr>
 <th style="width: 150px;">Event Type</th>
 <th>Description</th>
@@ -548,10 +577,6 @@
   <span class="nx">e</span><span class="p">.</span><span class="nx">target</span> <span class="c1">// newly activated tab</span>
   <span class="nx">e</span><span class="p">.</span><span class="nx">relatedTarget</span> <span class="c1">// previous active tab</span>
 <span class="p">})</span></code></pre></figure>
-</div></nav>
-</div></nav>
-</ul>
-</div>
 </div></div>
 <div class="col-xl-3 d-none d-xl-block"><ul id="toc" class="section-nav">
 <li class="toc-entry toc-h2"><a href="#base-nav">Base nav</a></li>
@@ -572,6 +597,20 @@
 <li class="toc-entry toc-h3"><a href="#pills-with-dropdowns">Pills with dropdowns</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#javascript-behavior">JavaScript behavior</a></li>
+<li class="toc-entry toc-h2">
+<a href="#javascript-behavior">JavaScript behavior</a><ul>
+<li class="toc-entry toc-h3"><a href="#using-data-attributes">Using data attributes</a></li>
+<li class="toc-entry toc-h3"><a href="#via-javascript">Via JavaScript</a></li>
+<li class="toc-entry toc-h3"><a href="#fade-effect">Fade effect</a></li>
+<li class="toc-entry toc-h3">
+<a href="#methods">Methods</a><ul>
+<li class="toc-entry toc-h4"><a href="#tab">$().tab</a></li>
+<li class="toc-entry toc-h4"><a href="#tabshow">.tab(‘show’)</a></li>
+<li class="toc-entry toc-h4"><a href="#tabdispose">.tab(‘dispose’)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#events">Events</a></li>
+</ul>
+</li>
 </ul></div>
 </div></div></main><script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin></script> <script src="/material/js/material.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js" crossorigin defer></script> <script src="/material/docs/js/docs.min.js"></script> <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script></body></html>

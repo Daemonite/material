@@ -12,7 +12,7 @@ Tabs organize and allow navigation between groups of content that are related an
 Each tab should contain content that is distinct from other tabs in a set. For example, tabs can present different sections of news, different genres of music, or different themes of documents.
 
 <div class="list-group mt-lg-5">
-    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/buttons/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
+    <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/" target="_blank" class="list-group-item list-group-item-action d-flex list-group-item-two-line font-weight-bold">
       <span class="list-group-item-icon lgi-icon-bs"></span>
       <span class="list-group-item-text">
         <span>Bootstrap documentation: Navs</span>
