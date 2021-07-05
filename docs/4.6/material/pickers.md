@@ -37,7 +37,7 @@ A date picker has to be activated via JavaScript.
 **N.B.** Date picker requires `material.js`, `material.min.js` or `https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.min.js`.
 
 {% capture example %}
-<label for="exampleInputDatePicker1">A basic example:</label>
+<label for="exampleInputDatePicker1">A basic picker</label>
 <input class="form-control" id="exampleInputDatePicker1" placeholder="Pick a date" type="text">
 {% endcapture %}
 {% include example.html content=example %}
@@ -64,7 +64,8 @@ $('.datepicker').pickdate({
   container        : 'body',
   containerHidden  : 'body',
   firstDay         : 1,
-  format           : 'You selected: dddd, d mm, yy',
+  // Escape any 'rule' characters with an exclamation mark (!)
+  format           : 'You selecte!d: dddd, d mm, yy',
   formatSubmit     : 'dd/mmmm/yyyy',
   hiddenPrefix     : 'prefix_',
   hiddenSuffix     : '_suffix',

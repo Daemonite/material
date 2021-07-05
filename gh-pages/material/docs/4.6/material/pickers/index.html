@@ -5,7 +5,7 @@
 <div class="navdrawer-header"> <a aria-label="Djibe Material" class="doc-logo" href="/material/">M</a> <span class="navbar-brand">Material UI 2</span>
 </div>
 <form class="navdrawer-body mt-2">
-<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="http://localhost:9999" class="form-control doc-search" id="doc-search" type="search">
+<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search">
 </div>
 <button class="sr-only" type="submit">Search documentation</button> </form>
 <div class="navdrawer-divider mb-0"></div>
@@ -47,9 +47,9 @@
 <div class="alert alert-info"><p>For advanced Pickers, read <a href="/material/docs/4.6/plugins/picker-flatpickr/"><strong>flatpickr</strong> plugin documentation</a>.</p></div>
 <p>A date picker has to be activated via JavaScript.</p>
 <p><strong>N.B.</strong> Date picker requires <code class="language-plaintext highlighter-rouge">material.js</code>, <code class="language-plaintext highlighter-rouge">material.min.js</code> or <code class="language-plaintext highlighter-rouge">https://cdn.jsdelivr.net/npm/pickadate@3.6.4/lib/picker.date.min.js</code>.</p>
-<div class="bd-example"> <label for="exampleInputDatePicker1">A basic example:</label> <input class="form-control" id="exampleInputDatePicker1" placeholder="Pick a date" type="text">
+<div class="bd-example"> <label for="exampleInputDatePicker1">A basic picker</label> <input class="form-control" id="exampleInputDatePicker1" placeholder="Pick a date" type="text">
 </div>
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker1"</span><span class="nt">&gt;</span>A basic example:<span class="nt">&lt;/label&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker1"</span><span class="nt">&gt;</span>A basic picker<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker1"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure><figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#exampleInputDatePicker1</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">();</span></code></pre></figure><h2 id="options">Options</h2>
 <p>Alternatively, options can be passed on to override some default datepicker behaviours.</p>
 <div class="bd-example"> <label for="exampleInputDatePicker2">A customised date picker:</label> <input class="form-control" id="exampleInputDatePicker2" name="exampleInputDatePicker2" placeholder="Pick a date" type="text">
@@ -62,14 +62,15 @@
   <span class="na">container</span>        <span class="p">:</span> <span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">containerHidden</span>  <span class="p">:</span> <span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">firstDay</span>         <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="c1">// Escape any 'rule' characters with an exclamation mark (!)</span>
   <span class="na">format</span>           <span class="p">:</span> <span class="dl">'</span><span class="s1">You selecte!d: dddd, d mm, yy</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">formatSubmit</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">dd/mmmm/yyyy</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">hiddenPrefix</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">prefix_</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">hiddenSuffix</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">_suffix</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">labelMonthNext</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Go to the next month</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">labelMonthPrev</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Go to the previous month</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">labelMonthSelect</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose a month from the dropdown menu</span><span class="dl">'</span><span class="p">,</span>
-  <span class="na">labelYearSelect</span>  <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose a year from the dropdown menu</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthNext</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Next month</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthPrev</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Previous month</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthSelect</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose month</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelYearSelect</span>  <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose year</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">ok</span>               <span class="p">:</span> <span class="dl">'</span><span class="s1">Close</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">onClose</span>          <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Datepicker closes</span><span class="dl">'</span><span class="p">)</span>
