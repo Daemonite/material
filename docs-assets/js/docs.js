@@ -98,7 +98,7 @@
       transformData: function (hits) {
         return hits.map(function (hit) {
           var currentUrl = getOrigin()
-          var liveUrl = 'https://djibe.github.io/material/'
+          var liveUrl = 'https://djibe.github.io/'
 
           hit.url = currentUrl.lastIndexOf(liveUrl, 0) === 0 ?
             // On production, return the result as is
