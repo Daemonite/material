@@ -94,7 +94,7 @@
       inputSelector: '#doc-search',
       algoliaOptions: {
         facetFilters: ['version:4.6']
-      },
+      }}) /*,
       transformData: function (hits) {
         return hits.map(function (hit) {
           var currentUrl = getOrigin()
@@ -117,7 +117,7 @@
       },
       // Set debug to `true` if you want to inspect the dropdown
       debug: true
-    })
+    })*/
 
     // Floating labels
     $('.floating-label .custom-select, .floating-label .form-control').floatinglabel()
