@@ -173,7 +173,7 @@
 
     // Slider Track
     &::before {
-      background: $black; // rgba($black, $black-hint-opacity)
+      background-color: $black; // rgba($black, $black-hint-opacity)
       border-radius: $custom-switch-height / 2;
       content: '';
       height: $custom-switch-height;
@@ -193,7 +193,7 @@
 
     // Slider
     &::after {
-      background: $white;
+      background-color: $white;
       border-radius: 50%;
       box-shadow: $custom-switch-handle-shadow;
       content: '';
@@ -214,12 +214,12 @@
 
     &:checked ~ .custom-control-label {
       &::before {
-        background: selection-theme-color(); // rgba(selection-theme-color(), $black-secondary-opacity);
+        background-color: selection-theme-color(); // rgba(selection-theme-color(), $black-secondary-opacity);
         // opacity: 1;
       }
 
       &::after {
-        background: selection-theme-color();
+        background-color: selection-theme-color();
         transform: translateX($custom-switch-handle-width);
       }
     }
@@ -246,7 +246,7 @@
     // Disabled unchecked switch Slider + Track
      &:disabled ~ .custom-control-label {
       &::before {
-        background: $light-theme-1;
+        background-color: $light-theme-1;
         display: block;
       }
       &::after {
@@ -257,11 +257,11 @@
     // Disabled checked switch Slider + Track
     &:checked:disabled ~ .custom-control-label {
       &::before {
-        background: mix(rgba(selection-theme-color(), $black-secondary-opacity), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
+        background-color: mix(rgba(selection-theme-color(), $black-secondary-opacity), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
       }
 
       &::after {
-        background: mix(selection-theme-color(), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
+        background-color: mix(selection-theme-color(), $white, $black-hint-opacity * 100%); // Workaround for RGBA to hex
       }
     }
   }

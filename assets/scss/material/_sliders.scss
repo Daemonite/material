@@ -1,7 +1,7 @@
 // Latest Sliders : https://material.io/components/sliders
 
 @mixin slider-thumb {
-  background: $slider-thumb-bg;
+  background-color: $slider-thumb-bg;
   border: $slider-thumb-border;
   border-radius: $slider-thumb-border-radius;
   box-shadow: $slider-thumb-box-shadow;
@@ -15,17 +15,17 @@
 }
 
 @mixin slider-thumb-active {
-  background: $slider-thumb-active-bg;
+  background-color: $slider-thumb-active-bg;
   box-shadow: $slider-thumb-active-box-shadow;
 }
 
 @mixin slider-thumb-disabled {
-  background: $slider-thumb-bg-disabled;
+  background-color: $slider-thumb-bg-disabled;
   box-shadow: $slider-thumb-box-shadow; // Reset active shadow
 }
 
 @mixin slider-track {
-  background: $slider-track-bg;
+  background-color: $slider-track-bg;
   border-color: transparent;
   border-radius: $slider-track-border-radius;
   color: transparent;
@@ -34,13 +34,13 @@
 }
 
 @mixin slider-track-disabled {
-  background: $slider-track-bg-disabled;
+  background-color: $slider-track-bg-disabled;
   cursor: default;
 }
 
 .custom-range {
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   height: $slider-accessibility;
   padding: 0; // Need to reset padding
   width: 100%;
@@ -103,7 +103,7 @@
   }
 
   &::-moz-range-progress {
-    background: $slider-thumb-bg;
+    background-color: $slider-thumb-bg;
     border-radius: $slider-track-progress-border-radius;
     height: $slider-track-height-progress;
   }
@@ -127,17 +127,17 @@
   &::-ms-track {
     @include slider-track;
 
-    background: transparent;
+    background-color: transparent;
   }
 
   &::-ms-fill-lower {
-    background: $slider-thumb-bg;
+    background-color: $slider-thumb-bg;
     border-radius: $slider-track-progress-border-radius;
     height: $slider-track-height-progress;
   }
 
   &::-ms-fill-upper {
-    background: $slider-track-bg;
+    background-color: $slider-track-bg;
     border-radius: $slider-track-border-radius;
     margin-right: 15px; // arbitrary?
   }
@@ -163,7 +163,7 @@
     }
 
     &::-moz-range-progress {
-      background: $slider-thumb-bg-disabled;
+      background-color: $slider-thumb-bg-disabled;
     }
 
     &::-ms-thumb {
@@ -171,7 +171,7 @@
     }
 
     &::-ms-fill-lower {
-      background: $slider-thumb-bg-disabled;
+      background-color: $slider-thumb-bg-disabled;
     }
 
     &::-ms-fill-upper {
