@@ -5,6 +5,8 @@ description: Get started with Material, a cross-platform and fully responsive fr
 group: getting-started
 redirect_from:
   - /docs/
+  - /docs/4.4/
+  - /docs/4.5/
   - /docs/4.6/
   - /docs/4.6/getting-started/
   - /docs/getting-started/
