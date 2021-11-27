@@ -28,13 +28,13 @@ const pluginsConfig = [
         {
           bugfixes: true,
           forceAllTransforms: true,
-          modules: false,
+          modules: 'auto',
           // useBuiltIns: 'usage', // For complete polyfill
           // shippedProposals: true,
-          corejs: {
+          /* corejs: {
             version: '3.10',
             proposals: true
-          }
+          } */
         }
       ]
     ]
