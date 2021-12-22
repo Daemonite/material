@@ -3,6 +3,9 @@ layout: docs
 title: Jumbotron
 description: Lightweight, flexible component for showcasing hero unit style content.
 group: components
+redirect_from:
+  - /docs/4.4/components/jumbotron/
+  - /docs/4.5/components/jumbotron/
 ---
 
 A lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.

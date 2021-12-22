@@ -3,6 +3,9 @@ layout: docs
 title: Cards
 description: Cards contain content and actions about a single subject.
 group: material
+redirect_from:
+  - /docs/4.4/material/cards/
+  - /docs/4.5/material/cards/
 toc: true
 ---
 

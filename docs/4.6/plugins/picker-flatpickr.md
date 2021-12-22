@@ -3,6 +3,8 @@ layout: docs
 title: Date pickers flatpickr
 description: Date pickers let users select a date, or a range of dates.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/picker-flatpickr/
 toc: true
 plugin: true
 flatpickr: true

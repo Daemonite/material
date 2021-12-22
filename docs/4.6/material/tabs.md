@@ -4,6 +4,9 @@ title: Tabs
 meta_description: Material design tabs for Bootstrap 4
 description: Tabs organize content across different screens, data sets, and other interactions.
 group: material
+redirect_from:
+  - /docs/4.4/material/tabs/
+  - /docs/4.5/material/tabs/
 toc: true
 ---
 

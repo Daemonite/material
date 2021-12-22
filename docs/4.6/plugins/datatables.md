@@ -3,6 +3,8 @@ layout: docs
 title: DataTables
 description: Add advanced interaction controls to your HTML tables the free & easy way.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/datatables/
 toc: true
 plugin: true
 datatables: true

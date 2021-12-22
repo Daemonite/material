@@ -4,7 +4,9 @@ title: Buttons - Floating action button
 meta_description: Material design Floating action Buttons for Bootstrap 4 using some extra CSS classes for a perfect imitation.
 description: A floating action button (FAB) represents the primary action of a screen.
 group: material
-redirect_from: "/docs/4.6/material/"
+redirect_from:
+  - /docs/4.4/material/buttons-floating-action/
+  - /docs/4.5/material/buttons-floating-action/
 toc: true
 ---
 

@@ -3,6 +3,9 @@ layout: docs
 title: Cards
 description: Bootstrap's cards provide a flexible and extensible content container with multiple variants and options.
 group: components
+redirect_from:
+  - /docs/4.4/components/card/
+  - /docs/4.5/components/card/
 toc: true
 ---
 

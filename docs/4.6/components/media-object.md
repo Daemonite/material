@@ -3,6 +3,9 @@ layout: docs
 title: Media object
 description: Documentation and examples for Bootstrap's media object to construct highly repetitive components like blog comments, tweets, and the like.
 group: components
+redirect_from:
+  - /docs/4.4/components/media-object/
+  - /docs/4.5/components/media-object/
 toc: true
 ---
 

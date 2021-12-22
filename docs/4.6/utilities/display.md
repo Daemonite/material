@@ -3,6 +3,9 @@ layout: docs
 title: Display property
 description: Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/display/
+  - /docs/4.5/utilities/display/
 toc: true
 ---
 

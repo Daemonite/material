@@ -3,6 +3,9 @@ layout: docs
 title: Progress
 description: Progress indicators express an unspecified wait time or display the length of a process.
 group: material
+redirect_from:
+  - /docs/4.4/material/progress/
+  - /docs/4.5/material/progress/
 toc: true
 ---
 

@@ -3,6 +3,9 @@ layout: docs
 title: Collapse
 description: Toggle the visibility of content across your project with a few classes and our JavaScript plugins.
 group: components
+redirect_from:
+  - /docs/4.4/components/collapse/
+  - /docs/4.5/components/collapse/
 toc: true
 ---
 

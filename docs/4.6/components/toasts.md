@@ -3,6 +3,9 @@ layout: docs
 title: Toasts
 description: Push notifications to your visitors with a toast, a lightweight and easily customizable alert message.
 group: components
+redirect_from:
+  - /docs/4.4/components/toasts/
+  - /docs/4.5/components/toasts/
 toc: true
 ---
 

@@ -3,6 +3,9 @@ layout: docs
 title: Icons
 description: Material takes advantage of the over 900 icons offered by the official icon set from Google.
 group: material
+redirect_from:
+  - /docs/4.4/material/icons/
+  - /docs/4.5/material/icons/
 ---
 
 <div class="list-group">

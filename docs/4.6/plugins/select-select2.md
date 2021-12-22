@@ -3,6 +3,8 @@ layout: docs
 title: Select Select2
 description: Selects allow users to select from a single-option menu.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/select-select2/
 toc: true
 plugin: true
 select2: true

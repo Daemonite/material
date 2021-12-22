@@ -3,7 +3,9 @@ layout: docs
 title: Interactions
 description: Utility classes that change how users interact with contents of a website.
 group: utilities
-redirect_from: "/docs/4.6/utilities/"
+redirect_from:
+  - /docs/4.4/utilities/interactions/
+  - /docs/4.5/utilities/interactions/
 toc: true
 ---
 

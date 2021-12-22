@@ -3,6 +3,9 @@ layout: docs
 title: Tooltips
 description: Tooltips display informative text when users hover over, focus on, or tap an element.
 group: material
+redirect_from:
+  - /docs/4.4/material/tooltips/
+  - /docs/4.5/material/tooltips/
 ---
 
 Tooltips identify an element when they are activated. They may contain brief helper text about its function. For example, they may contain text information about actionable icons.

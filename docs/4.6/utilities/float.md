@@ -3,6 +3,9 @@ layout: docs
 title: Float
 description: Toggle floats on any element, across any breakpoint, using our responsive float utilities.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/float/
+  - /docs/4.5/utilities/float/
 toc: true
 ---
 

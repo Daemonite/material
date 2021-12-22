@@ -4,6 +4,9 @@ title: Sliders
 meta_description: Material design tabs for Bootstrap 4
 description: Sliders allow users to make selections from a range of values.
 group: material
+redirect_from:
+  - /docs/4.4/material/sliders/
+  - /docs/4.5/material/sliders/
 toc: true
 ---
 

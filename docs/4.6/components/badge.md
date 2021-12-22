@@ -3,6 +3,9 @@ layout: docs
 title: Badges
 description: Documentation and examples for badges, our small count and labeling component.
 group: components
+redirect_from:
+  - /docs/4.4/components/badge/
+  - /docs/4.5/components/badge/
 toc: true
 ---
 

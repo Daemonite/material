@@ -3,6 +3,9 @@ layout: docs
 title: App bars top
 description: The top app bar displays information and actions relating to the current screen.
 group: material
+redirect_from:
+  - /docs/4.4/material/app-bars-top/
+  - /docs/4.5/material/app-bars-top/
 ---
 
 The top app bar provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.

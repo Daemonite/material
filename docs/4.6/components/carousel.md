@@ -3,6 +3,9 @@ layout: docs
 title: Carousel
 description: A slideshow component for cycling through elements—images or slides of text—like a carousel.
 group: components
+redirect_from:
+  - /docs/4.4/components/carousel/
+  - /docs/4.5/components/carousel/
 toc: true
 ---
 

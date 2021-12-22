@@ -3,6 +3,9 @@ layout: docs
 title: Text
 description: Documentation and examples for common text utilities to control alignment, wrapping, weight, and more.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/text/
+  - /docs/4.5/utilities/text/
 toc: true
 ---
 

@@ -3,6 +3,9 @@ layout: docs
 title: Images
 description: Documentation and examples for opting images into responsive behavior (so they never become larger than their parent elements) and add lightweight styles to them—all via classes.
 group: content
+redirect_from:
+  - /docs/4.4/content/images/
+  - /docs/4.5/content/images/
 toc: true
 ---
 

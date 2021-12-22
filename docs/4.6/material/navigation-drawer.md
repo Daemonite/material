@@ -3,6 +3,9 @@ layout: docs
 title: Navigation drawer
 description: Navigation drawers provide access to destinations in your app.
 group: material
+redirect_from:
+  - /docs/4.4/material/navigation-drawer/
+  - /docs/4.5/material/navigation-drawer/
 toc: true
 ---
 

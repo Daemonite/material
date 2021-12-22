@@ -4,6 +4,9 @@ title: Lists
 description: Lists are continuous, vertical indexes of text or images.
 group: material
 toc: true
+redirect_from:
+  - /docs/4.4/material/lists/
+  - /docs/4.5/material/lists/
 ---
 
 Lists are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.

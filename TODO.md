@@ -2,8 +2,7 @@
 
 ## For 4.6.0-rc.2
 
-- Erreurs Search console
-  - Redirect 4.5 to 4.6
+- Errors Search console
   - https://djibe.github.io/material/docs/4.5/plugins/picker-flatpickr/
 - modal on xs btn borders
 - Git to site: https://gist.github.com/cobyism/4730490

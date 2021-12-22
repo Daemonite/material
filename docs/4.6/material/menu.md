@@ -3,6 +3,9 @@ layout: docs
 title: Menu
 description: Menus display a list of choices on temporary surfaces.
 group: material
+redirect_from:
+  - /docs/4.4/material/menu/
+  - /docs/4.5/material/menu/
 toc: true
 ---
 

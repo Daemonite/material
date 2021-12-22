@@ -3,6 +3,9 @@ layout: docs
 title: Data tables
 description: Data tables display sets of data across rows and columns.
 group: material
+redirect_from:
+  - /docs/4.4/material/data-tables/
+  - /docs/4.5/material/data-tables/
 ---
 
 <div class="list-group my-lg-5">

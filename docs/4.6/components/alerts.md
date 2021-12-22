@@ -3,6 +3,9 @@ layout: docs
 title: Alerts
 description: Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 group: components
+redirect_from:
+  - /docs/4.4/components/alerts/
+  - /docs/4.5/components/alerts/
 toc: true
 ---
 

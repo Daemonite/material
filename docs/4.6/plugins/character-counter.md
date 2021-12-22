@@ -3,6 +3,8 @@ layout: docs
 title: Character counter
 description: Assistive elements for text fields.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/character-counter/
 plugin: true
 maxlength: true
 ---

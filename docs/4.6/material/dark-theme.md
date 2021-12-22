@@ -3,6 +3,8 @@ layout: docs
 title: Dark theme
 description: A dark theme is a low-light UI that displays mostly dark surfaces.
 group: material
+redirect_from:
+  - /docs/4.5/material/dark-theme/
 darkmode: true
 ---
 
@@ -22,7 +24,7 @@ Material uses a very simple Dark theme for the moment, based on a `filter()` CSS
 Dark mode is applied in 2 conditions:
 
 1. If users's browser is set to Dark mode preference using `@media (prefers-color-scheme: dark)` media query AND you have rebuilt **Material** with variable `$enable-dark-theme-media-query` set to `true`. `$enable-dark-theme-media-query` is set to `false` by default.
-2. If `data-theme="dark"` is added to the opening `html` tag like this: `<html lang="en" data-theme="dark">`.
+2. `data-theme="dark"` is added to the opening `html` tag like this: `<html lang="en" data-theme="dark">`.
 
 More improvements for the Dark mode will be added in next versions.
 

@@ -3,6 +3,9 @@ layout: docs
 title: Colors
 description: Convey meaning through color with a handful of color utility classes. Includes support for styling links with hover states, too.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/colors/
+  - /docs/4.5/utilities/colors/
 toc: true
 ---
 

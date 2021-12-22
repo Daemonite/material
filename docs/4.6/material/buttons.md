@@ -5,8 +5,8 @@ meta_description: Material design Buttons for Bootstrap 4 using some extra CSS c
 description: Buttons allow users to take actions, and make choices, with a single tap.
 group: material
 redirect_from:
-  - /docs/4.4/material/
-  - /docs/4.5/material/
+  - /docs/4.4/material/buttons/
+  - /docs/4.5/material/buttons/
 fontawesome4: true
 fontawesome5: true
 toc: true

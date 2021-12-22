@@ -4,6 +4,9 @@ title: The type system
 meta_description: Material design typegraphy for Bootstrap 4
 description: Material's typographic scale has a set of type sizes that balances content density and reading comfort under typical usage conditions.
 group: material
+redirect_from:
+  - /docs/4.4/material/typography/
+  - /docs/4.5/material/typography/
 toc: true
 ---
 

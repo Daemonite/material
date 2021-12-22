@@ -3,6 +3,9 @@ layout: docs
 title: Spacing
 description: Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element's appearance.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/spacing/
+  - /docs/4.5/utilities/spacing/
 toc: true
 ---
 

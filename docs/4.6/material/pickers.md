@@ -3,6 +3,9 @@ layout: docs
 title: Pickers
 description: Date pickers let users select a date, or a range of dates.
 group: material
+redirect_from:
+  - /docs/4.4/material/pickers/
+  - /docs/4.5/material/pickers/
 toc: true
 ---
 

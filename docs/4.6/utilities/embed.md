@@ -3,6 +3,9 @@ layout: docs
 title: Embeds
 description: Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/embed/
+  - /docs/4.5/utilities/embed/
 toc: true
 ---
 

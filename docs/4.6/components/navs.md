@@ -3,6 +3,9 @@ layout: docs
 title: Navs
 description: Documentation and examples for how to use Bootstrap's included navigation components.
 group: components
+redirect_from:
+  - /docs/4.4/components/navs/
+  - /docs/4.5/components/navs/
 toc: true
 ---
 

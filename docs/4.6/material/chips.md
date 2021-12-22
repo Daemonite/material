@@ -3,6 +3,9 @@ layout: docs
 title: Chips
 description: Chips are compact elements that represent an input, attribute, or action.
 group: material
+redirect_from:
+  - /docs/4.4/material/chips/
+  - /docs/4.5/material/chips/
 toc: true
 ---
 

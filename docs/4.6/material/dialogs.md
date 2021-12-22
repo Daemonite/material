@@ -3,6 +3,9 @@ layout: docs
 title: Dialogs
 description: Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.
 group: material
+redirect_from:
+  - /docs/4.4/material/dialogs/
+  - /docs/4.5/material/dialogs/
 toc: true
 ---
 

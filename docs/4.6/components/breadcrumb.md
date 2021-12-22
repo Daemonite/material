@@ -3,6 +3,9 @@ layout: docs
 title: Breadcrumb
 description: Indicate the current page's location within a navigational hierarchy that automatically adds separators via CSS.
 group: components
+redirect_from:
+  - /docs/4.4/components/breadcrumb/
+  - /docs/4.5/components/breadcrumb/
 ---
 
 ## Example

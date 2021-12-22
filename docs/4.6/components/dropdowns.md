@@ -3,6 +3,9 @@ layout: docs
 title: Dropdowns
 description: Toggle contextual overlays for displaying lists of links and more with the Bootstrap dropdown plugin.
 group: components
+redirect_from:
+  - /docs/4.4/components/dropdowns/
+  - /docs/4.5/components/dropdowns/
 toc: true
 ---
 

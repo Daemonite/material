@@ -3,6 +3,9 @@ layout: docs
 title: Code
 description: Documentation and examples for displaying inline and multiline blocks of code with Bootstrap.
 group: content
+redirect_from:
+  - /docs/4.4/content/code/
+  - /docs/4.5/content/code/
 toc: true
 ---
 

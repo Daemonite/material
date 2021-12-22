@@ -3,6 +3,9 @@ layout: docs
 title: Badges
 description: Badges can contain dynamic information, such as a number of pending requests.
 group: material
+redirect_from:
+  - /docs/4.4/material/badges/
+  - /docs/4.5/material/badges/
 ---
 
 <div class="list-group my-2 my-lg-5">

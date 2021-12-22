@@ -3,6 +3,9 @@ layout: docs
 title: Shadows
 description: Add or remove shadows to elements with box-shadow utilities.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/shadows/
+  - /docs/4.5/utilities/shadows/
 ---
 
 ## Examples

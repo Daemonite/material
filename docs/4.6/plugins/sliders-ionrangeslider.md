@@ -3,6 +3,8 @@ layout: docs
 title: Sliders Ion.RangeSlider
 description: Sliders allow users to make selections from a range of values.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/sliders-ionrangeslider/
 toc: true
 plugin: true
 ionrangeslider: true

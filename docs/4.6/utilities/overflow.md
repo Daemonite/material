@@ -3,6 +3,9 @@ layout: docs
 title: Overflow
 description: Use these shorthand utilities for quickly configuring how content overflows an element.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/overflow/
+  - /docs/4.5/utilities/overflow/
 ---
 
 Barebones `overflow` functionality is provided for two values by default, and they are not responsive.

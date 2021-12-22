@@ -3,6 +3,9 @@ layout: docs
 title: Tables
 description: Documentation and examples for opt-in styling of tables (given their prevalent use in JavaScript plugins) with Bootstrap.
 group: content
+redirect_from:
+  - /docs/4.4/content/tables/
+  - /docs/4.5/content/tables/
 toc: true
 ---
 

@@ -3,6 +3,9 @@ layout: docs
 title: Image replacement
 description: Swap text for background images with the image replacement class.
 group: utilities
+redirect_from:
+  - /docs/4.4/utilities/image-replacement/
+  - /docs/4.5/utilities/image-replacement/
 ---
 
 {% capture callout %}

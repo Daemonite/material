@@ -4,6 +4,9 @@ title: Snackbars
 meta_description: Material design snackbars for Bootstrap 4
 description: Snackbars provide brief messages about app processes at the bottom of the screen.
 group: material
+redirect_from:
+  - /docs/4.4/material/snackbars/
+  - /docs/4.5/material/snackbars/
 toc: true
 ---
 

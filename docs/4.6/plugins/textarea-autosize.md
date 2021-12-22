@@ -3,6 +3,8 @@ layout: docs
 title: Textarea autosize
 description: Multi-line text fields grow to accommodate multiple lines of text.
 group: plugins
+redirect_from:
+  - /docs/4.5/plugins/textarea-autosize/
 toc: true
 plugin: true
 autosize: true

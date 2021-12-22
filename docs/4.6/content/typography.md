@@ -3,6 +3,9 @@ layout: docs
 title: Typography
 description: Documentation and examples for Bootstrap typography, including global settings, headings, body text, lists, and more.
 group: content
+redirect_from:
+  - /docs/4.4/content/typography/
+  - /docs/4.5/content/typography/
 toc: true
 ---
 

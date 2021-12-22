@@ -3,6 +3,9 @@ layout: docs
 title: Steppers
 description: Steppers convey progress through numbered steps.
 group: material
+redirect_from:
+  - /docs/4.4/material/steppers/
+  - /docs/4.5/material/steppers/
 toc: true
 ---
 
