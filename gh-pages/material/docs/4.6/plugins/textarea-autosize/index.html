@@ -5,7 +5,7 @@
 <div class="navdrawer-header"> <a aria-label="Djibe Material" class="doc-logo" href="/material/">M</a> <span class="navbar-brand">Material UI 2</span>
 </div>
 <form class="navdrawer-body mt-2">
-<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="https://djibe.github.io" class="form-control doc-search" id="doc-search" type="search">
+<div class="floating-label textfield-box form-ripple"> <label for="doc-search">Search</label> <input aria-label="Search" autocomplete="off" data-siteurl="http://localhost:9999" class="form-control doc-search" id="doc-search" type="search">
 </div>
 <button class="sr-only" type="submit">Search documentation</button> </form>
 <div class="navdrawer-divider mb-0"></div>
@@ -44,9 +44,9 @@
 <p><strong>jQuery</strong> is required.</p>
 </div>
 <h2 id="basic-demo">Basic demo</h2>
-<div class="bd-example"><div class="form-group form-ripple my-3"> <textarea class="form-control textarea-autosize" id="textareaExample" rows="1" placeholder="Try this textarea"></textarea>
+<div class="bd-example"><div class="form-group form-ripple-bottom my-3"> <textarea class="form-control textarea-autosize" id="textareaExample" rows="1" placeholder="Try this textarea"></textarea>
 </div></div>
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple my-3"</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple-bottom my-3"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"textareaExample"</span> <span class="na">rows=</span><span class="s">"1"</span> <span class="na">placeholder=</span><span class="s">"Try this textarea"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure><h2 id="using-textarea-autosize">Using Textarea Autosize</h2>
 <p>Import <strong>material-plugins.css</strong> after Material CSS.</p>
@@ -57,46 +57,42 @@
 <p>That’s it.</p>
 <h2 id="more-examples">More examples</h2>
 <div class="bd-example">
-<div class="textfield-box my-2"> <textarea class="form-control textarea-autosize" id="textareaExampleField" rows="1" placeholder="Try this textarea with textfield box"></textarea>
+<div class="textfield-box form-ripple-bottom my-2"> <textarea class="form-control textarea-autosize" id="textareaExampleField" rows="1" placeholder="Try this textarea with textfield box"></textarea>
 </div>
-<div class="form-group form-ripple"> <textarea class="form-control form-control-lg textarea-autosize" id="textareaExampleBig" rows="1" placeholder="Try this big textarea"></textarea>
+<div class="form-group form-ripple-bottom"> <textarea class="form-control form-control-lg textarea-autosize" id="textareaExampleBig" rows="1" placeholder="Try this big textarea"></textarea>
 </div>
-<div class="form-group form-ripple"> <textarea class="form-control form-control-sm textarea-autosize" id="textareaExampleSmall" rows="1" placeholder="Try this small textarea"></textarea>
+<div class="form-group form-ripple-bottom"> <textarea class="form-control form-control-sm textarea-autosize" id="textareaExampleSmall" rows="1" placeholder="Try this small textarea"></textarea>
 </div>
-<div class="form-group"><div class="floating-label"> <label for="floating">Textarea with floating label</label> <textarea class="form-control textarea-autosize" id="floating" rows="1"></textarea>
-</div></div>
-<div class="form-group"><div class="floating-label floating-label-sm"> <label for="floating-sm">Small textarea with floating label</label> <textarea class="form-control form-control-sm textarea-autosize" id="floating-sm" rows="1"></textarea>
-</div></div>
+<div class="form-group floating-label form-ripple-bottom"> <label for="floating">Textarea with floating label</label> <textarea class="form-control textarea-autosize" id="floating" rows="1"></textarea>
+</div>
+<div class="form-group floating-label floating-label-sm form-ripple-bottom"> <label for="floating-sm">Small textarea with floating label</label> <textarea class="form-control form-control-sm textarea-autosize" id="floating-sm" rows="1"></textarea>
+</div>
 <div class="form-group"><div class="input-group">
-<div class="floating-label"> <label for="floating-icon">Input icon + floating label + textarea autosize</label> <textarea class="form-control textarea-autosize" id="floating-icon" rows="1"></textarea>
+<div class="floating-label form-ripple-bottom"> <label for="floating-icon">Input icon + floating label + textarea autosize</label> <textarea class="form-control textarea-autosize" id="floating-icon" rows="1"></textarea>
 </div>
 <span class="input-group-icon"> <i class="material-icons">event</i> </span>
 </div></div>
 </div>
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box my-2"</span><span class="nt">&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"textfield-box form-ripple-bottom my-2"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"textareaExampleField"</span> <span class="na">rows=</span><span class="s">"1"</span> <span class="na">placeholder=</span><span class="s">"Try this textarea with textfield box"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple-bottom"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control form-control-lg textarea-autosize"</span> <span class="na">id=</span><span class="s">"textareaExampleBig"</span> <span class="na">rows=</span><span class="s">"1"</span> <span class="na">placeholder=</span><span class="s">"Try this big textarea"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-ripple-bottom"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control form-control-sm textarea-autosize"</span> <span class="na">id=</span><span class="s">"textareaExampleSmall"</span> <span class="na">rows=</span><span class="s">"1"</span> <span class="na">placeholder=</span><span class="s">"Try this small textarea"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"floating"</span><span class="nt">&gt;</span>Textarea with floating label<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"floating"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label form-ripple-bottom"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"floating"</span><span class="nt">&gt;</span>Textarea with floating label<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"floating"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label floating-label-sm"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"floating-sm"</span><span class="nt">&gt;</span>Small textarea with floating label<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control form-control-sm textarea-autosize"</span> <span class="na">id=</span><span class="s">"floating-sm"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group floating-label floating-label-sm form-ripple-bottom"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"floating-sm"</span><span class="nt">&gt;</span>Small textarea with floating label<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control form-control-sm textarea-autosize"</span> <span class="na">id=</span><span class="s">"floating-sm"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"input-group"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"floating-label form-ripple-bottom"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"floating-icon"</span><span class="nt">&gt;</span>Input icon + floating label + textarea autosize<span class="nt">&lt;/label&gt;</span>
       <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control textarea-autosize"</span> <span class="na">id=</span><span class="s">"floating-icon"</span> <span class="na">rows=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
     <span class="nt">&lt;/div&gt;</span>

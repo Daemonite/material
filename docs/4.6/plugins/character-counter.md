@@ -31,7 +31,7 @@ This plugin doesn't require extra CSS loading but **jQuery** is required.
 ## Demo
 
 {% capture example %}
-<div class="form-group form-ripple-text">
+<div class="form-group form-ripple">
   <label for="maxlength1">Username</label>
   <input type="text" class="form-control" id="maxlength1" placeholder="Choose a username" maxlength="20">
   <small class="form-text">Helper message.</small>

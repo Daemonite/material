@@ -433,6 +433,10 @@ legend + * {
   padding: 0;
 }
 
+::-webkit-file-upload-button {
+  font: inherit;
+}
+
 ::file-selector-button {
   font: inherit;
 }
@@ -481,11 +485,11 @@ dfn {
 }
 
 ::-moz-selection {
-  background: rgba(98, 0, 238, 0.08);
+  background-color: rgba(98, 0, 238, 0.08);
 }
 
 ::selection {
-  background: rgba(98, 0, 238, 0.08);
+  background-color: rgba(98, 0, 238, 0.08);
 }
 
 .disabled:hover,
@@ -3480,7 +3484,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 .card-link,
 .modal .btn,
 .modal .card-link {
-  background: transparent;
+  background-color: transparent;
   box-shadow: none;
 }
 
@@ -4241,7 +4245,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .accordion > .card > .card-header:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.04);
   transition: background-color 150ms linear;
 }
 
@@ -4656,7 +4660,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .card-primary-action:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .card-primary-action:hover.card {
@@ -4756,7 +4760,7 @@ a.btn:not([class*='btn-flat']):not([class*='btn-outline']):enabled:hover, a.card
 }
 
 .chip-outline {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -5584,6 +5588,7 @@ body {
 .list-group-item {
   -ms-flex-align: center;
   align-items: center;
+  background-color: transparent;
   border: 0;
   color: rgba(0, 0, 0, 0.87);
   display: block;
@@ -8955,7 +8960,7 @@ body {
 }
 
 .custom-switch .custom-control-label::before {
-  background: #000000;
+  background-color: #000000;
   border-radius: 0.4375rem;
   content: '';
   height: 0.875rem;
@@ -8973,7 +8978,7 @@ body {
 }
 
 .custom-switch .custom-control-label::after {
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 50%;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   content: '';
@@ -8994,11 +8999,11 @@ body {
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
-  background: #6200ee;
+  background-color: #6200ee;
 }
 
 .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  background: #6200ee;
+  background-color: #6200ee;
   -webkit-transform: translateX(1.25rem);
   transform: translateX(1.25rem);
 }
@@ -9020,7 +9025,7 @@ body {
 }
 
 .custom-switch .custom-control-input:disabled ~ .custom-control-label::before {
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   display: block;
 }
 
@@ -9029,18 +9034,18 @@ body {
 }
 
 .custom-switch .custom-control-input:checked:disabled ~ .custom-control-label::before {
-  background: rgba(226, 208, 252, 0.8252);
+  background-color: rgba(226, 208, 252, 0.8252);
 }
 
 .custom-switch .custom-control-input:checked:disabled ~ .custom-control-label::after {
-  background: #c39ef9;
+  background-color: #c39ef9;
 }
 
 .custom-range {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: transparent;
+  background-color: transparent;
   height: 3rem;
   padding: 0;
   width: 100%;
@@ -9075,7 +9080,7 @@ body {
 }
 
 .custom-range::-webkit-slider-thumb {
-  background: #6200ee;
+  background-color: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
@@ -9093,12 +9098,12 @@ body {
 }
 
 .custom-range::-webkit-slider-thumb:active {
-  background: #6200ee;
+  background-color: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
 .custom-range::-webkit-slider-runnable-track {
-  background: rgba(98, 0, 238, 0.24);
+  background-color: rgba(98, 0, 238, 0.24);
   border-color: transparent;
   border-radius: 0.125rem;
   color: transparent;
@@ -9107,7 +9112,7 @@ body {
 }
 
 .custom-range::-moz-range-thumb {
-  background: #6200ee;
+  background-color: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
@@ -9123,12 +9128,12 @@ body {
 }
 
 .custom-range::-moz-range-thumb:active {
-  background: #6200ee;
+  background-color: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
 .custom-range::-moz-range-track {
-  background: rgba(98, 0, 238, 0.24);
+  background-color: rgba(98, 0, 238, 0.24);
   border-color: transparent;
   border-radius: 0.125rem;
   color: transparent;
@@ -9137,13 +9142,13 @@ body {
 }
 
 .custom-range::-moz-range-progress {
-  background: #6200ee;
+  background-color: #6200ee;
   border-radius: 0.1875rem;
   height: 0.375rem;
 }
 
 .custom-range::-ms-thumb {
-  background: #6200ee;
+  background-color: #6200ee;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
@@ -9161,28 +9166,28 @@ body {
 }
 
 .custom-range::-ms-thumb:active {
-  background: #6200ee;
+  background-color: #6200ee;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 0 0 0.875rem rgba(98, 0, 238, 0.24);
 }
 
 .custom-range::-ms-track {
-  background: rgba(98, 0, 238, 0.24);
+  background-color: rgba(98, 0, 238, 0.24);
   border-color: transparent;
   border-radius: 0.125rem;
   color: transparent;
   height: 0.25rem;
   width: 100%;
-  background: transparent;
+  background-color: transparent;
 }
 
 .custom-range::-ms-fill-lower {
-  background: #6200ee;
+  background-color: #6200ee;
   border-radius: 0.1875rem;
   height: 0.375rem;
 }
 
 .custom-range::-ms-fill-upper {
-  background: rgba(98, 0, 238, 0.24);
+  background-color: rgba(98, 0, 238, 0.24);
   border-radius: 0.125rem;
   margin-right: 15px;
 }
@@ -9192,40 +9197,40 @@ body {
 }
 
 .custom-range:disabled::-webkit-slider-thumb {
-  background: #8c8c8c;
+  background-color: #8c8c8c;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .custom-range:disabled::-webkit-slider-runnable-track {
-  background: #d7d7d7;
+  background-color: #d7d7d7;
   cursor: default;
 }
 
 .custom-range:disabled::-moz-range-thumb, .custom-range:disabled:hover::-moz-range-thumb {
-  background: #8c8c8c;
+  background-color: #8c8c8c;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .custom-range:disabled::-moz-range-track {
-  background: #d7d7d7;
+  background-color: #d7d7d7;
   cursor: default;
 }
 
 .custom-range:disabled::-moz-range-progress {
-  background: #8c8c8c;
+  background-color: #8c8c8c;
 }
 
 .custom-range:disabled::-ms-thumb {
-  background: #8c8c8c;
+  background-color: #8c8c8c;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .custom-range:disabled::-ms-fill-lower {
-  background: #8c8c8c;
+  background-color: #8c8c8c;
 }
 
 .custom-range:disabled::-ms-fill-upper {
-  background: #d7d7d7;
+  background-color: #d7d7d7;
   cursor: default;
 }
 
@@ -9294,7 +9299,7 @@ body {
 }
 
 .toast .btn, .toast .card-link {
-  background: transparent;
+  background-color: transparent;
   box-shadow: none;
   color: #bb86fc;
   margin-top: -0.5rem;
@@ -9845,11 +9850,11 @@ select.form-control option, select.custom-select option {
 }
 
 select.form-control option:hover, select.custom-select option:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 select.form-control option:active, select.custom-select option:active {
-  background: rgba(0, 0, 0, 0.12) !important;
+  background-color: rgba(0, 0, 0, 0.12) !important;
 }
 
 select.form-control:focus, select.custom-select:focus {
@@ -10371,7 +10376,7 @@ select.is-invalid.form-control:hover[multiple], select.is-invalid.form-control:h
 
 [class*='form-ripple']::before,
 .floating-label::before {
-  background: #6200ee;
+  background-color: #6200ee;
   content: '';
   height: 2px;
   position: absolute;
@@ -15778,10 +15783,10 @@ a.text-light:hover, a.text-light:focus, a.text-light:active {
     height: 4px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background-color: transparent;
   }
   ::-webkit-scrollbar-track-piece {
-    background: transparent none;
+    background-color: transparent none;
     border: solid 4px transparent;
     border-right-width: 8px;
   }

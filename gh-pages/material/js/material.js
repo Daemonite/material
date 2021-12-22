@@ -8,7 +8,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
     typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.material = {}, global.jQuery));
-}(this, (function (exports, $) { 'use strict';
+})(this, (function (exports, $) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -71,7 +71,7 @@
           predecessor.addClass(ClassName.SHOW_PREDECESSOR);
         }
       });
-    }($__default['default']);
+    }($__default["default"]);
 
     function ownKeys(object, enumerableOnly) {
       var keys = Object.keys(object);
@@ -255,7 +255,7 @@
       };
 
       return FloatingLabel;
-    }($__default['default']);
+    }($__default["default"]);
 
     /*
      * Global util js
@@ -285,7 +285,7 @@
         bindType: TRANSITION_END,
         delegateType: TRANSITION_END,
         handle: function handle(event) {
-          if ($__default['default'](event.target).is(this)) {
+          if ($__default["default"](event.target).is(this)) {
             return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
           }
 
@@ -298,7 +298,7 @@
       var _this = this;
 
       var called = false;
-      $__default['default'](this).one(Util.TRANSITION_END, function () {
+      $__default["default"](this).one(Util.TRANSITION_END, function () {
         called = true;
       });
       setTimeout(function () {
@@ -310,8 +310,8 @@
     }
 
     function setTransitionEndSupport() {
-      $__default['default'].fn.emulateTransitionEnd = transitionEndEmulator;
-      $__default['default'].event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+      $__default["default"].fn.emulateTransitionEnd = transitionEndEmulator;
+      $__default["default"].event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
     /**
      * --------------------------------------------------------------------------
@@ -349,8 +349,8 @@
         } // Get transition-duration of the element
 
 
-        var transitionDuration = $__default['default'](element).css('transition-duration');
-        var transitionDelay = $__default['default'](element).css('transition-delay');
+        var transitionDuration = $__default["default"](element).css('transition-duration');
+        var transitionDelay = $__default["default"](element).css('transition-delay');
         var floatTransitionDuration = parseFloat(transitionDuration);
         var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
@@ -367,7 +367,7 @@
         return element.offsetHeight;
       },
       triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $__default['default'](element).trigger(TRANSITION_END);
+        $__default["default"](element).trigger(TRANSITION_END);
       },
       supportsTransitionEnd: function supportsTransitionEnd() {
         return Boolean(TRANSITION_END);
@@ -411,11 +411,11 @@
         return Util.findShadowRoot(element.parentNode);
       },
       jQueryDetection: function jQueryDetection() {
-        if (typeof $__default['default'] === 'undefined') {
+        if (typeof $__default["default"] === 'undefined') {
           throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
         }
 
-        var version = $__default['default'].fn.jquery.split(' ')[0].split('.');
+        var version = $__default["default"].fn.jquery.split(' ')[0].split('.');
         var minMajor = 1;
         var ltMajor = 2;
         var minMinor = 9;
@@ -758,7 +758,7 @@
       };
 
       return NavDrawer;
-    }($__default['default']);
+    }($__default["default"]);
 
     var picker_date = {exports: {}};
 
@@ -775,7 +775,7 @@
     (function ( factory ) {
 
         // AMD.
-        module.exports = factory( $__default['default'] );
+        module.exports = factory( $__default["default"] );
 
     }(function( $ ) {
 
@@ -1988,7 +1988,7 @@
     (function ( factory ) {
 
         // AMD.
-        module.exports = factory( picker.exports, $__default['default'] );
+        module.exports = factory( picker.exports, $__default["default"] );
 
     }(function( Picker, $ ) {
 
@@ -3558,7 +3558,7 @@
         $.fn[NAME] = NO_CONFLICT;
         return PickDate._jQueryInterface;
       };
-    }($__default['default']);
+    }($__default["default"]);
 
     // tslint:disable-next-line:variable-name
     var Matrix = typeof DOMMatrix !== 'undefined' ? DOMMatrix : typeof MSCSSMatrix !== 'undefined' ? MSCSSMatrix : undefined;
@@ -3875,7 +3875,7 @@
           LastInteraction.IS_MOUSEDOWN = false;
         }, 1);
       });
-    }($__default['default']);
+    }($__default["default"]);
 
     /*
      * Tab indicator animation
@@ -4005,7 +4005,7 @@
       };
 
       return TabSwitch;
-    }($__default['default']);
+    }($__default["default"]);
 
     exports.ExpansionPanel = ExpansionPanel;
     exports.FloatingLabel = FloatingLabel;
@@ -4018,5 +4018,5 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=material.js.map

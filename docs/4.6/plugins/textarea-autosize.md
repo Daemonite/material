@@ -36,7 +36,7 @@ Stylesheet `material-plugins.css` is required.
 ## Basic demo
 
 {% capture example %}
-<div class="form-group form-ripple my-3">
+<div class="form-group form-ripple-bottom my-3">
   <textarea class="form-control textarea-autosize" id="textareaExample" rows="1" placeholder="Try this textarea"></textarea>
 </div>
 {% endcapture %}
@@ -71,34 +71,29 @@ All parameters are detailed in [official documentation](https://github.com/javie
 
 That's it.  
 
-
 ## More examples
 
 {% capture example %}
-<div class="textfield-box my-2">
+<div class="textfield-box form-ripple-bottom my-2">
   <textarea class="form-control textarea-autosize" id="textareaExampleField" rows="1" placeholder="Try this textarea with textfield box"></textarea>
 </div>
-<div class="form-group form-ripple">
+<div class="form-group form-ripple-bottom">
   <textarea class="form-control form-control-lg textarea-autosize" id="textareaExampleBig" rows="1" placeholder="Try this big textarea"></textarea>
 </div>
-<div class="form-group form-ripple">
+<div class="form-group form-ripple-bottom">
   <textarea class="form-control form-control-sm textarea-autosize" id="textareaExampleSmall" rows="1" placeholder="Try this small textarea"></textarea>
 </div>
-<div class="form-group">
-  <div class="floating-label">
-    <label for="floating">Textarea with floating label</label>
-    <textarea class="form-control textarea-autosize" id="floating" rows="1"></textarea>
-  </div>
+<div class="form-group floating-label form-ripple-bottom">
+  <label for="floating">Textarea with floating label</label>
+  <textarea class="form-control textarea-autosize" id="floating" rows="1"></textarea>
 </div>
-<div class="form-group">
-  <div class="floating-label floating-label-sm">
-    <label for="floating-sm">Small textarea with floating label</label>
-    <textarea class="form-control form-control-sm textarea-autosize" id="floating-sm" rows="1"></textarea>
-  </div>
+<div class="form-group floating-label floating-label-sm form-ripple-bottom">
+  <label for="floating-sm">Small textarea with floating label</label>
+  <textarea class="form-control form-control-sm textarea-autosize" id="floating-sm" rows="1"></textarea>
 </div>
 <div class="form-group">
   <div class="input-group">
-    <div class="floating-label">
+    <div class="floating-label form-ripple-bottom">
       <label for="floating-icon">Input icon + floating label + textarea autosize</label>
       <textarea class="form-control textarea-autosize" id="floating-icon" rows="1"></textarea>
     </div>
