@@ -1,5 +1,5 @@
 // Inspired by https://dev.to/dip15739/dark-mode-with-only-1-css-property-17fl
-// stylelint-disable selector-no-qualifying-type
+// stylelint-disable
 
 // Use mixin because @extend cannot be used inside @media
 @mixin dark-theme() {
@@ -27,10 +27,20 @@ body {
 
 @if ($enable-dark-theme-media-query) {
   @media (prefers-color-scheme: dark) {
-    @include dark-theme();
+    :root {
+      @each $surface, $color in $surfaces {
+        --#{$surface}: #{$color};
+      }
+    }
 
     html {
       filter: invert(1) hue-rotate(180deg);
+    }
+
+    @include dark-theme();
+
+    body {
+      background-color: var(--surface-0);
     }
   }
 }
