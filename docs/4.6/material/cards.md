@@ -37,7 +37,7 @@ Supplemental actions are represented by icons, text, and UI controls on cards. T
 
 For more than two supplemental actions, use an overflow menu instead.
 
-Keep the classic card layout with `card-header` and `card-body`, but make sure you group all buttons in a `card-actions` div for proper alignment and spacing.
+Keep the classic card layout with `.card-header` and `.card-body`, but make sure you group all buttons in a `.card-actions` div for proper alignment and spacing.
 
 You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` are right-aligned thanks to flex utility `.ml-auto` (*margin-left: auto*).
 
@@ -62,7 +62,7 @@ You can still use links or buttons for card buttons. Icon buttons, `.btn-icon` a
 {% endcapture %}
 {% include example.html content=example %}
 
-You can use the button HTML markup you want in a card (either using a link or a button) : `card-link`, `btn-link` or `btn-flat-primary`.
+You can use the button HTML markup you want in a card (either using a link or a button) : `.card-link`, `.btn-link` or `.btn-flat-primary`.
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
@@ -101,7 +101,7 @@ You can use the button HTML markup you want in a card (either using a link or a 
 {% endcapture %}
 {% include example.html content=example %}
 
-Example without `card-actions` div. Apply `border-0` utility to the card-header in order to remove border.
+Example without `.card-actions` div. Apply `.border-0` utility to the card-header in order to remove border.
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
@@ -139,7 +139,7 @@ Another card without image banner and icon buttons pushed to the end with `.just
 
 You can use a simplified HTML markup and omit `.card-header` container to obtain the same result.
 
-This card is styled in shape with `card-shaped` class you can apply to the `.card` container.
+This card is styled in shape with `.card-shaped` class you can apply to the `.card` container.
 
 Buttons are still separated thanks to a flex utility `.ml-auto` applied to the first of the icon buttons.
 
@@ -161,7 +161,7 @@ Buttons are still separated thanks to a flex utility `.ml-auto` applied to the f
 {% endcapture %}
 {% include example.html content=example %}
 
-Outlined card obtained by using standard Bootstrap utilities : `.shadow-none` to remove card's shading and `border` to apply a slight border around the card.
+Outlined card obtained by using standard Bootstrap utilities : `.shadow-none` to remove card's shading and `.border` to apply a slight border around the card.
 
 This card uses a simplified HTML markup without `.card-header` container. We can't make it simpler ;-&#41;
 
@@ -176,7 +176,7 @@ This card uses a simplified HTML markup without `.card-header` container. We can
 {% endcapture %}
 {% include example.html content=example %}
 
-And the exact same Outlined card with a `card-header` container. Your choice !
+And the exact same Outlined card with a `.card-header` container. Your choice !
 
 {% capture example %}
 <div class="card shadow-none border" style="max-width: 350px;">
@@ -193,9 +193,9 @@ And the exact same Outlined card with a `card-header` container. Your choice !
 
 ## Card primary action
 
-If the whole card is the action itself, you can add `card-primary action` to the card itself. It will give it a nice background, a shadow effect on hover and a ripple effect on click.
+If the whole card is the action itself, you can add `.card-primary-action` to the card itself. It will give it a nice background, a shadow effect on hover and a ripple effect on click.
 
-As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `stretched-link`]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/) (NB. Stretched-link requires container to be set to `position: relative`, but `card-primary-action` is).
+As a Primary action is frequently a link, it is perfect to use it with [Bootstrap's utility `.stretched-link`]({{ site.baseurl }}/docs/{{ site.docs_version }}/utilities/stretched-link/) (NB. Stretched-link requires container to be set to `position: relative`, but `.card-primary-action` is).
 
 {% capture example %}
 <div class="card card-body card-primary-action flex-row" style="width: 250px;">
@@ -208,7 +208,7 @@ As a Primary action is frequently a link, it is perfect to use it with [Bootstra
 {% endcapture %}
 {% include example.html content=example %}
 
-The `card-primary-action` can be set on card-body also. But it won't have the box-shadow effect.
+The `.card-primary-action` can be set on card-body also. But it won't have the box-shadow effect.
 
 {% capture example %}
 <div class="card" style="max-width: 350px;">
