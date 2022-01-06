@@ -61,31 +61,12 @@
     // Docsearch
     /*eslint no-undef: "off"*/
     docsearch({
+      container: '#docsearch',
+      appId: 'Z6N3WZF789',
       apiKey: '9baf48f0fb52b34e8eace8a29b1b59ff',
       indexName: 'material',
-      inputSelector: '#doc-search',
       algoliaOptions: {
         facetFilters: ['version:4.6']
-      },
-      transformData: function (hits) {
-        return hits.map(function (hit) {
-          var currentUrl = getOrigin()
-          var liveUrl = 'https://djibe.github.io/'
-
-          hit.url = currentUrl.lastIndexOf(liveUrl, 0) === 0
-            // On production, return the result as is
-            ? hit.url
-            // On development or Netlify, replace `hit.url` with a trailing slash,
-            // so that the result link is relative to the server root
-            : hit.url.replace(liveUrl, '/')
-
-          // Prevent jumping to first header
-          if (hit.anchor === 'content') {
-            hit.url = hit.url.replace(/#content$/, '')
-            hit.anchor = null
-          }
-          return hit
-        })
       },
       // Set debug to `true` if you want to inspect the dropdown
       debug: true
