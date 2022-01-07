@@ -1,6 +1,6 @@
 .card {
-  background-color: $card-bg;
-  background-color: var(--surface-#{$card-elevation});
+  @include bg-color(#{$card-elevation}, $card-bg);
+
   border-radius: $card-border-radius;
   box-shadow: map-get($card-elevation-shadow, shadow);
   display: flex;

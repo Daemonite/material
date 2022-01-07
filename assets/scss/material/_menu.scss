@@ -62,11 +62,10 @@
   }
 
   &::before {
+    @include bg-color(#{$menu-elevation}, $menu-bg);
     @include border-radius($menu-border-radius);
 
     background-clip: padding-box;
-    background-color: $menu-bg;
-    background-color: var(--surface-#{$menu-elevation});
     box-shadow: map-get($menu-elevation-shadow, shadow);
     content: '';
     position: absolute;
