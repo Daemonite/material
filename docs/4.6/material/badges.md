@@ -16,7 +16,7 @@ redirect_from:
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/bottom-navigation#behavior" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/bottom-navigation#behavior" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Bottom navigation - Badges</a>
 </div>
@@ -41,7 +41,7 @@ A badge can be appended to a text with 2 conditions:
 
 Just add your badge element beside button's text.
 
-Badge can be left aligned with `badge-before` CSS class.
+Badge can be left aligned with `.badge-before`.
 
 {% capture example %}
 <button type="button" class="btn btn-primary">
@@ -58,9 +58,9 @@ Badge can be left aligned with `badge-before` CSS class.
 
 ## Icon with a badge
 
-Add `position-relative` class to your `<i>` or `<span>` element containing your icon (material icons, Fontawesome ...) and insert badge beside icon's name.
+Add `.position-relative` class to your `<i>` or `<span>` element containing your icon (material icons, Fontawesome ...) and insert badge beside icon's name.
 
-`badge-before` class is still available.
+`.badge-before` class is still available.
 
 {% capture example %}
 <span class="material-icons position-relative">

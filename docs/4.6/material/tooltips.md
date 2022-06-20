@@ -18,7 +18,7 @@ Tooltips identify an element when they are activated. They may contain brief hel
       <span>Most of the details have been covered here</span>
     </span>
   </a>
-  <a href="https://material.io/components/tooltips" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/tooltips" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Tooltips</a>
   <a href="#" target="_blank" class="list-group-item disabled d-flex font-weight-bold">

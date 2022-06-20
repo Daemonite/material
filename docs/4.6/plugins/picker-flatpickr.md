@@ -20,13 +20,13 @@ Date pickers can be embedded into:
 Flatpickr is a versatile datetime picker.
 
 <div class="list-group my-2 my-lg-5">
-  <a href="https://material.io/components/date-pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/date-pickers" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Date pickers</a>
   <a class="list-group-item list-group-item-action d-flex font-weight-bold disabled">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Date pickers (planned)</a>
-  <a href="https://flatpickr.js.org/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://flatpickr.js.org/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-plugin"></span>
     flatpickr: Official documentation</a>
 </div>

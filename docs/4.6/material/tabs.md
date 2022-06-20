@@ -22,10 +22,10 @@ Each tab should contain content that is distinct from other tabs in a set. For e
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/tabs" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/tabs" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Tabs</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/tabs" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Tab Bar</a>
 </div>
@@ -138,7 +138,7 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 
 ### Tabs with icon only
 
-You can use tabs without text and a simple icon. Just add a `m-0` class to your icon to reset margins and center the icon.
+You can use tabs without text and a simple icon. Just add a `.m-0` class to your icon to reset margins and center the icon.
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIconsOnly" role="tablist">
@@ -192,7 +192,7 @@ You can use tabs without text and a simple icon. Just add a `m-0` class to your 
 
 ### Tabs with top icon
 
-You can also use a **Top icon** for your tabs titles. Just add a `flex-column` class to your `nav-link` element so elements will align vertically.
+You can also use a **Top icon** for your tabs titles. Just add a `.flex-column` class to your `.nav-link` element so elements will align vertically.
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
@@ -246,7 +246,7 @@ You can also use a **Top icon** for your tabs titles. Just add a `flex-column` c
 
 ## Tabs on dark background
 
-When using tabs on a dark background, add `nav-inverse` class to your `nav nav-tabs` container. It will lighten text and icons used according to Material guidelines.
+When using tabs on a dark background, add `.nav-inverse` class to your `.nav nav-tabs` container. It will lighten text and icons used according to Material guidelines.
 
 <div class="bd-example bd-example-tabs">
   <div class="pt-2 bg-primary">

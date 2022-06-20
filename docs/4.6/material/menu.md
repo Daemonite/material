@@ -19,10 +19,10 @@ A menu displays a list of choices on a temporary surface. They appear when users
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/menus" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/menus" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Menus</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/menu" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/menu" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Menu</a>
 </div>

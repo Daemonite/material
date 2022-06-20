@@ -19,10 +19,10 @@ Cards may contain a photo, text, and a link about a single subject. They may dis
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/cards" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/cards" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Cards</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/card" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/card" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Card</a>
 </div>

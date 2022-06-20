@@ -20,10 +20,10 @@ Snackbars inform users of a process that an app has performed or will perform. T
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/snackbars" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/snackbars" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Snackbars</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/snackbar" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/snackbar" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Snackbar</a>
 </div>
@@ -122,15 +122,15 @@ Control the duration of the snackbar with `data-delay="4000"` (in ms). Google st
 
 ### Display bottom-left
 
-Add `justify-content-start` utility class to the `toast-container` to align snackbar bottom left.
+Add `.justify-content-start` utility class to the `.toast-container` to align snackbar bottom left.
 
 ## Snackbar variations
 
 ### Single line message with or without action
 
-For a single line message (with or without a button), you can wrap your text and your button within a `toast-header` or `toast-body` div.
+For a single line message (with or without a button), you can wrap your text and your button within a `.toast-header` or `.toast-body` div.
 
-If you set an Action button, just add `btn` class to it for perfect color and positioning.
+If you set an Action button, just add `.btn` class to it for perfect color and positioning.
 
 <div class="bd-example bd-example-snackbars">
   <div class="toast" id="toast-example2" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
@@ -174,7 +174,7 @@ If you set an Action button, just add `btn` class to it for perfect color and po
 
 ### Two line message with action
 
-You can still wrap text and button in a `toast-header` or `toast-body`.
+You can still wrap text and button in a `.toast-header` or `.toast-body`.
 
 The text should be wrapped in a `<span class="mr-2">Text</span>`. Use a `<br>` to break the text.
 
@@ -200,9 +200,9 @@ The text should be wrapped in a `<span class="mr-2">Text</span>`. Use a `<br>` t
 
 ### Two line message with longer Action button
 
-Place your text in the `toast-header`. You can break your text with a `<br>` or add CSS class `w-75` to the `toast-header`.
+Place your text in the `.toast-header`. You can break your text with a `<br>` or add CSS class `.w-75` to the `.toast-header`.
 
-Set your button in the `toast-body`.
+Set your button in the `.toast-body`.
 
 <div class="bd-example bd-example-snackbars">
   <div class="toast" id="toast-example5" role="alert" aria-live="assertive" aria-atomic="true" data-delay="7000">

@@ -11,13 +11,13 @@ datatables: true
 ---
 
 <div class="list-group my-2 my-lg-5">
-  <a href="https://material.io/components/data-tables" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/data-tables" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Data tables</a>
-  <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Data Table</a>
-  <a href="https://datatables.net/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://datatables.net/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-plugin"></span>
     DataTables: Official documentation</a>
 </div>
@@ -232,7 +232,7 @@ Set `dom` value to `'<"top"f><"data-table"rt<"bottom"lip>>'`.
 
 ### Dense table
 
-Add `table-sm` CSS class to your HTML table declaration in order to render table as dense layout.
+Add `.table-sm` CSS class to your HTML table declaration in order to render table as dense layout.
 
 ### Responsive
 

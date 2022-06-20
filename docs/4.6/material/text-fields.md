@@ -19,10 +19,10 @@ Text fields allow users to enter text into a UI. They typically appear in forms 
       <span>Most of the details have been covered here</span>
     </span>
   </a>
-  <a href="https://material.io/components/text-fields/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/text-fields/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Text fields</a>
-  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Text field</a>
 </div>
@@ -52,10 +52,10 @@ Details for implementing nicely line ripple is available in every chapter right 
 Conditions for a good implementation:
 
 1. Form-control must be wrapped in a `div` or any other container
-1. You must add `form-ripple` class to this container
-1. If you don't set a label for the input, replace `form-ripple` with `form-ripple-nolabel`
-1. If you use a sized input control, apply the same size utility to the `form-ripple` (`.form-ripple-lg` or `.form-ripple-lg-nolabel` for a `form-control-lg`)
-1. Complex inputs (select, 1 line textarea) don't have a `form-ripple` compatible with a *Helper message* (`.form-text` or validation messages). If you don't set one, you can add `.form-ripple-bottom` to its container to activate line ripple.
+1. You must add `.form-ripple` class to this container
+1. If you don't set a label for the input, replace `.form-ripple` with `.form-ripple-nolabel`
+1. If you use a sized input control, apply the same size utility to the `.form-ripple` (`.form-ripple-lg` or `.form-ripple-lg-nolabel` for a `.form-control-lg`)
+1. Complex inputs (select, 1 line textarea) don't have a `.form-ripple` compatible with a *Helper message* (`.form-text` or validation messages). If you don't set one, you can add `.form-ripple-bottom` to its container to activate line ripple.
 
 ### Demo
 

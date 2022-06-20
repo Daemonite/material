@@ -22,13 +22,13 @@ Flat, outlined and raised buttons are the most commonly used types.
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/buttons" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/buttons" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Buttons</a>
-    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/design/layout/applying-density.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Applying density</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/button" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Buttons</a>
 </div>
@@ -70,7 +70,7 @@ Raised buttons are rectangular-shaped buttons. They may be used inline. They lif
 
 ### Unelevated buttons
 
-Unelevated buttons are easy to obtain : just add `shadow-none` class to your button.
+Unelevated buttons are easy to obtain : just add `.shadow-none` to your button.
 
 {% capture example %}
 
@@ -95,7 +95,7 @@ Unelevated buttons are easy to obtain : just add `shadow-none` class to your but
 
 ### Shaped buttons
 
-For rounded buttons, add `btn-shaped` class to your button. it also works for small and large buttons.
+For rounded buttons, add `.btn-shaped` class to your button. it also works for small and large buttons.
 
 {% capture example %}
 
@@ -112,10 +112,10 @@ Recently, Google introduced **Density guidelines**, see the references at the to
 
 To reflect these changes with lowest impact on Bootstrap, here are our choices :
 
-* Standard `btn` is equivalent to **Default** button size
-* `btn-sm` is equivalent to **Comfortable** button size
-* `btn-xs` is introduced to represent **Compact** button size
-* Bootstrap's `btn-lg` has no equivalent in Material design
+* Standard `.btn` is equivalent to **Default** button size
+* `.btn-sm` is equivalent to **Comfortable** button size
+* `.btn-xs` is introduced to represent **Compact** button size
+* Bootstrap's `.btn-lg` has no equivalent in Material design
 
 *Examples are presented above (cf. Shaped buttons)*
 
@@ -188,7 +188,7 @@ Just add this class to your icon/svg markup for a proper icon's sizing and posit
 
 ## Icon buttons
 
-Daemonite Material brings brand new `btn-icon` class for buttons. Markup is simple : set a simple button with usual `btn` class, add `btn-icon` class and just place an icon in the button. See the examples below.
+Daemonite Material brings brand new `.btn-icon` class for buttons. Markup is simple : set a simple button with usual `.btn` class, add `.btn-icon` class and just place an icon in the button. See the examples below.
 
 They also exist in Comfortable (`.btn-sm`) and Compact (`.btn-xs`) versions with smaller sizing.
 

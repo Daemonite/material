@@ -12,13 +12,13 @@ maxlength: true
 Character or word counters should be used if there is a character or word limit. They display the ratio of characters used and the total character limit.
 
 <div class="list-group my-2 my-lg-5">
-  <a href="https://material.io/components/text-fields#anatomy" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/text-fields#anatomy" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Text-fields - Assistive elements</a>
-  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/text-field" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Text Field</a>
-  <a href="https://github.com/mimo84/bootstrap-maxlength" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://github.com/mimo84/bootstrap-maxlength" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-plugin"></span>
     Bootstrap Maxlength: Official documentation</a>
 </div>

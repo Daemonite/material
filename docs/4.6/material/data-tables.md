@@ -16,10 +16,10 @@ redirect_from:
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/data-tables" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/data-tables" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Data tables</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/data-table" rel="external nofollow noopener" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Data table</a>
 </div>
@@ -39,7 +39,7 @@ For advanced Data tables, see [**DataTables.net** plugin]({{ site.baseurl }}/doc
 
 ## Data Table Standard
 
-Wrap your table within a div and add `data-table` class to this div. It will add rounded borders and hover effect for each line.
+Wrap your table within a div and add `.data-table` class to this div. It will add rounded borders and hover effect for each line.
 
 *Responsive* data-table example with `<caption>`, *accessibility* and *Schema.org* microdata.
 

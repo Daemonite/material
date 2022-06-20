@@ -14,18 +14,18 @@ toc: true
 Chips can be used for various types of entities, including brief information, free form text, or short title. Chips may also contain icons or photos.
 
 <div class="list-group my-lg-5">
-    <a href="https://material.io/components/chips" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/chips" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Chips</a>
-    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/design/layout/applying-density.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Applying density</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/chips" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Chips</a>
 </div>
 
-Chips exist in an outline variant : just add `chip-outline` class to your chip.
+Chips exist in an outline variant : just add `.chip-outline` class to your chip.
 
 {% capture example %}
 <span class="chip">Chip Label</span>
@@ -56,7 +56,7 @@ Choice chips allow selection of a single chip from a set of options.
 
 Choice chips clearly delineate and display options in a compact area. They are a good alternative to toggle buttons, radio buttons, and single select menus.
 
-This component uses a standard radio input and styles the label. Just add `chip-action chip-choice` classes to this label.
+This component uses a standard radio input and styles the label. Just add `.chip-action.chip-choice` classes to this label.
 
 {% capture example %}
 <input type="radio" id="myRadio1" name="chip-radio" class="d-none">
@@ -102,7 +102,7 @@ Filter chips use tags or descriptive words to filter content.
 
 Filter chips clearly delineate and display options in a compact area. They are a good alternative to toggle buttons or checkboxes.
 
-This component uses a standard checkbox input and styles the label. Just add `chip-action chip-filter` classes to this label.
+This component uses a standard checkbox input and styles the label. Just add `.chip-action.chip-filter` classes to this label.
 
 {% capture example %}
 <p class="typography-headline-6">Choose amenities</p>

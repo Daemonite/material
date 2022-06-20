@@ -19,21 +19,21 @@ Lists are a continuous group of text or images. They are composed of items conta
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/lists" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/lists" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Lists</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/list" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/list" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: List</a>
 </div>
 
-In order not to break Bootstrap's `list-group-items`, Material UI keeps default `display: block` for these items.
+In order not to break Bootstrap's `.list-group-items`, Material UI keeps default `display: block` for these items.
 
 **NB. To append a button in the lists, HTML doesn't allow to nest buttons or link elements**. Use HTML list `<li>` instead. The counterpart is that `<li>` don't keep the `:focus` styling after clicking.
 
 ## One-line lists
 
-For a single list, keep Bootstrap's default markup `<li class="list-group-item list-group-item-action">List item</li>`. Just add `d-flex` utility class for perfect alignment (except if single text-only, no extra markup needed).
+For a single list, keep Bootstrap's default markup `<li class="list-group-item list-group-item-action">List item</li>`. Just add `.d-flex` utility class for perfect alignment (except if single text-only, no extra markup needed).
 
 ### Single-line items : After list text
 
@@ -71,7 +71,7 @@ If you expect a long main text, wrap it in a `<span class="list-group-item-text"
 
 ### Single-line items with icon
 
-To prepend an icon, just add your icon markup with `list-group-item-icon` class. Material UI is compatible with any icon set (SVG, Material icons, FontAwesome 4 or 5, ...).
+To prepend an icon, just add your icon markup with `.list-group-item-icon` class. Material UI is compatible with any icon set (SVG, Material icons, FontAwesome 4 or 5, ...).
 
 {% capture example %}
 <ul class="list-group">
@@ -104,7 +104,7 @@ To prepend an icon, just add your icon markup with `list-group-item-icon` class.
 
 ### Single-line items with graphic
 
-You can still use a Font icon or a svg for your graphic. Set class `list-group-item-graphic` on it.
+You can still use a Font icon or a svg for your graphic. Set class `.list-group-item-graphic` on it.
 
 {% capture example %}
 
@@ -136,7 +136,7 @@ You can still use a Font icon or a svg for your graphic. Set class `list-group-i
 
 You need this markup in order to style properly a two-line list : `<li class="list-group-item list-group-item-action d-flex list-group-item-two-line"></li>`.
 
-Compared to the one-line list, we have just added CSS class `list-group-item-two-line`.
+Compared to the one-line list, we have just added CSS class `.list-group-item-two-line`.
 
 Both primary and secondary text must be wrapped in a separate `<span>`, and both texts are wrapped in a `<span class="list-group-item-text"></span>` for perfect positioning.
 
@@ -183,7 +183,7 @@ Text and button can be appended as for single-line lists.
 
 ### Two-line list with icon
 
-Same as single-line item with icon : add `list-group-item-icon` class to your icon.
+Same as single-line item with icon : add `.list-group-item-icon` class to your icon.
 
 {% capture example %}
 
@@ -299,7 +299,7 @@ You can use default Bootstrap's `active` state for list items.
 
 ### List with shaped activated item
 
-Same as previous example. Just add `list-group-shaped` CSS class to your `<ul class="list-group">`.
+Same as previous example. Just add `.list-group-shaped` CSS class to your `<ul class="list-group">`.
 
 {% capture example %}
 
@@ -372,7 +372,7 @@ To insert a separator in your lists, simply add this element `<li class="list-gr
 
 ## List with selection controls
 
-You can even use Bootstrap's default selection controls wihtin your Lists. Don't change your HTML markup, just add `d-flex` class to each `list-group-item`.
+You can even use Bootstrap's default selection controls within your Lists. Don't change your HTML markup, just add `.d-flex` class to each `.list-group-item`.
 
 ### List with Trailing Checkbox
 

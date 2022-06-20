@@ -19,13 +19,13 @@ Date pickers can be embedded into:
 * Text field dropdowns on desktop
 
 <div class="list-group my-lg-5">
-    <a href="https://material.io/components/pickers" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/pickers" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Pickers</a>
     <a href="#" target="_blank" class="list-group-item disabled d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Date Picker (planned)</a>
-    <a href="https://amsul.ca/pickadate.js/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://amsul.ca/pickadate.js/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-bs"></span>
       pickadate.js: Official documentation</a>
 </div>

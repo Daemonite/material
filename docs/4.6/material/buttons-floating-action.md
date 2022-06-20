@@ -22,13 +22,13 @@ Only use a FAB if it is the most suitable way to present a screen's primary acti
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/buttons-floating-action-button" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/buttons-floating-action-button" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Buttons: floating action button</a>
-    <a href="https://material.io/design/layout/applying-density.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/design/layout/applying-density.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Applying density</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/fab" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/fab" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Floating Action Button</a>
 </div>

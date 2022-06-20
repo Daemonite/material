@@ -22,10 +22,10 @@ Sliders can use icons on both ends of the bar to represent a numeric or relative
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/components/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/components/sliders" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Sliders</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/slider" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/slider" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Slider</a>
 </div>

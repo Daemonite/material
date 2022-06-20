@@ -18,13 +18,13 @@ Sliders can use icons on both ends of the bar to represent a numeric or relative
   <a href="{{ site.baseurl }}/docs/{{ site.docs_version }}/material/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-bs"></span>
       Daemonite Material UI: Sliders</a>
-  <a href="https://material.io/components/sliders" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/sliders" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Sliders</a>
-  <a href="https://material-components.github.io/material-components-web-catalog/#/component/slider" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/slider" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Slider</a>
-  <a href="http://ionden.com/a/plugins/ion.rangeSlider/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="http://ionden.com/a/plugins/ion.rangeSlider/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-plugin"></span>
     Ion.RangeSlider: Official documentation</a>
 </div>

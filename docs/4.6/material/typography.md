@@ -18,10 +18,10 @@ toc: true
         <span>Most of the details have been covered here</span>
       </span>
     </a>
-    <a href="https://material.io/design/typography/the-type-system.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/design/typography/the-type-system.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: The type system</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/typography" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/typography" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Typography</a>
 </div>

@@ -12,10 +12,10 @@ toc: true
 All the available elevation and shadow variables are defined in `daemonite-material/assets/scss/variables/_elevation-shadow.scss`. This page summarises the default elevation and shadow values used by Material components.
 
 <div class="list-group mt-lg-5">
-    <a href="https://material.io/design/environment/elevation.html#elevation-in-material-design" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material.io/design/environment/elevation.html#elevation-in-material-design" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Elevation</a>
-    <a href="https://material-components.github.io/material-components-web-catalog/#/component/elevation" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://material-components.github.io/material-components-web-catalog/#/component/elevation" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-mdc"></span>
       Material Components for the web: Elevation</a>
 </div>

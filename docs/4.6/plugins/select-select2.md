@@ -11,13 +11,13 @@ select2: true
 ---
 
 <div class="list-group my-2 my-lg-5">
-  <a href="https://material.io/components/text-fields" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/components/text-fields" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Text fields</a>
-  <a href="https://material-components.github.io/material-components-web-catalog/#/component/select" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material-components.github.io/material-components-web-catalog/#/component/select" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-mdc"></span>
     Material Components for the web: Select</a>
-  <a href="https://select2.org/" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://select2.org/" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-plugin"></span>
     Select2: Official documentation</a>
 </div>
@@ -54,7 +54,7 @@ Import **Select2** after Material JavaScripts.
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 {% endhighlight %}
 
-Set HTML code of your select menu. You should keep `form-control` class for better mobile accessibility (refer to dedicated chapter below).
+Set HTML code of your select menu. You should keep `.form-control` class for better mobile accessibility (refer to dedicated chapter below).
 
 **NB.** With Select2, in simple select lists, you need to set a first blank `<option>` in order to set a placeholder.
 

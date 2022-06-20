@@ -9,7 +9,7 @@ darkmode: true
 ---
 
 <div class="list-group my-2 my-lg-5">
-  <a href="https://material.io/design/color/dark-theme.html" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+  <a href="https://material.io/design/color/dark-theme.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
     <span class="list-group-item-icon lgi-icon-md"></span>
     Material Design guidelines: Dark theme</a>
   <a href="#" target="_blank" class="list-group-item disabled d-flex font-weight-bold">
