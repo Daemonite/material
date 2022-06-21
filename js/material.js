@@ -1,6 +1,6 @@
 /*!
  * Djibe Material v4.6.0-rc.2 (https://djibe.github.io/material/)
- * Copyright 2011-2022 Daemon Pty Ltd + djibe
+ * Copyright 2011-2021 Daemon Pty Ltd + djibe
  * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)
  */
 
