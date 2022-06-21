@@ -32,9 +32,10 @@
 // Content
 
 .navdrawer-content {
-  @include bg-color(#{$navdrawer-elevation}, $navdrawer-content-bg);
   @include transition-sharp(box-shadow, transform);
 
+  background-color: $navdrawer-content-bg;
+  background-color: var(--surface-#{$navdrawer-elevation});
   max-width: calc(100% - #{$navdrawer-gutter-width});
   overflow-x: hidden;
   overflow-y: auto;

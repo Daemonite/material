@@ -114,9 +114,9 @@
 
 // Dialog
 .modal-content {
-  @include bg-color(#{$dialog-elevation}, $dialog-content-bg);
-
   background-clip: padding-box;
+  background-color: $dialog-content-bg;
+  background-color: var(--surface-#{$dialog-elevation});
   border-radius: $dialog-border-radius;
   box-shadow: map-get($dialog-elevation-shadow, shadow);
   display: flex;
