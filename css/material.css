@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI 4.6.0 - RC2 (https://djibe.github.io/material/)
+ * Daemonite Material UI 4.6.1 - 1.0 (https://djibe.github.io/material/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -9707,11 +9707,6 @@ legend {
   border: 0;
 }
 
-.form-control:-moz-focusring, .custom-select:-moz-focusring, .form-control-file:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 rgba(0, 0, 0, 0.87);
-}
-
 .form-control::-webkit-input-placeholder, .custom-select::-webkit-input-placeholder, .form-control-file::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.54);
   opacity: 1;
@@ -9855,6 +9850,11 @@ select.form-control option:hover, select.custom-select option:hover {
 
 select.form-control option:active, select.custom-select option:active {
   background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+select.form-control:-moz-focusring, select.custom-select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0.87);
 }
 
 select.form-control:focus, select.custom-select:focus {
@@ -10124,7 +10124,7 @@ textarea.form-control-sm:not([rows='1']) {
   background-position: center right;
   background-repeat: no-repeat;
   background-size: 1.5rem 1.5rem;
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .is-valid.form-control:hover, .is-valid.custom-select:hover, .is-valid.form-control-file:hover, .is-valid.form-control:focus, .is-valid.custom-select:focus, .is-valid.form-control-file:focus,
@@ -10300,7 +10300,7 @@ select.is-valid.form-control:hover[multiple], select.is-valid.form-control:hover
   background-position: center right;
   background-repeat: no-repeat;
   background-size: 1.5rem 1.5rem;
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .is-invalid.form-control:hover, .is-invalid.custom-select:hover, .is-invalid.form-control-file:hover, .is-invalid.form-control:focus, .is-invalid.custom-select:focus, .is-invalid.form-control-file:focus,
@@ -15851,9 +15851,6 @@ input:-webkit-autofill:active {
   blockquote {
     border: 1px solid rgba(0, 0, 0, 0.12);
     page-break-inside: avoid;
-  }
-  thead {
-    display: table-header-group;
   }
   tr,
   img {
