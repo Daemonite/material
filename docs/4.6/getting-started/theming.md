@@ -200,19 +200,23 @@ For example, you can create a `custom.scss` and import either all of Material's 
 // Custom.scss
 // Option B: Include parts of Material
 
-// Required
-@import "node_modules/daemonite-material/assets/scss/colors";
-@import "node_modules/daemonite-material/assets/scss/functions";
-@import "node_modules/daemonite-material/assets/scss/mixins";
-@import "node_modules/daemonite-material/assets/scss/variables";
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/daemonite-material/assets/scss/functions";
 
-// Optional
-@import "node_modules/daemonite-material/assets/scss/base/base";
-@import "node_modules/daemonite-material/assets/scss/base/grid";
-@import "node_modules/daemonite-material/assets/scss/base/typography";
-@import "node_modules/daemonite-material/assets/scss/material/button";
-@import "node_modules/daemonite-material/assets/scss/material/card";
-@import "node_modules/daemonite-material/assets/scss/material/text-field";
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Material stylesheets
+@import "../node_modules/daemonite-material/assets/scss/colors";
+@import "../node_modules/daemonite-material/assets/scss/mixins";
+@import "../node_modules/daemonite-material/assets/scss/variables";
+
+// 4. Include any optional Bootstrap components as you like
+@import "../node_modules/daemonite-material/assets/scss/base/base";
+@import "../node_modules/daemonite-material/assets/scss/base/grid";
+@import "../node_modules/daemonite-material/assets/scss/base/typography";
+@import "../node_modules/daemonite-material/assets/scss/material/button";
+@import "../node_modules/daemonite-material/assets/scss/material/card";
+@import "../node_modules/daemonite-material/assets/scss/material/text-field";
 {% endhighlight %}
 
 With that setup in place, you can begin to modify any of the Sass maps and variables in your `custom.scss`. You can also start to add parts of Material under the `// Optional` section as needed. We suggest using the full import stack from our `material.scss` file as your starting point.
@@ -224,7 +228,7 @@ Every Sass variable in Material includes the `!default` flag allowing you to ove
 Here's an example that changes the `background-color` for the `<body>`:
 
 {% highlight scss %}
-// Your variable overrides
+// Default variable overrides
 $body-bg: #212121;
 
 // Material

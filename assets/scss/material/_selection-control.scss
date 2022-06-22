@@ -45,8 +45,8 @@
     color: $selection-control-color;
     content: '';
     height: ($selection-control-indicator-size * 2);
-    margin-top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2 + $selection-control-indicator-size / -2);
-    margin-left: ($selection-control-indicator-size / -2);
+    margin-top: (($font-size-base * $line-height-base - $selection-control-indicator-size)* 0.5 + $selection-control-indicator-size * -0.5);
+    margin-left: ($selection-control-indicator-size * -0.5);
     opacity: 0;
     position: absolute;
     top: 0;
@@ -59,13 +59,13 @@
   &::after {
     color: $selection-control-color;
     position: absolute;
-    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) / 2);
+    top: (($font-size-base * $line-height-base - $selection-control-indicator-size) * 0.5);
     left: 0;
   }
 }
 
 .custom-control-input {
-  height: ($font-size-base * $line-height-base + $custom-control-indicator-size) / 2;
+  height: ($font-size-base * $line-height-base + $custom-control-indicator-size)* 0.5;
   opacity: 0;
   position: absolute;
   left: 0; // https://github.com/twbs/bootstrap/commit/b165aff2f779c831efd8b3484e3ea7bc1c8f8eb4
@@ -174,7 +174,7 @@
     // Slider Track
     &::before {
       background-color: $black; // rgba($black, $black-hint-opacity)
-      border-radius: $custom-switch-height / 2;
+      border-radius: $custom-switch-height* 0.5;
       content: '';
       height: $custom-switch-height;
       opacity: $black-hint-opacity; // 1
@@ -199,7 +199,7 @@
       content: '';
       height: $custom-switch-handle-width;
       position: absolute;
-      left: -$custom-switch-width / 2;
+      left: -$custom-switch-width* 0.5;
       transform: translateX(0);
       transition: transform $custom-switch-transition, box-shadow $custom-switch-transition;
       width: $custom-switch-handle-width;

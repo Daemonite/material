@@ -40,7 +40,7 @@
     // Align tooltip to form elements
     .form-row > .col > &,
     .form-row > [class*='col-'] > & {
-      left: $textfield-grid-gutter-width / 2;
+      left: $textfield-grid-gutter-width * 0.5;
     }
 
     .form-control-lg + & {
@@ -126,13 +126,13 @@
     .was-validated &:#{$state} {
       border-color: $color;
 
-      // todo
+      // TODO:
       @if $enable-validation-icons {
         background-image: escape-svg($icon);
         background-position: center right; //center right $input-height-inner-quarter
         background-repeat: no-repeat;
         background-size: 1.5rem 1.5rem; //$input-height-inner-half $input-height-inner-half
-        padding-right: $textfield-padding-x;
+        padding-right: $textfield-padding-x !important; // stylelint-disable-line declaration-no-important
       }
 
       @include hover-focus {

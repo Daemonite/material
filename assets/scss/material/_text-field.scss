@@ -40,11 +40,6 @@ legend {
     border: 0;
   }
 
-  &:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 $textfield-color; // TODO
-  }
-
   &::placeholder {
     color: $textfield-placeholder-color;
     opacity: 1; /* needed for Firefox */
@@ -181,6 +176,12 @@ select {
       &:active {
         background-color: rgba($black, $overlay-activated-white-opacity) !important; // stylelint-disable-line declaration-no-important
       }
+    }
+
+    // Remove select outline from select box in FF
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 $textfield-color; // TODO
     }
 
     &:focus { // stylelint-disable-line order/order

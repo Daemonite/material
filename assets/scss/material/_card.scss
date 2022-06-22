@@ -349,7 +349,7 @@
   }
 
   .card {
-    margin-bottom: ($card-margin-y / 2);
+    margin-bottom: ($card-margin-y * 0.5);
   }
 }
 
@@ -359,17 +359,17 @@
 
   @include media-breakpoint-up(md) {
     flex-flow: row wrap;
-    margin-right: ($card-margin-x / -2);
-    margin-left: ($card-margin-x / -2);
+    margin-right: ($card-margin-x * -0.5);
+    margin-left: ($card-margin-x * -0.5);
 
     .card {
       display: flex;
       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       flex: 1 0 0%;
       flex-direction: column;
-      margin-right: ($card-margin-x / 2);
+      margin-right: ($card-margin-x * 0.5);
       margin-bottom: 0; // Override the default
-      margin-left: ($card-margin-x / 2);
+      margin-left: ($card-margin-x * 0.5);
     }
   }
 

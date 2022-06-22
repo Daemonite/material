@@ -47,7 +47,7 @@ $btn-float-size:                    3.5rem !default; // 56px
 $btn-float-size-sm:                 2.5rem !default; // 40px
 $btn-float-extended-height:         3rem !default; // 48px
 $btn-float-extended-padding-x:      1.25rem !default; // 20px
-$btn-float-extended-border-radius:  $btn-float-extended-height / 2 !default; // 24px
+$btn-float-extended-border-radius:  $btn-float-extended-height * 0.5 !default; // 24px
 $btn-float-extended-line-height:    2.25rem !default;
 
 // Based on https://material.io/components/buttons/#toggle-button
@@ -131,7 +131,7 @@ $table-thead-bg:              $table-bg-accent !default;
 $table-thead-cell-height:     $table-tfoot-cell-height !default;
 $table-thead-font-weight:     $font-weight-medium !default;
 $table-thead-letter-spacing:  0.0071428571em !default;
-$table-thead-padding-y:       (($table-thead-cell-height - $table-font-size * $table-line-height) / 2) !default;
+$table-thead-padding-y:       (($table-thead-cell-height - $table-font-size * $table-line-height) * 0.5) !default;
 
 $table-th-font-weight:        null !default;
 
@@ -188,7 +188,7 @@ $expansion-panel-letter-spacing:        $letter-spacing-subtitle-1 !default;
 $expansion-panel-line-height:           $line-height-base !default;
 $expansion-panel-margin-y:              $spacer !default;
 $expansion-panel-padding-x:             $spacer !default;
-$expansion-panel-padding-y:             (($expansion-panel-height - $expansion-panel-font-size * $expansion-panel-line-height) / 2) !default;
+$expansion-panel-padding-y:             (($expansion-panel-height - $expansion-panel-font-size * $expansion-panel-line-height) * 0.5) !default;
 
 $list-group-item-icon-size:     1.5rem !default;
 $list-group-item-graphic-width: 2.5rem !default;
@@ -309,8 +309,8 @@ $selection-control-min-height:                  $font-size-base * $line-height-b
 $selection-control-radial-opacity:              $black-divider-opacity !default;
 $selection-control-radio-icon:                  'radio_button_unchecked' !default;
 $selection-control-radio-icon-checked:          'radio_button_checked' !default;
-$selection-control-spacer-x:                    ($material-icon-size / 2) !default;
-$selection-control-spacer-y:                    ($material-icon-size / 2) !default;
+$selection-control-spacer-x:                    ($material-icon-size * 0.5) !default;
+$selection-control-spacer-y:                    ($material-icon-size * 0.5) !default;
 $selection-control-thumb-bg:                    $material-color-grey-050 !default;
 // $selection-control-thumb-bg-disabled:           $material-color-grey-400 !default;
 // $selection-control-thumb-shadow:                0 1px 5px 0 rgba($black, $black-secondary-opacity) !default;
@@ -319,7 +319,7 @@ $selection-control-track-bg:                    $black-hint !default;
 $selection-control-track-height:                1rem !default;
 $selection-control-track-opacity:               0.5 !default;
 // $selection-control-track-width:                 ($selection-control-indicator-size * 2) !default;
-//$selection-control-border-width:                (($selection-control-indicator-size - $selection-control-track-height) / 2); // djibe
+//$selection-control-border-width:                (($selection-control-indicator-size - $selection-control-track-height) * 0.5); // djibe
 
 //$custom-control-gutter:                         1.75rem !default;
 $custom-control-indicator-size:                 1rem !default;
@@ -331,7 +331,7 @@ $custom-switch-handle-shadow:                   0 3px 1px -2px rgba($black, 0.2)
 $custom-switch-height:                          0.875rem !default;
 $custom-switch-transition:                      90ms cubic-bezier(0.4, 0, 0.2, 1) !default;
 $custom-switch-width:                           2rem !default;
-//$custom-switch-indicator-border-radius:         $custom-control-indicator-size / 2 !default;
+//$custom-switch-indicator-border-radius:         $custom-control-indicator-size* 0.5 !default;
 //$custom-switch-indicator-size:                  calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4}) !default;
 //$custom-control-indicator-checked-disabled-bg:  rgba(theme-color(primary), 0.5) !default;
 
@@ -353,7 +353,7 @@ $slider-thumb-bg: selection-theme-color() !default;
 $slider-thumb-border: 0 !default;
 $slider-thumb-border-radius: 50% !default;
 $slider-thumb-box-shadow: map-get($shadows, 1) !default;
-$slider-thumb-box-shadow-radius: ($slider-accessibility - $slider-thumb-height) / 2 !default;
+$slider-thumb-box-shadow-radius: ($slider-accessibility - $slider-thumb-height)* 0.5 !default;
 $slider-thumb-hover-box-shadow: $slider-thumb-box-shadow, 0 0 0 $slider-thumb-box-shadow-radius rgba(selection-theme-color(), $overlay-focus-white-opacity) !default;
 $slider-thumb-active-box-shadow: $slider-thumb-box-shadow, 0 0 0 $slider-thumb-box-shadow-radius rgba(selection-theme-color(), $overlay-pressed-white-opacity) !default;
 $slider-thumb-active-box-shadow-width: 0.2rem !default;
@@ -411,7 +411,7 @@ $nav-tab-line-height:      1 !default;
 //$nav-tab-link-opacity:     $white-secondary-opacity !default;
 $nav-tab-link-padding-x:   $spacer !default; //.75rem
 $nav-tab-link-padding-x-desktop:   $spacer-lg !default;
-//$nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-line-height) / 2) !default;
+//$nav-tab-link-padding-y:   (($nav-tab-height - $nav-tab-font-size * $nav-tab-line-height) * 0.5) !default;
 
 // Based on https://material.io/components/text-fields/
 
@@ -448,9 +448,9 @@ $textfield-margin-y-sm:        $spacer-xs !default;
 $textfield-padding-x:          0 !default;
 $textfield-padding-x-lg:       0 !default;
 $textfield-padding-x-sm:       0 !default;
-$textfield-padding-y:          (($textfield-height - $textfield-font-size * $textfield-line-height) / 2) !default;
-$textfield-padding-y-lg:       (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
-$textfield-padding-y-sm:       (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2) !default;
+$textfield-padding-y:          (($textfield-height - $textfield-font-size * $textfield-line-height) * 0.5) !default;
+$textfield-padding-y-lg:       (($textfield-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) * 0.5) !default;
+$textfield-padding-y-sm:       (($textfield-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) * 0.5) !default;
 
 $textfield-select-bg-size:     ($material-icon-size / $textfield-font-size * 1em) !default;
 
@@ -468,9 +468,9 @@ $textfield-box-label-spacer-y: $spacer-sm !default;
 $textfield-box-padding-x:      $spacer !default;
 $textfield-box-padding-x-lg:   $textfield-box-padding-x !default;
 $textfield-box-padding-x-sm:   0.75rem !default;
-$textfield-box-padding-y:      (($textfield-box-height - $textfield-font-size * $textfield-line-height) / 2) !default;
-$textfield-box-padding-y-lg:   (($textfield-box-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) / 2) !default;
-$textfield-box-padding-y-sm:   (($textfield-box-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) / 2) !default;
+$textfield-box-padding-y:      (($textfield-box-height - $textfield-font-size * $textfield-line-height) * 0.5) !default;
+$textfield-box-padding-y-lg:   (($textfield-box-height-lg - $textfield-font-size-lg * $textfield-line-height-lg) * 0.5) !default;
+$textfield-box-padding-y-sm:   (($textfield-box-height-sm - $textfield-font-size-sm * $textfield-line-height-sm) * 0.5) !default;
 $textfield-box-placeholder-color:  $black-caption !default;
 
 // Text field: floating label
@@ -498,9 +498,9 @@ $toolbar-link-font-size:        1rem !default;
 $toolbar-link-height:           $toolbar-element-height !default;
 $toolbar-link-line-height:      1 !default;
 $toolbar-link-padding-x:        $spacer !default;
-$toolbar-link-padding-y:        (($toolbar-link-height - $toolbar-link-font-size * $toolbar-link-line-height) / 2) !default;
+$toolbar-link-padding-y:        (($toolbar-link-height - $toolbar-link-font-size * $toolbar-link-line-height) * 0.5) !default;
 $toolbar-padding-x:             $spacer !default;
-$toolbar-padding-y:             (($toolbar-height - $toolbar-element-height) / 2) !default;
+$toolbar-padding-y:             (($toolbar-height - $toolbar-element-height) * 0.5) !default;
 $toolbar-toggler-icon:          'menu' !default;
 $toolbar-waterfall-bg:          theme-color(primary) !default;
 
