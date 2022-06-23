@@ -2,7 +2,6 @@
 
 - RFS: https://github.com/twbs/bootstrap/pull/34571/files
 - changelog
-- publish npm
 
 ## For 4.6.0-rc.2
 
