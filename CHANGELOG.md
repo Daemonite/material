@@ -8,7 +8,7 @@
 
 ## 4.6.1 - 1.0
 
-- **New** Upgraded to Bootstrap 4.6.1
+- **New** Upgraded to Bootstrap 4.6.1.
 
 ## 4.6.0 - RC2
 
