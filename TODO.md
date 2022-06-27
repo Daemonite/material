@@ -2,6 +2,7 @@
 
 - RFS: https://github.com/twbs/bootstrap/pull/34571/files
 - changelog
+- 4.4 doc
 
 ## For 4.6.0-rc.2
 
