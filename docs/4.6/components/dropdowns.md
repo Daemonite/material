@@ -19,7 +19,7 @@ If you're building our JavaScript from source, it [requires `util.js`]({{ site.b
 
 ## Accessibility
 
-The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/WAI/PF/aria/roles#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
+The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/TR/wai-aria/#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
 
 Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
 
@@ -35,10 +35,10 @@ Any single `.btn` can be turned into a dropdown toggle with some markup changes.
 
 {% capture example %}
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>
@@ -51,11 +51,11 @@ And with `<a>` elements:
 
 {% capture example %}
 <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
     Dropdown link
   </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <div class="dropdown-menu">
     <a class="dropdown-item" href="#">Action</a>
     <a class="dropdown-item" href="#">Another action</a>
     <a class="dropdown-item" href="#">Something else here</a>
@@ -497,7 +497,7 @@ Trigger dropdown menus at the left of the elements by adding `.dropleft` to the 
   </div>
 
   <div class="btn-group">
-    <div class="btn-group dropleft" role="group">
+    <div class="btn-group dropleft">
       <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
         <span class="sr-only">Toggle Dropleft</span>
       </button>
@@ -528,7 +528,7 @@ Trigger dropdown menus at the left of the elements by adding `.dropleft` to the 
 
 <!-- Split dropleft button -->
 <div class="btn-group">
-  <div class="btn-group dropleft" role="group">
+  <div class="btn-group dropleft">
     <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
       <span class="sr-only">Toggle Dropleft</span>
     </button>
@@ -548,10 +548,10 @@ Historically dropdown menu contents *had* to be links, but that's no longer the 
 
 {% capture example %}
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
     Dropdown
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+  <div class="dropdown-menu">
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item" type="button">Something else here</button>
@@ -767,10 +767,10 @@ Use `data-offset` or `data-reference` to change the location of the dropdown.
 {% capture example %}
 <div class="d-flex">
   <div class="dropdown mr-1">
-    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
       Offset
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+    <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Action</a>
       <a class="dropdown-item" href="#">Another action</a>
       <a class="dropdown-item" href="#">Something else here</a>
@@ -778,10 +778,10 @@ Use `data-offset` or `data-reference` to change the location of the dropdown.
   </div>
   <div class="btn-group">
     <button type="button" class="btn btn-secondary">Reference</button>
-    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-expanded="false" data-reference="parent">
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" data-reference="parent">
       <span class="sr-only">Toggle Dropdown</span>
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+    <div class="dropdown-menu">
       <a class="dropdown-item" href="#">Action</a>
       <a class="dropdown-item" href="#">Another action</a>
       <a class="dropdown-item" href="#">Something else here</a>
@@ -808,10 +808,10 @@ Add `data-toggle="dropdown"` to a link or button to toggle a dropdown.
 
 {% highlight html %}
 <div class="dropdown">
-  <button id="dLabel" type="button" data-toggle="dropdown" aria-expanded="false">
+  <button type="button" data-toggle="dropdown" aria-expanded="false">
     Dropdown trigger
   </button>
-  <div class="dropdown-menu" aria-labelledby="dLabel">
+  <div class="dropdown-menu">
     ...
   </div>
 </div>

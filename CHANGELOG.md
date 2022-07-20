@@ -6,6 +6,16 @@
 
 - More plugins integration + documentation (Input mask, Calendar)
 
+## 4.6.2 - 1.0
+
+- **New** Upgraded to Bootstrap 4.6.2.
+- Test tabs, collapsing.width
+- Width utilities
+- Collapse.md
+- https://github.com/twbs/bootstrap/pull/35482/files
+- https://github.com/twbs/bootstrap/pull/35642/files
+- https://github.com/twbs/bootstrap/pull/36430/files
+
 ## 4.6.1 - 1.0
 
 - **New** Upgraded to Bootstrap 4.6.1.
