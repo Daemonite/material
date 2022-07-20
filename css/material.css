@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material UI 4.6.1 - 1.0 (https://djibe.github.io/material/)
+ * Daemonite Material UI 4.6.2 - 1.0 (https://djibe.github.io/material/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1755,7 +1755,7 @@ hr {
 
 small,
 .small {
-  font-size: 80%;
+  font-size: 0.875em;
   font-weight: 400;
 }
 
@@ -2544,6 +2544,7 @@ pre code {
   color: inherit;
   font-size: inherit;
   line-height: inherit;
+  vertical-align: middle;
 }
 
 .form-check-inline {
@@ -3115,6 +3116,27 @@ pre code {
 
 @media (min-width: 992px) {
   .collapsing {
+    transition-duration: 280ms;
+  }
+}
+
+.collapsing.width {
+  /* transition: $transition-duration-mobile;
+  transition-property: $property;
+  transition-timing-function: $transition-timing-function-standard; */
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: auto;
+  width: 0;
+}
+
+@media (min-width: 576px) {
+  .collapsing.width {
+    transition-duration: 390ms;
+  }
+}
+
+@media (min-width: 992px) {
+  .collapsing.width {
     transition-duration: 280ms;
   }
 }
@@ -8797,6 +8819,9 @@ body {
   min-height: 1.5rem;
   padding-left: 2.25rem;
   position: relative;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+  print-color-adjust: exact;
   z-index: 1;
 }
 
@@ -9501,6 +9526,7 @@ body {
   white-space: nowrap;
   -ms-flex-align: center;
   align-items: center;
+  background-color: transparent;
   color: rgba(0, 0, 0, 0.54);
   display: -ms-flexbox;
   display: flex;
@@ -9571,10 +9597,12 @@ body {
 
 .nav-tabs .nav-link:hover {
   background-color: rgba(98, 0, 238, 0.04);
+  isolation: isolate;
 }
 
 .nav-tabs .nav-link:focus {
   background-color: rgba(98, 0, 238, 0.12);
+  isolation: isolate;
 }
 
 .nav-tabs .nav-link.flex-column {
