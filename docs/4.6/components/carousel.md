@@ -160,7 +160,7 @@ Add captions to your slides easily with the `.carousel-caption` element within a
 
 ### Crossfade
 
-Add `.carousel-fade` to your carousel to animate slides with a fade transition instead of a slide.
+Add `.carousel-fade` to your carousel to animate slides with a fade transition instead of a slide. Depending on your carousel content (e.g., text only slides), you may want to add `.bg-body` or some custom CSS to the `.carousel-item`s for proper crossfading.
 
 {% capture example %}
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
@@ -180,6 +180,35 @@ Add `.carousel-fade` to your carousel to animate slides with a fade transition i
     <span class="sr-only">Previous</span>
   </button>
   <a class="carousel-control-next" type="button" data-target="#carouselExampleFade" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+### Disable touch swiping
+
+Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the `data-touch` attribute. The example below also does not include the `data-ride` attribute and has `data-interval="false"` so it doesn't autoplay.
+
+{% capture example %}
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img loading="lazy" class="d-block w-100" data-src="holder.js/800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControlsNoTouching" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControlsNoTouching" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -221,7 +250,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td>interval</td>
       <td>number</td>
       <td>5000</td>
-      <td>The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.</td>
+      <td>The amount of time to delay between automatically cycling an item. If <code>false</code>, carousel will not automatically cycle.</td>
     </tr>
     <tr>
       <td>keyboard</td>
@@ -232,15 +261,15 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
     <tr>
       <td>pause</td>
       <td>string | boolean</td>
-      <td>"hover"</td>
-      <td><p>If set to <code>"hover"</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
-      <p>On touch-enabled devices, when set to <code>"hover"</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p></td>
+      <td>'hover'</td>
+      <td><p>If set to <code>'hover'</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
+      <p>On touch-enabled devices, when set to <code>'hover'</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p></td>
     </tr>
     <tr>
       <td>ride</td>
       <td>string</td>
       <td>false</td>
-      <td>Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.</td>
+      <td>Autoplays the carousel after the user manually cycles the first item. If set to <code>'carousel'</code>, autoplays the carousel on load.</td>
     </tr>
     <tr>
       <td>wrap</td>

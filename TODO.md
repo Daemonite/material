@@ -1,7 +1,6 @@
 # TODO
 
 - RFS: https://github.com/twbs/bootstrap/pull/34571/files
-- changelog
 - 4.4 doc
 
 ## For 4.6.0-rc.2
@@ -15,14 +14,8 @@
 ## Next version
 
 - Test Checkbox animation
-- https://github.com/twbs/bootstrap/issues/27514
-- Spinners prefers reduced motion doc  
-https://github.com/twbs/bootstrap/pull/31882
-- https://github.com/twbs/bootstrap/pull/32639/files
-- https://github.com/twbs/bootstrap/pull/32791/files
 - Background no-repeat
 - Chip-action https://stackoverflow.com/questions/6391448/how-to-apply-an-array-of-classes-to-classlist-contains https://github.com/luncheon/ripplet.js/
-- Dark theme surfaces
 - Btn-light = btn-dark
 - Integrate material-icons as SVG
 - Icon generator script
@@ -32,7 +25,6 @@ https://github.com/twbs/bootstrap/pull/31882
 - Ripple .nav-tabs .nav-link
 - Btn::after accessibility 48px
 - https://material.io/design/layout/responsive-layout-grid.html
-- SEO
 - Simple doc navdrawer markup
 - Improve navbar: https://material-ui.com/customization/default-theme/
 - Input height
@@ -40,9 +32,9 @@ https://github.com/twbs/bootstrap/pull/31882
 https://dev.to/ruben_suet/tip-make-your-font-responsive-without-media-queries-part-ii-16ib  
 https://material.io/design/typography/the-type-system.html#type-scale
 - Enhenced Carousel
-- Navdrawer  
-https://github.com/Daemonite/material/issues/209  
-https://github.com/Daemonite/material/issues/207  
+- Navdrawer
+  - https://github.com/Daemonite/material/issues/209
+  - https://github.com/Daemonite/material/issues/207
 - List-group-item-icon fill, color
 - Readonly input style
 - Outlined textfield

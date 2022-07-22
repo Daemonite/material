@@ -9,12 +9,8 @@
 ## 4.6.2 - 1.0
 
 - **New** Upgraded to Bootstrap 4.6.2.
-- Test tabs, collapsing.width
-- Width utilities
-- Collapse.md
-- https://github.com/twbs/bootstrap/pull/35482/files
-- https://github.com/twbs/bootstrap/pull/35642/files
-- https://github.com/twbs/bootstrap/pull/36430/files
+- Material tabs
+- index.html
 
 ## 4.6.1 - 1.0
 
@@ -29,7 +25,7 @@
 - **Fixed** `Form-group`: Removed label color on form-group:focus-within.
 - **Fixed** Most components with text overflow are now with an ellipsis ...
 - **Fixed** `Table-cell` word break.
-- **Fixed** Various bugs related to IE11 (`card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
+- **Fixed** Various bugs related to IE11 (`.card-img` aspect ratio, Material Icons, Select2 items alignment, chip close icon).
 - **Fixed** Datatables.net search displays suitable number of results.
 - **Fixed** Various minor changes.
 - **Improved** Datatables.net responsive rendering.

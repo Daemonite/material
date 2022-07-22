@@ -40,14 +40,14 @@ Fixed tabs display all tabs on one screen, with each tab at a fixed width. The w
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a aria-controls="home" aria-selected="true" class="active nav-link show" data-toggle="tab" href="#home" id="home-tab" role="tab">Home</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="home" aria-selected="true" class="active nav-link show" data-toggle="tab" data-target="#home" id="home-tab" type="button" role="tab">Home</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab" role="tab">Profile</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#profile" id="profile-tab" type="button" role="tab">Profile</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#contact" id="contact-tab" role="tab">Contact</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#contact" id="contact-tab" type="button" role="tab">Contact</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
@@ -65,14 +65,14 @@ Fixed tabs display all tabs on one screen, with each tab at a fixed width. The w
 
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTab" role="tablist">
-  <li class="nav-item">
-    <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#home" id="home-tab" role="tab">Home</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#home" id="home-tab" type="button" role="tab">Home</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab" role="tab">Profile</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#profile" id="profile-tab" type="button" role="tab">Profile</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#contact" id="contact-tab" role="tab">Contact</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#contact" id="contact-tab" type="button" role="tab">Contact</button>
   </li>
 </ul>
 <div class="tab-content" id="justifiedTabContent">
@@ -88,14 +88,14 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
-    <li class="nav-item">
-      <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#example2tab" id="example2" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example22tab" id="example22" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#example23tab" id="example23" role="tab"><i class="material-icons">location_on</i> tab three</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example23tab" id="example23" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContentWithIcons">
@@ -113,14 +113,14 @@ You can add **Leading icons** in front of your tab title. Just add an icon withi
 
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIcons" role="tablist">
-  <li class="nav-item">
-    <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example2tab" id="example2" role="tab"><i class="material-icons">phone</i> tab one</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#example2tab" id="example2" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#example22tab" id="example22" role="tab"><i class="material-icons">favorite</i> tab two</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example22tab" id="example22" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" href="#example23tab" id="example23" role="tab"><i class="material-icons">location_on</i> tab three</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="contact" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example23tab" id="example23" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContentWithIcons">
@@ -142,14 +142,14 @@ You can use tabs without text and a simple icon. Just add a `.m-0` class to your
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIconsOnly" role="tablist">
-    <li class="nav-item">
-      <a aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example3tab" id="example3" role="tab"><i class="material-icons">phone</i></a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#example3tab" id="example3" type="button" role="tab"><i class="material-icons">phone</i></button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example32tab" id="example32" role="tab"><i class="material-icons">favorite</i></a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example32tab" id="example32" type="button" role="tab"><i class="material-icons">favorite</i></button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example33tab" id="example33" role="tab"><i class="material-icons">location_on</i></a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example33tab" id="example33" type="button" role="tab"><i class="material-icons">location_on</i></button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContentWithIconsOnly">
@@ -167,14 +167,14 @@ You can use tabs without text and a simple icon. Just add a `.m-0` class to your
 
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTabWithIconsOnly" role="tablist">
-  <li class="nav-item">
-    <a aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" href="#example3tab" id="example3" role="tab"><i class="material-icons">phone</i></a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example3tab" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#example3tab" id="example3" type="button" role="tab"><i class="material-icons">phone</i></button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example32tab" id="example32" role="tab"><i class="material-icons">favorite</i></a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example32tab" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example32tab" id="example32" type="button" role="tab"><i class="material-icons">favorite</i></button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" href="#example33tab" id="example33" role="tab"><i class="material-icons">location_on</i></a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example33tab" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#example33tab" id="example33" type="button" role="tab"><i class="material-icons">location_on</i></button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContentWithIconsOnly">
@@ -196,14 +196,14 @@ You can also use a **Top icon** for your tabs titles. Just add a `.flex-column` 
 
 <div class="bd-example bd-example-tabs">
   <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
-    <li class="nav-item">
-      <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i> tab one</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" data-target="#example4tab" id="example4" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i> tab two</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example42tab" id="example42" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i> tab three</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example43tab" id="example43" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
     </li>
   </ul>
   <div class="tab-content" id="myTabContentVertical">
@@ -221,14 +221,14 @@ You can also use a **Top icon** for your tabs titles. Just add a `.flex-column` 
 
 {% highlight html %}
 <ul class="nav nav-justified nav-tabs" id="justifiedTabVertical" role="tablist">
-  <li class="nav-item">
-    <a aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example4tab" id="example4" role="tab"><i class="material-icons">phone</i> tab one</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example4tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" data-target="#example4tab" id="example4" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example42tab" id="example42" role="tab"><i class="material-icons">favorite</i> tab two</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example42tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example42tab" id="example42" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
   </li>
-  <li class="nav-item">
-    <a aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example43tab" id="example43" role="tab"><i class="material-icons">location_on</i> tab three</a>
+  <li class="nav-item" role="presentation">
+    <button aria-controls="example43tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example43tab" id="example43" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContentVertical">
@@ -251,14 +251,14 @@ When using tabs on a dark background, add `.nav-inverse` class to your `.nav nav
 <div class="bd-example bd-example-tabs">
   <div class="pt-2 bg-primary">
     <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
-      <li class="nav-item">
-        <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i> tab one</a>
+      <li class="nav-item" role="presentation">
+        <button aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" data-target="#example5tab" id="example5" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
       </li>
-      <li class="nav-item">
-        <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i> tab two</a>
+      <li class="nav-item" role="presentation">
+        <button aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example52tab" id="example52" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
       </li>
-      <li class="nav-item">
-        <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i> tab three</a>
+      <li class="nav-item" role="presentation">
+        <button aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example53tab" id="example53" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
       </li>
     </ul>
   </div>
@@ -278,14 +278,14 @@ When using tabs on a dark background, add `.nav-inverse` class to your `.nav nav
 {% highlight html %}
 <div class="pt-2 bg-primary">
   <ul class="nav nav-justified nav-tabs nav-inverse" id="justifiedTabInverse" role="tablist">
-    <li class="nav-item">
-      <a aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" href="#example5tab" id="example5" role="tab"><i class="material-icons">phone</i> tab one</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example5tab" aria-selected="true" class="nav-link flex-column active" data-toggle="tab" data-target="#example5tab" id="example5" type="button" role="tab"><i class="material-icons">phone</i> tab one</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example52tab" id="example52" role="tab"><i class="material-icons">favorite</i> tab two</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example52tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example52tab" id="example52" type="button" role="tab"><i class="material-icons">favorite</i> tab two</button>
     </li>
-    <li class="nav-item">
-      <a aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" href="#example53tab" id="example53" role="tab"><i class="material-icons">location_on</i> tab three</a>
+    <li class="nav-item" role="presentation">
+      <button aria-controls="example53tab" aria-selected="false" class="nav-link flex-column" data-toggle="tab" data-target="#example53tab" id="example53" type="button" role="tab"><i class="material-icons">location_on</i> tab three</button>
     </li>
   </ul>
 </div>
@@ -311,14 +311,14 @@ Scrollable tabs are displayed without fixed widths. They are scrollable, such th
 <div class="bd-example bd-example-tabs">
   <div class="nav-tabs-scrollable">
     <ul class="nav nav-tabs" id="scrollableTab" role="tablist">
-      <li class="nav-item">
-        <a aria-controls="scrollableTab1" aria-selected="true" class="nav-link active" data-toggle="tab" href="#scrollableTab1" id="scrollableTab1-tab" role="tab">Active</a>
+      <li class="nav-item" role="presentation">
+        <button aria-controls="scrollableTab1" aria-selected="true" class="nav-link active" data-toggle="tab" data-target="#scrollableTab1" id="scrollableTab1-tab" type="button" role="tab">Active</button>
       </li>
 
       {% for i in (2..20) %}
 
-        <li class="nav-item">
-          <a aria-controls="scrollableTab{{ i }}" aria-selected="false" class="nav-link" data-toggle="tab" href="#scrollableTab{{ i }}" id="scrollableTab{{ i }}-tab" role="tab">Link</a>
+        <li class="nav-item" role="presentation">
+          <button aria-controls="scrollableTab{{ i }}" aria-selected="false" class="nav-link" data-toggle="tab" data-target="#scrollableTab{{ i }}" id="scrollableTab{{ i }}-tab" type="button" role="tab">Link</button>
         </li>
 
       {% endfor %}
