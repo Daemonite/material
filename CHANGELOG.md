@@ -9,8 +9,6 @@
 ## 4.6.2 - 1.0
 
 - **New** Upgraded to Bootstrap 4.6.2.
-- Material tabs
-- index.html
 
 ## 4.6.1 - 1.0
 
