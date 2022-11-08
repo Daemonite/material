@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Chips
-description: Chips are compact elements that represent an input, attribute, or action.
+description: Chips help people enter information, make selections, filter content, or trigger actions.
 group: material
 redirect_from:
   - /docs/4.4/material/chips/
@@ -14,7 +14,7 @@ toc: true
 Chips can be used for various types of entities, including brief information, free form text, or short title. Chips may also contain icons or photos.
 
 <div class="list-group my-lg-5">
-    <a href="https://material.io/components/chips" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
+    <a href="https://m3.material.io/components/chips/overview" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">
       <span class="list-group-item-icon lgi-icon-md"></span>
       Material Design guidelines: Chips</a>
     <a href="https://material.io/design/layout/applying-density.html" rel="external nofollow noopener" target="_blank" class="list-group-item list-group-item-action d-flex font-weight-bold">

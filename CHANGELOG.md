@@ -6,6 +6,11 @@
 
 - More plugins integration + documentation (Input mask, Calendar)
 
+### 4.6.2 - 2.0
+
+- **New** Upgraded to Material 3 aka Material You.
+- New variables: $chip-border-radius
+
 ## 4.6.2 - 1.0
 
 - **New** Upgraded to Bootstrap 4.6.2.
