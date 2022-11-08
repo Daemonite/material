@@ -52,13 +52,13 @@
       var Selector = {
         PANEL: '.expansion-panel',
         PANEL_BODY: '.expansion-panel .collapse'
-      }; // <<< constants
+      };
+      // <<< constants
 
       $(document).on("".concat(Event.HIDE), Selector.PANEL_BODY, function () {
         var target = $(this).closest(Selector.PANEL);
         target.removeClass(ClassName.SHOW);
         var predecessor = target.prev(Selector.PANEL);
-
         if (predecessor.length) {
           predecessor.removeClass(ClassName.SHOW_PREDECESSOR);
         }
@@ -66,7 +66,6 @@
         var target = $(this).closest(Selector.PANEL);
         target.addClass(ClassName.SHOW);
         var predecessor = target.prev(Selector.PANEL);
-
         if (predecessor.length) {
           predecessor.addClass(ClassName.SHOW_PREDECESSOR);
         }
@@ -75,17 +74,14 @@
 
     function ownKeys(object, enumerableOnly) {
       var keys = Object.keys(object);
-
       if (Object.getOwnPropertySymbols) {
         var symbols = Object.getOwnPropertySymbols(object);
         enumerableOnly && (symbols = symbols.filter(function (sym) {
           return Object.getOwnPropertyDescriptor(object, sym).enumerable;
         })), keys.push.apply(keys, symbols);
       }
-
       return keys;
     }
-
     function _objectSpread2(target) {
       for (var i = 1; i < arguments.length; i++) {
         var source = null != arguments[i] ? arguments[i] : {};
@@ -95,10 +91,8 @@
           Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
         });
       }
-
       return target;
     }
-
     function _typeof(obj) {
       "@babel/helpers - typeof";
 
@@ -108,13 +102,11 @@
         return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       }, _typeof(obj);
     }
-
     function _classCallCheck(instance, Constructor) {
       if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
       }
     }
-
     function _defineProperties(target, props) {
       for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
@@ -124,7 +116,6 @@
         Object.defineProperty(target, descriptor.key, descriptor);
       }
     }
-
     function _createClass(Constructor, protoProps, staticProps) {
       if (protoProps) _defineProperties(Constructor.prototype, protoProps);
       if (staticProps) _defineProperties(Constructor, staticProps);
@@ -133,7 +124,6 @@
       });
       return Constructor;
     }
-
     function _defineProperty(obj, key, value) {
       if (key in obj) {
         Object.defineProperty(obj, key, {
@@ -145,7 +135,6 @@
       } else {
         obj[key] = value;
       }
-
       return obj;
     }
 
@@ -172,16 +161,14 @@
       var Selector = {
         DATA_PARENT: '.floating-label',
         DATA_TOGGLE: '.floating-label .custom-select, .floating-label .form-control'
-      }; // <<< constants
-
+      };
+      // <<< constants
       var FloatingLabel = /*#__PURE__*/function () {
         function FloatingLabel(element) {
           _classCallCheck(this, FloatingLabel);
-
           this._element = element;
           this._parent = $(element).closest(Selector.DATA_PARENT)[0];
         }
-
         _createClass(FloatingLabel, [{
           key: "change",
           value: function change() {
@@ -206,39 +193,31 @@
           value: function _jQueryInterface(event) {
             return this.each(function () {
               var _event = event ? event : 'change';
-
               var data = $(this).data(DATA_KEY);
-
               if (!data) {
                 data = new FloatingLabel(this);
                 $(this).data(DATA_KEY, data);
               }
-
               if (typeof _event === 'string') {
                 if (typeof data[_event] === 'undefined') {
                   throw new Error("No method named \"".concat(_event, "\""));
                 }
-
                 data[_event]();
               }
             });
           }
         }]);
-
         return FloatingLabel;
       }();
-
       $(document).on("".concat(Event.CHANGE, " ").concat(Event.FOCUSIN, " ").concat(Event.FOCUSOUT), Selector.DATA_TOGGLE, function (event) {
         FloatingLabel._jQueryInterface.call($(this), event.type);
       });
       $.fn[NAME] = FloatingLabel._jQueryInterface;
       $.fn[NAME].Constructor = FloatingLabel;
-
       $.fn[NAME].noConflict = function () {
         $.fn[NAME] = NO_CONFLICT;
         return FloatingLabel._jQueryInterface;
       };
-
       return FloatingLabel;
     }($__default["default"]);
 
@@ -255,16 +234,15 @@
 
     var TRANSITION_END = 'transitionend';
     var MAX_UID = 1000000;
-    var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+    var MILLISECONDS_MULTIPLIER = 1000;
 
+    // Shoutout AngusCroll (https://goo.gl/pxwQGp)
     function toType(obj) {
       if (obj === null || typeof obj === 'undefined') {
         return "".concat(obj);
       }
-
       return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     }
-
     function getSpecialTransitionEndEvent() {
       return {
         bindType: TRANSITION_END,
@@ -278,10 +256,8 @@
         }
       };
     }
-
     function transitionEndEmulator(duration) {
       var _this = this;
-
       var called = false;
       $__default["default"](this).one(Util.TRANSITION_END, function () {
         called = true;
@@ -293,17 +269,16 @@
       }, duration);
       return this;
     }
-
     function setTransitionEndSupport() {
       $__default["default"].fn.emulateTransitionEnd = transitionEndEmulator;
       $__default["default"].event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
     }
+
     /**
      * --------------------------------------------------------------------------
      * Public Util Api
      * --------------------------------------------------------------------------
      */
-
 
     var Util = {
       TRANSITION_END: 'bsTransitionEnd',
@@ -311,17 +286,14 @@
         do {
           prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
         } while (document.getElementById(prefix));
-
         return prefix;
       },
       getSelectorFromElement: function getSelectorFromElement(element) {
         var selector = element.getAttribute('data-target');
-
         if (!selector || selector === '#') {
           var hrefAttr = element.getAttribute('href');
           selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
         }
-
         try {
           return document.querySelector(selector) ? selector : null;
         } catch (_) {
@@ -331,19 +303,20 @@
       getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
         if (!element) {
           return 0;
-        } // Get transition-duration of the element
+        }
 
-
+        // Get transition-duration of the element
         var transitionDuration = $__default["default"](element).css('transition-duration');
         var transitionDelay = $__default["default"](element).css('transition-delay');
         var floatTransitionDuration = parseFloat(transitionDuration);
-        var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+        var floatTransitionDelay = parseFloat(transitionDelay);
 
+        // Return 0 if element or transition duration is not found
         if (!floatTransitionDuration && !floatTransitionDelay) {
           return 0;
-        } // If multiple durations are defined, take the first
+        }
 
-
+        // If multiple durations are defined, take the first
         transitionDuration = transitionDuration.split(',')[0];
         transitionDelay = transitionDelay.split(',')[0];
         return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
@@ -366,7 +339,6 @@
             var expectedTypes = configTypes[property];
             var value = config[property];
             var valueType = value && Util.isElement(value) ? 'element' : toType(value);
-
             if (!new RegExp(expectedTypes).test(valueType)) {
               throw new Error("".concat(componentName.toUpperCase(), ": ") + "Option \"".concat(property, "\" provided type \"").concat(valueType, "\" ") + "but expected type \"".concat(expectedTypes, "\"."));
             }
@@ -376,37 +348,33 @@
       findShadowRoot: function findShadowRoot(element) {
         if (!document.documentElement.attachShadow) {
           return null;
-        } // Can find the shadow root otherwise it'll return the document
+        }
 
-
+        // Can find the shadow root otherwise it'll return the document
         if (typeof element.getRootNode === 'function') {
           var root = element.getRootNode();
           return root instanceof ShadowRoot ? root : null;
         }
-
         if (element instanceof ShadowRoot) {
           return element;
-        } // when we don't find a shadow root
+        }
 
-
+        // when we don't find a shadow root
         if (!element.parentNode) {
           return null;
         }
-
         return Util.findShadowRoot(element.parentNode);
       },
       jQueryDetection: function jQueryDetection() {
         if (typeof $__default["default"] === 'undefined') {
           throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
         }
-
         var version = $__default["default"].fn.jquery.split(' ')[0].split('.');
         var minMajor = 1;
         var ltMajor = 2;
         var minMinor = 9;
         var minPatch = 1;
         var maxMajor = 4;
-
         if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
           throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
         }
@@ -460,12 +428,11 @@
         CONTENT: '.navdrawer-content',
         DATA_DISMISS: '[data-dismiss="navdrawer"]',
         DATA_TOGGLE: '[data-toggle="navdrawer"]'
-      }; // <<< constants
-
+      };
+      // <<< constants
       var NavDrawer = /*#__PURE__*/function () {
         function NavDrawer(element, config) {
           _classCallCheck(this, NavDrawer);
-
           this._backdrop = null;
           this._config = this._getConfig(config);
           this._content = $(element).find(Selector.CONTENT)[0];
@@ -474,32 +441,24 @@
           this._isShown = false;
           this._typeBreakpoint = this._config.breakpoint === '' ? '' : "-".concat(this._config.breakpoint);
         }
-
         _createClass(NavDrawer, [{
           key: "hide",
           value: function hide(event) {
             var _this = this;
-
             if (event) {
               event.preventDefault();
             }
-
             if (this._isTransitioning || !this._isShown) {
               return;
             }
-
             var hideEvent = $.Event(Event.HIDE);
             $(this._element).trigger(hideEvent);
-
             if (!this._isShown || hideEvent.isDefaultPrevented()) {
               return;
             }
-
             this._isShown = false;
             this._isTransitioning = true;
-
             this._setEscapeEvent();
-
             $(document).off(Event.FOCUSIN);
             $(document.body).removeClass("".concat(ClassName.OPEN, "-").concat(this._config.type).concat(this._typeBreakpoint));
             $(this._element).removeClass(ClassName.SHOW);
@@ -509,32 +468,25 @@
             $(this._content).one(Util.TRANSITION_END, function (event) {
               return _this._hideNavdrawer(event);
             }).emulateTransitionEnd(transitionDuration);
-
             this._showBackdrop();
           }
         }, {
           key: "show",
           value: function show(relatedTarget) {
             var _this2 = this;
-
             if (this._isTransitioning || this._isShown) {
               return;
             }
-
             this._isTransitioning = true;
             var showEvent = $.Event(Event.SHOW, {
               relatedTarget: relatedTarget
             });
             $(this._element).trigger(showEvent);
-
             if (this._isShown || showEvent.isDefaultPrevented()) {
               return;
             }
-
             this._isShown = true;
-
             this._setEscapeEvent();
-
             $(this._element).addClass("".concat(NAME, "-").concat(this._config.type).concat(this._typeBreakpoint));
             $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function (event) {
               return _this2.hide(event);
@@ -546,9 +498,7 @@
                 }
               });
             });
-
             this._showBackdrop();
-
             this._showElement(relatedTarget);
           }
         }, {
@@ -560,7 +510,6 @@
           key: "_enforceFocus",
           value: function _enforceFocus() {
             var _this3 = this;
-
             $(document).off(Event.FOCUSIN).on(Event.FOCUSIN, function (event) {
               if (document !== event.target && _this3._element !== event.target && $(_this3._element).has(event.target).length === 0) {
                 _this3._element.focus();
@@ -578,9 +527,7 @@
           key: "_hideNavdrawer",
           value: function _hideNavdrawer() {
             this._element.style.display = 'none';
-
             this._element.setAttribute('aria-hidden', true);
-
             this._isTransitioning = false;
             $(this._element).trigger(Event.HIDDEN);
           }
@@ -596,12 +543,10 @@
           key: "_setEscapeEvent",
           value: function _setEscapeEvent() {
             var _this4 = this;
-
             if (this._isShown && this._config.keyboard) {
               $(this._element).on(Event.KEYDOWN_DISMISS, function (event) {
                 if (event.which === ESCAPE_KEYCODE) {
                   event.preventDefault();
-
                   _this4.hide();
                 }
               });
@@ -613,7 +558,6 @@
           key: "_showBackdrop",
           value: function _showBackdrop() {
             var _this5 = this;
-
             if (this._isShown) {
               this._backdrop = document.createElement('div');
               $(this._backdrop).addClass(ClassName.BACKDROP).addClass("".concat(ClassName.BACKDROP, "-").concat(this._config.type).concat(this._typeBreakpoint)).appendTo(document.body);
@@ -622,18 +566,15 @@
                   _this5._ignoreBackdropClick = false;
                   return;
                 }
-
                 if (event.target !== event.currentTarget) {
                   return;
                 }
-
                 _this5.hide();
               });
               Util.reflow(this._backdrop);
               $(this._backdrop).addClass(ClassName.SHOW);
             } else if (!this._isShown && this._backdrop) {
               $(this._backdrop).removeClass(ClassName.SHOW);
-
               this._removeBackdrop();
             }
           }
@@ -641,32 +582,23 @@
           key: "_showElement",
           value: function _showElement(relatedTarget) {
             var _this6 = this;
-
             if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
               document.body.appendChild(this._element);
             }
-
             this._element.style.display = 'block';
-
             this._element.removeAttribute('aria-hidden');
-
             Util.reflow(this._element);
             $(document.body).addClass("".concat(ClassName.OPEN, "-").concat(this._config.type).concat(this._typeBreakpoint));
             $(this._element).addClass(ClassName.SHOW);
-
             this._enforceFocus();
-
             var shownEvent = $.Event(Event.SHOWN, {
               relatedTarget: relatedTarget
             });
-
             var transitionComplete = function transitionComplete() {
               _this6._element.focus();
-
               _this6._isTransitioning = false;
               $(_this6._element).trigger(shownEvent);
             };
-
             var transitionDuration = Util.getTransitionDurationFromElement(this._content);
             $(this._content).one(Util.TRANSITION_END, transitionComplete).emulateTransitionEnd(transitionDuration);
           }
@@ -680,19 +612,15 @@
           value: function _jQueryInterface(config, relatedTarget) {
             return this.each(function () {
               var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default), $(this).data()), _typeof(config) === 'object' && config ? config : {});
-
               var data = $(this).data(DATA_KEY);
-
               if (!data) {
                 data = new NavDrawer(this, _config);
                 $(this).data(DATA_KEY, data);
               }
-
               if (typeof config === 'string') {
                 if (typeof data[config] === 'undefined') {
                   throw new TypeError("No method named \"".concat(config, "\""));
                 }
-
                 data[config](relatedTarget);
               } else if (_config.show) {
                 data.show(relatedTarget);
@@ -700,48 +628,37 @@
             });
           }
         }]);
-
         return NavDrawer;
       }();
-
       $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
         var _this7 = this;
-
         var selector = Util.getSelectorFromElement(this);
         var target;
-
         if (selector) {
           target = $(selector)[0];
         }
-
         var config = $(target).data(DATA_KEY) ? 'toggle' : _objectSpread2(_objectSpread2({}, $(target).data()), $(this).data());
-
         if (this.tagName === 'A' || this.tagName === 'AREA') {
           event.preventDefault();
         }
-
         var $target = $(target).one(Event.SHOW, function (showEvent) {
           if (showEvent.isDefaultPrevented()) {
             return;
           }
-
           $target.one(Event.HIDDEN, function () {
             if ($(_this7).is(':visible')) {
               _this7.focus();
             }
           });
         });
-
         NavDrawer._jQueryInterface.call($(target), config, this);
       });
       $.fn[NAME] = NavDrawer._jQueryInterface;
       $.fn[NAME].Constructor = NavDrawer;
-
       $.fn[NAME].noConflict = function () {
         $.fn[NAME] = NO_CONFLICT;
         return NavDrawer._jQueryInterface;
       };
-
       return NavDrawer;
     }($__default["default"]);
 
@@ -3389,17 +3306,23 @@
         monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ok: 'OK',
-        onClose: function onClose() {// Do nothing
+        onClose: function onClose() {
+          // Do nothing
         },
-        onOpen: function onOpen() {// Do nothing
+        onOpen: function onOpen() {
+          // Do nothing
         },
-        onRender: function onRender() {// Do nothing
+        onRender: function onRender() {
+          // Do nothing
         },
-        onSet: function onSet() {// Do nothing
+        onSet: function onSet() {
+          // Do nothing
         },
-        onStart: function onStart() {// Do nothing
+        onStart: function onStart() {
+          // Do nothing
         },
-        onStop: function onStop() {// Do nothing
+        onStop: function onStop() {
+          // Do nothing
         },
         selectMonths: false,
         selectYears: false,
@@ -3442,15 +3365,12 @@
         weekdaysFull: 'array',
         weekdaysShort: 'array'
       };
-
       var PickDate = /*#__PURE__*/function () {
         function PickDate(element, config) {
           _classCallCheck(this, PickDate);
-
           this._config = this._getConfig(config);
           this._element = element;
         }
-
         _createClass(PickDate, [{
           key: "display",
           value: function display(datepickerApi, datepickerRoot, datepickerValue) {
@@ -3461,7 +3381,6 @@
           key: "show",
           value: function show() {
             var _this = this;
-
             $(this._element).pickadate({
               clear: this._config.cancel,
               close: this._config.ok,
@@ -3527,25 +3446,19 @@
           value: function _jQueryInterface(config) {
             return this.each(function () {
               var _config = _objectSpread2(_objectSpread2(_objectSpread2({}, Default), $(this).data()), _typeof(config) === 'object' && config ? config : {});
-
               var data = $(this).data(DATA_KEY);
-
               if (!data) {
                 data = new PickDate(this, _config);
                 $(this).data(DATA_KEY, data);
               }
-
               data.show();
             });
           }
         }]);
-
         return PickDate;
       }();
-
       $.fn[NAME] = PickDate._jQueryInterface;
       $.fn[NAME].Constructor = PickDate;
-
       $.fn[NAME].noConflict = function () {
         $.fn[NAME] = NO_CONFLICT;
         return PickDate._jQueryInterface;
@@ -3777,6 +3690,7 @@
     /*
      * Config for ripplet.js by luncheon
      */
+
     // Values from https://github.com/material-components/material-components-web/blob/master/packages/mdc-ripple/_variables.scss
 
     var Ripplet = function () {
@@ -3789,17 +3703,13 @@
         defaultOptions.clearingDelay = '300ms';
         defaultOptions.clearingDuration = '150ms';
         defaultOptions.clearingTimingFunction = 'linear';
-
         if (event.button !== 0) {
           return;
         }
-
         var currentTarget = event.target.closest('.btn, .card-link, .card-primary-action, .list-group-item-action, [data-ripplet]');
-
         if (!currentTarget || currentTarget.disabled) {
           return;
         }
-
         var rippleTarget = {
           currentTarget: currentTarget,
           clientX: event.clientX,
@@ -3807,7 +3717,6 @@
         };
         currentTarget.setAttribute('data-ripplet', '');
         var cls = currentTarget.classList;
-
         if (cls.contains('btn-outline-primary') || cls.contains('btn-outline-secondary') || cls.contains('btn-outline-danger') || cls.contains('btn-outline-info') || cls.contains('btn-outline-success') || cls.contains('btn-outline-warning') || cls.contains('btn-outline-dark') || cls.contains('btn-outline-light') || cls.contains('btn-link') || cls.contains('card-link') || cls.contains('btn-flat-primary') || cls.contains('btn-flat-secondary') || cls.contains('btn-flat-danger') || cls.contains('btn-flat-info') || cls.contains('btn-flat-success') || cls.contains('btn-flat-warning') || cls.contains('btn-flat-dark') || cls.contains('btn-flat-light')) {
           ripplet(rippleTarget, {
             color: getComputedStyle(currentTarget).color,
@@ -3852,7 +3761,8 @@
       var Selector = {
         CONTROL: '.custom-control',
         INPUT: '.custom-control-input'
-      }; // <<< constants
+      };
+      // <<< constants
 
       $(document).on("".concat(Event.BLUR), Selector.INPUT, function () {
         $(this).removeClass(ClassName.FOCUS);
@@ -3894,33 +3804,27 @@
         DATA_TOGGLE: '.nav-tabs [data-toggle="tab"]',
         DROPDOWN: '.dropdown',
         NAV: '.nav-tabs'
-      }; // <<< constants
-
+      };
+      // <<< constants
       var TabSwitch = /*#__PURE__*/function () {
         function TabSwitch(nav) {
           _classCallCheck(this, TabSwitch);
-
           this._nav = nav;
           this._navindicator = null;
         }
-
         _createClass(TabSwitch, [{
           key: "switch",
           value: function _switch(element, relatedTarget) {
             var _this = this;
-
             var navLeft = $(this._nav).offset().left;
             var navScrollLeft = $(this._nav).scrollLeft();
             var navWidth = $(this._nav).outerWidth();
-
             if (!this._navindicator) {
               this._createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget);
             }
-
             if ($(element).hasClass(ClassName.DROPDOWN_ITEM)) {
               element = $(element).closest(Selector.DROPDOWN);
             }
-
             var elLeft = $(element).offset().left;
             var elWidth = $(element).outerWidth();
             $(this._navindicator).addClass(ClassName.SHOW);
@@ -3930,12 +3834,10 @@
               left: elLeft + navScrollLeft - navLeft,
               right: navWidth - (elLeft + navScrollLeft - navLeft + elWidth)
             });
-
             var complete = function complete() {
               $(_this._nav).removeClass(ClassName.ANIMATE);
               $(_this._navindicator).removeClass(ClassName.SHOW);
             };
-
             var transitionDuration = Util.getTransitionDurationFromElement(this._navindicator);
             $(this._navindicator).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
           }
@@ -3944,12 +3846,10 @@
           value: function _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {
             this._navindicator = document.createElement('div');
             $(this._navindicator).addClass(ClassName.INDICATOR).appendTo(this._nav);
-
             if (typeof relatedTarget !== 'undefined') {
               if ($(relatedTarget).hasClass(ClassName.DROPDOWN_ITEM)) {
                 relatedTarget = $(relatedTarget).closest(Selector.DROPDOWN);
               }
-
               var relatedLeft = $(relatedTarget).offset().left;
               var relatedWidth = $(relatedTarget).outerWidth();
               $(this._navindicator).css({
@@ -3957,7 +3857,6 @@
                 right: navWidth - (relatedLeft + navScrollLeft - navLeft + relatedWidth)
               });
             }
-
             $(this._nav).addClass(ClassName.MATERIAL);
           }
         }], [{
@@ -3965,37 +3864,29 @@
           value: function _jQueryInterface(relatedTarget) {
             return this.each(function () {
               var nav = $(this).closest(Selector.NAV)[0];
-
               if (!nav) {
                 return;
               }
-
               var data = $(nav).data(DATA_KEY);
-
               if (!data) {
                 data = new TabSwitch(nav);
                 $(nav).data(DATA_KEY, data);
               }
-
               data["switch"](this, relatedTarget);
             });
           }
         }]);
-
         return TabSwitch;
       }();
-
       $(document).on(Event.SHOW_BS_TAB, Selector.DATA_TOGGLE, function (event) {
         TabSwitch._jQueryInterface.call($(this), event.relatedTarget);
       });
       $.fn[NAME] = TabSwitch._jQueryInterface;
       $.fn[NAME].Constructor = TabSwitch;
-
       $.fn[NAME].noConflict = function () {
         $.fn[NAME] = NO_CONFLICT;
         return TabSwitch._jQueryInterface;
       };
-
       return TabSwitch;
     }($__default["default"]);
 
