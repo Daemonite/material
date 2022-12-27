@@ -10,6 +10,10 @@
 
 - **New** Upgraded to Material 3 aka Material You.
 - New variables: $chip-border-radius
+- **Fixed** `btn` transitions
+- **Fixed** `input:-webkit-autofill` style after 2022 update
+- **Removed** some useless `will-change` properties
+- TODO: table width fit-content ?
 
 ## 4.6.2 - 1.0
 
