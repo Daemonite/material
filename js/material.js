@@ -1,5 +1,5 @@
 /*!
- * Djibe Material v4.6.2-1.0 (https://djibe.github.io/material/)
+ * Djibe Material v4.6.2-2.0 (https://djibe.github.io/material/)
  * Copyright 2011-2022 Daemon Pty Ltd + djibe
  * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)
  */
@@ -113,7 +113,7 @@
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
         if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
+        Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
       }
     }
     function _createClass(Constructor, protoProps, staticProps) {
@@ -125,6 +125,7 @@
       return Constructor;
     }
     function _defineProperty(obj, key, value) {
+      key = _toPropertyKey(key);
       if (key in obj) {
         Object.defineProperty(obj, key, {
           value: value,
@@ -136,6 +137,20 @@
         obj[key] = value;
       }
       return obj;
+    }
+    function _toPrimitive(input, hint) {
+      if (typeof input !== "object" || input === null) return input;
+      var prim = input[Symbol.toPrimitive];
+      if (prim !== undefined) {
+        var res = prim.call(input, hint || "default");
+        if (typeof res !== "object") return res;
+        throw new TypeError("@@toPrimitive must return a primitive value.");
+      }
+      return (hint === "string" ? String : Number)(input);
+    }
+    function _toPropertyKey(arg) {
+      var key = _toPrimitive(arg, "string");
+      return typeof key === "symbol" ? key : String(key);
     }
 
     /*
