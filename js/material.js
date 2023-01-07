@@ -1,6 +1,6 @@
 /*!
  * Djibe Material v4.6.2-2.0 (https://djibe.github.io/material/)
- * Copyright 2011-2022 Daemon Pty Ltd + djibe
+ * Copyright 2011-2023 Daemon Pty Ltd + djibe
  * Licensed under MIT (https://github.com/djibe/material/blob/master/LICENSE)
  */
 
@@ -27,7 +27,7 @@
                     if (el.matches(s)) return el;
                     el = el.parentElement || el.parentNode;
                 } while (el !== null && el.nodeType === 1);
-                
+
                 return null;
             };
         }
@@ -2294,7 +2294,7 @@
     	DatePicker.prototype.measure = function( type, value/*, options*/ ) {
 
     	    var calendar = this;
-    	    
+
     	    // If it's an integer, get a date relative to today.
     	    if ( _.isInteger( value ) ) {
     	        value = calendar.now( type, value, { rel: value } );
