@@ -12,6 +12,7 @@
 - New variables: $chip-border-radius
 - **Fixed** `btn` transitions
 - **Fixed** `input:-webkit-autofill` style after 2022 update
+- **Updated** Bootstrap-maxlength 1.10.1
 - **Removed** some useless `will-change` properties
 - TODO: table width fit-content ?
 
