@@ -172,48 +172,48 @@
         <div class="col-xl-9">
           <div class="bd-content mb-5">
             <h2 id="bootstrap-changes">Bootstrap changes</h2>
-<p>Material monitors the changes in the Bootstrap project so the exact same Bootstrap HTML markup can always work with Material. For example, when Bootstrap dropped <code class="highlighter-rouge">.hidden-*</code> classes for new display utilities, Material did the same by dropping <code class="highlighter-rouge">.hidden-*</code> classes and introducing <code class="highlighter-rouge">.d-{value}</code> and <code class="highlighter-rouge">.d-{breakpoint}-{value}</code> classes. If you are upgrading Material, please follow <strong>Bootstrap’s <a href="https://getbootstrap.com/docs/4.1/migration/">migration doc</a></strong> for details about breaking and/or notable changes in each release as the changes will apply to Material, too.</p>
+<p>Material monitors the changes in the Bootstrap project so the exact same Bootstrap HTML markup can always work with Material. For example, when Bootstrap dropped <code class="language-plaintext highlighter-rouge">.hidden-*</code> classes for new display utilities, Material did the same by dropping <code class="language-plaintext highlighter-rouge">.hidden-*</code> classes and introducing <code class="language-plaintext highlighter-rouge">.d-{value}</code> and <code class="language-plaintext highlighter-rouge">.d-{breakpoint}-{value}</code> classes. If you are upgrading Material, please follow <strong>Bootstrap’s <a href="https://getbootstrap.com/docs/4.1/migration/">migration doc</a></strong> for details about breaking and/or notable changes in each release as the changes will apply to Material, too.</p>
 <p><strong>This page will focus on the changes that are unique to Material.</strong></p>
 <h2 id="v411">v4.1.1</h2>
 <p>This release mainly focuses on bug fixes, especially styles related to <a href="/material/docs/4.1/material/text-fields">form controls</a>.</p>
 <h3 id="table">Table</h3>
-<p>Because responsive table now again requires a wrapping element, it does not work well with <code class="highlighter-rouge">.table-bordered</code> as the card like <code class="highlighter-rouge">box-shadow</code> will be cut off. As a result, <code class="highlighter-rouge">.table-bordered</code> now reverts back to adding a <code class="highlighter-rouge">border</code> rather than a <code class="highlighter-rouge">box-shadow</code> to the table. However, it is very easy to <a href="/material/docs/4.1/material/data-tables/#tables-within-cards">combine <code class="highlighter-rouge">.card</code> and <code class="highlighter-rouge">.table</code> together</a> to achieve how <code class="highlighter-rouge">.table-bordered</code> used to look like.</p>
+<p>Because responsive table now again requires a wrapping element, it does not work well with <code class="language-plaintext highlighter-rouge">.table-bordered</code> as the card like <code class="language-plaintext highlighter-rouge">box-shadow</code> will be cut off. As a result, <code class="language-plaintext highlighter-rouge">.table-bordered</code> now reverts back to adding a <code class="language-plaintext highlighter-rouge">border</code> rather than a <code class="language-plaintext highlighter-rouge">box-shadow</code> to the table. However, it is very easy to <a href="/material/docs/4.1/material/data-tables/#tables-within-cards">combine <code class="language-plaintext highlighter-rouge">.card</code> and <code class="language-plaintext highlighter-rouge">.table</code> together</a> to achieve how <code class="language-plaintext highlighter-rouge">.table-bordered</code> used to look like.</p>
 <h2 id="v410">v4.1.0</h2>
 <p>This release consists of incorporating Bootstrap 4’s changes and minor bug fixes. v4.1 also introduces a couple of new features.</p>
 <h3 id="default-link-colour">Default link colour</h3>
-<p>Changed default link colour to <code class="highlighter-rouge">$secondary</code> colour based on Google Material Design’s <a href="https://material.io/guidelines/style/color.html#color-color-system">colour system guidelines</a>.</p>
+<p>Changed default link colour to <code class="language-plaintext highlighter-rouge">$secondary</code> colour based on Google Material Design’s <a href="https://material.io/guidelines/style/color.html#color-color-system">colour system guidelines</a>.</p>
 <h3 id="shadows">Shadows</h3>
-<p>Added new <code class="highlighter-rouge">.shadow-*</code> utilities for quickly adding <code class="highlighter-rouge">box-shadow</code>s. Details are documented <a href="/material/docs/4.1/material/shadows/">here</a>.</p>
+<p>Added new <code class="language-plaintext highlighter-rouge">.shadow-*</code> utilities for quickly adding <code class="language-plaintext highlighter-rouge">box-shadow</code>s. Details are documented <a href="/material/docs/4.1/material/shadows/">here</a>.</p>
 <h3 id="snackbars">Snackbars</h3>
-<p>Added new <code class="highlighter-rouge">.snackbar</code> component. Details are documented <a href="/material/docs/4.1/material/snackbars/">here</a>.</p>
+<p>Added new <code class="language-plaintext highlighter-rouge">.snackbar</code> component. Details are documented <a href="/material/docs/4.1/material/snackbars/">here</a>.</p>
 <h2 id="v400">v4.0.0</h2>
 <p>All previous alpha and beta releases mainly focused on keeping up with Bootstrap 4’s continuous releases plus minor bug fixes. The stable v4.0.0 release addressed a few issues that have hinged on for a while.</p>
 <h3 id="breakpoints">Breakpoints</h3>
-<p>Material v4’s alpha and beta releases have a different set of breakpoints and container <code class="highlighter-rouge">max-width</code>s than Bootstrap’s default values. Material’s stable v4.0.0 reverts these values back to be the same as Bootstrap’s default values. The reason is that although the values used in Material v4’s alpha and beta releases are more in line with Google Material Design’s <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints">responsive UI guidelines</a>, Bootstrap’s grid setup seems to work better in most cases.</p>
+<p>Material v4’s alpha and beta releases have a different set of breakpoints and container <code class="language-plaintext highlighter-rouge">max-width</code>s than Bootstrap’s default values. Material’s stable v4.0.0 reverts these values back to be the same as Bootstrap’s default values. The reason is that although the values used in Material v4’s alpha and beta releases are more in line with Google Material Design’s <a href="https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints">responsive UI guidelines</a>, Bootstrap’s grid setup seems to work better in most cases.</p>
 <h3 id="floating-action-buttons">Floating action buttons</h3>
-<p>Added Material specific <code class="highlighter-rouge">.btn-float-dropdown</code> to allow a floating action button to fling out related actions since the default dropdown menus do not work well with floating action buttons. For detailed usage, please visit <a href="/material/docs/4.1/material/buttons/#dropdown">buttons doc</a>.</p>
+<p>Added Material specific <code class="language-plaintext highlighter-rouge">.btn-float-dropdown</code> to allow a floating action button to fling out related actions since the default dropdown menus do not work well with floating action buttons. For detailed usage, please visit <a href="/material/docs/4.1/material/buttons/#dropdown">buttons doc</a>.</p>
 <h3 id="input-groups">Input groups</h3>
-<p>Added Material specific <code class="highlighter-rouge">.input-group-icon</code> to allow an icon to change its colour based on the state of its associated form control. For detailed usage, please visit <a href="/material/docs/4.1/material/text-fields/#with-icons">text fields doc</a>.</p>
+<p>Added Material specific <code class="language-plaintext highlighter-rouge">.input-group-icon</code> to allow an icon to change its colour based on the state of its associated form control. For detailed usage, please visit <a href="/material/docs/4.1/material/text-fields/#with-icons">text fields doc</a>.</p>
 <h3 id="navigation-drawer">Navigation drawer</h3>
-<p>Since Bootstrap introduced responsive <code class="highlighter-rouge">.navbar-expand-{breakpoint}</code>, navigation drawer has been due a similar change, too.</p>
+<p>Since Bootstrap introduced responsive <code class="language-plaintext highlighter-rouge">.navbar-expand-{breakpoint}</code>, navigation drawer has been due a similar change, too.</p>
 <ul>
   <li>
-    <p>Permanent, persistent, and temporary navigation drawers now support responsive behaviours via <code class="highlighter-rouge">.navdrawer-{type}-{breakpoint}</code> classes.</p>
+    <p>Permanent, persistent, and temporary navigation drawers now support responsive behaviours via <code class="language-plaintext highlighter-rouge">.navdrawer-{type}-{breakpoint}</code> classes.</p>
   </li>
   <li>
-    <p>Navigation drawer JavaScript is updated to provide an extra option, <code class="highlighter-rouge">breakpoint</code>, to allow a value from <code class="highlighter-rouge">sm</code> to <code class="highlighter-rouge">xl</code> to be passed in. This option can also be passed via data attribute as <code class="highlighter-rouge">data-breakpoint</code>. <code class="highlighter-rouge">xs</code> is not included because <code class="highlighter-rouge">.navdrawer-{type}-xs</code> would be applied from <code class="highlighter-rouge">min-width: 0;</code> and up which means it is not bound by a media query.</p>
+    <p>Navigation drawer JavaScript is updated to provide an extra option, <code class="language-plaintext highlighter-rouge">breakpoint</code>, to allow a value from <code class="language-plaintext highlighter-rouge">sm</code> to <code class="language-plaintext highlighter-rouge">xl</code> to be passed in. This option can also be passed via data attribute as <code class="language-plaintext highlighter-rouge">data-breakpoint</code>. <code class="language-plaintext highlighter-rouge">xs</code> is not included because <code class="language-plaintext highlighter-rouge">.navdrawer-{type}-xs</code> would be applied from <code class="language-plaintext highlighter-rouge">min-width: 0;</code> and up which means it is not bound by a media query.</p>
   </li>
 </ul>
 <p>For more details, please visit the <a href="/material/docs/4.1/material/navigation-drawer/">navigation drawer doc</a>.</p>
 <h3 id="removed-third-party-plugins">Removed third party plugins</h3>
-<p>Two third party plugins, <code class="highlighter-rouge">textarea-autosize</code> and <code class="highlighter-rouge">waves</code>, are removed from the stable v4.0.0 release. The reason is that these third party plugins can be used without any modifications to work with Material, so leaving out these third party plugins can not only bring down the size of the CSS and JavaScript of Material a bit, but also provide some flexibility for developers to use their preferred plugins for the same job.</p>
+<p>Two third party plugins, <code class="language-plaintext highlighter-rouge">textarea-autosize</code> and <code class="language-plaintext highlighter-rouge">waves</code>, are removed from the stable v4.0.0 release. The reason is that these third party plugins can be used without any modifications to work with Material, so leaving out these third party plugins can not only bring down the size of the CSS and JavaScript of Material a bit, but also provide some flexibility for developers to use their preferred plugins for the same job.</p>
 <p>In case the two plugins are required, please check out the following two projects and incorporate them back in accordingly:</p>
 <ul>
   <li>
-    <p>The plugin used in v4’s alpha and beta to adjust the height of the textarea automatically is: <a href="https://github.com/javierjulio/textarea-autosize"><code class="highlighter-rouge">textarea-autosize</code></a></p>
+    <p>The plugin used in v4’s alpha and beta to adjust the height of the textarea automatically is: <a href="https://github.com/javierjulio/textarea-autosize"><code class="language-plaintext highlighter-rouge">textarea-autosize</code></a></p>
   </li>
   <li>
-    <p>The plugin used in v4’s alpha and beta to create the ripple effect on click is : <a href="https://github.com/fians/Waves"><code class="highlighter-rouge">waves</code></a></p>
+    <p>The plugin used in v4’s alpha and beta to create the ripple effect on click is : <a href="https://github.com/fians/Waves"><code class="language-plaintext highlighter-rouge">waves</code></a></p>
   </li>
 </ul>
           </div>
@@ -248,7 +248,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

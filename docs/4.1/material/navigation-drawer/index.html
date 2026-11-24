@@ -203,15 +203,15 @@
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
 <h2 id="usage">Usage</h2>
-<p>The navigation drawer plugin toggles your hidden drawer on demand, via data attributes or JavaScripts. It also adds <code class="highlighter-rouge">.navdrawer-open{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}</code> to the <code class="highlighter-rouge">&lt;body&gt;</code> for additional styling. The plugin also generates a <code class="highlighter-rouge">.navdrawer-backdrop{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}</code> to provide a click area for dismissing shown navigation drawer when required.</p>
+<p>The navigation drawer plugin toggles your hidden drawer on demand, via data attributes or JavaScripts. It also adds <code class="language-plaintext highlighter-rouge">.navdrawer-open{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}</code> to the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> for additional styling. The plugin also generates a <code class="language-plaintext highlighter-rouge">.navdrawer-backdrop{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}</code> to provide a click area for dismissing shown navigation drawer when required.</p>
 <h3 id="data-attributes">Data attributes</h3>
-<p>Activate a navigation drawer without writing JavaScript. Set <code class="highlighter-rouge">data-toggle="navdrawer"</code> on a controller element along with a <code class="highlighter-rouge">data-target="#foo"</code> or <code class="highlighter-rouge">href="#foo"</code> to target a specific navigation drawer to toggle.</p>
+<p>Activate a navigation drawer without writing JavaScript. Set <code class="language-plaintext highlighter-rouge">data-toggle="navdrawer"</code> on a controller element along with a <code class="language-plaintext highlighter-rouge">data-target="#foo"</code> or <code class="language-plaintext highlighter-rouge">href="#foo"</code> to target a specific navigation drawer to toggle.</p>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">data-target=</span><span class="s">"#myNavdrawer"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Launch navigation drawer<span class="nt">&lt;/button&gt;</span></code></pre></figure>
 <h3 id="javascript">JavaScript</h3>
-<p>Call a navigation drawer with id <code class="highlighter-rouge">myNavdrawer</code> with a single line of JavaScript:</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span></code></pre></figure>
+<p>Call a navigation drawer with id <code class="language-plaintext highlighter-rouge">myNavdrawer</code> with a single line of JavaScript:</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span></code></pre></figure>
 <h4 id="events">Events</h4>
-<p>Material’s navigation drawer class exposes a few events for hooking into navigation drawer functionality. All events are fired at the navigation drawer itself (i.e. at the <code class="highlighter-rouge">&lt;div class="navdrawer"&gt;</code>).</p>
+<p>Material’s navigation drawer class exposes a few events for hooking into navigation drawer functionality. All events are fired at the navigation drawer itself (i.e. at the <code class="language-plaintext highlighter-rouge">&lt;div class="navdrawer"&gt;</code>).</p>
 <div class="table-responsive mb-3">
   <table class="table table-bordered table-striped mb-0">
     <thead>
@@ -240,26 +240,26 @@
     </tbody>
   </table>
 </div>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hide.md.navdrawer'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">hide.md.navdrawer</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// do something...</span>
 <span class="p">})</span></code></pre></figure>
 <h4 id="methods">Methods</h4>
-<h5 id="navdrawer"><code class="highlighter-rouge">.navdrawer()</code></h5>
-<p>Activates a navigation drawer. Accepts an optional options <code class="highlighter-rouge">object</code>.</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">({</span>
+<h5 id="navdrawer"><code class="language-plaintext highlighter-rouge">.navdrawer()</code></h5>
+<p>Activates a navigation drawer. Accepts an optional options <code class="language-plaintext highlighter-rouge">object</code>.</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">({</span>
   <span class="na">keyboard</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">})</span></code></pre></figure>
-<h5 id="navdrawerhide"><code class="highlighter-rouge">.navdrawer('hide')</code></h5>
+<h5 id="navdrawerhide"><code class="language-plaintext highlighter-rouge">.navdrawer('hide')</code></h5>
 <p>Manually hides a navigation drawer.</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span></code></pre></figure>
-<h5 id="navdrawershow"><code class="highlighter-rouge">.navdrawer('show')</code></h5>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="dl">'</span><span class="s1">hide</span><span class="dl">'</span><span class="p">)</span></code></pre></figure>
+<h5 id="navdrawershow"><code class="language-plaintext highlighter-rouge">.navdrawer('show')</code></h5>
 <p>Manually opens a navigation drawer.</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span></code></pre></figure>
-<h5 id="navdrawertoggle"><code class="highlighter-rouge">.navdrawer('toggle')</code></h5>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="dl">'</span><span class="s1">show</span><span class="dl">'</span><span class="p">)</span></code></pre></figure>
+<h5 id="navdrawertoggle"><code class="language-plaintext highlighter-rouge">.navdrawer('toggle')</code></h5>
 <p>Manually toggles a navigation drawer.</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myNavdrawer'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myNavdrawer</span><span class="dl">'</span><span class="p">).</span><span class="nx">navdrawer</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggle</span><span class="dl">'</span><span class="p">)</span></code></pre></figure>
 <h3 id="options">Options</h3>
-<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-backdrop=""</code>.</p>
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="language-plaintext highlighter-rouge">data-</code>, as in <code class="language-plaintext highlighter-rouge">data-backdrop=""</code>.</p>
 <div class="table-responsive mb-3">
   <table class="table table-bordered table-striped mb-0">
     <thead>
@@ -300,7 +300,7 @@
 </div>
 <h2 id="variations">Variations</h2>
 <h3 id="direction">Direction</h3>
-<p>Add <code class="highlighter-rouge">.navdrawer-right</code> to the navigation drawer to make it stick to the right hand side of the screen.</p>
+<p>Add <code class="language-plaintext highlighter-rouge">.navdrawer-right</code> to the navigation drawer to make it stick to the right hand side of the screen.</p>
 <div class="bd-example">
   <iframe class="border-0 d-block w-100" src="/material/docs/4.1/examples/navdrawer-right.html" style="height: 480px;"></iframe>
 </div>
@@ -313,18 +313,18 @@
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">data-target=</span><span class="s">"#navdrawerPermanent"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"permanent"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Launch permanent drawer<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-permanent"</span> <span class="na">id=</span><span class="s">"navdrawerPermanent"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<p>You can also add additional <code class="highlighter-rouge">breakpoint</code> parameters (i.e. <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code> and <code class="highlighter-rouge">xl</code>) to a navigation drawer so that the permanent styles only kick in when the screen reaches a certain breakpoint.</p>
+<p>You can also add additional <code class="language-plaintext highlighter-rouge">breakpoint</code> parameters (i.e. <code class="language-plaintext highlighter-rouge">sm</code>, <code class="language-plaintext highlighter-rouge">md</code>, <code class="language-plaintext highlighter-rouge">lg</code> and <code class="language-plaintext highlighter-rouge">xl</code>) to a navigation drawer so that the permanent styles only kick in when the screen reaches a certain breakpoint.</p>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="err">...</span> <span class="na">data-breakpoint=</span><span class="s">"lg"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"permanent"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="err">...</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-permanent-lg"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<p>Because a permanent navigation drawer is always visible, you may need to add some custom styles to shift the content of your page to the left or right to accommodate the screen estate being taken up by the drawer. For example, to work with a <code class="highlighter-rouge">.navdrawer-permanent-lg</code>:</p>
+<p>Because a permanent navigation drawer is always visible, you may need to add some custom styles to shift the content of your page to the left or right to accommodate the screen estate being taken up by the drawer. For example, to work with a <code class="language-plaintext highlighter-rouge">.navdrawer-permanent-lg</code>:</p>
 <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@include</span> <span class="n">media-breakpoint-up</span><span class="p">(</span><span class="n">lg</span><span class="p">)</span> <span class="p">{</span>
   <span class="nc">.content-wrapper</span> <span class="p">{</span>
     <span class="nl">margin-left</span><span class="p">:</span> <span class="err">$</span><span class="n">navdrawer-width</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 <h4 id="clipped-permanent-drawer">Clipped permanent drawer</h4>
-<p>A permanent navigation drawer has a few variations of its own, too. It can be clipped under the top navigation bar (<code class="highlighter-rouge">.navbar</code>):</p>
+<p>A permanent navigation drawer has a few variations of its own, too. It can be clipped under the top navigation bar (<code class="language-plaintext highlighter-rouge">.navbar</code>):</p>
 <div class="bd-example">
   <iframe class="border-0 d-block w-100" src="/material/docs/4.1/examples/navdrawer-permanent-clipped.html" style="height: 480px;"></iframe>
 </div>
@@ -335,7 +335,7 @@
   <iframe class="border-0 d-block w-100" src="/material/docs/4.1/examples/navdrawer-permanent-float.html" style="height: 480px;"></iframe>
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-permanent navdrawer-permanent-float"</span> <span class="na">id=</span><span class="s">"navdrawerPermanentFloat"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<p>A floating permanent drawer can also work with other components, such as <code class="highlighter-rouge">.card</code>:</p>
+<p>A floating permanent drawer can also work with other components, such as <code class="language-plaintext highlighter-rouge">.card</code>:</p>
 <div class="bd-example" style="overflow-x: auto; overflow-y: hidden;">
   <iframe class="border-0 d-block w-100" src="/material/docs/4.1/examples/navdrawer-permanent-float-card.html" style="height: 480px;"></iframe>
 </div>
@@ -354,7 +354,7 @@
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">data-target=</span><span class="s">"#navdrawerPersistent"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"persistent"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Launch persistent drawer<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-persistent"</span> <span class="na">id=</span><span class="s">"navdrawerPersistent"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<p>You can also add additional <code class="highlighter-rouge">breakpoint</code> parameters (i.e. <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code> and <code class="highlighter-rouge">xl</code>) to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.</p>
+<p>You can also add additional <code class="language-plaintext highlighter-rouge">breakpoint</code> parameters (i.e. <code class="language-plaintext highlighter-rouge">sm</code>, <code class="language-plaintext highlighter-rouge">md</code>, <code class="language-plaintext highlighter-rouge">lg</code> and <code class="language-plaintext highlighter-rouge">xl</code>) to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.</p>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="err">...</span> <span class="na">data-breakpoint=</span><span class="s">"lg"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"persistent"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="err">...</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-persistent-lg"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
@@ -366,7 +366,7 @@
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">data-target=</span><span class="s">"#navdrawerTemporary"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"temporary"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Launch temporary drawer<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-temporary"</span> <span class="na">id=</span><span class="s">"navdrawerTemporary"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-<p>You can also add additional <code class="highlighter-rouge">breakpoint</code> parameters (i.e. <code class="highlighter-rouge">sm</code>, <code class="highlighter-rouge">md</code>, <code class="highlighter-rouge">lg</code> and <code class="highlighter-rouge">xl</code>) to a navigation drawer so that the temporary styles only kick in when the screen reaches a certain breakpoint.</p>
+<p>You can also add additional <code class="language-plaintext highlighter-rouge">breakpoint</code> parameters (i.e. <code class="language-plaintext highlighter-rouge">sm</code>, <code class="language-plaintext highlighter-rouge">md</code>, <code class="language-plaintext highlighter-rouge">lg</code> and <code class="language-plaintext highlighter-rouge">xl</code>) to a navigation drawer so that the temporary styles only kick in when the screen reaches a certain breakpoint.</p>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="err">...</span> <span class="na">data-breakpoint=</span><span class="s">"lg"</span> <span class="na">data-toggle=</span><span class="s">"navdrawer"</span> <span class="na">data-type=</span><span class="s">"temporary"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;div</span> <span class="err">...</span> <span class="na">class=</span><span class="s">"navdrawer navdrawer-temporary-lg"</span> <span class="err">...</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span></code></pre></figure>
@@ -406,7 +406,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

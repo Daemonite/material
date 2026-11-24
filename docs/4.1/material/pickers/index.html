@@ -174,14 +174,14 @@
             <h2 id="date-pickers">Date pickers</h2>
 <p>Date pickers use a dialog window to select a single date on mobile.</p>
 <p>A date picker has to be activated via JavaScript.</p>
-<p><strong>N.B.</strong> Date picker requires <code class="highlighter-rouge">material.js</code> or <code class="highlighter-rouge">material.min.js</code>.</p>
+<p><strong>N.B.</strong> Date picker requires <code class="language-plaintext highlighter-rouge">material.js</code> or <code class="language-plaintext highlighter-rouge">material.min.js</code>.</p>
 <div class="bd-example">
 <label for="exampleInputDatePicker1">A basic example:</label>
 <input class="form-control" id="exampleInputDatePicker1" placeholder="Pick a date" type="text" />
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker1"</span><span class="nt">&gt;</span>A basic example:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker1"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#exampleInputDatePicker1'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">();</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#exampleInputDatePicker1</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">();</span></code></pre></figure>
 <h2 id="options">Options</h2>
 <p>Alternatively, options can be passed on to override some default datepicker behaviours.</p>
 <div class="bd-example">
@@ -190,31 +190,31 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker2"</span><span class="nt">&gt;</span>A customised date picker:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker2"</span> <span class="na">name=</span><span class="s">"exampleInputDatePicker2"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
-  <span class="na">cancel</span>           <span class="p">:</span> <span class="s1">'Clear'</span><span class="p">,</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+  <span class="na">cancel</span>           <span class="p">:</span> <span class="dl">'</span><span class="s1">Clear</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">closeOnCancel</span>    <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="na">closeOnSelect</span>    <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="na">container</span>        <span class="p">:</span> <span class="s1">'body'</span><span class="p">,</span>
-  <span class="na">containerHidden</span>  <span class="p">:</span> <span class="s1">'body'</span><span class="p">,</span>
+  <span class="na">container</span>        <span class="p">:</span> <span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">containerHidden</span>  <span class="p">:</span> <span class="dl">'</span><span class="s1">body</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">firstDay</span>         <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="na">format</span>           <span class="p">:</span> <span class="s1">'You selecte!d: dddd, d mm, yy'</span><span class="p">,</span>
-  <span class="na">formatSubmit</span>     <span class="p">:</span> <span class="s1">'dd/mmmm/yyyy'</span><span class="p">,</span>
-  <span class="na">hiddenPrefix</span>     <span class="p">:</span> <span class="s1">'prefix_'</span><span class="p">,</span>
-  <span class="na">hiddenSuffix</span>     <span class="p">:</span> <span class="s1">'_suffix'</span><span class="p">,</span>
-  <span class="na">labelMonthNext</span>   <span class="p">:</span> <span class="s1">'Go to the next month'</span><span class="p">,</span>
-  <span class="na">labelMonthPrev</span>   <span class="p">:</span> <span class="s1">'Go to the previous month'</span><span class="p">,</span>
-  <span class="na">labelMonthSelect</span> <span class="p">:</span> <span class="s1">'Choose a month from the dropdown menu'</span><span class="p">,</span>
-  <span class="na">labelYearSelect</span>  <span class="p">:</span> <span class="s1">'Choose a year from the dropdown menu'</span><span class="p">,</span>
-  <span class="na">ok</span>               <span class="p">:</span> <span class="s1">'Close'</span><span class="p">,</span>
+  <span class="na">format</span>           <span class="p">:</span> <span class="dl">'</span><span class="s1">You selecte!d: dddd, d mm, yy</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">formatSubmit</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">dd/mmmm/yyyy</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">hiddenPrefix</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">prefix_</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">hiddenSuffix</span>     <span class="p">:</span> <span class="dl">'</span><span class="s1">_suffix</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthNext</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Go to the next month</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthPrev</span>   <span class="p">:</span> <span class="dl">'</span><span class="s1">Go to the previous month</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelMonthSelect</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose a month from the dropdown menu</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">labelYearSelect</span>  <span class="p">:</span> <span class="dl">'</span><span class="s1">Choose a year from the dropdown menu</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">ok</span>               <span class="p">:</span> <span class="dl">'</span><span class="s1">Close</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">onClose</span>          <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Datepicker closes'</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Datepicker closes</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">},</span>
   <span class="na">onOpen</span>           <span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Datepicker opens'</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Datepicker opens</span><span class="dl">'</span><span class="p">)</span>
   <span class="p">},</span>
   <span class="na">selectMonths</span>     <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="na">selectYears</span>      <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="na">today</span>            <span class="p">:</span> <span class="s1">'Today'</span>
+  <span class="na">today</span>            <span class="p">:</span> <span class="dl">'</span><span class="s1">Today</span><span class="dl">'</span>
 <span class="p">});</span></code></pre></figure>
 <div class="table-responsive mb-3">
   <table class="table table-bordered table-striped mb-0">
@@ -328,7 +328,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker3"</span><span class="nt">&gt;</span>Using boolean or integers:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker3"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="c1">// Default is `false` which removes any limits. `true` sets it to today.</span>
   <span class="na">max</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="c1">// An integer (negative or positive) sets it relative to today.</span>
@@ -340,7 +340,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker4"</span><span class="nt">&gt;</span>Using JavaScript date:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker4"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="na">max</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span>
   <span class="na">min</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="p">});</span></code></pre></figure>
@@ -350,7 +350,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker5"</span><span class="nt">&gt;</span>Using <span class="nt">&lt;code&gt;</span>[YEAR,MONTH,DATE]<span class="nt">&lt;/code&gt;</span>:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker5"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="na">max</span><span class="p">:</span> <span class="p">[</span><span class="mi">2016</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">],</span>
   <span class="na">min</span><span class="p">:</span> <span class="p">[</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="p">});</span></code></pre></figure>
@@ -362,7 +362,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker6"</span><span class="nt">&gt;</span>Using JavaScript date or <span class="nt">&lt;code&gt;</span>[YEAR,MONTH,DATE]<span class="nt">&lt;/code&gt;</span>:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker6"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"1/1/2016"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="na">disable</span><span class="p">:</span> <span class="p">[</span>
     <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span>
     <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
@@ -375,7 +375,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker7"</span><span class="nt">&gt;</span>Using integers as days of the week:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker7"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"1/1/2016"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="na">disable</span><span class="p">:</span> <span class="p">[</span>
     <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
   <span class="p">]</span>
@@ -386,7 +386,7 @@
 </div>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputDatePicker8"</span><span class="nt">&gt;</span>Using objects as a range of dates:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputDatePicker8"</span> <span class="na">placeholder=</span><span class="s">"Pick a date"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">value=</span><span class="s">"1/1/2016"</span><span class="nt">&gt;</span></code></pre></figure>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.datepicker'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.datepicker</span><span class="dl">'</span><span class="p">).</span><span class="nx">pickdate</span><span class="p">({</span>
   <span class="na">disable</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span> <span class="na">from</span><span class="p">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span> <span class="na">to</span><span class="p">:</span> <span class="p">[</span><span class="mi">2016</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span> <span class="p">}</span>
   <span class="p">]</span>
@@ -499,7 +499,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

@@ -213,17 +213,17 @@
   <span class="nt">&lt;/ol&gt;</span>
 <span class="nt">&lt;/nav&gt;</span></code></pre></figure>
 <h2 id="changing-the-separator">Changing the separator</h2>
-<p>Separators are automatically added in CSS through <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"><code class="highlighter-rouge">::before</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content"><code class="highlighter-rouge">content</code></a>. They can be changed by changing <code class="highlighter-rouge">$breadcrumb-divider</code>. The <a href="https://sass-lang.com/documentation/Sass/Script/Functions.html#quote-instance_method">quote</a> function is needed to generate the quotes around a string, so if you want <code class="highlighter-rouge">&gt;</code> as seperator, you can use this:</p>
+<p>Separators are automatically added in CSS through <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"><code class="language-plaintext highlighter-rouge">::before</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content"><code class="language-plaintext highlighter-rouge">content</code></a>. They can be changed by changing <code class="language-plaintext highlighter-rouge">$breadcrumb-divider</code>. The <a href="https://sass-lang.com/documentation/Sass/Script/Functions.html#quote-instance_method">quote</a> function is needed to generate the quotes around a string, so if you want <code class="language-plaintext highlighter-rouge">&gt;</code> as seperator, you can use this:</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="nf">quote</span><span class="p">(</span><span class="s2">"&gt;"</span><span class="p">);</span>
 </code></pre></div></div>
 <p>It’s also possible to use a <strong>base64 embedded SVG icon</strong>:</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="sx">url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxwYXRoIGQ9Ik0yLjUgMEwxIDEuNSAzLjUgNCAxIDYuNSAyLjUgOGw0LTQtNC00eiIgZmlsbD0iY3VycmVudENvbG9yIi8+PC9zdmc+)</span><span class="p">;</span>
 </code></pre></div></div>
-<p>The separator can be removed by setting <code class="highlighter-rouge">$breadcrumb-divider</code> to <code class="highlighter-rouge">none</code>:</p>
+<p>The separator can be removed by setting <code class="language-plaintext highlighter-rouge">$breadcrumb-divider</code> to <code class="language-plaintext highlighter-rouge">none</code>:</p>
 <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$breadcrumb-divider</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 </code></pre></div></div>
 <h2 id="accessibility">Accessibility</h2>
-<p>Since breadcrumbs provide a navigation, it’s a good idea to add a meaningful label such as <code class="highlighter-rouge">aria-label="breadcrumb"</code> to describe the type of navigation provided in the <code class="highlighter-rouge">&lt;nav&gt;</code> element, as well as applying an <code class="highlighter-rouge">aria-current="page"</code> to the last item of the set to indicate that it represents the current page.</p>
+<p>Since breadcrumbs provide a navigation, it’s a good idea to add a meaningful label such as <code class="language-plaintext highlighter-rouge">aria-label="breadcrumb"</code> to describe the type of navigation provided in the <code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code> element, as well as applying an <code class="language-plaintext highlighter-rouge">aria-current="page"</code> to the last item of the set to indicate that it represents the current page.</p>
 <p>For more information, see the <a href="https://www.w3.org/TR/wai-aria-practices/#breadcrumb">WAI-ARIA Authoring Practices for the breadcrumb pattern</a>.</p>
           </div>
         </div>
@@ -231,7 +231,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

@@ -175,12 +175,12 @@
 <p>The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms and a bit of JavaScript. It works with a series of images, text, or custom markup. It also includes support for previous/next controls and indicators.</p>
 <p>In browsers where the <a href="https://www.w3.org/TR/page-visibility/">Page Visibility API</a> is supported, the carousel will avoid sliding when the webpage is not visible to the user (such as when the browser tab is inactive, the browser window is minimized, etc.).</p>
 <p>Please be aware that nested carousels are not supported, and carousels are generally not compliant with accessibility standards.</p>
-<p>Lastly, if you’re building our JavaScript from source, it <a href="/material/docs/4.1/getting-started/javascript/#util">requires <code class="highlighter-rouge">util.js</code></a>.</p>
+<p>Lastly, if you’re building our JavaScript from source, it <a href="/material/docs/4.1/getting-started/javascript/#util">requires <code class="language-plaintext highlighter-rouge">util.js</code></a>.</p>
 <h2 id="example">Example</h2>
 <p>Carousels don’t automatically normalize slide dimensions. As such, you may need to use additional utilities or custom styles to appropriately size content. While carousels support previous/next controls and indicators, they’re not explicitly required. Add and customize as you see fit.</p>
-<p><strong>The <code class="highlighter-rouge">.active</code> class needs to be added to one of the slides</strong> otherwise the carousel will not be visible. Also be sure to set a unique id on the <code class="highlighter-rouge">.carousel</code> for optional controls, especially if you’re using multiple carousels on a single page. Control and indicator elements must have a <code class="highlighter-rouge">data-target</code> attribute (or <code class="highlighter-rouge">href</code> for links) that matches the id of the <code class="highlighter-rouge">.carousel</code> element.</p>
+<p><strong>The <code class="language-plaintext highlighter-rouge">.active</code> class needs to be added to one of the slides</strong> otherwise the carousel will not be visible. Also be sure to set a unique id on the <code class="language-plaintext highlighter-rouge">.carousel</code> for optional controls, especially if you’re using multiple carousels on a single page. Control and indicator elements must have a <code class="language-plaintext highlighter-rouge">data-target</code> attribute (or <code class="language-plaintext highlighter-rouge">href</code> for links) that matches the id of the <code class="language-plaintext highlighter-rouge">.carousel</code> element.</p>
 <h3 id="slides-only">Slides only</h3>
-<p>Here’s a carousel with slides only. Note the presence of the <code class="highlighter-rouge">.d-block</code> and <code class="highlighter-rouge">.w-100</code> on carousel images to prevent browser default image alignment.</p>
+<p>Here’s a carousel with slides only. Note the presence of the <code class="language-plaintext highlighter-rouge">.d-block</code> and <code class="language-plaintext highlighter-rouge">.w-100</code> on carousel images to prevent browser default image alignment.</p>
 <div class="bd-example">
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -312,7 +312,7 @@
   <span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
 <h3 id="with-captions">With captions</h3>
-<p>Add captions to your slides easily with the <code class="highlighter-rouge">.carousel-caption</code> element within any <code class="highlighter-rouge">.carousel-item</code>. They can be easily hidden on smaller viewports, as shown below, with optional <a href="/material/docs/4.1/utilities/display/">display utilities</a>. We hide them initially with <code class="highlighter-rouge">.d-none</code> and bring them back on medium-sized devices with <code class="highlighter-rouge">.d-md-block</code>.</p>
+<p>Add captions to your slides easily with the <code class="language-plaintext highlighter-rouge">.carousel-caption</code> element within any <code class="language-plaintext highlighter-rouge">.carousel-item</code>. They can be easily hidden on smaller viewports, as shown below, with optional <a href="/material/docs/4.1/utilities/display/">display utilities</a>. We hide them initially with <code class="language-plaintext highlighter-rouge">.d-none</code> and bring them back on medium-sized devices with <code class="language-plaintext highlighter-rouge">.d-md-block</code>.</p>
 <div class="bd-example">
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -361,7 +361,7 @@
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
 <h3 id="crossfade">Crossfade</h3>
-<p>Add <code class="highlighter-rouge">.carousel-fade</code> to your carousel to animate slides with a fade transition instead of a slide.</p>
+<p>Add <code class="language-plaintext highlighter-rouge">.carousel-fade</code> to your carousel to animate slides with a fade transition instead of a slide.</p>
 <div class="bd-example">
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
@@ -408,13 +408,13 @@
 <span class="nt">&lt;/div&gt;</span></code></pre></figure>
 <h2 id="usage">Usage</h2>
 <h3 id="via-data-attributes">Via data attributes</h3>
-<p>Use data attributes to easily control the position of the carousel. <code class="highlighter-rouge">data-slide</code> accepts the keywords <code class="highlighter-rouge">prev</code> or <code class="highlighter-rouge">next</code>, which alters the slide position relative to its current position. Alternatively, use <code class="highlighter-rouge">data-slide-to</code> to pass a raw slide index to the carousel <code class="highlighter-rouge">data-slide-to="2"</code>, which shifts the slide position to a particular index beginning with <code class="highlighter-rouge">0</code>.</p>
-<p>The <code class="highlighter-rouge">data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load. <strong>It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.</strong></p>
+<p>Use data attributes to easily control the position of the carousel. <code class="language-plaintext highlighter-rouge">data-slide</code> accepts the keywords <code class="language-plaintext highlighter-rouge">prev</code> or <code class="language-plaintext highlighter-rouge">next</code>, which alters the slide position relative to its current position. Alternatively, use <code class="language-plaintext highlighter-rouge">data-slide-to</code> to pass a raw slide index to the carousel <code class="language-plaintext highlighter-rouge">data-slide-to="2"</code>, which shifts the slide position to a particular index beginning with <code class="language-plaintext highlighter-rouge">0</code>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load. <strong>It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.</strong></p>
 <h3 id="via-javascript">Via JavaScript</h3>
 <p>Call carousel manually with:</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.carousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span></code></pre></figure>
 <h3 id="options">Options</h3>
-<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="highlighter-rouge">data-</code>, as in <code class="highlighter-rouge">data-interval=""</code>.</p>
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code class="language-plaintext highlighter-rouge">data-</code>, as in <code class="language-plaintext highlighter-rouge">data-interval=""</code>.</p>
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -463,32 +463,32 @@
 <h5 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h5>
 <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They returns to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
 </div>
-<h4 id="carouseloptions"><code class="highlighter-rouge">.carousel(options)</code></h4>
-<p>Initializes the carousel with an optional options <code class="highlighter-rouge">object</code> and starts cycling through items.</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
+<h4 id="carouseloptions"><code class="language-plaintext highlighter-rouge">.carousel(options)</code></h4>
+<p>Initializes the carousel with an optional options <code class="language-plaintext highlighter-rouge">object</code> and starts cycling through items.</p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.carousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
   <span class="na">interval</span><span class="p">:</span> <span class="mi">2000</span>
 <span class="p">})</span></code></pre></figure>
-<h4 id="carouselcycle"><code class="highlighter-rouge">.carousel('cycle')</code></h4>
+<h4 id="carouselcycle"><code class="language-plaintext highlighter-rouge">.carousel('cycle')</code></h4>
 <p>Cycles through the carousel items from left to right.</p>
-<h4 id="carouselpause"><code class="highlighter-rouge">.carousel('pause')</code></h4>
+<h4 id="carouselpause"><code class="language-plaintext highlighter-rouge">.carousel('pause')</code></h4>
 <p>Stops the carousel from cycling through items.</p>
-<h4 id="carouselnumber"><code class="highlighter-rouge">.carousel(number)</code></h4>
-<p>Cycles the carousel to a particular frame (0 based, similar to an array). <strong>Returns to the caller before the target item has been shown</strong> (i.e. before the <code class="highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
-<h4 id="carouselprev"><code class="highlighter-rouge">.carousel('prev')</code></h4>
-<p>Cycles to the previous item. <strong>Returns to the caller before the previous item has been shown</strong> (i.e. before the <code class="highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
-<h4 id="carouselnext"><code class="highlighter-rouge">.carousel('next')</code></h4>
-<p>Cycles to the next item. <strong>Returns to the caller before the next item has been shown</strong> (i.e. before the <code class="highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
-<h4 id="carouseldispose"><code class="highlighter-rouge">.carousel('dispose')</code></h4>
+<h4 id="carouselnumber"><code class="language-plaintext highlighter-rouge">.carousel(number)</code></h4>
+<p>Cycles the carousel to a particular frame (0 based, similar to an array). <strong>Returns to the caller before the target item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouselprev"><code class="language-plaintext highlighter-rouge">.carousel('prev')</code></h4>
+<p>Cycles to the previous item. <strong>Returns to the caller before the previous item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouselnext"><code class="language-plaintext highlighter-rouge">.carousel('next')</code></h4>
+<p>Cycles to the next item. <strong>Returns to the caller before the next item has been shown</strong> (i.e. before the <code class="language-plaintext highlighter-rouge">slid.bs.carousel</code> event occurs).</p>
+<h4 id="carouseldispose"><code class="language-plaintext highlighter-rouge">.carousel('dispose')</code></h4>
 <p>Destroys an element’s carousel.</p>
 <h3 id="events">Events</h3>
 <p>Bootstrap’s carousel class exposes two events for hooking into carousel functionality. Both events have the following additional properties:</p>
 <ul>
-  <li><code class="highlighter-rouge">direction</code>: The direction in which the carousel is sliding (either <code class="highlighter-rouge">"left"</code> or <code class="highlighter-rouge">"right"</code>).</li>
-  <li><code class="highlighter-rouge">relatedTarget</code>: The DOM element that is being slid into place as the active item.</li>
-  <li><code class="highlighter-rouge">from</code>: The index of the current item</li>
-  <li><code class="highlighter-rouge">to</code>: The index of the next item</li>
+  <li><code class="language-plaintext highlighter-rouge">direction</code>: The direction in which the carousel is sliding (either <code class="language-plaintext highlighter-rouge">"left"</code> or <code class="language-plaintext highlighter-rouge">"right"</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">relatedTarget</code>: The DOM element that is being slid into place as the active item.</li>
+  <li><code class="language-plaintext highlighter-rouge">from</code>: The index of the current item</li>
+  <li><code class="language-plaintext highlighter-rouge">to</code>: The index of the next item</li>
 </ul>
-<p>All carousel events are fired at the carousel itself (i.e. at the <code class="highlighter-rouge">&lt;div class="carousel"&gt;</code>).</p>
+<p>All carousel events are fired at the carousel itself (i.e. at the <code class="language-plaintext highlighter-rouge">&lt;div class="carousel"&gt;</code>).</p>
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -507,11 +507,11 @@
     </tr>
   </tbody>
 </table>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'slide.bs.carousel'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#myCarousel</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">slide.bs.carousel</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="c1">// do something…</span>
 <span class="p">})</span></code></pre></figure>
 <h3 id="change-transition-duration">Change transition duration</h3>
-<p>The transition duration of <code class="highlighter-rouge">.carousel-item</code> can be changed with the <code class="highlighter-rouge">$carousel-transition</code> Sass variable before compiling or custom styles if you’re using the compiled CSS. If multiple transitions are applied, make sure the transform transition is defined first (eg. <code class="highlighter-rouge">transition: transform 2s ease, opacity .5s ease-out</code>).</p>
+<p>The transition duration of <code class="language-plaintext highlighter-rouge">.carousel-item</code> can be changed with the <code class="language-plaintext highlighter-rouge">$carousel-transition</code> Sass variable before compiling or custom styles if you’re using the compiled CSS. If multiple transitions are applied, make sure the transform transition is defined first (eg. <code class="language-plaintext highlighter-rouge">transition: transform 2s ease, opacity .5s ease-out</code>).</p>
           </div>
         </div>
           <div class="col-xl-3 d-none d-xl-block">
@@ -534,12 +534,12 @@
 <li class="toc-entry toc-h3"><a href="#methods">Methods</a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#carouseloptions">.carousel(options)</a></li>
-<li class="toc-entry toc-h4"><a href="#carouselcycle">.carousel('cycle')</a></li>
-<li class="toc-entry toc-h4"><a href="#carouselpause">.carousel('pause')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselcycle">.carousel(&#39;cycle&#39;)</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselpause">.carousel(&#39;pause&#39;)</a></li>
 <li class="toc-entry toc-h4"><a href="#carouselnumber">.carousel(number)</a></li>
-<li class="toc-entry toc-h4"><a href="#carouselprev">.carousel('prev')</a></li>
-<li class="toc-entry toc-h4"><a href="#carouselnext">.carousel('next')</a></li>
-<li class="toc-entry toc-h4"><a href="#carouseldispose">.carousel('dispose')</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselprev">.carousel(&#39;prev&#39;)</a></li>
+<li class="toc-entry toc-h4"><a href="#carouselnext">.carousel(&#39;next&#39;)</a></li>
+<li class="toc-entry toc-h4"><a href="#carouseldispose">.carousel(&#39;dispose&#39;)</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#events">Events</a></li>
@@ -552,7 +552,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

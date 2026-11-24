@@ -324,7 +324,7 @@
 <h2 id="sass">Sass</h2>
 <p>Utilize our source Sass files to take advantage of mixins, variables and more.</p>
 <p>Whenever possible, avoid modifying Material’s core files. For Sass, that means creating your own stylesheet that imports Material so you can modify and extend it.</p>
-<p>For example, you can create a <code class="highlighter-rouge">custom.scss</code> and import either all of Material’s source Sass files or only selected parts you need. We encourage the latter, though be aware there are some dependencies and requirements across our components. You will also need to include some JavaScript for certain plugins.</p>
+<p>For example, you can create a <code class="language-plaintext highlighter-rouge">custom.scss</code> and import either all of Material’s source Sass files or only selected parts you need. We encourage the latter, though be aware there are some dependencies and requirements across our components. You will also need to include some JavaScript for certain plugins.</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Custom.scss</span>
 <span class="c1">// Option A: Include all of Material</span>
 
@@ -333,7 +333,7 @@
 <span class="c1">// Option B: Include parts of Material</span>
 
 <span class="c1">// Required</span>
-<span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/colours"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/colors"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/functions"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/mixins"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/variables"</span><span class="p">;</span>
@@ -345,10 +345,10 @@
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material/button"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material/card"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material/text-field"</span><span class="p">;</span></code></pre></figure>
-<p>With that setup in place, you can begin to modify any of the Sass maps and variables in your <code class="highlighter-rouge">custom.scss</code>. You can also start to add parts of Material under the <code class="highlighter-rouge">// Optional</code> section as needed. We suggest using the full import stack from our <code class="highlighter-rouge">material.scss</code> file as your starting point.</p>
+<p>With that setup in place, you can begin to modify any of the Sass maps and variables in your <code class="language-plaintext highlighter-rouge">custom.scss</code>. You can also start to add parts of Material under the <code class="language-plaintext highlighter-rouge">// Optional</code> section as needed. We suggest using the full import stack from our <code class="language-plaintext highlighter-rouge">material.scss</code> file as your starting point.</p>
 <h3 id="default-variables">Default variables</h3>
-<p>Every Sass variable in Material includes the <code class="highlighter-rouge">!default</code> flag allowing you to override the variable’s default value in your own Sass without modifying Material’s source code. Copy and paste variables as needed, modify their values, and remove the <code class="highlighter-rouge">!default</code> flag. If a variable has already been assigned, then it won’t be re-assigned by the default values in Material.</p>
-<p>Here’s an example that changes the <code class="highlighter-rouge">background-color</code> for the <code class="highlighter-rouge">&lt;body&gt;</code>:</p>
+<p>Every Sass variable in Material includes the <code class="language-plaintext highlighter-rouge">!default</code> flag allowing you to override the variable’s default value in your own Sass without modifying Material’s source code. Copy and paste variables as needed, modify their values, and remove the <code class="language-plaintext highlighter-rouge">!default</code> flag. If a variable has already been assigned, then it won’t be re-assigned by the default values in Material.</p>
+<p>Here’s an example that changes the <code class="language-plaintext highlighter-rouge">background-color</code> for the <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>:</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Your variable overrides</span>
 <span class="nv">$body-bg</span><span class="p">:</span> <span class="mh">#212121</span><span class="p">;</span>
 
@@ -356,24 +356,24 @@
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material"</span><span class="p">;</span></code></pre></figure>
 <p>Repeat as necessary for any variable in Material.</p>
 <h3 id="maps">Maps</h3>
-<p>Material includes a handful of Sass maps that make it easier to generate families of related CSS. We use Sass maps for our breakpoints, colours, and more. Just like Sass variables, all Sass maps include the <code class="highlighter-rouge">!default</code> flag and can be overridden and extended.</p>
+<p>Material includes a handful of Sass maps that make it easier to generate families of related CSS. We use Sass maps for our breakpoints, colours, and more. Just like Sass variables, all Sass maps include the <code class="language-plaintext highlighter-rouge">!default</code> flag and can be overridden and extended.</p>
 <p>Some of our Sass maps are merged into empty ones by default. This is done to allow easy expansion of a given Sass map, but comes at the cost of making <em>removing</em> items from a map slightly more difficult.</p>
 <h4 id="add-to-map">Add to map</h4>
-<p>To add a new item to <code class="highlighter-rouge">$sizes</code>, add the new key and value to your custom Sass file:</p>
+<p>To add a new item to <code class="language-plaintext highlighter-rouge">$sizes</code>, add the new key and value to your custom Sass file:</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$sizes</span><span class="p">:</span> <span class="p">(</span>
   <span class="m">15</span><span class="o">:</span> <span class="m">15%</span>
 <span class="p">);</span></code></pre></figure>
-<p>This will generate a new pair of <code class="highlighter-rouge">.h-15</code> and <code class="highlighter-rouge">.w-15</code> classes which will set <code class="highlighter-rouge">height</code> and <code class="highlighter-rouge">width</code> to be <code class="highlighter-rouge">15%</code> respectively.</p>
+<p>This will generate a new pair of <code class="language-plaintext highlighter-rouge">.h-15</code> and <code class="language-plaintext highlighter-rouge">.w-15</code> classes which will set <code class="language-plaintext highlighter-rouge">height</code> and <code class="language-plaintext highlighter-rouge">width</code> to be <code class="language-plaintext highlighter-rouge">15%</code> respectively.</p>
 <h4 id="modify-map">Modify map</h4>
-<p>To modify an existing item in our <code class="highlighter-rouge">$spacers</code> map, add the following to your custom Sass file:</p>
+<p>To modify an existing item in our <code class="language-plaintext highlighter-rouge">$spacers</code> map, add the following to your custom Sass file:</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$spacers</span><span class="p">:</span> <span class="p">(</span>
   <span class="m">5</span><span class="o">:</span> <span class="m">5rem</span>
 <span class="p">);</span></code></pre></figure>
-<p>Classes such as <code class="highlighter-rouge">mb-5</code> will then set <code class="highlighter-rouge">margin-bottom</code> to be <code class="highlighter-rouge">5rem</code> instead of the default <code class="highlighter-rouge">3rem</code>.</p>
+<p>Classes such as <code class="language-plaintext highlighter-rouge">mb-5</code> will then set <code class="language-plaintext highlighter-rouge">margin-bottom</code> to be <code class="language-plaintext highlighter-rouge">5rem</code> instead of the default <code class="language-plaintext highlighter-rouge">3rem</code>.</p>
 <h4 id="remove-from-map">Remove from map</h4>
-<p>To remove an item from a map, use <code class="highlighter-rouge">map-remove</code>. Be aware you must insert it between our requirements and options:</p>
+<p>To remove an item from a map, use <code class="language-plaintext highlighter-rouge">map-remove</code>. Be aware you must insert it between our requirements and options:</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Required</span>
-<span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/colours"</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/colors"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/functions"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/mixins"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/variables"</span><span class="p">;</span>
@@ -388,11 +388,11 @@
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material/card"</span><span class="p">;</span>
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/material/text-field"</span><span class="p">;</span></code></pre></figure>
 <p>However, please be aware that Material assumes the presence of some specific keys within Sass maps. As you customise the included maps, you may encounter errors where a specific Sass map’s key is being used.</p>
-<p>For example, we use the <code class="highlighter-rouge">danger</code>, <code class="highlighter-rouge">success</code> and <code class="highlighter-rouge">warning</code> keys from <code class="highlighter-rouge">$theme-colors</code> for styling different states of some components. Removing the values of these keys may cause Sass compilation issues. In these instances, you’ll need to modify the Sass code that makes use of those values.</p>
+<p>For example, we use the <code class="language-plaintext highlighter-rouge">danger</code>, <code class="language-plaintext highlighter-rouge">success</code> and <code class="language-plaintext highlighter-rouge">warning</code> keys from <code class="language-plaintext highlighter-rouge">$theme-colors</code> for styling different states of some components. Removing the values of these keys may cause Sass compilation issues. In these instances, you’ll need to modify the Sass code that makes use of those values.</p>
 <h2 id="theme-colours">Theme colours</h2>
 <p>Many of Material’s various components and utilities are built through a series of colours defined in a Sass map. This map can be looped over in Sass to quickly generate a series of rulesets.</p>
 <h3 id="all-colours">All colours</h3>
-<p>All colours available in Material, are available as Sass variables in our <code class="highlighter-rouge">assets/scss/_colors.scss</code> file.</p>
+<p>All colours available in Material, are available as Sass variables in our <code class="language-plaintext highlighter-rouge">assets/scss/_colors.scss</code> file.</p>
 <div class="row">
   <div class="col-lg-4 col-sm-6">
     <div class="d-flex flex-column mb-4">
@@ -1634,7 +1634,7 @@
   <span class="nl">color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="no">purple</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 <h3 id="theme-colours-1">Theme colours</h3>
-<p>We use a subset of all colours to create a smaller colour palette for generating colour schemes, available in our <code class="highlighter-rouge">assets/scss/variables/_palette.scss</code> file.</p>
+<p>We use a subset of all colours to create a smaller colour palette for generating colour schemes, available in our <code class="language-plaintext highlighter-rouge">assets/scss/variables/_palette.scss</code> file.</p>
 <div class="row">
   <div class="col-lg-4 col-sm-6">
     <div class="mb-4">
@@ -1818,7 +1818,7 @@
   <span class="nl">color</span><span class="p">:</span> <span class="nf">theme-color-light</span><span class="p">(</span><span class="n">primary</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 <h4 id="add-a-theme-colour">Add a theme colour</h4>
-<p>To add a new colour to <code class="highlighter-rouge">$theme-colors</code>, add the new key and value to your custom Sass file. Please be aware that each new colour should also include darker and lighter shades of the primary colour to accent some parts of our components.</p>
+<p>To add a new colour to <code class="language-plaintext highlighter-rouge">$theme-colors</code>, add the new key and value to your custom Sass file. Please be aware that each new colour should also include darker and lighter shades of the primary colour to accent some parts of our components.</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Your variable overrides</span>
 <span class="nv">$custom-color</span><span class="p">:</span> <span class="p">(</span>
   <span class="n">color</span><span class="o">:</span> <span class="mh">#ffc107</span><span class="o">,</span>
@@ -1853,7 +1853,7 @@
 <span class="k">@import</span> <span class="s2">"node_modules/daemonite-material/assets/scss/variables"</span><span class="p">;</span>
 <span class="nc">...</span></code></pre></figure>
 <h4 id="modify-a-theme-colour">Modify a theme colour</h4>
-<p>To modify an existing colour in our <code class="highlighter-rouge">$theme-colors</code> map, add the following to your custom Sass file. As aforementioned, each colour in our <code class="highlighter-rouge">$theme-colors</code> map contains not only the colour itself, but also darker and lighter shades of it, so please make sure to modify all three values.</p>
+<p>To modify an existing colour in our <code class="language-plaintext highlighter-rouge">$theme-colors</code> map, add the following to your custom Sass file. As aforementioned, each colour in our <code class="language-plaintext highlighter-rouge">$theme-colors</code> map contains not only the colour itself, but also darker and lighter shades of it, so please make sure to modify all three values.</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$primary</span><span class="p">:</span> <span class="p">(</span>
   <span class="n">color</span><span class="o">:</span> <span class="mh">#ffc107</span><span class="o">,</span>
   <span class="n">dark</span><span class="o">:</span>  <span class="nf">darken</span><span class="p">(</span><span class="mh">#ffc107</span><span class="o">,</span> <span class="m">10%</span><span class="p">)</span><span class="o">,</span>
@@ -1908,7 +1908,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->

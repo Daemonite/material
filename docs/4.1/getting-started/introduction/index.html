@@ -185,7 +185,7 @@
     ├── material.js.map
     ├── material.min.js
     └── material.min.js.map</code></pre></figure>
-<p>This is the most basic form of Material: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JavaScript (<code class="highlighter-rouge">material.*</code>), as well as compiled and minified CSS and JavaScript (<code class="highlighter-rouge">material.min.*</code>). Remember to check the <a href="#starter-template">starter template</a> for a basic set up guide.</p>
+<p>This is the most basic form of Material: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JavaScript (<code class="language-plaintext highlighter-rouge">material.*</code>), as well as compiled and minified CSS and JavaScript (<code class="language-plaintext highlighter-rouge">material.min.*</code>). Remember to check the <a href="#starter-template">starter template</a> for a basic set up guide.</p>
 <h3 id="source-code">Source code</h3>
 <p>The Material <a href="https://github.com/Daemonite/material/archive/v4.1.1.zip">source code download</a> includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:</p>
 <figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">daemonite-material/
@@ -196,17 +196,17 @@
 ├── docs/
 │   └── 4.1/
 └── js/</code></pre></figure>
-<p>The <code class="highlighter-rouge">assets/</code> is the source code for our CSS and JavaScript. The <code class="highlighter-rouge">css/</code> and <code class="highlighter-rouge">js/</code> folders are the same in the precompiled download section above. The <code class="highlighter-rouge">docs/</code> folder includes the source code for our documentation. Beyond that, any other included file provides support for development.</p>
+<p>The <code class="language-plaintext highlighter-rouge">assets/</code> is the source code for our CSS and JavaScript. The <code class="language-plaintext highlighter-rouge">css/</code> and <code class="language-plaintext highlighter-rouge">js/</code> folders are the same in the precompiled download section above. The <code class="language-plaintext highlighter-rouge">docs/</code> folder includes the source code for our documentation. Beyond that, any other included file provides support for development.</p>
 <p>Please check the <a href="/material/docs/4.1/getting-started/theming/">theming guide</a> for how to customise Material for your project using our source code.</p>
 <h2 id="important-globals">Important globals</h2>
 <p>Material employs a handful of important global styles and settings that you’ll need to be aware of when using it, all of which are almost exclusively geared towards the <em>normalization</em> of cross browser styles. Let’s dive in.</p>
 <h3 id="box-sizing">Box-sizing</h3>
-<p>For more straightforward sizing in CSS, we switch the global <code class="highlighter-rouge">box-sizing</code> value from <code class="highlighter-rouge">content-box</code> to <code class="highlighter-rouge">border-box</code>. This ensures <code class="highlighter-rouge">padding</code> does not affect the final computed width of an element, but it can cause problems with some third party software like Google Maps.</p>
+<p>For more straightforward sizing in CSS, we switch the global <code class="language-plaintext highlighter-rouge">box-sizing</code> value from <code class="language-plaintext highlighter-rouge">content-box</code> to <code class="language-plaintext highlighter-rouge">border-box</code>. This ensures <code class="language-plaintext highlighter-rouge">padding</code> does not affect the final computed width of an element, but it can cause problems with some third party software like Google Maps.</p>
 <p>On the rare occasion you need to override it, use something like the following:</p>
 <figure class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.selector-for-some-widget</span> <span class="p">{</span>
   <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
-<p>With the above snippet, nested elements—including generated content via <code class="highlighter-rouge">:before</code> and <code class="highlighter-rouge">:after</code> will all inherit the specified <code class="highlighter-rouge">box-sizing</code> for that <code class="highlighter-rouge">.selector-for-some-widget</code>.</p>
+<p>With the above snippet, nested elements—including generated content via <code class="language-plaintext highlighter-rouge">:before</code> and <code class="language-plaintext highlighter-rouge">:after</code> will all inherit the specified <code class="language-plaintext highlighter-rouge">box-sizing</code> for that <code class="language-plaintext highlighter-rouge">.selector-for-some-widget</code>.</p>
 <p>Learn more about <a href="https://css-tricks.com/box-sizing/">box model and sizing at CSS Tricks</a>.</p>
 <h3 id="html5-doctype">HTML5 doctype</h3>
 <p>Material requires the use of the HTML5 doctype. Without it, you’ll see some funky incomplete styling, but including it shouldn’t cause any considerable hiccups.</p>
@@ -215,7 +215,7 @@
   ...
 <span class="nt">&lt;/html&gt;</span></code></pre></figure>
 <h3 id="responsive-meta-tag">Responsive meta tag</h3>
-<p>Material is developed <em>mobile first</em>, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, <strong>add the responsive viewport meta tag</strong> to your <code class="highlighter-rouge">&lt;head&gt;</code>.</p>
+<p>Material is developed <em>mobile first</em>, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, <strong>add the responsive viewport meta tag</strong> to your <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>.</p>
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">content=</span><span class="s">"initial-scale=1, shrink-to-fit=no, width=device-width"</span> <span class="na">name=</span><span class="s">"viewport"</span><span class="nt">&gt;</span></code></pre></figure>
 <h2 id="starter-template">Starter template</h2>
 <p>Be sure to have your pages set up with the latest design and development standards. That means using an HTML5 doctype and including a viewport meta tag for proper responsive behaviors. Put it all together and your pages should look like this:</p>
@@ -239,7 +239,7 @@
 
     <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
     <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.3.1.slim.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.8.0.slim.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
@@ -272,7 +272,7 @@
     </div>
   </main>
 <!-- JavaScript -->
-<script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous" integrity="sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd" src="https://code.jquery.com/jquery-3.8.0.slim.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script crossorigin="anonymous" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <!-- Add Material JavaScript on top of Bootstrap JavaScript -->
