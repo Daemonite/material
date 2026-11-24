@@ -126,13 +126,15 @@
     left: $textfield-box-padding-x;
   }
 
-  %form-control,
-  %form-textarea {
+  // Separate rules rather than one `%form-control, %form-textarea` list: Dart Sass's @extend
+  // would trim the [multiple]/[size] selectors from a combined list, lowering their specificity.
+  %form-control {
     padding-top: ($textfield-box-height - $textfield-box-label-spacer-y - $textfield-font-size * $textfield-line-height);
+    padding-bottom: calc(#{$textfield-box-label-spacer-y} - #{$textfield-border-width});
   }
 
-  %form-control {
-    padding-bottom: calc(#{$textfield-box-label-spacer-y} - #{$textfield-border-width});
+  %form-textarea {
+    padding-top: ($textfield-box-height - $textfield-box-label-spacer-y - $textfield-font-size * $textfield-line-height);
   }
 }
 
@@ -142,7 +144,12 @@
     left: $textfield-box-padding-x-lg;
   }
 
-  %form-control,
+  %form-control {
+    padding-top: ($textfield-box-height-lg - $textfield-box-label-spacer-y - $textfield-font-size-lg * $textfield-line-height-lg);
+    padding-right: $textfield-box-padding-x-lg;
+    padding-left: $textfield-box-padding-x-lg;
+  }
+
   %form-textarea {
     padding-top: ($textfield-box-height-lg - $textfield-box-label-spacer-y - $textfield-font-size-lg * $textfield-line-height-lg);
     padding-right: $textfield-box-padding-x-lg;
@@ -160,7 +167,12 @@
     left: $textfield-box-padding-x-sm;
   }
 
-  %form-control,
+  %form-control {
+    padding-top: ($textfield-box-height-sm - $textfield-box-label-spacer-y - $textfield-font-size-sm * $textfield-line-height-sm);
+    padding-right: $textfield-box-padding-x-sm;
+    padding-left: $textfield-box-padding-x-sm;
+  }
+
   %form-textarea {
     padding-top: ($textfield-box-height-sm - $textfield-box-label-spacer-y - $textfield-font-size-sm * $textfield-line-height-sm);
     padding-right: $textfield-box-padding-x-sm;
