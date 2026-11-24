@@ -10,4 +10,6 @@ group :development, :test do
   gem 'jekyll-toc', '~> 0.11.0'
   gem 'kramdown', '~> 2.3', '>= 2.3.1'
   gem 'kramdown-parser-gfm', '~> 1.1'
+  # Pulled in by jekyll-toc; floor keeps it at a release with all current security fixes
+  gem 'nokogiri', '>= 1.19.5'
 end
