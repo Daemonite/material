@@ -63,8 +63,9 @@
 
   @each $color, $values in $theme-colors {
     &.bg-#{$color}::before {
-      // stylelint-disable value-no-vendor-prefix
+      // stylelint-disable value-no-vendor-prefix, comment-empty-line-before
       background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      /* autoprefixer: ignore next */
       background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
       background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
       // stylelint-enable
@@ -79,8 +80,9 @@
   }
 
   &::before {
-    // stylelint-disable value-no-vendor-prefix
+    // stylelint-disable value-no-vendor-prefix, comment-empty-line-before
     background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    /* autoprefixer: ignore next */
     background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
     background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
     // stylelint-enable
