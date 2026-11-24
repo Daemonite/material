@@ -12,7 +12,7 @@ Material uses [NPM scripts](https://docs.npmjs.com/misc/scripts) for its build s
 
 To use our build system, you'll need a copy of Material's source code and Node. Follow these steps and you should be ready to rock:
 
-1. [Download and install Node.js](https://nodejs.org/download/) **version 12**, which we use to manage our dependencies. The build tools don't run on newer releases yet (node-sass 4 supports Node 13 at most), and the repo's `.nvmrc` selects Node 12 automatically if you use nvm or fnm. Then navigate to the root `/daemonite-material` directory and run `npm install` to install local dependencies.
+1. [Download and install Node.js](https://nodejs.org/download/) **version 22 LTS**, which we use to manage our dependencies. The repo's `.nvmrc` selects Node 22 automatically if you use nvm or fnm. Then navigate to the root `/daemonite-material` directory and run `npm install` to install local dependencies.
 2. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (3.2 or newer), install [Bundler](https://bundler.io/) with `gem install bundler`, and then run `bundle install`. This will install all Ruby dependencies, such as Jekyll and plugins.
   - **Windows users:** Read [this guide](https://jekyllrb.com/docs/windows/) to get Jekyll up and running without problems.
 
