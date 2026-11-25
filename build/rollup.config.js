@@ -22,7 +22,10 @@ const plugins  = [
     externalHelpersWhitelist: [
       'createClass',
       'defineProperty',
-      'objectSpread2'
+      'objectSpread2',
+      'toPrimitive',
+      'toPropertyKey',
+      'typeof'
     ]
   }),
   commonjs({
