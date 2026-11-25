@@ -23,10 +23,11 @@ const source = {
     compat
   },
   rules: {
-    // eslint:recommended dropped these after ESLint 6; keep enforcing them.
-    'no-console': 'error',
+    // Keep ESLint 6 behaviour: eslint:recommended has since dropped or relaxed these.
     '@stylistic/no-extra-semi': 'error',
     '@stylistic/no-mixed-spaces-and-tabs': 'error',
+    'no-constant-condition': ['error', { 'checkLoops': 'all' }],
+    'no-inner-declarations': ['error', 'functions', { 'blockScopedFunctions': 'disallow' }],
 
     '@stylistic/array-bracket-spacing': 'error',
     '@stylistic/arrow-parens': 'error',
@@ -213,7 +214,8 @@ const source = {
 
 export default [
   {
-    ignores: ['**/*.min.js', '**/addons/*', 'js/*']
+    // `**/.*`: ESLint 6 skipped dotfiles by default
+    ignores: ['**/.*', '**/*.min.js', '**/addons/*', 'js/*']
   },
   js.configs.recommended,
   source
