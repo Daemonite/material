@@ -1,3 +1,6 @@
+@use 'sass:math';
+@use '../functions' as *;
+
 // A base value used to responsively scale all typography, applied to the `<html>` element
 
 $font-size-root: 16px !default;
@@ -78,9 +81,26 @@ $line-height-caption:    1.5 !default;      // 18px
 
 // Material icons default size
 
-$material-icon-size: (24 / strip-unit($font-size-root) * 1rem) !default;
+$material-icon-size: (math.div(24, strip-unit($font-size-root)) * 1rem) !default;
 
 // Font used for the icons Material draws itself (checkboxes, radios, selects, etc.).
 // Set to e.g. 'Material Icons Outlined' when using another Material Icons variant.
 
 $material-icon-font-family: 'Material Icons' !default;
+
+// Vertical alignment of Material icons (used by `reset-material-icons`)
+// Calculated using the technique illustrated in:
+// https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+// Font metrics used in the calculation are from Roboto Regular:
+// https://github.com/google/fonts/blob/master/apache/roboto/Roboto-Regular.ttf
+
+$roboto-fm-ascender:        1946 !default;
+$roboto-fm-capital-height:  1456 !default;
+$roboto-fm-descender:       512 !default;
+
+// Derived from the values above inside `reset-material-icons` when left `null`,
+// so changing a metric after loading Material still takes effect.
+$roboto-capital-height:     null !default;
+$roboto-computed-font-size: null !default;
+$roboto-distance-bottom:    null !default;
+$roboto-distance-top:       null !default;

@@ -1,24 +1,44 @@
+@use 'sass:list';
+@use 'sass:map';
+@use '../variables' as *;
+
 @function breakpoint-infix($name) {
-  @return if(breakpoint-min($name) == null, '', '-#{$name}');
+  @if breakpoint-min($name) == null {
+    @return '';
+  }
+
+  @return '-#{$name}';
 }
 
 @function breakpoint-max($name) {
   $next: breakpoint-next($name);
 
-  @return if($next, breakpoint-min($next) - 0.02px, null);
+  @if $next {
+    @return breakpoint-min($next) - 0.02px;
+  }
+
+  @return null;
 }
 
 @function breakpoint-min($name) {
-  $min: map-get($grid-breakpoints, $name);
+  $min: map.get($grid-breakpoints, $name);
 
-  @return if($min != 0, $min, null);
+  @if $min != 0 {
+    @return $min;
+  }
+
+  @return null;
 }
 
 @function breakpoint-next($name) {
-  $breakpoint-names: map-keys($grid-breakpoints);
-  $n: index($breakpoint-names, $name);
+  $breakpoint-names: map.keys($grid-breakpoints);
+  $n: list.index($breakpoint-names, $name);
 
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  @if $n < list.length($breakpoint-names) {
+    @return list.nth($breakpoint-names, $n + 1);
+  }
+
+  @return null;
 }
 
 @mixin media-breakpoint-between($lower, $upper) {
@@ -85,8 +105,9 @@
 
 @mixin media-moz-webkit {
   // Firefox-only hack: there is no unprefixed equivalent.
-  // stylelint-disable-next-line at-rule-no-vendor-prefix
-  @-moz-document url-prefix('') {
+  // Double quotes keep the compiled output the same across Sass versions.
+  // stylelint-disable-next-line at-rule-no-vendor-prefix, @stylistic/scss/string-quotes
+  @-moz-document url-prefix("") {
     @content;
   }
 

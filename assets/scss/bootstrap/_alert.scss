@@ -1,3 +1,8 @@
+@use 'sass:math';
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
 .alert {
   @include border-radius($alert-border-radius);
 
@@ -22,7 +27,7 @@
 
   .close {
     color: inherit;
-    padding: ($alert-padding-y - ($close-font-size - $font-size-base * $line-height-base) / 2) $alert-padding-x;
+    padding: ($alert-padding-y - math.div($close-font-size - $font-size-base * $line-height-base, 2)) $alert-padding-x;
     position: absolute;
     top: 0;
     right: 0;

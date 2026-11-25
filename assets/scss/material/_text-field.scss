@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 %form-control {
   background-clip: padding-box;
   background-color: transparent;
@@ -196,7 +199,6 @@ textarea {
 
 .custom-file-label {
   @include text-truncate;
-  @include transition-standard(border-color, box-shadow);
 
   border-bottom: $textfield-border-width solid $textfield-border-color;
   color: $textfield-hint-color;
@@ -208,6 +210,8 @@ textarea {
   top: 0;
   right: 0;
   left: 0;
+
+  @include transition-standard(border-color, box-shadow);
 
   &::after {
     @include set-material-icons;

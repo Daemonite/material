@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
 .modal {
   display: none;
   outline: 0;
@@ -7,15 +12,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: map-get($dialog-elevation-shadow, elevation);
+  z-index: map.get($dialog-elevation-shadow, elevation);
 
   &.fade {
     @include transition-standard-complex(opacity);
 
     .modal-dialog {
-      @include transition-standard-complex(transform);
-
       transform: scale($dialog-transition-scale);
+
+      @include transition-standard-complex(transform);
     }
   }
 
@@ -42,7 +47,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: (map-get($dialog-elevation-shadow, elevation) - 1);
+  z-index: (map.get($dialog-elevation-shadow, elevation) - 1);
 }
 
 // Dialog
@@ -51,7 +56,7 @@
   @include border-radius($dialog-border-radius);
 
   background-color: $dialog-content-bg;
-  box-shadow: map-get($dialog-elevation-shadow, shadow);
+  box-shadow: map.get($dialog-elevation-shadow, shadow);
   display: flex;
   flex-direction: column;
   outline: 0;
@@ -169,12 +174,12 @@
   padding-left: 0;
 
   .btn {
-    @include text-align(right);
-
     border-radius: 0;
     margin-left: 0;
     max-width: none;
     padding: $dialog-footer-btn-stacked-padding-y $dialog-footer-btn-stacked-padding-x;
+
+    @include text-align(right);
   }
 }
 

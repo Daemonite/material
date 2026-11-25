@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
 // Todo: expansion panel with different background colours
 
 .list-group {
@@ -8,11 +13,9 @@
 }
 
 .list-group-item {
-  @include transition-standard(background-color, color);
-
   background-color: $expansion-panel-bg;
   border: 0;
-  box-shadow: map-get($expansion-panel-elevation-shadow, shadow);
+  box-shadow: map.get($expansion-panel-elevation-shadow, shadow);
   color: $expansion-panel-color;
   display: block;
   font-size: $expansion-panel-font-size;
@@ -20,6 +23,8 @@
   min-height: $expansion-panel-height;
   padding: $expansion-panel-padding-y $expansion-panel-padding-x;
   position: relative;
+
+  @include transition-standard(background-color, color);
 
   @include active-focus-hover {
     color: $expansion-panel-color;
@@ -95,9 +100,9 @@
 // Expansion panel
 
 .expansion-panel {
-  @include transition-standard(background-color, color, margin);
-
   padding: 0;
+
+  @include transition-standard(background-color, color, margin);
 
   &.show {
     border-radius: $expansion-panel-border-radius;

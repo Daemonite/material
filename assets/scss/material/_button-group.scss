@@ -1,9 +1,16 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+// Upstream modules whose selectors this file `@extend`s
+@use 'button';
+
 .btn-group,
 .btn-group-vertical {
   @include border-radius($btn-border-radius);
 
   background-color: $btn-group-bg;
-  box-shadow: map-get($btn-elevation-shadow, shadow);
+  box-shadow: map.get($btn-elevation-shadow, shadow);
   display: inline-flex;
   position: relative;
   vertical-align: middle;
@@ -19,11 +26,11 @@
   }
 
   > .btn {
-    @include transition-standard(border-color, opacity);
-
     box-shadow: none;
     flex: 0 1 auto;
     min-width: 0;
+
+    @include transition-standard(border-color, opacity);
 
     &.active,
     &:active {

@@ -1,3 +1,10 @@
+@use 'sass:math';
+@use '../variables' as *;
+@use '../mixins' as *;
+@use 'text-field-placeholders' as *;
+
+@include text-field-placeholder-extends;
+
 .floating-label {
   padding-top: $floating-label-font-size;
   position: relative;
@@ -5,7 +12,7 @@
   &.has-value label,
   &.is-focused label {
     top: 0;
-    transform: scale($floating-label-font-size / $textfield-font-size);
+    transform: scale(math.div($floating-label-font-size, $textfield-font-size));
   }
 
   &.is-focused label {
@@ -21,8 +28,6 @@
   }
 
   label {
-    @include transition-standard(color, top, transform);
-
     color: $floating-label-color;
     display: block;
     font-size: $textfield-font-size;
@@ -33,6 +38,8 @@
     top: ($floating-label-font-size + $textfield-padding-y);
     left: 0;
     transform-origin: 0 0;
+
+    @include transition-standard(color, top, transform);
   }
 
   %form-control {
@@ -46,10 +53,10 @@
     }
 
     &::placeholder {
-      @include transition-standard(opacity);
-
       color: transparent;
       opacity: 0;
+
+      @include transition-standard(opacity);
     }
   }
 }
@@ -59,7 +66,7 @@
 .floating-label-lg {
   &.has-value label,
   &.is-focused label {
-    transform: scale($floating-label-font-size-lg / $textfield-font-size-lg);
+    transform: scale(math.div($floating-label-font-size-lg, $textfield-font-size-lg));
   }
 
   label {
@@ -86,7 +93,7 @@
 .floating-label-sm {
   &.has-value label,
   &.is-focused label {
-    transform: scale($floating-label-font-size-sm / $textfield-font-size-sm);
+    transform: scale(math.div($floating-label-font-size-sm, $textfield-font-size-sm));
   }
 
   label {

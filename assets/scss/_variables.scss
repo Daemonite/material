@@ -1,15 +1,18 @@
+// Variables
+// `palette` must be forwarded before any module that loads `functions`, so
+// that variable overrides passed with `@use ... with (...)` reach it first.
+
+@forward 'colors';
+@forward 'variables/palette';
+@forward 'variables/elevation-shadow';
+@forward 'variables/grid';
+@forward 'variables/spacer';
+@forward 'variables/transition';
+@forward 'variables/typography';
+@forward 'variables/variable-bootstrap';
+@forward 'variables/variable-material';
+
 // Sass option
 
 $enable-grid-classes:      true !default;
 $enable-print-styles:      true !default;
-
-// Variables
-
-@import 'variables/elevation-shadow';
-@import 'variables/grid';
-@import 'variables/palette';
-@import 'variables/spacer';
-@import 'variables/transition';
-@import 'variables/typography';
-@import 'variables/variable-bootstrap';
-@import 'variables/variable-material';

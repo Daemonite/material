@@ -1,3 +1,7 @@
+@use 'sass:meta';
+@use '../variables' as *;
+@use '../mixins' as *;
+
 :root {
   @each $bp, $value in $grid-breakpoints {
     --breakpoint-#{$bp}: #{$value};
@@ -17,9 +21,9 @@
     }
   }
 
-  --font-family-monospace: #{inspect($font-family-monospace)};
-  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
-  --font-family-serif: #{inspect($font-family-serif)};
+  --font-family-monospace: #{meta.inspect($font-family-monospace)};
+  --font-family-sans-serif: #{meta.inspect($font-family-sans-serif)};
+  --font-family-serif: #{meta.inspect($font-family-serif)};
 }
 
 // stylelint-disable declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
@@ -55,8 +59,6 @@ section {
 }
 
 body {
-  @include text-align(left);
-
   background-color: $body-bg;
   color: $body-color;
   font-family: $font-family-base;
@@ -66,6 +68,8 @@ body {
   font-weight: $font-weight-base;
   line-height: $line-height-base;
   margin: 0;
+
+  @include text-align(left);
 }
 
 html {
@@ -295,13 +299,14 @@ template {
 // Table
 
 caption {
-  @include text-align(left);
   @include typography-caption;
 
   caption-side: bottom;
   color: $table-caption-color;
   min-height: $table-thead-cell-height;
   padding: $table-thead-padding-y $table-cell-padding-x-alt;
+
+  @include text-align(left);
 }
 
 table {

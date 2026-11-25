@@ -1,11 +1,15 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../functions' as *;
+@use '../mixins' as *;
+
 .btn {
   @include border-radius($btn-border-radius);
-  @include transition-standard(box-shadow);
 
   background-color: transparent;
   background-image: none;
   border: 0;
-  box-shadow: map-get($btn-elevation-shadow, shadow);
+  box-shadow: map.get($btn-elevation-shadow, shadow);
   color: $btn-color;
   display: inline-block;
   font-size: $btn-font-size;
@@ -22,6 +26,8 @@
   vertical-align: middle;
   white-space: nowrap;
 
+  @include transition-standard(box-shadow);
+
   @include active-focus-hover {
     color: $btn-color;
     text-decoration: none;
@@ -35,7 +41,7 @@
   &:active {
     background-color: $btn-bg-active;
     background-image: none;
-    box-shadow: map-get($btn-elevation-shadow-active, shadow);
+    box-shadow: map.get($btn-elevation-shadow-active, shadow);
   }
 
   &.disabled,

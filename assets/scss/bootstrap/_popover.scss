@@ -1,13 +1,17 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../mixins' as *;
+
 // N.B. Material design specifically discouragaes the usage of tooltips with rich information
 // (https://material.google.com/components/tooltips.html#tooltips-usage)
 // Therefore, popovers are styled as Material design's dialogs
 
 .popover {
-  @include reset-text;
+  @include reset-text($text-align: false);
   @include border-radius($popover-border-radius);
 
   background-color: $popover-bg;
-  box-shadow: map-get($popover-elevation-shadow, shadow);
+  box-shadow: map.get($popover-elevation-shadow, shadow);
   display: block;
   font-size: $popover-font-size;
   margin: $popover-margin;
@@ -15,7 +19,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: map-get($popover-elevation-shadow, elevation);
+  z-index: map.get($popover-elevation-shadow, elevation);
+
+  @include text-align(left);
 }
 
 .popover-body {

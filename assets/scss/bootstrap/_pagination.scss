@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .pagination {
   background-color: $pagination-bg;
   display: flex;
@@ -7,7 +10,6 @@
 
 .page-link {
   @include border-radius($pagination-border-radius);
-  @include transition-standard(color);
 
   color: $pagination-color;
   display: block;
@@ -19,6 +21,8 @@
   position: relative;
   text-align: center;
   white-space: nowrap;
+
+  @include transition-standard(color);
 
   @include active-focus-hover {
     color: $pagination-color;

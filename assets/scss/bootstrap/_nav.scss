@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -42,10 +45,11 @@
 .nav-pills {
   .nav-link {
     @include border-radius($nav-pills-border-radius);
-    @include transition-standard(background-color, color, opacity);
 
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
+
+    @include transition-standard(background-color, color, opacity);
 
     @include active-focus-hover {
       background-color: $nav-pills-bg-hover;

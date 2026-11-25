@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../mixins' as *;
+
 // Snackbar based on https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs
 
 .snackbar {
@@ -15,7 +19,7 @@
   transform: translateY(100%);
   transition: opacity 0s $transition-duration-mobile-leaving, transform $transition-duration-mobile-leaving $transition-timing-function-acceleration;
   width: 100%;
-  z-index: map-get($snackbar-elevation-shadow, elevation);
+  z-index: map.get($snackbar-elevation-shadow, elevation);
 
   @include media-breakpoint-up($snackbar-breakpoint) {
     border-radius: $snackbar-border-radius;
@@ -39,10 +43,10 @@
   }
 
   &.show {
-    @include transition-deceleration(transform);
-
     opacity: 1;
     transform: translateY(0);
+
+    @include transition-deceleration(transform);
 
     @include media-breakpoint-up($snackbar-breakpoint) {
       transform: translate(-50%, 0);
@@ -59,8 +63,6 @@
 }
 
 .snackbar-btn {
-  @include transition-standard(background-color, background-image);
-
   background-color: transparent;
   background-image: none;
   border: 0;
@@ -75,6 +77,8 @@
   padding: 0;
   text-transform: uppercase;
   white-space: nowrap;
+
+  @include transition-standard(background-color, background-image);
 
   @include focus-hover {
     color: $snackbar-btn-color-hover;

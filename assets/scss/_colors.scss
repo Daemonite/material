@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:math';
+
 // Material colour palette
 // Based on https://material.google.com/style/color.html#color-color-palette
 
@@ -276,7 +280,7 @@ $material-color-yellow-a700:      #ffd600 !default;
 
 // stylelint-disable scss/dollar-variable-default
 $ambers: () !default;
-$ambers: map-merge(
+$ambers: map.merge(
   (
     50:   $material-color-amber-050,
     100:  $material-color-amber-100,
@@ -297,7 +301,7 @@ $ambers: map-merge(
 );
 
 $blues: () !default;
-$blues: map-merge(
+$blues: map.merge(
   (
     50:   $material-color-blue-050,
     100:  $material-color-blue-100,
@@ -318,7 +322,7 @@ $blues: map-merge(
 );
 
 $blue-greys: () !default;
-$blue-greys: map-merge(
+$blue-greys: map.merge(
   (
     50:   $material-color-blue-grey-050,
     100:  $material-color-blue-grey-100,
@@ -335,7 +339,7 @@ $blue-greys: map-merge(
 );
 
 $browns: () !default;
-$browns: map-merge(
+$browns: map.merge(
   (
     50:   $material-color-brown-050,
     100:  $material-color-brown-100,
@@ -352,7 +356,7 @@ $browns: map-merge(
 );
 
 $cyans: () !default;
-$cyans: map-merge(
+$cyans: map.merge(
   (
     50:   $material-color-cyan-050,
     100:  $material-color-cyan-100,
@@ -373,7 +377,7 @@ $cyans: map-merge(
 );
 
 $deep-oranges: () !default;
-$deep-oranges: map-merge(
+$deep-oranges: map.merge(
   (
     50:   $material-color-deep-orange-050,
     100:  $material-color-deep-orange-100,
@@ -394,7 +398,7 @@ $deep-oranges: map-merge(
 );
 
 $deep-purples: () !default;
-$deep-purples: map-merge(
+$deep-purples: map.merge(
   (
     50:   $material-color-deep-purple-050,
     100:  $material-color-deep-purple-100,
@@ -415,7 +419,7 @@ $deep-purples: map-merge(
 );
 
 $greens: () !default;
-$greens: map-merge(
+$greens: map.merge(
   (
     50:   $material-color-green-050,
     100:  $material-color-green-100,
@@ -436,7 +440,7 @@ $greens: map-merge(
 );
 
 $greys: () !default;
-$greys: map-merge(
+$greys: map.merge(
   (
     50:   $material-color-grey-050,
     100:  $material-color-grey-100,
@@ -453,7 +457,7 @@ $greys: map-merge(
 );
 
 $indigos: () !default;
-$indigos: map-merge(
+$indigos: map.merge(
   (
     50:   $material-color-indigo-050,
     100:  $material-color-indigo-100,
@@ -474,7 +478,7 @@ $indigos: map-merge(
 );
 
 $light-blues: () !default;
-$light-blues: map-merge(
+$light-blues: map.merge(
   (
     50:   $material-color-light-blue-050,
     100:  $material-color-light-blue-100,
@@ -495,7 +499,7 @@ $light-blues: map-merge(
 );
 
 $light-greens: () !default;
-$light-greens: map-merge(
+$light-greens: map.merge(
   (
     50:   $material-color-light-green-050,
     100:  $material-color-light-green-100,
@@ -516,7 +520,7 @@ $light-greens: map-merge(
 );
 
 $limes: () !default;
-$limes: map-merge(
+$limes: map.merge(
   (
     50:   $material-color-lime-050,
     100:  $material-color-lime-100,
@@ -537,7 +541,7 @@ $limes: map-merge(
 );
 
 $oranges: () !default;
-$oranges: map-merge(
+$oranges: map.merge(
   (
     50:   $material-color-orange-050,
     100:  $material-color-orange-100,
@@ -558,7 +562,7 @@ $oranges: map-merge(
 );
 
 $pinks: () !default;
-$pinks: map-merge(
+$pinks: map.merge(
   (
     50:   $material-color-pink-050,
     100:  $material-color-pink-100,
@@ -579,7 +583,7 @@ $pinks: map-merge(
 );
 
 $purples: () !default;
-$purples: map-merge(
+$purples: map.merge(
   (
     50:   $material-color-purple-050,
     100:  $material-color-purple-100,
@@ -600,7 +604,7 @@ $purples: map-merge(
 );
 
 $reds: () !default;
-$reds: map-merge(
+$reds: map.merge(
   (
     50:   $material-color-red-050,
     100:  $material-color-red-100,
@@ -621,7 +625,7 @@ $reds: map-merge(
 );
 
 $teals: () !default;
-$teals: map-merge(
+$teals: map.merge(
   (
     50:   $material-color-teal-050,
     100:  $material-color-teal-100,
@@ -642,7 +646,7 @@ $teals: map-merge(
 );
 
 $yellows: () !default;
-$yellows: map-merge(
+$yellows: map.merge(
   (
     50:   $material-color-yellow-050,
     100:  $material-color-yellow-100,
@@ -663,7 +667,7 @@ $yellows: map-merge(
 );
 
 $colors: () !default;
-$colors: map-merge(
+$colors: map.merge(
   (
     'amber':       $material-color-amber-500,
     'blue':        $material-color-blue-500,
@@ -699,10 +703,10 @@ $black-secondary-opacity: 0.54 !default;
 $black-hint-opacity:      0.38 !default;
 $black-divider-opacity:   0.12 !default;
 
-$black-primary:           rgba(red($black), green($black), blue($black), $black-primary-opacity) !default;
-$black-secondary:         rgba(red($black), green($black), blue($black), $black-secondary-opacity) !default;
-$black-hint:              rgba(red($black), green($black), blue($black), $black-hint-opacity) !default;
-$black-divider:           rgba(red($black), green($black), blue($black), $black-divider-opacity) !default;
+$black-primary:           rgba(math.round(color.channel($black, 'red', $space: rgb)), math.round(color.channel($black, 'green', $space: rgb)), math.round(color.channel($black, 'blue', $space: rgb)), $black-primary-opacity) !default;
+$black-secondary:         rgba(math.round(color.channel($black, 'red', $space: rgb)), math.round(color.channel($black, 'green', $space: rgb)), math.round(color.channel($black, 'blue', $space: rgb)), $black-secondary-opacity) !default;
+$black-hint:              rgba(math.round(color.channel($black, 'red', $space: rgb)), math.round(color.channel($black, 'green', $space: rgb)), math.round(color.channel($black, 'blue', $space: rgb)), $black-hint-opacity) !default;
+$black-divider:           rgba(math.round(color.channel($black, 'red', $space: rgb)), math.round(color.channel($black, 'green', $space: rgb)), math.round(color.channel($black, 'blue', $space: rgb)), $black-divider-opacity) !default;
 
 $white:                   #ffffff !default;
 
@@ -711,10 +715,10 @@ $white-secondary-opacity: 0.7 !default;
 $white-hint-opacity:      0.5 !default;
 $white-divider-opacity:   0.12 !default;
 
-$white-primary:           rgba(red($white), green($white), blue($white), $white-primary-opacity) !default;
-$white-secondary:         rgba(red($white), green($white), blue($white), $white-secondary-opacity) !default;
-$white-hint:              rgba(red($white), green($white), blue($white), $white-hint-opacity) !default;
-$white-divider:           rgba(red($white), green($white), blue($white), $white-divider-opacity) !default;
+$white-primary:           rgba(math.round(color.channel($white, 'red', $space: rgb)), math.round(color.channel($white, 'green', $space: rgb)), math.round(color.channel($white, 'blue', $space: rgb)), $white-primary-opacity) !default;
+$white-secondary:         rgba(math.round(color.channel($white, 'red', $space: rgb)), math.round(color.channel($white, 'green', $space: rgb)), math.round(color.channel($white, 'blue', $space: rgb)), $white-secondary-opacity) !default;
+$white-hint:              rgba(math.round(color.channel($white, 'red', $space: rgb)), math.round(color.channel($white, 'green', $space: rgb)), math.round(color.channel($white, 'blue', $space: rgb)), $white-hint-opacity) !default;
+$white-divider:           rgba(math.round(color.channel($white, 'red', $space: rgb)), math.round(color.channel($white, 'green', $space: rgb)), math.round(color.channel($white, 'blue', $space: rgb)), $white-divider-opacity) !default;
 
 // Theme
 // Based on https://material.google.com/style/color.html#color-themes

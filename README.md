@@ -101,6 +101,28 @@ daemonite-material/
 
 The npm package contains `assets/` (the Sass and JavaScript source), `css/` and `js/`.
 
+### Sass
+
+The Sass entry point is `assets/scss/material.scss` (the `sass` field in `package.json`). It uses the Sass module system, so it needs [Dart Sass](https://sass-lang.com/dart-sass/) 1.79.0 or newer:
+
+```scss
+@use 'pkg:daemonite-material' as material with (
+  $primary: (color: #3f51b5, dark: #303f9f, light: #c5cae9)
+);
+
+.my-component {
+  padding: material.$spacer;
+
+  @include material.media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+```
+
+`pkg:` URLs need `--pkg-importer=node`. You can also add `node_modules` to your load paths and `@use 'daemonite-material/assets/scss/material'`. See the [theming docs](https://daemonite.github.io/material/docs/4.1/getting-started/theming/#sass) for loading parts of Material and overriding variables.
+
+**Breaking change since 4.1.1:** LibSass and node-sass can no longer compile Material's Sass. If you can't move to Dart Sass, stay on 4.1.1 or use the compiled CSS. With Dart Sass, `$var: value; @import '.../material';` still works for now, but Sass deprecates `@import`, so switch to `@use ... with (...)`.
+
 ## Documentation
 
 Material's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <https://daemonite.github.io/material/>. The docs may also be run locally.

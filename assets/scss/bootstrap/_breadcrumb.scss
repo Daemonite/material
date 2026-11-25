@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .breadcrumb {
   @include border-radius($breadcrumb-border-radius);
 
@@ -12,11 +15,11 @@
 }
 
 .breadcrumb-item {
-  @include transition-standard(color);
-
   align-items: center;
   color: $breadcrumb-item-color;
   display: flex;
+
+  @include transition-standard(color);
 
   @include active-focus-hover {
     color: $breadcrumb-item-color-hover;

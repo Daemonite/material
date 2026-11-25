@@ -1,3 +1,8 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../variables' as *;
+@use '../mixins' as *;
+
 .dropdown,
 .dropleft,
 .dropright,
@@ -7,7 +12,6 @@
 
 .dropdown-menu {
   @include border-radius($menu-border-radius);
-  @include text-align(left);
 
   background-color: transparent;
   color: inherit;
@@ -23,7 +27,9 @@
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: map-get($menu-elevation-shadow, elevation);
+  z-index: map.get($menu-elevation-shadow, elevation);
+
+  @include text-align(left);
 
   &.show {
     display: block;
@@ -72,7 +78,7 @@
   // shadow on the menu itself instead.
   &.pre-scrollable {
     background-color: $menu-bg;
-    box-shadow: map-get($menu-elevation-shadow, shadow);
+    box-shadow: map.get($menu-elevation-shadow, shadow);
 
     &::before {
       display: none;
@@ -83,7 +89,7 @@
     @include border-radius($menu-border-radius);
 
     background-color: $menu-bg;
-    box-shadow: map-get($menu-elevation-shadow, shadow);
+    box-shadow: map.get($menu-elevation-shadow, shadow);
     content: '';
     display: block;
     position: absolute;
@@ -101,10 +107,10 @@
 }
 
 .menu {
-  margin-top: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
+  margin-top: (($btn-height + $menu-padding-y) * -1 + math.div($menu-link-height - $btn-height, -2));
 
   &::before {
-    transform-origin: 0 ($menu-link-height / 2 + $menu-padding-y);
+    transform-origin: 0 (math.div($menu-link-height, 2) + $menu-padding-y);
   }
 }
 
@@ -117,7 +123,7 @@
   left: auto;
 
   &.menu::before {
-    transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+    transform-origin: 100% (math.div($menu-link-height, 2) + $menu-padding-y);
   }
 
   &::before {
@@ -163,10 +169,10 @@
 
     &.menu {
       margin-top: 0;
-      margin-bottom: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
+      margin-bottom: (($btn-height + $menu-padding-y) * -1 + math.div($menu-link-height - $btn-height, -2));
 
       &::before {
-        transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+        transform-origin: 0 calc(100% - #{math.div($menu-link-height, 2) + $menu-padding-y});
       }
     }
 
@@ -195,7 +201,7 @@
 
   .dropdown-menu-right:not([x-placement]) {
     &.menu::before {
-      transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+      transform-origin: 100% calc(100% - #{math.div($menu-link-height, 2) + $menu-padding-y});
     }
 
     &::before {
@@ -239,7 +245,7 @@
 }
 
 .menu[x-placement='bottom-end']::before {
-  transform-origin: 100% ($menu-link-height / 2 + $menu-padding-y);
+  transform-origin: 100% (math.div($menu-link-height, 2) + $menu-padding-y);
 }
 
 .menu[x-placement='left-start'],
@@ -258,15 +264,15 @@
 .menu[x-placement='top-end'],
 .menu[x-placement='top-start'] {
   margin-top: 0;
-  margin-bottom: (($btn-height + $menu-padding-y) * -1 + ($menu-link-height - $btn-height) / -2);
+  margin-bottom: (($btn-height + $menu-padding-y) * -1 + math.div($menu-link-height - $btn-height, -2));
 }
 
 .menu[x-placement='top-end']::before {
-  transform-origin: 100% calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+  transform-origin: 100% calc(100% - #{math.div($menu-link-height, 2) + $menu-padding-y});
 }
 
 .menu[x-placement='top-start']::before {
-  transform-origin: 0 calc(100% - #{$menu-link-height / 2 + $menu-padding-y});
+  transform-origin: 0 calc(100% - #{math.div($menu-link-height, 2) + $menu-padding-y});
 }
 
 @keyframes dropdown-item-show {
@@ -331,11 +337,11 @@
   }
 
   20% {
-    transform: scale((1 / 3), 0);
+    transform: scale(math.div(1, 3), 0);
   }
 
   40% {
-    transform: scale((2 / 3), 0.25);
+    transform: scale(math.div(2, 3), 0.25);
   }
 
   60% {
@@ -376,20 +382,20 @@
 }
 
 .menu-cascading {
-  margin-top: (($menu-link-height-cascading - ($menu-link-height-cascading - $menu-line-height-cascading) / 2) * -1 + $menu-padding-y-cascading * -1);
+  margin-top: (($menu-link-height-cascading - math.div($menu-link-height-cascading - $menu-line-height-cascading, 2)) * -1 + $menu-padding-y-cascading * -1);
 
   &[x-placement='top-end'],
   &[x-placement='top-start'] {
     margin-top: 0;
-    margin-bottom: (($menu-link-height-cascading - ($menu-link-height-cascading - $menu-line-height-cascading) / 2) * -1 + $menu-padding-y-cascading * -1);
+    margin-bottom: (($menu-link-height-cascading - math.div($menu-link-height-cascading - $menu-line-height-cascading, 2)) * -1 + $menu-padding-y-cascading * -1);
   }
 
   &[x-placement='top-end']::before {
-    transform-origin: 100% calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
+    transform-origin: 100% calc(100% - #{math.div($menu-link-height-cascading, 2) + $menu-padding-y-cascading});
   }
 
   &[x-placement='top-start']::before {
-    transform-origin: 0 calc(100% - #{$menu-link-height-cascading / 2 + $menu-padding-y-cascading});
+    transform-origin: 0 calc(100% - #{math.div($menu-link-height-cascading, 2) + $menu-padding-y-cascading});
   }
 }
 
@@ -422,8 +428,6 @@
 // Link
 
 .dropdown-item {
-  @include transition-standard(background-color, color);
-
   background: none;
   border: 0;
   clear: both;
@@ -436,6 +440,8 @@
   transform-origin: 0 0;
   white-space: nowrap;
   width: 100%;
+
+  @include transition-standard(background-color, color);
 
   @include active-focus-hover {
     background-color: $menu-link-bg-hover;

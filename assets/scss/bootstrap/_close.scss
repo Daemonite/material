@@ -1,6 +1,7 @@
-.close {
-  @include transition-standard(color);
+@use '../variables' as *;
+@use '../mixins' as *;
 
+.close {
   appearance: none;
   background-color: transparent;
   background-image: none;
@@ -11,6 +12,8 @@
   font-weight: $close-font-weight;
   line-height: 1;
   padding: 0;
+
+  @include transition-standard(color);
 
   @include active-focus-hover {
     color: $close-color-hover;
