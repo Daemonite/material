@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:math';
+
 .navdrawer {
   display: none;
   outline: 0;
@@ -7,7 +10,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: map-get($navdrawer-elevation-shadow, elevation);
+  z-index: map.get($navdrawer-elevation-shadow, elevation);
 }
 
 // Backdrop
@@ -22,7 +25,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: (map-get($navdrawer-elevation-shadow, elevation) - 1);
+  z-index: (map.get($navdrawer-elevation-shadow, elevation) - 1);
 
   &.show {
     opacity: 1;
@@ -54,7 +57,7 @@
   .navdrawer.show & {
     @include transition-deceleration(box-shadow, transform);
 
-    box-shadow: map-get($navdrawer-elevation-shadow, shadow);
+    box-shadow: map.get($navdrawer-elevation-shadow, shadow);
     transform: translate3d(0, 0, 0);
   }
 }
@@ -89,7 +92,7 @@
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
-  padding: (($navdrawer-subheader-height - $navdrawer-subheader-font-size) / 2) $navdrawer-inner-spacer-x;
+  padding: math.div($navdrawer-subheader-height - $navdrawer-subheader-font-size, 2) $navdrawer-inner-spacer-x;
 
   .navdrawer-divider + & {
     margin-top: ($navdrawer-inner-spacer-y * -1);
@@ -119,7 +122,7 @@
     font-size: $navdrawer-nav-link-font-size;
     font-weight: $navdrawer-nav-link-font-weight;
     line-height: 1;
-    padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x;
+    padding: math.div($navdrawer-nav-link-height - $navdrawer-nav-link-font-size, 2) $navdrawer-inner-spacer-x;
 
     @include active-focus-hover {
       background-color: $navdrawer-nav-link-bg-hover;
@@ -161,7 +164,7 @@
 
 // Permanent, persistent and temporary variations
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   $next: breakpoint-next($breakpoint);
   $infix: breakpoint-infix($next);
 
@@ -233,7 +236,7 @@
         border-top: $navdrawer-border-width solid $navdrawer-border-color;
         margin-top: ($navdrawer-border-width * -1);
         top: $toolbar-height;
-        z-index: (map-get($toolbar-elevation-shadow, elevation) - 1);
+        z-index: (map.get($toolbar-elevation-shadow, elevation) - 1);
       }
 
       &.navdrawer-right {

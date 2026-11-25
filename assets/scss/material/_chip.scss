@@ -1,8 +1,11 @@
+@use 'sass:map';
+@use 'sass:math';
+
 .chip {
   align-items: center;
   background-color: $chip-bg;
   border: 0;
-  border-radius: ($chip-height / 2);
+  border-radius: math.div($chip-height, 2);
   color: $chip-color;
   display: inline-flex;
   font-size: $chip-font-size;
@@ -45,7 +48,7 @@
   @include transition-standard(background-color, box-shadow);
 
   @include active-focus-hover {
-    box-shadow: map-get($chip-elevation-shadow-hover, shadow);
+    box-shadow: map.get($chip-elevation-shadow-hover, shadow);
     color: $chip-color;
     text-decoration: none;
   }
@@ -64,7 +67,7 @@
 
   align-items: center;
   background-color: $chip-icon-bg;
-  border-radius: ($chip-height / 2);
+  border-radius: math.div($chip-height, 2);
   color: color-yiq($chip-icon-bg);
   display: inline-flex;
   flex-shrink: 0;
@@ -81,7 +84,7 @@
 }
 
 .chip-img {
-  border-radius: ($chip-height / 2);
+  border-radius: math.div($chip-height, 2);
   flex-shrink: 0;
   height: $chip-height;
   margin-right: ($chip-inner-spacer-x * 2);

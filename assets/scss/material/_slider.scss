@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .custom-range {
   appearance: none;
   background-color: transparent;
@@ -80,13 +82,13 @@
     background-color: $slider-thumb-bg;
     height: $slider-track-height;
     margin-bottom: $slider-track-height;
-    margin-left: ($slider-thumb-size / 2);
+    margin-left: math.div($slider-thumb-size, 2);
   }
 
   &::-ms-fill-upper {
     background-color: $slider-track-bg;
     height: $slider-track-height;
-    margin-right: ($slider-thumb-size / 2);
+    margin-right: math.div($slider-thumb-size, 2);
     margin-bottom: $slider-track-height;
   }
 
@@ -98,12 +100,12 @@
     border: 0;
     border-radius: 50%;
     height: $slider-thumb-size;
-    margin-right: ($slider-thumb-size / 2);
-    margin-left: ($slider-thumb-size / 2);
+    margin-right: math.div($slider-thumb-size, 2);
+    margin-left: math.div($slider-thumb-size, 2);
     width: $slider-thumb-size;
 
     &:active {
-      box-shadow: 0 0 0 ($slider-thumb-size / 2) $slider-thumb-bg;
+      box-shadow: 0 0 0 math.div($slider-thumb-size, 2) $slider-thumb-bg;
     }
 
     &:focus {
@@ -143,11 +145,11 @@
     border: 0;
     border-radius: 50%;
     height: $slider-thumb-size;
-    margin-top: (($slider-thumb-size - $slider-track-height) / -2);
+    margin-top: math.div($slider-thumb-size - $slider-track-height, -2);
     width: $slider-thumb-size;
 
     &:active {
-      box-shadow: 0 0 0 ($slider-thumb-size / 2) $slider-thumb-bg;
+      box-shadow: 0 0 0 math.div($slider-thumb-size, 2) $slider-thumb-bg;
     }
 
     &:focus {

@@ -1,11 +1,13 @@
+@use 'sass:map';
+
 // stylelint-disable declaration-no-important
 
 .shadow {
-  box-shadow: map-get($shadows, 8) !important;
+  box-shadow: map.get($shadows, 8) !important;
 }
 
 .shadow-lg {
-  box-shadow: map-get($shadows, 24) !important;
+  box-shadow: map.get($shadows, 24) !important;
 }
 
 .shadow-none {
@@ -13,7 +15,7 @@
 }
 
 .shadow-sm {
-  box-shadow: map-get($shadows, 2) !important;
+  box-shadow: map.get($shadows, 2) !important;
 }
 
 @each $shadow, $value in $shadows {

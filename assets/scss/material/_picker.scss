@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:math';
+
 .picker {
   outline: 0;
   overflow: hidden;
@@ -10,7 +13,7 @@
   transition-delay: ($transition-duration-mobile + $transition-duration-mobile-complex);
   transition-duration: 0;
   transition-property: transform;
-  z-index: map-get($picker-elevation-shadow, elevation);
+  z-index: map.get($picker-elevation-shadow, elevation);
 
   @include media-breakpoint-up(sm) {
     transition-delay: ($transition-duration-tablet + $transition-duration-tablet-complex);
@@ -68,7 +71,7 @@
   @include transition-standard-complex(opacity, transform);
   @include typography-body-1;
 
-  box-shadow: map-get($picker-elevation-shadow, shadow);
+  box-shadow: map.get($picker-elevation-shadow, shadow);
   max-width: ($picker-cell-size * 7 + $picker-inner-spacer-x * 2);
   opacity: 0;
   outline: 0;
@@ -145,7 +148,7 @@
 .picker-nav-next,
 .picker-nav-prev {
   height: $picker-cell-size;
-  margin-top: ($picker-cell-size / -2);
+  margin-top: math.div($picker-cell-size, -2);
   position: absolute;
   top: 50%;
   width: $picker-cell-size;
@@ -259,8 +262,8 @@
   width: $picker-cell-size;
 
   @media (orientation: landscape) {
-    margin-right: ($picker-inner-spacer-x / 2);
-    margin-left: ($picker-inner-spacer-x / 2);
+    margin-right: math.div($picker-inner-spacer-x, 2);
+    margin-left: math.div($picker-inner-spacer-x, 2);
   }
 
   &.picker-day-selected {
@@ -323,10 +326,10 @@
   color: $textfield-color;
   display: inline-block;
   font-size: inherit;
-  height: ($picker-cell-size / 2);
-  line-height: ($picker-cell-size / 2);
+  height: math.div($picker-cell-size, 2);
+  line-height: math.div($picker-cell-size, 2);
   opacity: $picker-select-opacity;
-  padding: 0 ($picker-cell-size / 2) 0 $picker-inner-spacer-x;
+  padding: 0 math.div($picker-cell-size, 2) 0 $picker-inner-spacer-x;
 
   @include focus-hover {
     opacity: 1;

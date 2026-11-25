@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // Snackbar based on https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs
 
 .snackbar {
@@ -15,7 +17,7 @@
   transform: translateY(100%);
   transition: opacity 0s $transition-duration-mobile-leaving, transform $transition-duration-mobile-leaving $transition-timing-function-acceleration;
   width: 100%;
-  z-index: map-get($snackbar-elevation-shadow, elevation);
+  z-index: map.get($snackbar-elevation-shadow, elevation);
 
   @include media-breakpoint-up($snackbar-breakpoint) {
     border-radius: $snackbar-border-radius;

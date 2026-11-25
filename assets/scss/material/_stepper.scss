@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Todo: only non-clickable stepper is supported for now
 
 .stepper {
@@ -71,7 +73,7 @@
     &::before {
       border-left: $stepper-border-width solid $stepper-border-color;
       height: ($stepper-padding-y - $stepper-inner-spacer);
-      left: ($stepper-icon-height / 2 + $stepper-padding-x);
+      left: (math.div($stepper-icon-height, 2) + $stepper-padding-x);
     }
 
     &::after {

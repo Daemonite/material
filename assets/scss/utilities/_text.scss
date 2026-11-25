@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // stylelint-disable declaration-no-important
 
 // Alignment
@@ -14,7 +16,7 @@
   @include text-truncate;
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint);
 

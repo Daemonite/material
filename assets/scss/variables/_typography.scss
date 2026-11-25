@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // A base value used to responsively scale all typography, applied to the `<html>` element
 
 $font-size-root: 16px !default;
@@ -78,7 +80,7 @@ $line-height-caption:    1.5 !default;      // 18px
 
 // Material icons default size
 
-$material-icon-size: (24 / strip-unit($font-size-root) * 1rem) !default;
+$material-icon-size: (math.div(24, strip-unit($font-size-root)) * 1rem) !default;
 
 // Font used for the icons Material draws itself (checkboxes, radios, selects, etc.).
 // Set to e.g. 'Material Icons Outlined' when using another Material Icons variant.

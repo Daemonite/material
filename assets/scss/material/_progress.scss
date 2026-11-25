@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Material design does not have specs for striped progress bars
 // so striped progress bars have been styled according to the "buffer" variation of linear indicator
 // (https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators)
@@ -64,10 +66,10 @@
   @each $color, $values in $theme-colors {
     &.bg-#{$color}::before {
       // stylelint-disable value-no-vendor-prefix, comment-empty-line-before
-      background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      background-image: repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, theme-color-light($color), theme-color-light($color) #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
       /* autoprefixer: ignore next */
-      background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-      background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, theme-color-light($color), theme-color-light($color) #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+      background-image: -webkit-repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, theme-color-light($color), theme-color-light($color) #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
+      background-image: -moz-repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, theme-color-light($color), theme-color-light($color) #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
       // stylelint-enable
     }
   }
@@ -81,10 +83,10 @@
 
   &::before {
     // stylelint-disable value-no-vendor-prefix, comment-empty-line-before
-    background-image: repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    background-image: repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, #{$progress-bg}, #{$progress-bg} #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
     /* autoprefixer: ignore next */
-    background-image: -webkit-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
-    background-image: -moz-repeating-radial-gradient(#{$progress-bar-height / 2} #{$progress-bar-height / 2}, #{$progress-bg}, #{$progress-bg} #{$progress-bar-height / 2}, transparent #{$progress-bar-height / 2}, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, #{$progress-bg}, #{$progress-bg} #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(#{math.div($progress-bar-height, 2)} #{math.div($progress-bar-height, 2)}, #{$progress-bg}, #{$progress-bg} #{math.div($progress-bar-height, 2)}, transparent #{math.div($progress-bar-height, 2)}, transparent 100%);
     // stylelint-enable
     background-position: 0 0;
     background-repeat: repeat-x;

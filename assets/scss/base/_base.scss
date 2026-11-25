@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 :root {
   @each $bp, $value in $grid-breakpoints {
     --breakpoint-#{$bp}: #{$value};
@@ -17,9 +19,9 @@
     }
   }
 
-  --font-family-monospace: #{inspect($font-family-monospace)};
-  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
-  --font-family-serif: #{inspect($font-family-serif)};
+  --font-family-monospace: #{meta.inspect($font-family-monospace)};
+  --font-family-sans-serif: #{meta.inspect($font-family-sans-serif)};
+  --font-family-serif: #{meta.inspect($font-family-serif)};
 }
 
 // stylelint-disable declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix

@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 .table {
   background-color: $table-bg;
   border: 0;
@@ -296,7 +298,7 @@
 // Table responsive
 
 .table-responsive {
-  @each $breakpoint in map-keys($grid-breakpoints) {
+  @each $breakpoint in map.keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint);
     $infix: breakpoint-infix($next);
 

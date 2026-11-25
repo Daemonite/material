@@ -1,6 +1,8 @@
+@use 'sass:map';
+
 .btn-float {
   border-radius: 50%;
-  box-shadow: map-get($btn-float-elevation-shadow, shadow);
+  box-shadow: map.get($btn-float-elevation-shadow, shadow);
   height: $btn-float-size;
   line-height: $btn-float-size;
   min-width: 0;
@@ -9,7 +11,7 @@
 
   &.active,
   &:active {
-    box-shadow: map-get($btn-float-elevation-shadow-active, shadow);
+    box-shadow: map.get($btn-float-elevation-shadow-active, shadow);
   }
 
   &.disabled,

@@ -1,14 +1,17 @@
+@use 'sass:map';
+@use 'sass:math';
+
 @mixin make-grid-columns() {
   %grid-column {
     min-height: 1px;
-    padding-right: ($grid-gutter-width / 2);
-    padding-left: ($grid-gutter-width / 2);
+    padding-right: math.div($grid-gutter-width, 2);
+    padding-left: math.div($grid-gutter-width, 2);
     position: relative;
     width: 100%;
   }
 
   // stylelint-disable-next-line order/order
-  @each $breakpoint in map-keys($grid-breakpoints) {
+  @each $breakpoint in map.keys($grid-breakpoints) {
     $infix: breakpoint-infix($breakpoint);
 
     @for $i from 1 through $grid-columns {
