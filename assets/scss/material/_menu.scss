@@ -67,6 +67,18 @@
     }
   }
 
+  // Scrollable menus (`.pre-scrollable`): the animated `::before` surface would scroll away
+  // with the items and its shadow would be clipped by `overflow`, so paint the surface and
+  // shadow on the menu itself instead.
+  &.pre-scrollable {
+    background-color: $menu-bg;
+    box-shadow: map-get($menu-elevation-shadow, shadow);
+
+    &::before {
+      display: none;
+    }
+  }
+
   &::before {
     @include border-radius($menu-border-radius);
 
