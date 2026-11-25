@@ -1,66 +1,69 @@
-@import 'colors';
-@import 'functions';
-@import 'mixins';
-@import 'variables';
+// Expose variables, functions and mixins to consumers, e.g.
+// `@use 'material' with ($primary: ...)` or `@include material.media-breakpoint-up(md)`.
+
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';
 
 // Base CSS
 
-@import 'base/base';
-@import 'base/grid';
-@import 'base/typography';
+@use 'base/base';
+@use 'base/grid';
+@use 'base/typography';
 
 // Bootstrap components
 // Components covered in Bootstrap's css but not in Material design
 
-@import 'bootstrap/alert';
-@import 'bootstrap/badge';
-@import 'bootstrap/breadcrumb';
-@import 'bootstrap/carousel';
-@import 'bootstrap/close';
-@import 'bootstrap/code';
-@import 'bootstrap/form';
-@import 'bootstrap/image';
-@import 'bootstrap/jumbotron';
-@import 'bootstrap/media';
-@import 'bootstrap/nav';
-@import 'bootstrap/pagination';
-@import 'bootstrap/popover';
-@import 'bootstrap/responsive-embed';
-@import 'bootstrap/transition';
+@use 'bootstrap/alert';
+@use 'bootstrap/badge';
+@use 'bootstrap/breadcrumb';
+@use 'bootstrap/carousel';
+@use 'bootstrap/close';
+@use 'bootstrap/code';
+@use 'bootstrap/form';
+@use 'bootstrap/image';
+@use 'bootstrap/jumbotron';
+@use 'bootstrap/media';
+@use 'bootstrap/nav';
+@use 'bootstrap/pagination';
+@use 'bootstrap/popover';
+@use 'bootstrap/responsive-embed';
+@use 'bootstrap/transition';
 
 // Material components
 // Components covered in Material design (https://material.google.com/components)
 
-@import 'material/button';
-@import 'material/button-flat';
-@import 'material/button-float';
-@import 'material/button-group';
-@import 'material/card';
-@import 'material/chip';
-@import 'material/data-table';
-@import 'material/dialog';
-@import 'material/expansion-panel';
-@import 'material/menu';
-@import 'material/navdrawer';
-@import 'material/picker';
-@import 'material/progress';
-@import 'material/progress-circular';
-@import 'material/selection-control';
-@import 'material/slider';
-@import 'material/snackbar';
-@import 'material/stepper';
-@import 'material/tab';
-@import 'material/text-field';
-@import 'material/text-field-box';
-@import 'material/text-field-floating-label';
-@import 'material/text-field-input-group';
-@import 'material/toolbar';
-@import 'material/tooltip';
+@use 'material/button';
+@use 'material/button-flat';
+@use 'material/button-float';
+@use 'material/button-group';
+@use 'material/card';
+@use 'material/chip';
+@use 'material/data-table';
+@use 'material/dialog';
+@use 'material/expansion-panel';
+@use 'material/menu';
+@use 'material/navdrawer';
+@use 'material/picker';
+@use 'material/progress';
+@use 'material/progress-circular';
+@use 'material/selection-control';
+@use 'material/slider';
+@use 'material/snackbar';
+@use 'material/stepper';
+@use 'material/tab';
+@use 'material/text-field';
+@use 'material/text-field-box';
+@use 'material/text-field-floating-label';
+@use 'material/text-field-input-group';
+@use 'material/text-field-extend';
+@use 'material/toolbar';
+@use 'material/tooltip';
 
 // Utilities
 
-@import 'utilities';
+@use 'utilities';
 
 // Very basic print styles
 
-@import 'print';
+@use 'print';

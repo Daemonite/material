@@ -1,34 +1,9 @@
 @use 'sass:color';
-@use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
 @use 'sass:string';
-
-@mixin _assert-ascending($map, $map-name) {
-  $prev-key: null;
-  $prev-num: null;
-
-  @each $key, $num in $map {
-    @if $prev-num == null {
-      // Do nothing
-    } @else if not math.compatible($num, $prev-num) {
-      @warn 'Potentially invalid value for #{$map-name}: This map must be in ascending order, but key "#{$key}" has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key "#{$prev-key}"!';
-    } @else if $num <= $prev-num {
-      @warn 'Invalid value for #{$map-name}: This map must be in ascending order, but key "#{$key}" has value #{$num} which is not greater than #{$prev-num}, the value of the previous key "#{$prev-key}"!';
-    }
-
-    $prev-key: $key;
-    $prev-num: $num;
-  }
-}
-
-@mixin _assert-starts-at-zero($map) {
-  $first-value: list.nth(map.values($map), 1);
-
-  @if $first-value != 0 {
-    @warn 'First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.';
-  }
-}
+@use 'colors' as *;
+@use 'variables/palette' as *;
 
 // Colour contrast
 

@@ -1,4 +1,6 @@
 @use 'sass:map';
+@use '../variables' as *;
+@use '../mixins' as *;
 
 @each $breakpoint in map.keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
