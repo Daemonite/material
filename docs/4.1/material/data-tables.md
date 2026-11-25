@@ -13,7 +13,7 @@ Tables may be embedded within a card. Wrap the table in `.table-responsive` so t
 
 {% capture example %}
 <div class="card">
-  <div class="table-responsive">
+  <div class="table-responsive rounded">
     <table class="table mb-0">
       <thead>
         <tr>

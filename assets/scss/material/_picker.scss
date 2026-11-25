@@ -150,6 +150,14 @@
   top: 50%;
   width: $picker-cell-size;
 
+  // The arrows use the `.material-icons` class, whose font comes from Google's filled Material
+  // Icons stylesheet; follow `$material-icon-font-family` when only a variant is loaded.
+  @if $material-icon-font-family != 'Material Icons' {
+    &.material-icons {
+      @include set-material-icons;
+    }
+  }
+
   &,
   &.material-icons {
     line-height: $picker-cell-size;

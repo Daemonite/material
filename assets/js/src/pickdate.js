@@ -195,7 +195,10 @@ const PickDate = (($) => {
 
       datepickerApi.on({
         close: () => {
-          $(document.activeElement).blur()
+          // An editable input keeps focus on close so the user can type into it
+          if (!this._config.editable) {
+            $(document.activeElement).blur()
+          }
         },
         open: () => {
           if (!$('.picker__date-display', datepickerRoot).length) {

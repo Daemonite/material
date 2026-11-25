@@ -385,7 +385,7 @@ picker.clear();
 picker.open();
 picker.close();
 
-// Remove the picker and restore the original input
+// Stop the picker and remove its calendar
 picker.stop();
 {% endhighlight %}
 
@@ -401,4 +401,4 @@ $('#inputDueDate').pickdate({
 });
 {% endhighlight %}
 
-With `editable: true` the input accepts typing, so a keyboard may appear on mobile devices. Alternatively, keep the default and validate the value in your own form-submit handler.
+With `editable: true` the input also accepts typing, so a keyboard may appear on mobile devices. The picker doesn't parse typed text: its selection and the hidden `formatSubmit` input stay unchanged. Validate the typed format yourself (for example with a `pattern` attribute) and read the input's own value. Alternatively, keep the default and validate the value in your own form-submit handler.
