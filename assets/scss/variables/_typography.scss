@@ -98,7 +98,9 @@ $roboto-fm-ascender:        1946 !default;
 $roboto-fm-capital-height:  1456 !default;
 $roboto-fm-descender:       512 !default;
 
-$roboto-capital-height:     (strip-unit($font-size-base) * strip-unit($font-size-root) * strip-unit($line-height-base)) !default;
-$roboto-computed-font-size: math.div($roboto-capital-height, $roboto-fm-capital-height) !default;
-$roboto-distance-bottom:    $roboto-fm-descender !default;
-$roboto-distance-top:       ($roboto-fm-ascender - $roboto-fm-capital-height) !default;
+// Derived from the values above inside `reset-material-icons` when left `null`,
+// so changing a metric after loading Material still takes effect.
+$roboto-capital-height:     null !default;
+$roboto-computed-font-size: null !default;
+$roboto-distance-bottom:    null !default;
+$roboto-distance-top:       null !default;

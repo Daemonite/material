@@ -265,6 +265,10 @@ $body-bg: #212121;
 
 To migrate, move the overrides into `with (...)` as shown above and prefix any Material variables, functions and mixins you use with the namespace (`$spacer` becomes `material.$spacer`). The private `_assert-ascending` and `_assert-starts-at-zero` mixins are no longer part of `_functions.scss`.
 
+Only `@import` of the whole of Material (`material.scss`) keeps working. If you previously imported selected files (`colors`, `functions`, `mixins`, `variables` and then individual components), that fails because those files now load each other; switch to `@use` as in Option B above.
+
+If your own Sass `@extend`s one of Material's placeholders (such as `%form-control`), load Material with `@use`. With `@import`, older Dart Sass releases (such as 1.79) can miss some of the combined selectors.
+
 ### Maps
 
 Material includes a handful of Sass maps that make it easier to generate families of related CSS. We use Sass maps for our breakpoints, colours, and more. Just like Sass variables, all Sass maps include the `!default` flag and can be overridden and extended.
