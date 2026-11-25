@@ -225,7 +225,7 @@ For example, you can create a `custom.scss` and load either all of Material's so
 
 Each partial loads the variables, functions and mixins it needs, so the optional partials can be loaded in any combination. Keep them in the order used by `material.scss` so the cascade stays the same.
 
-The text field partials share `@extend` placeholders. `material/text-field` works on its own, but to use the box, floating label or input group variants, load `material/text-field-extend` after `material/text-field`. It loads `text-field-box`, `text-field-floating-label` and `text-field-input-group` (plus the `button` and `bootstrap/form` partials they extend) and applies the shared extends to them.
+The text field variants (`text-field-box`, `text-field-floating-label` and `text-field-input-group`) build on `material/text-field`, so load it before them.
 
 `material.scss` forwards Material's variables, functions and mixins, so with Option A you can use them through the namespace, e.g. `material.$spacer`, `material.theme-color(primary)` or `@include material.media-breakpoint-up(md) { ... }`.
 
@@ -460,12 +460,11 @@ To add a new colour to `$theme-colors`, pass the new key and value when you load
 );
 {% endhighlight %}
 
-Or, using Material's colour palette:
+Or, using Material's colour palette. Configure the `variables/palette` module directly here, because older Dart Sass releases (such as 1.79) refuse to configure Material with `with (...)` once `colors` has been loaded.
 
 {% highlight scss %}
 @use "pkg:daemonite-material/assets/scss/colors";
-
-@use "pkg:daemonite-material" as material with (
+@use "pkg:daemonite-material/assets/scss/variables/palette" with (
   $theme-colors: (
     "custom-color": (
       color: colors.$material-color-amber-500,
@@ -474,6 +473,7 @@ Or, using Material's colour palette:
     )
   )
 );
+@use "pkg:daemonite-material" as material;
 {% endhighlight %}
 
 #### Modify a theme colour

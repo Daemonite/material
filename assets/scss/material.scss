@@ -56,13 +56,13 @@
 @use 'material/text-field-box';
 @use 'material/text-field-floating-label';
 @use 'material/text-field-input-group';
-@use 'material/text-field-extend';
 @use 'material/toolbar';
 @use 'material/tooltip';
 
 // Utilities
 
-@use 'utilities';
+// Forwarded (not just loaded) so `$positions` stays available to consumers.
+@forward 'utilities' show $positions;
 
 // Very basic print styles
 

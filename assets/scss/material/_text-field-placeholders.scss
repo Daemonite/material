@@ -1,0 +1,43 @@
+// The text field partials style `%form-control`, `%form-select` and
+// `%form-textarea`. An `@extend` only reaches the module it's in and the
+// modules that module loads, so each partial that uses the placeholders
+// includes these extends itself. That way each partial also works when loaded
+// on its own. This module isn't forwarded by `_mixins.scss`.
+
+// The extends are listed in the order that keeps the compiled selector lists
+// unchanged, so the usual rule order doesn't apply. The qualified selectors
+// mirror the ones in _text-field.scss.
+// stylelint-disable order/order, selector-no-qualifying-type
+
+@mixin text-field-placeholder-extends {
+  .form-control {
+    @extend %form-control;
+  }
+
+  select.form-control {
+    @extend %form-select;
+
+    &[multiple],
+    &[size]:not([size='1']) {
+      @extend %form-textarea;
+    }
+  }
+
+  textarea.form-control:not([rows='1']) {
+    @extend %form-textarea;
+  }
+
+  .custom-select {
+    @extend %form-control;
+    @extend %form-select;
+
+    &[multiple],
+    &[size]:not([size='1']) {
+      @extend %form-textarea;
+    }
+  }
+
+  .form-control-file {
+    @extend %form-control;
+  }
+}

@@ -87,3 +87,18 @@ $material-icon-size: (math.div(24, strip-unit($font-size-root)) * 1rem) !default
 // Set to e.g. 'Material Icons Outlined' when using another Material Icons variant.
 
 $material-icon-font-family: 'Material Icons' !default;
+
+// Vertical alignment of Material icons (used by `reset-material-icons`)
+// Calculated using the technique illustrated in:
+// https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+// Font metrics used in the calculation are from Roboto Regular:
+// https://github.com/google/fonts/blob/master/apache/roboto/Roboto-Regular.ttf
+
+$roboto-fm-ascender:        1946 !default;
+$roboto-fm-capital-height:  1456 !default;
+$roboto-fm-descender:       512 !default;
+
+$roboto-capital-height:     (strip-unit($font-size-base) * strip-unit($font-size-root) * strip-unit($line-height-base)) !default;
+$roboto-computed-font-size: math.div($roboto-capital-height, $roboto-fm-capital-height) !default;
+$roboto-distance-bottom:    $roboto-fm-descender !default;
+$roboto-distance-top:       ($roboto-fm-ascender - $roboto-fm-capital-height) !default;

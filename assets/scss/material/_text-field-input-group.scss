@@ -1,11 +1,14 @@
 @use 'sass:math';
 @use '../variables' as *;
 @use '../mixins' as *;
+@use 'text-field-placeholders' as *;
 // Upstream modules whose selectors this file `@extend`s
 @use '../bootstrap/form';
 @use 'button';
 @use 'text-field-box';
 @use 'text-field-floating-label';
+
+@include text-field-placeholder-extends;
 
 .input-group {
   align-items: center;
