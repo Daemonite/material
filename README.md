@@ -7,8 +7,9 @@ Daemonite's Material UI is a cross-platform and fully responsive front-end inter
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design.
 
-> A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
-> https://m2.material.io/guidelines/material-design/introduction.html
+> We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
+>
+> — [Material Design guidelines (2014–2017 archive)](https://m1.material.io/material-design/introduction.html)
 
 Feel free to check out our [documentation site](https://daemonite.github.io/material/), or report bugs and ask questions in [GitHub issues](https://github.com/Daemonite/material/issues).
 
@@ -23,8 +24,8 @@ Because these components will require additional markup (some may require additi
 Material is in **maintenance mode**:
 
 - The current release, 4.1.1, is built on Bootstrap 4.1 and follows the original Material Design guidelines (before Google's 2018 refresh).
-- We keep 4.x working: dependency and security updates, plus bug fixes. Issues and pull requests that fix bugs are welcome. New components and design changes are out of scope for now.
-- Next up is a maintenance release built on Bootstrap 4.6.2, the final Bootstrap 4 release ([#333](https://github.com/Daemonite/material/issues/333)).
+- We maintain 4.x with dependency updates, security fixes and bug fixes. Issues and pull requests that fix bugs are welcome. Visual redesigns and new features beyond Bootstrap 4 compatibility are out of scope for now.
+- Next up is a maintenance release built on Bootstrap 4.6.2, the final Bootstrap 4 release ([#333](https://github.com/Daemonite/material/issues/333)). It adds Material styling for the components Bootstrap introduced since 4.1, such as toasts and spinners.
 - Bootstrap 5 will be considered once the 4.6 release has bedded down.
 
 If you need Bootstrap 4.6 or newer Material styling today, take a look at [djibe's fork](https://github.com/djibe/material) (`djibe-material` on npm).
@@ -48,13 +49,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/material/sponsor/0/website" target="_blank"><img src="https://opencollective.com/material/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/material/sponsor/1/website" target="_blank"><img src="https://opencollective.com/material/sponsor/1/avatar.svg"></a>
 <a href="https://opencollective.com/material/sponsor/2/website" target="_blank"><img src="https://opencollective.com/material/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/3/website" target="_blank"><img src="https://opencollective.com/material/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/4/website" target="_blank"><img src="https://opencollective.com/material/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/5/website" target="_blank"><img src="https://opencollective.com/material/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/6/website" target="_blank"><img src="https://opencollective.com/material/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/7/website" target="_blank"><img src="https://opencollective.com/material/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/8/website" target="_blank"><img src="https://opencollective.com/material/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/9/website" target="_blank"><img src="https://opencollective.com/material/sponsor/9/avatar.svg"></a>
 
 ## Table of contents
 
@@ -66,7 +60,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 ## Content
 
-Within the download you will find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+The compiled download (`material-<version>-dist.zip` on the [releases page](https://github.com/Daemonite/material/releases)) contains the following directories and files, with both compiled and minified variations:
 
 ```
 daemonite-material/
@@ -84,7 +78,7 @@ daemonite-material/
 
 We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`). CSS and JavaScript source maps (`material.*.map`) are available for use with certain browsers' developer tools.
 
-The Material source code download includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
+The source code archive on GitHub, like a clone of the repo, includes the precompiled CSS and JavaScript along with the documentation and source assets:
 
 ```
 daemonite-material/
@@ -104,6 +98,8 @@ daemonite-material/
     ├── material.min.js
     └── material.min.js.map
 ```
+
+The npm package contains `assets/` (the Sass and JavaScript source), `css/` and `js/`.
 
 ## Documentation
 
