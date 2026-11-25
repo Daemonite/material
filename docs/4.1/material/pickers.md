@@ -97,6 +97,10 @@ $('.datepicker').pickdate({
         <td>Disable a date or a set of dates from being selectable in the picker. See below for detailed usage.</td>
       </tr>
       <tr>
+        <td class="text-nowrap">editable</td>
+        <td>Default is <code>false</code>, which makes the input <code>readonly</code> so that a mobile keyboard doesn't pop up. Browsers skip <code>readonly</code> inputs during form validation, so set this to <code>true</code> if you rely on attributes such as <code>required</code>. See <a href="#form-validation">form validation</a> below.</td>
+      </tr>
+      <tr>
         <td class="text-nowrap">firstDay</td>
         <td>Change the first day of the week. Default is <code>0</code> which sets it to Sunday. Set it to Monday by changing the value to <code>1</code>.</td>
       </tr>
@@ -360,3 +364,41 @@ The following rules can be used to format any date:
     </tbody>
   </table>
 </div>
+
+## Methods
+
+`.pickdate()` sets up a [pickadate.js](https://amsul.ca/pickadate.js/) picker on the input, so the full pickadate API is available through `.pickadate('picker')`. For example, you can change the selectable range after the picker has been created, or remove the picker:
+
+{% highlight js %}
+var picker = $('#exampleInputDatePicker1').pickadate('picker');
+
+// Change the selectable range
+picker.set('min', new Date(2015, 7, 14));
+picker.set('max', [2016, 3, 20]); // [year, month (0-11), date]
+picker.set('max', false);         // remove the limit
+
+// Select a date, or clear the selection
+picker.set('select', [2016, 3, 20]);
+picker.clear();
+
+// Open or close the picker
+picker.open();
+picker.close();
+
+// Stop the picker and remove its calendar
+picker.stop();
+{% endhighlight %}
+
+See the [pickadate.js API documentation](https://amsul.ca/pickadate.js/api/) for all available methods and events.
+
+## Form validation
+
+By default the date picker makes its input `readonly` to stop a mobile keyboard from popping up. Browsers skip `readonly` inputs during constraint validation, so attributes such as `required` have no effect, and Bootstrap's validation styles won't show. To validate the field, set `editable: true`:
+
+{% highlight js %}
+$('#inputDueDate').pickdate({
+  editable: true
+});
+{% endhighlight %}
+
+With `editable: true` the input also accepts typing, so a keyboard may appear on mobile devices. The picker doesn't parse typed text: its selection and the hidden `formatSubmit` input stay unchanged. Validate the typed format yourself (for example with a `pattern` attribute) and read the input's own value. Alternatively, keep the default and validate the value in your own form-submit handler.

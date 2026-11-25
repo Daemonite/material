@@ -216,6 +216,8 @@ For example, you can create a `custom.scss` and import either all of Material's 
 @import "node_modules/daemonite-material/assets/scss/material/text-field";
 {% endhighlight %}
 
+Material's Sass is a complete replacement for Bootstrap's Sass, so don't import Bootstrap's own Sass files (e.g. `bootstrap/scss/functions` or `bootstrap/scss/variables`) before or alongside Material. Material's `$theme-colors` is a map of maps (`color`, `dark` and `light` shades for each theme colour), whereas Bootstrap's is a flat map. Mixing the two fails with errors such as `$map: #6c757d is not a map` (Dart Sass) or `Argument $map of map-get($map, $key) must be a map` (LibSass).
+
 With that setup in place, you can begin to modify any of the Sass maps and variables in your `custom.scss`. You can also start to add parts of Material under the `// Optional` section as needed. We suggest using the full import stack from our `material.scss` file as your starting point.
 
 ### Default variables
@@ -427,7 +429,7 @@ Or
 
 {% highlight scss %}
 // Import Material colours
-@import "node_modules/daemonite-material/assets/scss/colours";
+@import "node_modules/daemonite-material/assets/scss/colors";
 
 // Your variable overrides
 $custom-color: (

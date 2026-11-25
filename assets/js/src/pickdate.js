@@ -19,6 +19,7 @@ const PickDate = (($) => {
     container        : '',
     containerHidden  : '',
     disable          : [],
+    editable         : false,
     firstDay         : 0,
     format           : 'd/m/yyyy',
     formatSubmit     : '',
@@ -109,6 +110,7 @@ const PickDate = (($) => {
     container        : 'string',
     containerHidden  : 'string',
     disable          : 'array',
+    editable         : 'boolean',
     firstDay         : 'number',
     format           : 'string',
     formatSubmit     : 'string',
@@ -159,6 +161,7 @@ const PickDate = (($) => {
         container        : this._config.container,
         containerHidden  : this._config.containerHidden,
         disable          : this._config.disable,
+        editable         : this._config.editable,
         firstDay         : this._config.firstDay,
         format           : this._config.format,
         formatSubmit     : this._config.formatSubmit,
@@ -192,7 +195,10 @@ const PickDate = (($) => {
 
       datepickerApi.on({
         close: () => {
-          $(document.activeElement).blur()
+          // An editable input keeps focus on close so the user can type into it
+          if (!this._config.editable) {
+            $(document.activeElement).blur()
+          }
         },
         open: () => {
           if (!$('.picker__date-display', datepickerRoot).length) {

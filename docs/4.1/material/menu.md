@@ -55,3 +55,18 @@ Add an additional class `.menu-cascading` to an existing `.dropdown-menu` to hav
 </div>
 {% endcapture %}
 {% include example.html content=example %}
+
+## Scrollable menus
+
+For long menus, add `.pre-scrollable` to the `.dropdown-menu` to limit its height (340px by default, `$pre-scrollable-max-height`) and let the items scroll. Don't apply your own `max-height` and `overflow` to a plain `.dropdown-menu`: its surface and shadow are drawn on a pseudo-element that would scroll away with the items, and the shadow would be clipped.
+
+{% capture example %}
+<div class="dropdown">
+  <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButtonScrollable" type="button">Scrollable</button>
+  <div aria-labelledby="dropdownMenuButtonScrollable" class="dropdown-menu pre-scrollable">
+    {% for i in (1..20) %}<a class="dropdown-item" href="#">Item {{ i }}</a>
+    {% endfor %}
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}

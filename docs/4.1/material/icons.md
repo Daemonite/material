@@ -30,3 +30,16 @@ For browsers that do not support ligatures, fall back to specifying the icons us
 {% include example.html content=example %}
 
 For all available icons, please refer to [Material icons library](https://material.io/icons/).
+
+## Icon font variants
+
+Material also draws some icons itself, such as checkbox and radio marks and select arrows, using the `Material Icons` font. If you load a different Material Icons variant instead, set `$material-icon-font-family` to match before importing Material's Sass:
+
+{% highlight scss %}
+// <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+$material-icon-font-family: 'Material Icons Outlined';
+
+@import "node_modules/daemonite-material/assets/scss/material";
+{% endhighlight %}
+
+Your own `<i class="material-icons-outlined">` markup then uses the class provided by the Google Fonts stylesheet for that variant.

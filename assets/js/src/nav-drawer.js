@@ -172,9 +172,10 @@ const NavDrawer = (($) => {
     }
 
     _hideNavdrawer() {
+      // `display: none` already hides the drawer from assistive technology. Don't add
+      // `aria-hidden`: a permanent drawer (`.navdrawer-permanent-{breakpoint}`) is forced visible
+      // by CSS above its breakpoint, where `aria-hidden` would hide it from screen readers.
       this._element.style.display = 'none'
-
-      this._element.setAttribute('aria-hidden', true)
 
       this._isTransitioning = false
 
