@@ -10,8 +10,6 @@
   }
 
   .nav-link {
-    @include transition-standard(background-color, color, opacity);
-
     color: $nav-tab-color;
     font-size: $nav-tab-font-size;
     font-weight: $nav-tab-font-weight;
@@ -21,6 +19,8 @@
     padding: $nav-tab-link-padding-y $nav-tab-link-padding-x;
     position: relative;
     text-transform: uppercase;
+
+    @include transition-standard(background-color, color, opacity);
 
     @include active-focus-hover {
       background-color: $nav-tab-bg-hover;
@@ -46,8 +46,6 @@
     }
 
     &::before {
-      @include transition-standard(opacity);
-
       background-color: $nav-tab-indicator-bg;
       content: '';
       display: block;
@@ -57,6 +55,8 @@
       right: 0;
       bottom: 0;
       left: 0;
+
+      @include transition-standard(opacity);
     }
   }
 

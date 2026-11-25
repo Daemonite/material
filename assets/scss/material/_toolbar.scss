@@ -17,13 +17,14 @@
 
   .form-control {
     @include border-radius($toolbar-element-border-radius);
-    @include transition-standard(opacity);
 
     background-color: $toolbar-element-bg;
     border: 0;
     color: inherit;
     opacity: $toolbar-element-opacity;
     padding: math.div($textfield-height - $textfield-font-size * $textfield-line-height, 2) $toolbar-inner-spacer-x;
+
+    @include transition-standard(opacity);
 
     @include focus-hover {
       box-shadow: none;
@@ -43,10 +44,11 @@
 
   .input-group {
     @include border-radius($toolbar-element-border-radius);
-    @include transition-standard(opacity);
 
     background-color: $toolbar-element-bg;
     opacity: $toolbar-element-opacity;
+
+    @include transition-standard(opacity);
 
     @include focus-hover {
       opacity: 1;
@@ -159,13 +161,13 @@
 }
 
 .toolbar-waterfall {
-  @include transition-standard(background-color, box-shadow);
-
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   z-index: map.get($toolbar-elevation-shadow, elevation);
+
+  @include transition-standard(background-color, box-shadow);
 
   &.waterfall {
     background-color: $toolbar-waterfall-bg;
@@ -192,8 +194,6 @@
   }
 
   &::before {
-    @include transition-standard(opacity);
-
     background-color: $toolbar-element-bg;
     content: '';
     display: block;
@@ -203,6 +203,8 @@
     right: math.div($toolbar-inner-spacer-x, -2);
     bottom: 0;
     left: math.div($toolbar-inner-spacer-x, -2);
+
+    @include transition-standard(opacity);
   }
 
   &:focus {
@@ -241,7 +243,6 @@
 
   .nav-link {
     @include border-radius($toolbar-element-border-radius);
-    @include transition-standard(background-color, opacity);
 
     color: inherit;
     font-size: $toolbar-link-font-size;
@@ -249,6 +250,8 @@
     line-height: $toolbar-link-line-height;
     opacity: $toolbar-element-opacity;
     padding: $toolbar-link-padding-y $toolbar-link-padding-x;
+
+    @include transition-standard(background-color, opacity);
 
     @include active-focus-hover {
       background-color: $toolbar-element-bg;
@@ -294,6 +297,13 @@
     $infix: breakpoint-infix($next);
 
     &#{$infix} {
+      // Without a next breakpoint both mixins below emit their content
+      // unwrapped, so declare the flex flow first rather than after a nested rule.
+      @if not $next {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+      }
+
       @include media-breakpoint-down($breakpoint) {
         > .container,
         > .container-fluid {
@@ -303,8 +313,10 @@
       }
 
       @include media-breakpoint-up($next) {
-        flex-flow: row nowrap;
-        justify-content: flex-start;
+        @if $next {
+          flex-flow: row nowrap;
+          justify-content: flex-start;
+        }
 
         .navbar-collapse {
           display: flex !important; // stylelint-disable-line declaration-no-important
@@ -353,8 +365,6 @@
   }
 
   &::before {
-    @include transition-standard(opacity);
-
     background-color: $toolbar-element-bg;
     border-radius: 50%;
     content: '';
@@ -365,6 +375,8 @@
     right: 0;
     bottom: 0;
     left: 0;
+
+    @include transition-standard(opacity);
   }
 
   &:focus {

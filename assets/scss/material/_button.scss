@@ -5,7 +5,6 @@
 
 .btn {
   @include border-radius($btn-border-radius);
-  @include transition-standard(box-shadow);
 
   background-color: transparent;
   background-image: none;
@@ -26,6 +25,8 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+
+  @include transition-standard(box-shadow);
 
   @include active-focus-hover {
     color: $btn-color;

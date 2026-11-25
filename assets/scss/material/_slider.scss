@@ -48,14 +48,14 @@
   }
 
   &::-moz-range-thumb {
-    @include transition-standard(box-shadow, height, width);
-
     appearance: none;
     background-color: $slider-thumb-bg;
     border: 0;
     border-radius: 50%;
     height: $slider-thumb-size;
     width: $slider-thumb-size;
+
+    @include transition-standard(box-shadow, height, width);
 
     &:active {
       box-shadow: none;
@@ -69,8 +69,6 @@
   }
 
   &::-moz-range-track {
-    @include transition-standard(background-color);
-
     background-color: $slider-track-bg;
     border-color: transparent;
     border-radius: 0;
@@ -78,6 +76,8 @@
     cursor: pointer;
     height: $slider-track-height;
     width: 100%;
+
+    @include transition-standard(background-color);
   }
 
   &::-ms-fill-lower {
@@ -95,8 +95,6 @@
   }
 
   &::-ms-thumb {
-    @include transition-standard(box-shadow);
-
     appearance: none;
     background-color: $slider-thumb-bg;
     border: 0;
@@ -105,6 +103,8 @@
     margin-right: math.div($slider-thumb-size, 2);
     margin-left: math.div($slider-thumb-size, 2);
     width: $slider-thumb-size;
+
+    @include transition-standard(box-shadow);
 
     &:active {
       box-shadow: 0 0 0 math.div($slider-thumb-size, 2) $slider-thumb-bg;
@@ -116,8 +116,6 @@
   }
 
   &::-ms-track {
-    @include transition-standard(background-color);
-
     background-color: transparent;
     border-color: transparent;
     border-width: ($slider-thumb-size + $slider-track-height) 0;
@@ -125,11 +123,11 @@
     cursor: pointer;
     height: $slider-track-height;
     width: 100%;
+
+    @include transition-standard(background-color);
   }
 
   &::-webkit-slider-runnable-track {
-    @include transition-standard(background-color);
-
     background-color: $slider-track-bg;
     border-color: transparent;
     border-radius: 0;
@@ -137,11 +135,11 @@
     cursor: pointer;
     height: $slider-track-height;
     width: 100%;
+
+    @include transition-standard(background-color);
   }
 
   &::-webkit-slider-thumb {
-    @include transition-standard(box-shadow);
-
     appearance: none;
     background-color: $slider-thumb-bg;
     border: 0;
@@ -149,6 +147,8 @@
     height: $slider-thumb-size;
     margin-top: math.div($slider-thumb-size - $slider-track-height, -2);
     width: $slider-thumb-size;
+
+    @include transition-standard(box-shadow);
 
     &:active {
       box-shadow: 0 0 0 math.div($slider-thumb-size, 2) $slider-thumb-bg;

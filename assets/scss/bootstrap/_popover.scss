@@ -7,7 +7,7 @@
 // Therefore, popovers are styled as Material design's dialogs
 
 .popover {
-  @include reset-text;
+  @include reset-text($text-align: false);
   @include border-radius($popover-border-radius);
 
   background-color: $popover-bg;
@@ -20,6 +20,8 @@
   top: 0;
   left: 0;
   z-index: map.get($popover-elevation-shadow, elevation);
+
+  @include text-align(left);
 }
 
 .popover-body {

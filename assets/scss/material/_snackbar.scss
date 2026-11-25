@@ -43,10 +43,10 @@
   }
 
   &.show {
-    @include transition-deceleration(transform);
-
     opacity: 1;
     transform: translateY(0);
+
+    @include transition-deceleration(transform);
 
     @include media-breakpoint-up($snackbar-breakpoint) {
       transform: translate(-50%, 0);
@@ -63,8 +63,6 @@
 }
 
 .snackbar-btn {
-  @include transition-standard(background-color, background-image);
-
   background-color: transparent;
   background-image: none;
   border: 0;
@@ -79,6 +77,8 @@
   padding: 0;
   text-transform: uppercase;
   white-space: nowrap;
+
+  @include transition-standard(background-color, background-image);
 
   @include focus-hover {
     color: $snackbar-btn-color-hover;

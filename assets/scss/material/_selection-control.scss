@@ -38,8 +38,6 @@
   }
 
   &::before {
-    @include transition-standard(background-color, opacity, transform);
-
     background-color: currentColor;
     border-radius: 50%;
     color: $selection-control-color;
@@ -54,6 +52,8 @@
     left: 0;
     transform: scale(0.87, 0.87) translateZ(0);
     width: ($selection-control-indicator-size * 2);
+
+    @include transition-standard(background-color, opacity, transform);
   }
 }
 
@@ -146,8 +146,6 @@
     @include transition-standard(background-color);
 
     &::after {
-      @include transition-standard(background-color, transform);
-
       background-color: $selection-control-thumb-bg;
       border-radius: 50%;
       box-shadow: $selection-control-thumb-shadow;
@@ -156,6 +154,8 @@
       height: $selection-control-indicator-size;
       position: absolute;
       width: $selection-control-indicator-size;
+
+      @include transition-standard(background-color, transform);
     }
   }
 
@@ -191,8 +191,6 @@
   }
 
   .custom-control-track {
-    @include transition-standard(background-color);
-
     background-clip: content-box;
     background-color: $selection-control-track-bg;
     border: math.div($selection-control-indicator-size - $selection-control-track-height, 2) solid transparent;
@@ -204,5 +202,7 @@
     top: math.div($font-size-base * $line-height-base - $selection-control-indicator-size, 2);
     left: 0;
     width: $selection-control-track-width;
+
+    @include transition-standard(background-color);
   }
 }

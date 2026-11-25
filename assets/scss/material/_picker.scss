@@ -43,8 +43,6 @@
 }
 
 .picker-holder {
-  @include transition-standard(opacity);
-
   align-items: center;
   background-color: $picker-holder-bg;
   display: flex;
@@ -54,6 +52,8 @@
   opacity: 0;
   pointer-events: none;
   transition-delay: $transition-duration-mobile-complex;
+
+  @include transition-standard(opacity);
 
   @include media-breakpoint-up(sm) {
     transition-delay: $transition-duration-tablet-complex;
@@ -71,7 +71,6 @@
 
 .picker-wrap {
   @include border-radius($picker-border-radius);
-  @include transition-standard-complex(opacity, transform);
   @include typography-body-1;
 
   box-shadow: map.get($picker-elevation-shadow, shadow);
@@ -81,6 +80,8 @@
   pointer-events: auto;
   position: relative;
   transform: scale($picker-transition-scale);
+
+  @include transition-standard-complex(opacity, transform);
 
   @media (orientation: landscape) {
     display: flex;
@@ -317,7 +318,6 @@
 .picker-select-month,
 .picker-select-year {
   @include border-radius($picker-select-border-radius);
-  @include transition-standard(opacity);
 
   appearance: none;
   background-color: $picker-select-bg;
@@ -333,6 +333,8 @@
   line-height: math.div($picker-cell-size, 2);
   opacity: $picker-select-opacity;
   padding: 0 math.div($picker-cell-size, 2) 0 $picker-inner-spacer-x;
+
+  @include transition-standard(opacity);
 
   @include focus-hover {
     opacity: 1;

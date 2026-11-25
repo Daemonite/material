@@ -21,14 +21,14 @@
 }
 
 .carousel-item {
-  @include transition-standard-complex(transform);
-
   align-items: center;
   backface-visibility: hidden;
   display: none;
   perspective: 1000px;
   position: relative;
   width: 100%;
+
+  @include transition-standard-complex(transform);
 }
 
 .carousel-item.active,
@@ -74,9 +74,9 @@
 
 .carousel-fade {
   .carousel-item {
-    @include transition-standard-complex(opacity);
-
     opacity: 0;
+
+    @include transition-standard-complex(opacity);
   }
 
   .carousel-item.active,

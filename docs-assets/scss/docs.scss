@@ -385,8 +385,6 @@
     }
 
     &::before {
-      @include transition-standard(opacity);
-
       background-color: currentColor;
       border-radius: math.div($toolbar-element-height, 2);
       content: '';
@@ -397,6 +395,8 @@
       bottom: 0;
       left: 0;
       z-index: -1;
+
+      @include transition-standard(opacity);
     }
   }
 
@@ -424,17 +424,17 @@
 
 .doc-navbar-persistent {
   .navdrawer-open-persistent & {
-    @include transition-deceleration(margin-left);
-
     margin-left: $navdrawer-width;
+
+    @include transition-deceleration(margin-left);
   }
 }
 
 .doc-navbar-temporary {
   .navdrawer-open-temporary & {
-    @include transition-deceleration(margin-left);
-
     margin-left: $navdrawer-width;
+
+    @include transition-deceleration(margin-left);
   }
 }
 

@@ -13,8 +13,6 @@
 }
 
 .list-group-item {
-  @include transition-standard(background-color, color);
-
   background-color: $expansion-panel-bg;
   border: 0;
   box-shadow: map.get($expansion-panel-elevation-shadow, shadow);
@@ -25,6 +23,8 @@
   min-height: $expansion-panel-height;
   padding: $expansion-panel-padding-y $expansion-panel-padding-x;
   position: relative;
+
+  @include transition-standard(background-color, color);
 
   @include active-focus-hover {
     color: $expansion-panel-color;
@@ -100,9 +100,9 @@
 // Expansion panel
 
 .expansion-panel {
-  @include transition-standard(background-color, color, margin);
-
   padding: 0;
+
+  @include transition-standard(background-color, color, margin);
 
   &.show {
     border-radius: $expansion-panel-border-radius;

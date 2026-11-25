@@ -12,7 +12,6 @@
 
 .dropdown-menu {
   @include border-radius($menu-border-radius);
-  @include text-align(left);
 
   background-color: transparent;
   color: inherit;
@@ -29,6 +28,8 @@
   top: 100%;
   left: 0;
   z-index: map.get($menu-elevation-shadow, elevation);
+
+  @include text-align(left);
 
   &.show {
     display: block;
@@ -427,8 +428,6 @@
 // Link
 
 .dropdown-item {
-  @include transition-standard(background-color, color);
-
   background: none;
   border: 0;
   clear: both;
@@ -441,6 +440,8 @@
   transform-origin: 0 0;
   white-space: nowrap;
   width: 100%;
+
+  @include transition-standard(background-color, color);
 
   @include active-focus-hover {
     background-color: $menu-link-bg-hover;

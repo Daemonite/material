@@ -18,8 +18,6 @@
 // Backdrop
 
 .navdrawer-backdrop {
-  @include transition-standard-complex(opacity);
-
   background-color: $navdrawer-backdrop-bg;
   opacity: 0;
   position: fixed;
@@ -29,6 +27,8 @@
   left: 0;
   z-index: (map.get($navdrawer-elevation-shadow, elevation) - 1);
 
+  @include transition-standard-complex(opacity);
+
   &.show {
     opacity: 1;
   }
@@ -37,8 +37,6 @@
 // Content
 
 .navdrawer-content {
-  @include transition-sharp(box-shadow, transform);
-
   background-color: $navdrawer-content-bg;
   max-width: calc(100% - #{$navdrawer-gutter-width});
   overflow-x: hidden;
@@ -50,6 +48,8 @@
   transform: translate3d(-100%, 0, 0);
   width: $navdrawer-width;
 
+  @include transition-sharp(box-shadow, transform);
+
   .navdrawer-right & {
     right: 0;
     left: auto;
@@ -57,10 +57,10 @@
   }
 
   .navdrawer.show & {
-    @include transition-deceleration(box-shadow, transform);
-
     box-shadow: map.get($navdrawer-elevation-shadow, shadow);
     transform: translate3d(0, 0, 0);
+
+    @include transition-deceleration(box-shadow, transform);
   }
 }
 
@@ -118,13 +118,14 @@
 
   .nav-link {
     @include text-truncate;
-    @include transition-standard(background-color, color);
 
     color: $navdrawer-nav-link-color;
     font-size: $navdrawer-nav-link-font-size;
     font-weight: $navdrawer-nav-link-font-weight;
     line-height: 1;
     padding: math.div($navdrawer-nav-link-height - $navdrawer-nav-link-font-size, 2) $navdrawer-inner-spacer-x;
+
+    @include transition-standard(background-color, color);
 
     @include active-focus-hover {
       background-color: $navdrawer-nav-link-bg-hover;
