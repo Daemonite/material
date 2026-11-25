@@ -186,55 +186,84 @@ While we include breakpoints in our CSS variables, they unfortunately cannot be 
 
 Utilize our source Sass files to take advantage of mixins, variables and more.
 
-Whenever possible, avoid modifying Material's core files. For Sass, that means creating your own stylesheet that imports Material so you can modify and extend it.
+Whenever possible, avoid modifying Material's core files. For Sass, that means creating your own stylesheet that loads Material so you can modify and extend it.
 
-For example, you can create a `custom.scss` and import either all of Material's source Sass files or only selected parts you need. We encourage the latter, though be aware there are some dependencies and requirements across our components. You will also need to include some JavaScript for certain plugins.
+### Requirements
+
+Material's Sass uses the [Sass module system](https://sass-lang.com/documentation/at-rules/use/) (`@use` and `@forward`), so it needs [Dart Sass](https://sass-lang.com/dart-sass/) **1.79.0 or newer** (the `sass` package on npm). LibSass and node-sass can't compile it; if you're stuck on one of them, stay on Material 4.1.1.
+
+The examples below use `pkg:` URLs, which need Dart Sass's Node.js package importer: pass `--pkg-importer=node` on the command line, or `importers: [new NodePackageImporter()]` to the JavaScript API. Alternatively, add `node_modules` to your load paths and load `daemonite-material/assets/scss/material`.
+
+### Importing
+
+For example, you can create a `custom.scss` and load either all of Material's source Sass files or only selected parts you need. We encourage the latter, though be aware there are some dependencies and requirements across our components. You will also need to include some JavaScript for certain plugins.
 
 {% highlight scss %}
 // Custom.scss
 // Option A: Include all of Material
 
-@import "node_modules/daemonite-material/assets/scss/material";
+@use "pkg:daemonite-material" as material;
 {% endhighlight %}
 
 {% highlight scss %}
 // Custom.scss
 // Option B: Include parts of Material
 
-// Required
-@import "node_modules/daemonite-material/assets/scss/colors";
-@import "node_modules/daemonite-material/assets/scss/functions";
-@import "node_modules/daemonite-material/assets/scss/mixins";
-@import "node_modules/daemonite-material/assets/scss/variables";
+// Required: variables, functions and mixins (these output no CSS)
+@use "pkg:daemonite-material/assets/scss/variables";
+@use "pkg:daemonite-material/assets/scss/functions";
+@use "pkg:daemonite-material/assets/scss/mixins";
 
 // Optional
-@import "node_modules/daemonite-material/assets/scss/base/base";
-@import "node_modules/daemonite-material/assets/scss/base/grid";
-@import "node_modules/daemonite-material/assets/scss/base/typography";
-@import "node_modules/daemonite-material/assets/scss/material/button";
-@import "node_modules/daemonite-material/assets/scss/material/card";
-@import "node_modules/daemonite-material/assets/scss/material/text-field";
+@use "pkg:daemonite-material/assets/scss/base/base";
+@use "pkg:daemonite-material/assets/scss/base/grid";
+@use "pkg:daemonite-material/assets/scss/base/typography";
+@use "pkg:daemonite-material/assets/scss/material/button";
+@use "pkg:daemonite-material/assets/scss/material/card";
+@use "pkg:daemonite-material/assets/scss/material/text-field";
 {% endhighlight %}
 
-Material's Sass is a complete replacement for Bootstrap's Sass, so don't import Bootstrap's own Sass files (e.g. `bootstrap/scss/functions` or `bootstrap/scss/variables`) before or alongside Material. Material's `$theme-colors` is a map of maps (`color`, `dark` and `light` shades for each theme colour), whereas Bootstrap's is a flat map. Mixing the two fails with errors such as `$map: #6c757d is not a map` (Dart Sass) or `Argument $map of map-get($map, $key) must be a map` (LibSass).
+Each partial loads the variables, functions and mixins it needs, so the optional partials can be loaded in any combination. Keep them in the order used by `material.scss` so the cascade stays the same.
 
-With that setup in place, you can begin to modify any of the Sass maps and variables in your `custom.scss`. You can also start to add parts of Material under the `// Optional` section as needed. We suggest using the full import stack from our `material.scss` file as your starting point.
+The text field partials share `@extend` placeholders. `material/text-field` works on its own, but to use the box, floating label or input group variants, load `material/text-field-extend` after `material/text-field`. It loads `text-field-box`, `text-field-floating-label` and `text-field-input-group` (plus the `button` and `bootstrap/form` partials they extend) and applies the shared extends to them.
+
+`material.scss` forwards Material's variables, functions and mixins, so with Option A you can use them through the namespace, e.g. `material.$spacer`, `material.theme-color(primary)` or `@include material.media-breakpoint-up(md) { ... }`.
+
+Material's Sass is a complete replacement for Bootstrap's Sass, so don't load Bootstrap's own Sass files (e.g. `bootstrap/scss/functions` or `bootstrap/scss/variables`) before or alongside Material. Material's `$theme-colors` is a map of maps (`color`, `dark` and `light` shades for each theme colour), whereas Bootstrap's is a flat map. Mixing the two fails with errors such as `$map: #6c757d is not a map`.
 
 ### Default variables
 
-Every Sass variable in Material includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying Material's source code. Copy and paste variables as needed, modify their values, and remove the `!default` flag. If a variable has already been assigned, then it won't be re-assigned by the default values in Material.
+Every Sass variable in Material includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying Material's source code. Pass your values with `with (...)` the first time you load Material. Variables derived from the ones you set (for example `$link-color` follows the `secondary` theme colour) pick up your values.
 
 Here's an example that changes the `background-color` for the `<body>`:
 
 {% highlight scss %}
-// Your variable overrides
-$body-bg: #212121;
+@use "pkg:daemonite-material" as material with (
+  $body-bg: #212121
+);
+{% endhighlight %}
 
-// Material
-@import "node_modules/daemonite-material/assets/scss/material";
+With Option B, configure the `variables` module instead, before loading anything else from Material:
+
+{% highlight scss %}
+@use "pkg:daemonite-material/assets/scss/variables" with (
+  $body-bg: #212121
+);
 {% endhighlight %}
 
 Repeat as necessary for any variable in Material.
+
+#### Upgrading from `@import`
+
+Earlier versions were loaded with `@import`, with variable overrides declared before the import. Dart Sass still accepts that, so the following keeps working until Dart Sass 3.0 removes `@import` (Sass prints a deprecation warning for it):
+
+{% highlight scss %}
+$body-bg: #212121;
+
+@import "node_modules/daemonite-material/assets/scss/material";
+{% endhighlight %}
+
+To migrate, move the overrides into `with (...)` as shown above and prefix any Material variables, functions and mixins you use with the namespace (`$spacer` becomes `material.$spacer`). The private `_assert-ascending` and `_assert-starts-at-zero` mixins are no longer part of `_functions.scss`.
 
 ### Maps
 
@@ -244,11 +273,13 @@ Some of our Sass maps are merged into empty ones by default. This is done to all
 
 #### Add to map
 
-To add a new item to `$sizes`, add the new key and value to your custom Sass file:
+To add a new item to `$sizes`, pass the new key and value when you load Material:
 
 {% highlight scss %}
-$sizes: (
-  15: 15%
+@use "pkg:daemonite-material" as material with (
+  $sizes: (
+    15: 15%
+  )
 );
 {% endhighlight %}
 
@@ -256,11 +287,13 @@ This will generate a new pair of `.h-15` and `.w-15` classes which will set `hei
 
 #### Modify map
 
-To modify an existing item in our `$spacers` map, add the following to your custom Sass file:
+To modify an existing item in our `$spacers` map, pass the key with its new value:
 
 {% highlight scss %}
-$spacers: (
-  5: 5rem
+@use "pkg:daemonite-material" as material with (
+  $spacers: (
+    5: 5rem
+  )
 );
 {% endhighlight %}
 
@@ -268,24 +301,25 @@ Classes such as `mb-5` will then set `margin-bottom` to be `5rem` instead of the
 
 #### Remove from map
 
-To remove an item from a map, use `map-remove`. Be aware you must insert it between our requirements and options:
+To remove an item from a map, use `map.remove` on the `variables` module after loading it and before loading the parts of Material that use the map:
 
 {% highlight scss %}
-// Required
-@import "node_modules/daemonite-material/assets/scss/colors";
-@import "node_modules/daemonite-material/assets/scss/functions";
-@import "node_modules/daemonite-material/assets/scss/mixins";
-@import "node_modules/daemonite-material/assets/scss/variables";
+@use "sass:map";
 
-$theme-colors: map-remove($theme-colors, "info");
+// Required
+@use "pkg:daemonite-material/assets/scss/variables";
+@use "pkg:daemonite-material/assets/scss/functions";
+@use "pkg:daemonite-material/assets/scss/mixins";
+
+variables.$theme-colors: map.remove(variables.$theme-colors, "info");
 
 // Optional
-@import "node_modules/daemonite-material/assets/scss/base/base";
-@import "node_modules/daemonite-material/assets/scss/base/grid";
-@import "node_modules/daemonite-material/assets/scss/base/typography";
-@import "node_modules/daemonite-material/assets/scss/material/button";
-@import "node_modules/daemonite-material/assets/scss/material/card";
-@import "node_modules/daemonite-material/assets/scss/material/text-field";
+@use "pkg:daemonite-material/assets/scss/base/base";
+@use "pkg:daemonite-material/assets/scss/base/grid";
+@use "pkg:daemonite-material/assets/scss/base/typography";
+@use "pkg:daemonite-material/assets/scss/material/button";
+@use "pkg:daemonite-material/assets/scss/material/card";
+@use "pkg:daemonite-material/assets/scss/material/text-field";
 {% endhighlight %}
 
 However, please be aware that Material assumes the presence of some specific keys within Sass maps. As you customise the included maps, you may encounter errors where a specific Sass map's key is being used.
@@ -338,17 +372,20 @@ All colours available in Material, are available as Sass variables in our `asset
 Here's how you can use these in your Sass:
 
 {% highlight scss %}
+@use "sass:map";
+@use "pkg:daemonite-material" as material;
+
 .class1 {
-  color: $material-color-purple-500;
+  color: material.$material-color-purple-500;
 }
 
 .class2 {
-  color: map-get($purples, 500);
+  color: map.get(material.$purples, 500);
 }
 
 // With our `color()` function which return the 500 colours
 .class3 {
-  color: color(purple);
+  color: material.color(purple);
 }
 {% endhighlight %}
 
@@ -392,71 +429,63 @@ We use a subset of all colours to create a smaller colour palette for generating
 Here's how you can use these in your Sass:
 
 {% highlight scss %}
+@use "pkg:daemonite-material" as material;
+
 .class1 {
-  color: theme-color(primary);
+  color: material.theme-color(primary);
 }
 
 .class2 {
-  color: theme-color-dark(primary);
+  color: material.theme-color-dark(primary);
 }
 
 .class3 {
-  color: theme-color-light(primary);
+  color: material.theme-color-light(primary);
 }
 {% endhighlight %}
 
 #### Add a theme colour
 
-To add a new colour to `$theme-colors`, add the new key and value to your custom Sass file. Please be aware that each new colour should also include darker and lighter shades of the primary colour to accent some parts of our components.
+To add a new colour to `$theme-colors`, pass the new key and value when you load Material. Please be aware that each new colour should also include darker and lighter shades of the primary colour to accent some parts of our components.
 
 {% highlight scss %}
-// Your variable overrides
-$custom-color: (
-  color: #ffc107,
-  dark: #c79100,
-  light: #fff350
+@use "pkg:daemonite-material" as material with (
+  $theme-colors: (
+    "custom-color": (
+      color: #ffc107,
+      dark: #c79100,
+      light: #fff350
+    )
+  )
 );
-
-$theme-colors: (
-  'custom-color': $custom-color
-);
-
-// Material
-@import "node_modules/daemonite-material/assets/scss/material";
 {% endhighlight %}
 
-Or
+Or, using Material's colour palette:
 
 {% highlight scss %}
-// Import Material colours
-@import "node_modules/daemonite-material/assets/scss/colors";
+@use "pkg:daemonite-material/assets/scss/colors";
 
-// Your variable overrides
-$custom-color: (
-  color: $material-color-amber-500,
-  dark: $material-color-amber-900,
-  light: $material-color-amber-100
+@use "pkg:daemonite-material" as material with (
+  $theme-colors: (
+    "custom-color": (
+      color: colors.$material-color-amber-500,
+      dark: colors.$material-color-amber-900,
+      light: colors.$material-color-amber-100
+    )
+  )
 );
-
-$theme-colors: (
-  'custom-color': $custom-color
-);
-
-// Import the rest of Material
-@import "node_modules/daemonite-material/assets/scss/functions";
-@import "node_modules/daemonite-material/assets/scss/mixins";
-@import "node_modules/daemonite-material/assets/scss/variables";
-...
 {% endhighlight %}
 
 #### Modify a theme colour
 
-To modify an existing colour in our `$theme-colors` map, add the following to your custom Sass file. As aforementioned, each colour in our `$theme-colors` map contains not only the colour itself, but also darker and lighter shades of it, so please make sure to modify all three values.
+To modify an existing colour in our `$theme-colors` map, override its variable when you load Material. As aforementioned, each colour in our `$theme-colors` map contains not only the colour itself, but also darker and lighter shades of it, so please make sure to modify all three values.
 
 {% highlight scss %}
-$primary: (
-  color: #ffc107,
-  dark:  darken(#ffc107, 10%),
-  light: lighten(#ffc107, 10%)
+@use "pkg:daemonite-material" as material with (
+  $primary: (
+    color: #ffc107,
+    dark: #c79100,
+    light: #fff350
+  )
 );
 {% endhighlight %}
