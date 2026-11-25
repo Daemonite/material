@@ -138,10 +138,10 @@
       labelYearSelect  : 'Choose a year from the dropdown menu',
       ok               : 'Close',
       onClose          : function () {
-        console.log('Datepicker closes') // eslint-disable-line no-console
+        console.log('Datepicker closes')
       },
       onOpen           : function () {
-        console.log('Datepicker opens') // eslint-disable-line no-console
+        console.log('Datepicker opens')
       },
       selectMonths     : true,
       selectYears      : 10,
