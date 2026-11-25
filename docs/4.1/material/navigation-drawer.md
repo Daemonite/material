@@ -17,7 +17,7 @@ Material provides some basic styles for a set of components that are normally us
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer" id="navdrawerDefault" tabindex="-1">
+<div class="navdrawer" id="navdrawerDefault" tabindex="-1">
   <div class="navdrawer-content">
     <div class="navdrawer-header">
       <a class="navbar-brand px-0" href="#">Navdrawer header</a>
@@ -47,6 +47,10 @@ Material provides some basic styles for a set of components that are normally us
 ## Usage
 
 The navigation drawer plugin toggles your hidden drawer on demand, via data attributes or JavaScripts. It also adds `.navdrawer-open{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}` to the `<body>` for additional styling. The plugin also generates a `.navdrawer-backdrop{-default|-permanent|-persistent|-temporary}{-sm|-md|-lg|-xl}` to provide a click area for dismissing shown navigation drawer when required.
+
+### Accessibility
+
+A closed navigation drawer is hidden with `display: none`, which already hides it from assistive technologies, so don't add `aria-hidden="true"` to the drawer. This matters most for permanent drawers: above their breakpoint they're always visible, and `aria-hidden` would stop screen readers from reaching the navigation.
 
 ### Data attributes
 
@@ -185,7 +189,7 @@ Add `.navdrawer-right` to the navigation drawer to make it stick to the right ha
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-right" id="navdrawerRight" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-right" id="navdrawerRight" tabindex="-1">...</div>
 {% endhighlight %}
 
 ### Permanent drawer
@@ -199,7 +203,7 @@ A permanent navigation drawer is always visible at the same elevation as the con
 {% highlight html %}
 <button data-target="#navdrawerPermanent" data-toggle="navdrawer" data-type="permanent" type="button">Launch permanent drawer</button>
 
-<div aria-hidden="true" class="navdrawer navdrawer-permanent" id="navdrawerPermanent" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-permanent" id="navdrawerPermanent" tabindex="-1">...</div>
 {% endhighlight %}
 
 You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the permanent styles only kick in when the screen reaches a certain breakpoint.
@@ -229,7 +233,7 @@ A permanent navigation drawer has a few variations of its own, too. It can be cl
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-clipped" id="navdrawerPermanentClipped" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-permanent navdrawer-permanent-clipped" id="navdrawerPermanentClipped" tabindex="-1">...</div>
 {% endhighlight %}
 
 #### Float permanent drawer
@@ -241,7 +245,7 @@ For pages that require less hierarchy, a floating permanent drawer may be the be
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloat" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloat" tabindex="-1">...</div>
 {% endhighlight %}
 
 A floating permanent drawer can also work with other components, such as `.card`:
@@ -251,7 +255,7 @@ A floating permanent drawer can also work with other components, such as `.card`
 </div>
 
 {% highlight html %}
-<div aria-hidden="true" class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloatCard" tabindex="-1">
+<div class="navdrawer navdrawer-permanent navdrawer-permanent-float" id="navdrawerPermanentFloatCard" tabindex="-1">
   <div class="navdrawer-content">
     <div class="card m-3">
       <nav class="navdrawer-nav">...</nav>
@@ -271,7 +275,7 @@ A persistent navigation drawer can be closed and opened, but unlike a default dr
 {% highlight html %}
 <button data-target="#navdrawerPersistent" data-toggle="navdrawer" data-type="persistent" type="button">Launch persistent drawer</button>
 
-<div aria-hidden="true" class="navdrawer navdrawer-persistent" id="navdrawerPersistent" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-persistent" id="navdrawerPersistent" tabindex="-1">...</div>
 {% endhighlight %}
 
 You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the persistent styles only kick in when the screen reaches a certain breakpoint.
@@ -293,7 +297,7 @@ A temporary navigation drawer can be closed and opened and sits above all other 
 {% highlight html %}
 <button data-target="#navdrawerTemporary" data-toggle="navdrawer" data-type="temporary" type="button">Launch temporary drawer</button>
 
-<div aria-hidden="true" class="navdrawer navdrawer-temporary" id="navdrawerTemporary" tabindex="-1">...</div>
+<div class="navdrawer navdrawer-temporary" id="navdrawerTemporary" tabindex="-1">...</div>
 {% endhighlight %}
 
 You can also add additional `breakpoint` parameters (i.e. `sm`, `md`, `lg` and `xl`) to a navigation drawer so that the temporary styles only kick in when the screen reaches a certain breakpoint.
