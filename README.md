@@ -7,16 +7,28 @@ Daemonite's Material UI is a cross-platform and fully responsive front-end inter
 
 The basic idea behind this project is to combine the front-end technology of the popular Bootstrap framework with the visual language of Google Material Design.
 
-> A visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
-> http://www.google.com/design/spec/material-design/introduction.html
+> We challenged ourselves to create a visual language for our users that synthesizes the classic principles of good design with the innovation and possibility of technology and science. This is material design.
+>
+> — [Material Design guidelines (2014–2017 archive)](https://m1.material.io/material-design/introduction.html)
 
-Feel free to check out our [documentation site](http://daemonite.github.io/material/) or let us know what you think at the [Daemon Labs](http://labs.daemon.com.au) forum.
+Feel free to check out our [documentation site](https://daemonite.github.io/material/), or report bugs and ask questions in [GitHub issues](https://github.com/Daemonite/material/issues).
 
 The primary goal of this project is to give all Bootstrap components and elements a Google Material Design look, so it allows web developers to continue using the exact same Bootstrap HTML markup they are familiar with, but presents them a final outcome that is in line with the principles and specifics of Google Material Design.
 
 A secondary goal of this project is to add support for some unique Google Material Design components such as floating buttons, pickers, and steppers, to name a few, which cannot be achieved by transforming existing Bootstrap components.
 
 Because these components will require additional markup (some may require additional JavaScript), they will be documented separately in Material's documentation.
+
+## Project status
+
+Material is in **maintenance mode**:
+
+- The current release, 4.1.1, is built on Bootstrap 4.1 and follows the original Material Design guidelines (before Google's 2018 refresh).
+- We maintain 4.x with dependency updates, security fixes and bug fixes. Issues and pull requests that fix bugs are welcome. Visual redesigns and new features beyond Bootstrap 4 compatibility are out of scope for now.
+- Next up is a maintenance release built on Bootstrap 4.6.2, the final Bootstrap 4 release ([#333](https://github.com/Daemonite/material/issues/333)). It adds Material styling for the components Bootstrap introduced since 4.1, such as toasts and spinners.
+- Bootstrap 5 will be considered once the 4.6 release has bedded down.
+
+If you need Bootstrap 4.6 or newer Material styling today, take a look at [djibe's fork](https://github.com/djibe/material) (`djibe-material` on npm).
 
 ## :pray:
 
@@ -37,23 +49,18 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/material/sponsor/0/website" target="_blank"><img src="https://opencollective.com/material/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/material/sponsor/1/website" target="_blank"><img src="https://opencollective.com/material/sponsor/1/avatar.svg"></a>
 <a href="https://opencollective.com/material/sponsor/2/website" target="_blank"><img src="https://opencollective.com/material/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/3/website" target="_blank"><img src="https://opencollective.com/material/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/4/website" target="_blank"><img src="https://opencollective.com/material/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/5/website" target="_blank"><img src="https://opencollective.com/material/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/6/website" target="_blank"><img src="https://opencollective.com/material/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/7/website" target="_blank"><img src="https://opencollective.com/material/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/8/website" target="_blank"><img src="https://opencollective.com/material/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/material/sponsor/9/website" target="_blank"><img src="https://opencollective.com/material/sponsor/9/avatar.svg"></a>
 
 ## Table of contents
 
+- [Project status](#project-status)
 - [Content](#content)
 - [Documentation](#documentation)
 - [Quick start](#quick-start)
+- [License](#license)
 
 ## Content
 
-Within the download you will find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+The compiled download (`material-<version>-dist.zip` on the [releases page](https://github.com/Daemonite/material/releases)) contains the following directories and files, with both compiled and minified variations:
 
 ```
 daemonite-material/
@@ -71,7 +78,7 @@ daemonite-material/
 
 We provide compiled CSS and JavaScript (`material.*`), as well as compiled and minified CSS and JavaScript (`material.min.*`). CSS and JavaScript source maps (`material.*.map`) are available for use with certain browsers' developer tools.
 
-The Material source code download includes the precompiled CSS and JavaScript, along with documentation and source assets. More specifically, it includes the following and more:
+The source code archive on GitHub, like a clone of the repo, includes the precompiled CSS and JavaScript along with the documentation and source assets:
 
 ```
 daemonite-material/
@@ -92,16 +99,18 @@ daemonite-material/
     └── material.min.js.map
 ```
 
+The npm package contains `assets/` (the Sass and JavaScript source), `css/` and `js/`.
+
 ## Documentation
 
-Material's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <http://daemonite.github.io/material/>. The docs may also be run locally.
+Material's documentation, included in this repo in the root directory, is built with [Jekyll](https://jekyllrb.com/) and publicly hosted on GitHub Pages at <https://daemonite.github.io/material/>. The docs may also be run locally.
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](http://daemonite.github.io/material/docs/4.1/getting-started/tooling/#getting-started) to install Jekyll and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](https://daemonite.github.io/material/docs/4.1/getting-started/tooling/#getting-started) to install Ruby (3.2 or newer), Jekyll and the other Ruby dependencies with `bundle install`.
 2. Run `npm install` to install Node.js dependencies. The build tools need Node.js 22 LTS (see `.nvmrc`).
 3. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
-4. From the root `/daemonite-material` directory, run `npm run docs-serve` in the command line.
+4. From the root of the repo, run `npm run docs-serve` in the command line.
 5. Open `http://localhost:9999/material` in your browser, and voilà.
 
 ## Quick start
@@ -110,5 +119,10 @@ Several quick start options are available:
 
 - Clone the repo: `git clone https://github.com/Daemonite/material.git`
 - Download the [latest release](https://github.com/Daemonite/material/releases)
-- Install with [bower](https://bower.io/): `bower install daemonite-material`
 - Install with [npm](https://www.npmjs.com/): `npm install daemonite-material`
+
+The latest published release is 4.1.1. Fixes made since then are on `master` and will ship in the next release. Bower is deprecated, so we no longer recommend installing with it.
+
+## License
+
+Code released under the [MIT License](LICENSE).
