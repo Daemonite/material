@@ -1,4 +1,6 @@
+@use 'sass:list';
 @use 'sass:math';
+@use '../variables' as *;
 
 .embed-responsive {
   display: block;
@@ -27,26 +29,13 @@
   }
 }
 
-.embed-responsive-1by1 {
-  &::before {
-    padding-top: math.percentage(math.div(1, 1));
-  }
-}
+@each $embed-responsive-aspect-ratio in $embed-responsive-aspect-ratios {
+  $embed-responsive-aspect-ratio-x: list.nth($embed-responsive-aspect-ratio, 1);
+  $embed-responsive-aspect-ratio-y: list.nth($embed-responsive-aspect-ratio, 2);
 
-.embed-responsive-4by3 {
-  &::before {
-    padding-top: math.percentage(math.div(3, 4));
-  }
-}
-
-.embed-responsive-16by9 {
-  &::before {
-    padding-top: math.percentage(math.div(9, 16));
-  }
-}
-
-.embed-responsive-21by9 {
-  &::before {
-    padding-top: math.percentage(math.div(9, 21));
+  .embed-responsive-#{$embed-responsive-aspect-ratio-x}by#{$embed-responsive-aspect-ratio-y} {
+    &::before {
+      padding-top: math.percentage(math.div($embed-responsive-aspect-ratio-y, $embed-responsive-aspect-ratio-x));
+    }
   }
 }

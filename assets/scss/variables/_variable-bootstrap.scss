@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'sass:map';
 @use '../colors' as *;
 @use '../functions' as *;
@@ -87,6 +88,21 @@ $kbd-color:                 $white-primary !default;
 $pre-color:                 $black-primary !default;
 $pre-margin-y:              $spacer !default;
 $pre-scrollable-max-height: 340px !default;
+
+// Embed
+
+// Add more ratios with `$embed-responsive-aspect-ratios: ((3 2), (5 4))`
+$embed-responsive-aspect-ratios: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$embed-responsive-aspect-ratios: list.join(
+  (
+    (1 1),
+    (4 3),
+    (16 9),
+    (21 9)
+  ),
+  $embed-responsive-aspect-ratios
+);
 
 // Form
 

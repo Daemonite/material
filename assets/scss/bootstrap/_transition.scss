@@ -24,6 +24,14 @@ tr.collapse.show {
   position: relative;
 
   @include transition-standard(height);
+
+  // Horizontal collapse (`.collapse.width`)
+  &.width {
+    height: auto;
+    width: 0;
+
+    @include transition-standard(width);
+  }
 }
 
 .fade {

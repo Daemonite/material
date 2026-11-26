@@ -22,6 +22,8 @@
   margin-left: ($form-check-input-gutter * -1);
   position: absolute;
 
+  // `[disabled]` as well as `:disabled`: see https://github.com/twbs/bootstrap/issues/28247
+  &[disabled] ~ .form-check-label,
   &:disabled ~ .form-check-label {
     color: $textfield-color-disabled;
   }
