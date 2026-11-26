@@ -52,7 +52,7 @@ const NavDrawer = (($) => {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]',
-    DIALOG       : '.modal.show, [aria-modal="true"]'
+    DIALOG       : '.modal.show, [aria-modal="true"]:not(.navdrawer)'
   }
   // <<< constants
 
@@ -63,9 +63,21 @@ const NavDrawer = (($) => {
   const openDrawers = []
   let focusTrapOwner = null
 
+  function setFocusHandlers(on) {
+    $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin)
+    $(window)[on ? 'on' : 'off'](Event.RESIZE, onResize)
+  }
+
   function topModalDrawer() {
     for (let i = openDrawers.length - 1; i >= 0; i--) {
-      if (openDrawers[i]._isModal()) {
+      // Forget drawers removed from the page without being hidden
+      if (!$.contains(document.documentElement, openDrawers[i]._element)) {
+        openDrawers.splice(i, 1)
+
+        if (openDrawers.length === 0) {
+          setFocusHandlers(false)
+        }
+      } else if (openDrawers[i]._isModal()) {
         return openDrawers[i]
       }
     }
@@ -74,7 +86,7 @@ const NavDrawer = (($) => {
   }
 
   // Whether focus on `element` should be pulled into `drawer`. An open Bootstrap modal (or any
-  // aria-modal dialog) keeps its own focus.
+  // aria-modal dialog other than a drawer) keeps its own focus.
   function isOutside(drawer, element) {
     return element !== document &&
       element !== drawer._element &&
@@ -104,8 +116,7 @@ const NavDrawer = (($) => {
 
   function addOpenDrawer(drawer) {
     if (openDrawers.length === 0) {
-      $(document).on(Event.FOCUSIN, onFocusin)
-      $(window).on(Event.RESIZE, onResize)
+      setFocusHandlers(true)
     }
 
     openDrawers.push(drawer)
@@ -120,8 +131,7 @@ const NavDrawer = (($) => {
     }
 
     if (openDrawers.length === 0) {
-      $(document).off(Event.FOCUSIN, onFocusin)
-      $(window).off(Event.RESIZE, onResize)
+      setFocusHandlers(false)
     }
 
     focusTrapOwner = topModalDrawer()
