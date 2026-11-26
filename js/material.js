@@ -340,6 +340,7 @@
       MOUSEUP_DISMISS: "mouseup.dismiss" + EVENT_KEY,
       RESIZE: "resize" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
+      HIDDEN_BS_MODAL: 'hidden.bs.modal',
       SHOW_BS_MODAL: 'show.bs.modal',
       SHOWN: "shown" + EVENT_KEY
     };
@@ -359,9 +360,13 @@
     var focusTrapOwner = null;
     var openCount = 0;
 
-    // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer
+    // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer. A modal
+    // that isn't in the document yet when it's shown (Bootstrap appends it afterwards) can't be
+    // recorded; see `isAbove()`.
     $(document).on(Event.SHOW_BS_MODAL, function (event) {
       $(event.target).data(OPENED_KEY, ++openCount);
+    }).on(Event.HIDDEN_BS_MODAL, function (event) {
+      $(event.target).removeData(OPENED_KEY);
     });
     function setFocusHandlers(on) {
       $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin);
@@ -378,11 +383,18 @@
       return null;
     }
 
-    // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal opened after the
-    // drawer is above it and keeps its own focus. (Other dialogs are treated like the rest of the page.)
+    // Whether an open Bootstrap modal was opened after `drawer`, i.e. is above it. A modal with no
+    // recorded opening is above unless it was already open when the drawer opened.
+    function isAbove(modal, drawer) {
+      var openedAt = $(modal).data(OPENED_KEY);
+      return openedAt ? openedAt > drawer._openedAt : drawer._modalsBelow.indexOf(modal) === -1;
+    }
+
+    // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal above the drawer
+    // keeps its own focus. (Other dialogs are treated like the rest of the page.)
     function isOutside(drawer, element) {
-      var modal = $(element).closest(Selector.MODAL);
-      return element !== document && element !== drawer._element && !$.contains(drawer._element, element) && !(modal.length && modal.data(OPENED_KEY) > drawer._openedAt);
+      var modal = $(element).closest(Selector.MODAL)[0];
+      return element !== document && element !== drawer._element && !$.contains(drawer._element, element) && !(modal && isAbove(modal, drawer));
     }
     function onFocusin(event) {
       var drawer = topModalDrawer();
@@ -404,6 +416,7 @@
       if (openDrawers.length === 0) {
         setFocusHandlers(true);
       }
+      drawer._modalsBelow = $(Selector.MODAL).toArray();
       drawer._openedAt = ++openCount;
       openDrawers.push(drawer);
       focusTrapOwner = topModalDrawer();
