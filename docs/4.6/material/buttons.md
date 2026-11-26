@@ -195,7 +195,7 @@ Vertical variation is also supported
 
 {% capture example %}
 <div class="btn-group-vertical" role="group">
-  <div class="btn-group-vertical" data-toggle="buttons" role="group">
+  <div class="btn-group-vertical w-100" data-toggle="buttons" role="group">
     <label class="btn btn-outline btn-sm disabled">
       <input autocomplete="off" disabled type="checkbox">
       <i class="material-icons">attach_file</i>

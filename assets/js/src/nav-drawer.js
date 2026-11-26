@@ -76,6 +76,11 @@ const NavDrawer = (($) => {
     })
     .on(Event.HIDDEN_BS_MODAL, (event) => {
       $(event.target).removeData(OPENED_KEY)
+
+      // A modal that was below a drawer and closed is above it if it opens again
+      openDrawers.forEach((drawer) => {
+        drawer._modalsBelow = drawer._modalsBelow.filter((modal) => modal !== event.target)
+      })
     })
 
   function setFocusHandlers(on) {
