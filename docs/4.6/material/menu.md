@@ -3,6 +3,8 @@ layout: docs
 title: Menu
 description: Menus display a list of choices on a transient sheet of material.
 group: material
+redirect_from:
+  - /docs/4.1/material/menu/
 toc: true
 ---
 

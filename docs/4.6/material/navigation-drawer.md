@@ -3,6 +3,8 @@ layout: docs
 title: Navigation drawer
 description: The navigation drawer contains the navigation destinations for your app or site.
 group: material
+redirect_from:
+  - /docs/4.1/material/navigation-drawer/
 toc: true
 ---
 

@@ -3,6 +3,8 @@ layout: docs
 title: Data tables
 description: Data tables display sets of raw data.
 group: material
+redirect_from:
+  - /docs/4.1/material/data-tables/
 ---
 
 **Most of the details about data tables have been covered in Content/Tables documentation. Please refer to [this page]({{ site.baseurl }}/docs/{{ site.docs_version }}/content/tables/) for more details.**

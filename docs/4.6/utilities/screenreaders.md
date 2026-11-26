@@ -3,6 +3,8 @@ layout: docs
 title: Screenreaders
 description: Use screenreader utilities to hide elements on all devices except screen readers.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/screenreaders/
 toc: true
 ---
 

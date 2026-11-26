@@ -3,7 +3,10 @@ layout: docs
 title: Buttons
 description: Use Bootstrap's custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
 group: components
-redirect_from: "/docs/4.1/components/"
+redirect_from:
+  - /docs/4.6/components/
+  - /docs/4.1/components/
+  - /docs/4.1/components/buttons/
 toc: true
 ---
 

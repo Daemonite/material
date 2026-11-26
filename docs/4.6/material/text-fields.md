@@ -3,6 +3,8 @@ layout: docs
 title: Text fields
 description: Text fields allow users to input text and select text.
 group: material
+redirect_from:
+  - /docs/4.1/material/text-fields/
 toc: true
 ---
 

@@ -3,6 +3,8 @@ layout: docs
 title: Close icon
 description: Use a generic close icon for dismissing content like modals and alerts.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/close-icon/
 toc: true
 ---
 

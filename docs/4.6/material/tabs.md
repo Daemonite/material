@@ -3,6 +3,8 @@ layout: docs
 title: Tabs
 description: Tabs make it easy to explore and switch between different views.
 group: material
+redirect_from:
+  - /docs/4.1/material/tabs/
 toc: true
 ---
 

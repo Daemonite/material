@@ -3,6 +3,8 @@ layout: docs
 title: Tooling
 description: Learn how to use Material's included npm scripts to build our documentation, compile source code, and more.
 group: getting-started
+redirect_from:
+  - /docs/4.1/getting-started/tooling/
 toc: true
 ---
 

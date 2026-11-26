@@ -3,6 +3,8 @@ layout: docs
 title: Popovers
 description: Documentation and examples for adding Bootstrap popovers, like those found in iOS, to any element on your site.
 group: components
+redirect_from:
+  - /docs/4.1/components/popovers/
 toc: true
 ---
 

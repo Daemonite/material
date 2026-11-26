@@ -3,6 +3,8 @@ layout: docs
 title: Spacing
 description: Bootstrap includes a wide range of shorthand responsive margin and padding utility classes to modify an element's appearance.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/spacing/
 toc: true
 ---
 
@@ -43,6 +45,8 @@ Where *size* is one of:
 
 (You can add more sizes by adding entries to the `$spacers` Sass map variable.)
 
+Negative margin utilities are generated for every non-zero, numeric size in `$spacers`; see [Negative margin](#negative-margin) below.
+
 ## Examples
 
 Here are some representative examples of these classes:
@@ -81,3 +85,27 @@ Additionally, Bootstrap also includes an `.mx-auto` class for horizontally cente
   Centered element
 </div>
 {% endhighlight %}
+
+### Negative margin
+
+In CSS, `margin` properties can utilize negative values (`padding` cannot). Negative margin utilities are available for every non-zero size listed above (e.g., `1`, `2`, `3`, `4`, `5`). These utilities are ideal for customizing grid column gutters across breakpoints.
+
+The syntax is nearly the same as the default, positive margin utilities, but with the addition of `n` before the requested size. Here's an example class that's the opposite of `.mt-1`:
+
+{% highlight scss %}
+.mt-n1 {
+  margin-top: -0.25rem !important;
+}
+{% endhighlight %}
+
+Here's an example of customizing the grid at the medium (`md`) breakpoint and above. We've increased the `.col` padding with `.px-md-5` and then counteracted that with `.mx-md-n5` on the parent `.row`.
+
+{% capture example %}
+<div class="row mx-md-n5">
+  <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+  <div class="col px-md-5"><div class="p-3 border bg-light">Custom column padding</div></div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
+Negative margins are only generated for spacers that Sass can negate, i.e. plain numbers such as `1rem`. If you add a spacer such as `var(--spacer)` or `clamp(...)` to `$spacers`, it gets positive margin and padding utilities but no negative margin utility.

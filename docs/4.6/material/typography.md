@@ -3,6 +3,8 @@ layout: docs
 title: Typography
 description: Material's typographic scale has a set of type sizes that balances content density and reading comfort under typical usage conditions.
 group: material
+redirect_from:
+  - /docs/4.1/material/typography/
 toc: true
 ---
 

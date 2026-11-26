@@ -3,6 +3,8 @@ layout: docs
 title: Text
 description: Documentation and examples for common text utilities to control alignment, wrapping, weight, and more.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/text/
 toc: true
 ---
 
@@ -31,6 +33,15 @@ For left, right, and center alignment, responsive classes are available that use
 
 ## Text wrapping and overflow
 
+Wrap text with a `.text-wrap` class.
+
+{% capture example %}
+<div class="badge badge-primary text-wrap" style="width: 6rem;">
+  This text should wrap.
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+
 Prevent text from wrapping with a `.text-nowrap` class.
 
 {% capture example %}
@@ -57,6 +68,15 @@ For longer content, you can add a `.text-truncate` class to truncate the text wi
 {% endcapture %}
 {% include example.html content=example %}
 
+## Word break
+
+Prevent long strings of text from breaking your components' layout by using `.text-break` to set `word-wrap: break-word` and `word-break: break-word`. We use `word-wrap` instead of the more common `overflow-wrap` for wider browser support, and add the deprecated `word-break: break-word` to avoid issues with flex containers.
+
+{% capture example %}
+<p class="text-break">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</p>
+{% endcapture %}
+{% include example.html content=example %}
+
 ## Text transform
 
 Transform text in components with text capitalization classes.
@@ -72,12 +92,14 @@ Note how `text-capitalize` only changes the first letter of each word, leaving t
 
 ## Font weight and italics
 
-Quickly change the weight (boldness) of text or italicize text.
+Quickly change the weight (boldness) of text or italicize text. Following Material's type scale, `.font-weight-bold` uses Roboto's medium weight (500), and is also available as `.font-weight-medium`; `.font-weight-normal` is also available as `.font-weight-regular`. `.font-weight-bolder` and `.font-weight-lighter` set `font-weight: bolder` and `font-weight: lighter`, which are relative to the parent element.
 
 {% capture example %}
 <p class="font-weight-bold">Bold text.</p>
+<p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
 <p class="font-weight-normal">Normal weight text.</p>
 <p class="font-weight-light">Light weight text.</p>
+<p class="font-weight-lighter">Lighter weight text (relative to the parent element).</p>
 <p class="font-italic">Italic text.</p>
 {% endcapture %}
 {% include example.html content=example %}
@@ -88,5 +110,25 @@ Change a selection to our monospace font stack with `.text-monospace`.
 
 {% capture example %}
 <p class="text-monospace">This is in monospace</p>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Reset color
+
+Reset a text or link's color with `.text-reset`, so that it inherits the color from its parent.
+
+{% capture example %}
+<p class="text-muted">
+  Muted text with a <a class="text-reset" href="#">reset link</a>.
+</p>
+{% endcapture %}
+{% include example.html content=example %}
+
+## Text decoration
+
+Remove a text decoration with a `.text-decoration-none` class. Links in Material aren't underlined until they're hovered or focused; `.text-decoration-none` removes that underline too.
+
+{% capture example %}
+<a class="text-decoration-none" href="#">Non-underlined link</a>
 {% endcapture %}
 {% include example.html content=example %}

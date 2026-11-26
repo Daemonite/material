@@ -3,8 +3,15 @@ layout: docs
 title: Snackbars
 description: Snackbars provide brief feedback about an operation through a message at the bottom of the screen.
 group: material
+redirect_from:
+  - /docs/4.1/material/snackbars/
 toc: true
 ---
+
+{% capture callout %}
+**Looking for toasts?** Bootstrap 4.2+ [toasts]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/toasts/) are styled as snackbars too. Use `.snackbar` for a single message fixed to the bottom of the screen, and `.toast` when you want Bootstrap's toast plugin (showing, auto-hiding and events) or need to position and stack several notifications yourself.
+{% endcapture %}
+{% include callout.html content=callout type="info" %}
 
 ## Behaviour
 

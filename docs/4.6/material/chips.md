@@ -3,6 +3,8 @@ layout: docs
 title: Chips
 description: Chips represent complex entities in small blocks, such as a contact.
 group: material
+redirect_from:
+  - /docs/4.1/material/chips/
 ---
 
 ## Usage

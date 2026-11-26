@@ -3,6 +3,8 @@ layout: docs
 title: Expansion panels
 description: An expansion panel is a lightweight container that may either stand alone or be connected to a larger surface, such as a card.
 group: material
+redirect_from:
+  - /docs/4.1/material/expansion-panels/
 toc: true
 ---
 

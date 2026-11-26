@@ -3,6 +3,8 @@ layout: docs
 title: Colours
 description: You can customise your app’s colour scheme to match your brand colours. Alternatively, you can create an entirely new colour scheme using the Material Design colour palette.
 group: material
+redirect_from:
+  - /docs/4.1/material/colours/
 toc: true
 ---
 

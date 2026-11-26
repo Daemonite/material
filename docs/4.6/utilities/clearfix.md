@@ -3,6 +3,8 @@ layout: docs
 title: Clearfix
 description: Quickly and easily clear floated content within a container by adding a clearfix utility.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/clearfix/
 toc: true
 ---
 

@@ -3,6 +3,8 @@ layout: docs
 title: Theming
 description: Customise Material with our source code.
 group: getting-started
+redirect_from:
+  - /docs/4.1/getting-started/theming/
 toc: true
 ---
 

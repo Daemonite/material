@@ -3,6 +3,8 @@ layout: docs
 title: Progress
 description: Progress indicators are visual indications of an app loading content.
 group: material
+redirect_from:
+  - /docs/4.1/material/progress/
 toc: true
 ---
 

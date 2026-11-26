@@ -5,9 +5,12 @@ description: Get started with Material, a cross-platform and fully responsive fr
 group: getting-started
 redirect_from:
   - /docs/
+  - /docs/4.6/
   - /docs/4.1/
+  - /docs/4.6/getting-started/
   - /docs/4.1/getting-started/
   - /docs/getting-started/
+  - /docs/4.1/getting-started/introduction/
 toc: true
 ---
 
@@ -44,7 +47,7 @@ daemonite-material/
 │   └── scss/
 ├── css/
 ├── docs/
-│   └── 4.1/
+│   └── 4.6/
 └── js/
 {% endhighlight %}
 

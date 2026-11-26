@@ -3,6 +3,8 @@ layout: docs
 title: Elevation and shadows
 description: Material defines a model of elevation and shadows that can be applied consistently across apps.
 group: material
+redirect_from:
+  - /docs/4.1/material/elevation-and-shadows/
 toc: true
 ---
 

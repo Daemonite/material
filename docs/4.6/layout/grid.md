@@ -3,7 +3,10 @@ layout: docs
 title: Grid system
 description: Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes.
 group: layout
-redirect_from: "/docs/4.1/layout/"
+redirect_from:
+  - /docs/4.6/layout/
+  - /docs/4.1/layout/
+  - /docs/4.1/layout/grid/
 toc: true
 ---
 
@@ -36,18 +39,141 @@ The above example creates three equal-width columns on small, medium, large, and
 
 Breaking it down, here's how it works:
 
-- Containers provide a means to center and horizontally pad your site's contents. Use `.container` for a responsive pixel width or `.container-fluid` for `width: 100%` across all viewport and device sizes.
+- Containers provide a means to center and horizontally pad your site's contents. Use `.container` for a responsive pixel width, `.container-fluid` for `width: 100%` across all viewport and device sizes, or a [responsive container](#containers) (e.g., `.container-md`) for a combination of fluid and pixel widths.
 - Rows are wrappers for columns. Each column has horizontal `padding` (called a gutter) for controlling the space between them. This `padding` is then counteracted on the rows with negative margins. This way, all the content in your columns is visually aligned down the left side.
 - In a grid layout, content must be placed within columns and only columns may be immediate children of rows.
 - Thanks to flexbox, grid columns without a specified `width` will automatically layout as equal width columns. For example, four instances of `.col-sm` will each automatically be 25% wide from the small breakpoint and up. See the [auto-layout columns](#auto-layout-columns) section for more examples.
 - Column classes indicate the number of columns you'd like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use `.col-4`.
 - Column `width`s are set in percentages, so they're always fluid and sized relative to their parent element.
 - Columns have horizontal `padding` to create the gutters between individual columns, however, you can remove the `margin` from rows and `padding` from columns with `.no-gutters` on the `.row`.
-- To make the grid responsive, there are five grid breakpoints, one for each [responsive breakpoint]({{ site.baseurl }}/docs/{{ site.docs_version }}/layout/overview/#responsive-breakpoints): all breakpoints (extra small), small, medium, large, and extra large.
+- To make the grid responsive, there are five grid breakpoints, one for each [responsive breakpoint](#grid-options): all breakpoints (extra small), small, medium, large, and extra large.
 - Grid breakpoints are based on minimum width media queries, meaning **they apply to that one breakpoint and all those above it** (e.g., `.col-sm-4` applies to small, medium, large, and extra large devices, but not the first `xs` breakpoint).
 - You can use predefined grid classes (like `.col-4`) or [Sass mixins](#sass-mixins) for more semantic markup.
 
 Be aware of the limitations and [bugs around flexbox](https://github.com/philipwalton/flexbugs), like the [inability to use some HTML elements as flex containers](https://github.com/philipwalton/flexbugs#flexbug-9).
+
+## Containers
+
+Containers are the most basic layout element and are **required when using the default grid system**. Containers are used to contain, pad, and (sometimes) center the content within them. While containers *can* be nested, most layouts do not require a nested container.
+
+There are three different containers:
+
+- `.container`, which sets a `max-width` at each responsive breakpoint
+- `.container-fluid`, which is `width: 100%` at all breakpoints
+- `.container-{breakpoint}`, which is `width: 100%` until the specified breakpoint
+
+The table below illustrates how each container's `max-width` compares to the original `.container` and `.container-fluid` across each breakpoint.
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        Extra small<br>
+        <span class="font-weight-normal">&lt;576px</span>
+      </th>
+      <th>
+        Small<br>
+        <span class="font-weight-normal">&ge;576px</span>
+      </th>
+      <th>
+        Medium<br>
+        <span class="font-weight-normal">&ge;768px</span>
+      </th>
+      <th>
+        Large<br>
+        <span class="font-weight-normal">&ge;992px</span>
+      </th>
+      <th>
+        Extra large<br>
+        <span class="font-weight-normal">&ge;1200px</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.container</code></td>
+      <td class="text-muted">100%</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+    </tr>
+    <tr>
+      <td><code>.container-sm</code></td>
+      <td class="text-muted">100%</td>
+      <td>540px</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+    </tr>
+    <tr>
+      <td><code>.container-md</code></td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1140px</td>
+    </tr>
+    <tr>
+      <td><code>.container-lg</code></td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td>960px</td>
+      <td>1140px</td>
+    </tr>
+    <tr>
+      <td><code>.container-xl</code></td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td>1140px</td>
+    </tr>
+    <tr>
+      <td><code>.container-fluid</code></td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+      <td class="text-muted">100%</td>
+    </tr>
+  </tbody>
+</table>
+
+### All-in-one
+
+The default `.container` class is a responsive, fixed-width container, meaning its `max-width` changes at each breakpoint.
+
+{% highlight html %}
+<div class="container">
+  <!-- Content here -->
+</div>
+{% endhighlight %}
+
+### Fluid
+
+Use `.container-fluid` for a full width container, spanning the entire width of the viewport.
+
+{% highlight html %}
+<div class="container-fluid">
+  ...
+</div>
+{% endhighlight %}
+
+### Responsive
+
+Responsive containers (new in Bootstrap v4.4) allow you to specify a class that is 100% wide until the specified breakpoint is reached, after which `max-width`s are applied for each of the higher breakpoints. For example, `.container-sm` is 100% wide to start until the `sm` breakpoint is reached, where it will scale up with `md`, `lg`, and `xl`.
+
+{% highlight html %}
+<div class="container-sm">100% wide until small breakpoint</div>
+<div class="container-md">100% wide until medium breakpoint</div>
+<div class="container-lg">100% wide until large breakpoint</div>
+<div class="container-xl">100% wide until extra large breakpoint</div>
+{% endhighlight %}
+
+The responsive containers are generated from the `$container-max-widths` Sass map, so they follow any changes you make to it.
 
 ## Grid options
 
@@ -104,7 +230,7 @@ See how aspects of the Bootstrap grid system work across multiple devices with a
     </tr>
     <tr>
       <th class="text-nowrap" scope="row">Gutter width</th>
-      <td colspan="5">30px (15px on each side of a column)</td>
+      <td colspan="5">40px (20px on each side of a column)</td>
     </tr>
     <tr>
       <th class="text-nowrap" scope="row">Nestable</th>
@@ -324,6 +450,96 @@ Don't want your columns to simply stack in some grid tiers? Use a combination of
 {% endcapture %}
 {% include example.html content=example %}
 </div>
+
+### Row columns
+
+Use the responsive `.row-cols-*` classes to quickly set the number of columns that best render your content and layout. Whereas normal `.col-*` classes apply to the individual columns (e.g., `.col-md-4`), the row columns classes are set on the parent `.row` as a shortcut. Classes from `.row-cols-1` to `.row-cols-6` are available at each breakpoint (set by `$grid-row-columns`).
+
+Use these row columns classes to quickly create basic grid layouts or to control your card layouts.
+
+<div class="bd-example-row">
+{% capture example %}
+<div class="container">
+  <div class="row row-cols-2">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+</div>
+
+<div class="bd-example-row">
+{% capture example %}
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+</div>
+
+<div class="bd-example-row">
+{% capture example %}
+<div class="container">
+  <div class="row row-cols-4">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+</div>
+
+<div class="bd-example-row">
+{% capture example %}
+<div class="container">
+  <div class="row row-cols-4">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col-6">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+</div>
+
+<div class="bd-example-row">
+{% capture example %}
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+    <div class="col">Column</div>
+  </div>
+</div>
+{% endcapture %}
+{% include example.html content=example %}
+</div>
+
+You can also use the accompanying Sass mixin, `row-cols()`:
+
+{% highlight scss %}
+.element {
+  // Three columns to start
+  @include row-cols(3);
+
+  // Five columns from medium breakpoint up
+  @include media-breakpoint-up(md) {
+    @include row-cols(5);
+  }
+}
+{% endhighlight %}
 
 ## Alignment
 
@@ -670,7 +886,8 @@ Variables and maps determine the number of columns, the gutter width, and the me
 
 {% highlight scss %}
 $grid-columns:      12;
-$grid-gutter-width: 30px;
+$grid-gutter-width: 40px;
+$grid-row-columns:  6;
 
 $grid-breakpoints: (
   // Extra small screen / phone
@@ -707,6 +924,9 @@ Mixins are used in conjunction with the grid variables to generate semantic CSS 
 
 // Get fancy by offsetting, or changing the sort order
 @include make-col-offset($size, $columns: $grid-columns);
+
+// Size every child of a row to 1 / $count of its width
+@include row-cols($count);
 {% endhighlight %}
 
 ### Example usage
@@ -766,7 +986,7 @@ The number of grid columns can be modified via Sass variables. `$grid-columns` i
 
 {% highlight scss %}
 $grid-columns: 12 !default;
-$grid-gutter-width: 30px !default;
+$grid-gutter-width: 40px !default;
 {% endhighlight %}
 
 ### Grid tiers

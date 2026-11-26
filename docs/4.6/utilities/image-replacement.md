@@ -3,6 +3,8 @@ layout: docs
 title: Image replacement
 description: Swap text for background images with the image replacement class.
 group: utilities
+redirect_from:
+  - /docs/4.1/utilities/image-replacement/
 toc: true
 ---
 

@@ -3,6 +3,8 @@ layout: docs
 title: Pickers
 description: Pickers provide a simple way to select a single value from a pre-determined set.
 group: material
+redirect_from:
+  - /docs/4.1/material/pickers/
 toc: true
 ---
 
