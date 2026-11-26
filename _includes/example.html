@@ -17,7 +17,8 @@ optional: hide_markup - disabled (default)
 {%- endif -%}
 
 {%- if include.hide_markup == null -%}
+  {%- assign holder_img = site.holder_img_attrs | append: ' data-src="holder.js' -%}
   {%- highlight html -%}
-    {{- include.content | replace: 'data-src="holder.js', 'src="...' -}}
+    {{- include.content | replace: holder_img, 'src="...' -}}
   {%- endhighlight -%}
 {%- endif -%}

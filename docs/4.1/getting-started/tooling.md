@@ -12,8 +12,9 @@ Material uses [NPM scripts](https://docs.npmjs.com/misc/scripts) for its build s
 
 To use our build system, you'll need a copy of Material's source code and Node. Follow these steps and you should be ready to rock:
 
-1. [Download and install Node.js](https://nodejs.org/download/) **version 22 LTS**, which we use to manage our dependencies. The repo's `.nvmrc` pins Node 22: with nvm or fnm, run `nvm use` or `fnm use` in the repo (or enable your version manager's switch-on-`cd` shell hook). Then navigate to the root `/daemonite-material` directory and run `npm install` to install local dependencies.
-2. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (3.2 or newer), install [Bundler](https://bundler.io/) with `gem install bundler`, and then run `bundle install`. This will install all Ruby dependencies, such as Jekyll and plugins.
+1. Install [Java](https://adoptium.net/) 11 or later and put `java` on your `PATH` **before** you install the npm dependencies. `npm run docs` validates the built docs with the [Nu Html Checker](https://validator.github.io/validator/) (`vnu-jar`), which runs on Java. Without Java, the check is skipped. In that case, `vnu-jar`'s install script also downloads a Temurin Java runtime from GitHub into `node_modules/.cache/vnu-jar` without verifying a checksum. Our build never uses that runtime, so install Java first to avoid the download.
+2. [Download and install Node.js](https://nodejs.org/download/) **version 22 LTS**, which we use to manage our dependencies. The repo's `.nvmrc` pins Node 22: with nvm or fnm, run `nvm use` or `fnm use` in the repo (or enable your version manager's switch-on-`cd` shell hook). Then navigate to the root `/daemonite-material` directory and run `npm install` to install local dependencies.
+3. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/) (3.2 or newer), install [Bundler](https://bundler.io/) with `gem install bundler`, and then run `bundle install`. This will install all Ruby dependencies, such as Jekyll and plugins.
   - **Windows users:** Read [this guide](https://jekyllrb.com/docs/windows/) to get Jekyll up and running without problems.
 
 When completed, you'll be able to run the various commands provided from the command line. Our [package.json]({{ site.repo }}/blob/v{{ site.current_version }}/package.json) includes the following commands and tasks:
@@ -21,7 +22,7 @@ When completed, you'll be able to run the various commands provided from the com
 | Task           | Description |
 | ---            | --- |
 | `npm run dist` | `npm run dist` creates the `/css` and `/js` directories with compiled files. |
-| `npm run docs` | Builds CSS and JavaScript for docs. You can then run the documentation locally via `npm run docs-serve`. |
+| `npm run docs` | Builds CSS and JavaScript for docs, builds the docs with Jekyll and lints the result (htmllint, plus the Nu Html Checker when Java is installed). You can then run the documentation locally via `npm run docs-serve`. |
 
 Run `npm run` to see all the npm scripts.
 

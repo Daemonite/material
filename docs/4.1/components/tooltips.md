@@ -91,7 +91,8 @@ $('#example').tooltip(options)
 The required markup for a tooltip is only a `data` attribute and `title` on the HTML element you wish to have a tooltip. The generated markup of a tooltip is rather simple, though it does require a position (by default, set to `top` by the plugin).
 
 {% capture callout %}
-##### Making tooltips work for keyboard and assistive technology users
+#### Making tooltips work for keyboard and assistive technology users
+{: .h5 .no_toc}
 
 You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users. In addition, most assistive technologies currently do not announce the tooltip in this situation.
 

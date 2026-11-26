@@ -56,6 +56,8 @@ title:            "Material"
 toc:
   max_level:      4
   min_level:      2
+  # Keep headings in live examples and modals out of the page TOC.
+  no_toc_section_class: [no_toc_section, bd-example, modal]
 
 # vars
 cdn:
@@ -66,11 +68,16 @@ cdn:
   bs_js_hash:     "sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
   jquery:         "https://code.jquery.com/jquery-3.8.0.slim.min.js"
   jquery_hash:    "sha384-V78UfKsTRKnoybouv82wMPQtWgGGMk49PtKNw8mgMrjzNHRloLpRruWrj4F1e0Pd"
-  md_font:        "https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+  md_font:        "https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:300,400,700%7CRoboto+Slab:300,400,700"
   md_icon:        "https://fonts.googleapis.com/icon?family=Material+Icons"
   popper:         "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
   popper_hash:    "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 current_version:  "4.1.1"
+# Holder.js placeholder images (`<img {{ site.holder_img_attrs }} data-src="holder.js/...">`).
+# The transparent GIF gives each image a valid `src`; `data-holder-rendered`
+# makes Holder draw the `data-src` placeholder over it anyway (Holder keeps any
+# `src` that loads otherwise). `_includes/example.html` hides both in snippets.
+holder_img_attrs: 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-holder-rendered="true"'
 docs_version:     "4.1"
 download:
   source:         "https://github.com/Daemonite/material/archive/v4.1.1.zip"

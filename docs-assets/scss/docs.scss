@@ -14,6 +14,17 @@
   margin-bottom: $paragraph-margin-y;
   padding: 0 $spacer;
 
+  // Callout titles take the heading rank their page needs, with `.h4` or
+  // `.h5` for their size. Keep the look of the original `h4` (styled by
+  // Bootstrap's docs CSS) and `h5` titles whatever their rank.
+  .h4 {
+    margin-bottom: math.div($spacer, 4);
+  }
+
+  .h5 {
+    margin-bottom: $headings-margin-y;
+  }
+
   + .bd-callout {
     margin-top: 0;
   }
@@ -22,24 +33,42 @@
 .bd-callout-danger {
   border-left-color: theme-color(danger);
 
-  h5 {
+  h5,
+  .h5 {
     color: theme-color(danger);
+  }
+
+  // Same colour as Bootstrap's docs CSS gives `.bd-callout-danger h4`
+  .h4 {
+    color: #d9534f;
   }
 }
 
 .bd-callout-info {
   border-left-color: theme-color(info);
 
-  h5 {
+  h5,
+  .h5 {
     color: theme-color(info);
+  }
+
+  // Same colour as Bootstrap's docs CSS gives `.bd-callout-info h4`
+  .h4 {
+    color: #5bc0de;
   }
 }
 
 .bd-callout-warning {
   border-left-color: theme-color(warning);
 
-  h5 {
+  h5,
+  .h5 {
     color: theme-color(warning);
+  }
+
+  // Same colour as Bootstrap's docs CSS gives `.bd-callout-warning h4`
+  .h4 {
+    color: #f0ad4e;
   }
 }
 

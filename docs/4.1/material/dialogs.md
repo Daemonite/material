@@ -23,7 +23,7 @@ Use title bar alerts for high-risk situations, such as the potential loss of con
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Use Google's location services?</h5>
+          <h4 class="modal-title">Use Google's location services?</h4>
         </div>
         <div class="modal-body">
           <p class="text-black-secondary typography-subheading">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
@@ -42,7 +42,7 @@ Use title bar alerts for high-risk situations, such as the potential loss of con
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Use Google's location services?</h5>
+        <h4 class="modal-title">Use Google's location services?</h4>
       </div>
       <div class="modal-body">
         <p class="text-black-secondary typography-subheading">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</p>
@@ -139,7 +139,7 @@ When text labels contain too many characters, use stacked buttons to accommodate
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Lorem ipsum dolor sit amet</h5>
+          <h4 class="modal-title">Lorem ipsum dolor sit amet</h4>
         </div>
         <div class="modal-body">
           <p class="text-black-secondary typography-subheading">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -158,7 +158,7 @@ When text labels contain too many characters, use stacked buttons to accommodate
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Lorem ipsum dolor sit amet</h5>
+        <h4 class="modal-title">Lorem ipsum dolor sit amet</h4>
       </div>
       <div class="modal-body">
         <p class="text-black-secondary typography-subheading">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

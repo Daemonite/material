@@ -54,11 +54,11 @@ Data manipulation tools and table navigation can be added using card components.
 {% capture example %}
 <div class="card">
   <div class="card-header d-flex pr-0">
-    <h5 class="card-title mb-0">Card title</h5>
+    <h3 class="card-title mb-0">Card title</h3>
     <div class="card-actions ml-auto py-0">
       <div class="dropdown">
         <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop1" type="button"><i class="material-icons">filter_list</i></button>
-        <div aria-labelledby="cardTableDrop1" class="dropdown-menu dropdown-menu-right menu">
+        <div class="dropdown-menu dropdown-menu-right menu">
           <a class="dropdown-item" href="#">Filter 1</a>
           <a class="dropdown-item" href="#">Filter 2</a>
           <a class="dropdown-item" href="#">Filter 3</a>
@@ -66,7 +66,7 @@ Data manipulation tools and table navigation can be added using card components.
       </div>
       <div class="dropdown">
         <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline my-0" data-toggle="dropdown" id="cardTableDrop2" type="button"><i class="material-icons">more_vert</i></button>
-        <div aria-labelledby="cardTableDrop2" class="dropdown-menu dropdown-menu-right menu">
+        <div class="dropdown-menu dropdown-menu-right menu">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>

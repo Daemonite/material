@@ -21,9 +21,9 @@ Supplemental actions within the card are explicitly called out using icons, text
 
 {% capture example %}
 <div class="card" style="width: 20rem;">
-  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
+  <img alt="Card image cap" class="card-img-top" {{ site.holder_img_attrs }} data-src="holder.js/100px180/">
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
+    <h3 class="card-title">Card title</h3>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="card-actions">
@@ -38,9 +38,9 @@ Vertical action sheet is also supported. Add `.flex-column` or `.flex-column-rev
 
 {% capture example %}
 <div class="card" style="width: 20rem;">
-  <img alt="Card image cap" class="card-img-top" data-src="holder.js/100px180/">
+  <img alt="Card image cap" class="card-img-top" {{ site.holder_img_attrs }} data-src="holder.js/100px180/">
   <div class="card-body">
-    <h4 class="card-title">Card title</h4>
+    <h3 class="card-title">Card title</h3>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="card-actions flex-column">

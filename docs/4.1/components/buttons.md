@@ -93,19 +93,21 @@ Make buttons look inactive by adding the `disabled` boolean attribute to any `<b
 Disabled buttons using the `<a>` element behave a bit different:
 
 - `<a>`s don't support the `disabled` attribute, so you must add the `.disabled` class to make it visually appear disabled.
+- Remove the `href` attribute, so the link can't be followed or reached with the keyboard. Keep `tabindex="-1"`: without it, the reboot styles reset the colour of an `<a>` that has no `href`.
 - Some future-friendly styles are included to disable all `pointer-events` on anchor buttons. In browsers which support that property, you won't see the disabled cursor at all.
 - Disabled buttons should include the `aria-disabled="true"` attribute to indicate the state of the element to assistive technologies.
 
 {% capture example %}
-<a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
+<a class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
+<a class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
 {% endcapture %}
 {% include example.html content=example %}
 
 {% capture callout %}
-##### Link functionality caveat
+### Link functionality caveat
+{: .h5 .no_toc}
 
-The `.disabled` class uses `pointer-events: none` to try to disable the link functionality of `<a>`s, but that CSS property is not yet standardized. In addition, even in browsers that do support `pointer-events: none`, keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, add a `tabindex="-1"` attribute on these links (to prevent them from receiving keyboard focus) and use custom JavaScript to disable their functionality.
+If you have to keep the `href` attribute on a disabled link, the `.disabled` class uses `pointer-events: none` to try to disable the link functionality of `<a>`s, but that CSS property is not yet standardized. In addition, even in browsers that do support `pointer-events: none`, keyboard navigation remains unaffected, meaning that sighted keyboard users and users of assistive technologies will still be able to activate these links. So to be safe, add a `tabindex="-1"` attribute on these links (to prevent them from receiving keyboard focus) and use custom JavaScript to disable their functionality. Don't add `aria-disabled="true"` to a link that still has an `href`: it would tell assistive technologies the link is disabled while it still works.
 {% endcapture %}
 {% include callout.html content=callout type="warning" %}
 
