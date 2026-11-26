@@ -366,6 +366,12 @@
     $(document).on(Event.SHOW_BS_MODAL, function (event) {
       $(event.target).data(OPENED_KEY, ++openCount);
     }).on(Event.HIDDEN_BS_MODAL, function (event) {
+      var modal = $(event.target).data('bs.modal');
+
+      // A `hidden` handler may already have shown the modal again; keep that opening's state
+      if ($(event.target).hasClass(ClassName.SHOW) || modal && modal._isShown) {
+        return;
+      }
       $(event.target).removeData(OPENED_KEY);
 
       // A modal that was below a drawer and closed is above it if it opens again
