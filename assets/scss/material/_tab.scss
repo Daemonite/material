@@ -9,10 +9,14 @@
     box-shadow: none;
   }
 
-  // `background-color` and `border` reset `<button class="nav-link">` (Bootstrap 4.6 tab markup)
-  .nav-link {
+  // Reset `<button class="nav-link">` (Bootstrap 4.6 tab markup); anchors keep any other styling
+  // stylelint-disable-next-line selector-no-qualifying-type
+  button.nav-link {
     background-color: transparent;
     border: 0;
+  }
+
+  .nav-link {
     color: $nav-tab-color;
     font-size: $nav-tab-font-size;
     font-weight: $nav-tab-font-weight;

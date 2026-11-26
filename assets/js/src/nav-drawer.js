@@ -46,6 +46,7 @@ const NavDrawer = (($) => {
     MOUSEUP_DISMISS   : `mouseup.dismiss${EVENT_KEY}`,
     RESIZE            : `resize${EVENT_KEY}`,
     SHOW              : `show${EVENT_KEY}`,
+    HIDDEN_BS_MODAL   : 'hidden.bs.modal',
     SHOW_BS_MODAL     : 'show.bs.modal',
     SHOWN             : `shown${EVENT_KEY}`
   }
@@ -66,10 +67,28 @@ const NavDrawer = (($) => {
   let focusTrapOwner = null
   let openCount      = 0
 
-  // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer
-  $(document).on(Event.SHOW_BS_MODAL, (event) => {
-    $(event.target).data(OPENED_KEY, ++openCount)
-  })
+  // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer. A modal
+  // that isn't in the document yet when it's shown (Bootstrap appends it afterwards) can't be
+  // recorded; see `isAbove()`.
+  $(document)
+    .on(Event.SHOW_BS_MODAL, (event) => {
+      $(event.target).data(OPENED_KEY, ++openCount)
+    })
+    .on(Event.HIDDEN_BS_MODAL, (event) => {
+      const modal = $(event.target).data('bs.modal')
+
+      // A `hidden` handler may already have shown the modal again; keep that opening's state
+      if ($(event.target).hasClass(ClassName.SHOW) || modal && modal._isShown) {
+        return
+      }
+
+      $(event.target).removeData(OPENED_KEY)
+
+      // A modal that was below a drawer and closed is above it if it opens again
+      openDrawers.forEach((drawer) => {
+        drawer._modalsBelow = drawer._modalsBelow.filter((modal) => modal !== event.target)
+      })
+    })
 
   function setFocusHandlers(on) {
     $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin)
@@ -88,15 +107,23 @@ const NavDrawer = (($) => {
     return null
   }
 
-  // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal opened after the
-  // drawer is above it and keeps its own focus. (Other dialogs are treated like the rest of the page.)
+  // Whether an open Bootstrap modal was opened after `drawer`, i.e. is above it. A modal with no
+  // recorded opening is above unless it was already open when the drawer opened.
+  function isAbove(modal, drawer) {
+    const openedAt = $(modal).data(OPENED_KEY)
+
+    return openedAt ? openedAt > drawer._openedAt : drawer._modalsBelow.indexOf(modal) === -1
+  }
+
+  // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal above the drawer
+  // keeps its own focus. (Other dialogs are treated like the rest of the page.)
   function isOutside(drawer, element) {
-    const modal = $(element).closest(Selector.MODAL)
+    const modal = $(element).closest(Selector.MODAL)[0]
 
     return element !== document &&
       element !== drawer._element &&
       !$.contains(drawer._element, element) &&
-      !(modal.length && modal.data(OPENED_KEY) > drawer._openedAt)
+      !(modal && isAbove(modal, drawer))
   }
 
   function onFocusin(event) {
@@ -124,7 +151,8 @@ const NavDrawer = (($) => {
       setFocusHandlers(true)
     }
 
-    drawer._openedAt = ++openCount
+    drawer._modalsBelow = $(Selector.MODAL).toArray()
+    drawer._openedAt    = ++openCount
 
     openDrawers.push(drawer)
     focusTrapOwner = topModalDrawer()

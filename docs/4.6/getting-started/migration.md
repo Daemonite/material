@@ -18,6 +18,8 @@ Material monitors the changes in the Bootstrap project so the exact same Bootstr
 
 This maintenance release brings Material up to Bootstrap 4.6.2, the final Bootstrap 4 release. Load Bootstrap 4.6.2's JavaScript and Popper.js 1.16.1 alongside Material.
 
+The npm package now lists `bootstrap` (`^4.6.0`) and `popper.js` (`^1.16.1`, optional for `bootstrap.bundle.js` users) as peer dependencies, so a project pinned to an older Bootstrap 4 gets an npm `ERESOLVE` error until it updates Bootstrap.
+
 ### Breaking: Sass
 
 Material's Sass now uses the [Sass module system]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/theming/) (`@use` and `@forward`). Compiling it needs Dart Sass 1.79.0 or newer; LibSass and node-sass are no longer supported. If you can't move to Dart Sass, use the compiled CSS. Configure variables with `@use 'material' with (...)`; `$var: value;` followed by `@import` still works with Dart Sass for now, but Sass deprecates `@import`.
@@ -35,7 +37,12 @@ Material's Sass now uses the [Sass module system]({{ site.baseurl }}/docs/{{ sit
 - Within each breakpoint, the grid now emits its classes in Bootstrap 4.6's order, so `.col-{n}` and `.col-auto` override `.col` on the same element.
 - The navigation drawer only traps focus while its backdrop is visible. Above their breakpoint, persistent, permanent and temporary drawers no longer pull focus away from the page. A Bootstrap modal opened over a drawer keeps focus, and a cancelled `show.md.navdrawer` no longer leaves the drawer unable to open.
 - Material no longer replaces Bootstrap's `$.fn.emulateTransitionEnd`; its plugins use `Util.emulateTransitionEnd()`.
-- Bootstrap 4.6's reboot fixes are included: focus outlines on `[tabindex="-1"]` and buttons only hide for mouse focus (`:focus-visible`), placeholder links (`a:not([href]):not([class])`) keep their outline, `[role="button"]` gets a pointer cursor, and search inputs keep their native clear button.
+- Bootstrap 4.6's reboot fixes are included: focus outlines on `[tabindex="-1"]` and buttons only hide for mouse focus (`:focus-visible`), placeholder links (`a:not([href]):not([class])`) keep their outline, `[role="button"]` gets a pointer cursor, inline `svg` is `vertical-align: middle`, and search inputs keep their native clear button.
+- Bootstrap 4.6's button plugin throws on page load if a `data-toggle="buttons"` group contains any `.btn` without an `<input>`, including a dropdown toggle in a nested group. That also stops `data-ride="carousel"` and `data-spy="scroll"` from initialising. Use `<label class="btn">` with an input for every button in such a group, and put other buttons, such as dropdowns or a disabled `<button>`, outside it. The [toggle button examples]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/buttons/#toggle-buttons) show both.
+- The navigation drawer no longer sets `aria-hidden` when it hides (`display: none` already hides it), so a permanent drawer stays visible to screen readers.
+- `.dropdown-menu.pre-scrollable` gives scrollable [menus]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/menu/) their surface and shadow.
+- `$material-icon-font-family` sets the icon font, e.g. to Material Icons Outlined.
+- `pickdate()` passes pickadate's `editable` option through (default `false`), which allows `required` validation on [pickers]({{ site.baseurl }}/docs/{{ site.docs_version }}/material/pickers/).
 - Bootstrap 4.6 component fixes are included for alerts, the carousel (touch swipe, cross-fade), close buttons, forms, navs (`.nav-fill`/`.nav-justified` without `.nav-item`, `<button>` nav links) and horizontal collapse (`.collapse.width`). `$embed-responsive-aspect-ratios` adds embed ratios.
 - The documentation moved from `/docs/4.1/` to `/docs/4.6/`. Old URLs redirect.
 
