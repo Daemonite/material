@@ -14,6 +14,7 @@ const NavDrawer = (($) => {
   const EVENT_KEY      = `.${DATA_KEY}`
   const NAME           = 'navdrawer'
   const NO_CONFLICT    = $.fn[NAME]
+  const OPENED_KEY     = `${DATA_KEY}.openedAt`
 
   const ClassName = {
     BACKDROP : 'navdrawer-backdrop',
@@ -45,6 +46,7 @@ const NavDrawer = (($) => {
     MOUSEUP_DISMISS   : `mouseup.dismiss${EVENT_KEY}`,
     RESIZE            : `resize${EVENT_KEY}`,
     SHOW              : `show${EVENT_KEY}`,
+    SHOW_BS_MODAL     : 'show.bs.modal',
     SHOWN             : `shown${EVENT_KEY}`
   }
 
@@ -62,6 +64,12 @@ const NavDrawer = (($) => {
   // and closing one drawer doesn't remove the trap of a modal drawer still open below it.
   const openDrawers = []
   let focusTrapOwner = null
+  let openCount      = 0
+
+  // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer
+  $(document).on(Event.SHOW_BS_MODAL, (event) => {
+    $(event.target).data(OPENED_KEY, ++openCount)
+  })
 
   function setFocusHandlers(on) {
     $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin)
@@ -80,15 +88,27 @@ const NavDrawer = (($) => {
     return null
   }
 
-  // Whether focus on `element` should be pulled into `drawer`. An open Bootstrap modal (or any
-  // aria-modal dialog other than a drawer) opened over the drawer keeps its own focus.
+  // Whether `dialog` (an open Bootstrap modal or aria-modal dialog) was opened over `drawer`. A dialog
+  // that opened before the drawer, or contains it, is below it.
+  function isAbove(dialog, drawer) {
+    if ($.contains(dialog, drawer._element)) {
+      return false
+    }
+
+    const openedAt = $(dialog).data(OPENED_KEY)
+
+    return openedAt ? openedAt > drawer._openedAt : drawer._dialogsBelow.indexOf(dialog) === -1
+  }
+
+  // Whether focus on `element` should be pulled into `drawer`. A dialog opened over the drawer keeps
+  // its own focus.
   function isOutside(drawer, element) {
     const dialog = $(element).closest(Selector.DIALOG)[0]
 
     return element !== document &&
       element !== drawer._element &&
       !$.contains(drawer._element, element) &&
-      !(dialog && !$.contains(dialog, drawer._element))
+      !(dialog && isAbove(dialog, drawer))
   }
 
   function onFocusin(event) {
@@ -115,6 +135,9 @@ const NavDrawer = (($) => {
     if (openDrawers.length === 0) {
       setFocusHandlers(true)
     }
+
+    drawer._openedAt     = ++openCount
+    drawer._dialogsBelow = $(Selector.DIALOG).toArray()
 
     openDrawers.push(drawer)
     focusTrapOwner = topModalDrawer()
