@@ -18,3 +18,9 @@
 .btn.stretched-link {
   position: static;
 }
+
+// Don't let a disabled stretched link (e.g. `.btn.disabled`) be clicked through its `::after`
+.stretched-link.disabled::after,
+.stretched-link:disabled::after {
+  pointer-events: none;
+}

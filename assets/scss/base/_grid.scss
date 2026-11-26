@@ -34,8 +34,10 @@
     $responsive-containers: list.append($responsive-containers, '.container-#{$breakpoint}', $separator: comma);
   }
 
-  #{$responsive-containers} {
-    @include make-container;
+  @if list.length($responsive-containers) > 0 {
+    #{$responsive-containers} {
+      @include make-container;
+    }
   }
 
   $extended-containers: ();
