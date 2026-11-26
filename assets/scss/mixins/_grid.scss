@@ -27,6 +27,14 @@
   width: 100%;
 }
 
+// Make row columns: size every child of a row to `1 / $count` of it (`.row-cols-*`)
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 math.percentage(math.div(1, $count));
+    max-width: math.percentage(math.div(1, $count));
+  }
+}
+
 // Make container
 
 @mixin make-container() {

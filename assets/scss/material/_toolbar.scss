@@ -1,7 +1,19 @@
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
 @use '../variables' as *;
 @use '../mixins' as *;
+
+// Responsive containers (`.container-{breakpoint}`) lay out like `.container` in a navbar
+// stylelint-disable-next-line scss/dollar-variable-default
+$_navbar-containers: ('> .container',);
+// stylelint-disable-next-line scss/dollar-variable-default
+$_navbar-containers-fluid: ('> .container', '> .container-fluid');
+
+@each $breakpoint in map.keys($container-max-widths) {
+  $_navbar-containers: list.append($_navbar-containers, '> .container-#{$breakpoint}', $separator: comma);
+  $_navbar-containers-fluid: list.append($_navbar-containers-fluid, '> .container-#{$breakpoint}', $separator: comma);
+}
 
 .navbar {
   align-items: center;
@@ -104,7 +116,7 @@
     }
   }
 
-  > .container {
+  #{$_navbar-containers} {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -305,8 +317,7 @@
       }
 
       @include media-breakpoint-down($breakpoint) {
-        > .container,
-        > .container-fluid {
+        #{$_navbar-containers-fluid} {
           padding-right: 0;
           padding-left: 0;
         }
@@ -331,8 +342,7 @@
           }
         }
 
-        > .container,
-        > .container-fluid {
+        #{$_navbar-containers-fluid} {
           flex-wrap: nowrap;
         }
       }

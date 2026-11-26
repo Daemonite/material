@@ -15,6 +15,10 @@
   white-space: nowrap !important;
 }
 
+.text-wrap {
+  white-space: normal !important;
+}
+
 .text-truncate {
   @include text-truncate;
 }
@@ -63,6 +67,10 @@
   color: $body-color !important;
 }
 
+.text-reset {
+  color: inherit !important;
+}
+
 .text-white-50 {
   color: rgba($white, 0.5) !important;
 }
@@ -88,12 +96,29 @@
   font-weight: $font-weight-light;
 }
 
+.font-weight-lighter {
+  font-weight: lighter !important;
+}
+
+.font-weight-bolder {
+  font-weight: bolder !important;
+}
+
 .font-weight-normal,
 .font-weight-regular {
   font-weight: $font-weight-regular;
 }
 
 // Misc
+
+.text-break {
+  word-break: break-word !important; // Deprecated, but avoids issues with flex containers
+  word-wrap: break-word !important; // Used instead of `overflow-wrap` for IE & Edge Legacy
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
 
 .text-hide {
   @include text-hide($ignore-warning: true);

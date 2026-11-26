@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use '../variables' as *;
 @use '../functions' as *;
 @use 'border-radius' as *;
@@ -109,6 +110,19 @@
   .custom-switch .custom-control-input {
     &.is-#{$state},
     .was-validated &:#{$state} {
+      // Bootstrap 4.6 switch markup: the focus halo is on the thumb
+      &.focus,
+      &:active {
+        + .custom-control-label::after {
+          box-shadow: $selection-control-thumb-shadow, 0 0 0 math.div($selection-control-indicator-size, 2) rgba($color, $selection-control-radial-opacity);
+        }
+      }
+
+      // Bootstrap 4.6 switch markup, where the label's `::before` is the track
+      &:not(:disabled) + .custom-control-label::before {
+        background-color: rgba($color, $selection-control-track-opacity);
+      }
+
       ~ .custom-control-label::after {
         background-color: $color;
       }

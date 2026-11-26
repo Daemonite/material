@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:meta';
 @use '../variables' as *;
 @use '../mixins' as *;
 
@@ -38,6 +39,42 @@
         .#{$prop-abbr}y#{$infix}-#{$size} {
           #{$prop}-top: $value !important;
           #{$prop}-bottom: $value !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`). Only numeric spacers
+    // can be negated in Sass; others (e.g. `clamp()` or `var()`) get no negative utility.
+    @each $size, $value in $spacers {
+      @if $size != 0 and meta.type-of($value) == 'number' {
+        .m#{$infix}-n#{$size} {
+          margin: -$value !important;
+        }
+
+        .mt#{$infix}-n#{$size} {
+          margin-top: -$value !important;
+        }
+
+        .mr#{$infix}-n#{$size} {
+          margin-right: -$value !important;
+        }
+
+        .mb#{$infix}-n#{$size} {
+          margin-bottom: -$value !important;
+        }
+
+        .ml#{$infix}-n#{$size} {
+          margin-left: -$value !important;
+        }
+
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$value !important;
+          margin-left: -$value !important;
+        }
+
+        .my#{$infix}-n#{$size} {
+          margin-top: -$value !important;
+          margin-bottom: -$value !important;
         }
       }
     }

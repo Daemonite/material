@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// Toasts (Bootstrap 4.2+), styled as Material snackbars. Unlike `.snackbar`, a toast isn't fixed to
+// the viewport: place it (or a container of toasts) yourself, and toasts stack. Bootstrap's toast JS
+// toggles `.showing`, `.show` and `.hide`, and adds `.fade` when `animation` is on.
+
+.toast {
+  @include border-radius($toast-border-radius);
+
+  background-clip: padding-box;
+  background-color: $toast-bg;
+  box-shadow: map.get($toast-elevation-shadow, shadow);
+  color: $toast-color;
+  flex-basis: $toast-max-width;
+  font-size: $toast-font-size;
+  line-height: $toast-line-height;
+  max-width: $toast-max-width;
+  opacity: 0;
+
+  &.showing {
+    opacity: 1;
+  }
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $toast-margin-y;
+  }
+
+  .close {
+    color: $toast-header-color;
+    font-size: $toast-font-size * 1.5;
+
+    @include active-focus-hover {
+      color: $toast-color;
+    }
+  }
+}
+
+.toast-header {
+  align-items: center;
+  color: $toast-header-color;
+  display: flex;
+  font-size: $toast-header-font-size;
+  padding: $toast-padding-y $toast-padding-x 0;
+}
+
+.toast-body {
+  padding: $toast-padding-y $toast-padding-x;
+}
