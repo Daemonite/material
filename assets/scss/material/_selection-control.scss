@@ -206,3 +206,60 @@
     @include transition-standard(background-color);
   }
 }
+
+// Bootstrap 4.6 switch markup: `.custom-control-input` directly followed by `.custom-control-label`,
+// without the `.custom-control-track` span. The label's `::before` (the focus ripple in the markup
+// above) draws the track, and the ripple becomes a halo around the thumb. This must follow the rules
+// above, which it overrides at equal specificity.
+
+// stylelint-disable-next-line no-duplicate-selectors
+.custom-switch .custom-control-input {
+  &.focus,
+  &:active {
+    + .custom-control-label::before {
+      opacity: 1;
+      transform: none;
+    }
+
+    + .custom-control-label::after {
+      box-shadow: $selection-control-thumb-shadow, 0 0 0 math.div($selection-control-indicator-size, 2) rgba($selection-control-color, $selection-control-radial-opacity);
+    }
+  }
+
+  // stylelint-disable-next-line no-duplicate-selectors
+  &:checked {
+    &.focus,
+    &:active {
+      + .custom-control-label::after {
+        box-shadow: $selection-control-thumb-shadow, 0 0 0 math.div($selection-control-indicator-size, 2) rgba($selection-control-color-active, $selection-control-radial-opacity);
+      }
+    }
+
+    + .custom-control-label::before {
+      background-color: rgba($selection-control-color-active, $selection-control-track-opacity);
+      transform: none;
+    }
+  }
+
+  &:disabled + .custom-control-label::before {
+    background-color: $selection-control-track-bg-disabled;
+    display: block;
+  }
+
+  + .custom-control-label::before {
+    background-clip: content-box;
+    background-color: $selection-control-track-bg;
+    border: math.div($selection-control-indicator-size - $selection-control-track-height, 2) solid transparent;
+    border-radius: $selection-control-track-height;
+    height: $selection-control-indicator-size;
+    margin: 0;
+    opacity: 1;
+    top: math.div($font-size-base * $line-height-base - $selection-control-indicator-size, 2);
+    transform: none;
+    width: $selection-control-track-width;
+  }
+
+  + .custom-control-label::after {
+    @include transition-standard(background-color, box-shadow, transform);
+  }
+}

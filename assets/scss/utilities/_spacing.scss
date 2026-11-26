@@ -42,6 +42,41 @@
       }
     }
 
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $value in $spacers {
+      @if $size != 0 {
+        .m#{$infix}-n#{$size} {
+          margin: -$value !important;
+        }
+
+        .mt#{$infix}-n#{$size} {
+          margin-top: -$value !important;
+        }
+
+        .mr#{$infix}-n#{$size} {
+          margin-right: -$value !important;
+        }
+
+        .mb#{$infix}-n#{$size} {
+          margin-bottom: -$value !important;
+        }
+
+        .ml#{$infix}-n#{$size} {
+          margin-left: -$value !important;
+        }
+
+        .mx#{$infix}-n#{$size} {
+          margin-right: -$value !important;
+          margin-left: -$value !important;
+        }
+
+        .my#{$infix}-n#{$size} {
+          margin-top: -$value !important;
+          margin-bottom: -$value !important;
+        }
+      }
+    }
+
     .m#{$infix}-auto {
       margin: auto !important;
     }

@@ -23,10 +23,47 @@
       }
     }
 
+    // Bootstrap 4.6 order: `.row-cols-*` overrides `.col`, and `.col-auto` and `.col-*` override both.
+    // Source order is the cascade here, so it can't follow `order/order`.
+    // stylelint-disable order/order
     @include media-breakpoint-up($breakpoint) {
+      .col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .row-cols#{$infix}-#{$i} {
+            @include row-cols($i);
+          }
+        }
+      }
+
+      .col#{$infix}-auto {
+        flex: 0 0 auto;
+        max-width: none;
+        width: auto;
+      }
+
       @for $i from 1 through $grid-columns {
         .col#{$infix}-#{$i} {
           @include make-col($i);
+        }
+      }
+
+      .order#{$infix}-first {
+        order: -1;
+      }
+
+      .order#{$infix}-last {
+        order: $grid-columns + 1;
+      }
+
+      @for $i from 0 through $grid-columns {
+        .order#{$infix}-#{$i} {
+          order: $i;
         }
       }
 
@@ -37,33 +74,8 @@
           }
         }
       }
-
-      @for $i from 0 through $grid-columns {
-        .order#{$infix}-#{$i} {
-          order: $i;
-        }
-      }
-
-      .col#{$infix} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-      }
-
-      .col#{$infix}-auto {
-        flex: 0 0 auto;
-        max-width: none;
-        width: auto;
-      }
-
-      .order#{$infix}-first {
-        order: -1;
-      }
-
-      .order#{$infix}-last {
-        order: $grid-columns + 1;
-      }
     }
+    // stylelint-enable order/order
 
     .col#{$infix},
     .col#{$infix}-auto {

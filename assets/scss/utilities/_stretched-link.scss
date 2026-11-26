@@ -1,0 +1,20 @@
+// Make the nearest positioned ancestor of the link clickable as a whole, e.g. a `.card`
+.stretched-link {
+  &::after {
+    background-color: rgba(0, 0, 0, 0); // Chrome <30 bug with transparent `background-color`
+    content: '';
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+// Material's buttons are `position: relative`, which would make the button itself the containing
+// block of `::after`. Let it stretch over the button's positioned ancestor (e.g. the card) instead.
+.btn.stretched-link {
+  position: static;
+}

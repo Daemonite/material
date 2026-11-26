@@ -1,3 +1,5 @@
+@use 'sass:list';
+@use 'sass:map';
 @use '../variables' as *;
 @use '../mixins' as *;
 
@@ -20,6 +22,34 @@
   .container-fluid {
     @include make-container;
   }
+
+  // Responsive containers (Bootstrap 4.4+): `.container-{breakpoint}` is 100% wide until
+  // `{breakpoint}`, then takes the same max-widths as `.container`. The selector lists are built
+  // first, so this block can't follow `order/order`.
+  // stylelint-disable order/order
+
+  $responsive-containers: ();
+
+  @each $breakpoint in map.keys($container-max-widths) {
+    $responsive-containers: list.append($responsive-containers, '.container-#{$breakpoint}', $separator: comma);
+  }
+
+  #{$responsive-containers} {
+    @include make-container;
+  }
+
+  $extended-containers: ();
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    $extended-containers: list.append($extended-containers, '.container-#{$breakpoint}', $separator: comma);
+
+    @include media-breakpoint-up($breakpoint) {
+      #{$extended-containers} {
+        max-width: $container-max-width;
+      }
+    }
+  }
+  // stylelint-enable order/order
 }
 
 // Row
