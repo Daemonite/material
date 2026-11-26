@@ -51,7 +51,8 @@ const NavDrawer = (($) => {
   const Selector = {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
-    DATA_TOGGLE  : '[data-toggle="navdrawer"]'
+    DATA_TOGGLE  : '[data-toggle="navdrawer"]',
+    DIALOG       : '.modal, .navdrawer, [aria-modal="true"]'
   }
   // <<< constants
 
@@ -134,7 +135,6 @@ const NavDrawer = (($) => {
       this._isShown = true
 
       this._setEscapeEvent()
-      this._setResizeEvent()
 
       $(this._element).addClass(`${NAME}-${this._config.type}${this._typeBreakpoint}`)
 
@@ -175,15 +175,24 @@ const NavDrawer = (($) => {
       return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
     }
 
-    // Resizing below the breakpoint turns the drawer modal; pull focus in from the page behind it
+    // Resizing below the breakpoint turns an open drawer modal. When that happens, pull focus in from
+    // the page behind it, unless focus is in another dialog or drawer (which keeps its own focus)
     _setResizeEvent() {
       if (this._isShown && !this._resizeHandler) {
-        this._resizeHandler = () => {
-          const active = document.activeElement
+        let wasModal = this._isModal()
 
-          if (this._isModal() && active !== this._element && !$.contains(this._element, active)) {
+        this._resizeHandler = () => {
+          const active  = document.activeElement
+          const isModal = this._isModal()
+
+          if (isModal && !wasModal &&
+              active !== this._element &&
+              !$.contains(this._element, active) &&
+              $(active).closest(Selector.DIALOG).length === 0) {
             this._element.focus()
           }
+
+          wasModal = isModal
         }
 
         $(window).on(Event.RESIZE, this._resizeHandler)
@@ -287,6 +296,7 @@ const NavDrawer = (($) => {
       $(this._element).addClass(ClassName.SHOW)
 
       this._enforceFocus()
+      this._setResizeEvent()
 
       const shownEvent = $.Event(Event.SHOWN, {
         relatedTarget
