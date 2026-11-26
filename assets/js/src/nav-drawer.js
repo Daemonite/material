@@ -43,6 +43,7 @@ const NavDrawer = (($) => {
     KEYDOWN_DISMISS   : `keydown.dismiss${EVENT_KEY}`,
     MOUSEDOWN_DISMISS : `mousedown.dismiss${EVENT_KEY}`,
     MOUSEUP_DISMISS   : `mouseup.dismiss${EVENT_KEY}`,
+    RESIZE            : `resize${EVENT_KEY}`,
     SHOW              : `show${EVENT_KEY}`,
     SHOWN             : `shown${EVENT_KEY}`
   }
@@ -62,6 +63,7 @@ const NavDrawer = (($) => {
       this._element             = element
       this._ignoreBackdropClick = false
       this._isShown             = false
+      this._resizeHandler       = null
       this._typeBreakpoint      = this._config.breakpoint === '' ? '' : `-${this._config.breakpoint}`
     }
 
@@ -87,6 +89,7 @@ const NavDrawer = (($) => {
       this._isTransitioning = true
 
       this._setEscapeEvent()
+      this._setResizeEvent()
 
       $(document).off(Event.FOCUSIN)
 
@@ -112,6 +115,9 @@ const NavDrawer = (($) => {
         return
       }
 
+      // Guards against a `show` handler re-entering `show()`
+      this._isTransitioning = true
+
       const showEvent = $.Event(Event.SHOW, {
         relatedTarget
       })
@@ -119,15 +125,16 @@ const NavDrawer = (($) => {
       $(this._element).trigger(showEvent)
 
       if (this._isShown || showEvent.isDefaultPrevented()) {
+        // Reset, or a prevented `show` leaves the drawer unable to open again
+        this._isTransitioning = false
+
         return
       }
-
-      // Set only once `show` can't be cancelled; otherwise a prevented `show` leaves the drawer stuck
-      this._isTransitioning = true
 
       this._isShown = true
 
       this._setEscapeEvent()
+      this._setResizeEvent()
 
       $(this._element).addClass(`${NAME}-${this._config.type}${this._typeBreakpoint}`)
 
@@ -166,6 +173,25 @@ const NavDrawer = (($) => {
     // beside the page content, so they mustn't trap focus
     _isModal() {
       return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
+    }
+
+    // Resizing below the breakpoint turns the drawer modal; pull focus in from the page behind it
+    _setResizeEvent() {
+      if (this._isShown && !this._resizeHandler) {
+        this._resizeHandler = () => {
+          const active = document.activeElement
+
+          if (this._isModal() && active !== this._element && !$.contains(this._element, active)) {
+            this._element.focus()
+          }
+        }
+
+        $(window).on(Event.RESIZE, this._resizeHandler)
+      } else if (!this._isShown && this._resizeHandler) {
+        $(window).off(Event.RESIZE, this._resizeHandler)
+
+        this._resizeHandler = null
+      }
     }
 
     _getConfig(config) {
