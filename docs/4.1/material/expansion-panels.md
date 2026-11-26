@@ -16,8 +16,8 @@ An expansion panel can stand alone.
     <a aria-controls="collapseOne" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseOne" id="headingOne">
       Expansion panel item #1
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
     <div aria-labelledby="headingOne" class="collapse" data-parent="#accordionOne" id="collapseOne" role="region">
@@ -30,8 +30,8 @@ An expansion panel can stand alone.
     <a aria-controls="collapseTwo" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseTwo" id="headingTwo">
       Expansion panel item #2
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
     <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionOne" id="collapseTwo" role="region">
@@ -44,8 +44,8 @@ An expansion panel can stand alone.
     <a aria-controls="collapseThree" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseThree" id="headingThree">
       Expansion panel item #3
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
     <div aria-labelledby="headingThree" class="collapse" data-parent="#accordionOne" id="collapseThree" role="region">
@@ -71,8 +71,8 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseFour" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFour" id="headingFour">
         Connected expansion panel item #1
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
       <div aria-labelledby="headingFour" class="collapse" data-parent="#accordionTwo" id="collapseFour" role="region">
@@ -85,8 +85,8 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseFive" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFive" id="headingFive">
         Connected expansion panel item #2
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
       <div aria-labelledby="headingFive" class="collapse" data-parent="#accordionTwo" id="collapseFive" role="region">
@@ -99,8 +99,8 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseSix" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseSix" id="headingSix">
         Connected expansion panel item #3
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
       <div aria-labelledby="headingSix" class="collapse" data-parent="#accordionTwo" id="collapseSix" role="region">
@@ -131,8 +131,8 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
     <div aria-labelledby="headingSeven" class="collapse" data-parent="#accordionThree" id="collapseSeven" role="region">
@@ -159,8 +159,8 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
     <div aria-labelledby="headingEight" class="collapse" data-parent="#accordionThree" id="collapseEight" role="region">
@@ -217,8 +217,8 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
     <div aria-labelledby="headingNine" class="collapse" data-parent="#accordionThree" id="collapseNine" role="region">

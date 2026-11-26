@@ -49,7 +49,7 @@ Media objects can be infinitely nested, though we suggest you stop at some point
         <img {{ site.holder_img_attrs }} data-src="holder.js/64x64" alt="Generic placeholder image">
       </a>
       <div class="media-body">
-        <h3 class="mt-0 h5">Media heading</h3>
+        <h4 class="mt-0 h5">Media heading</h4>
         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
       </div>
     </div>

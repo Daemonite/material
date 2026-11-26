@@ -18,9 +18,15 @@ const vnu = String(require('vnu-jar'))
 // download a Java runtime. Without Java the check is skipped, so contributors
 // without Java can still run `npm run docs`.
 childProcess.execFile('java', ['-version'], (error, stdout, stderr) => {
-  if (error) {
+  if (error && error.code === 'ENOENT') {
     console.error('Skipping vnu-jar test; Java is missing. Install Java 11 or later to validate the docs.')
     return
+  }
+
+  // Java is installed but doesn't start: fail rather than skip the check.
+  if (error) {
+    console.error(`Could not run \`java -version\`: ${error.message}`)
+    process.exit(1)
   }
 
   const is32bitJava = !stderr.match(/64-Bit/)
@@ -32,9 +38,11 @@ childProcess.execFile('java', ['-version'], (error, stdout, stderr) => {
   // as possible, and fix the markup instead of adding a pattern where you can.
   const ignores = [
     // `autocomplete="off"` on the inputs and buttons of the toggle button demos
-    // stops Firefox from keeping their state across page loads. Bootstrap
-    // recommends it, but the HTML spec only allows `autocomplete` on text-like
-    // inputs.
+    // (and the animated progress demo's button) stops Firefox from keeping
+    // their state across page loads. Bootstrap recommends it, but the HTML
+    // spec only allows `autocomplete` on text-like inputs. These messages don't
+    // include the attribute's value, so they also hide any other
+    // `autocomplete` on checkboxes, radios and buttons.
     'Attribute “autocomplete” is only allowed when the input type is “color”, “date”, “datetime-local”, “email”, “hidden”, “month”, “number”, “password”, “range”, “search”, “tel”, “text”, “time”, “url”, or “week”.',
     'Attribute “autocomplete” not allowed on element “button” at this point.',
     // Info only: the icons page shows Material Icons code points, which are in
