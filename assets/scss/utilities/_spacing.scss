@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:meta';
 @use '../variables' as *;
 @use '../mixins' as *;
 
@@ -42,9 +43,10 @@
       }
     }
 
-    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`). Only numeric spacers
+    // can be negated in Sass; others (e.g. `clamp()` or `var()`) get no negative utility.
     @each $size, $value in $spacers {
-      @if $size != 0 {
+      @if $size != 0 and meta.type-of($value) == 'number' {
         .m#{$infix}-n#{$size} {
           margin: -$value !important;
         }
