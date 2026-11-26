@@ -17,7 +17,7 @@ Material's buttons are `position: relative` too (for their ripple), which would 
 Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.
 
 {% capture example %}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem; max-width: 100%;">
   <img class="card-img-top" {{ site.holder_img_attrs }} data-src="holder.js/100px180/" alt="Card image cap">
   <div class="card-body">
     <h3 class="card-title h5">Card with stretched link</h3>
@@ -68,7 +68,7 @@ If the stretched link doesn't seem to work, the [containing block](https://devel
 - A `filter` value other than `none` or a `will-change` value of `filter` (only works on Firefox)
 
 {% capture example %}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem; max-width: 100%;">
   <img class="card-img-top" {{ site.holder_img_attrs }} data-src="holder.js/100px180/" alt="Card image cap">
   <div class="card-body">
     <h3 class="card-title h5">Card with stretched links</h3>

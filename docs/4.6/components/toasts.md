@@ -344,7 +344,7 @@ Hides an element's toast. **Returns to the caller before the toast has actually 
 
 #### `.toast('dispose')`
 
-Hides an element's toast. Your toast will remain on the DOM but won't show anymore.
+Removes the toast plugin from an element (its data and event handlers). The element stays in the DOM, and `dispose` doesn't hide it, so a visible toast stays visible and its close button can still receive focus. Hide the toast first, or remove the element, to take it off the page and out of the tab order.
 
 {% highlight js %}$('#element').toast('dispose'){% endhighlight %}
 
