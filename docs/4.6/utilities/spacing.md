@@ -108,4 +108,4 @@ Here's an example of customizing the grid at the medium (`md`) breakpoint and ab
 {% endcapture %}
 {% include example.html content=example %}
 
-Negative margins are only generated for spacers that Sass can negate, i.e. plain numbers such as `1rem`. If you add a spacer such as `var(--spacer)` or `clamp(...)` to `$spacers`, it gets positive margin and padding utilities but no negative margin utility.
+Negative margins are only generated for spacers that Sass can negate, i.e. plain numbers such as `1rem`. If you add a spacer such as `var(--spacer)` or `clamp(...)` to `$spacers`, it gets positive margin and padding utilities but no negative margin utility. A `$spacers` key that is itself named `n{size}`, such as `n1: -0.75rem`, keeps its own value: `.m-n1` then uses it instead of the generated `-0.25rem`.

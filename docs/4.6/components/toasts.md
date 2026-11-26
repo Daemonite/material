@@ -32,7 +32,7 @@ To encourage extensible and predictable toasts, we recommend a header and body. 
 
 Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your "toasted" content and strongly encourage a dismiss button.
 
-The examples on this page add `.show` so that they are visible straight away. Without it, a toast stays hidden until you show it with the [`show` method](#toastshow).
+The examples on this page add `.show` so that they are visible straight away. In your own pages, start a toast with `.hide` instead (as the live example below does), and show it with the [`show` method](#toastshow). Without either class a toast is transparent but still takes up space, and its close button can still receive focus.
 
 {% capture example %}
 <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
@@ -53,33 +53,32 @@ The examples on this page add `.show` so that they are visible straight away. Wi
 
 ### Live
 
-Click the button below to show a toast (positioned in the lower right corner) that has been hidden by default with `.hide`.
-
-<div class="position-fixed p-3" style="right: 0; bottom: 0; z-index: 60;">
-  <div class="toast hide" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
-    <div class="toast-header">
-      <img class="rounded mr-2" {{ site.holder_img_attrs }} data-src="holder.js/20x20?bg=9c27b0&fg=9c27b0&text=M" alt="">
-      <strong class="mr-auto">Material</strong>
-      <small>11 mins ago</small>
-      <button class="ml-2 mb-1 close" aria-label="Close" data-dismiss="toast" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
+Click the button below to show a toast (positioned in the lower right corner) that has been hidden by default with `.hide`. The toast comes right after the button in the page, so it's next in the tab order, and it stays until it's dismissed. Its container is a persistent live region, so screen readers announce the toast when it appears.
 
 <div class="bd-example">
   <button class="btn btn-primary" id="liveToastBtn" type="button">Show live toast</button>
+  <div class="position-fixed p-3" style="right: 0; bottom: 0; z-index: 60;" aria-live="polite" aria-atomic="true">
+    <div class="toast hide" id="liveToast" role="status" data-autohide="false">
+      <div class="toast-header">
+        <img class="rounded mr-2" {{ site.holder_img_attrs }} data-src="holder.js/20x20?bg=9c27b0&fg=9c27b0&text=M" alt="">
+        <strong class="mr-auto">Material</strong>
+        <small>11 mins ago</small>
+        <button class="ml-2 mb-1 close" aria-label="Close" data-dismiss="toast" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
 </div>
 
 {% highlight html %}
 <button class="btn btn-primary" id="liveToastBtn" type="button">Show live toast</button>
 
-<div class="position-fixed p-3" style="right: 0; bottom: 0; z-index: 60;">
-  <div class="toast hide" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+<div class="position-fixed p-3" style="right: 0; bottom: 0; z-index: 60;" aria-live="polite" aria-atomic="true">
+  <div class="toast hide" id="liveToast" role="status" data-autohide="false">
     <div class="toast-header">
       <img class="rounded mr-2" src="..." alt="...">
       <strong class="mr-auto">Material</strong>

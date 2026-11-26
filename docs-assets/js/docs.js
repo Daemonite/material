@@ -61,7 +61,8 @@
     // Docsearch
     docsearch({
       algoliaOptions: {
-        facetFilters: ['version: 4.6']
+        // The search index still holds the 4.1 docs; their URLs redirect to 4.6
+        facetFilters: ['version: 4.1']
       },
       apiKey: 'c1af50add5aa791153ec947a3035b0c4',
       debug: false,

@@ -530,13 +530,15 @@ Use these row columns classes to quickly create basic grid layouts or to control
 You can also use the accompanying Sass mixin, `row-cols()`:
 
 {% highlight scss %}
+@use 'material';
+
 .element {
   // Three columns to start
-  @include row-cols(3);
+  @include material.row-cols(3);
 
   // Five columns from medium breakpoint up
-  @include media-breakpoint-up(md) {
-    @include row-cols(5);
+  @include material.media-breakpoint-up(md) {
+    @include material.row-cols(5);
   }
 }
 {% endhighlight %}

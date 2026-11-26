@@ -119,7 +119,7 @@ The Sass entry point is `assets/scss/material.scss` (the `sass` field in `packag
 }
 ```
 
-`pkg:` URLs need `--pkg-importer=node`. You can also add `node_modules` to your load paths and `@use 'daemonite-material/assets/scss/material'`. See the [theming docs](https://daemonite.github.io/material/docs/4.1/getting-started/theming/#sass) for loading parts of Material and overriding variables.
+`pkg:` URLs need `--pkg-importer=node`. You can also add `node_modules` to your load paths and `@use 'daemonite-material/assets/scss/material'`. See the [theming docs](https://daemonite.github.io/material/docs/4.6/getting-started/theming/#sass) for loading parts of Material and overriding variables.
 
 **Breaking change since 4.1.1:** LibSass and node-sass can no longer compile Material's Sass. If you can't move to Dart Sass, stay on 4.1.1 or use the compiled CSS. With Dart Sass, `$var: value; @import '.../material';` still works for now, but Sass deprecates `@import`, so switch to `@use ... with (...)`.
 
