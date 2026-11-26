@@ -46,12 +46,16 @@
 // Pills
 
 .nav-pills {
-  // `background-color` and `border` reset `<button class="nav-link">` (Bootstrap 4.6 pill markup)
+  // Reset `<button class="nav-link">` (Bootstrap 4.6 pill markup); anchors keep any other styling
+  // stylelint-disable-next-line selector-no-qualifying-type
+  button.nav-link {
+    background-color: transparent;
+    border: 0;
+  }
+
   .nav-link {
     @include border-radius($nav-pills-border-radius);
 
-    background-color: transparent;
-    border: 0;
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
 
@@ -77,7 +81,9 @@
     }
   }
 
-  .show > .nav-link {
+  // `button.nav-link` matches the reset above, whose specificity is higher than `.show > .nav-link`
+  .show > .nav-link,
+  .show > button.nav-link { // stylelint-disable-line selector-no-qualifying-type
     background-color: $nav-pills-bg-hover;
     opacity: 1;
   }

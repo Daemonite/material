@@ -27,7 +27,7 @@ Material is in **maintenance mode**:
 - We maintain 4.x with dependency updates, security fixes and bug fixes. Issues and pull requests that fix bugs are welcome. Visual redesigns and new features beyond Bootstrap 4 compatibility are out of scope for now.
 - Bootstrap 5 will be considered once the 4.6 release has bedded down.
 
-If you need Bootstrap 4.6 or newer Material styling today, take a look at [djibe's fork](https://github.com/djibe/material) (`djibe-material` on npm).
+If you want newer Material Design styling (such as the 2018 refresh and a dark theme), take a look at [djibe's fork](https://github.com/djibe/material) (`djibe-material` on npm).
 
 ## :pray:
 
