@@ -3,7 +3,7 @@ import Util from './util'
 
 /*
  * Navigation drawer plguin
- * Based on Bootstrap's (v4.1.X) `modal.js`
+ * Based on Bootstrap's (v4.6.X) `modal.js`
  */
 
 const NavDrawer = (($) => {
@@ -14,6 +14,7 @@ const NavDrawer = (($) => {
   const EVENT_KEY      = `.${DATA_KEY}`
   const NAME           = 'navdrawer'
   const NO_CONFLICT    = $.fn[NAME]
+  const OPENED_KEY     = `${DATA_KEY}.openedAt`
 
   const ClassName = {
     BACKDROP : 'navdrawer-backdrop',
@@ -43,16 +44,106 @@ const NavDrawer = (($) => {
     KEYDOWN_DISMISS   : `keydown.dismiss${EVENT_KEY}`,
     MOUSEDOWN_DISMISS : `mousedown.dismiss${EVENT_KEY}`,
     MOUSEUP_DISMISS   : `mouseup.dismiss${EVENT_KEY}`,
+    RESIZE            : `resize${EVENT_KEY}`,
     SHOW              : `show${EVENT_KEY}`,
+    SHOW_BS_MODAL     : 'show.bs.modal',
     SHOWN             : `shown${EVENT_KEY}`
   }
 
   const Selector = {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
-    DATA_TOGGLE  : '[data-toggle="navdrawer"]'
+    DATA_TOGGLE  : '[data-toggle="navdrawer"]',
+    MODAL        : '.modal.show'
   }
   // <<< constants
+
+  // Focus management >>>
+  // Open drawers, oldest first. Only the topmost drawer that is modal right now (its backdrop is
+  // visible) traps focus. One shared handler does this, so stacked drawers don't fight over focus,
+  // and closing one drawer doesn't remove the trap of a modal drawer still open below it.
+  const openDrawers = []
+  let focusTrapOwner = null
+  let openCount      = 0
+
+  // Record when each Bootstrap modal opens, to tell whether it's above or below a drawer
+  $(document).on(Event.SHOW_BS_MODAL, (event) => {
+    $(event.target).data(OPENED_KEY, ++openCount)
+  })
+
+  function setFocusHandlers(on) {
+    $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin)
+    $(window)[on ? 'on' : 'off'](Event.RESIZE, onResize)
+  }
+
+  function topModalDrawer() {
+    for (let i = openDrawers.length - 1; i >= 0; i--) {
+      // A drawer detached from the page is skipped, not forgotten, so it traps focus again if it's
+      // reinserted
+      if ($.contains(document.documentElement, openDrawers[i]._element) && openDrawers[i]._isModal()) {
+        return openDrawers[i]
+      }
+    }
+
+    return null
+  }
+
+  // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal opened after the
+  // drawer is above it and keeps its own focus. (Other dialogs are treated like the rest of the page.)
+  function isOutside(drawer, element) {
+    const modal = $(element).closest(Selector.MODAL)
+
+    return element !== document &&
+      element !== drawer._element &&
+      !$.contains(drawer._element, element) &&
+      !(modal.length && modal.data(OPENED_KEY) > drawer._openedAt)
+  }
+
+  function onFocusin(event) {
+    const drawer = topModalDrawer()
+
+    if (drawer && isOutside(drawer, event.target)) {
+      drawer._element.focus()
+    }
+  }
+
+  // Resizing across a breakpoint can make an open drawer modal. When that happens, pull focus in
+  // from the page behind it.
+  function onResize() {
+    const drawer = topModalDrawer()
+
+    if (drawer && drawer !== focusTrapOwner && isOutside(drawer, document.activeElement)) {
+      drawer._element.focus()
+    }
+
+    focusTrapOwner = drawer
+  }
+
+  function addOpenDrawer(drawer) {
+    if (openDrawers.length === 0) {
+      setFocusHandlers(true)
+    }
+
+    drawer._openedAt = ++openCount
+
+    openDrawers.push(drawer)
+    focusTrapOwner = topModalDrawer()
+  }
+
+  function removeOpenDrawer(drawer) {
+    const index = openDrawers.indexOf(drawer)
+
+    if (index > -1) {
+      openDrawers.splice(index, 1)
+    }
+
+    if (openDrawers.length === 0) {
+      setFocusHandlers(false)
+    }
+
+    focusTrapOwner = topModalDrawer()
+  }
+  // <<< focus management
 
   class NavDrawer {
     constructor(element, config) {
@@ -88,7 +179,7 @@ const NavDrawer = (($) => {
 
       this._setEscapeEvent()
 
-      $(document).off(Event.FOCUSIN)
+      removeOpenDrawer(this)
 
       $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
@@ -100,9 +191,9 @@ const NavDrawer = (($) => {
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-      $(this._content)
-        .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
-        .emulateTransitionEnd(transitionDuration)
+      $(this._content).one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
+
+      Util.emulateTransitionEnd(this._content, transitionDuration)
 
       this._showBackdrop()
     }
@@ -112,6 +203,7 @@ const NavDrawer = (($) => {
         return
       }
 
+      // Guards against a `show` handler re-entering `show()`
       this._isTransitioning = true
 
       const showEvent = $.Event(Event.SHOW, {
@@ -121,6 +213,9 @@ const NavDrawer = (($) => {
       $(this._element).trigger(showEvent)
 
       if (this._isShown || showEvent.isDefaultPrevented()) {
+        // Reset, or a prevented `show` leaves the drawer unable to open again
+        this._isTransitioning = false
+
         return
       }
 
@@ -148,16 +243,12 @@ const NavDrawer = (($) => {
       return this._isShown ? this.hide() : this.show(relatedTarget)
     }
 
-    _enforceFocus() {
-      $(document)
-        .off(Event.FOCUSIN)
-        .on(Event.FOCUSIN, (event) => {
-          if (document !== event.target &&
-              this._element !== event.target &&
-              $(this._element).has(event.target).length === 0) {
-            this._element.focus()
-          }
-        })
+    // Above their breakpoint, permanent, persistent and temporary drawers hide the backdrop and sit
+    // beside the page content, so they mustn't trap focus
+    _isModal() {
+      return Boolean(this._backdrop) &&
+        $.contains(document.documentElement, this._backdrop) &&
+        $(this._backdrop).css('display') !== 'none'
     }
 
     _getConfig(config) {
@@ -252,7 +343,7 @@ const NavDrawer = (($) => {
 
       $(this._element).addClass(ClassName.SHOW)
 
-      this._enforceFocus()
+      addOpenDrawer(this)
 
       const shownEvent = $.Event(Event.SHOWN, {
         relatedTarget
@@ -268,9 +359,9 @@ const NavDrawer = (($) => {
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-      $(this._content)
-        .one(Util.TRANSITION_END, transitionComplete)
-        .emulateTransitionEnd(transitionDuration)
+      $(this._content).one(Util.TRANSITION_END, transitionComplete)
+
+      Util.emulateTransitionEnd(this._content, transitionDuration)
     }
 
     static get Default() {
