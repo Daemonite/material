@@ -52,7 +52,8 @@ When `$enable-gradients` is set to true, you'll be able to use `.bg-gradient-` u
 {% include example.html content=example %}
 
 {% capture callout %}
-#### Dealing with specificity
+### Dealing with specificity
+{: .h4}
 
 Sometimes contextual classes cannot be applied due to the specificity of another selector. In some cases, a sufficient workaround is to wrap your element's content in a `<div>` with the class.
 {% endcapture %}

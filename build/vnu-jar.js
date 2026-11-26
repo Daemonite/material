@@ -10,44 +10,73 @@
 'use strict'
 
 const childProcess = require('child_process')
-const vnu = require('vnu-jar')
 
-childProcess.exec('java -version', (error, stdout, stderr) => {
-  if (error) {
-    console.error('Skipping vnu-jar test; Java is missing.')
+// vnu-jar exports the path to vnu.jar as a boxed `String`; unbox it.
+const vnu = String(require('vnu-jar'))
+
+// Use the `java` on PATH only. Unlike `npx vnu`, this never makes vnu-jar
+// download a Java runtime. Without Java the check is skipped, so contributors
+// without Java can still run `npm run docs`.
+childProcess.execFile('java', ['-version'], (error, stdout, stderr) => {
+  if (error && error.code === 'ENOENT') {
+    console.error('Skipping vnu-jar test; Java is missing. Install Java 11 or later to validate the docs.')
     return
+  }
+
+  // Java is installed but doesn't start: fail rather than skip the check.
+  if (error) {
+    console.error(`Could not run \`java -version\`: ${error.message}`)
+    process.exit(1)
   }
 
   const is32bitJava = !stderr.match(/64-Bit/)
 
-  // vnu-jar accepts multiple ignores joined with a `|`.
-  // Also note that the ignores are regular expressions.
+  // Messages to ignore. vnu-jar joins these with `|` and matches each message
+  // against the whole pattern as a regular expression.
+  // Patterns match the message text vnu uses internally: curly quotes, even
+  // though `--asciiquotes` prints straight ones. Keep each pattern as specific
+  // as possible, and fix the markup instead of adding a pattern where you can.
   const ignores = [
-    'Attribute “autocomplete” is only allowed when the input type is.*',
+    // `autocomplete="off"` on the inputs and buttons of the toggle button demos
+    // (and the animated progress demo's button) stops Firefox from keeping
+    // their state across page loads. Bootstrap recommends it, but the HTML
+    // spec only allows `autocomplete` on text-like inputs. These messages don't
+    // include the attribute's value, so they also hide any other
+    // `autocomplete` on checkboxes, radios and buttons.
+    'Attribute “autocomplete” is only allowed when the input type is “color”, “date”, “datetime-local”, “email”, “hidden”, “month”, “number”, “password”, “range”, “search”, “tel”, “text”, “time”, “url”, or “week”.',
     'Attribute “autocomplete” not allowed on element “button” at this point.',
-    'Bad value “https://fonts.googleapis.com/css\\?family=.*',
-    'Document uses the Unicode Private Use Area\\(s\\).*',
-    'Element “img” is missing required attribute “src”.',
-    'Element “legend” not allowed as child of element “div” in this context.*',
-    'The “datetime-local” input type is not supported in all browsers.*'
+    // Info only: the icons page shows Material Icons code points, which are in
+    // the Unicode Private Use Area.
+    'Document uses the Unicode Private Use Area\\(s\\), which should not be used in publicly exchanged documents. \\(Charmod C073\\)',
+    // Info only: Jekyll and the docs write void elements as `<br />`.
+    'Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.'
   ].join('|')
 
   const args = [
     '-jar',
     vnu,
     '--asciiquotes',
-    `--filterpattern "${ignores}"`,
+    '--filterpattern',
+    ignores,
     '--skip-non-html',
     'gh-pages/'
   ]
 
   // For the 32-bit Java we need to pass `-Xss512k`
   if (is32bitJava) {
-    args.splice(0, 0, '-Xss512k')
+    args.unshift('-Xss512k')
   }
 
-  return childProcess.spawn('java', args, {
-    shell: true,
+  childProcess.spawn('java', args, {
     stdio: 'inherit'
-  }).on('exit', process.exit)
+  }).on('error', (spawnError) => {
+    console.error(`Could not run vnu-jar: ${spawnError.message}`)
+    process.exit(1)
+  }).on('exit', (code, signal) => {
+    if (signal) {
+      console.error(`vnu-jar was stopped by ${signal}.`)
+    }
+
+    process.exit(signal ? 1 : code)
+  })
 })

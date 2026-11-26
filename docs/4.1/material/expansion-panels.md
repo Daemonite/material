@@ -16,11 +16,11 @@ An expansion panel can stand alone.
     <a aria-controls="collapseOne" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseOne" id="headingOne">
       Expansion panel item #1
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
-    <div aria-labelledby="headingOne" class="collapse" data-parent="#accordionOne" id="collapseOne">
+    <div aria-labelledby="headingOne" class="collapse" data-parent="#accordionOne" id="collapseOne" role="region">
       <div class="expansion-panel-body">
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
@@ -30,11 +30,11 @@ An expansion panel can stand alone.
     <a aria-controls="collapseTwo" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseTwo" id="headingTwo">
       Expansion panel item #2
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
-    <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionOne" id="collapseTwo">
+    <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionOne" id="collapseTwo" role="region">
       <div class="expansion-panel-body">
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
@@ -44,11 +44,11 @@ An expansion panel can stand alone.
     <a aria-controls="collapseThree" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseThree" id="headingThree">
       Expansion panel item #3
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </a>
-    <div aria-labelledby="headingThree" class="collapse" data-parent="#accordionOne" id="collapseThree">
+    <div aria-labelledby="headingThree" class="collapse" data-parent="#accordionOne" id="collapseThree" role="region">
       <div class="expansion-panel-body">
         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
       </div>
@@ -63,7 +63,7 @@ An expansion panel can also be connected to a larger surface, such as a card.
 {% capture example %}
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h3 class="card-title">Card title</h3>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <div class="list-group list-group-flush" id="accordionTwo">
@@ -71,11 +71,11 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseFour" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFour" id="headingFour">
         Connected expansion panel item #1
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
-      <div aria-labelledby="headingFour" class="collapse" data-parent="#accordionTwo" id="collapseFour">
+      <div aria-labelledby="headingFour" class="collapse" data-parent="#accordionTwo" id="collapseFour" role="region">
         <div class="expansion-panel-body">
           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
@@ -85,11 +85,11 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseFive" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseFive" id="headingFive">
         Connected expansion panel item #2
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
-      <div aria-labelledby="headingFive" class="collapse" data-parent="#accordionTwo" id="collapseFive">
+      <div aria-labelledby="headingFive" class="collapse" data-parent="#accordionTwo" id="collapseFive" role="region">
         <div class="expansion-panel-body">
           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
@@ -99,11 +99,11 @@ An expansion panel can also be connected to a larger surface, such as a card.
       <a aria-controls="collapseSix" aria-expanded="false" class="expansion-panel-toggler collapsed" data-toggle="collapse" href="#collapseSix" id="headingSix">
         Connected expansion panel item #3
         <div class="expansion-panel-icon ml-3 text-black-secondary">
-          <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-          <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+          <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+          <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
         </div>
       </a>
-      <div aria-labelledby="headingSix" class="collapse" data-parent="#accordionTwo" id="collapseSix">
+      <div aria-labelledby="headingSix" class="collapse" data-parent="#accordionTwo" id="collapseSix" role="region">
         <div class="expansion-panel-body">
           Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
         </div>
@@ -131,11 +131,11 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
-    <div aria-labelledby="headingSeven" class="collapse" data-parent="#accordionThree" id="collapseSeven">
+    <div aria-labelledby="headingSeven" class="collapse" data-parent="#accordionThree" id="collapseSeven" role="region">
       <div class="expansion-panel-body">
         <div class="floating-label textfield-box">
           <label for="exampleInputOne">Enter value for Item #1</label>
@@ -159,11 +159,11 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
-    <div aria-labelledby="headingEight" class="collapse" data-parent="#accordionThree" id="collapseEight">
+    <div aria-labelledby="headingEight" class="collapse" data-parent="#accordionThree" id="collapseEight" role="region">
       <div class="expansion-panel-body">
         <div class="row">
           <div class="col-12 col-sm-2 align-self-center">
@@ -217,11 +217,11 @@ Expansion panels are best used for lightweight editing of an element. A collapse
         </div>
       </div>
       <div class="expansion-panel-icon ml-3 text-black-secondary">
-        <i class="collapsed-show material-icons">keyboard_arrow_down</i>
-        <i class="collapsed-hide material-icons">keyboard_arrow_up</i>
+        <i aria-hidden="true" class="collapsed-show material-icons">keyboard_arrow_down</i>
+        <i aria-hidden="true" class="collapsed-hide material-icons">keyboard_arrow_up</i>
       </div>
     </div>
-    <div aria-labelledby="headingNine" class="collapse" data-parent="#accordionThree" id="collapseNine">
+    <div aria-labelledby="headingNine" class="collapse" data-parent="#accordionThree" id="collapseNine" role="region">
       <div class="expansion-panel-body">
         <div class="row">
           <div class="col-12 col-sm-6">

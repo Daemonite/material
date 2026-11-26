@@ -141,7 +141,7 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
   </label>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
-    <div aria-labelledby="toggleBtnDrop1" class="dropdown-menu dropdown-menu-sm">
+    <div class="dropdown-menu dropdown-menu-sm">
       <a class="dropdown-item" href="#">Colour 1</a>
       <a class="dropdown-item" href="#">Colour 2</a>
       <a class="dropdown-item" href="#">Colour 3</a>
@@ -149,7 +149,7 @@ Logically-grouped options, like Bold, Italic, and Underline, allow multiple opti
   </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop2" type="button"><i class="material-icons">format_color_fill</i></button>
-    <div aria-labelledby="toggleBtnDrop2" class="dropdown-menu dropdown-menu-sm">
+    <div class="dropdown-menu dropdown-menu-sm">
       <a class="dropdown-item" href="#">Colour 1</a>
       <a class="dropdown-item" href="#">Colour 2</a>
       <a class="dropdown-item" href="#">Colour 3</a>
@@ -202,7 +202,7 @@ Vertical variation is also supported
   </label>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop3" type="button"><i class="material-icons">format_color_text</i></button>
-    <div aria-labelledby="toggleBtnDrop3" class="dropdown-menu dropdown-menu-sm">
+    <div class="dropdown-menu dropdown-menu-sm">
       <a class="dropdown-item" href="#">Colour 1</a>
       <a class="dropdown-item" href="#">Colour 2</a>
       <a class="dropdown-item" href="#">Colour 3</a>
@@ -210,7 +210,7 @@ Vertical variation is also supported
   </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop4" type="button"><i class="material-icons">format_color_fill</i></button>
-    <div aria-labelledby="toggleBtnDrop4" class="dropdown-menu dropdown-menu-sm">
+    <div class="dropdown-menu dropdown-menu-sm">
       <a class="dropdown-item" href="#">Colour 1</a>
       <a class="dropdown-item" href="#">Colour 2</a>
       <a class="dropdown-item" href="#">Colour 3</a>

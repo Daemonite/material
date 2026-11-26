@@ -22,7 +22,7 @@ Users may enter text, numbers, or mixed-format types of input.
   </div>
   <div class="form-group">
     <label for="exampleInput2">Date and time</label>
-    <input class="form-control" id="exampleInput2" placeholder="Date and time" type="datetime-local">
+    <input class="form-control" id="exampleInput2" type="datetime-local">
   </div>
   <div class="form-group">
     <label for="exampleInput3">Number</label>
@@ -119,7 +119,7 @@ When the user engages with the text input field, the floating inline labels move
 <div class="form-group">
   <div class="floating-label">
     <label for="exampleFloatingLabel2">Date and time</label>
-    <input aria-describedby="exampleFloatingLabel2Help" class="form-control" id="exampleFloatingLabel2" placeholder="Date and time" type="datetime-local">
+    <input aria-describedby="exampleFloatingLabel2Help" class="form-control" id="exampleFloatingLabel2" type="datetime-local">
   </div>
   <small id="exampleFloatingLabel2Help" class="form-text text-muted">Help text placed outside <code>.floating-label</code>.</small>
 </div>
