@@ -128,20 +128,25 @@ Toggle buttons may be used to group related options, similar to [Components/Butt
 Logically-grouped options, like Bold, Italic, and Underline, allow multiple options to be selected.
 
 {% capture example %}
-<div class="btn-group" data-toggle="buttons" role="group">
-  <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
-    <i class="material-icons">format_bold</i>
-  </label>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
-    <i class="material-icons">format_italic</i>
-  </label>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options2" type="checkbox">
-    <i class="material-icons">format_underlined</i>
-  </label>
+<div class="btn-group" role="group">
+  <div class="btn-group" data-toggle="buttons" role="group">
+    <label class="btn btn-outline btn-sm disabled">
+      <input autocomplete="off" disabled type="checkbox">
+      <i class="material-icons">attach_file</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options2" type="checkbox">
+      <i class="material-icons">format_bold</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options2" type="checkbox">
+      <i class="material-icons">format_italic</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options2" type="checkbox">
+      <i class="material-icons">format_underlined</i>
+    </label>
+  </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop1" type="button"><i class="material-icons">format_color_text</i></button>
     <div class="dropdown-menu dropdown-menu-sm">
@@ -189,20 +194,25 @@ Purely flat toggle buttons can be achieved by adding `.btn-group-fluid` class.
 Vertical variation is also supported
 
 {% capture example %}
-<div class="btn-group-vertical" data-toggle="buttons" role="group">
-  <button class="btn btn-outline btn-sm" disabled><i class="material-icons">attach_file</i></button>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
-    <i class="material-icons">format_bold</i>
-  </label>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
-    <i class="material-icons">format_italic</i>
-  </label>
-  <label class="btn btn-outline btn-sm active">
-    <input autocomplete="off" checked name="options4" type="checkbox">
-    <i class="material-icons">format_underlined</i>
-  </label>
+<div class="btn-group-vertical" role="group">
+  <div class="btn-group-vertical" data-toggle="buttons" role="group">
+    <label class="btn btn-outline btn-sm disabled">
+      <input autocomplete="off" disabled type="checkbox">
+      <i class="material-icons">attach_file</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options4" type="checkbox">
+      <i class="material-icons">format_bold</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options4" type="checkbox">
+      <i class="material-icons">format_italic</i>
+    </label>
+    <label class="btn btn-outline btn-sm active">
+      <input autocomplete="off" checked name="options4" type="checkbox">
+      <i class="material-icons">format_underlined</i>
+    </label>
+  </div>
   <div class="btn-group" role="group">
     <button aria-expanded="false" aria-haspopup="true" class="btn btn-outline btn-sm dropdown-toggle" data-toggle="dropdown" id="toggleBtnDrop3" type="button"><i class="material-icons">format_color_text</i></button>
     <div class="dropdown-menu dropdown-menu-sm">
