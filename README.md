@@ -91,7 +91,7 @@ daemonite-material/
 │   ├── material.min.css
 │   └── material.min.css.map
 ├── docs/
-│   └── 4.1/
+│   └── 4.6/
 └── js/
     ├── material.js
     ├── material.js.map
@@ -119,7 +119,7 @@ The Sass entry point is `assets/scss/material.scss` (the `sass` field in `packag
 }
 ```
 
-`pkg:` URLs need `--pkg-importer=node`. You can also add `node_modules` to your load paths and `@use 'daemonite-material/assets/scss/material'`. See the [theming docs](https://daemonite.github.io/material/docs/4.1/getting-started/theming/#sass) for loading parts of Material and overriding variables.
+`pkg:` URLs need `--pkg-importer=node`. You can also add `node_modules` to your load paths and `@use 'daemonite-material/assets/scss/material'`. See the [theming docs](https://daemonite.github.io/material/docs/4.6/getting-started/theming/#sass) for loading parts of Material and overriding variables.
 
 **Breaking change since 4.1.1:** LibSass and node-sass can no longer compile Material's Sass. If you can't move to Dart Sass, stay on 4.1.1 or use the compiled CSS. With Dart Sass, `$var: value; @import '.../material';` still works for now, but Sass deprecates `@import`, so switch to `@use ... with (...)`.
 
@@ -129,7 +129,7 @@ Material's documentation, included in this repo in the root directory, is built 
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](https://daemonite.github.io/material/docs/4.1/getting-started/tooling/#getting-started) to install Ruby (3.2 or newer), Jekyll and the other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](https://daemonite.github.io/material/docs/4.6/getting-started/tooling/#getting-started) to install Ruby (3.2 or newer), Jekyll and the other Ruby dependencies with `bundle install`.
 2. Install Java 11 or later and put it on your `PATH`. `npm run docs` uses it to validate the docs with `vnu-jar`, and skips that check without it. Without Java, `vnu-jar`'s install script also downloads an unverified Java runtime from GitHub, which the build never uses, so install Java before step 3.
 3. Run `npm install` to install Node.js dependencies. The build tools need Node.js 22 LTS (see `.nvmrc`).
 4. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.

@@ -45,7 +45,7 @@ exclude:
 host:             0.0.0.0
 port:             9999
 source:           "."
-url:              "http://daemonite.github.io"
+url:              "https://daemonite.github.io"
 
 # social
 authors:          "Daemonite"
@@ -62,6 +62,8 @@ toc:
 # vars
 cdn:
   bs_css:         "https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+  # Bootstrap's own docs stylesheet (callouts, examples, TOC). Kept at 4.1: the 4.6 one changes
+  # the docs' spacing and makes several pages overflow horizontally at 1280px.
   bs_css_docs:    "https://getbootstrap.com/docs/4.1/assets/css/docs.min.css"
   bs_css_hash:    "sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
   bs_js:          "https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
@@ -72,13 +74,14 @@ cdn:
   md_icon:        "https://fonts.googleapis.com/icon?family=Material+Icons"
   popper:         "https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
   popper_hash:    "sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+bootstrap_version: "4.6.2"
 current_version:  "4.1.1"
 # Holder.js placeholder images (`<img {{ site.holder_img_attrs }} data-src="holder.js/...">`).
 # The transparent GIF gives each image a valid `src`; `data-holder-rendered`
 # makes Holder draw the `data-src` placeholder over it anyway (Holder keeps any
 # `src` that loads otherwise). `_includes/example.html` hides both in snippets.
 holder_img_attrs: 'src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-holder-rendered="true"'
-docs_version:     "4.1"
+docs_version:     "4.6"
 download:
   source:         "https://github.com/Daemonite/material/archive/v4.1.1.zip"
   dist:           "https://github.com/Daemonite/material/releases/download/v4.1.1/material-4.1.1-dist.zip"

@@ -61,6 +61,7 @@
     // Docsearch
     docsearch({
       algoliaOptions: {
+        // The search index still holds the 4.1 docs; their URLs redirect to 4.6
         facetFilters: ['version: 4.1']
       },
       apiKey: 'c1af50add5aa791153ec947a3035b0c4',
@@ -236,6 +237,15 @@
           return 'show'
         })
       }
+    })
+
+    // Toasts
+    $('.bd-example .toast').toast({
+      autohide: false
+    })
+
+    $('#liveToastBtn').on('click', function () {
+      $('#liveToast').toast('show')
     })
 
     // Toolbar

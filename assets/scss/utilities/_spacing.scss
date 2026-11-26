@@ -44,9 +44,10 @@
     }
 
     // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`). Only numeric spacers
-    // can be negated in Sass; others (e.g. `clamp()` or `var()`) get no negative utility.
+    // can be negated in Sass; others (e.g. `clamp()` or `var()`) get no negative utility. A `$spacers`
+    // key that is already named `n{size}` keeps its own value.
     @each $size, $value in $spacers {
-      @if $size != 0 and meta.type-of($value) == 'number' {
+      @if $size != 0 and meta.type-of($value) == 'number' and not map.has-key($spacers, 'n#{$size}') {
         .m#{$infix}-n#{$size} {
           margin: -$value !important;
         }
