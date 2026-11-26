@@ -61,7 +61,7 @@
     // Docsearch
     docsearch({
       algoliaOptions: {
-        facetFilters: ['version: 4.1']
+        facetFilters: ['version: 4.6']
       },
       apiKey: 'c1af50add5aa791153ec947a3035b0c4',
       debug: false,
@@ -236,6 +236,15 @@
           return 'show'
         })
       }
+    })
+
+    // Toasts
+    $('.bd-example .toast').toast({
+      autohide: false
+    })
+
+    $('#liveToastBtn').on('click', function () {
+      $('#liveToast').toast('show')
     })
 
     // Toolbar

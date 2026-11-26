@@ -91,7 +91,7 @@ daemonite-material/
 │   ├── material.min.css
 │   └── material.min.css.map
 ├── docs/
-│   └── 4.1/
+│   └── 4.6/
 └── js/
     ├── material.js
     ├── material.js.map
@@ -129,7 +129,7 @@ Material's documentation, included in this repo in the root directory, is built 
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](https://daemonite.github.io/material/docs/4.1/getting-started/tooling/#getting-started) to install Ruby (3.2 or newer), Jekyll and the other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](https://daemonite.github.io/material/docs/4.6/getting-started/tooling/#getting-started) to install Ruby (3.2 or newer), Jekyll and the other Ruby dependencies with `bundle install`.
 2. Install Java 11 or later and put it on your `PATH`. `npm run docs` uses it to validate the docs with `vnu-jar`, and skips that check without it. Without Java, `vnu-jar`'s install script also downloads an unverified Java runtime from GitHub, which the build never uses, so install Java before step 3.
 3. Run `npm install` to install Node.js dependencies. The build tools need Node.js 22 LTS (see `.nvmrc`).
 4. Run `npm run dist` and `npm run docs` to rebuild distributed CSS and JavaScript files, as well as docs assets.
