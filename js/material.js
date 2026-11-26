@@ -367,6 +367,13 @@
       $(event.target).data(OPENED_KEY, ++openCount);
     }).on(Event.HIDDEN_BS_MODAL, function (event) {
       $(event.target).removeData(OPENED_KEY);
+
+      // A modal that was below a drawer and closed is above it if it opens again
+      openDrawers.forEach(function (drawer) {
+        drawer._modalsBelow = drawer._modalsBelow.filter(function (modal) {
+          return modal !== event.target;
+        });
+      });
     });
     function setFocusHandlers(on) {
       $(document)[on ? 'on' : 'off'](Event.FOCUSIN, onFocusin);
