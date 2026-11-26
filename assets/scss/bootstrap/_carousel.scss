@@ -14,6 +14,12 @@
   }
 }
 
+// Bootstrap's carousel JS adds `.pointer-event` when it supports pointer (touch) swipes. Vertical
+// panning still scrolls the page.
+.carousel.pointer-event {
+  touch-action: pan-y;
+}
+
 .carousel-inner {
   overflow: hidden;
   position: relative;
@@ -83,6 +89,7 @@
   .carousel-item-next.carousel-item-left,
   .carousel-item-prev.carousel-item-right {
     opacity: 1;
+    z-index: 1;
   }
 
   .carousel-item.active,
@@ -97,9 +104,26 @@
     }
   }
 
+  // The outgoing slide stays opaque under the incoming one, then hides once the fade is done. Before,
+  // both faded at once, so the background showed through mid-transition.
   .carousel-item-left.active,
   .carousel-item-right.active {
     opacity: 0;
+    transition-delay: $transition-duration-mobile-complex;
+    transition-duration: 0s;
+    z-index: 0;
+
+    @include media-breakpoint-up(sm) {
+      transition-delay: $transition-duration-tablet-complex;
+    }
+
+    @include media-breakpoint-up(lg) {
+      transition-delay: $transition-duration-desktop-complex;
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 }
 
@@ -109,6 +133,7 @@
 .carousel-control-prev {
   align-items: center;
   background-color: $carousel-control-bg;
+  border: 0;
   border-radius: 50%;
   box-shadow: map.get($carousel-control-elevation-shadow, shadow);
   color: $carousel-control-color;
@@ -120,10 +145,13 @@
   line-height: 1;
   margin-top: math.div($carousel-control-size, -2);
   opacity: 0;
+  padding: 0;
   position: absolute;
   top: 50%;
   user-select: none;
   width: $carousel-control-size;
+  // Above the active slide, which has `z-index: 1` in a fade carousel
+  z-index: 2;
 
   @include active-focus-hover {
     background-color: $carousel-control-bg-hover;
@@ -186,7 +214,7 @@
   right: ($carousel-control-size * 2);
   bottom: $carousel-indicator-size;
   left: ($carousel-control-size * 2);
-  z-index: 1;
+  z-index: 2;
 
   li {
     background-color: transparent;

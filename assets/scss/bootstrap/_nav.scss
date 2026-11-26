@@ -20,12 +20,14 @@
   &.disabled {
     color: $nav-link-color-disabled;
     cursor: default;
+    pointer-events: none;
   }
 }
 
 // Justified
 
 .nav-fill {
+  > .nav-link,
   .nav-item {
     flex: 1 1 auto;
     text-align: center;
@@ -33,6 +35,7 @@
 }
 
 .nav-justified {
+  > .nav-link,
   .nav-item {
     flex-basis: 0;
     flex-grow: 1;
@@ -43,9 +46,12 @@
 // Pills
 
 .nav-pills {
+  // `background-color` and `border` reset `<button class="nav-link">` (Bootstrap 4.6 pill markup)
   .nav-link {
     @include border-radius($nav-pills-border-radius);
 
+    background-color: transparent;
+    border: 0;
     color: $nav-pills-color;
     opacity: $nav-pills-link-opacity;
 

@@ -36,13 +36,6 @@
   box-sizing: inherit;
 }
 
-@at-root {
-  // stylelint-disable-next-line at-rule-no-vendor-prefix
-  @-ms-viewport {
-    width: device-width;
-  }
-}
-
 // Document
 
 article,
@@ -81,7 +74,9 @@ html {
   -webkit-tap-highlight-color: $webkit-tap-highlight-color;
 }
 
-[tabindex='-1']:focus {
+// Suppress the outline only where `:focus-visible` says it wouldn't be shown anyway (e.g. focus moved
+// programmatically after a mouse click), so keyboard users still see it
+[tabindex='-1']:focus:not(:focus-visible) {
   outline: 0 !important;
 }
 
@@ -152,9 +147,9 @@ select {
   text-transform: none;
 }
 
-button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+// Chromium shows its focus ring after a mouse click on a button; hide it unless `:focus-visible`
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 fieldset {
@@ -207,6 +202,9 @@ progress {
 }
 
 select {
+  // Don't inherit `word-wrap` in Safari: https://github.com/twbs/bootstrap/issues/24990
+  word-wrap: normal;
+
   &[multiple],
   &[size] {
     overflow: auto;
@@ -228,7 +226,7 @@ textarea {
   outline-offset: -2px;
 }
 
-[type='search']::-webkit-search-cancel-button,
+// Keep the native clear button (Bootstrap 4.6 no longer hides `::-webkit-search-cancel-button`)
 [type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -251,11 +249,16 @@ img {
   vertical-align: middle;
 }
 
-svg:not(:root) {
+svg {
   overflow: hidden;
+  vertical-align: middle;
 }
 
 // Interactive
+
+[role='button'] {
+  cursor: pointer;
+}
 
 summary {
   cursor: pointer;
@@ -276,17 +279,14 @@ a {
   }
 }
 
-a:not([href]):not([tabindex]) {
+// Placeholder links/named anchors (without `href`), unless a component class styles them
+a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
 
   @include active-focus-hover {
     color: inherit;
     text-decoration: none;
-  }
-
-  &:focus {
-    outline: 0;
   }
 }
 
@@ -325,6 +325,7 @@ abbr {
     border-bottom: 0;
     cursor: help;
     text-decoration: underline dotted;
+    text-decoration-skip-ink: none;
   }
 }
 
