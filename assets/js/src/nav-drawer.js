@@ -54,7 +54,7 @@ const NavDrawer = (($) => {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]',
-    DIALOG       : '.modal.show, [aria-modal="true"]:not(.navdrawer)'
+    MODAL        : '.modal.show'
   }
   // <<< constants
 
@@ -88,27 +88,15 @@ const NavDrawer = (($) => {
     return null
   }
 
-  // Whether `dialog` (an open Bootstrap modal or aria-modal dialog) was opened over `drawer`. A dialog
-  // that opened before the drawer, or contains it, is below it.
-  function isAbove(dialog, drawer) {
-    if ($.contains(dialog, drawer._element)) {
-      return false
-    }
-
-    const openedAt = $(dialog).data(OPENED_KEY)
-
-    return openedAt ? openedAt > drawer._openedAt : drawer._dialogsBelow.indexOf(dialog) === -1
-  }
-
-  // Whether focus on `element` should be pulled into `drawer`. A dialog opened over the drawer keeps
-  // its own focus.
+  // Whether focus on `element` should be pulled into `drawer`. A Bootstrap modal opened after the
+  // drawer is above it and keeps its own focus. (Other dialogs are treated like the rest of the page.)
   function isOutside(drawer, element) {
-    const dialog = $(element).closest(Selector.DIALOG)[0]
+    const modal = $(element).closest(Selector.MODAL)
 
     return element !== document &&
       element !== drawer._element &&
       !$.contains(drawer._element, element) &&
-      !(dialog && isAbove(dialog, drawer))
+      !(modal.length && modal.data(OPENED_KEY) > drawer._openedAt)
   }
 
   function onFocusin(event) {
@@ -136,8 +124,7 @@ const NavDrawer = (($) => {
       setFocusHandlers(true)
     }
 
-    drawer._openedAt     = ++openCount
-    drawer._dialogsBelow = $(Selector.DIALOG).filter(':visible').toArray()
+    drawer._openedAt = ++openCount
 
     openDrawers.push(drawer)
     focusTrapOwner = topModalDrawer()
