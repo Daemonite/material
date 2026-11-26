@@ -163,6 +163,8 @@ const NavDrawer = (($) => {
           if (document !== event.target &&
               this._element !== event.target &&
               $(this._element).has(event.target).length === 0 &&
+              // Leave focus in a dialog or drawer opened over this one; it keeps its own focus
+              $(event.target).closest(Selector.DIALOG).length === 0 &&
               this._isModal()) {
             this._element.focus()
           }
