@@ -150,6 +150,8 @@
   top: 50%;
   user-select: none;
   width: $carousel-control-size;
+  // Above the active slide, which has `z-index: 1` in a fade carousel
+  z-index: 2;
 
   @include active-focus-hover {
     background-color: $carousel-control-bg-hover;
@@ -212,7 +214,7 @@
   right: ($carousel-control-size * 2);
   bottom: $carousel-indicator-size;
   left: ($carousel-control-size * 2);
-  z-index: 1;
+  z-index: 2;
 
   li {
     background-color: transparent;
