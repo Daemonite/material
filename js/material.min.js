@@ -1,5 +1,5 @@
 /*!
- * Daemonite Material v4.6.0 (http://daemonite.github.io/material/)
+ * Daemonite Material v4.6.0 (https://daemonite.github.io/material/)
  * Copyright 2011-2026 Daemon Pty Ltd
  * Licensed under MIT (https://github.com/Daemonite/material/blob/master/LICENSE)
  */
