@@ -52,7 +52,7 @@ const NavDrawer = (($) => {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]',
-    DIALOG       : '.modal, .navdrawer, [aria-modal="true"]'
+    DIALOG       : '.modal.show, .navdrawer.show, [aria-modal="true"]'
   }
   // <<< constants
 
@@ -163,8 +163,7 @@ const NavDrawer = (($) => {
           if (document !== event.target &&
               this._element !== event.target &&
               $(this._element).has(event.target).length === 0 &&
-              // Leave focus in a dialog or drawer opened over this one; it keeps its own focus
-              $(event.target).closest(Selector.DIALOG).length === 0 &&
+              !this._isInOtherDialog(event.target) &&
               this._isModal()) {
             this._element.focus()
           }
@@ -177,8 +176,22 @@ const NavDrawer = (($) => {
       return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
     }
 
+    // Whether `element` is in an open modal, or another modal drawer, which keeps its own focus. A
+    // permanent or non-modal drawer doesn't count: focus mustn't escape into it.
+    _isInOtherDialog(element) {
+      const $dialog = $(element).closest(Selector.DIALOG)
+
+      if ($dialog.length === 0 || $dialog[0] === this._element) {
+        return false
+      }
+
+      const drawer = $dialog.data(DATA_KEY)
+
+      return drawer ? drawer._isModal() : !$dialog.hasClass(NAME)
+    }
+
     // Resizing below the breakpoint turns an open drawer modal. When that happens, pull focus in from
-    // the page behind it, unless focus is in another dialog or drawer (which keeps its own focus)
+    // the page behind it, unless focus is in another open dialog
     _setResizeEvent() {
       if (this._isShown && !this._resizeHandler) {
         let wasModal = this._isModal()
@@ -190,7 +203,7 @@ const NavDrawer = (($) => {
           if (isModal && !wasModal &&
               active !== this._element &&
               !$.contains(this._element, active) &&
-              $(active).closest(Selector.DIALOG).length === 0) {
+              !this._isInOtherDialog(active)) {
             this._element.focus()
           }
 
