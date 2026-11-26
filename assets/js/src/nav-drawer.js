@@ -52,9 +52,81 @@ const NavDrawer = (($) => {
     CONTENT      : '.navdrawer-content',
     DATA_DISMISS : '[data-dismiss="navdrawer"]',
     DATA_TOGGLE  : '[data-toggle="navdrawer"]',
-    DIALOG       : '.modal.show, .navdrawer.show, [aria-modal="true"]'
+    DIALOG       : '.modal.show, [aria-modal="true"]'
   }
   // <<< constants
+
+  // Focus management >>>
+  // Open drawers, oldest first. Only the topmost drawer that is modal right now (its backdrop is
+  // visible) traps focus. One shared handler does this, so stacked drawers don't fight over focus,
+  // and closing one drawer doesn't remove the trap of a modal drawer still open below it.
+  const openDrawers = []
+  let focusTrapOwner = null
+
+  function topModalDrawer() {
+    for (let i = openDrawers.length - 1; i >= 0; i--) {
+      if (openDrawers[i]._isModal()) {
+        return openDrawers[i]
+      }
+    }
+
+    return null
+  }
+
+  // Whether focus on `element` should be pulled into `drawer`. An open Bootstrap modal (or any
+  // aria-modal dialog) keeps its own focus.
+  function isOutside(drawer, element) {
+    return element !== document &&
+      element !== drawer._element &&
+      !$.contains(drawer._element, element) &&
+      $(element).closest(Selector.DIALOG).length === 0
+  }
+
+  function onFocusin(event) {
+    const drawer = topModalDrawer()
+
+    if (drawer && isOutside(drawer, event.target)) {
+      drawer._element.focus()
+    }
+  }
+
+  // Resizing across a breakpoint can make an open drawer modal. When that happens, pull focus in
+  // from the page behind it.
+  function onResize() {
+    const drawer = topModalDrawer()
+
+    if (drawer && drawer !== focusTrapOwner && isOutside(drawer, document.activeElement)) {
+      drawer._element.focus()
+    }
+
+    focusTrapOwner = drawer
+  }
+
+  function addOpenDrawer(drawer) {
+    if (openDrawers.length === 0) {
+      $(document).on(Event.FOCUSIN, onFocusin)
+      $(window).on(Event.RESIZE, onResize)
+    }
+
+    openDrawers.push(drawer)
+    focusTrapOwner = topModalDrawer()
+  }
+
+  function removeOpenDrawer(drawer) {
+    const index = openDrawers.indexOf(drawer)
+
+    if (index > -1) {
+      openDrawers.splice(index, 1)
+    }
+
+    if (openDrawers.length === 0) {
+      $(document).off(Event.FOCUSIN, onFocusin)
+      $(window).off(Event.RESIZE, onResize)
+    }
+
+    focusTrapOwner = topModalDrawer()
+  }
+  // <<< focus management
 
   class NavDrawer {
     constructor(element, config) {
@@ -64,7 +136,6 @@ const NavDrawer = (($) => {
       this._element             = element
       this._ignoreBackdropClick = false
       this._isShown             = false
-      this._resizeHandler       = null
       this._typeBreakpoint      = this._config.breakpoint === '' ? '' : `-${this._config.breakpoint}`
     }
 
@@ -90,9 +161,8 @@ const NavDrawer = (($) => {
       this._isTransitioning = true
 
       this._setEscapeEvent()
-      this._setResizeEvent()
 
-      $(document).off(Event.FOCUSIN)
+      removeOpenDrawer(this)
 
       $(document.body).removeClass(`${ClassName.OPEN}-${this._config.type}${this._typeBreakpoint}`)
 
@@ -156,66 +226,10 @@ const NavDrawer = (($) => {
       return this._isShown ? this.hide() : this.show(relatedTarget)
     }
 
-    _enforceFocus() {
-      $(document)
-        .off(Event.FOCUSIN)
-        .on(Event.FOCUSIN, (event) => {
-          if (document !== event.target &&
-              this._element !== event.target &&
-              $(this._element).has(event.target).length === 0 &&
-              !this._isInOtherDialog(event.target) &&
-              this._isModal()) {
-            this._element.focus()
-          }
-        })
-    }
-
     // Above their breakpoint, permanent, persistent and temporary drawers hide the backdrop and sit
     // beside the page content, so they mustn't trap focus
     _isModal() {
       return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
-    }
-
-    // Whether `element` is in an open modal, or another modal drawer, which keeps its own focus. A
-    // permanent or non-modal drawer doesn't count: focus mustn't escape into it.
-    _isInOtherDialog(element) {
-      const $dialog = $(element).closest(Selector.DIALOG)
-
-      if ($dialog.length === 0 || $dialog[0] === this._element) {
-        return false
-      }
-
-      const drawer = $dialog.data(DATA_KEY)
-
-      return drawer ? drawer._isModal() : !$dialog.hasClass(NAME)
-    }
-
-    // Resizing below the breakpoint turns an open drawer modal. When that happens, pull focus in from
-    // the page behind it, unless focus is in another open dialog
-    _setResizeEvent() {
-      if (this._isShown && !this._resizeHandler) {
-        let wasModal = this._isModal()
-
-        this._resizeHandler = () => {
-          const active  = document.activeElement
-          const isModal = this._isModal()
-
-          if (isModal && !wasModal &&
-              active !== this._element &&
-              !$.contains(this._element, active) &&
-              !this._isInOtherDialog(active)) {
-            this._element.focus()
-          }
-
-          wasModal = isModal
-        }
-
-        $(window).on(Event.RESIZE, this._resizeHandler)
-      } else if (!this._isShown && this._resizeHandler) {
-        $(window).off(Event.RESIZE, this._resizeHandler)
-
-        this._resizeHandler = null
-      }
     }
 
     _getConfig(config) {
@@ -310,8 +324,7 @@ const NavDrawer = (($) => {
 
       $(this._element).addClass(ClassName.SHOW)
 
-      this._enforceFocus()
-      this._setResizeEvent()
+      addOpenDrawer(this)
 
       const shownEvent = $.Event(Event.SHOWN, {
         relatedTarget
