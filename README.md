@@ -23,9 +23,8 @@ Because these components will require additional markup (some may require additi
 
 Material is in **maintenance mode**:
 
-- The current release, 4.1.1, is built on Bootstrap 4.1 and follows the original Material Design guidelines (before Google's 2018 refresh).
+- The current release, 4.6.0, is built on Bootstrap 4.6.2, the final Bootstrap 4 release, and follows the original Material Design guidelines (before Google's 2018 refresh). It adds Material styling for the components Bootstrap introduced since 4.1, such as toasts and spinners ([#333](https://github.com/Daemonite/material/issues/333)).
 - We maintain 4.x with dependency updates, security fixes and bug fixes. Issues and pull requests that fix bugs are welcome. Visual redesigns and new features beyond Bootstrap 4 compatibility are out of scope for now.
-- Next up is a maintenance release built on Bootstrap 4.6.2, the final Bootstrap 4 release ([#333](https://github.com/Daemonite/material/issues/333)). It adds Material styling for the components Bootstrap introduced since 4.1, such as toasts and spinners.
 - Bootstrap 5 will be considered once the 4.6 release has bedded down.
 
 If you need Bootstrap 4.6 or newer Material styling today, take a look at [djibe's fork](https://github.com/djibe/material) (`djibe-material` on npm).
@@ -144,7 +143,7 @@ Several quick start options are available:
 - Download the [latest release](https://github.com/Daemonite/material/releases)
 - Install with [npm](https://www.npmjs.com/): `npm install daemonite-material`
 
-The latest published release is 4.1.1. Fixes made since then are on `master` and will ship in the next release. Bower is deprecated, so we no longer recommend installing with it.
+The latest release is 4.6.0. Fixes made since then are on `master` and will ship in the next release. Bower is deprecated, so we no longer recommend installing with it.
 
 ## License
 
