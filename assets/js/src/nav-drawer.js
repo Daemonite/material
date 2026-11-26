@@ -137,7 +137,7 @@ const NavDrawer = (($) => {
     }
 
     drawer._openedAt     = ++openCount
-    drawer._dialogsBelow = $(Selector.DIALOG).toArray()
+    drawer._dialogsBelow = $(Selector.DIALOG).filter(':visible').toArray()
 
     openDrawers.push(drawer)
     focusTrapOwner = topModalDrawer()
@@ -259,7 +259,9 @@ const NavDrawer = (($) => {
     // Above their breakpoint, permanent, persistent and temporary drawers hide the backdrop and sit
     // beside the page content, so they mustn't trap focus
     _isModal() {
-      return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
+      return Boolean(this._backdrop) &&
+        $.contains(document.documentElement, this._backdrop) &&
+        $(this._backdrop).css('display') !== 'none'
     }
 
     _getConfig(config) {
