@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 /*
  * Global util js
- * Based on Bootstrap's (v4.1.X) `util.js`
+ * Based on Bootstrap's (v4.6.X) `util.js`
  */
 
 const Util = (($) => {
@@ -24,11 +24,20 @@ const Util = (($) => {
   }
 
   function setTransitionEndSupport() {
-    $.fn.emulateTransitionEnd = transitionEndEmulator
+    // Bootstrap's `util.js` defines an equivalent `$.fn.emulateTransitionEnd`. Don't replace it:
+    // Material's plugins call `Util.emulateTransitionEnd()` instead.
+    if (!$.fn.emulateTransitionEnd) {
+      $.fn.emulateTransitionEnd = transitionEndEmulator
+    }
+
     $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
   }
 
   function toType(obj) {
+    if (obj === null || typeof obj === 'undefined') {
+      return `${obj}`
+    }
+
     return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
   }
 
@@ -52,11 +61,17 @@ const Util = (($) => {
 
     TRANSITION_END: 'mdTransitionEnd',
 
+    emulateTransitionEnd(element, duration) {
+      return transitionEndEmulator.call(element, duration)
+    },
+
     getSelectorFromElement(element) {
       let selector = element.getAttribute('data-target')
 
       if (!selector || selector === '#') {
-        selector = element.getAttribute('href') || ''
+        const hrefAttr = element.getAttribute('href')
+
+        selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : ''
       }
 
       try {
@@ -74,14 +89,21 @@ const Util = (($) => {
       }
 
       let transitionDuration = $(element).css('transition-duration')
+      let transitionDelay    = $(element).css('transition-delay')
 
-      if (!transitionDuration) {
+      const floatTransitionDuration = parseFloat(transitionDuration)
+      const floatTransitionDelay    = parseFloat(transitionDelay)
+
+      // Return 0 if the element has no transition duration or delay
+      if (!floatTransitionDuration && !floatTransitionDelay) {
         return 0
       }
 
+      // If multiple durations are defined, take the first
       transitionDuration = transitionDuration.split(',')[0]
+      transitionDelay    = transitionDelay.split(',')[0]
 
-      return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER
+      return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER
     },
 
     getUID(prefix) {

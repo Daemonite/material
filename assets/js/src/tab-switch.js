@@ -3,7 +3,7 @@ import Util from './util'
 
 /*
  * Tab indicator animation
- * Requires Bootstrap's (v4.1.X) `tab.js`
+ * Requires Bootstrap's (v4.6.X) `tab.js`
  */
 
 const TabSwitch = (($) => {
@@ -73,9 +73,9 @@ const TabSwitch = (($) => {
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._navindicator)
 
-      $(this._navindicator)
-        .one(Util.TRANSITION_END, complete)
-        .emulateTransitionEnd(transitionDuration)
+      $(this._navindicator).one(Util.TRANSITION_END, complete)
+
+      Util.emulateTransitionEnd(this._navindicator, transitionDuration)
     }
 
     _createIndicator(navLeft, navScrollLeft, navWidth, relatedTarget) {

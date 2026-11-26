@@ -3,7 +3,7 @@ import Util from './util'
 
 /*
  * Navigation drawer plguin
- * Based on Bootstrap's (v4.1.X) `modal.js`
+ * Based on Bootstrap's (v4.6.X) `modal.js`
  */
 
 const NavDrawer = (($) => {
@@ -100,9 +100,9 @@ const NavDrawer = (($) => {
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-      $(this._content)
-        .one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
-        .emulateTransitionEnd(transitionDuration)
+      $(this._content).one(Util.TRANSITION_END, (event) => this._hideNavdrawer(event))
+
+      Util.emulateTransitionEnd(this._content, transitionDuration)
 
       this._showBackdrop()
     }
@@ -111,8 +111,6 @@ const NavDrawer = (($) => {
       if (this._isTransitioning || this._isShown) {
         return
       }
-
-      this._isTransitioning = true
 
       const showEvent = $.Event(Event.SHOW, {
         relatedTarget
@@ -123,6 +121,9 @@ const NavDrawer = (($) => {
       if (this._isShown || showEvent.isDefaultPrevented()) {
         return
       }
+
+      // Set only once `show` can't be cancelled; otherwise a prevented `show` leaves the drawer stuck
+      this._isTransitioning = true
 
       this._isShown = true
 
@@ -154,10 +155,17 @@ const NavDrawer = (($) => {
         .on(Event.FOCUSIN, (event) => {
           if (document !== event.target &&
               this._element !== event.target &&
-              $(this._element).has(event.target).length === 0) {
+              $(this._element).has(event.target).length === 0 &&
+              this._isModal()) {
             this._element.focus()
           }
         })
+    }
+
+    // Above their breakpoint, permanent, persistent and temporary drawers hide the backdrop and sit
+    // beside the page content, so they mustn't trap focus
+    _isModal() {
+      return Boolean(this._backdrop) && $(this._backdrop).css('display') !== 'none'
     }
 
     _getConfig(config) {
@@ -268,9 +276,9 @@ const NavDrawer = (($) => {
 
       const transitionDuration = Util.getTransitionDurationFromElement(this._content)
 
-      $(this._content)
-        .one(Util.TRANSITION_END, transitionComplete)
-        .emulateTransitionEnd(transitionDuration)
+      $(this._content).one(Util.TRANSITION_END, transitionComplete)
+
+      Util.emulateTransitionEnd(this._content, transitionDuration)
     }
 
     static get Default() {
